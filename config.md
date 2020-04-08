@@ -105,7 +105,7 @@ println(py"res")
 #hideall
 using Markdown
 
-mdC_code = Markdown.htmlesc(raw"""!#2""")
+mdC_code = raw"""!#2"""
 mdfile = joinpath(dirname(@OUTPUT), "!#1.md")
 open(mdfile,"w") do f
     print(f, mdC_code)
