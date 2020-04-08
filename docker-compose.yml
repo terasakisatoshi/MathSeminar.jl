@@ -1,0 +1,28 @@
+version: '3'
+services:
+  julia:
+    build: ./
+    container_name: mathwebiner-julia
+    volumes:
+      - ./:/work
+    working_dir: /work
+    command: julia --project=/work
+  web:
+    build: ./
+    container_name: mathwebiner-web
+    volumes:
+      - ./:/work
+    working_dir: /work
+    ports:
+      - "8000:8000"
+    command: bash -c "julia --project=/work -e 'using Pkg; Pkg.instantiate(); using Franklin; serve(port=8001)' & python3 -m http.server --bind 0.0.0.0 --directory /work/__site"
+  
+  webscratch:
+    build: ./
+    container_name: mathwebiner-webscratch
+    volumes:
+      - ./:/work
+    working_dir: /work
+    ports:
+      - "8000:8000"
+    command: bash -c "julia --project=/work -e 'using Pkg; Pkg.instantiate(); using Franklin; serve(clear=true, port=8001)' & python3 -m http.server --bind 0.0.0.0 --directory /work/__site"

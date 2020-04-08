@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {{if hasmath}} {{insert head_katex.html }}   {{end}}
+  {{if hascode}} {{insert head_highlight.html }}   {{end}}
+
+  <link href="/css/franklin.css" rel="stylesheet">
+  <link href="/css/vela.css" rel="stylesheet">
+  <script src="/libs/vela/jquery.min.js"></script>
+  <!-- my theorem counter -->
+  <link rel="stylesheet" href="/css/theorem.css">
+
+  {{isdef title}} <title>{{fill title}}</title>  {{end}}
+  <!-- PLOTLY -->
+  {{if hasplotly}} <script src="/libs/plotly/plotly.min.js"></script> {{end}}
+
+  <title>Franklin Example | Vela</title>
+</head>
+<body>
+  <div class="main-nav" id="menu">
+    <div class="flex-container">
+      <span class="sidebar-brand">
+        <h3 style='font-size: 25px'>Math.jl</h3>
+      </span>
+    </div> <!-- class="flex-container" -->
+
+    <nav class="sidebar-nav">
+      <ul class="metismenu"  id="metismenu" >
+        <li><a href="/index.html">Home</a></li>
+        <li><a href="" class="has-arrow">Garally</a>
+          <ul>
+            <li><a href="/garally/plotlyjs1/">PlotlyJS Part1</a></li>
+            <li><a href="/garally/plotlyjs2/">PlotlyJS Part2</a></li>
+          </ul>
+        </li>
+        <li><a href="/linearalgebra/chapter0/">Linear Algebra</a></li>
+      </ul>
+    </nav>
+  </div> <!-- main nav menu -->
+
+  <main id="panel">
+    <div class="toggle-button hamburger hamburger--spin">
+      <div class="hamburger-box">
+        <div class="hamburger-inner"></div>
+      </div>
+    </div>
+    <h1 class="page title">{{isdef title}}{{fill title}}{{end}}</h1>
+    <hr>
+
+
+<!-- Content appended here -->
