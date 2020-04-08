@@ -7,5 +7,6 @@ PyPlot = "d330b81b-6aea-500a-939a-2ce795aea3ee"
 WebIO = "0f1e0344-ec1d-5b48-a673-e5cf874b6c29"
 
 [compat]
+PyPlot = "2.9"
 WebIO = "0.8"
 PyCall = "1.91"
