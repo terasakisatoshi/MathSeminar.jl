@@ -8,7 +8,7 @@ The website_* must be defined for the RSS to work
 @def website_url   = "https://terasakisatoshi.github.io/MathWebiner.jl"
 @def hasplotly = false
 @def author = "SatoshiTerasaki"
-@def prepath = "Math.jl"
+@def prepath = "MathSeminar.jl"
 <!-- ---------------------------------------------------
 Add here global latex commands to use throughout your
 pages. It can be math commands but does not need to be.
