@@ -180,23 +180,10 @@ int main(){
 
 \input{plaintext}{hello.txt}
 
-出力結果は次のようになる．コードはハイライトされ，対応する main 関数のコードの実行結果を出力する:
+出力結果は次のようになる．コードはハイライトされ，対応する `main` 関数のコードの実行結果を出力する:
 
 \Cexec{how2embeddC}{
 #include <stdio.h>
-int main(){
-    printf("Hello Pikachu\n");
-    return 0;
-}
-}
-
-\input{c}{how2embeddC.md}
-\input{plaintext}{how2embeddC.md}
-
-`include` の周りの `<` と `>` は取り扱いに注意が必要.
-
-\Cexec{how2embeddC}{
-#include "stdio.h"
 int main(){
     printf("Hello World\n");
     return 0;

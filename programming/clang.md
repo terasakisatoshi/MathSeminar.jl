@@ -1,9 +1,5 @@
-@def title = "ようこそ"
-@def hasmath = true
+@def title = "C言語コードの挿入"
 @def hascode = true
-
-
-\toc <!-- table of contents -->
 
 
 \chapter{C のコードの実行結果を表示}
@@ -20,10 +16,14 @@ int main(){
 }
 }
 
-\input{c}{sample.md}
-\input{plaintext}{sample.md}
+- ただし，環境によっては 　`include` の周りの `<` と `>` が表示されないことがある．これは `<` をマークダウンにおけるコメントと解釈してしまうためである．
 
-`include` の周りの `<` と `>` は取り扱いに注意が必要.
+```
+using Markdown
+Markdown.htmlesc(raw"""youccode""")
+```
+
+をしておくと回避できる場合がある. ただし，この場合だと GitHub Actions でページをビルドした場合, コードがめちゃくちゃに表示されることがわかっている．折半案は `"stdio.h"` のように二重引用符で表現することである.
 
 \Cexec{how2embeddC}{
 #include "stdio.h"
