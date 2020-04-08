@@ -20,6 +20,8 @@ jobs:
         python-version: '3.x'
     # Install apt package for GR
     - run: sudo apt-get update && sudo apt-get install libxt6 libxrender1 libxext6 libgl1-mesa-glx libqt5widgets5
+    # LaTeXStrings
+    - run: sudo apt-get update && sudo apt-get install dvipng texlive-latex-recommended
     - run: pip install numpy matplotlib # if you use PyPlot this is needed
     - name: Install Julia
       uses: julia-actions/setup-julia@v1
