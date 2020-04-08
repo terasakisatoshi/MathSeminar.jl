@@ -1,4 +1,5 @@
 # This file was generated, do not modify it. # hide
 using Plots
-Plots.plot([1,2,3])
+using LaTeXStrings
+Plots.plot(rand(10), xlabel=L"x", ylabel=L"y")
 Plots.savefig(joinpath(@OUTPUT, "grplot.svg")) # hide

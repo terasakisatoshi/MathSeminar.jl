@@ -2,14 +2,14 @@ version: '3'
 services:
   julia:
     build: ./
-    container_name: mathwebiner-julia
+    container_name: math-julia
     volumes:
       - ./:/work
     working_dir: /work
     command: julia --project=/work
   web:
     build: ./
-    container_name: mathwebiner-web
+    container_name: math-web
     volumes:
       - ./:/work
     working_dir: /work
@@ -19,7 +19,7 @@ services:
   
   webscratch:
     build: ./
-    container_name: mathwebiner-webscratch
+    container_name: math-webscratch
     volumes:
       - ./:/work
     working_dir: /work

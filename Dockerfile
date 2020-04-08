@@ -9,10 +9,6 @@ RUN apt-get update && \
     python3-distutils \
     curl \
     ca-certificates \
-    git \
-    libgconf-2-4 \
-    xvfb \
-    libgtk-3-0 \
     dvipng \
     texlive-latex-recommended  \
     zip \
@@ -51,7 +47,7 @@ end\n\
 ' >> ${HOME}/.julia/config/startup.jl && cat ${HOME}/.julia/config/startup.jl
 
 # Install Julia Package
-RUN julia -e 'using Pkg; Pkg.add("Franklin"); using Franklin'
+RUN julia -e 'using Pkg; Pkg.add("Franklin"); Pkg.precompile()'
 # set "/work" as default project directory 
 WORKDIR /work
 ENV JULIA_PROJECT=/work
