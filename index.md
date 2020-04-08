@@ -9,7 +9,7 @@
 
 Franklin.jl を使った Web page のサンプルです．
 
-Web 生成に使われたコードは全て [Math.jl](https://github.com/terasakisatoshi/Math.jl) にて管理さてれています．
+Web 生成に使われたコードは全て [MathSeminar.jl](https://terasakisatoshi.github.io/MathSeminar.jl/) にて管理さてれています．
 
 \section{導入}
 
