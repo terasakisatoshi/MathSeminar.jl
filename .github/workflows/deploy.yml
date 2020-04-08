@@ -29,7 +29,8 @@ jobs:
       uses: actions/setup-python@v1
       with:
         python-version: '3.x'
-    - run: pip install matplotlib # if you use PyPlot this is needed
+    - run: apt-get update && apt-get install libxt6 libxrender1 libxext6 libgl1-mesa-glx libqt5widgets5
+    - run: pip install numpy matplotlib # if you use PyPlot this is needed
     - name: Install Julia
       uses: julia-actions/setup-julia@v1
       with:
