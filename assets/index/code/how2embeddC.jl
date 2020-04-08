@@ -2,7 +2,7 @@
 #hideall
 using Markdown
 
-mdC_code = raw"""#include "stdio.h"
+mdC_code = raw"""#include <stdio.h>
 int main(){
     printf("Hello World\n");
     return 0;
@@ -13,7 +13,7 @@ open(mdfile,"w") do f
 end
 
 C_code=raw"""
-#include "stdio.h"
+#include <stdio.h>
 int main(){
     printf("Hello World\n");
     return 0;

@@ -165,13 +165,14 @@ np.round(r, <span class="hljs-number">2</span>)</code></pre> <pre><code class="p
     <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
 }</code></pre>
 <p>まず, <code>config.md</code> に次を記述しておく:</p>
-<pre><code class="plaintext hljs">&lt;!-- display C code with syntax highlight--&gt;
+<pre><code class="plaintext hljs">
+&lt;!-- display C code with syntax highlight--&gt;
 \newcommand{\Ccode}[2]{
 ```julia:!#1
 #hideall
 using Markdown
 
-mdC_code = Markdown.htmlesc(raw"""!#2""")
+mdC_code = raw"""!#2"""
 mdfile = joinpath(dirname(@OUTPUT), "!#1.md")
 open(mdfile,"w") do f
     print(f, mdC_code)
@@ -205,8 +206,7 @@ run(`$exefile`)
 
 \codeoutput{!#1}
 
-}
-</code></pre>
+}</code></pre>
 <p>そして次のようにタイプする</p>
 <pre><code class="plaintext hljs">\Cexec{how2embeddC}{
 #include &lt;stdio.h&gt;
@@ -216,27 +216,9 @@ int main(){
 }
 }
 </code></pre>
-<p>出力結果は次のようになる．コードはハイライトされ，対応する main 関数のコードの実行結果を出力する:</p>
+<p>出力結果は次のようになる．コードはハイライトされ，対応する <code>main</code> 関数のコードの実行結果を出力する:</p>
 
 <pre><code class="c hljs"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
-<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>{
-    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Hello Pikachu\n"</span>);
-    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
-}</code></pre>
-<pre><code class="plaintext hljs">Hello Pikachu
-</code></pre>
-<pre><code class="c hljs"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
-<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>{
-    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Hello Pikachu\n"</span>);
-    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
-}</code></pre> <pre><code class="plaintext hljs">#include &lt;stdio.h&gt;
-int main(){
-    printf("Hello Pikachu\n");
-    return 0;
-}</code></pre>
-<code>include</code> の周りの <code>&lt;</code> と <code>&gt;</code> は取り扱いに注意が必要.</p>
-
-<pre><code class="c hljs"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">"stdio.h"</span></span>
 <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>{
     <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Hello World\n"</span>);
     <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;

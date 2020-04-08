@@ -14,7 +14,7 @@
   <!-- my theorem counter -->
   <link rel="stylesheet" href="/MathSeminar.jl/css/theorem.css">
 
-   <title>ようこそ</title>  
+   <title>C言語コードの挿入</title>  
   <!-- PLOTLY -->
   
 
@@ -54,14 +54,13 @@
         <div class="hamburger-inner"></div>
       </div>
     </div>
-    <h1 class="page title">ようこそ</h1>
+    <h1 class="page title">C言語コードの挿入</h1>
     <hr>
 
 
 <!-- Content appended here -->
 
 <div class="franklin-content">
-<div class="franklin-toc"><ol><li><a href="#c_のコードの実行結果を表示">C のコードの実行結果を表示</a></li></ol></div> </p>
 <h1 id="c_のコードの実行結果を表示"><a href="#c_のコードの実行結果を表示">C のコードの実行結果を表示</a></h1>    <div class="reset"></div>
 <div class="prop"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext> </mtext></mrow><annotation encoding="application/x-tex">\ </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0em;vertical-align:0em;"></span><span class="mspace"> </span></span></span></span> &#40;ソースコードの表示&#41;<br /> つぎのように C のコードを貼り付けることができる.</div>
 
@@ -70,16 +69,13 @@
     <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Hello Pika\n"</span>);
     <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
 }</code></pre>
-<pre><code class="c hljs"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
-<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>{
-    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Hello Pika\n"</span>);
-    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
-}</code></pre> <pre><code class="plaintext hljs">#include &lt;stdio.h&gt;
-int main(){
-    printf("Hello Pika\n");
-    return 0;
-}</code></pre>
-<code>include</code> の周りの <code>&lt;</code> と <code>&gt;</code> は取り扱いに注意が必要.</p>
+<ul>
+<li><p>ただし，環境によっては 　<code>include</code> の周りの <code>&lt;</code> と <code>&gt;</code> が表示されないことがある．これは <code>&lt;</code> をマークダウンにおけるコメントと解釈してしまうためである．</p>
+</li>
+</ul>
+<pre><code class="julia hljs"><span class="hljs-keyword">using</span> Markdown
+Markdown.htmlesc(<span class="hljs-string">raw"""youccode"""</span>)</code></pre>
+<p>をしておくと回避できる場合がある. ただし，この場合だと GitHub Actions でページをビルドした場合, コードがめちゃくちゃに表示されることがわかっている．折半案は <code>&quot;stdio.h&quot;</code> のように二重引用符で表現することである.</p>
 
 <pre><code class="c hljs"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">"stdio.h"</span></span>
 <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>{
