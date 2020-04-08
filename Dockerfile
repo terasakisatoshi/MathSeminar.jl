@@ -9,11 +9,8 @@ RUN apt-get update && \
     python3-distutils \
     curl \
     ca-certificates \
-    #libgconf-2-4 \
-    #xvfb \
-    #libgtk-3-0 \
-    #dvipng \
-    #texlive-latex-recommended  \
+    dvipng \
+    texlive-latex-recommended  \
     zip \
     libxt6 libxrender1 libxext6 libgl1-mesa-glx libqt5widgets5 # GR
 

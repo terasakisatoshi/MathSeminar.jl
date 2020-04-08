@@ -1,4 +1,4 @@
-.phony : all, build, web, clean
+.phony : all, build, clean
 
 OS:=$(shell uname -s)
 
@@ -8,6 +8,9 @@ build:
 	rm -f Manifest.toml
 	docker-compose build
 	docker-compose run --rm julia julia --project=/work -e 'using Pkg; Pkg.instantiate()'
+
+web:
+	docker-compose up web
 
 clean:
 	docker-compose down

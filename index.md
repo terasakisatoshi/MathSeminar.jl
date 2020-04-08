@@ -94,7 +94,8 @@ PyPlot.savefig(joinpath(@OUTPUT, "sinc.svg")) # hide
 
 ```julia:grplot
 using Plots
-Plots.plot([1,2,3])
+using LaTeXStrings
+Plots.plot(rand(10), xlabel=L"x=\beta", ylabel=L"y")
 Plots.savefig(joinpath(@OUTPUT, "grplot.svg")) # hide
 ```
 
