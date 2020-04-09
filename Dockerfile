@@ -9,6 +9,7 @@ RUN apt-get update && \
     python3-distutils \
     curl \
     ca-certificates \
+    xvfb \
     dvipng \
     texlive-latex-recommended  \
     zip \
