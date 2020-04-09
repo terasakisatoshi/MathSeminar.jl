@@ -12,6 +12,7 @@ WebIO = "0f1e0344-ec1d-5b48-a673-e5cf874b6c29"
 
 [compat]
 BenchmarkTools = "0.5"
+Images = "0.22"
 ImageMagick = "1.1"
 LaTeXStrings = "1.1"
 PlotlyJS = "0.13"
