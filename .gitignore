@@ -37,4 +37,7 @@ __pycache__/
 # ---END: Ignore file/directory related to Python.---
 
 # Franklin
-__site
+## ignore __site generated on running Franklin.serve()
+__site 
+## ignore generated on running Remark.slideshow
+remark/build
