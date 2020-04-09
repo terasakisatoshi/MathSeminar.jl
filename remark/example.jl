@@ -25,14 +25,17 @@
 
 
 # ---
+# # Plots GR backend
 
+using Plots #src
+plot(cos) #src
 using Plots
 plot(sin)
 
 # ---
 
-# # PyPlot
-## 描画バックエンドを PyPlot に切り替えるよ-
+# # Plots PyPlot backend
+## 描画バックエンドを PyPlot に切り替えるよ
 
 pyplot()
 plot(sin)
