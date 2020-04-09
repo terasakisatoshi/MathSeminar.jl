@@ -3,3 +3,11 @@
 # MathSeminar.jl
 
 - MyHomePage https://terasakisatoshi.github.io/MathSeminar.jl/ that utilizes [Franklin.jl](https://franklinjl.org/)
+
+## How to build
+
+
+```console
+$ make
+$ make web
+```
