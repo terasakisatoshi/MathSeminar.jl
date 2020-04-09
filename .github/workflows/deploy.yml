@@ -50,7 +50,7 @@ jobs:
             using NodeJS; run(`$(npm_cmd()) install highlight.js`);
             using Franklin;
             Pkg.activate("."); Pkg.instantiate();
-            # run slideshow twice to suppress <?xml version="1.0" encoding="utf-8"?>
+            # run slideshow twice to suppress <?xml version="1.0" encoding="utf-8"?>;
             using Remark; Remark.slideshow("remark/example.jl", "./remark"); Remark.slideshow("remark/example.jl", "./remark");
             optimize(minify=false)'
     - name: Build and Deploy
