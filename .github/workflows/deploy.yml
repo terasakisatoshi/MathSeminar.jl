@@ -50,7 +50,8 @@ jobs:
             using NodeJS; run(`$(npm_cmd()) install highlight.js`);
             using Franklin;
             Pkg.activate("."); Pkg.instantiate();
-            using Remark; Remark.slideshow("remark/example.jl", "./remark");
+            # run slideshow twice to suppress <?xml version="1.0" encoding="utf-8"?>
+            using Remark; Remark.slideshow("remark/example.jl", "./remark"); Remark.slideshow("remark/example.jl", "./remark");
             optimize(minify=false)'
     - name: Build and Deploy
       uses: JamesIves/github-pages-deploy-action@releases/v3
