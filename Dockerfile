@@ -47,7 +47,7 @@ end\n\
 ' >> ${HOME}/.julia/config/startup.jl && cat ${HOME}/.julia/config/startup.jl
 
 # Install Julia Package
-RUN julia -e 'using Pkg; Pkg.add("Franklin"); Pkg.precompile()'
+RUN julia -e 'using Pkg; Pkg.add(["Franklin", "Literate", "Remark"]); Pkg.precompile()'
 # set "/work" as default project directory 
 WORKDIR /work
 ENV JULIA_PROJECT=/work
