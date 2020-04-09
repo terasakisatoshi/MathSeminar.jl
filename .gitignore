@@ -41,3 +41,4 @@ __pycache__/
 __site 
 ## ignore generated on running Remark.slideshow
 remark/build
+remark/src
