@@ -1,0 +1,103 @@
+<!DOCTYPE html> <title>Title</title> <meta charset=utf-8 > <link rel=stylesheet  type="text/css" href=styles.css > <textarea id=source >
+
+
+
+
+
+# Hello World
+
+
+
+
+## Introduction to Julia
+
+
+---
+
+
+
+
+# Some equations
+
+
+Here is an inline fraction: $\frac{1}{2}$
+
+
+And some identities in display mode:
+
+
+$$
+e^{i\pi} + 1 = 0
+$$
+
+
+$$
+\sum_{n=0}^\infty \alpha^n = \frac{1}{1-\alpha}
+$$
+
+
+$$
+\begin{bmatrix}
+\cos\theta & -\sin\theta \\\\
+\sin\theta & \cos\theta
+\end{bmatrix}
+$$
+
+
+---
+
+
+```@example index
+using Plots
+plot(sin)
+```
+
+
+---
+
+
+
+
+# PyPlot
+
+
+```@example index
+# 描画バックエンドを PyPlot に切り替えるよ-
+
+pyplot()
+plot(sin)
+```
+
+
+---
+
+
+
+
+# Images の場合
+
+
+```@example index
+using Images
+
+colorview(RGB, rand(3,100,100))
+```
+
+
+---
+
+
+---
+
+
+
+
+# Thank you
+
+
+---
+
+
+*This page was generated using [Literate.jl](https://github.com/fredrikekre/Literate.jl).*
+
+    </textarea> <script src=remark.min.js  type="text/javascript"></script> <script src=katex.min.js ></script> <script src=auto-render.min.js ></script> <link rel=stylesheet  href=katex.min.css > <script> var options = {}; var renderMath = function() { // renderMathInElement(document.body); // or if you want to use $...$ for math, renderMathInElement(document.body, {delimiters: [ // mind the order of delimiters(!?) {left: "$$", right: "$$", display: true}, {left: "$", right: "$", display: false}, {left: "\\[", right: "\\]", display: true}, {left: "\\(", right: "\\)", display: false}, ]}); } var slideshow = remark.create(options, renderMath); </script>
