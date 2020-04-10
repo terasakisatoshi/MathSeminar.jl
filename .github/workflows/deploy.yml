@@ -45,13 +45,12 @@ jobs:
     # Julia packages which may be required to successfully build your site.
     # NOTE: the last line should be `optimize()`, you may want to give it
     # specific arguments, see the documentation or ?optimize in the REPL.
-    # Also note that we'll run slideshow twice to suppress <?xml version="1.0" encoding="utf-8"?>;
     - run: julia -e '
             using Pkg; Pkg.add(["NodeJS", "Franklin", "Literate", "Remark"]);
             using NodeJS; run(`$(npm_cmd()) install highlight.js`);
             using Franklin;
             Pkg.activate("."); Pkg.instantiate();
-            using Remark; Remark.slideshow("remark/example.jl", "./remark"); Remark.slideshow("remark/example.jl", "./remark");
+            using Remark; Remark.slideshow("remark/example.jl", "./remark");
             optimize(minify=false)'
     - name: Build and Deploy
       uses: JamesIves/github-pages-deploy-action@releases/v3
