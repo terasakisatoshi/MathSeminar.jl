@@ -89,7 +89,45 @@ y = <span class="hljs-number">13</span>cos.(t) .- <span class="hljs-number">5</s
 anim = <span class="hljs-meta">@animate</span> <span class="hljs-keyword">for</span> i ∈ <span class="hljs-number">1</span>:n
     circleplot(x, y, i, line_z = <span class="hljs-number">1</span>:n, cbar = <span class="hljs-literal">false</span>, c = :reds, framestyle = :none)
 <span class="hljs-keyword">end</span> when i &gt; <span class="hljs-number">40</span> &amp;&amp; mod1(i, <span class="hljs-number">10</span>) == <span class="hljs-number">5</span></code></pre>
-<img src="/MathSeminar.jl/assets/gallery/animation/code/output/granim.gif" alt="">
+<img src="/MathSeminar.jl/assets/gallery/animation/code/output/heart.gif" alt="">
+<ul>
+<li><p>This example is taken from <a href="https://docs.sciml.ai/latest/tutorials/ode_example/#Example-2:-Solving-Systems-of-Equations-1">Solving System of Equations</a></p>
+</li>
+</ul>
+<pre><code class="julia hljs"><span class="hljs-keyword">using</span> Plots
+<span class="hljs-keyword">using</span> DifferentialEquations
+
+<span class="hljs-keyword">function</span> lorenz!(du, u, p, t)
+    du[<span class="hljs-number">1</span>] = <span class="hljs-number">10.0</span> * (u[<span class="hljs-number">2</span>] - u[<span class="hljs-number">1</span>])
+    du[<span class="hljs-number">2</span>] = u[<span class="hljs-number">1</span>] * (<span class="hljs-number">28.0</span> - u[<span class="hljs-number">3</span>]) - u[<span class="hljs-number">2</span>]
+    du[<span class="hljs-number">3</span>] = u[<span class="hljs-number">1</span>] * u[<span class="hljs-number">2</span>] - (<span class="hljs-number">8</span> / <span class="hljs-number">3</span>) * u[<span class="hljs-number">3</span>]
+<span class="hljs-keyword">end</span>
+
+u0 = [
+    <span class="hljs-number">1.0</span>
+    <span class="hljs-number">0.0</span>
+    <span class="hljs-number">0.0</span>
+]
+
+tspan = (<span class="hljs-number">0.0</span>, <span class="hljs-number">100.0</span>)
+prob = ODEProblem(lorenz!, u0, tspan)
+sol = solve(prob)
+
+plot(sol, vars=(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>))
+
+plt = plot3d(
+    <span class="hljs-number">1</span>,
+    xlim = (-<span class="hljs-number">20</span>, <span class="hljs-number">20</span>),
+    ylim = (-<span class="hljs-number">25</span>, <span class="hljs-number">25</span>),
+    zlim = (<span class="hljs-number">5</span>, <span class="hljs-number">45</span>),
+    legend = :<span class="hljs-literal">false</span>,
+)
+
+anim = <span class="hljs-meta">@animate</span> <span class="hljs-keyword">for</span> t ∈ range(<span class="hljs-number">0</span>, <span class="hljs-number">50</span>, length = <span class="hljs-number">4000</span>)
+    r = sol(t)
+    push!(plt, r[<span class="hljs-number">1</span>], r[<span class="hljs-number">2</span>], r[<span class="hljs-number">3</span>])
+<span class="hljs-keyword">end</span> every <span class="hljs-number">10</span></code></pre>
+<img src="/MathSeminar.jl/assets/gallery/animation/code/output/lorenz.gif" alt="">
 <div class="page-foot">
   <div class="copyright">
     &copy; SatoshiTerasaki. Last modified: April 10, 2020. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.

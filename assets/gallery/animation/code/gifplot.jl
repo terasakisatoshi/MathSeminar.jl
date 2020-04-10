@@ -21,4 +21,4 @@ anim = @animate for i ∈ 1:n
     circleplot(x, y, i, line_z = 1:n, cbar = false, c = :reds, framestyle = :none)
 end when i > 40 && mod1(i, 10) == 5
 
-gif(anim, joinpath(@OUTPUT, "granim.gif")) #hide
+gif(anim, joinpath(@OUTPUT, "heart.gif")) #hide

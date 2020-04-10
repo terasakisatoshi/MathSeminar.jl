@@ -1,1 +1,1 @@
-Plots.AnimatedGif("/home/runner/work/MathSeminar.jl/MathSeminar.jl/__site/assets/gallery/animation/code/output/granim.gif")
+Plots.AnimatedGif("/home/runner/work/MathSeminar.jl/MathSeminar.jl/__site/assets/gallery/animation/code/output/heart.gif")
