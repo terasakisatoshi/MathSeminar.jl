@@ -23,22 +23,26 @@
 # \end{bmatrix}
 # ```
 
-
-# ---
-# # Plots GR backend
-
-using Plots #src
-plot(cos) #src
-using Plots
-plot(sin)
-
 # ---
 
 # # Plots PyPlot backend
 ## 描画バックエンドを PyPlot に切り替えるよ
 
+using Plots
 pyplot()
 plot(sin)
+
+# ---
+
+# # Plot GR backend
+
+# `<?xml version="1.0" encoding="utf-8"?>` occurs if we use `gr` backend why ???
+
+using Plots
+gr()
+p1 = plot(cos)
+p2 = plot(sin)
+plot(p1, p2, layout=(2,1))
 
 # ---
 
@@ -47,9 +51,6 @@ plot(sin)
 using Images 
 
 colorview(RGB, rand(3,100,100))
-
-# ---
-
 
 
 # ---
