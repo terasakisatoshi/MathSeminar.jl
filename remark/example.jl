@@ -1,8 +1,19 @@
-#jl # example.jl
-#jl # using Remark; Remark.slideshow("example.jl", "pres", ) |> Remark.open
-
 # # Hello World
-# ## Introduction to Julia
+
+# ## Introduction to Julia presentation tool
+
+# ---
+
+# # How do I create this slideshow ?
+
+# 1. create document of Literate.jl format, say `example.jl`
+# 1. just run the following julia script
+
+# ```julia
+# using Remark
+# s=Remark.slideshow("example.jl", "pres", )
+# Remark.open(s)
+# ```
 
 # ---
 
@@ -46,7 +57,7 @@ plot(p1, p2, layout=(2,1))
 
 # ---
 
-# # Images の場合
+# # You can display image
 
 using Images 
 
