@@ -65,8 +65,12 @@
 <div class="franklin-content">
 <div class="franklin-toc"><ol><li><a href="#このページは">このページは</a><ol><li><a href="#導入">導入</a></li></ol></li><li><a href="#newcommand_によるタイピングの簡略化"><code>newcommand</code> によるタイピングの簡略化</a></li><li><a href="#グラフの描画">グラフの描画</a></li><li><a href="#python_のコードの実行結果の表示">Python のコードの実行結果の表示</a></li><li><a href="#c_のコードの実行結果を表示">C のコードの実行結果を表示</a></li><li><a href="#コードの挿入">コードの挿入</a></li></ol></div> </p>
 <h1 id="このページは"><a href="#このページは">このページは</a></h1>    <div class="reset"></div>
-<p>Franklin.jl を使った Web page のサンプルです．</p>
-<p>Web 生成に使われたコードは全て <a href="https://terasakisatoshi.github.io/MathSeminar.jl/">MathSeminar.jl</a> にて管理さてれています．</p>
+<ul>
+<li><p>静的サイトジェネレータである <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a> をベースに構築された Web ページです.</p>
+</li>
+<li><p>Web 生成に使われたコードは全て <a href="https://github.com/terasakisatoshi/MathSeminar.jl">MathSeminar.jl</a> にて管理さてれています．</p>
+</li>
+</ul>
 <h2 id="導入"><a href="#導入">導入</a></h2>    <div class="reset"></div>
 <div class="definition"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext> </mtext></mrow><annotation encoding="application/x-tex">\ </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0em;vertical-align:0em;"></span><span class="mspace"> </span></span></span></span> &#40;Franklin.jl について&#41;<br /> <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a> は Julia で記述された 静的サイトの生成を行うパッケージである．コーディング，数学などの技術ブログの作成をサポートする． 公式ドキュメントは https://franklinjl.org/ を参照せよ. なお，公式ドキュメントも Franklin.jl で作成されており, https://github.com/tlienart/franklindocs にてソースが公開されている.</div>
 <div class="prop"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext> </mtext></mrow><annotation encoding="application/x-tex">\ </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0em;vertical-align:0em;"></span><span class="mspace"> </span></span></span></span> &#40;特徴&#41;<br /> Franklin.jl では次の機能を持っている</p>
@@ -124,7 +128,7 @@ Plots.plot(rand(<span class="hljs-number">10</span>), xlabel=<span class="hljs-s
 <img src="/MathSeminar.jl/assets/index/code/output/grplot.svg" alt="">
 <pre><code class="julia hljs">pyplot()
 Plots.plot(sin)</code></pre>
-<img src="/MathSeminar.jl/assets/index/code/output/pyplotbkend.svg" alt="">
+<p><span style="color:red;">// Image matching '/assets/index/code/pyplotbkend' not found. //</span></p>
 <code>PlotlyJS</code> による例はサイドメニューのページを参照</p>
 <h1 id="python_のコードの実行結果の表示"><a href="#python_のコードの実行結果の表示">Python のコードの実行結果の表示</a></h1>    <div class="reset"></div>
 <code>config.md</code> のコマンドを定義しておく.</p>
@@ -239,7 +243,7 @@ int main(){
 <code>hello.jl</code> の実態はソースコードの <code>_assets/index/code/hello.jl</code> に存在する
 <div class="page-foot">
   <div class="copyright">
-    &copy; SatoshiTerasaki. Last modified: April 10, 2020. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
+    &copy; SatoshiTerasaki. Last modified: April 11, 2020. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
   </div>
 </div>
 

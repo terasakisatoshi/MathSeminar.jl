@@ -66,13 +66,19 @@
 <p>ここから</p>
 <h1 id="hello_from_examplejl"><a href="#hello_from_examplejl">Hello from example.jl</a></h1>
 <pre><code class="julia hljs"><span class="hljs-keyword">using</span> Plots
-Plots.plot(sin)</code></pre>
-<img src="/MathSeminar.jl/assets/programming/literatejl/code/output/plot.png" alt="">
+Plots.plot(sin)</code></pre><pre><code class="plaintext hljs">MethodError: no method matching iterate(::ErrorException)
+Closest candidates are:
+  iterate(!Matched::Core.SimpleVector) at essentials.jl:603
+  iterate(!Matched::Core.SimpleVector, !Matched::Any) at essentials.jl:603
+  iterate(!Matched::ExponentialBackOff) at error.jl:253
+  ...
+</code></pre>
+<p><span style="color:red;">// Image matching '/assets/programming/literatejl/code/plot' not found. //</span></p>
 <p>ここまで</p>
 
 <div class="page-foot">
   <div class="copyright">
-    &copy; SatoshiTerasaki. Last modified: April 10, 2020. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
+    &copy; SatoshiTerasaki. Last modified: April 11, 2020. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
   </div>
 </div>
 

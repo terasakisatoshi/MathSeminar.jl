@@ -1,0 +1,6 @@
+MethodError: no method matching iterate(::ErrorException)
+Closest candidates are:
+  iterate(!Matched::Core.SimpleVector) at essentials.jl:603
+  iterate(!Matched::Core.SimpleVector, !Matched::Any) at essentials.jl:603
+  iterate(!Matched::ExponentialBackOff) at error.jl:253
+  ...
