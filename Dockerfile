@@ -63,3 +63,6 @@ julia -e 'using InteractiveUtils; versioninfo()'
 
 # For Http Server
 EXPOSE 8000
+
+CMD ["julia"]
+
