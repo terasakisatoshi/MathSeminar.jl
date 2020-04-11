@@ -26,9 +26,10 @@
 # 
 # $$\sum_{n=0}^\infty \alpha^n = \frac{1}{1-\alpha}$$
 
+# you can make matrix like
 
 # ```math
-# \begin{bmatrix}
+# R(\theta)=\begin{bmatrix}
 # \cos\theta & -\sin\theta \\\\
 # \sin\theta & \cos\theta
 # \end{bmatrix}
@@ -37,11 +38,12 @@
 # ---
 
 # # Plots PyPlot backend
-## 描画バックエンドを PyPlot に切り替えるよ
 
+## 描画バックエンドを PyPlot に切り替えるよ
 using Plots
 pyplot()
-plot(sin)
+x = -π:0.01:π
+plot(x, sin.(x))
 
 # ---
 
@@ -51,8 +53,8 @@ plot(sin)
 
 using Plots
 gr()
-p1 = plot(cos)
-p2 = plot(sin)
+p1 = plot(x, cos.(x))
+p2 = plot(x, sin.(x))
 plot(p1, p2, layout=(2,1))
 
 # ---

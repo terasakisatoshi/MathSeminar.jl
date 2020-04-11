@@ -94,8 +94,10 @@ And some identities in display mode:
 
 &#36;&#36;\sum_&#123;n&#61;0&#125;^\infty \alpha^n &#61; \frac&#123;1&#125;&#123;1-\alpha&#125;&#36;&#36;
 
+you can make matrix like
+
 &#96;&#96;&#96;math
-\begin&#123;bmatrix&#125;
+R&#40;\theta&#41;&#61;\begin&#123;bmatrix&#125;
 \cos\theta &amp; -\sin\theta \\\\
 \sin\theta &amp; \cos\theta
 \end&#123;bmatrix&#125;
@@ -107,10 +109,10 @@ And some identities in display mode:
 
 &#96;&#96;&#96;@example index
 # 描画バックエンドを PyPlot に切り替えるよ
-
 using Plots
 pyplot&#40;&#41;
-plot&#40;sin&#41;
+x &#61; -π:0.01:π
+plot&#40;x, sin.&#40;x&#41;&#41;
 &#96;&#96;&#96;
 
 ---
@@ -136,24 +138,25 @@ Remark.open&#40;s&#41;</code></pre>
 <p>And some identities in display mode:</p>
 &#36;e^&#123;i\pi&#125; &#43; 1 &#61; 0&#36;
 &#36;\sum_&#123;n&#61;0&#125;^\infty \alpha^n &#61; \frac&#123;1&#125;&#123;1-\alpha&#125;&#36;
-&#36;\begin&#123;bmatrix&#125;
+<p>you can make matrix like</p>
+&#36;R&#40;\theta&#41;&#61;\begin&#123;bmatrix&#125;
 \cos\theta &amp; -\sin\theta \\\\
 \sin\theta &amp; \cos\theta
 \end&#123;bmatrix&#125;&#36;
 <hr />
 <h1>Plots PyPlot backend</h1>
 <pre><code class="language-@example index"># 描画バックエンドを PyPlot に切り替えるよ
-
 using Plots
 pyplot&#40;&#41;
-plot&#40;sin&#41;</code></pre>
+x &#61; -π:0.01:π
+plot&#40;x, sin.&#40;x&#41;&#41;</code></pre>
 <hr />
 <h1>Plot GR backend</h1>
 <p><code>&lt;?xml version&#61;&quot;1.0&quot; encoding&#61;&quot;utf-8&quot;?&gt;</code> occurs if we use <code>gr</code> backend why ???</p>
 <pre><code class="language-@example index">using Plots
 gr&#40;&#41;
-p1 &#61; plot&#40;cos&#41;
-p2 &#61; plot&#40;sin&#41;
+p1 &#61; plot&#40;x, cos.&#40;x&#41;&#41;
+p2 &#61; plot&#40;x, sin.&#40;x&#41;&#41;
 plot&#40;p1, p2, layout&#61;&#40;2,1&#41;&#41;
 <pre><code class="language-julia">---
 
