@@ -7,9 +7,8 @@
 
 \chapter{このページは}
 
-Franklin.jl を使った Web page のサンプルです．
-
-Web 生成に使われたコードは全て [MathSeminar.jl](https://terasakisatoshi.github.io/MathSeminar.jl/) にて管理さてれています．
+- 静的サイトジェネレータである [Franklin.jl](https://github.com/tlienart/Franklin.jl) をベースに構築された Web ページです.
+- Web 生成に使われたコードは全て [MathSeminar.jl](https://github.com/terasakisatoshi/MathSeminar.jl) にて管理さてれています．
 
 \section{導入}
 
