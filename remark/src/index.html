@@ -129,9 +129,9 @@ plot&#40;x, sin.&#40;x&#41;&#41;
 <li><p>just run the following julia script</p>
 </li>
 </ol>
-<pre><code class="language-julia">using Remark
+<p>using Remark
 s&#61;Remark.slideshow&#40;&quot;example.jl&quot;, &quot;pres&quot;, &#41;
-Remark.open&#40;s&#41;</code></pre>
+Remark.open&#40;s&#41;</p>
 <hr />
 <h1>Some equations</h1>
 <p>Here is an inline fraction: &#36;\frac&#123;1&#125;&#123;2&#125;&#36;</p>
@@ -145,30 +145,30 @@ Remark.open&#40;s&#41;</code></pre>
 \end&#123;bmatrix&#125;&#36;
 <hr />
 <h1>Plots PyPlot backend</h1>
-<pre><code class="language-@example index"># 描画バックエンドを PyPlot に切り替えるよ
+<p># 描画バックエンドを PyPlot に切り替えるよ
 using Plots
 pyplot&#40;&#41;
 x &#61; -π:0.01:π
-plot&#40;x, sin.&#40;x&#41;&#41;</code></pre>
+plot&#40;x, sin.&#40;x&#41;&#41;</p>
 <hr />
 <h1>Plot GR backend</h1>
 <p><code>&lt;?xml version&#61;&quot;1.0&quot; encoding&#61;&quot;utf-8&quot;?&gt;</code> occurs if we use <code>gr</code> backend why ???</p>
-<pre><code class="language-@example index">using Plots
+<p>using Plots
 gr&#40;&#41;
 p1 &#61; plot&#40;x, cos.&#40;x&#41;&#41;
 p2 &#61; plot&#40;x, sin.&#40;x&#41;&#41;
 plot&#40;p1, p2, layout&#61;&#40;2,1&#41;&#41;
-<pre><code class="language-julia">---
+<pre><code class="julia hljs">---
 
-# You can display image
+<span class="hljs-comment"># You can display image</span>
 
-```@example index
+<span class="hljs-string">``</span><span class="hljs-string">`@example index
 using Images
 
-colorview(RGB, rand(3,100,100))</code></pre><hr />
+colorview(RGB, rand(3,100,100))</span></code></pre><hr />
 
 # You can display image
-</code></pre>
+</p>
 <p>@example index using Images</p>
 <p>colorview&#40;RGB, rand&#40;3,100,100&#41;&#41; &#96;&#96;&#96;</p>
 <hr />
@@ -178,7 +178,7 @@ colorview(RGB, rand(3,100,100))</code></pre><hr />
 
 <div class="page-foot">
   <div class="copyright">
-    &copy; SatoshiTerasaki. Last modified: April 11, 2020. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
+    &copy; SatoshiTerasaki. Last modified: April 13, 2020. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
   </div>
 </div>
 
@@ -188,9 +188,9 @@ colorview(RGB, rand(3,100,100))</code></pre><hr />
   <script src="/MathSeminar.jl/libs/vela/metisMenu.min.js"></script>
   <script src="/MathSeminar.jl/libs/vela/slideout.min.js"></script>
   
-    <script src="/MathSeminar.jl/libs/katex/katex.min.js"></script>
-<script src="/MathSeminar.jl/libs/katex/auto-render.min.js"></script>
-<script>renderMathInElement(document.body)</script>
+    
+
+
 
   
   
