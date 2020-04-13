@@ -49,8 +49,6 @@ plot(x, sin.(x))
 
 # # Plot GR backend
 
-# `<?xml version="1.0" encoding="utf-8"?>` occurs if we use `gr` backend why ???
-
 using Plots
 gr()
 x = -π:0.01:π
