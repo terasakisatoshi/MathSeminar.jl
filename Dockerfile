@@ -61,6 +61,8 @@ Pkg.precompile()' && \
 # Check Julia version \
 julia -e 'using InteractiveUtils; versioninfo()'
 
+ENV GKSwstype=100
+
 # For Http Server
 EXPOSE 8000
 
