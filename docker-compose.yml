@@ -7,6 +7,18 @@ services:
       - ./:/work
     working_dir: /work
     command: julia --project=/work
+  franklin:
+    build: ./
+    container_name: math-franklin
+    volumes:
+      - ./:/work
+    working_dir: /work
+    ports:
+      - "8000:8000"
+    command: >
+      bash -c "\
+             julia -e 'using Pkg; using Franklin; serve(port=8001)' &
+             python3 -m http.server --bind 0.0.0.0 --directory /work/__site"
   web:
     build: ./
     container_name: math-web
