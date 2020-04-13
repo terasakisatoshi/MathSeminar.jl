@@ -53,9 +53,13 @@ plot(x, sin.(x))
 
 using Plots
 gr()
+x = -π:0.01:π
 p1 = plot(x, cos.(x))
 p2 = plot(x, sin.(x))
 plot(p1, p2, layout=(2,1))
+savefig("saved.png") #hide
+
+# ![not found](saved.png)
 
 # ---
 
@@ -67,5 +71,9 @@ colorview(RGB, rand(3,100,100))
 
 
 # ---
+
+using TestImages
+
+testimage("camera")
 
 # # Thank you
