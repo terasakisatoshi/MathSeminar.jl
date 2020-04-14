@@ -17,7 +17,8 @@ services:
       - "8000:8000"
     command: >
       bash -c "\
-             julia -e 'using Pkg; Pkg.instantiate(); using Franklin; serve(port=8001)' &
+             julia -e 'using Pkg; Pkg.instantiate(); 
+             using Franklin; serve(port=8001)' &
              python3 -m http.server --bind 0.0.0.0 --directory /work/__site"
   web:
     build: ./
@@ -29,6 +30,7 @@ services:
       - "8000:8000"
     command: >
       bash -c "\
-             julia -e 'using Pkg; Pkg.instantiate(); using Remark; Remark.slideshow(\"remark/example.jl\", \"remark\")' &&
+             julia -e 'using Pkg; Pkg.instantiate(); 
+             using Remark; Remark.slideshow(\"remark/example.jl\", \"remark\"); ' &&
              julia -e 'using Pkg; using Franklin; serve(port=8001)' &
              python3 -m http.server --bind 0.0.0.0 --directory /work/__site"
