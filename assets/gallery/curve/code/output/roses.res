@@ -1,0 +1,1 @@
+Plots.AnimatedGif("/home/runner/work/MathSeminar.jl/MathSeminar.jl/__site/assets/gallery/curve/code/output/roses.gif")
