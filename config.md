@@ -9,7 +9,7 @@ The website_* must be defined for the RSS to work
 @def hasplotly = false
 @def author = "SatoshiTerasaki"
 @def prepath = "MathSeminar.jl"
-@def ignore = ["remark/src/"]
+@def ignore = ["remark/src/", ".statements/"]
 <!-- ---------------------------------------------------
 Add here global latex commands to use throughout your
 pages. It can be math commands but does not need to be.

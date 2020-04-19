@@ -47,16 +47,30 @@ end\n\
 \n\
 ' >> ${HOME}/.julia/config/startup.jl && cat ${HOME}/.julia/config/startup.jl
 
-# Install Julia Package
-RUN julia -e 'using Pkg; Pkg.add(["Franklin", "Literate", "Remark"]); Pkg.precompile()'
+RUN julia -E 'using Pkg; \
+Pkg.add(["OhMyREPL", "Revise"]); \
+Pkg.add(["Images", "Plots", "GR", "PyCall"]); \
+Pkg.add("PackageCompiler"); \
+Pkg.add(["Documenter", "Literate", "Weave", "Franklin", "NodeJS", "Remark"]); \
+Pkg.add(["WebIO", "Plotly", "PlotlyJS", "ORCA"]); \
+Pkg.precompile() \
+'
+
+RUN mkdir /statements
+COPY .statements/franklin.jl /statements/franklin.jl
+RUN julia -e '\
+using PackageCompiler; \
+PackageCompiler.create_sysimage([:Plots], precompile_statements_file="/statements/franklin.jl", replace_default=true); \
+'
+
 # set "/work" as default project directory 
 WORKDIR /work
 ENV JULIA_PROJECT=/work
 
 COPY Project.toml /work
 # Initialize Julia package using /work/Project.toml
-RUN julia --project=/work -e 'using Pkg;\
-Pkg.instantiate();\
+RUN julia --project=/work -e 'using Pkg; \
+Pkg.instantiate(); \
 Pkg.precompile()' && \
 # Check Julia version \
 julia -e 'using InteractiveUtils; versioninfo()'
