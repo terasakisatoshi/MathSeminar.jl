@@ -1,6 +1,8 @@
 # # Hello World
 
 # ## Introduction to Julia presentation tool
+# - See [MathSeminar.jl](https://github.com/terasakisatoshi/MathSeminar.jl) for more details.
+
 
 # ---
 
@@ -37,7 +39,7 @@
 
 # ---
 
-# # Plots PyPlot backend
+# # Plots: PyPlot backend
 
 ## 描画バックエンドを PyPlot に切り替えるよ
 using Plots
@@ -47,7 +49,7 @@ plot(x, sin.(x))
 
 # ---
 
-# # Plot GR backend
+# # Plots: GR backend
 
 using Plots
 gr()
