@@ -11,7 +11,7 @@
 
 - [Franklin.fdplotly](https://github.com/tlienart/Franklin.jl/blob/2b6423783b4675ab14da74e183545ef2377bdf94/src/manager/extras.jl) function requires `json::String` object as an argument which should contain fields named `layout` and `data`. On the other hand, Plots.jl provides `plotly_layout` and `plotly_series` that build `layout` and `data` respectively. See [here](https://github.com/JuliaPlots/Plots.jl/blob/master/src/backends/plotly.jl) to see more details.
 
-- Here is an short example of creating Plot object from Plots.jl.
+- Here is a short example of creating Plot object from Plots.jl.
 
 \subsection{Example 1}
 
@@ -74,7 +74,7 @@ By using `Plots.js_body` function, we can mimic what `Franklin.fdplotly` does:
 
 ```julia:fdplotly
 using Random
-function fdplotly(p::Plots.Plot; 
+function fdplotly(p::Plots.Plot;
     id="fdp" * Random.randstring('a':'z', 3),
     style = "width:600px;height:350px")::Nothing
     b = Plots.js_body(p, id)
