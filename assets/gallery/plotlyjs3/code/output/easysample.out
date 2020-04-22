@@ -1,3 +1,10 @@
-ArgumentError: Package ORCA not found in current path:
-- Run `import Pkg; Pkg.add("ORCA")` to install the ORCA package.
+~~~
+<div id="fdpusp" style="width:300px;height:200x"></div>
+
+<script>
+	var fig = {"layout":{"showlegend":true,"xaxis":{"showticklabels":true,"gridwidth":0.5,"tickvals":[2.0,4.0,6.0,8.0,10.0],"visible":true,"ticks":"inside","range":[0.73,10.27],"domain":[0.0,0.0],"tickmode":"array","linecolor":"rgba(0, 0, 0, 1.000)","showgrid":true,"title":"","mirror":false,"tickangle":0,"showline":true,"gridcolor":"rgba(0, 0, 0, 0.100)","titlefont":{"color":"rgba(0, 0, 0, 1.000)","family":"sans-serif","size":15},"tickcolor":"rgb(0, 0, 0)","ticktext":["2","4","6","8","10"],"zeroline":false,"type":"-","tickfont":{"color":"rgba(0, 0, 0, 1.000)","family":"sans-serif","size":11},"zerolinecolor":"rgba(0, 0, 0, 1.000)","anchor":"y1"},"paper_bgcolor":"rgba(255, 255, 255, 1.000)","annotations":[],"height":400,"margin":{"l":0,"b":20,"r":0,"t":20},"plot_bgcolor":"rgba(255, 255, 255, 1.000)","yaxis":{"showticklabels":true,"gridwidth":0.5,"tickvals":[0.2,0.30000000000000004,0.4,0.5,0.6000000000000001,0.7000000000000001,0.8],"visible":true,"ticks":"inside","range":[0.16143478246087628,0.867390923740967],"domain":[1.0,1.0],"tickmode":"array","linecolor":"rgba(0, 0, 0, 1.000)","showgrid":true,"title":"","mirror":false,"tickangle":0,"showline":true,"gridcolor":"rgba(0, 0, 0, 0.100)","titlefont":{"color":"rgba(0, 0, 0, 1.000)","family":"sans-serif","size":15},"tickcolor":"rgb(0, 0, 0)","ticktext":["0.2","0.3","0.4","0.5","0.6","0.7","0.8"],"zeroline":false,"type":"-","tickfont":{"color":"rgba(0, 0, 0, 1.000)","family":"sans-serif","size":11},"zerolinecolor":"rgba(0, 0, 0, 1.000)","anchor":"x1"},"legend":{"tracegroupgap":0,"bordercolor":"rgba(0, 0, 0, 1.000)","bgcolor":"rgba(255, 255, 255, 1.000)","font":{"color":"rgba(0, 0, 0, 1.000)","family":"sans-serif","size":11},"y":1.0,"x":1.0},"width":600},"data":[{"xaxis":"x1","colorbar":{"title":""},"yaxis":"y1","x":[1,2,3,4,5,6,7,8,9,10],"showlegend":true,"mode":"lines","name":"y1","zmin":null,"legendgroup":"y1","zmax":null,"line":{"color":"rgba(0, 154, 250, 1.000)","shape":"linear","dash":"solid","width":1},"y":[0.7826776621995137,0.8137628381852215,0.1964355739516659,0.5096622164166349,0.28984883465804034,0.29327175739902667,0.18141467325182226,0.8269330327583171,0.6159846118269585,0.8474110329500211],"type":"scatter"}]};
+	CONTAINER = document.getElementById('fdpusp');
+	Plotly.newPlot(CONTAINER, fig.data, fig.layout)
+</script>
+~~~
 
