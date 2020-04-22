@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="/MathSeminar.jl/libs/katex/katex.min.css">
+   
+   <link rel="stylesheet" href="/MathSeminar.jl/libs/highlight/github.min.css">
+   
+
+  <link href="/MathSeminar.jl/css/franklin.css" rel="stylesheet">
+  <link href="/MathSeminar.jl/css/vela.css" rel="stylesheet">
+  <script src="/MathSeminar.jl/libs/vela/jquery.min.js"></script>
+  <!-- my theorem counter -->
+  <link rel="stylesheet" href="/MathSeminar.jl/css/theorem.css">
+
+   <title>PlotlyJS Example3</title>  
+  <!-- PLOTLY -->
+   <script src="/MathSeminar.jl/libs/plotly/plotly.min.js"></script> 
+
+  <title>Franklin Example | Vela</title>
+</head>
+<body>
+  <div class="main-nav" id="menu">
+    <div class="flex-container">
+      <span class="sidebar-brand">
+        <h3 style='font-size: 25px'>Math.jl</h3>
+      </span>
+    </div> <!-- class="flex-container" -->
+
+    <nav class="sidebar-nav">
+      <ul class="metismenu"  id="metismenu" >
+        <li><a href="/MathSeminar.jl/index.html">Home</a></li>
+        <li><a href="" class="has-arrow">Programming</a>
+          <ul>        
+            <li><a href="/MathSeminar.jl/programming/clang">C</a></li>
+            <li><a href="/MathSeminar.jl/programming/literatejl">Literate.jl</a></li>
+            <li><a href="/MathSeminar.jl/remark/build">Remark.jl</a></li>
+          </ul>
+        </li>
+        <li><a href="" class="has-arrow">Gallery</a>
+          <ul>
+            <li><a href="/MathSeminar.jl/gallery/animation/">GR animation</a></li>
+            <li><a href="/MathSeminar.jl/gallery/curve/">GR curve</a></li>
+            <li><a href="/MathSeminar.jl/gallery/plotlyjs1/">PlotlyJS Part1</a></li>
+            <li><a href="/MathSeminar.jl/gallery/plotlyjs2/">PlotlyJS Part2</a></li>
+            <li><a href="/MathSeminar.jl/gallery/plotlyjs3/">PlotlyJS Part3</a></li>
+          </ul>
+        </li>
+        <li><a href="/MathSeminar.jl/linearalgebra/chapter0/">Linear Algebra</a></li>
+      </ul>
+    </nav>
+  </div> <!-- main nav menu -->
+
+  <main id="panel">
+    <div class="toggle-button hamburger hamburger--spin">
+      <div class="hamburger-box">
+        <div class="hamburger-inner"></div>
+      </div>
+    </div>
+    <h1 class="page title">PlotlyJS Example3</h1>
+    <hr>
+
+
+<!-- Content appended here -->
+
+<div class="franklin-content">
+<h1 id="using_api_from_plotsjl"><a href="#using_api_from_plotsjl">Using API from Plots.jl</a></h1>    <div class="reset"></div>
+<ul>
+<li><p>Here is an example for those who would like to call PlotlyJS API from Plots.jl.</p>
+</li>
+</ul>
+<h2 id="passing_json_which_has_layout_and_data_object"><a href="#passing_json_which_has_layout_and_data_object">Passing JSON which has <code>layout</code> and <code>data</code> object</a></h2>    <div class="reset"></div>
+<ul>
+<li><p><a href="https://github.com/tlienart/Franklin.jl/blob/2b6423783b4675ab14da74e183545ef2377bdf94/src/manager/extras.jl">Franklin.fdplotly</a> function requires <code>json::String</code> object as an argument which should contain fields named <code>layout</code> and <code>data</code>. On the other hand, Plots.jl provides <code>plotly_layout</code> and <code>plotly_series</code> that build <code>layout</code> and <code>data</code> respectively. See <a href="https://github.com/JuliaPlots/Plots.jl/blob/master/src/backends/plotly.jl">here</a> to see more details.</p>
+</li>
+<li><p>Here is an short example of creating Plot object from Plots.jl.</p>
+</li>
+</ul>
+<h3 id="example_1"><a href="#example_1">Example 1</a></h3>
+<pre><code class="julia hljs"><span class="hljs-keyword">using</span> Plots
+<span class="hljs-keyword">using</span> JSON
+plotlyjs()
+
+p=plot(rand(<span class="hljs-number">10</span>))
+
+fdplotly(
+    JSON.json((
+        layout = Plots.plotly_layout(p),
+        data = Plots.plotly_series(p),
+    )); style = <span class="hljs-string">"width:300px;height:200x"</span>,
+)</code></pre>
+ArgumentError: Package ORCA not found in current path:</p>
+<ul>
+<li><p>Run <code>import Pkg; Pkg.add&#40;&quot;ORCA&quot;&#41;</code> to install the ORCA package.</p>
+</li>
+</ul>
+<h3 id="example_2"><a href="#example_2">Example 2</a></h3>
+<ul>
+<li><p>More complicated example can be executed via the following script:</p>
+</li>
+</ul>
+<pre><code class="julia hljs"><span class="hljs-keyword">using</span> Plots
+<span class="hljs-keyword">using</span> JSON
+plotlyjs()
+
+r = <span class="hljs-number">2.0</span>
+N = <span class="hljs-number">20</span>
+
+<span class="hljs-literal">φ</span> = range(<span class="hljs-number">0.0</span>, <span class="hljs-number">2</span><span class="hljs-literal">π</span>, length = N)
+p = plot()
+<span class="hljs-keyword">for</span> θ <span class="hljs-keyword">in</span> range(<span class="hljs-number">0</span>, <span class="hljs-number">2</span><span class="hljs-literal">π</span>, length = N)
+    x = @. r * sin(θ) * cos(<span class="hljs-literal">φ</span>)
+    y = @. r * sin(θ) * sin(<span class="hljs-literal">φ</span>)
+    z = repeat([r * cos(θ)], N)
+    scatter!(p, x, y, z, label = <span class="hljs-literal">false</span>, color = :blue)
+<span class="hljs-keyword">end</span>
+
+fdplotly(JSON.json((
+    layout = Plots.plotly_layout(p),
+    data = Plots.plotly_series(p),
+)); style = <span class="hljs-string">"width:400px;height:300x"</span>,
+)</code></pre>
+ArgumentError: Package ORCA not found in current path:</p>
+<ul>
+<li><p>Run <code>import Pkg; Pkg.add&#40;&quot;ORCA&quot;&#41;</code> to install the ORCA package.</p>
+</li>
+</ul>
+<h2 id="using_custom_function"><a href="#using_custom_function">Using custom function</a></h2>    <div class="reset"></div>
+<ul>
+<li><p>There is another approach that creates our own <code>fdplotly</code> function which accepts <code>p::Plots.Plot</code> object.</p>
+</li>
+</ul>
+<p>By using <code>Plots.js_body</code> function, we can mimic what <code>Franklin.fdplotly</code> does:</p>
+<pre><code class="julia hljs"><span class="hljs-keyword">using</span> Random
+<span class="hljs-keyword">function</span> fdplotly(p::Plots.Plot; 
+    id=<span class="hljs-string">"fdp"</span> * Random.randstring(<span class="hljs-string">'a'</span>:<span class="hljs-string">'z'</span>, <span class="hljs-number">3</span>),
+    style = <span class="hljs-string">"width:600px;height:350px"</span>)::Nothing
+    b = Plots.js_body(p, id)
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">nothing</span>
+<span class="hljs-keyword">end</span></code></pre>
+
+<pre><code class="julia hljs"><span class="hljs-keyword">using</span> Plots
+<span class="hljs-keyword">using</span> JSON
+plotlyjs()
+
+r = <span class="hljs-number">3.0</span>
+N = <span class="hljs-number">20</span>
+
+<span class="hljs-literal">φ</span> = range(<span class="hljs-number">0.0</span>, <span class="hljs-number">2</span><span class="hljs-literal">π</span>, length = N)
+p = plot()
+<span class="hljs-keyword">for</span> θ <span class="hljs-keyword">in</span> range(<span class="hljs-number">0</span>, <span class="hljs-number">2</span><span class="hljs-literal">π</span>, length = N)
+    x = @. r * sin(θ) * cos(<span class="hljs-literal">φ</span>)
+    y = @. r * sin(θ) * sin(<span class="hljs-literal">φ</span>)
+    z = repeat([r * cos(θ)], N)
+    scatter!(p, x, y, z, label = <span class="hljs-literal">false</span>, color = :green)
+<span class="hljs-keyword">end</span>
+
+fdplotly(p)</code></pre>
+ArgumentError: Package ORCA not found in current path:</p>
+<ul>
+<li><p>Run <code>import Pkg; Pkg.add&#40;&quot;ORCA&quot;&#41;</code> to install the ORCA package.</p>
+</li>
+</ul>
+<div class="page-foot">
+  <div class="copyright">
+    &copy; SatoshiTerasaki. Last modified: April 22, 2020. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
+  </div>
+</div>
+
+</div>
+<!-- CONTENT ENDS HERE -->
+  </main> <!-- end of id=main -->
+  <script src="/MathSeminar.jl/libs/vela/metisMenu.min.js"></script>
+  <script src="/MathSeminar.jl/libs/vela/slideout.min.js"></script>
+  
+    
+
+
+
+  
+  
+    
+
+
+  
+</body>
+</html>
