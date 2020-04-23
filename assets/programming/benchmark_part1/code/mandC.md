@@ -22,8 +22,8 @@ int main()
 {
     clock_t start,end;
     start = clock();
-    int M = 2500;
-    int N = 2500;
+    int M = 1250;
+    int N = 1250;
     uint8_t grid[M][N];
     double init_Re = 0.0;
     double init_Im = 0.0;

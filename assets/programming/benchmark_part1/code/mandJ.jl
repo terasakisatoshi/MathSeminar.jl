@@ -46,14 +46,15 @@ end
 
 function main()
     s = time()
-    M = N = 2500
+    M = N = 1250
     grid = mand(M,N)
     t = time()
     @show(t - s)
+    rm("/tmp/benchJ.txt")
     writedlm("/tmp/benchJ.txt",grid,",")
 end
 
 main()
 
 using BenchmarkTools
-@btime mand(2500, 2500);
+@btime mand(1250, 1250);

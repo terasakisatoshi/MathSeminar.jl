@@ -1,2 +1,2 @@
-t - s = 0.8575501441955566
-  835.262 ms (2 allocations: 5.96 MiB)
+t - s = 0.19018101692199707
+IOError: unlink: no such file or directory (ENOENT)
