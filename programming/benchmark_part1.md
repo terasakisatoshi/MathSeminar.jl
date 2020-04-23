@@ -35,8 +35,8 @@ int main()
 {
     clock_t start,end;
     start = clock();
-    int M = 2500;
-    int N = 2500;
+    int M = 1250;
+    int N = 1250;
     uint8_t grid[M][N];
     double init_Re = 0.0;
     double init_Im = 0.0;
@@ -143,17 +143,18 @@ end
 
 function main()
     s = time()
-    M = N = 2500
+    M = N = 1250
     grid = mand(M,N)
     t = time()
     @show(t - s)
+    rm("/tmp/benchJ.txt")
     writedlm("/tmp/benchJ.txt",grid,",")
 end
 
 main()
 
 using BenchmarkTools
-@btime mand(2500, 2500);
+@btime mand(1250, 1250);
 ```
 
 \output{mandJ}
