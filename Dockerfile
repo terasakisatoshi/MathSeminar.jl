@@ -76,7 +76,7 @@ Pkg.precompile()' && \
 julia -e 'using InteractiveUtils; versioninfo()'
 
 ENV GKSwstype=100
-
+ENV JULIA_NUM_THREADS=4
 # For Http Server
 EXPOSE 8000
 
