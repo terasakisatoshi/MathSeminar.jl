@@ -15,6 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       GKSwstype: 100
+      JULIA_NUM_THREADS: 2
     steps:
     - name: Checkout
       uses: actions/checkout@v2
