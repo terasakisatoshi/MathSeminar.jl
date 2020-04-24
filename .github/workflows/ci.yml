@@ -35,11 +35,4 @@ jobs:
     # Julia packages which may be required to successfully build your site.
     # NOTE: the last line should be `optimize()`, you may want to give it
     # specific arguments, see the documentation or ?optimize in the REPL.
-    - run: julia -e '
-            using Pkg; Pkg.add(["NodeJS", "Franklin", "Literate", "Remark"]);
-            Pkg.add(["WebIO", "Plotly", "PlotlyJS", "ORCA"]);
-            using NodeJS; run(`$(npm_cmd()) install highlight.js`);
-            using Franklin;
-            Pkg.activate("."); Pkg.instantiate();
-            using Remark; Remark.slideshow("remark/example.jl", "./remark");
-            optimize(minify=false)'
+    - run: julia --project=@. _mytools/deploy.jl
