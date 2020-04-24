@@ -12,6 +12,4 @@ jobs:
         persist-credentials: false
     - run: docker-compose build julia
     - run: docker-compose run --rm julia julia -e 'using Pkg; Pkg.instantiate()'
-    - run: docker-compose run --rm julia julia -e 'using NodeJS; run(`$(npm_cmd()) install highlight.js`)'
-    - run: docker-compose run --rm julia julia -e 'using Remark; Remark.slideshow("remark/example.jl", "./remark")'
-    - run: docker-compose run --rm julia julia -e 'using Franklin; optimize(minify=false)'
+    - run: docker-compose run --rm julia julia /work/_mytools/deploy.jl
