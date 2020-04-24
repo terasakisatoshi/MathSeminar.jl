@@ -1,6 +1,5 @@
 # This file was generated, do not modify it. # hide
 using Plots
-using JSON
 plotlyjs()
 
 r = 3.0
@@ -15,5 +14,5 @@ for θ in range(0, 2π, length = N)
     scatter!(p, x, y, z, label = false, color = :green)
 end
 
-fdplotly(p)
+fdplotly(p; style = "width:400px;height:300x")
 gr(); # hide; back to default backend
