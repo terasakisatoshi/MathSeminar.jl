@@ -29,7 +29,16 @@
 - iPad などから Safari で閲覧する場合, 設定(ホーム画面の歯車アイコン) -> Safari -> デスクトップ用Webサイト まで進み「全てのWebサイト」を無効にします．(When using Safari from an iPad or other device, go to Settings (gear icon on the home screen) -> Safari -> Desktop Web Sites and disable "All Web Sites".)
 @@
 
-\section{Introduction to Franklin}
+\section{Check Julia version}
+
+```julia:versioninfo
+using InteractiveUtils
+versioninfo()
+```
+
+\output{versioninfo}
+
+\chapter{Introduction to Franklin}
 
 \definition{(Franklin.jl について)}{
 [Franklin.jl](https://github.com/tlienart/Franklin.jl) は Julia で記述された
