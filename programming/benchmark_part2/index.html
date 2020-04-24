@@ -68,231 +68,231 @@
 
 <div class="franklin-content">
 <h1 id="パフォーマンスを維持したままjuliaらしく"><a href="#パフォーマンスを維持したままjuliaらしく">パフォーマンスを維持したままJuliaらしく</a></h1>    <div class="reset"></div>
-<pre><code class="julia hljs"><span class="hljs-keyword">using</span> DelimitedFiles
+<pre><code class="language-julia">using DelimitedFiles
 
-<span class="hljs-keyword">function</span> cnt(ReZ, ImZ, ReC, ImC)
-    k::<span class="hljs-built_in">UInt8</span> = <span class="hljs-number">0</span>
-    <span class="hljs-keyword">while</span> (k &lt; <span class="hljs-number">255</span>)
+function cnt(ReZ, ImZ, ReC, ImC)
+    k::UInt8 = 0
+    while (k < 255)
         new_ReZ = ReZ * ReZ - ImZ * ImZ + ReC
-        new_ImZ = <span class="hljs-number">2</span> * ReZ * ImZ + ImC
-        <span class="hljs-keyword">if</span> new_ReZ * new_ReZ + new_ImZ * new_ImZ &gt; <span class="hljs-number">4.</span>
-            <span class="hljs-keyword">return</span> k
-        <span class="hljs-keyword">end</span>
+        new_ImZ = 2 * ReZ * ImZ + ImC
+        if new_ReZ * new_ReZ + new_ImZ * new_ImZ > 4.
+            return k
+        end
         ReZ = new_ReZ
         ImZ = new_ImZ
-        k += <span class="hljs-number">1</span>
-    <span class="hljs-keyword">end</span>
-    <span class="hljs-keyword">return</span> k
-<span class="hljs-keyword">end</span>
+        k += 1
+    end
+    return k
+end
 
-<span class="hljs-keyword">function</span> mand(M,N)
-    grid = <span class="hljs-built_in">Array</span>{<span class="hljs-built_in">UInt8</span>}(undef, M, N)
-    init_Re = <span class="hljs-number">0.0</span>
-    init_Im = <span class="hljs-number">0.0</span>
-    <span class="hljs-keyword">for</span> j = <span class="hljs-number">1</span>:N
-        <span class="hljs-keyword">for</span> i = <span class="hljs-number">1</span>:M
-            ReC = <span class="hljs-number">4.0</span> / (M - <span class="hljs-number">1</span>) * (j - <span class="hljs-number">1</span>) - <span class="hljs-number">2.0</span>
-            ImC = <span class="hljs-number">4.0</span> / (N - <span class="hljs-number">1</span>) * (i - <span class="hljs-number">1</span>) - <span class="hljs-number">2.0</span>
+function mand(M,N)
+    grid = Array{UInt8}(undef, M, N)
+    init_Re = 0.0
+    init_Im = 0.0
+    for j = 1:N
+        for i = 1:M
+            ReC = 4.0 / (M - 1) * (j - 1) - 2.0
+            ImC = 4.0 / (N - 1) * (i - 1) - 2.0
             ReZ = init_Re
             ImZ = init_Im
             grid[i, j] = cnt(ReZ, ImZ, ReC, ImC)
-        <span class="hljs-keyword">end</span>
-    <span class="hljs-keyword">end</span>
-    <span class="hljs-keyword">return</span> grid
-<span class="hljs-keyword">end</span>
+        end
+    end
+    return grid
+end
 
-<span class="hljs-keyword">function</span> main()
+function main()
     s = time()
-    M = N = <span class="hljs-number">5000</span>
+    M = N = 5000
     grid = mand(M,N)
     t = time()
-    <span class="hljs-meta">@show</span>(t - s)
-    writedlm(<span class="hljs-string">"/tmp/resultJ.txt"</span>,grid,<span class="hljs-string">","</span>)
-<span class="hljs-keyword">end</span>
+    @show(t - s)
+    writedlm("/tmp/resultJ.txt",grid,",")
+end
 
 main()
 
-<span class="hljs-keyword">using</span> BenchmarkTools
-<span class="hljs-meta">@btime</span> mand(<span class="hljs-number">5000</span>, <span class="hljs-number">5000</span>);</code></pre>
-<pre><code class="plaintext hljs">t - s = 2.6354589462280273
-  2.617 s (2 allocations: 23.84 MiB)
+using BenchmarkTools
+@btime mand(5000, 5000);</code></pre>
+<pre><code class="plaintext">t - s = 3.6287901401519775
+  3.622 s (2 allocations: 23.84 MiB)
 </code></pre>
 <div class="remark"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext> </mtext></mrow><annotation encoding="application/x-tex">\ </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0em;vertical-align:0em;"></span><span class="mspace"> </span></span></span></span> <br /> 点の位置をあらわす <code>&#40;4.0 / &#40;M - 1&#41; * &#40;j - 1&#41; - 2.0&#41;</code> は <code>range&#40;-2, 2, length&#40;N&#41;&#41;</code> と数学的に等価ですが，数値の誤差の関係で結果が若干異なることがあります．</div>
-<pre><code class="julia hljs">N=<span class="hljs-number">10</span>; <span class="hljs-meta">@show</span> [<span class="hljs-number">4.0</span>*(i-<span class="hljs-number">1</span>)/(N-<span class="hljs-number">1</span>) - <span class="hljs-number">2.0</span> <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-number">1</span>:N]</code></pre>
-<pre><code class="plaintext hljs">[(4.0 * (i - 1)) / (N - 1) - 2.0 for i = 1:N] = [-2.0, -1.5555555555555556, -1.1111111111111112, -0.6666666666666667, -0.22222222222222232, 0.22222222222222232, 0.6666666666666665, 1.1111111111111112, 1.5555555555555554, 2.0]
+<pre><code class="language-julia">N=10; @show [4.0*(i-1)/(N-1) - 2.0 for i in 1:N]</code></pre>
+<pre><code class="plaintext">[(4.0 * (i - 1)) / (N - 1) - 2.0 for i = 1:N] = [-2.0, -1.5555555555555556, -1.1111111111111112, -0.6666666666666667, -0.22222222222222232, 0.22222222222222232, 0.6666666666666665, 1.1111111111111112, 1.5555555555555554, 2.0]
 </code></pre>
-<pre><code class="julia hljs">N=<span class="hljs-number">10</span>; <span class="hljs-meta">@show</span> collect(range(-<span class="hljs-number">2</span>,<span class="hljs-number">2</span>,length=N))</code></pre>
-<pre><code class="plaintext hljs">collect(range(-2, 2, length = N)) = [-2.0, -1.5555555555555556, -1.1111111111111112, -0.6666666666666666, -0.2222222222222222, 0.2222222222222222, 0.6666666666666666, 1.1111111111111112, 1.5555555555555556, 2.0]
+<pre><code class="language-julia">N=10; @show collect(range(-2,2,length=N))</code></pre>
+<pre><code class="plaintext">collect(range(-2, 2, length = N)) = [-2.0, -1.5555555555555556, -1.1111111111111112, -0.6666666666666666, -0.2222222222222222, 0.2222222222222222, 0.6666666666666666, 1.1111111111111112, 1.5555555555555556, 2.0]
 </code></pre>
-<pre><code class="julia hljs">Tarpath=<span class="hljs-string">"/tmp/resultJ.txt"</span>
-<span class="hljs-keyword">using</span> Plots
-<span class="hljs-keyword">using</span> DelimitedFiles
-img = readdlm(Tarpath,<span class="hljs-string">','</span>,<span class="hljs-built_in">Int</span>)
-M,N = img |&gt; size
-p = heatmap(<span class="hljs-number">1</span>:N,<span class="hljs-number">1</span>:M,img,aspect_ratio=<span class="hljs-number">1</span>, size=(<span class="hljs-number">400</span>, <span class="hljs-number">400</span>))</code></pre>
+<pre><code class="language-julia">Tarpath="/tmp/resultJ.txt"
+using Plots
+using DelimitedFiles
+img = readdlm(Tarpath,',',Int)
+M,N = img |> size
+p = heatmap(1:N,1:M,img,aspect_ratio=1, size=(400, 400))</code></pre>
 <img src="/MathSeminar.jl/assets/programming/benchmark_part2/code/output/mandJ.png" alt="">
-<pre><code class="julia hljs"><span class="hljs-keyword">using</span> DelimitedFiles
+<pre><code class="language-julia">using DelimitedFiles
 
-<span class="hljs-keyword">function</span> cnt(z,c)
-    k::<span class="hljs-built_in">UInt8</span> = <span class="hljs-number">0</span>
-    <span class="hljs-keyword">while</span> (k &lt; <span class="hljs-number">255</span>)
-        z = z^<span class="hljs-number">2</span> + c
-        <span class="hljs-keyword">if</span> abs2(z)&gt;<span class="hljs-number">4.</span>
-            <span class="hljs-keyword">return</span> k
-        <span class="hljs-keyword">end</span>
-        k += <span class="hljs-number">1</span>
-    <span class="hljs-keyword">end</span>
-    <span class="hljs-keyword">return</span> k
-<span class="hljs-keyword">end</span>
+function cnt(z,c)
+    k::UInt8 = 0
+    while (k < 255)
+        z = z^2 + c
+        if abs2(z)>4.
+            return k
+        end
+        k += 1
+    end
+    return k
+end
 
-<span class="hljs-keyword">function</span> mand(M, N)
-    grid = <span class="hljs-built_in">Array</span>{<span class="hljs-built_in">UInt8</span>}(undef, M, N)
-    init_z = complex(<span class="hljs-number">0.0</span>, <span class="hljs-number">0.0</span>)
-    xs = range(-<span class="hljs-number">2</span>,<span class="hljs-number">2</span>,length=N)
-    ys = range(-<span class="hljs-number">2</span>,<span class="hljs-number">2</span>,length=M)
-    <span class="hljs-keyword">for</span> (i,x) <span class="hljs-keyword">in</span> enumerate(xs)
-        <span class="hljs-keyword">for</span> (j,y) <span class="hljs-keyword">in</span> enumerate(ys)
+function mand(M, N)
+    grid = Array{UInt8}(undef, M, N)
+    init_z = complex(0.0, 0.0)
+    xs = range(-2,2,length=N)
+    ys = range(-2,2,length=M)
+    for (i,x) in enumerate(xs)
+        for (j,y) in enumerate(ys)
             grid[j, i] = cnt(init_z,complex(x, y))
-        <span class="hljs-keyword">end</span>
-    <span class="hljs-keyword">end</span>
-    <span class="hljs-keyword">return</span> grid
-<span class="hljs-keyword">end</span>
+        end
+    end
+    return grid
+end
 
-<span class="hljs-keyword">function</span> main()
+function main()
     s = time()
-    M = N = <span class="hljs-number">5000</span>
+    M = N = 5000
     grid = mand(M, N)
     t = time()
-    <span class="hljs-meta">@show</span>(t - s)
-    writedlm(<span class="hljs-string">"/tmp/resultJ1.txt"</span>,grid,<span class="hljs-string">","</span>)
-<span class="hljs-keyword">end</span>
+    @show(t - s)
+    writedlm("/tmp/resultJ1.txt",grid,",")
+end
 
 main()
 
-<span class="hljs-keyword">using</span> BenchmarkTools
-<span class="hljs-meta">@btime</span> mand(<span class="hljs-number">5000</span>, <span class="hljs-number">5000</span>);</code></pre>
-<pre><code class="plaintext hljs">t - s = 2.9544918537139893
-  2.968 s (2 allocations: 23.84 MiB)
+using BenchmarkTools
+@btime mand(5000, 5000);</code></pre>
+<pre><code class="plaintext">t - s = 3.7836010456085205
+  3.745 s (2 allocations: 23.84 MiB)
 </code></pre>
-<pre><code class="julia hljs">Refpath=<span class="hljs-string">"/tmp/resultJ.txt"</span>
-Tarpath=<span class="hljs-string">"/tmp/resultJ1.txt"</span>
-run(<span class="hljs-string">`bash -c "cmp --silent <span class="hljs-variable">$Refpath</span> <span class="hljs-variable">$Tarpath</span> || echo \"files are different\""`</span>)
+<pre><code class="language-julia">Refpath="/tmp/resultJ.txt"
+Tarpath="/tmp/resultJ1.txt"
+run(`bash -c "cmp --silent $Refpath $Tarpath || echo \"files are different\""`)
 
-<span class="hljs-keyword">using</span> Plots
-<span class="hljs-keyword">using</span> DelimitedFiles
-img = readdlm(Tarpath,<span class="hljs-string">','</span>,<span class="hljs-built_in">Int</span>)
-M,N = img |&gt; size
-p = heatmap(<span class="hljs-number">1</span>:N,<span class="hljs-number">1</span>:M,img,aspect_ratio=<span class="hljs-number">1</span>, size=(<span class="hljs-number">400</span>, <span class="hljs-number">400</span>))</code></pre>
-<pre><code class="plaintext hljs">files are different
+using Plots
+using DelimitedFiles
+img = readdlm(Tarpath,',',Int)
+M,N = img |> size
+p = heatmap(1:N,1:M,img,aspect_ratio=1, size=(400, 400))</code></pre>
+<pre><code class="plaintext">files are different
 </code></pre>
 <img src="/MathSeminar.jl/assets/programming/benchmark_part2/code/output/mandJ1.png" alt="">
-<pre><code class="julia hljs"><span class="hljs-keyword">using</span> DelimitedFiles
+<pre><code class="language-julia">using DelimitedFiles
 
-<span class="hljs-keyword">function</span> cnt(z,c)
-    k::<span class="hljs-built_in">UInt8</span> = <span class="hljs-number">0</span>
-    <span class="hljs-keyword">while</span> (k &lt; <span class="hljs-number">255</span>)
-        z = z^<span class="hljs-number">2</span> + c
-        <span class="hljs-keyword">if</span> abs2(z)&gt;<span class="hljs-number">4.</span>
-            <span class="hljs-keyword">return</span> k
-        <span class="hljs-keyword">end</span>
-        k += <span class="hljs-number">1</span>
-    <span class="hljs-keyword">end</span>
-    <span class="hljs-keyword">return</span> k
-<span class="hljs-keyword">end</span>
+function cnt(z,c)
+    k::UInt8 = 0
+    while (k < 255)
+        z = z^2 + c
+        if abs2(z)>4.
+            return k
+        end
+        k += 1
+    end
+    return k
+end
 
-<span class="hljs-keyword">function</span> mand(M, N)
-    grid = <span class="hljs-built_in">Array</span>{<span class="hljs-built_in">UInt8</span>}(undef, M, N)
-    init_z = complex(<span class="hljs-number">0.0</span>, <span class="hljs-number">0.0</span>)
-    xs = range(-<span class="hljs-number">2</span>,<span class="hljs-number">2</span>,length=N)
-    ys = range(-<span class="hljs-number">2</span>,<span class="hljs-number">2</span>,length=M)
+function mand(M, N)
+    grid = Array{UInt8}(undef, M, N)
+    init_z = complex(0.0, 0.0)
+    xs = range(-2,2,length=N)
+    ys = range(-2,2,length=M)
     grid = cnt.(init_z,complex.(xs',ys))
-    <span class="hljs-keyword">return</span> grid
-<span class="hljs-keyword">end</span>
+    return grid
+end
 
-<span class="hljs-keyword">function</span> main()
+function main()
     s = time()
-    M = N = <span class="hljs-number">5000</span>
+    M = N = 5000
     grid = mand(M, N)
     t = time()
-    <span class="hljs-meta">@show</span>(t - s)
-    writedlm(<span class="hljs-string">"/tmp/resultJ2.txt"</span>,grid,<span class="hljs-string">","</span>)
-<span class="hljs-keyword">end</span>
+    @show(t - s)
+    writedlm("/tmp/resultJ2.txt",grid,",")
+end
 
 main()
 
-<span class="hljs-keyword">using</span> BenchmarkTools
-<span class="hljs-meta">@btime</span> mand(<span class="hljs-number">5000</span>, <span class="hljs-number">5000</span>);</code></pre>
-<pre><code class="plaintext hljs">t - s = 3.028736114501953
-  2.934 s (4 allocations: 47.68 MiB)
+using BenchmarkTools
+@btime mand(5000, 5000);</code></pre>
+<pre><code class="plaintext">t - s = 3.7996928691864014
+  3.791 s (4 allocations: 47.68 MiB)
 </code></pre>
-<pre><code class="julia hljs">Refpath=<span class="hljs-string">"/tmp/resultJ1.txt"</span>
-Tarpath=<span class="hljs-string">"/tmp/resultJ2.txt"</span>
-run(<span class="hljs-string">`bash -c "cmp --silent <span class="hljs-variable">$Refpath</span> <span class="hljs-variable">$Tarpath</span> || echo \"files are different\""`</span>)
+<pre><code class="language-julia">Refpath="/tmp/resultJ1.txt"
+Tarpath="/tmp/resultJ2.txt"
+run(`bash -c "cmp --silent $Refpath $Tarpath || echo \"files are different\""`)
 
-<span class="hljs-keyword">using</span> Plots
-<span class="hljs-keyword">using</span> DelimitedFiles
-img = readdlm(Tarpath,<span class="hljs-string">','</span>,<span class="hljs-built_in">Int</span>)
-M,N = img |&gt; size
-p = heatmap(<span class="hljs-number">1</span>:N,<span class="hljs-number">1</span>:M,img,aspect_ratio=<span class="hljs-number">1</span>, size=(<span class="hljs-number">400</span>, <span class="hljs-number">400</span>))</code></pre>
+using Plots
+using DelimitedFiles
+img = readdlm(Tarpath,',',Int)
+M,N = img |> size
+p = heatmap(1:N,1:M,img,aspect_ratio=1, size=(400, 400))</code></pre>
 
 <img src="/MathSeminar.jl/assets/programming/benchmark_part2/code/output/mandJ2.png" alt="">
-<pre><code class="julia hljs"><span class="hljs-comment">#=
+<pre><code class="language-julia">#=
 set environment variable `JULIA_NUM_THREADS=8` before julia begins
-=#</span>
-<span class="hljs-keyword">using</span> DelimitedFiles
+=#
+using DelimitedFiles
 
-<span class="hljs-keyword">function</span> cnt(z,c)
-    k::<span class="hljs-built_in">UInt8</span> = <span class="hljs-number">0</span>
-    <span class="hljs-keyword">while</span> (k &lt; <span class="hljs-number">255</span>)
-        z = z^<span class="hljs-number">2</span> + c
-        <span class="hljs-keyword">if</span> abs2(z)&gt;<span class="hljs-number">4.</span>
-            <span class="hljs-keyword">return</span> k
-        <span class="hljs-keyword">end</span>
-        k += <span class="hljs-number">1</span>
-    <span class="hljs-keyword">end</span>
-    <span class="hljs-keyword">return</span> k
-<span class="hljs-keyword">end</span>
+function cnt(z,c)
+    k::UInt8 = 0
+    while (k < 255)
+        z = z^2 + c
+        if abs2(z)>4.
+            return k
+        end
+        k += 1
+    end
+    return k
+end
 
-<span class="hljs-keyword">function</span> mand(M, N)
-    grid = <span class="hljs-built_in">Array</span>{<span class="hljs-built_in">UInt8</span>}(undef, M, N)
-    init_z = complex(<span class="hljs-number">0.0</span>, <span class="hljs-number">0.0</span>)
-    xs = range(-<span class="hljs-number">2</span>,<span class="hljs-number">2</span>,length=N)
-    ys = range(-<span class="hljs-number">2</span>,<span class="hljs-number">2</span>,length=M)
-    Base.Threads.<span class="hljs-meta">@threads</span> <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-number">1</span>:N
-        <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-number">1</span>:M
+function mand(M, N)
+    grid = Array{UInt8}(undef, M, N)
+    init_z = complex(0.0, 0.0)
+    xs = range(-2,2,length=N)
+    ys = range(-2,2,length=M)
+    Base.Threads.@threads for i in 1:N
+        for j in 1:M
             grid[j, i] = cnt(init_z,complex(xs[i], ys[j]))
-        <span class="hljs-keyword">end</span>
-    <span class="hljs-keyword">end</span>
-    <span class="hljs-keyword">return</span> grid
-<span class="hljs-keyword">end</span>
+        end
+    end
+    return grid
+end
 
-<span class="hljs-keyword">function</span> main()
+function main()
     s = time()
-    M = N = <span class="hljs-number">5000</span>
+    M = N = 5000
     grid = mand(M, N)
     t = time()
-    <span class="hljs-meta">@show</span>(t - s)
-    writedlm(<span class="hljs-string">"/tmp/resultJ3.txt"</span>,grid,<span class="hljs-string">","</span>)
-<span class="hljs-keyword">end</span>
+    @show(t - s)
+    writedlm("/tmp/resultJ3.txt",grid,",")
+end
 
 main()
 
-<span class="hljs-keyword">using</span> BenchmarkTools
-<span class="hljs-meta">@btime</span> mand(<span class="hljs-number">5000</span>, <span class="hljs-number">5000</span>);</code></pre>
-<pre><code class="plaintext hljs">t - s = 2.8486480712890625
-  2.218 s (15 allocations: 23.84 MiB)
+using BenchmarkTools
+@btime mand(5000, 5000);</code></pre>
+<pre><code class="plaintext">t - s = 2.940700054168701
+  2.744 s (15 allocations: 23.84 MiB)
 </code></pre>
-<pre><code class="julia hljs">Refpath=<span class="hljs-string">"/tmp/resultJ1.txt"</span>
-Tarpath=<span class="hljs-string">"/tmp/resultJ3.txt"</span>
-run(<span class="hljs-string">`bash -c "cmp --silent <span class="hljs-variable">$Refpath</span> <span class="hljs-variable">$Tarpath</span> || echo \"files are different\""`</span>)
+<pre><code class="language-julia">Refpath="/tmp/resultJ1.txt"
+Tarpath="/tmp/resultJ3.txt"
+run(`bash -c "cmp --silent $Refpath $Tarpath || echo \"files are different\""`)
 
-<span class="hljs-keyword">using</span> Plots
+using Plots
 
-<span class="hljs-keyword">using</span> DelimitedFiles
-img = readdlm(Tarpath, <span class="hljs-string">','</span>, <span class="hljs-built_in">Int</span>)
-M,N = img |&gt; size
-p = heatmap(<span class="hljs-number">1</span>:N, <span class="hljs-number">1</span>:M, img,aspect_ratio=<span class="hljs-number">1</span>, size=(<span class="hljs-number">400</span>, <span class="hljs-number">400</span>))
-savefig(p, joinpath(<span class="hljs-meta">@OUTPUT</span>, <span class="hljs-string">"mandJ3.png"</span>))</code></pre>
+using DelimitedFiles
+img = readdlm(Tarpath, ',', Int)
+M,N = img |> size
+p = heatmap(1:N, 1:M, img,aspect_ratio=1, size=(400, 400))
+savefig(p, joinpath(@OUTPUT, "mandJ3.png"))</code></pre>
 
 <img src="/MathSeminar.jl/assets/programming/benchmark_part2/code/output/mandJ3.png" alt="">
 <div class="page-foot">
@@ -313,8 +313,8 @@ savefig(p, joinpath(<span class="hljs-meta">@OUTPUT</span>, <span class="hljs-st
 
   
   
-    
-
+    <script src="/MathSeminar.jl/libs/highlight/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();hljs.configure({tabReplace: '    '});</script>
 
   
 </body>

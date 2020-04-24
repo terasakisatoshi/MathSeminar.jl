@@ -69,9 +69,19 @@
 <div class="franklin-content">
 <h1 id="offline-generated_plot"><a href="#offline-generated_plot">Offline-generated plot</a></h1>    <div class="reset"></div>
 <p>Assuming you already have the Plotly code for some plot, displaying  the  result on a page with Franklin is now pretty straightforward. Start by adding</p>
-<pre><code class="julia hljs"><span class="hljs-meta">@def</span> hasplotly = <span class="hljs-literal">true</span></code></pre>
+<pre><code class="language-julia">@def hasplotly = true</code></pre>
 <p>so that the JS library  will be  loaded then somewhere appropriate add:</p>
-<pre><code class="html hljs">~~~\n<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"tester"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"width:600px;height:350px;"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>\n\n<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">\n    TESTER = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'tester'</span>);\n    Plotly.plot( TESTER, [{\n    x: [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>],\n    y: [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">4</span>, <span class="hljs-number">8</span>, <span class="hljs-number">16</span>] }], {\n    margin: { <span class="hljs-attr">t</span>: <span class="hljs-number">0</span> } } );\n</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>\n~~~</code></pre>
+<pre><code class="language-html">~~~
+&lt;div id&#61;&quot;tester&quot; style&#61;&quot;width:600px;height:350px;&quot;&gt;&lt;/div&gt;
+
+&lt;script&gt;
+    TESTER &#61; document.getElementById&#40;&#39;tester&#39;&#41;;
+    Plotly.plot&#40; TESTER, &#91;&#123;
+    x: &#91;1, 2, 3, 4, 5&#93;,
+    y: &#91;1, 2, 4, 8, 16&#93; &#125;&#93;, &#123;
+    margin: &#123; t: 0 &#125; &#125; &#41;;
+&lt;/script&gt;
+~~~</code></pre>
 <p>This will give:</p>
 
 <div id="tester" style="width:600px;height:350px;"></div>
@@ -84,21 +94,21 @@
     margin: { t: 0 } } );
 </script>
 
-<pre><code class="julia hljs"><span class="hljs-keyword">using</span> PlotlyJS
-z =  [<span class="hljs-number">10</span>     <span class="hljs-number">10.625</span>  <span class="hljs-number">12.5</span>  <span class="hljs-number">15.625</span>  <span class="hljs-number">20</span>
-     <span class="hljs-number">5.625</span>  <span class="hljs-number">6.25</span>    <span class="hljs-number">8.125</span> <span class="hljs-number">11.25</span>   <span class="hljs-number">15.625</span>
-     <span class="hljs-number">2.5</span>    <span class="hljs-number">3.125</span>   <span class="hljs-number">5.</span>    <span class="hljs-number">8.125</span>   <span class="hljs-number">12.5</span>
-     <span class="hljs-number">0.625</span>  <span class="hljs-number">1.25</span>    <span class="hljs-number">3.125</span> <span class="hljs-number">6.25</span>    <span class="hljs-number">10.625</span>
-     <span class="hljs-number">0</span>      <span class="hljs-number">0.625</span>   <span class="hljs-number">2.5</span>   <span class="hljs-number">5.625</span>   <span class="hljs-number">10</span>]
+<pre><code class="language-julia">using PlotlyJS
+z =  [10     10.625  12.5  15.625  20
+     5.625  6.25    8.125 11.25   15.625
+     2.5    3.125   5.    8.125   12.5
+     0.625  1.25    3.125 6.25    10.625
+     0      0.625   2.5   5.625   10]
 
 data   = contour(; z=z)
-layout = Layout(; title=<span class="hljs-string">"Basic Contour Plot"</span>)
+layout = Layout(; title="Basic Contour Plot")
 plt    = plot(data, layout)</code></pre> 
-<div id="fdpqxa" style="width:600px;height:350px"></div>
+<div id="fdpxcw" style="width:600px;height:350px"></div>
 
 <script>
-	var fig = {"layout":{"margin":{"l":0,"b":150,"r":0,"t":0},"title":"Basic Contour Plot"},"data":[{"type":"contour","z":[[10.0,5.625,2.5,0.625,0.0],[10.625,6.25,3.125,1.25,0.625],[12.5,8.125,5.0,3.125,2.5],[15.625,11.25,8.125,6.25,5.625],[20.0,15.625,12.5,10.625,10.0]]}]};
-	CONTAINER = document.getElementById('fdpqxa');
+	var fig = {"layout":{"margin":{"l":50,"b":50,"r":50,"t":60},"title":"Basic Contour Plot"},"data":[{"type":"contour","z":[[10.0,5.625,2.5,0.625,0.0],[10.625,6.25,3.125,1.25,0.625],[12.5,8.125,5.0,3.125,2.5],[15.625,11.25,8.125,6.25,5.625],[20.0,15.625,12.5,10.625,10.0]]}]};
+	CONTAINER = document.getElementById('fdpxcw');
 	Plotly.newPlot(CONTAINER, fig.data, fig.layout)
 </script>
 
@@ -120,8 +130,8 @@ plt    = plot(data, layout)</code></pre>
 
   
   
-    
-
+    <script src="/MathSeminar.jl/libs/highlight/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();hljs.configure({tabReplace: '    '});</script>
 
   
 </body>
