@@ -1,4 +1,4 @@
-.phony : all, build, clean, slide
+.phony : all, build, slide, frankln, web, trace, clean
 
 OS:=$(shell uname -s)
 
