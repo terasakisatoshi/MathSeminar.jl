@@ -6,10 +6,6 @@
 # specific arguments, see the documentation or ?optimize in the REPL.
 
 using Pkg
-
-Pkg.add(["NodeJS", "Franklin", "Literate", "Remark"])
-Pkg.add(["WebIO", "Plotly", "PlotlyJS", "ORCA"])
-
 using NodeJS, Franklin, Remark
 
 run(`$(npm_cmd()) install highlight.js`)
@@ -18,4 +14,5 @@ Pkg.activate(".")
 Pkg.instantiate()
 
 Remark.slideshow("./remark/example.jl", "./remark")
-optimize(minify = false)
+optimize(minify=false, prepath="MathSeminar.jl")
+
