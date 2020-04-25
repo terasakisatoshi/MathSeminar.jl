@@ -21,7 +21,7 @@ web:
 	docker-compose up web
 
 trace: clean
-	julia --trace-compile=./.statements/franklin.jl --project=@. -e 'using Pkg; Pkg.instantiate(); using Franklin; serve()'
+	docker run --rm -it -v ${PWD}:/work -w /work julia:1.4.1 julia --trace-compile=./.statements/franklin.jl --project=@. -e 'using Pkg; Pkg.instantiate(); using Franklin; serve()'
 clean:
 	docker-compose down
 	rm -f  Manifest.toml # reset Manifest.toml
