@@ -37,7 +37,12 @@
             <li><a href="/MathSeminar.jl/programming/benchmark_part1"> Julia benchmark Part1 </a></li>
             <li><a href="/MathSeminar.jl/programming/benchmark_part2"> Julia benchmark Part2 </a></li>
             <li><a href="/MathSeminar.jl/programming/literatejl">Literate.jl</a></li>
-            <li><a href="/MathSeminar.jl/remark/build">Remark.jl</a></li>
+            <li><a href="/MathSeminar.jl/programming/sympy">SymPy.jl</a></li>
+          </ul>
+        </li>
+        <li><a href="" class="has-arrow">Slide Show</a>
+          <ul>
+            <li><a href="/MathSeminar.jl/remark/build/">Remark.jl</a>
           </ul>
         </li>
         <li><a href="" class="has-arrow">Gallery</a>
@@ -49,7 +54,11 @@
             <li><a href="/MathSeminar.jl/gallery/plotlyjs3/">PlotlyJS Part3</a></li>
           </ul>
         </li>
-        <li><a href="/MathSeminar.jl/linearalgebra/chapter0/">Linear Algebra</a></li>
+        <li><a href="" class="has-arrow">Topics in Mathematics</a>
+          <ul>
+            <li><a href="/MathSeminar.jl/linearalgebra/chapter0/">Linear Algebra</a></li>
+          </ul>
+        </li>
       </ul>
     </nav>
   </div> <!-- main nav menu -->
@@ -139,7 +148,7 @@ int main&#40;&#41;
     fclose&#40;fp&#41;;
     return 0;
 &#125;</code></pre>
-<pre><code class="plaintext">Elapsed time 0.166758 [sec]
+<pre><code class="plaintext">Elapsed time 0.164564 [sec]
 </code></pre>
 <p>描画は下記のとおりです。</p>
 <pre><code class="language-julia">using DelimitedFiles
@@ -208,8 +217,8 @@ main()
 
 using BenchmarkTools
 @btime mand(1250, 1250);</code></pre>
-<pre><code class="plaintext">t - s = 0.20234203338623047
-  194.802 ms (2 allocations: 1.49 MiB)
+<pre><code class="plaintext">t - s = 0.22379589080810547
+  207.899 ms (2 allocations: 1.49 MiB)
 </code></pre>
 <pre><code class="language-julia">Refpath="/tmp/benchC.txt"
 Tarpath="/tmp/benchJ.txt"
