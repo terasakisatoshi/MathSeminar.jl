@@ -1,6 +1,5 @@
 # This file was generated, do not modify it. # hide
 using Plots
-using JSON
 plotlyjs()
 
 r = 2.0

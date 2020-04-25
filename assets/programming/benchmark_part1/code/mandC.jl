@@ -2,7 +2,7 @@
 #hideall
 using Markdown
 
-mdC_code = raw"""#include <stdio.h>
+mdC_code = Markdown.htmlesc(raw"""#include <stdio.h>
 #include <stdint.h>
 #include <time.h>
 
@@ -64,7 +64,8 @@ int main()
     }
     fclose(fp);
     return 0;
-}"""
+}""")
+
 mdfile = joinpath(dirname(@OUTPUT), "mandC.md")
 open(mdfile,"w") do f
     print(f, mdC_code)

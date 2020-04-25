@@ -1,63 +1,63 @@
-#include <stdio.h>
-#include <stdint.h>
-#include <time.h>
+#include &lt;stdio.h&gt;
+#include &lt;stdint.h&gt;
+#include &lt;time.h&gt;
 
-uint8_t cnt(double ReZ,double ImZ,double ReC,double ImC){
-    uint8_t k=0;
-    while(k < 255){
-        double new_ReZ = ReZ * ReZ - ImZ * ImZ + ReC ;
-        double new_ImZ = 2 * ReZ * ImZ + ImC;
-        if (new_ReZ * new_ReZ+new_ImZ * new_ImZ>4){
+uint8_t cnt&#40;double ReZ,double ImZ,double ReC,double ImC&#41;&#123;
+    uint8_t k&#61;0;
+    while&#40;k &lt; 255&#41;&#123;
+        double new_ReZ &#61; ReZ * ReZ - ImZ * ImZ &#43; ReC ;
+        double new_ImZ &#61; 2 * ReZ * ImZ &#43; ImC;
+        if &#40;new_ReZ * new_ReZ&#43;new_ImZ * new_ImZ&gt;4&#41;&#123;
             return k;
-        }
-        ReZ = new_ReZ;
-        ImZ = new_ImZ;
-        k+=1;
-    }
+        &#125;
+        ReZ &#61; new_ReZ;
+        ImZ &#61; new_ImZ;
+        k&#43;&#61;1;
+    &#125;
     return k;
-}
+&#125;
 
 
-int main()
-{
+int main&#40;&#41;
+&#123;
     clock_t start,end;
-    start = clock();
-    int M = 1250;
-    int N = 1250;
-    uint8_t grid[M][N];
-    double init_Re = 0.0;
-    double init_Im = 0.0;
-    for (int j = 0; j < M; j++)
-    {
-        for (int i = 0; i < N; i++)
-        {
-            double ReC = 4.0 / (N - 1) * i - 2.0;
-            double ImC = 4.0 / (M - 1) * j - 2.0;
-            double ReZ = init_Re;
-            double ImZ = init_Im;
-            grid[j][i] = cnt(ReZ,ImZ,ReC,ImC);
-        }
-    }
-    end = clock();
-    double cpu_time_used = ((double) (end - start)) / CLOCKS_PER_SEC;
-    printf("Elapsed time %f [sec]\n", cpu_time_used);
+    start &#61; clock&#40;&#41;;
+    int M &#61; 1250;
+    int N &#61; 1250;
+    uint8_t grid&#91;M&#93;&#91;N&#93;;
+    double init_Re &#61; 0.0;
+    double init_Im &#61; 0.0;
+    for &#40;int j &#61; 0; j &lt; M; j&#43;&#43;&#41;
+    &#123;
+        for &#40;int i &#61; 0; i &lt; N; i&#43;&#43;&#41;
+        &#123;
+            double ReC &#61; 4.0 / &#40;N - 1&#41; * i - 2.0;
+            double ImC &#61; 4.0 / &#40;M - 1&#41; * j - 2.0;
+            double ReZ &#61; init_Re;
+            double ImZ &#61; init_Im;
+            grid&#91;j&#93;&#91;i&#93; &#61; cnt&#40;ReZ,ImZ,ReC,ImC&#41;;
+        &#125;
+    &#125;
+    end &#61; clock&#40;&#41;;
+    double cpu_time_used &#61; &#40;&#40;double&#41; &#40;end - start&#41;&#41; / CLOCKS_PER_SEC;
+    printf&#40;&quot;Elapsed time &#37;f &#91;sec&#93;\n&quot;, cpu_time_used&#41;;
     FILE *fp;
-    fp = fopen("/tmp/benchC.txt", "w");
-    for (int j = 0; j < M; j++)
-    {
-        for (int i = 0; i < N; i++)
-        {
-            fprintf(fp, "%d", grid[j][i]);
-            if (i != N - 1)
-            {
-                fprintf(fp, ",");
-            }
+    fp &#61; fopen&#40;&quot;/tmp/benchC.txt&quot;, &quot;w&quot;&#41;;
+    for &#40;int j &#61; 0; j &lt; M; j&#43;&#43;&#41;
+    &#123;
+        for &#40;int i &#61; 0; i &lt; N; i&#43;&#43;&#41;
+        &#123;
+            fprintf&#40;fp, &quot;&#37;d&quot;, grid&#91;j&#93;&#91;i&#93;&#41;;
+            if &#40;i &#33;&#61; N - 1&#41;
+            &#123;
+                fprintf&#40;fp, &quot;,&quot;&#41;;
+            &#125;
             else
-            {
-                fprintf(fp, "\n");
-            }
-        }
-    }
-    fclose(fp);
+            &#123;
+                fprintf&#40;fp, &quot;\n&quot;&#41;;
+            &#125;
+        &#125;
+    &#125;
+    fclose&#40;fp&#41;;
     return 0;
-}
+&#125;
