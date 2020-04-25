@@ -15,12 +15,31 @@
 
 \subsection{Example 1}
 
+<!-- Since the first call frails, just do same as easysample(below) -->
+```julia:dummy
+#hideall
+using Plots
+using JSON
+plotlyjs()
+
+p=plot(rand(15))
+
+fdplotly(
+    JSON.json((
+        layout = Plots.plotly_layout(p),
+        data = Plots.plotly_series(p),
+    )); style = "width:300px;height:200x",
+)
+
+gr(); #hide
+```
+
 ```julia:easysample
 using Plots
 using JSON
 plotlyjs()
 
-p=plot(rand(10))
+p=plot(rand(15))
 
 fdplotly(
     JSON.json((
@@ -41,7 +60,6 @@ gr(); #hide
 
 ```julia:usingfdplotly
 using Plots
-using JSON
 plotlyjs()
 
 r = 2.0
@@ -83,7 +101,17 @@ function fdplotly(p::Plots.Plot;
 end
 ```
 
-\textoutput{fdplotly}
+\output{fdplotly}
+
+```julia:simplebodyjs
+using Plots
+plotlyjs()
+p = plot(rand(10))
+fdplotly(p; style = "width:400px;height:300x")
+gr() #hide
+```
+
+\textoutput{simplebodyjs}
 
 ```julia:usingbodyjs
 using Plots
