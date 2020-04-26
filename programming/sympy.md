@@ -40,23 +40,32 @@ fdsympy((x+y+z)^2 |> expand)
 fdsympy(y)
 ```
 
-\textoutput{example1}
-
 ```julia:example2
-@vars x y
-fdsympy([x, y])
+@vars x y z
+
+fdsympy(x, y)
 ```
 
 \textoutput{example2}
 
+
 ```julia:example3
+@vars x y
+fdsympy([x, y])
+```
+
+\textoutput{example3}
+
+```julia:example4
 @vars x y z
 
 fdsympy([x y])
 ```
-\textoutput{example3}
-}
 
+\textoutput{example4}
+
+
+}
 
 
 \example{Solve ODE}{
@@ -74,7 +83,7 @@ fdsympy(sol)
 \textoutput{solveode}
 }
 
-\example{Trigonometric functions}{
+\example{Rotations: Euler angles}{
 ```julia:matrix
 Rx(θ) = [
     1.   0.        0
