@@ -40,6 +40,8 @@ fdsympy((x+y+z)^2 |> expand)
 fdsympy(y)
 ```
 
+\textoutput{example1}
+
 ```julia:example2
 @vars x y z
 
