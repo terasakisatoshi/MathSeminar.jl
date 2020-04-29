@@ -1,13 +1,15 @@
-@def title = "Introduction To Franklin"
+@def title = "Franklin SandBox"
 @def reeval = true
-@def chapter = 0
-@def section = 0
-@def subsection = 0
+
+\toc <!-- table of contents -->
 
 
+```julia:localstate
+chapter=1
+section=1
+subsection=1
+```
 
-
-# Franklin sand box
 
 # This is some
 
@@ -44,3 +46,102 @@ $$\exp(i\pi) + 1 = 0 \label{a cool equation}$$
 and you can refer to it in the text: equation \eqref{a cool equation}.
 
 [link to it](#something)
+
+In the text you may refer to \citep{noether15} while in a bibliography section you would have
+
+$$\exp(i\pi) + 1 = 0 \label{a cool equation}$$
+
+
+```julia:some
+using Franklin
+@show Franklin.PAGE_EQREFS[Franklin.PAGE_EQREFS_COUNTER]
+```
+
+\output{some}
+
+```julia:sy
+#hideall
+println(raw"""
+\example{some}{ごまちゃんはかわいい$\frac{1}{3}$}
+"""
+)
+```
+
+\newcommand{\myexample}[2]{
+```julia:!#1
+#hideall
+print(raw"""
+**Example**\
+!#2
+""")
+```
+\textoutput{!#1}
+}
+
+\newcommand{\mytheorem}[2]{
+```julia:!#1
+#hideall
+print(raw"""
+@@theorem
+#1\
+!#2
+@@
+""")
+```
+\textoutput{!#1}
+}
+
+
+This is **Example** **_Some_**
+
+\myexample{myex}{
+ぶんすうのけいさんをしたい $\frac{1}{4}$ の計算は次のようにして
+$$
+\frac{1}{5}
+$$
+ときれいにかける.
+}
+
+
+\mytheorem{goma}{
+ぶんすうのけいさんをしたい $\frac{1}{5}$ の計算は次のようにして
+$$
+\frac{1}{5}
+$$
+ときれいにかける.
+}
+
+I just love **bold text**. \
+I just love __bold text__.
+
+```julia:currentstatus
+@show chapter
+chapter += 1
+@show chapter
+@show section
+@show subsection
+```
+
+\show{currentstatus}
+
+\newcommand{\mycounter}[2]{
+```julia:!#1
+#hideall
+println(
+"@@prop $(chapter).$(section).$(subsection):" *
+raw"""
+#1\
+!#2
+@@
+""")
+```
+\textoutput{!#1}
+}
+
+\mycounter{azarashi}{
+ぶんすうのけいさんをしたい $\frac{1}{2}$ の計算は次のようにして
+$$
+\frac{1}{2}
+$$
+ときれいにかける.
+}
