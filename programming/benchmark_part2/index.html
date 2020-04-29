@@ -38,6 +38,7 @@
             <li><a href="/MathSeminar.jl/programming/benchmark_part2"> Julia benchmark Part2 </a></li>
             <li><a href="/MathSeminar.jl/programming/literatejl">Literate.jl</a></li>
             <li><a href="/MathSeminar.jl/programming/sympy">SymPy.jl</a></li>
+            <li><a href="/MathSeminar.jl/programming/franklin">Franklin.jl</a></li>
           </ul>
         </li>
         <li><a href="" class="has-arrow">Slide Show</a>
@@ -56,7 +57,7 @@
         </li>
         <li><a href="" class="has-arrow">Topics in Mathematics</a>
           <ul>
-            <li><a href="/MathSeminar.jl/linearalgebra/chapter0/">Linear Algebra</a></li>
+            <li><a href="mathematics/linearalgebra/chapter0/">Linear Algebra</a></li>
           </ul>
         </li>
       </ul>
@@ -121,8 +122,8 @@ main()
 
 using BenchmarkTools
 @btime mand(5000, 5000);</code></pre>
-<pre><code class="plaintext">t - s = 2.712548017501831
-  2.555 s (2 allocations: 23.84 MiB)
+<pre><code class="plaintext">t - s = 3.676007032394409
+  3.662 s (2 allocations: 23.84 MiB)
 </code></pre>
 <div class="remark"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext> </mtext></mrow><annotation encoding="application/x-tex">\ </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0em;vertical-align:0em;"></span><span class="mspace"> </span></span></span></span> <br /> 点の位置をあらわす <code>&#40;4.0 / &#40;M - 1&#41; * &#40;j - 1&#41; - 2.0&#41;</code> は <code>range&#40;-2, 2, length&#40;N&#41;&#41;</code> と数学的に等価ですが，数値の誤差の関係で結果が若干異なることがあります．</div>
 <pre><code class="language-julia">N=10; @show [4.0*(i-1)/(N-1) - 2.0 for i in 1:N]</code></pre>
@@ -178,8 +179,8 @@ main()
 
 using BenchmarkTools
 @btime mand(5000, 5000);</code></pre>
-<pre><code class="plaintext">t - s = 2.9016408920288086
-  2.937 s (2 allocations: 23.84 MiB)
+<pre><code class="plaintext">t - s = 3.8261449337005615
+  3.797 s (2 allocations: 23.84 MiB)
 </code></pre>
 <pre><code class="language-julia">Refpath="/tmp/resultJ.txt"
 Tarpath="/tmp/resultJ1.txt"
@@ -229,8 +230,8 @@ main()
 
 using BenchmarkTools
 @btime mand(5000, 5000);</code></pre>
-<pre><code class="plaintext">t - s = 3.0408599376678467
-  2.894 s (4 allocations: 47.68 MiB)
+<pre><code class="plaintext">t - s = 3.783536911010742
+  3.736 s (4 allocations: 47.68 MiB)
 </code></pre>
 <pre><code class="language-julia">Refpath="/tmp/resultJ1.txt"
 Tarpath="/tmp/resultJ2.txt"
@@ -286,8 +287,8 @@ main()
 
 using BenchmarkTools
 @btime mand(5000, 5000);</code></pre>
-<pre><code class="plaintext">t - s = 2.5598862171173096
-  2.211 s (15 allocations: 23.84 MiB)
+<pre><code class="plaintext">t - s = 2.947554111480713
+  2.718 s (15 allocations: 23.84 MiB)
 </code></pre>
 <pre><code class="language-julia">Refpath="/tmp/resultJ1.txt"
 Tarpath="/tmp/resultJ3.txt"
@@ -303,7 +304,7 @@ savefig(p, joinpath(@OUTPUT, "mandJ3.png"))</code></pre>
 
 <img src="/MathSeminar.jl/assets/programming/benchmark_part2/code/output/mandJ3.png" alt=""><div class="page-foot">
   <div class="copyright">
-    &copy; SatoshiTerasaki. Last modified: April 26, 2020. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
+    &copy; SatoshiTerasaki. Last modified: April 29, 2020. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
   </div>
 </div>
 </div><!-- CONTENT ENDS HERE -->

@@ -5,8 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
    <link rel="stylesheet" href="/MathSeminar.jl/libs/katex/katex.min.css">
    
-   <link rel="stylesheet" href="/MathSeminar.jl/libs/highlight/github.min.css">
-   
+  
 
   <link href="/MathSeminar.jl/css/franklin.css" rel="stylesheet">
   <link href="/MathSeminar.jl/css/vela.css" rel="stylesheet">
@@ -14,9 +13,9 @@
   <!-- my theorem counter -->
   <link rel="stylesheet" href="/MathSeminar.jl/css/theorem.css">
 
-   <title>PlotlyJS Example1</title>  
+   <title>Introduction To Franklin</title>  
   <!-- PLOTLY -->
-   <script src="/MathSeminar.jl/libs/plotly/plotly.min.js"></script> 
+  
 
   <title>Franklin Example | Vela</title>
 </head>
@@ -70,56 +69,36 @@
         <div class="hamburger-inner"></div>
       </div>
     </div>
-    <h1 class="page title">PlotlyJS Example1</h1>
+    <h1 class="page title">Introduction To Franklin</h1>
     <hr>
 
 
 <!-- Content appended here -->
-<div class="franklin-content"><h1 id="offline-generated_plot"><a href="#offline-generated_plot">Offline-generated plot</a></h1>    <div class="reset"></div>
-<p>Assuming you already have the Plotly code for some plot, displaying  the  result on a page with Franklin is now pretty straightforward. Start by adding</p>
-<pre><code class="language-julia">@def hasplotly = true</code></pre>
-<p>so that the JS library  will be  loaded then somewhere appropriate add:</p>
-<pre><code class="language-html">~~~
-&lt;div id&#61;&quot;tester&quot; style&#61;&quot;width:600px;height:350px;&quot;&gt;&lt;/div&gt;
-
-&lt;script&gt;
-    TESTER &#61; document.getElementById&#40;&#39;tester&#39;&#41;;
-    Plotly.plot&#40; TESTER, &#91;&#123;
-    x: &#91;1, 2, 3, 4, 5&#93;,
-    y: &#91;1, 2, 4, 8, 16&#93; &#125;&#93;, &#123;
-    margin: &#123; t: 0 &#125; &#125; &#41;;
-&lt;/script&gt;
-~~~</code></pre>
-<p>This will give:</p>
-
-<div id="tester" style="width:600px;height:350px;"></div>
-
-<script>
-    TESTER = document.getElementById('tester');
-    Plotly.plot( TESTER, [{
-    x: [1, 2, 3, 4, 5],
-    y: [1, 2, 4, 8, 16] }], {
-    margin: { t: 0 } } );
-</script>
-
-<pre><code class="language-julia">using PlotlyJS
-z =  [10     10.625  12.5  15.625  20
-     5.625  6.25    8.125 11.25   15.625
-     2.5    3.125   5.    8.125   12.5
-     0.625  1.25    3.125 6.25    10.625
-     0      0.625   2.5   5.625   10]
-
-data   = contour(; z=z)
-layout = Layout(; title="Basic Contour Plot")
-plt    = plot(data, layout)</code></pre> 
-<div id="fdpmtt" style="width:600px;height:350px"></div>
-
-<script>
-	var fig = {"layout":{"margin":{"l":50,"b":50,"r":50,"t":60},"title":"Basic Contour Plot"},"data":[{"type":"contour","z":[[10.0,5.625,2.5,0.625,0.0],[10.625,6.25,3.125,1.25,0.625],[12.5,8.125,5.0,3.125,2.5],[15.625,11.25,8.125,6.25,5.625],[20.0,15.625,12.5,10.625,10.0]]}]};
-	CONTAINER = document.getElementById('fdpmtt');
-	Plotly.newPlot(CONTAINER, fig.data, fig.layout)
-</script>
-<div class="page-foot">
+<div class="franklin-content"><h1 id="franklin_sand_box"><a href="#franklin_sand_box">Franklin sand box</a></h1>
+<h1 id="this_is_some"><a href="#this_is_some">This is some</a></h1>
+<a id="something"></a>
+1 1
+programming/franklin.md April 29, 2020 April 29, 2020
+<p>This has a footnote<sup id="fnref:1"><a href="#fndef:1" class="fnref">[1]</a></sup>
+<table class="fndef" id="fndef:1">
+    <tr>
+        <td class="fndef-backref"><a href="#fnref:1">[1]</a></td>
+        <td class="fndef-content">footnote is here</td>
+    </tr>
+</table>
+ inline links: <a href="https:://www.wikipedia.org">plain link</a></p>
+<p>reference links: <a href="https://www.wikipedia.org">&quot;reference&quot; link</a> and <a href="https://www.wikipedia.org">&quot;reference&quot; link</a></p>
+ In the text you may refer to <span class="bibref">(<a href="#noether15">Noether (1915)</a>, <a href="#bezanson17">Bezanson et al. (2017)</a>)</span> while in a bibliography section you would have</p>
+<ul>
+<li><p><a id="noether15"></a> <strong>Noether</strong>, Korper und Systeme rationaler Funktionen, 1915.</p>
+</li>
+<li><p><a id="bezanson17"></a> <strong>Bezanson</strong>, <strong>Edelman</strong>, <strong>Karpinski</strong> and <strong>Shah</strong>, <a href="https://julialang.org/publications/julia-fresh-approach-BEKS.pdf">Julia: a fresh approach to numerical computing</a>, SIAM review 2017.</p>
+</li>
+</ul>
+<p>Some equation:</p>
+<a id="a_cool_equation"></a><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>exp</mi><mo>⁡</mo><mo stretchy="false">(</mo><mi>i</mi><mi>π</mi><mo stretchy="false">)</mo><mo>+</mo><mn>1</mn><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\exp(i\pi) + 1 = 0 </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mop">exp</span><span class="mopen">(</span><span class="mord mathdefault">i</span><span class="mord mathdefault" style="margin-right:0.03588em;">π</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span></span>
+<p>and you can refer to it in the text: equation <span class="eqref">(<a href="#a_cool_equation">1</a>)</span>.</p>
+<p><a href="#something">link to it</a><div class="page-foot">
   <div class="copyright">
     &copy; SatoshiTerasaki. Last modified: April 29, 2020. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
   </div>
@@ -134,10 +113,6 @@ plt    = plot(data, layout)</code></pre>
 
 
   
-  
-    <script src="/MathSeminar.jl/libs/highlight/highlight.pack.js"></script>
-<script>hljs.initHighlightingOnLoad();hljs.configure({tabReplace: '    '});</script>
-
   
 </body>
 </html>
