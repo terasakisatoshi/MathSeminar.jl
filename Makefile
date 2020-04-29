@@ -25,6 +25,7 @@ trace:
 	docker build -t seminartrace -f _mytools/Dockerfile .
 	docker run --rm -it -v ${PWD}:/work -w /work seminartrace julia -e 'using Pkg; Pkg.instantiate()'
 	docker run --rm -it -v ${PWD}:/work -w /work seminartrace julia --trace-compile=./.statements/franklin.jl --project=@. -e 'using Franklin; serve()'
+
 clean:
 	docker-compose down
 	rm -f  Manifest.toml # reset Manifest.toml
