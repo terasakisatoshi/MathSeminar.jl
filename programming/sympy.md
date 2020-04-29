@@ -1,5 +1,4 @@
 @def title = "SymPy.jl Tutorial"
-@def reeval = true
 
 \chapter{SymPy.jl for Franklin users}
 
