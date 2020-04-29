@@ -124,24 +124,42 @@ chapter += 1
 
 \show{currentstatus}
 
-\newcommand{\mycounter}[2]{
+\newcommand{\mycounter}[3]{
 ```julia:!#1
-#hideall
-println(
-"@@prop $(chapter).$(section).$(subsection):" *
+# hideall
+v="$(chapter).$(section).$(subsection)"
+print(
+"@@prop" *
+"~~~<b>$(v):</b>~~~" *
+"\\label{!#1}" *
 raw"""
-#1\
-!#2
+ (!#2)\
+!#3
 @@
 """)
 ```
 \textoutput{!#1}
 }
 
-\mycounter{azarashi}{
+\mycounter{kyu}{主張名}{
 ぶんすうのけいさんをしたい $\frac{1}{2}$ の計算は次のようにして
 $$
-\frac{1}{2}
+\frac{1}{3}
 $$
 ときれいにかける.
 }
+
+[link to it](#kyu)
+
+```julia:br
+println("<b>aaa</b>")
+```
+
+\textoutput{br}
+
+<b>aaa</b>
+
+~~~
+<b>Prop: This text is bold</b><br>
+<strong>Prop: This text is strong</strong>
+~~~
