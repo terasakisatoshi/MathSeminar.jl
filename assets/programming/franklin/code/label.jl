@@ -4,9 +4,9 @@ v="$(chapter).$(section).$(subsection)"
 print(
 "@@prop" *
 "~~~<b>$(v):</b>~~~" *
-"\\label{kyu}" *
+"\\label{label}" *
 raw"""
-主張名\
+\
 ぶんすうのけいさんをしたい $\frac{1}{2}$ の計算は次のようにして
 $$
 \frac{1}{3} <>
