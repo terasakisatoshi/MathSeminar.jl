@@ -124,6 +124,8 @@ chapter += 1
 
 \show{currentstatus}
 
+<!-- label, title, statement-->
+<!-- TODO create julia block using its Julia function-->
 \newcommand{\mycounter}[3]{
 ```julia:!#1
 # hideall
@@ -133,7 +135,7 @@ print(
 "~~~<b>$(v):</b>~~~" *
 "\\label{!#1}" *
 raw"""
- (!#2)\
+!#2\
 !#3
 @@
 """)
@@ -144,10 +146,19 @@ raw"""
 \mycounter{kyu}{主張名}{
 ぶんすうのけいさんをしたい $\frac{1}{2}$ の計算は次のようにして
 $$
-\frac{1}{3}
+\frac{1}{3} <>
 $$
-ときれいにかける.
+ときれいにかける<>.
 }
+
+\mycounter{label}{}{
+ぶんすうのけいさんをしたい $\frac{1}{2}$ の計算は次のようにして
+$$
+\frac{1}{3} <>
+$$
+ときれいにかける<>.
+}
+
 
 [link to it](#kyu)
 
@@ -157,9 +168,21 @@ println("<b>aaa</b>")
 
 \textoutput{br}
 
-<b>aaa</b>
-
+p
 ~~~
 <b>Prop: This text is bold</b><br>
 <strong>Prop: This text is strong</strong>
 ~~~
+q
+
+\newcommand{\ref}[1]{
+```julia:!#1_ref
+#hideall
+v="$(chapter).$(section).$(subsection)"
+print("[$(v)](#kyu)")
+```
+\textoutput{!#1_ref}
+}
+
+aaa \textoutput{sample} is
+\ref{kyu}
