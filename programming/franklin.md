@@ -7,7 +7,7 @@
 
 
 ```julia:mystate
-Utils.init() #hide
+Utils.init() # hide
 ```
 
 # Franklin Sand Box
@@ -64,28 +64,6 @@ This is **Example** **_Some_**
 
 I just love **bold text**. \
 I just love __bold text__.
-
-<!-- label, title, statement-->
-<!-- TODO create julia block using its Julia function-->
-\newcommand{\mycounter}[3]{
-```julia:!#1
-# hideall
-Utils.increment()
-thmnum = Utils.getnum()
-Utils.labelthm("!#1")
-
-print(
-"@@prop" *
-"~~~<b>$(thmnum):</b>~~~" *
-"\\label{!#1}" *
-raw"""
-!#2\
-!#3
-@@
-""")
-```
-\textoutput{!#1}
-}
 
 \mycounter{label1}{主張名}{
 ぶんすうのけいさんをしたい $\frac{1}{2}$ の計算は次のようにして
