@@ -51,22 +51,6 @@ will output "Theorem 13" (1+2+10, the first `1` is initial value)
     font-style: normal;
 }
 
-.definition {
-    counter-increment: theorem;
-    display: block;
-    margin: 12px 0;
-    background-color: aliceblue;
-    border-left: 5px solid cornflowerblue;
-    border-radius: 10px;
-    padding: 10px;
-    margin-bottom: 1em;
-}
-.definition:before {
-    content: "Definition ";
-    font-weight: bold;
-    font-style: normal;
-}
-
 
 .cssprop {
     counter-increment: theorem;
@@ -80,22 +64,6 @@ will output "Theorem 13" (1+2+10, the first `1` is initial value)
 }
 .cssprop:before {
     content: "Proposition " counter(chapter)"."counter(section)"."counter(theorem) ": ";
-    font-weight: bold;
-    font-style: normal;
-}
-
-.prop {
-    counter-increment: theorem;
-    display: block;
-    margin: 12px 0;
-    background-color: aliceblue;
-    border-left: 5px solid cornflowerblue;
-    border-radius: 10px;
-    padding: 10px;
-    margin-bottom: 1em;
-}
-.prop:before {
-    content: "Proposition ";
     font-weight: bold;
     font-style: normal;
 }
@@ -116,21 +84,6 @@ will output "Theorem 13" (1+2+10, the first `1` is initial value)
     font-style: normal;
 }
 
-.theorem {
-    counter-increment: theorem;
-    display: block;
-    margin: 12px 0;
-    background-color: aliceblue;
-    border-left: 5px solid cornflowerblue;
-    border-radius: 10px;
-    padding: 10px;
-    margin-bottom: 1em;
-}
-.theorem:before {
-    content: "Theorem ";
-    font-weight: bold;
-    font-style: normal;
-}
 
 .csslemma {
     counter-increment: theorem;
@@ -144,22 +97,6 @@ will output "Theorem 13" (1+2+10, the first `1` is initial value)
 }
 .csslemma:before {
     content: "Lemma " counter(chapter)"."counter(section)"."counter(theorem) ": ";
-    font-weight: bold;
-    font-style: normal;
-}
-
-.lemma {
-    counter-increment: theorem;
-    display: block;
-    margin: 12px 0;
-    background-color: aliceblue;
-    border-left: 5px solid cornflowerblue;
-    border-radius: 10px;
-    padding: 10px;
-    margin-bottom: 1em;
-}
-.lemma:before {
-    content: "Lemma ";
     font-weight: bold;
     font-style: normal;
 }
@@ -180,22 +117,6 @@ will output "Theorem 13" (1+2+10, the first `1` is initial value)
     font-style: normal;
 }
 
-.example {
-    counter-increment: theorem;
-    display: block;
-    margin: 12px 0;
-    background-color: aliceblue;
-    border-left: 5px solid cornflowerblue;
-    border-radius: 10px;
-    padding: 10px;
-    margin-bottom: 1em;
-}
-.example:before {
-    content: "Example ";
-    font-weight: bold;
-    font-style: normal;
-}
-
 .cssremark {
     counter-increment: theorem;
     display: block;
@@ -208,22 +129,6 @@ will output "Theorem 13" (1+2+10, the first `1` is initial value)
 }
 .cssremark:before {
     content: "Remark " counter(chapter)"."counter(section)"."counter(theorem) ": ";
-    font-weight: bold;
-    font-style: normal;
-}
-
-.remark {
-    counter-increment: theorem;
-    display: block;
-    margin: 12px 0;
-    background-color: aliceblue;
-    border-left: 5px solid cornflowerblue;
-    border-radius: 10px;
-    padding: 10px;
-    margin-bottom: 1em;
-}
-.remark:before {
-    content: "Remark ";
     font-weight: bold;
     font-style: normal;
 }
