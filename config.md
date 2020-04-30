@@ -10,6 +10,15 @@ The website_* must be defined for the RSS to work
 @def author = "SatoshiTerasaki"
 @def prepath = "MathSeminar.jl"
 @def ignore = ["remark/src/", ".statements/"]
+
+<!-- Thank you Lucas-->
+<!-- https://github.com/tlienart/Franklin.jl/blob/e0fe6b99bef5a4a054d793a410e3e83fb9876250/test/utils/misc.jl#L129-L190 -->
+@def date_format = "Y年ud日 E"
+@def date_months = ["1月", "2月", "3月", "4月", "5月", "6月",
+                    "7月", "8月", "9月", "10月", "11月", "12月"];
+@def date_days = ["月曜日","火曜日","水曜日","木曜日",
+                    "金曜日","土曜日","日曜日"];
+
 <!-- ---------------------------------------------------
 Add here global latex commands to use throughout your
 pages. It can be math commands but does not need to be.
@@ -164,3 +173,5 @@ run(`$exefile`)
 \codeoutput{!#1}
 
 }
+
+
