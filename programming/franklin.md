@@ -125,11 +125,16 @@ q
 @show π
 ```
 
-
-
-
 ```julia:showπ
 @show π
 ```
 
 \show{showπ}
+
+@def goma = "日本語"
+@def azarasi = "きゅ"
+```julia:aaa_{{hash goma}}
+@show "azarasi"
+```
+
+\show{aaa_{{hash goma}}}

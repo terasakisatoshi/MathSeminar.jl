@@ -70,3 +70,8 @@ function lx_ref(com, _)
     brace_content = Franklin.content(com.braces[1])
     ref(brace_content)
 end
+
+function hfun_hash(vname) # vname is a vector of string here
+    label = locvar(vname[1])
+    hash(label)
+end
