@@ -3,10 +3,10 @@
 @def hascode = true
 @def hasplotly = true
 
-\chapter{Is Julia fast ?}
+\csschapter{Is Julia fast ?}
 
 - Julia は LLVM による JIT コンパイルにより高速に動作し C 言語と同等のスピードを出すことができます。ここではベンチマークとしてマンデルブロ集合の生成する計算を例にJulia がどれくらいのパフォーマンスを出すのかを調べてみましょう。
-\section{C のコードを書く}
+\csssection{C のコードを書く}
 
 - C のコードを書いてみました.
 
@@ -91,7 +91,7 @@ savefig(p, joinpath(@OUTPUT, "mandC.png")) #hide
 
 \fig{mandC.png}
 
-\section{Julia のコード}
+\csssection{Julia のコード}
 
 最後に Julia のコードを見ていきましょう
 

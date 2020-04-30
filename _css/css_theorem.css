@@ -35,7 +35,7 @@ will output "Theorem 13" (1+2+10, the first `1` is initial value)
 }
 
 
-.definition {
+.cssdefinition {
     counter-increment: theorem;
     display: block;
     margin: 12px 0;
@@ -45,13 +45,14 @@ will output "Theorem 13" (1+2+10, the first `1` is initial value)
     padding: 10px;
     margin-bottom: 1em;
 }
-.definition:before {
+.cssdefinition:before {
     content: "Definition " counter(chapter)"."counter(section)"."counter(theorem) ": ";
     font-weight: bold;
     font-style: normal;
 }
 
-.prop {
+
+.cssprop {
     counter-increment: theorem;
     display: block;
     margin: 12px 0;
@@ -61,13 +62,13 @@ will output "Theorem 13" (1+2+10, the first `1` is initial value)
     padding: 10px;
     margin-bottom: 1em;
 }
-.prop:before {
+.cssprop:before {
     content: "Proposition " counter(chapter)"."counter(section)"."counter(theorem) ": ";
     font-weight: bold;
     font-style: normal;
 }
 
-.theorem {
+.csstheorem {
     counter-increment: theorem;
     display: block;
     margin: 12px 0;
@@ -77,13 +78,14 @@ will output "Theorem 13" (1+2+10, the first `1` is initial value)
     padding: 10px;
     margin-bottom: 1em;
 }
-.theorem:before {
+.csstheorem:before {
     content: "Theorem " counter(chapter)"."counter(section)"."counter(theorem) ": ";
     font-weight: bold;
     font-style: normal;
 }
 
-.lemma {
+
+.csslemma {
     counter-increment: theorem;
     display: block;
     margin: 12px 0;
@@ -93,13 +95,13 @@ will output "Theorem 13" (1+2+10, the first `1` is initial value)
     padding: 10px;
     margin-bottom: 1em;
 }
-.lemma:before {
+.csslemma:before {
     content: "Lemma " counter(chapter)"."counter(section)"."counter(theorem) ": ";
     font-weight: bold;
     font-style: normal;
 }
 
-.example {
+.cssexample {
     counter-increment: theorem;
     display: block;
     margin: 12px 0;
@@ -109,13 +111,13 @@ will output "Theorem 13" (1+2+10, the first `1` is initial value)
     padding: 10px;
     margin-bottom: 1em;
 }
-.example:before {
+.cssexample:before {
     content: "Example " counter(chapter)"."counter(section)"."counter(theorem) ": ";
     font-weight: bold;
     font-style: normal;
 }
 
-.remark {
+.cssremark {
     counter-increment: theorem;
     display: block;
     margin: 12px 0;
@@ -125,7 +127,7 @@ will output "Theorem 13" (1+2+10, the first `1` is initial value)
     padding: 10px;
     margin-bottom: 1em;
 }
-.remark:before {
+.cssremark:before {
     content: "Remark " counter(chapter)"."counter(section)"."counter(theorem) ": ";
     font-weight: bold;
     font-style: normal;

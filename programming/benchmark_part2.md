@@ -2,7 +2,7 @@
 @def hasmath = true
 @def hascode = true
 
-\chapter{パフォーマンスを維持したままJuliaらしく}
+\csschapter{パフォーマンスを維持したままJuliaらしく}
 
 ```julia:mandJ0
 using DelimitedFiles
@@ -55,7 +55,7 @@ using BenchmarkTools
 
 \output{mandJ0}
 
-\remark{}{
+\cssremark{(数値誤差について)}{
 点の位置をあらわす `(4.0 / (M - 1) * (j - 1) - 2.0)` は `range(-2, 2, length(N))` と数学的に等価ですが，数値の誤差の関係で結果が若干異なることがあります．
 }
 

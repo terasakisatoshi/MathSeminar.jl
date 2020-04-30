@@ -65,76 +65,9 @@ This is **Example** **_Some_**
 I just love **bold text**. \
 I just love __bold text__.
 
-\mycounter{label1}{主張名}{
-ぶんすうのけいさんをしたい $\frac{1}{2}$ の計算は次のようにして
-$$
-\frac{1}{3} <>
-$$
-ときれいにかける<>.
-}
-
-\mycounter{label2}{}{
-ぶんすうのけいさんをしたい $\frac{1}{2}$ の計算は次のようにして
-$$
-\frac{1}{3} <>
-$$
-ときれいにかける<>.
-}
-
-\setlevel{section}
-
-\mycounter{label3}{}{
-ぶんすうのけいさんをしたい $\frac{1}{2}$ の計算は次のようにして
-$$
-\frac{1}{3} <>
-$$
-ときれいにかける<>.
-}
-
-\ref{label1} \
-
-\ref{label2} \
-
-\ref{label3}
-
-```julia:br
-println("<b>aaa</b>")
-```
-
-\textoutput{br}
-
-```julia:mydebug
-@show Utils.state
-```
-
-\show{mydebug}
-
-p
-~~~
-<b>Prop: This text is bold</b><br>
-<strong>Prop: This text is strong</strong>
-~~~
-q
-
-
-[here](#something)
 
 ```julia:showπ
 # This block causes an error as follow
 # // `\show{showπ}`: could not find the relevant output file. //
 @show π
 ```
-
-```julia:showπ
-@show π
-```
-
-\show{showπ}
-
-@def goma = "日本語"
-@def azarasi = "きゅ"
-```julia:aaa_{{hash goma}}
-@show "azarasi"
-```
-
-\show{aaa_{{hash goma}}}

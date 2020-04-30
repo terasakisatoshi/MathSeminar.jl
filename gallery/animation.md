@@ -2,7 +2,7 @@
 @def hasmath = true
 @def hascode = true
 
-\chapter{Animation}
+\csschapter{Animation}
 
 - This example is taken from [Plots.jl Animations](https://docs.juliaplots.org/latest/animations/)
 
