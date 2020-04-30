@@ -68,7 +68,7 @@ For instance:
 \newcommand{\csstheorem}[2]{@@csstheorem !#1\\ !#2 @@}
 \newcommand{\cssexample}[2]{@@cssexample !#1\\ !#2 @@}
 \newcommand{\cssremark}[2]{@@cssremark !#1\\ !#2 @@}
-\newcommand{\proof}[1]{@@cssproof \ #1@@ \\ }
+\newcommand{\proof}[1]{@@cssproof \\ #1@@ \\ }
 
 <!-- label, title, statement-->
 <!-- TODO create julia block using its Julia function-->
