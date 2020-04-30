@@ -27,92 +27,79 @@ For instance:
 ----------------------------------------------------- -->
 \newcommand{\R}{\mathbb R}
 \newcommand{\Q}{\mathbb Q}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\N}{\mathbb N}
 
 <!-- Put a box around something and pass some css styling to the box
 (useful for images for instance) e.g. :
 \style{width:80%;}{![](path/to/img.png)} -->
 \newcommand{\style}[2]{~~~<div style="!#1;margin-left:auto;margin-right:auto;">~~~!#2~~~</div>~~~}
 
+<!-- define document counter enumerated by _css/theorem.css -->
+\newcommand{\csschapter}[1]{# #1 @@reset@@}
+\newcommand{\csssection}[1]{## #1 @@reset@@}
+\newcommand{\csssubsection}[1]{### #1}
+
+<!-- define document counter enumerated by utils.jl -->
+
 \newcommand{\chapter}[1]{
-  # #1
-  @@reset@@
+# #1
+\setlevel{chapter}
+\increment{}
+\setlevel{subsection}
+\resetcount{}
+@@reset@@
 }
-
 \newcommand{\section}[1]{
-  ## #1
-  @@reset@@
-}
+## #1
 
-\newcommand{\subsection}[1]{
-  ### #1
+\setlevel{section}
+\increment{}
+\setlevel{subsection}
+\resetcount{}
+@@reset@@
 }
+\newcommand{\subsection}[1]{### #1}
 
-\newcommand{\space}{$\ $}
-\newcommand{\definition}[2]{
-@@definition \space#1\
-#2
-@@
-}
-
-\newcommand{\prop}[2]{
-@@prop \space#1\
-#2
-@@
-}
-
-
-\newcommand{\lemma}[2]{
-@@lemma \space#1\
-#2
-@@
-}
-
-\newcommand{\theorem}[2]{
-@@theorem \space#1\
-#2
-@@
-}
-
-\newcommand{\proof}[1]{
-@@proof \\
-#1
-@@
-\\
-}
-
-\newcommand{\example}[2]{
-@@example \space#1\
-#2
-@@
-}
-
-\newcommand{\remark}[2]{
-@@remark \space#1\
-#2
-@@
-}
+<!-- numbered definition/prop/lemma/theorem/example/remark enumerated by CSS -->
+\newcommand{\cssdefinition}[2]{@@cssprop !#1\\ !#2 @@}
+\newcommand{\cssprop}[2]{@@cssprop !#1\\ !#2 @@}
+\newcommand{\csslemma}[2]{@@csslemma !#1\\ !#2 @@}
+\newcommand{\csstheorem}[2]{@@csstheorem !#1\\ !#2 @@}
+\newcommand{\cssexample}[2]{@@cssexample !#1\\ !#2 @@}
+\newcommand{\cssremark}[2]{@@cssremark !#1\\ !#2 @@}
+\newcommand{\proof}[1]{@@cssproof \ #1@@ \\ }
 
 <!-- label, title, statement-->
 <!-- TODO create julia block using its Julia function-->
-\newcommand{\mycounter}[3]{
-```julia:!#1
+\newcommand{\theoremcounter}[4]{
+```julia:!#2
 # hideall
 Utils.increment()
 thmnum = Utils.getnum()
-Utils.labelthm("!#1")
+Utils.record_theorem_number("!#2")
+
+name = "!#1"
 
 print(
-"@@prop" *
+"@@$(name)" *
 "~~~<b>$(thmnum):</b>~~~" *
-"\\label{!#1}" *
+"\\label{!#2}" *
 raw"""
-!#2\
-!#3
+#3\
+!#4
 @@
 """)
 ```
-\textoutput{!#1}
+\textoutput{!#2}
 }
+
+\newcommand{\definition}[3]{\theoremcounter{definition}{#1}{#2}{#3}}
+\newcommand{\lemma}[3]{\theoremcounter{lemma}{#1}{#2}{#3}}
+\newcommand{\prop}[3]{\theoremcounter{prop}{#1}{#2}{#3}}
+\newcommand{\theorem}[3]{\theoremcounter{theorem}{#1}{#2}{#3}}
+\newcommand{\example}[3]{\theoremcounter{example}{#1}{#2}{#3}}
+\newcommand{\remark}[3]{\theoremcounter{remark}{#1}{#2}{#3}}
 
 \newcommand{\pycode}[2]{
 ```julia:!#1
@@ -173,5 +160,3 @@ run(`$exefile`)
 \codeoutput{!#1}
 
 }
-
-

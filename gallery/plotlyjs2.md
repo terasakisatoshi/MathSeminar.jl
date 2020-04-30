@@ -3,7 +3,7 @@
 @def hascode = true
 @def hasplotly = true
 
-\chapter{PlotlyJS の例}
+\csschapter{PlotlyJS の例}
 
 
 ```julia:plotly3d
