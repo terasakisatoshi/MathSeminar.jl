@@ -70,8 +70,7 @@ For instance:
 \newcommand{\cssremark}[2]{@@cssremark !#1\\ !#2 @@}
 \newcommand{\proof}[1]{@@cssproof \\ #1@@ \\ }
 
-<!-- label, title, statement-->
-<!-- TODO create julia block using its Julia function-->
+<!-- ame, label, title, statement-->
 \newcommand{\theoremcounter}[4]{
 ```julia:!#2
 # hideall

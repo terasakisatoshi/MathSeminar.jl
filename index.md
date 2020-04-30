@@ -47,6 +47,7 @@ versioninfo()
 公式ドキュメントは https://franklinjl.org/ を参照せよ. なお，公式ドキュメントも Franklin.jl で作成されており, https://github.com/tlienart/franklindocs にてソースが公開されている.
 }
 
+
 \cssprop{(特徴)}{
 Franklin.jl では次の機能を持っている
 - マークダウンで記述することができる.
