@@ -12,7 +12,8 @@
   <link href="/MathSeminar.jl/css/vela.css" rel="stylesheet">
   <script src="/MathSeminar.jl/libs/vela/jquery.min.js"></script>
   <!-- my theorem counter -->
-  <link rel="stylesheet" href="/MathSeminar.jl/css/theorem.css">
+  <link rel="stylesheet" href="/MathSeminar.jl/css/css_theorem.css">
+  <link rel="stylesheet" href="/MathSeminar.jl/css/maththeorem.css">
 
    <title>PlotlyJS Example1</title>  
   <!-- PLOTLY -->
@@ -39,6 +40,8 @@
             <li><a href="/MathSeminar.jl/programming/literatejl">Literate.jl</a></li>
             <li><a href="/MathSeminar.jl/programming/sympy">SymPy.jl</a></li>
             <li><a href="/MathSeminar.jl/programming/franklin">Franklin.jl</a></li>
+            <li><a href="/MathSeminar.jl/programming/weave">Weave.jl</a></li>
+            <li><a href="/MathSeminar.jl/programming/theoremcounter">Theorem Counter</a></li>
           </ul>
         </li>
         <li><a href="" class="has-arrow">Slide Show</a>
@@ -57,7 +60,7 @@
         </li>
         <li><a href="" class="has-arrow">Topics in Mathematics</a>
           <ul>
-            <li><a href="mathematics/linearalgebra/chapter0/">Linear Algebra</a></li>
+            <li><a href="mathematics/linearalgebra/chapter0">Linear Algebra</a></li>
           </ul>
         </li>
       </ul>
@@ -75,7 +78,7 @@
 
 
 <!-- Content appended here -->
-<div class="franklin-content"><h1 id="offline-generated_plot"><a href="#offline-generated_plot">Offline-generated plot</a></h1>    <div class="reset"></div>
+<div class="franklin-content"><h1 id="offline-generated_plot_div_classreset"><a href="#offline-generated_plot_div_classreset">Offline-generated plot <div class="reset"></div></a></h1>
 <p>Assuming you already have the Plotly code for some plot, displaying  the  result on a page with Franklin is now pretty straightforward. Start by adding</p>
 <pre><code class="language-julia">@def hasplotly = true</code></pre>
 <p>so that the JS library  will be  loaded then somewhere appropriate add:</p>
@@ -112,11 +115,11 @@ z =  [10     10.625  12.5  15.625  20
 data   = contour(; z=z)
 layout = Layout(; title="Basic Contour Plot")
 plt    = plot(data, layout)</code></pre> 
-<div id="fdpawb" style="width:600px;height:350px"></div>
+<div id="fdpjzw" style="width:600px;height:350px"></div>
 
 <script>
 	var fig = {"layout":{"margin":{"l":50,"b":50,"r":50,"t":60},"title":"Basic Contour Plot"},"data":[{"type":"contour","z":[[10.0,5.625,2.5,0.625,0.0],[10.625,6.25,3.125,1.25,0.625],[12.5,8.125,5.0,3.125,2.5],[15.625,11.25,8.125,6.25,5.625],[20.0,15.625,12.5,10.625,10.0]]}]};
-	CONTAINER = document.getElementById('fdpawb');
+	CONTAINER = document.getElementById('fdpjzw');
 	Plotly.newPlot(CONTAINER, fig.data, fig.layout)
 </script>
 <div class="page-foot">

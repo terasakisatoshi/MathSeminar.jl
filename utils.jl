@@ -4,8 +4,7 @@ mutable struct Theorem
     chapter::Int
     section::Int
     subsection::Int
-    Theorem()=new(1,0,0)
-    Theorem(chapter::Int,section::Int,subsection)=new(chapter,section,subsection)
+    Theorem()=new(0,0,0)
 end
 
 mutable struct State 
@@ -32,7 +31,7 @@ function lx_setlevel(com, _)
     return ""
 end
 
-function labelthm(label)
+function record_theorem_number(label)
     global state
     state.label2thm[label] = deepcopy(state.thm)
 end
@@ -46,6 +45,27 @@ function increment()
     # update
     state.thm = t
 end
+
+function lx_increment(com, _)
+    increment()
+    return ""
+end
+
+function resetcount()
+    global state
+    t = state.thm
+    if state.level == :chapter && (t.chapter = 0) end
+    if state.level == :section && (t.section = 0) end
+    if state.level == :subsection && (t.subsection = 0) end
+    # update
+    state.thm = t
+end
+
+function lx_resetcount(com, _)
+    resetcount()
+    return ""
+end
+
 
 getnum(t::Theorem)="$(t.chapter).$(t.section).$(t.subsection)"
 
@@ -75,3 +95,4 @@ function hfun_hash(vname) # vname is a vector of string here
     label = locvar(vname[1])
     hash(label)
 end
+

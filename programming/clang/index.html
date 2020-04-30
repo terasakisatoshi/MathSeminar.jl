@@ -3,8 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-   <link rel="stylesheet" href="/MathSeminar.jl/libs/katex/katex.min.css">
-   
+  
    <link rel="stylesheet" href="/MathSeminar.jl/libs/highlight/github.min.css">
    
 
@@ -12,7 +11,8 @@
   <link href="/MathSeminar.jl/css/vela.css" rel="stylesheet">
   <script src="/MathSeminar.jl/libs/vela/jquery.min.js"></script>
   <!-- my theorem counter -->
-  <link rel="stylesheet" href="/MathSeminar.jl/css/theorem.css">
+  <link rel="stylesheet" href="/MathSeminar.jl/css/css_theorem.css">
+  <link rel="stylesheet" href="/MathSeminar.jl/css/maththeorem.css">
 
    <title>C言語コードの挿入</title>  
   <!-- PLOTLY -->
@@ -39,6 +39,8 @@
             <li><a href="/MathSeminar.jl/programming/literatejl">Literate.jl</a></li>
             <li><a href="/MathSeminar.jl/programming/sympy">SymPy.jl</a></li>
             <li><a href="/MathSeminar.jl/programming/franklin">Franklin.jl</a></li>
+            <li><a href="/MathSeminar.jl/programming/weave">Weave.jl</a></li>
+            <li><a href="/MathSeminar.jl/programming/theoremcounter">Theorem Counter</a></li>
           </ul>
         </li>
         <li><a href="" class="has-arrow">Slide Show</a>
@@ -57,7 +59,7 @@
         </li>
         <li><a href="" class="has-arrow">Topics in Mathematics</a>
           <ul>
-            <li><a href="mathematics/linearalgebra/chapter0/">Linear Algebra</a></li>
+            <li><a href="mathematics/linearalgebra/chapter0">Linear Algebra</a></li>
           </ul>
         </li>
       </ul>
@@ -75,8 +77,8 @@
 
 
 <!-- Content appended here -->
-<div class="franklin-content"><h1 id="c_のコードの実行結果を表示"><a href="#c_のコードの実行結果を表示">C のコードの実行結果を表示</a></h1>    <div class="reset"></div>
-<div class="prop"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext> </mtext></mrow><annotation encoding="application/x-tex">\ </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0em;vertical-align:0em;"></span><span class="mspace"> </span></span></span></span> &#40;ソースコードの表示&#41;<br /> つぎのように C のコードを貼り付けることができる.</div>
+<div class="franklin-content"><h1 id="c_のコードの実行結果を表示_div_classreset"><a href="#c_のコードの実行結果を表示_div_classreset">C のコードの実行結果を表示 <div class="reset"></div></a></h1>
+<div class="cssprop">&#40;ソースコードの表示&#41;<br/> つぎのように C のコードを貼り付けることができる.</div>
 
 <pre><code class="language-c">#include &lt;stdio.h&gt;
 int main&#40;&#41;&#123;
@@ -107,11 +109,6 @@ int main&#40;&#41;&#123;
   </main> <!-- end of id=main -->
   <script src="/MathSeminar.jl/libs/vela/metisMenu.min.js"></script>
   <script src="/MathSeminar.jl/libs/vela/slideout.min.js"></script>
-  
-    
-
-
-
   
   
     <script src="/MathSeminar.jl/libs/highlight/highlight.pack.js"></script>

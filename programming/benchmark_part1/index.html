@@ -12,7 +12,8 @@
   <link href="/MathSeminar.jl/css/vela.css" rel="stylesheet">
   <script src="/MathSeminar.jl/libs/vela/jquery.min.js"></script>
   <!-- my theorem counter -->
-  <link rel="stylesheet" href="/MathSeminar.jl/css/theorem.css">
+  <link rel="stylesheet" href="/MathSeminar.jl/css/css_theorem.css">
+  <link rel="stylesheet" href="/MathSeminar.jl/css/maththeorem.css">
 
    <title>How fast is Julia language?</title>  
   <!-- PLOTLY -->
@@ -39,6 +40,8 @@
             <li><a href="/MathSeminar.jl/programming/literatejl">Literate.jl</a></li>
             <li><a href="/MathSeminar.jl/programming/sympy">SymPy.jl</a></li>
             <li><a href="/MathSeminar.jl/programming/franklin">Franklin.jl</a></li>
+            <li><a href="/MathSeminar.jl/programming/weave">Weave.jl</a></li>
+            <li><a href="/MathSeminar.jl/programming/theoremcounter">Theorem Counter</a></li>
           </ul>
         </li>
         <li><a href="" class="has-arrow">Slide Show</a>
@@ -57,7 +60,7 @@
         </li>
         <li><a href="" class="has-arrow">Topics in Mathematics</a>
           <ul>
-            <li><a href="mathematics/linearalgebra/chapter0/">Linear Algebra</a></li>
+            <li><a href="mathematics/linearalgebra/chapter0">Linear Algebra</a></li>
           </ul>
         </li>
       </ul>
@@ -75,12 +78,12 @@
 
 
 <!-- Content appended here -->
-<div class="franklin-content"><h1 id="is_julia_fast"><a href="#is_julia_fast">Is Julia fast ?</a></h1>    <div class="reset"></div>
+<div class="franklin-content"><h1 id="is_julia_fast_div_classreset"><a href="#is_julia_fast_div_classreset">Is Julia fast ? <div class="reset"></div></a></h1>
 <ul>
 <li><p>Julia は LLVM による JIT コンパイルにより高速に動作し C 言語と同等のスピードを出すことができます。ここではベンチマークとしてマンデルブロ集合の生成する計算を例にJulia がどれくらいのパフォーマンスを出すのかを調べてみましょう。</p>
 </li>
 </ul>
-<h2 id="c_のコードを書く"><a href="#c_のコードを書く">C のコードを書く</a></h2>    <div class="reset"></div>
+<h2 id="c_のコードを書く_div_classreset"><a href="#c_のコードを書く_div_classreset">C のコードを書く <div class="reset"></div></a></h2>
 <ul>
 <li><p>C のコードを書いてみました.</p>
 </li>
@@ -149,7 +152,7 @@ int main&#40;&#41;
     fclose&#40;fp&#41;;
     return 0;
 &#125;</code></pre>
-<pre><code class="plaintext">Elapsed time 0.149086 [sec]
+<pre><code class="plaintext">Elapsed time 0.143779 [sec]
 </code></pre>
 <p>描画は下記のとおりです。</p>
 <pre><code class="language-julia">using DelimitedFiles
@@ -158,7 +161,7 @@ img = readdlm("/tmp/benchC.txt",',',Int)
 M,N = img |> size
 p=heatmap(1:N, 1:M, img, aspect_ratio=1, size=(400,400))</code></pre>
 <img src="/MathSeminar.jl/assets/programming/benchmark_part1/code/output/mandC.png" alt="">
-<h2 id="julia_のコード"><a href="#julia_のコード">Julia のコード</a></h2>    <div class="reset"></div>
+<h2 id="julia_のコード_div_classreset"><a href="#julia_のコード_div_classreset">Julia のコード <div class="reset"></div></a></h2>
 <p>最後に Julia のコードを見ていきましょう</p>
 <pre><code class="language-julia">using DelimitedFiles
 
@@ -218,8 +221,8 @@ main()
 
 using BenchmarkTools
 @btime mand(1250, 1250);</code></pre>
-<pre><code class="plaintext">t - s = 0.2110610008239746
-  193.063 ms (2 allocations: 1.49 MiB)
+<pre><code class="plaintext">t - s = 0.1390838623046875
+  137.694 ms (2 allocations: 1.49 MiB)
 </code></pre>
 <pre><code class="language-julia">Refpath="/tmp/benchC.txt"
 Tarpath="/tmp/benchJ.txt"

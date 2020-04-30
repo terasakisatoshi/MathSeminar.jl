@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="/MathSeminar.jl/libs/katex/katex.min.css">
+   
+   <link rel="stylesheet" href="/MathSeminar.jl/libs/highlight/github.min.css">
+   
+
+  <link href="/MathSeminar.jl/css/franklin.css" rel="stylesheet">
+  <link href="/MathSeminar.jl/css/vela.css" rel="stylesheet">
+  <script src="/MathSeminar.jl/libs/vela/jquery.min.js"></script>
+  <!-- my theorem counter -->
+  <link rel="stylesheet" href="/MathSeminar.jl/css/css_theorem.css">
+  <link rel="stylesheet" href="/MathSeminar.jl/css/maththeorem.css">
+
+   <title>Theorem Counter</title>  
+  <!-- PLOTLY -->
+  
+
+  <title>Franklin Example | Vela</title>
+</head>
+<body>
+  <div class="main-nav" id="menu">
+    <div class="flex-container">
+      <span class="sidebar-brand">
+        <h3 style='font-size: 25px'>MathSeminar.jl</h3>
+      </span>
+    </div> <!-- class="flex-container" -->
+
+    <nav class="sidebar-nav">
+      <ul class="metismenu"  id="metismenu" >
+        <li><a href="/MathSeminar.jl/index.html">Home</a></li>
+        <li><a href="" class="has-arrow">Programming</a>
+          <ul>
+            <li><a href="/MathSeminar.jl/programming/clang">C</a></li>
+            <li><a href="/MathSeminar.jl/programming/benchmark_part1"> Julia benchmark Part1 </a></li>
+            <li><a href="/MathSeminar.jl/programming/benchmark_part2"> Julia benchmark Part2 </a></li>
+            <li><a href="/MathSeminar.jl/programming/literatejl">Literate.jl</a></li>
+            <li><a href="/MathSeminar.jl/programming/sympy">SymPy.jl</a></li>
+            <li><a href="/MathSeminar.jl/programming/franklin">Franklin.jl</a></li>
+            <li><a href="/MathSeminar.jl/programming/weave">Weave.jl</a></li>
+            <li><a href="/MathSeminar.jl/programming/theoremcounter">Theorem Counter</a></li>
+          </ul>
+        </li>
+        <li><a href="" class="has-arrow">Slide Show</a>
+          <ul>
+            <li><a href="/MathSeminar.jl/remark/build/">Remark.jl</a>
+          </ul>
+        </li>
+        <li><a href="" class="has-arrow">Gallery</a>
+          <ul>
+            <li><a href="/MathSeminar.jl/gallery/animation/">GR animation</a></li>
+            <li><a href="/MathSeminar.jl/gallery/curve/">GR curve</a></li>
+            <li><a href="/MathSeminar.jl/gallery/plotlyjs1/">PlotlyJS Part1</a></li>
+            <li><a href="/MathSeminar.jl/gallery/plotlyjs2/">PlotlyJS Part2</a></li>
+            <li><a href="/MathSeminar.jl/gallery/plotlyjs3/">PlotlyJS Part3</a></li>
+          </ul>
+        </li>
+        <li><a href="" class="has-arrow">Topics in Mathematics</a>
+          <ul>
+            <li><a href="mathematics/linearalgebra/chapter0">Linear Algebra</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div> <!-- main nav menu -->
+
+  <main id="panel">
+    <div class="toggle-button hamburger hamburger--spin">
+      <div class="hamburger-box">
+        <div class="hamburger-inner"></div>
+      </div>
+    </div>
+    <h1 class="page title">Theorem Counter</h1>
+    <hr>
+
+
+<!-- Content appended here -->
+<div class="franklin-content"><h1 id="theorem_counter"><a href="#theorem_counter">Theorem Counter</a></h1>      <div class="reset"></div>
+<ul>
+<li><p>I would like to implement counter e.g. Numbered theorems, definitions, corollaries and lemmas like <a href="https://www.overleaf.com/learn/latex/theorems_and_proofs">Overleaf sample</a></p>
+</li>
+</ul>
+<pre><code class="language-plaintext">\begin{theorem}
+Let $f$ be a function whose derivative exists in every point, then $f$ is
+a continuous function.
+\end{theorem}</code></pre>
+
+ <div class="prop"><b>1.0.1:</b><a id="label1"></a> 主張名<br />ぶんすうのけいさんをしたい <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mn>1</mn><mn>2</mn></mfrac></mrow><annotation encoding="application/x-tex">\frac{1}{2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.190108em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.845108em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span> の計算は次のようにして <span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mn>1</mn><mn>3</mn></mfrac><mo>&lt;</mo><mo>&gt;</mo></mrow><annotation encoding="application/x-tex">
+\frac{1}{3} &lt;&gt;
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:2.00744em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.32144em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">3</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span></span><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mrel">&gt;</span></span></span></span></span> ときれいにかける&lt;&gt;.</div>
+ <div class="theorem"><b>1.0.2:</b><a id="label2"></a> <br />ぶんすうのけいさんをしたい <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mn>1</mn><mn>2</mn></mfrac></mrow><annotation encoding="application/x-tex">\frac{1}{2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.190108em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.845108em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span> の計算は次のようにして <span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mn>1</mn><mn>3</mn></mfrac><mo>&lt;</mo><mo>&gt;</mo></mrow><annotation encoding="application/x-tex">
+\frac{1}{3} &lt;&gt;
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:2.00744em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.32144em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">3</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span></span><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mrel">&gt;</span></span></span></span></span> ときれいにかける&lt;&gt;.</div>
+<h2 id="section"><a href="#section">Section</a></h2>
+    <div class="reset"></div>
+ <div class="lemma"><b>1.1.1:</b><a id="label3"></a> <br />ぶんすうのけいさんをしたい <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mn>1</mn><mn>2</mn></mfrac></mrow><annotation encoding="application/x-tex">\frac{1}{2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.190108em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.845108em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span> の計算は次のようにして <span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mn>1</mn><mn>3</mn></mfrac><mo>&lt;</mo><mo>&gt;</mo></mrow><annotation encoding="application/x-tex">
+\frac{1}{3} &lt;&gt;
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:2.00744em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.32144em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">3</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span></span><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mrel">&gt;</span></span></span></span></span> ときれいにかける&lt;&gt;.</div>
+<a href="#label1">1.0.1</a> <br /> <a href="#label2">1.0.2</a> <br /> <a href="#label3">1.1.1</a>
+<h3 id="subsection"><a href="#subsection">SubSection</a></h3>
+ <div class="lemma"><b>1.1.2:</b><a id="label4"></a> <br />ぶんすうのけいさんをしたい <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mn>1</mn><mn>2</mn></mfrac></mrow><annotation encoding="application/x-tex">\frac{1}{2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.190108em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.845108em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span> の計算は次のようにして <span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mn>1</mn><mn>3</mn></mfrac><mo>&lt;</mo><mo>&gt;</mo></mrow><annotation encoding="application/x-tex">
+\frac{1}{3} &lt;&gt;
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:2.00744em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.32144em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">3</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span></span><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mrel">&gt;</span></span></span></span></span> ときれいにかける&lt;&gt;.</div>
+<div class="lemma"></div><div class="page-foot">
+  <div class="copyright">
+    &copy; SatoshiTerasaki. Last modified: 2020年4月30日 木曜日. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
+  </div>
+</div>
+</div><!-- CONTENT ENDS HERE -->
+  </main> <!-- end of id=main -->
+  <script src="/MathSeminar.jl/libs/vela/metisMenu.min.js"></script>
+  <script src="/MathSeminar.jl/libs/vela/slideout.min.js"></script>
+  
+    
+
+
+
+  
+  
+    <script src="/MathSeminar.jl/libs/highlight/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();hljs.configure({tabReplace: '    '});</script>
+
+  
+</body>
+</html>
