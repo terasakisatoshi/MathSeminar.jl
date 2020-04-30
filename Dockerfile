@@ -50,7 +50,7 @@ end\n\
 
 RUN julia -E 'using Pkg; \
 Pkg.add(["OhMyREPL", "Revise"]); \
-Pkg.add(["Images", "Plots", "GR", "PyCall"]); \
+Pkg.add(["Images", "DifferentialEquations", "Plots", "GR", "PyCall"]); \
 Pkg.add("PackageCompiler"); \
 Pkg.add(["Documenter", "Literate", "Weave", "Franklin", "NodeJS", "Remark"]); \
 Pkg.add(["WebIO", "Plotly", "PlotlyJS", "ORCA"]); \
@@ -61,7 +61,7 @@ RUN mkdir /statements
 COPY .statements/franklin.jl /statements/franklin.jl
 RUN julia -e '\
 using PackageCompiler; \
-PackageCompiler.create_sysimage([:Plots], precompile_statements_file="/statements/franklin.jl", replace_default=true); \
+PackageCompiler.create_sysimage([:Revise, :OhMyREPL, :DifferentialEquations, :Plots, :PyCall], precompile_statements_file="/statements/franklin.jl", replace_default=true); \
 '
 
 # set "/work" as default project directory 
