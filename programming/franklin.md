@@ -1,17 +1,16 @@
-@def title = "Franklin SandBox"
-@def reeval = true
+@def title = "Sand box"
+
+@def hasmath = true
+@def hascode = true
 
 \toc <!-- table of contents -->
 
 
-```julia:localstate
-chapter=1
-section=1
-subsection=1
+```julia:mystate
+Utils.init() #hide
 ```
 
-
-# This is some
+# Franklin Sand Box
 
 \label{something}
 
@@ -59,80 +58,25 @@ using Franklin
 
 \output{some}
 
-```julia:sy
-#hideall
-println(raw"""
-\example{some}{ごまちゃんはかわいい$\frac{1}{3}$}
-"""
-)
-```
-
-\newcommand{\myexample}[2]{
-```julia:!#1
-#hideall
-print(raw"""
-**Example**\
-!#2
-""")
-```
-\textoutput{!#1}
-}
-
-\newcommand{\mytheorem}[2]{
-```julia:!#1
-#hideall
-print(raw"""
-@@theorem
-#1\
-!#2
-@@
-""")
-```
-\textoutput{!#1}
-}
-
 
 This is **Example** **_Some_**
 
-\myexample{myex}{
-ぶんすうのけいさんをしたい $\frac{1}{4}$ の計算は次のようにして
-$$
-\frac{1}{5}
-$$
-ときれいにかける.
-}
-
-
-\mytheorem{goma}{
-ぶんすうのけいさんをしたい $\frac{1}{5}$ の計算は次のようにして
-$$
-\frac{1}{5}
-$$
-ときれいにかける.
-}
 
 I just love **bold text**. \
 I just love __bold text__.
-
-```julia:currentstatus
-@show chapter
-chapter += 1
-@show chapter
-@show section
-@show subsection
-```
-
-\show{currentstatus}
 
 <!-- label, title, statement-->
 <!-- TODO create julia block using its Julia function-->
 \newcommand{\mycounter}[3]{
 ```julia:!#1
 # hideall
-v="$(chapter).$(section).$(subsection)"
+Utils.increment()
+thmnum = Utils.getnum()
+Utils.labelthm("!#1")
+
 print(
 "@@prop" *
-"~~~<b>$(v):</b>~~~" *
+"~~~<b>$(thmnum):</b>~~~" *
 "\\label{!#1}" *
 raw"""
 !#2\
@@ -143,7 +87,7 @@ raw"""
 \textoutput{!#1}
 }
 
-\mycounter{kyu}{主張名}{
+\mycounter{label1}{主張名}{
 ぶんすうのけいさんをしたい $\frac{1}{2}$ の計算は次のようにして
 $$
 \frac{1}{3} <>
@@ -151,7 +95,7 @@ $$
 ときれいにかける<>.
 }
 
-\mycounter{label}{}{
+\mycounter{label2}{}{
 ぶんすうのけいさんをしたい $\frac{1}{2}$ の計算は次のようにして
 $$
 \frac{1}{3} <>
@@ -159,14 +103,33 @@ $$
 ときれいにかける<>.
 }
 
+\setlevel{section}
 
-[link to it](#kyu)
+\mycounter{label3}{}{
+ぶんすうのけいさんをしたい $\frac{1}{2}$ の計算は次のようにして
+$$
+\frac{1}{3} <>
+$$
+ときれいにかける<>.
+}
+
+\ref{label1} \
+
+\ref{label2} \
+
+\ref{label3}
 
 ```julia:br
 println("<b>aaa</b>")
 ```
 
 \textoutput{br}
+
+```julia:mydebug
+@show Utils.state
+```
+
+\show{mydebug}
 
 p
 ~~~
@@ -175,14 +138,20 @@ p
 ~~~
 q
 
-\newcommand{\ref}[1]{
-```julia:!#1_ref
-#hideall
-v="$(chapter).$(section).$(subsection)"
-print("[$(v)](#kyu)")
-```
-\textoutput{!#1_ref}
-}
 
-aaa \textoutput{sample} is
-\ref{kyu}
+[here](#something)
+
+```julia:showπ
+# This block causes an error as follow
+# // `\show{showπ}`: could not find the relevant output file. //
+@show π
+```
+
+
+
+
+```julia:showπ
+@show π
+```
+
+\show{showπ}
