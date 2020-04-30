@@ -5,7 +5,6 @@ mutable struct Theorem
     section::Int
     subsection::Int
     Theorem()=new(0,0,0)
-    Theorem(chapter::Int,section::Int,subsection)=new(chapter,section,subsection)
 end
 
 mutable struct State 
