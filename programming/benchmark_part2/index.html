@@ -125,10 +125,10 @@ main()
 
 using BenchmarkTools
 @btime mand(5000, 5000);</code></pre>
-<pre><code class="plaintext">t - s = 2.290724039077759
-  2.337 s (2 allocations: 23.84 MiB)
+<pre><code class="plaintext">t - s = 3.560476064682007
+  3.592 s (2 allocations: 23.84 MiB)
 </code></pre>
-<div class="cssremark">&#40;数値誤差について&#41;<br/> 点の位置をあらわす <code>&#40;4.0 / &#40;M - 1&#41; * &#40;j - 1&#41; - 2.0&#41;</code> は <code>range&#40;-2, 2, length&#40;N&#41;&#41;</code> と数学的に等価ですが，数値の誤差の関係で結果が若干異なることがあります．</div>
+<div class="cssremark">&#40;数値誤差について&#41; <br/> 点の位置をあらわす <code>&#40;4.0 / &#40;M - 1&#41; * &#40;j - 1&#41; - 2.0&#41;</code> は <code>range&#40;-2, 2, length&#40;N&#41;&#41;</code> と数学的に等価ですが，数値の誤差の関係で結果が若干異なることがあります．</div>
 <pre><code class="language-julia">N=10; @show [4.0*(i-1)/(N-1) - 2.0 for i in 1:N]</code></pre>
 <pre><code class="plaintext">[(4.0 * (i - 1)) / (N - 1) - 2.0 for i = 1:N] = [-2.0, -1.5555555555555556, -1.1111111111111112, -0.6666666666666667, -0.22222222222222232, 0.22222222222222232, 0.6666666666666665, 1.1111111111111112, 1.5555555555555554, 2.0]
 </code></pre>
@@ -182,8 +182,8 @@ main()
 
 using BenchmarkTools
 @btime mand(5000, 5000);</code></pre>
-<pre><code class="plaintext">t - s = 2.5936410427093506
-  2.729 s (2 allocations: 23.84 MiB)
+<pre><code class="plaintext">t - s = 3.703580856323242
+  3.686 s (2 allocations: 23.84 MiB)
 </code></pre>
 <pre><code class="language-julia">Refpath="/tmp/resultJ.txt"
 Tarpath="/tmp/resultJ1.txt"
@@ -233,8 +233,8 @@ main()
 
 using BenchmarkTools
 @btime mand(5000, 5000);</code></pre>
-<pre><code class="plaintext">t - s = 2.6090989112854004
-  2.574 s (4 allocations: 47.68 MiB)
+<pre><code class="plaintext">t - s = 3.7455079555511475
+  3.731 s (4 allocations: 47.68 MiB)
 </code></pre>
 <pre><code class="language-julia">Refpath="/tmp/resultJ1.txt"
 Tarpath="/tmp/resultJ2.txt"
@@ -290,8 +290,8 @@ main()
 
 using BenchmarkTools
 @btime mand(5000, 5000);</code></pre>
-<pre><code class="plaintext">t - s = 2.1352758407592773
-  1.925 s (15 allocations: 23.84 MiB)
+<pre><code class="plaintext">t - s = 3.0999069213867188
+  2.712 s (15 allocations: 23.84 MiB)
 </code></pre>
 <pre><code class="language-julia">Refpath="/tmp/resultJ1.txt"
 Tarpath="/tmp/resultJ3.txt"
@@ -307,7 +307,7 @@ savefig(p, joinpath(@OUTPUT, "mandJ3.png"))</code></pre>
 
 <img src="/MathSeminar.jl/assets/programming/benchmark_part2/code/output/mandJ3.png" alt=""><div class="page-foot">
   <div class="copyright">
-    &copy; SatoshiTerasaki. Last modified: 2020年4月30日 木曜日. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
+    &copy; SatoshiTerasaki. Last modified: 2020年5月1日 金曜日. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
   </div>
 </div>
 </div><!-- CONTENT ENDS HERE -->
