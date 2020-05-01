@@ -29,7 +29,7 @@ For instance:
 \newcommand{\Q}{\mathbb Q}
 \newcommand{\Z}{\mathbb Z}
 \newcommand{\N}{\mathbb N}
-
+\newcommand{\space}{ }
 <!-- Put a box around something and pass some css styling to the box
 (useful for images for instance) e.g. :
 \style{width:80%;}{![](path/to/img.png)} -->
@@ -82,29 +82,33 @@ For instance:
 \newcommand{\cssexample}[2]{\csstheoremcounter{cssexample}{#1}{#2}}
 \newcommand{\cssremark}[2]{\csstheoremcounter{cssremark}{#1}{#2}}
 
-<!-- ame, label, title, statement-->
+<!-- theorem_name, label, title, statement-->
 \newcommand{\theoremcounter}[4]{
-```julia:!#2
+```julia:tmptheoremcounter
 # hideall
 Utils.increment()
-thmnum = Utils.getnum()
 Utils.record_theorem_number("!#2")
+thmnum = Utils.getnum()
+label = Utils.generate_label("!#2")
+name = Utils.generate_name("!#3")
 
-name = "!#1"
+theorem_name = "!#1"
 
 print(
-"@@$(name)" *
-"~~~<b>$(thmnum):</b>~~~" *
 "\\label{!#2}" *
+"@@$(theorem_name)" *
+"~~~<b>$(thmnum)</b>~~~ $(name)~~~</br>~~~" *
+"\n" *
 raw"""
-#3\
-!#4
-@@
-""")
+!#4@@
+"""
+)
 ```
-\textoutput{!#2}
+\textoutput{tmptheoremcounter}
 }
 
+
+<!-- \command{label}{name}{statement} -->
 \newcommand{\definition}[3]{\theoremcounter{definition}{#1}{#2}{#3}}
 \newcommand{\lemma}[3]{\theoremcounter{lemma}{#1}{#2}{#3}}
 \newcommand{\prop}[3]{\theoremcounter{prop}{#1}{#2}{#3}}
