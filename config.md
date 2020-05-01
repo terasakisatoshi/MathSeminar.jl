@@ -62,13 +62,25 @@ For instance:
 \newcommand{\subsection}[1]{### #1}
 
 <!-- numbered definition/prop/lemma/theorem/example/remark enumerated by CSS -->
-\newcommand{\cssdefinition}[2]{@@cssprop !#1\\ !#2 @@}
-\newcommand{\cssprop}[2]{@@cssprop !#1\\ !#2 @@}
-\newcommand{\csslemma}[2]{@@csslemma !#1\\ !#2 @@}
-\newcommand{\csstheorem}[2]{@@csstheorem !#1\\ !#2 @@}
-\newcommand{\cssexample}[2]{@@cssexample !#1\\ !#2 @@}
-\newcommand{\cssremark}[2]{@@cssremark !#1\\ !#2 @@}
-\newcommand{\proof}[1]{@@cssproof \\ #1@@ \\ }
+
+\newcommand{\csstheoremcounter}[3]{
+@@!#1 !#2 \\
+!#3
+@@
+}
+
+\newcommand{\cssproof}[1]{
+@@cssproof
+!#1
+@@
+}
+
+\newcommand{\cssdefinition}[2]{\csstheoremcounter{cssdefinition}{#1}{#2}}
+\newcommand{\cssprop}[2]{\csstheoremcounter{cssprop}{#1}{#2}}
+\newcommand{\csslemma}[2]{\csstheoremcounter{csslemma}{#1}{#2}}
+\newcommand{\csstheorem}[2]{\csstheoremcounter{csstheorem}{#1}{#2}}
+\newcommand{\cssexample}[2]{\csstheoremcounter{cssexample}{#1}{#2}}
+\newcommand{\cssremark}[2]{\csstheoremcounter{cssremark}{#1}{#2}}
 
 <!-- ame, label, title, statement-->
 \newcommand{\theoremcounter}[4]{
@@ -99,6 +111,12 @@ raw"""
 \newcommand{\theorem}[3]{\theoremcounter{theorem}{#1}{#2}{#3}}
 \newcommand{\example}[3]{\theoremcounter{example}{#1}{#2}{#3}}
 \newcommand{\remark}[3]{\theoremcounter{remark}{#1}{#2}{#3}}
+\newcommand{\proof}[1]{
+@@proof
+!#1
+@@
+}
+
 
 \newcommand{\pycode}[2]{
 ```julia:!#1

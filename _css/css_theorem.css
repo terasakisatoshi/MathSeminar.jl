@@ -133,15 +133,15 @@ will output "Theorem 13" (1+2+10, the first `1` is initial value)
     font-style: normal;
 }
 
-.proof {
+.cssproof {
     display: block;
     margin: 12px 0;
     font-style: normal;
 }
-.proof:before {
+.cssproof:before {
     content: "Proof.";
 }
-.proof:after {
+.cssproof:after {
     content: "\25FC";
     float:right;
 }

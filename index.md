@@ -25,7 +25,7 @@ Last Modified: {{fd_mtime}}
 
 \csssection{Before reading}
 
-\cssremark{}{
+\cssremark{推奨ブラウザについて}{
 - Google Chrome からの閲覧を推奨します．(It is recommended to view it from Google Chrome.)
 - iPad などから Safari で閲覧する場合, 設定(ホーム画面の歯車アイコン) -> Safari -> デスクトップ用Webサイト まで進み「全てのWebサイト」を無効にします．(When using Safari from an iPad or other device, go to Settings (gear icon on the home screen) -> Safari -> Desktop Web Sites and disable "All Web Sites".)
 }

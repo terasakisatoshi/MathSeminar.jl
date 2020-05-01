@@ -98,3 +98,16 @@
     font-style: normal;
 }
 
+.proof {
+    display: block;
+    margin: 12px 0;
+    font-style: normal;
+}
+.proof:before {
+    content: "Proof.";
+}
+.proof:after {
+    content: "\25FC";
+    float:right;
+}
+
