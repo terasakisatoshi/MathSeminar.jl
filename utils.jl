@@ -36,6 +36,22 @@ function record_theorem_number(label)
     state.label2thm[label] = deepcopy(state.thm)
 end
 
+function generate_label(label)
+    if label != ""
+        return "\\label$(label)"
+    else
+        return ""
+    end
+end
+
+function generate_name(name)
+    if name != ""
+        return "($(name))"
+    else
+        return ""
+    end
+end
+
 function increment()
     global state
     t = state.thm
@@ -91,8 +107,13 @@ function lx_ref(com, _)
     ref(brace_content)
 end
 
-function hfun_hash(vname) # vname is a vector of string here
-    label = locvar(vname[1])
-    hash(label)
+function lx_juliatheorem(com, _)
+    global state
+    increment()
+    brace_content = Franklin.content(com.braces[1])
+    record_theorem_number(brace_content)
+    t = state.thm
+    "counter_$(t.chapter)_$(t.section)_$(t.subsection)"
 end
+
 
