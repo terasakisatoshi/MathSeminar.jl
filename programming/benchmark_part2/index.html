@@ -46,7 +46,8 @@
         </li>
         <li><a href="" class="has-arrow">Slide Show</a>
           <ul>
-            <li><a href="/MathSeminar.jl/remark/build/">Remark.jl</a>
+            <li><a href="/MathSeminar.jl/slideshow/tutorial/build/">Remark.jl</a>
+            <li><a href="/MathSeminar.jl/slideshow/juliatokai/build">JuliaTokai</a>
           </ul>
         </li>
         <li><a href="" class="has-arrow">Gallery</a>
@@ -125,8 +126,8 @@ main()
 
 using BenchmarkTools
 @btime mand(5000, 5000);</code></pre>
-<pre><code class="plaintext">t - s = 3.561621904373169
-  3.543 s (2 allocations: 23.84 MiB)
+<pre><code class="plaintext">t - s = 3.517948865890503
+  3.515 s (2 allocations: 23.84 MiB)
 </code></pre>
 <div class="cssremark">&#40;数値誤差について&#41; <br/> 点の位置をあらわす <code>&#40;4.0 / &#40;M - 1&#41; * &#40;j - 1&#41; - 2.0&#41;</code> は <code>range&#40;-2, 2, length&#40;N&#41;&#41;</code> と数学的に等価ですが，数値の誤差の関係で結果が若干異なることがあります．</div>
 <pre><code class="language-julia">N=10; @show [4.0*(i-1)/(N-1) - 2.0 for i in 1:N]</code></pre>
@@ -182,8 +183,8 @@ main()
 
 using BenchmarkTools
 @btime mand(5000, 5000);</code></pre>
-<pre><code class="plaintext">t - s = 3.6998820304870605
-  3.732 s (2 allocations: 23.84 MiB)
+<pre><code class="plaintext">t - s = 3.5792601108551025
+  3.526 s (2 allocations: 23.84 MiB)
 </code></pre>
 <pre><code class="language-julia">Refpath="/tmp/resultJ.txt"
 Tarpath="/tmp/resultJ1.txt"
@@ -233,8 +234,8 @@ main()
 
 using BenchmarkTools
 @btime mand(5000, 5000);</code></pre>
-<pre><code class="plaintext">t - s = 3.7486038208007812
-  3.719 s (4 allocations: 47.68 MiB)
+<pre><code class="plaintext">t - s = 3.665821075439453
+  3.610 s (4 allocations: 47.68 MiB)
 </code></pre>
 <pre><code class="language-julia">Refpath="/tmp/resultJ1.txt"
 Tarpath="/tmp/resultJ2.txt"
@@ -290,8 +291,8 @@ main()
 
 using BenchmarkTools
 @btime mand(5000, 5000);</code></pre>
-<pre><code class="plaintext">t - s = 3.191627025604248
-  2.702 s (15 allocations: 23.84 MiB)
+<pre><code class="plaintext">t - s = 2.96645188331604
+  2.632 s (15 allocations: 23.84 MiB)
 </code></pre>
 <pre><code class="language-julia">Refpath="/tmp/resultJ1.txt"
 Tarpath="/tmp/resultJ3.txt"

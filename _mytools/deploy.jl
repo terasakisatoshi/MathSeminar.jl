@@ -13,5 +13,5 @@ run(`$(npm_cmd()) install highlight.js`)
 Pkg.activate(".")
 Pkg.instantiate()
 
-Remark.slideshow("./slideshow/example.jl", "./slideshow")
+Remark.slideshow("./slideshow/tutorial/example.jl", "./slideshow/tutorial")
 optimize(minify=false, prepath="MathSeminar.jl")
