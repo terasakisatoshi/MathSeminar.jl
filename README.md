@@ -2,7 +2,7 @@
 
 # MathSeminar.jl
 
-- MyHomePage https://terasakisatoshi.github.io/MathSeminar.jl/ that utilizes [Franklin.jl](https://franklinjl.org/) (>=v0.7)
+- My website https://terasakisatoshi.github.io/MathSeminar.jl/ that utilizes [Franklin.jl](https://franklinjl.org/) (>=v0.7)
 
 # How to build my page
 
