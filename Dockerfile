@@ -50,7 +50,9 @@ end\n\
 
 RUN julia -E 'using Pkg; \
 Pkg.add(["OhMyREPL", "Revise"]); \
-Pkg.add(["Images", "SpecialFunctions", "DifferentialEquations", "Plots", "GR", "PyCall"]); \
+Pkg.add(["Images", "ImageMagick", "ImageIO"]); \
+Pkg.add(["SpecialFunctions", "DifferentialEquations"]); \
+Pkg.add(["Plots", "GR", "PyCall","PyPlot", "SymPy"]); \
 Pkg.add("PackageCompiler"); \
 Pkg.add(["Documenter", "Literate", "Weave", "Franklin", "NodeJS", "Remark"]); \
 Pkg.add(["WebIO", "Plotly", "PlotlyJS", "ORCA"]); \
