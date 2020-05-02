@@ -86,7 +86,7 @@
 
 # ---
 
-# # Why Franklin.jl ? (Part 3)
+# ## Why Franklin.jl ? (Part 3)
 
 # - Documenter.jl は？
 #   - ちょっと物足りない. どちらかというとアレは Julia パッケージ, API仕様のドキュメントを管理するのがメイン.
@@ -101,7 +101,7 @@
 
 # ---
 
-# # Why Franklin.jl ? (Part 4)
+# ## Why Franklin.jl ? (Part 4)
 # - そもそも $\LaTeX$ つかえば？
 #   - 可換図式とかマニアックな機能を使う必要がなさそう
 #     - Visualization は Julia 側でやれば良い.
@@ -118,7 +118,7 @@
 
 # ---
 
-# # Why Franklin.jl ? (Part 5)
+# ## Why Franklin.jl ? (Part 5)
 # - プログラミングが得意な人に数学という高級概念をの記述に耐えうる執筆基盤の発展を促進したい
 #   - 便利な執筆環境は一般的なソフトウェアエンジニア用のためになっている. 
 #   - `MathJax`, `KaTeX` の登場でインターネット上で”やっと”発信できるようになっている.
