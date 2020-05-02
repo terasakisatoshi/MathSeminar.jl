@@ -9,7 +9,7 @@ The website_* must be defined for the RSS to work
 @def hasplotly = false
 @def author = "SatoshiTerasaki"
 @def prepath = "MathSeminar.jl"
-@def ignore = ["slideshow/src/", ".statements/"]
+@def ignore = ["slideshow/tutorial/src/", "slideshow/juliatokai/src/", ".statements/"]
 
 <!-- Thank you Lucas-->
 <!-- https://github.com/tlienart/Franklin.jl/blob/e0fe6b99bef5a4a054d793a410e3e83fb9876250/test/utils/misc.jl#L129-L190 -->
