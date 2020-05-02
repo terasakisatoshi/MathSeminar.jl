@@ -134,6 +134,6 @@
 # class: center, middle
 # # Why Franklin.jl ? (Part 6)
 # ## [In short, because I'm greedy.](https://julialang.org/blog/2012/02/why-we-created-julia/)
-# So, if you are also a greedy, unreasonable, demanding programmer, I want you to give it a try.
+# So, if you are also a greedy, unreasonable, demanding programmer/reseacher, I want you to give it a try.
 #
 # <img src="https://camo.githubusercontent.com/85517e47b497596f20eae9a49897d4de938976bd/68747470733a2f2f6672616e6b6c696e6a6c2e6f72672f6173736574732f696e6672612f6c6f676f46322e737667", height=300>
