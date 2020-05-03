@@ -126,8 +126,8 @@ main()
 
 using BenchmarkTools
 @btime mand(5000, 5000);</code></pre>
-<pre><code class="plaintext">t - s = 3.8409650325775146
-  3.823 s (2 allocations: 23.84 MiB)
+<pre><code class="plaintext">t - s = 2.4352638721466064
+  2.274 s (2 allocations: 23.84 MiB)
 </code></pre>
 <div class="cssremark">&#40;数値誤差について&#41; <br/> 点の位置をあらわす <code>&#40;4.0 / &#40;M - 1&#41; * &#40;j - 1&#41; - 2.0&#41;</code> は <code>range&#40;-2, 2, length&#40;N&#41;&#41;</code> と数学的に等価ですが，数値の誤差の関係で結果が若干異なることがあります．</div>
 <pre><code class="language-julia">N=10; @show [4.0*(i-1)/(N-1) - 2.0 for i in 1:N]</code></pre>
@@ -183,8 +183,8 @@ main()
 
 using BenchmarkTools
 @btime mand(5000, 5000);</code></pre>
-<pre><code class="plaintext">t - s = 3.9665322303771973
-  3.932 s (2 allocations: 23.84 MiB)
+<pre><code class="plaintext">t - s = 2.7948849201202393
+  2.803 s (2 allocations: 23.84 MiB)
 </code></pre>
 <pre><code class="language-julia">Refpath="/tmp/resultJ.txt"
 Tarpath="/tmp/resultJ1.txt"
@@ -234,8 +234,8 @@ main()
 
 using BenchmarkTools
 @btime mand(5000, 5000);</code></pre>
-<pre><code class="plaintext">t - s = 3.9932150840759277
-  3.992 s (4 allocations: 47.68 MiB)
+<pre><code class="plaintext">t - s = 3.2063441276550293
+  3.155 s (4 allocations: 47.68 MiB)
 </code></pre>
 <pre><code class="language-julia">Refpath="/tmp/resultJ1.txt"
 Tarpath="/tmp/resultJ2.txt"
@@ -291,8 +291,8 @@ main()
 
 using BenchmarkTools
 @btime mand(5000, 5000);</code></pre>
-<pre><code class="plaintext">t - s = 3.3260090351104736
-  2.879 s (15 allocations: 23.84 MiB)
+<pre><code class="plaintext">t - s = 2.548967123031616
+  2.226 s (15 allocations: 23.84 MiB)
 </code></pre>
 <pre><code class="language-julia">Refpath="/tmp/resultJ1.txt"
 Tarpath="/tmp/resultJ3.txt"
@@ -308,7 +308,7 @@ savefig(p, joinpath(@OUTPUT, "mandJ3.png"))</code></pre>
 
 <img src="/MathSeminar.jl/assets/programming/benchmark_part2/code/output/mandJ3.png" alt=""><div class="page-foot">
   <div class="copyright">
-    &copy; SatoshiTerasaki. Last modified: 2020年5月2日 土曜日. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
+    &copy; SatoshiTerasaki. Last modified: 2020年5月3日 日曜日. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
   </div>
 </div>
 </div><!-- CONTENT ENDS HERE -->
