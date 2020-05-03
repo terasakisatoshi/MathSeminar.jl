@@ -1,10 +1,16 @@
 
-/* increment theorem counter
+
+
+.increment{
+    counter-increment: theorem 1;
+}
+
+/* increment chapter counter
 
 ```
 ~~~
-<div class="increment count2">
-<div class="increment count10">
+<div class="incrementchapter count2">
+<div class="incrementchapter count10">
 ~~~
 
 @@theorem
@@ -15,17 +21,16 @@ This is theorem
 will output "Theorem 13" (1+2+10, the first `1` is initial value)
 
 */
-
-.increment{
+.incrementchapter{
     counter-increment: chapter 1;
 }
-.increment.count2{
+.incrementchapter.count2{
     counter-increment: chapter 2;
 }
-.increment.count5{
+.incrementchapter.count5{
     counter-increment: chapter 5;
 }
-.increment.count10{
+.incrementchapter.count10{
     counter-increment: chapter 10;
 }
 
