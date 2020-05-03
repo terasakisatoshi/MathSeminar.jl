@@ -1,7 +1,4 @@
 @def title = "Theorem Counter"
-@def hasmath = true
-@def hascode = true
-@def reeval = true
 
 \chapter{Theorem Counter}
 
