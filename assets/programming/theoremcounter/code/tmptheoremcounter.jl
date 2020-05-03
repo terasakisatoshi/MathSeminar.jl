@@ -11,7 +11,7 @@ theorem_name = "lemma"
 print(
 "\\label{}" *
 "@@$(theorem_name)" *
-"~~~<b>$(thmnum)</b>~~~ $(name)~~~</br>~~~" *
+"~~~<b>$(thmnum):</b>~~~ $(name)~~~</br>~~~" *
 "\n" *
 raw"""
 - 名無しのゴンベ

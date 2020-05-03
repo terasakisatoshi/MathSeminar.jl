@@ -11,7 +11,7 @@ theorem_name = "prop"
 print(
 "\\label{label1}" *
 "@@$(theorem_name)" *
-"~~~<b>$(thmnum)</b>~~~ $(name)~~~</br>~~~" *
+"~~~<b>$(thmnum):</b>~~~ $(name)~~~</br>~~~" *
 "\n" *
 raw"""
 ぶんすうのけいさんをしたい $\frac{1}{2}$ の計算は次のようにして

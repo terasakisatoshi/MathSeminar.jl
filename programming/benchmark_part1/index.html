@@ -62,6 +62,7 @@
         <li><a href="" class="has-arrow">Topics in Mathematics</a>
           <ul>
             <li><a href="mathematics/linearalgebra/chapter0">Linear Algebra</a></li>
+            <li><a href="mathematics/statistics/dice">Dice</a></li>
           </ul>
         </li>
       </ul>
@@ -153,7 +154,7 @@ int main&#40;&#41;
     fclose&#40;fp&#41;;
     return 0;
 &#125;</code></pre>
-<pre><code class="plaintext">Elapsed time 0.164819 [sec]
+<pre><code class="plaintext">Elapsed time 0.168303 [sec]
 </code></pre>
 <p>描画は下記のとおりです。</p>
 <pre><code class="language-julia">using DelimitedFiles
@@ -222,8 +223,8 @@ main()
 
 using BenchmarkTools
 @btime mand(1250, 1250);</code></pre>
-<pre><code class="plaintext">t - s = 0.18474984169006348
-  174.013 ms (2 allocations: 1.49 MiB)
+<pre><code class="plaintext">t - s = 0.2256309986114502
+  216.474 ms (2 allocations: 1.49 MiB)
 </code></pre>
 <pre><code class="language-julia">Refpath="/tmp/benchC.txt"
 Tarpath="/tmp/benchJ.txt"

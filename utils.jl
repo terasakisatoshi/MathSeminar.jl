@@ -46,7 +46,7 @@ end
 
 function generate_name(name)
     if name != ""
-        return "($(name))"
+        return "$(name)"
     else
         return ""
     end
