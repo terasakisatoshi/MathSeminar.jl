@@ -14,4 +14,5 @@ Pkg.activate(".")
 Pkg.instantiate()
 
 Remark.slideshow("./slideshow/tutorial/example.jl", "./slideshow/tutorial")
+Remark.slideshow("./slideshow/juliatokai/document.jl", "./slideshow/juliatokai")
 optimize(minify=false, prepath="MathSeminar.jl")
