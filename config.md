@@ -62,8 +62,9 @@ For instance:
 \newcommand{\subsection}[1]{### #1}
 
 <!-- numbered definition/prop/lemma/theorem/example/remark enumerated by CSS -->
-
+<!-- use \increment{} to update the state of theorem defined in utils.jl -->
 \newcommand{\csstheoremcounter}[3]{
+\increment{}
 @@!#1 !#2 \\
 !#3
 @@
@@ -97,7 +98,7 @@ theorem_name = "!#1"
 print(
 "\\label{!#2}" *
 "@@$(theorem_name)" *
-"~~~<b>$(thmnum)</b>~~~ $(name)~~~</br>~~~" *
+"~~~<b>$(thmnum):</b>~~~ $(name)~~~</br>~~~" *
 "\n" *
 raw"""
 !#4@@
