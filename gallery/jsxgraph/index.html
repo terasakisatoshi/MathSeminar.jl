@@ -13,10 +13,7 @@
   <link href="/MathSeminar.jl/css/franklin.css" rel="stylesheet">
   <link href="/MathSeminar.jl/css/vela.css" rel="stylesheet">
   <script src="/MathSeminar.jl/libs/vela/jquery.min.js"></script>
-  <!-- my theorem counter -->
-  <link rel="stylesheet" href="/MathSeminar.jl/css/css_theorem.css">
-  <link rel="stylesheet" href="/MathSeminar.jl/css/maththeorem.css">
-
+  <link rel="stylesheet" href="/MathSeminar.jl/css/theorem.css">
    <title>JSXGraph.jl</title>  
   <!-- PLOTLY -->
   
@@ -84,7 +81,7 @@
 
 
 <!-- Content appended here -->
-<div class="franklin-content"><div class="franklin-toc"><ol><li><a href="#jsxgraphjl">JSXGraph.jl</a></li><li><a href="#install_package">Install Package</a></li><li><a href="#insert_secret_ingredient">Insert secret ingredient</a><ol><li><a href="#insert_jsxgraphpreamble">insert <code>JSXGraph.PREAMBLE</code></a></li><li><a href="#edit_layoutheadhtml">Edit <code>_layout/head.html</code></a></li><li><a href="#edit_configmd">Edit <code>config.md</code></a></li></ol></li><li><a href="#lets_get_started">Let&#39;s get started</a><ol><li><a href="#hello_world">Hello World</a></li></ol></li><li><a href="#gallery">Gallery</a></li></ol></div>
+<div class="franklin-content"><div class="franklin-toc"><ol><li><a href="#jsxgraphjl">JSXGraph.jl</a></li><li><a href="#install_package">Install Package</a></li><li><a href="#insert_secret_ingredient">Insert secret ingredient</a><ol><li><a href="#insert_jsxgraphpreamble">insert <code>JSXGraph.PREAMBLE</code></a></li><li><a href="#edit_layoutheadhtml">Edit <code>_layout/head.html</code></a></li><li><a href="#edit_configmd">Edit <code>config.md</code></a></li></ol></li><li><a href="#lets_get_started">Let&#39;s get started</a><ol><li><a href="#hello_world">Hello World</a></li></ol></li><li><a href="#gallery">Gallery</a><ol><li><a href="#lissajous_curve">Lissajous curve</a></li></ol></li></ol></div>
 
 <h1 id="jsxgraphjl"><a href="#jsxgraphjl">JSXGraph.jl</a></h1>             <div class="reset"></div>
 <ul>
@@ -168,7 +165,9 @@ b ++ point(0, 0, name="hello")</code></pre>
 <script>(function(){var brd=JXG.JSXGraph.initBoard("brd",{"boundingbox":[-2,2,2,-2],"axis":false,"showcopyright":false,"shownavigation":false});brd.create('point', [0, 0], {"name":"hello"});})();</script>
 <p>Congratulations&#33;&#33;&#33;</p>
 <h1 id="gallery"><a href="#gallery">Gallery</a></h1>             <div class="reset"></div>
-<div class="example">5.0.0  <pre><code class="language-julia">b = board("b3", xlim=[-12, 12], ylim=[-10,10])
+<h2 id="lissajous_curve"><a href="#lissajous_curve">Lissajous curve</a></h2>
+          <div class="reset"></div>
+   <div class="example">5.1.1  <br/>  <pre><code class="language-julia">b = board("b3", xlim=[-12, 12], ylim=[-10,10])
 b ++ (
     slider("a", [[-11,7],[-5,7],[0,3,6]], name="a"),
     slider("b", [[-11,5],[-5,5],[0,2,6]], name="b"),
@@ -179,9 +178,9 @@ b ++ (
 @jsf f1(t) = val(A)*sin(val(a)*t+val(delta))
 @jsf f2(t) = val(B)*sin(val(b)*t)
 b ++ plot(f1, f2, a=0, b=2π,
-          strokecolor="#aa2233", strokewidth=3)</code></pre></div>
+          strokecolor="#aa2233", strokewidth=3)</code></pre>
 <div id="b3" class="jxgbox" style="width:300px; height:300px;"></div>
-<script>(function(){var b3=JXG.JSXGraph.initBoard("b3",{"boundingbox":[-12,10,12,-10],"axis":false,"showcopyright":false,"shownavigation":false});var a=b3.create('slider', [[-11,7],[-5,7],[0,3,6]], {"name":"a"});var b=b3.create('slider', [[-11,5],[-5,5],[0,2,6]], {"name":"b"});var A=b3.create('slider', [[1,7],[7,7],[0,3,6]], {"name":"A"});var B=b3.create('slider', [[1,5],[7,5],[0,3,6]], {"name":"B"});var delta=b3.create('slider', [[2.0,-7.0],[6.0,-7.0],[0.0,0.0,3.141592653589793]], {"name":"&delta;"});function f1(t){return (val(A)*sin(((val(a)*t)+val(delta))))};function f2(t){return (val(B)*sin((val(b)*t)))};b3.create('curve', [function(t){return f1(t);}, function(t){return f2(t);}, 0, 6.283185307179586], {"strokecolor":"#aa2233","strokewidth":3});})();</script><div class="page-foot">
+<script>(function(){var b3=JXG.JSXGraph.initBoard("b3",{"boundingbox":[-12,10,12,-10],"axis":false,"showcopyright":false,"shownavigation":false});var a=b3.create('slider', [[-11,7],[-5,7],[0,3,6]], {"name":"a"});var b=b3.create('slider', [[-11,5],[-5,5],[0,2,6]], {"name":"b"});var A=b3.create('slider', [[1,7],[7,7],[0,3,6]], {"name":"A"});var B=b3.create('slider', [[1,5],[7,5],[0,3,6]], {"name":"B"});var delta=b3.create('slider', [[2.0,-7.0],[6.0,-7.0],[0.0,0.0,3.141592653589793]], {"name":"&delta;"});function f1(t){return (val(A)*sin(((val(a)*t)+val(delta))))};function f2(t){return (val(B)*sin((val(b)*t)))};b3.create('curve', [function(t){return f1(t);}, function(t){return f2(t);}, 0, 6.283185307179586], {"strokecolor":"#aa2233","strokewidth":3});})();</script></div><div class="page-foot">
   <div class="copyright">
     &copy; SatoshiTerasaki. Last modified: 2020年5月4日 月曜日. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
   </div>

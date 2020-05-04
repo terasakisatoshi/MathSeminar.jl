@@ -1,40 +1,4 @@
 
-/* increment theorem counter
-
-```
-~~~
-<div class="increment count2">
-<div class="increment count10">
-~~~
-
-@@theorem
-This is theorem
-@@
-```
-
-will output "Theorem 13" (1+2+10, the first `1` is initial value)
-
-*/
-
-.increment{
-    counter-increment: chapter 1;
-}
-.increment.count2{
-    counter-increment: chapter 2;
-}
-.increment.count5{
-    counter-increment: chapter 5;
-}
-.increment.count10{
-    counter-increment: chapter 10;
-}
-
-/* reset theorem counter*/
-.reset{
-    counter-reset: theorem 0;
-}
-
-
 .definition {
     counter-increment: theorem;
     display: block;
@@ -46,10 +10,11 @@ will output "Theorem 13" (1+2+10, the first `1` is initial value)
     margin-bottom: 1em;
 }
 .definition:before {
-    content: "Definition " counter(chapter)"."counter(section)"."counter(theorem) ": ";
+    content: "Definition ";
     font-weight: bold;
     font-style: normal;
 }
+
 
 .prop {
     counter-increment: theorem;
@@ -62,7 +27,7 @@ will output "Theorem 13" (1+2+10, the first `1` is initial value)
     margin-bottom: 1em;
 }
 .prop:before {
-    content: "Proposition " counter(chapter)"."counter(section)"."counter(theorem) ": ";
+    content: "Proposition ";
     font-weight: bold;
     font-style: normal;
 }
@@ -78,10 +43,11 @@ will output "Theorem 13" (1+2+10, the first `1` is initial value)
     margin-bottom: 1em;
 }
 .theorem:before {
-    content: "Theorem " counter(chapter)"."counter(section)"."counter(theorem) ": ";
+    content: "Theorem ";
     font-weight: bold;
     font-style: normal;
 }
+
 
 .lemma {
     counter-increment: theorem;
@@ -94,10 +60,11 @@ will output "Theorem 13" (1+2+10, the first `1` is initial value)
     margin-bottom: 1em;
 }
 .lemma:before {
-    content: "Lemma " counter(chapter)"."counter(section)"."counter(theorem) ": ";
+    content: "Lemma ";
     font-weight: bold;
     font-style: normal;
 }
+
 
 .example {
     counter-increment: theorem;
@@ -110,13 +77,12 @@ will output "Theorem 13" (1+2+10, the first `1` is initial value)
     margin-bottom: 1em;
 }
 .example:before {
-    content: "Example " counter(chapter)"."counter(section)"."counter(theorem) ": ";
+    content: "Example ";
     font-weight: bold;
     font-style: normal;
 }
 
 .remark {
-    counter-increment: theorem;
     display: block;
     margin: 12px 0;
     background-color: aliceblue;
@@ -126,7 +92,7 @@ will output "Theorem 13" (1+2+10, the first `1` is initial value)
     margin-bottom: 1em;
 }
 .remark:before {
-    content: "Remark " counter(chapter)"."counter(section)"."counter(theorem) ": ";
+    content: "Remark ";
     font-weight: bold;
     font-style: normal;
 }
@@ -143,3 +109,4 @@ will output "Theorem 13" (1+2+10, the first `1` is initial value)
     content: "\25FC";
     float:right;
 }
+

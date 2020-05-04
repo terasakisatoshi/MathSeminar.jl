@@ -12,10 +12,7 @@
   <link href="/MathSeminar.jl/css/franklin.css" rel="stylesheet">
   <link href="/MathSeminar.jl/css/vela.css" rel="stylesheet">
   <script src="/MathSeminar.jl/libs/vela/jquery.min.js"></script>
-  <!-- my theorem counter -->
-  <link rel="stylesheet" href="/MathSeminar.jl/css/css_theorem.css">
-  <link rel="stylesheet" href="/MathSeminar.jl/css/maththeorem.css">
-
+  <link rel="stylesheet" href="/MathSeminar.jl/css/theorem.css">
    <title>PlotlyJS Example1</title>  
   <!-- PLOTLY -->
    <script src="/MathSeminar.jl/libs/plotly/plotly.min.js"></script> 
@@ -83,7 +80,7 @@
 
 
 <!-- Content appended here -->
-<div class="franklin-content"><h1 id="offline-generated_plot_div_classreset_div_classresetsection"><a href="#offline-generated_plot_div_classreset_div_classresetsection">Offline-generated plot <div class="reset"></div> <div class="resetsection"></div></a></h1>
+<div class="franklin-content"><h1 id="offline-generated_plot"><a href="#offline-generated_plot">Offline-generated plot</a></h1>             <div class="reset"></div>
 <p>Assuming you already have the Plotly code for some plot, displaying  the  result on a page with Franklin is now pretty straightforward. Start by adding</p>
 <pre><code class="language-julia">@def hasplotly = true</code></pre>
 <p>so that the JS library  will be  loaded then somewhere appropriate add:</p>
@@ -120,11 +117,11 @@ z =  [10     10.625  12.5  15.625  20
 data   = contour(; z=z)
 layout = Layout(; title="Basic Contour Plot")
 plt    = plot(data, layout)</code></pre> 
-<div id="fdpybs" style="width:600px;height:350px"></div>
+<div id="fdphpe" style="width:600px;height:350px"></div>
 
 <script>
 	var fig = {"layout":{"margin":{"l":50,"b":50,"r":50,"t":60},"title":"Basic Contour Plot"},"data":[{"type":"contour","z":[[10.0,5.625,2.5,0.625,0.0],[10.625,6.25,3.125,1.25,0.625],[12.5,8.125,5.0,3.125,2.5],[15.625,11.25,8.125,6.25,5.625],[20.0,15.625,12.5,10.625,10.0]]}]};
-	CONTAINER = document.getElementById('fdpybs');
+	CONTAINER = document.getElementById('fdphpe');
 	Plotly.newPlot(CONTAINER, fig.data, fig.layout)
 </script>
 <div class="page-foot">
