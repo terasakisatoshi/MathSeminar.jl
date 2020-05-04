@@ -74,6 +74,7 @@ For instance:
 @@cssproof
 !#1
 @@
+\\ <!-- new line--> 
 }
 
 \newcommand{\cssdefinition}[2]{\csstheoremcounter{cssdefinition}{#1}{#2}}
@@ -119,7 +120,8 @@ raw"""
 \newcommand{\proof}[1]{
 @@proof
 !#1
-@@
+@@ 
+\\ <!-- new line--> 
 }
 
 
