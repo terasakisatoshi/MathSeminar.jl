@@ -52,8 +52,9 @@
         </li>
         <li><a href="" class="has-arrow">Gallery</a>
           <ul>
-            <li><a href="/MathSeminar.jl/gallery/animation/">GR animation</a></li>
-            <li><a href="/MathSeminar.jl/gallery/curve/">GR curve</a></li>
+            <li><a href="/MathSeminar.jl/gallery/animation/">Plots.jl animation</a></li>
+            <li><a href="/MathSeminar.jl/gallery/curve/">Plots.jl curve</a></li>
+            <li><a href="/MathSeminar.jl/gallery/gr/">GR.jl</a></li>
             <li><a href="/MathSeminar.jl/gallery/plotlyjs1/">PlotlyJS Part1</a></li>
             <li><a href="/MathSeminar.jl/gallery/plotlyjs2/">PlotlyJS Part2</a></li>
             <li><a href="/MathSeminar.jl/gallery/plotlyjs3/">PlotlyJS Part3</a></li>
@@ -127,8 +128,8 @@ main()
 
 using BenchmarkTools
 @btime mand(5000, 5000);</code></pre>
-<pre><code class="plaintext">t - s = 2.434678077697754
-  2.369 s (2 allocations: 23.84 MiB)
+<pre><code class="plaintext">t - s = 2.7712810039520264
+  2.513 s (2 allocations: 23.84 MiB)
 </code></pre>
  <div class="cssremark">&#40;数値誤差について&#41; <br/> 点の位置をあらわす <code>&#40;4.0 / &#40;M - 1&#41; * &#40;j - 1&#41; - 2.0&#41;</code> は <code>range&#40;-2, 2, length&#40;N&#41;&#41;</code> と数学的に等価ですが，数値の誤差の関係で結果が若干異なることがあります．</div>
 <pre><code class="language-julia">N=10; @show [4.0*(i-1)/(N-1) - 2.0 for i in 1:N]</code></pre>
@@ -184,8 +185,8 @@ main()
 
 using BenchmarkTools
 @btime mand(5000, 5000);</code></pre>
-<pre><code class="plaintext">t - s = 2.6494040489196777
-  2.679 s (2 allocations: 23.84 MiB)
+<pre><code class="plaintext">t - s = 2.9082679748535156
+  3.024 s (2 allocations: 23.84 MiB)
 </code></pre>
 <pre><code class="language-julia">Refpath="/tmp/resultJ.txt"
 Tarpath="/tmp/resultJ1.txt"
@@ -235,8 +236,8 @@ main()
 
 using BenchmarkTools
 @btime mand(5000, 5000);</code></pre>
-<pre><code class="plaintext">t - s = 2.652235984802246
-  2.636 s (4 allocations: 47.68 MiB)
+<pre><code class="plaintext">t - s = 2.7782340049743652
+  2.839 s (4 allocations: 47.68 MiB)
 </code></pre>
 <pre><code class="language-julia">Refpath="/tmp/resultJ1.txt"
 Tarpath="/tmp/resultJ2.txt"
@@ -292,8 +293,8 @@ main()
 
 using BenchmarkTools
 @btime mand(5000, 5000);</code></pre>
-<pre><code class="plaintext">t - s = 2.2943270206451416
-  1.959 s (15 allocations: 23.84 MiB)
+<pre><code class="plaintext">t - s = 2.322866201400757
+  2.054 s (15 allocations: 23.84 MiB)
 </code></pre>
 <pre><code class="language-julia">Refpath="/tmp/resultJ1.txt"
 Tarpath="/tmp/resultJ3.txt"
@@ -309,7 +310,7 @@ savefig(p, joinpath(@OUTPUT, "mandJ3.png"))</code></pre>
 
 <img src="/MathSeminar.jl/assets/programming/benchmark_part2/code/output/mandJ3.png" alt=""><div class="page-foot">
   <div class="copyright">
-    &copy; SatoshiTerasaki. Last modified: 2020年5月3日 日曜日. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
+    &copy; SatoshiTerasaki. Last modified: 2020年5月4日 月曜日. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
   </div>
 </div>
 </div><!-- CONTENT ENDS HERE -->

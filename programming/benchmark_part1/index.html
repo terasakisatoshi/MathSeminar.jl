@@ -52,8 +52,9 @@
         </li>
         <li><a href="" class="has-arrow">Gallery</a>
           <ul>
-            <li><a href="/MathSeminar.jl/gallery/animation/">GR animation</a></li>
-            <li><a href="/MathSeminar.jl/gallery/curve/">GR curve</a></li>
+            <li><a href="/MathSeminar.jl/gallery/animation/">Plots.jl animation</a></li>
+            <li><a href="/MathSeminar.jl/gallery/curve/">Plots.jl curve</a></li>
+            <li><a href="/MathSeminar.jl/gallery/gr/">GR.jl</a></li>
             <li><a href="/MathSeminar.jl/gallery/plotlyjs1/">PlotlyJS Part1</a></li>
             <li><a href="/MathSeminar.jl/gallery/plotlyjs2/">PlotlyJS Part2</a></li>
             <li><a href="/MathSeminar.jl/gallery/plotlyjs3/">PlotlyJS Part3</a></li>
@@ -154,7 +155,7 @@ int main&#40;&#41;
     fclose&#40;fp&#41;;
     return 0;
 &#125;</code></pre>
-<pre><code class="plaintext">Elapsed time 0.140673 [sec]
+<pre><code class="plaintext">Elapsed time 0.126637 [sec]
 </code></pre>
 <p>描画は下記のとおりです。</p>
 <pre><code class="language-julia">using DelimitedFiles
@@ -223,8 +224,8 @@ main()
 
 using BenchmarkTools
 @btime mand(1250, 1250);</code></pre>
-<pre><code class="plaintext">t - s = 0.15773916244506836
-  140.769 ms (2 allocations: 1.49 MiB)
+<pre><code class="plaintext">t - s = 0.14672017097473145
+  149.906 ms (2 allocations: 1.49 MiB)
 </code></pre>
 <pre><code class="language-julia">Refpath="/tmp/benchC.txt"
 Tarpath="/tmp/benchJ.txt"
@@ -238,7 +239,7 @@ p = heatmap(1:N,1:M,img,aspect_ratio=1, size=(400, 400))</code></pre>
 
 <img src="/MathSeminar.jl/assets/programming/benchmark_part1/code/output/mandJ.png" alt=""><div class="page-foot">
   <div class="copyright">
-    &copy; SatoshiTerasaki. Last modified: 2020年5月3日 日曜日. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
+    &copy; SatoshiTerasaki. Last modified: 2020年5月4日 月曜日. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
   </div>
 </div>
 </div><!-- CONTENT ENDS HERE -->
