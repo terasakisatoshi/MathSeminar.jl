@@ -3,15 +3,15 @@
 @def hascode = true
 @def hasplotly = true
 
-\csschapter{Using API from Plots.jl}
+\csschapter{Using API via Plots.jl}
 
-- Here is an example for those who would like to call PlotlyJS API from Plots.jl.
+- Here is an example for those who would like to call PlotlyJS API via Plots.jl.
 
 \csssection{Passing JSON which has `layout` and `data` object}
 
 - [Franklin.fdplotly](https://github.com/tlienart/Franklin.jl/blob/2b6423783b4675ab14da74e183545ef2377bdf94/src/manager/extras.jl) function requires `json::String` object as an argument which should contain fields named `layout` and `data`. On the other hand, Plots.jl provides `plotly_layout` and `plotly_series` that build `layout` and `data` respectively. See [here](https://github.com/JuliaPlots/Plots.jl/blob/master/src/backends/plotly.jl) to see more details.
 
-- Here is a short example of creating Plot object from Plots.jl.
+- Here is a short example of creating Plot object via Plots.jl.
 
 \csssubsection{Example 1}
 
