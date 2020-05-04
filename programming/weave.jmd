@@ -16,15 +16,6 @@ thisdir = "programming/"
 weave(joinpath(thisdir,"weave.jmd"), out_path=thisdir, doctype=:github)
 ```
 
-## Sample
-
-```
-using Plots
-plot(sin)
-```
-
-
-
 # References
 
 1. \biblabel{Weave.jl}{Pastell, Matti. 2017} Pastell, Matti. 2017. Weave.jl: Scientific Reports Using Julia. The Journal of Open Source Software. [http://dx.doi.org/10.21105/joss.00204](http://dx.doi.org/10.21105/joss.00204)
