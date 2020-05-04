@@ -29,4 +29,4 @@ services:
     ports:
       - "8000:8000"
     command: >
-      bash -c "julia -e 'include(\"./_mytools/deploy.jl\"); @info "done"
+      bash -c "julia -e 'include(\"./_mytools/deploy.jl\")'"
