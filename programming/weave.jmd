@@ -2,7 +2,7 @@
 
 \chapter{Weave.jl}
 
-\cssdefinition{[[Weave.jl]](https://github.com/JunoLab/Weave.jl)}{
+\definition{}{[[Weave.jl]](https://github.com/JunoLab/Weave.jl)}{
 - Weave \citep{Weave.jl} is a scientific report generator/literate programming tool for Julia. It resembles Pweave, knitr, R Markdown, and Sweave.
 
 - You can write your documentation and code in input document using Markdown, Noweb or ordinal Julia script syntax, and then use weave function to execute code and generate an output document while capturing results and figures.
