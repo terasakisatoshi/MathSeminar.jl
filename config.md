@@ -44,14 +44,12 @@ For instance:
 \setlevel{chapter} \increment{}
 \setlevel{subsection} \resetcount{} <!-- reset subsection -->
 \setlevel{section} \resetcount{}    <!-- reset section -->
-@@reset@@
 }
 \newcommand{\section}[1]{
 ## #1
 
 \setlevel{section} \increment{}     <!-- increment section -->
 \setlevel{subsection} \resetcount{} <!-- reset subsection -->
-@@reset@@
 }
 \newcommand{\subsection}[1]{### #1}
 
