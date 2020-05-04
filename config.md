@@ -30,7 +30,8 @@ For instance:
 \newcommand{\Q}{\mathbb Q}
 \newcommand{\Z}{\mathbb Z}
 \newcommand{\N}{\mathbb N}
-\newcommand{\space}{ }
+\newcommand{\space}{\ }
+\newcommand{\newline}{ \\ }
 <!-- Put a box around something and pass some css styling to the box
 (useful for images for instance) e.g. :
 \style{width:80%;}{![](path/to/img.png)} -->
