@@ -6,7 +6,7 @@
 # specific arguments, see the documentation or ?optimize in the REPL.
 
 using Pkg
-using NodeJS, Franklin, Remark
+using NodeJS, Franklin, Remark, Weave
 
 run(`$(npm_cmd()) install highlight.js`)
 
@@ -15,4 +15,5 @@ Pkg.instantiate()
 
 Remark.slideshow("./slideshow/tutorial/example.jl", "./slideshow/tutorial")
 Remark.slideshow("./slideshow/juliatokai/document.jl", "./slideshow/juliatokai")
+weave(joinpath("./programming", "weave.jmd"), out_path="./programming", doctype="github")
 optimize(minify=false, prepath="MathSeminar.jl")

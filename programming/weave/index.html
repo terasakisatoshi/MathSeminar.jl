@@ -3,8 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-   <link rel="stylesheet" href="/MathSeminar.jl/libs/katex/katex.min.css">
-   
+  
    <link rel="stylesheet" href="/MathSeminar.jl/libs/highlight/github.min.css">
    
 
@@ -15,7 +14,7 @@
   <link rel="stylesheet" href="/MathSeminar.jl/css/css_theorem.css">
   <link rel="stylesheet" href="/MathSeminar.jl/css/maththeorem.css">
 
-   <title>Theorem Counter</title>  
+   <title>Weave.jl</title>  
   <!-- PLOTLY -->
   
 
@@ -76,16 +75,29 @@
         <div class="hamburger-inner"></div>
       </div>
     </div>
-    <h1 class="page title">Theorem Counter</h1>
+    <h1 class="page title">Weave.jl</h1>
     <hr>
 
 
 <!-- Content appended here -->
-<div class="franklin-content"><h1 id="theorem_counter"><a href="#theorem_counter">Theorem Counter</a></h1>      <div class="reset"></div>
-
- <a id="label1"></a><div class="prop"><b>2.1.1:</b> 主張名</br> ぶんすうのけいさんをしたい <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mn>1</mn><mn>2</mn></mfrac></mrow><annotation encoding="application/x-tex">\frac{1}{2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.190108em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.845108em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span> の計算は次のようにして <span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mn>1</mn><mn>3</mn></mfrac></mrow><annotation encoding="application/x-tex">
-\frac{1}{3} 
-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:2.00744em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.32144em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">3</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span> ときれいにかける.</div><div class="page-foot">
+<div class="franklin-content"><h1 id="weavejl"><a href="#weavejl">Weave.jl</a></h1>      <div class="reset"></div>
+ <div class="cssdefinition"><a href="https://github.com/JunoLab/Weave.jl">&#91;Weave.jl&#93;</a> <br/>
+<ul>
+<li><p>Weave <span class="bibref">(<a href="#weavejl">Pastell, Matti. 2017</a>)</span> is a scientific report generator/literate programming tool for Julia. It resembles Pweave, knitr, R Markdown, and Sweave.</p>
+</li>
+<li><p>You can write your documentation and code in input document using Markdown, Noweb or ordinal Julia script syntax, and then use weave function to execute code and generate an output document while capturing results and figures.</p>
+</li>
+</ul></div>
+<p>This file is generated via:</p>
+<pre><code class="language-julia">using Weave
+thisdir = "programming/"
+weave(joinpath(thisdir,"weave.jmd"), out_path=thisdir, doctype=:github)</code></pre>
+<h1 id="references"><a href="#references">References</a></h1>
+<ol>
+<li><p><a id="weavejl"></a> Pastell, Matti. 2017. Weave.jl: Scientific Reports Using Julia. The Journal of Open Source Software. <a href="http://dx.doi.org/10.21105/joss.00204">http://dx.doi.org/10.21105/joss.00204</a></p>
+</li>
+</ol>
+<div class="page-foot">
   <div class="copyright">
     &copy; SatoshiTerasaki. Last modified: 2020年5月4日 月曜日. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
   </div>
@@ -94,11 +106,6 @@
   </main> <!-- end of id=main -->
   <script src="/MathSeminar.jl/libs/vela/metisMenu.min.js"></script>
   <script src="/MathSeminar.jl/libs/vela/slideout.min.js"></script>
-  
-    
-
-
-
   
   
     <script src="/MathSeminar.jl/libs/highlight/highlight.pack.js"></script>
