@@ -80,13 +80,13 @@
 
 
 <!-- Content appended here -->
-<div class="franklin-content"><h1 id="is_julia_fast"><a href="#is_julia_fast">Is Julia fast ?</a></h1>             <div class="reset"></div>
+<div class="franklin-content"><h1 id="is_julia_fast"><a href="#is_julia_fast">Is Julia fast ?</a></h1>            
 <ul>
 <li><p>Julia は LLVM による JIT コンパイルにより高速に動作し C 言語と同等のスピードを出すことができます。ここではベンチマークとしてマンデルブロ集合の生成する計算を例にJulia がどれくらいのパフォーマンスを出すのかを調べてみましょう。</p>
 </li>
 </ul>
 <h2 id="c_のコードを書く"><a href="#c_のコードを書く">C のコードを書く</a></h2>
-          <div class="reset"></div>
+         
 <ul>
 <li><p>C のコードを書いてみました.</p>
 </li>
@@ -155,7 +155,7 @@ int main&#40;&#41;
     fclose&#40;fp&#41;;
     return 0;
 &#125;</code></pre>
-<pre><code class="plaintext">Elapsed time 0.162158 [sec]
+<pre><code class="plaintext">Elapsed time 0.142284 [sec]
 </code></pre>
 <p>描画は下記のとおりです。</p>
 <pre><code class="language-julia">using DelimitedFiles
@@ -165,7 +165,7 @@ M,N = img |> size
 p=heatmap(1:N, 1:M, img, aspect_ratio=1, size=(400,400))</code></pre>
 <img src="/MathSeminar.jl/assets/programming/benchmark_part1/code/output/mandC.png" alt="">
 <h2 id="julia_のコード"><a href="#julia_のコード">Julia のコード</a></h2>
-          <div class="reset"></div>
+         
 <p>最後に Julia のコードを見ていきましょう</p>
 <pre><code class="language-julia">using DelimitedFiles
 
@@ -225,8 +225,8 @@ main()
 
 using BenchmarkTools
 @btime mand(1250, 1250);</code></pre>
-<pre><code class="plaintext">t - s = 0.18575501441955566
-  172.639 ms (2 allocations: 1.49 MiB)
+<pre><code class="plaintext">t - s = 0.16129398345947266
+  132.090 ms (2 allocations: 1.49 MiB)
 </code></pre>
 <pre><code class="language-julia">Refpath="/tmp/benchC.txt"
 Tarpath="/tmp/benchJ.txt"

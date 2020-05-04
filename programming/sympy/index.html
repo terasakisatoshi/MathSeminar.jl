@@ -80,12 +80,12 @@
 
 
 <!-- Content appended here -->
-<div class="franklin-content"><h1 id="sympyjl_for_franklin_users"><a href="#sympyjl_for_franklin_users">SymPy.jl for Franklin users</a></h1>             <div class="reset"></div>
+<div class="franklin-content"><h1 id="sympyjl_for_franklin_users"><a href="#sympyjl_for_franklin_users">SymPy.jl for Franklin users</a></h1>            
 <h2 id="load_some_packages"><a href="#load_some_packages">Load some packages</a></h2>
-          <div class="reset"></div>
+         
 <pre><code class="language-julia">using SymPy</code></pre>
 <h2 id="define_helper_function"><a href="#define_helper_function">Define helper function</a></h2>
-          <div class="reset"></div>
+         
 <pre><code class="language-julia">using SymPy
 using SymPy: SymbolicObject
 
@@ -101,7 +101,7 @@ end
 function fdsympy(x::AbstractArray{T}; mode="equation*", itex=true) where T<:SymbolicObject
     SymPy.sympy.latex(x, mode=mode,itex=itex) |> print
 end</code></pre>
-<h1 id="sample_code"><a href="#sample_code">Sample code</a></h1>             <div class="reset"></div>
+<h1 id="sample_code"><a href="#sample_code">Sample code</a></h1>            
    <div class="example">5.1.0 &#40;sample&#41; <br/>  <pre><code class="language-julia">@vars x y z
 
 fdsympy((x+y+z)^2 |> expand)

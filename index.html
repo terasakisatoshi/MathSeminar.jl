@@ -82,7 +82,7 @@
 <!-- Content appended here -->
 <div class="franklin-content"><p>Last Modified: 2020年5月4日 月曜日
 <div class="franklin-toc"><ol><li><a href="#about_this_page">About this page</a><ol><li><a href="#before_reading">Before reading</a></li><li><a href="#check_julia_version">Check Julia version</a></li></ol></li><li><a href="#introduction_to_franklin">Introduction to Franklin</a></li><li><a href="#newcommand_によるタイピングの簡略化"><code>newcommand</code> によるタイピングの簡略化</a></li><li><a href="#グラフの描画">グラフの描画</a></li><li><a href="#python_のコードの実行結果の表示">Python のコードの実行結果の表示</a></li><li><a href="#c_のコードの実行結果を表示">C のコードの実行結果を表示</a></li><li><a href="#コードの挿入">コードの挿入</a></li></ol></div> </p>
-<h1 id="about_this_page"><a href="#about_this_page">About this page</a></h1>             <div class="reset"></div>
+<h1 id="about_this_page"><a href="#about_this_page">About this page</a></h1>            
 
 <details open>
  <summary>日本語(Japanese) </summary>
@@ -98,7 +98,7 @@
 </details>
 
 <h2 id="before_reading"><a href="#before_reading">Before reading</a></h2>
-          <div class="reset"></div>
+         
    <div class="remark">6.1.1 &#40;推奨ブラウザについて&#41; <br/> </p>
 <ul>
 <li><p>Google Chrome からの閲覧を推奨します．&#40;It is recommended to view it from Google Chrome.&#41;</p>
@@ -107,7 +107,7 @@
 </li>
 </ul></div>
 <h2 id="check_julia_version"><a href="#check_julia_version">Check Julia version</a></h2>
-          <div class="reset"></div>
+         
 <pre><code class="language-julia">using InteractiveUtils
 versioninfo()</code></pre>
 <pre><code class="plaintext">Julia Version 1.4.1
@@ -125,7 +125,7 @@ Environment:
   JULIA_PROJECT = /work
   JULIA_NUM_THREADS = 4
 </code></pre>
-<h1 id="introduction_to_franklin"><a href="#introduction_to_franklin">Introduction to Franklin</a></h1>             <div class="reset"></div>
+<h1 id="introduction_to_franklin"><a href="#introduction_to_franklin">Introduction to Franklin</a></h1>            
    <div class="definition">7.1.0 &#40;Franklin.jl について&#41; <br/>  <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a> は Julia で記述された 静的サイトの生成を行うパッケージである．コーディング，数学などの技術ブログの作成をサポートする． 公式ドキュメントは https://franklinjl.org/ を参照せよ. なお，公式ドキュメントも Franklin.jl で作成されており, https://github.com/tlienart/franklindocs にてソースが公開されている.</div>
    <div class="prop">7.2.0 &#40;特徴&#41; <br/>  Franklin.jl では次の機能を持っている</p>
 <ul>
@@ -153,10 +153,10 @@ y = sin(x)
 @show y</code></pre> このとき, <code>y</code> の値は評価され次の出力を得ることができる: <pre><code class="plaintext">y = 6.535897930762419e-7
 </code></pre></div>  <br/> 
    <div class="remark">7.5.0 &#40;通し番号について&#41; <br/>  通し番号は Franklin ではデフォルトでサポートしていない. CSS でカウンタを定義しておく必要がある．</div>
-<h1 id="newcommand_によるタイピングの簡略化"><a href="#newcommand_によるタイピングの簡略化"><code>newcommand</code> によるタイピングの簡略化</a></h1>             <div class="reset"></div>
+<h1 id="newcommand_によるタイピングの簡略化"><a href="#newcommand_によるタイピングの簡略化"><code>newcommand</code> によるタイピングの簡略化</a></h1>            
 <code>config.md</code> は文章を記述する上での設定を記述するために用いる. <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>LaTeX</mtext></mrow><annotation encoding="application/x-tex">\LaTeX</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.89883em;vertical-align:-0.2155em;"></span><span class="mord text"><span class="mord textrm">L</span><span class="mspace" style="margin-right:-0.36em;"></span><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.68333em;"><span style="top:-2.904999em;"><span class="pstrut" style="height:2.7em;"></span><span class="mord"><span class="mord textrm mtight sizing reset-size6 size3">A</span></span></span></span></span></span><span class="mspace" style="margin-right:-0.15em;"></span><span class="mord text"><span class="mord textrm">T</span><span class="mspace" style="margin-right:-0.1667em;"></span><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.46782999999999997em;"><span style="top:-2.7845em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord textrm">E</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2155em;"><span></span></span></span></span><span class="mspace" style="margin-right:-0.125em;"></span><span class="mord textrm">X</span></span></span></span></span></span> の <code>\newcommand</code> と同様に数式を記述するコマンドを簡略化できる.</p>
    <div class="example">8.1.0 &#40;<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="double-struck">R</mi></mrow><annotation encoding="application/x-tex">\mathbb{R}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68889em;vertical-align:0em;"></span><span class="mord"><span class="mord mathbb">R</span></span></span></span></span> の例&#41; <br/>  <code>config.md</code> に次を追加しておく:     <pre><code class="language-julia">\newcommand{\R}{\mathbb R}</code></pre> これで <code>\R</code> で <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="double-struck">R</mi></mrow><annotation encoding="application/x-tex">\mathbb R</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68889em;vertical-align:0em;"></span><span class="mord mathbb">R</span></span></span></span> を表記できる.</div>
-<h1 id="グラフの描画"><a href="#グラフの描画">グラフの描画</a></h1>             <div class="reset"></div>
+<h1 id="グラフの描画"><a href="#グラフの描画">グラフの描画</a></h1>            
 <code>PyPlot</code>, <code>gr,pyplot,plotlyjs</code> をバックエンドとする <code>Plots.jl</code>, <code>PlotlyJS.jl</code> を用いた場合で確認している.</p>
 <pre><code class="language-julia">using PyPlot
 figure(figsize=(8, 6))
@@ -173,7 +173,7 @@ Plots.plot(rand(10), xlabel=L"x", ylabel=L"y")</code></pre>
 Plots.plot(sin)</code></pre>
 <img src="/MathSeminar.jl/assets/index/code/output/pyplotbkend.svg" alt="">
    <div class="remark">9.1.0 &#40;Plotly/PlotlyJS について&#41; <br/>  <code>Plotly</code>, または <code>PlotlyJS</code> による例はサイドメニューのページを参照</div>
-<h1 id="python_のコードの実行結果の表示"><a href="#python_のコードの実行結果の表示">Python のコードの実行結果の表示</a></h1>             <div class="reset"></div>
+<h1 id="python_のコードの実行結果の表示"><a href="#python_のコードの実行結果の表示">Python のコードの実行結果の表示</a></h1>            
 <code>config.md</code> のコマンドを定義しておく.</p>
 <pre><code class="language-plaintext">\newcommand{\pycode}[2]{
 ```julia:!#1
@@ -206,7 +206,7 @@ x = np.random.randn(5)
 r = np.linalg.norm(x) / len(x)
 np.round(r, 2)</code></pre> <pre><code class="plaintext">0.65
 </code></pre>
-<h1 id="c_のコードの実行結果を表示"><a href="#c_のコードの実行結果を表示">C のコードの実行結果を表示</a></h1>             <div class="reset"></div>
+<h1 id="c_のコードの実行結果を表示"><a href="#c_のコードの実行結果を表示">C のコードの実行結果を表示</a></h1>            
    <div class="prop">11.1.0 &#40;ソースコードの表示&#41; <br/>  つぎのように C のコードを貼り付けることができる.</div> 
 <pre><code class="language-c">#include &lt;stdio.h&gt;
 int main&#40;&#41;&#123;
