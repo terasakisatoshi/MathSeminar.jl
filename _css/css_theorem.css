@@ -39,7 +39,6 @@ will output "Theorem 13" (1+2+10, the first `1` is initial value)
     counter-reset: theorem 0;
 }
 
-
 .cssdefinition {
     counter-increment: theorem;
     display: block;

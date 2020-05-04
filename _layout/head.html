@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   {{if hasmath}} {{insert head_katex.html }}   {{end}}
   {{if hascode}} {{insert head_highlight.html }}   {{end}}
+  {{if hasjsx}}  {{insert head_jsx.html}} {{end}}
 
   <link href="/css/franklin.css" rel="stylesheet">
   <link href="/css/vela.css" rel="stylesheet">
@@ -53,9 +54,10 @@
             <li><a href="/gallery/animation/">Plots.jl animation</a></li>
             <li><a href="/gallery/curve/">Plots.jl curve</a></li>
             <li><a href="/gallery/gr/">GR.jl</a></li>
-            <li><a href="/gallery/plotlyjs1/">PlotlyJS Part1</a></li>
-            <li><a href="/gallery/plotlyjs2/">PlotlyJS Part2</a></li>
-            <li><a href="/gallery/plotlyjs3/">PlotlyJS Part3</a></li>
+            <li><a href="/gallery/plotlyjs1/">PlotlyJS.jl Part1</a></li>
+            <li><a href="/gallery/plotlyjs2/">PlotlyJS.jl Part2</a></li>
+            <li><a href="/gallery/plotlyjs3/">PlotlyJS.jl Part3</a></li>
+            <li><a href="/gallery/jsxgraph/">JSXGraph.jl</a></li>
           </ul>
         </li>
         <li><a href="" class="has-arrow">Topics in Mathematics</a>
