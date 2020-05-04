@@ -29,5 +29,4 @@ services:
     ports:
       - "8000:8000"
     command: >
-      bash -c "julia -e 'include(\"./_mytools/deploy.jl\"); using Franklin; serve(port=8001)' & python3 -m http.server --bind 0.0.0.0 --directory /work/__site"
-              
+      bash -c "julia -e 'include(\"./_mytools/deploy.jl\"); @info "done"
