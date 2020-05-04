@@ -13,10 +13,13 @@ mutable struct State
     label2thm::Dict{Any,Any}
 end
 
-init() = State(:chapter, Theorem(), Dict())
-
 # global state
-state = init()
+state = State(:chapter, Theorem(), Dict())
+
+function init()
+    global state
+    state = State(:chapter, Theorem(), Dict())
+end
 
 function setlevel(new::Symbol)
     global state
