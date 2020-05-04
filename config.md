@@ -7,6 +7,7 @@ The website_* must be defined for the RSS to work
 @def website_descr = "terasakisatoshi's math-blog"
 @def website_url   = "https://terasakisatoshi.github.io/MathWebiner.jl"
 @def hasplotly = false
+@def hasjsx = false
 @def author = "SatoshiTerasaki"
 @def prepath = "MathSeminar.jl"
 @def ignore = ["slideshow/tutorial/src/", "slideshow/juliatokai/src/", ".statements/"]
@@ -36,7 +37,7 @@ For instance:
 \newcommand{\style}[2]{~~~<div style="!#1;margin-left:auto;margin-right:auto;">~~~!#2~~~</div>~~~}
 
 <!-- define document counter enumerated by _css/theorem.css -->
-\newcommand{\csschapter}[1]{# #1 @@reset@@}
+\newcommand{\csschapter}[1]{# #1 @@reset@@ @@resetsection@@}
 \newcommand{\csssection}[1]{## #1 @@reset@@}
 \newcommand{\csssubsection}[1]{### #1}
 
@@ -44,19 +45,16 @@ For instance:
 
 \newcommand{\chapter}[1]{
 # #1
-\setlevel{chapter}
-\increment{}
-\setlevel{subsection}
-\resetcount{}
+\setlevel{chapter} \increment{}
+\setlevel{subsection} \resetcount{} <!-- reset subsection -->
+\setlevel{section} \resetcount{}    <!-- reset section -->
 @@reset@@
 }
 \newcommand{\section}[1]{
 ## #1
 
-\setlevel{section}
-\increment{}
-\setlevel{subsection}
-\resetcount{}
+\setlevel{section} \increment{}     <!-- increment section -->
+\setlevel{subsection} \resetcount{} <!-- reset subsection -->
 @@reset@@
 }
 \newcommand{\subsection}[1]{### #1}
