@@ -3,7 +3,7 @@
 @def hascode = true
 @def hasplotly = true
 
-\csschapter{Offline-generated plot}
+\chapter{Offline-generated plot}
 
 Assuming you already have the Plotly code for some plot, displaying  the  result on a page with Franklin is now pretty straightforward.
 Start by adding

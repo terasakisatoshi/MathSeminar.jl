@@ -4,9 +4,7 @@
 
 - I would like to implement counter e.g. Numbered theorems, definitions, corollaries and lemmas like [Overleaf sample](https://www.overleaf.com/learn/latex/theorems_and_proofs)
 
-```julia:initialize
-Utils.init() #hide
-```
+\initcounter{}
 
 ```julia:showπ
 @show π

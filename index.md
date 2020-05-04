@@ -1,12 +1,10 @@
 @def title = "Welcome to MathSeminar.jl"
-@def hasmath = true
-@def hascode = true
 
 Last Modified: {{fd_mtime}}
 
 \toc <!-- table of contents -->
 
-\csschapter{About this page}
+\chapter{About this page}
 
 ~~~
 <details open>
@@ -23,14 +21,14 @@ Last Modified: {{fd_mtime}}
 </details>
 ~~~
 
-\csssection{Before reading}
+\section{Before reading}
 
-\cssremark{推奨ブラウザについて}{
+\remark{}{推奨ブラウザについて}{
 - Google Chrome からの閲覧を推奨します．(It is recommended to view it from Google Chrome.)
 - iPad などから Safari で閲覧する場合, 設定(ホーム画面の歯車アイコン) -> Safari -> デスクトップ用Webサイト まで進み「全てのWebサイト」を無効にします．(When using Safari from an iPad or other device, go to Settings (gear icon on the home screen) -> Safari -> Desktop Web Sites and disable "All Web Sites".)
 }
 
-\csssection{Check Julia version}
+\section{Check Julia version}
 
 ```julia:versioninfo
 using InteractiveUtils
@@ -39,16 +37,16 @@ versioninfo()
 
 \output{versioninfo}
 
-\csschapter{Introduction to Franklin}
+\chapter{Introduction to Franklin}
 
-\cssdefinition{(Franklin.jl について)}{
+\definition{}{Franklin.jl について}{
 [Franklin.jl](https://github.com/tlienart/Franklin.jl) は Julia で記述された
 静的サイトの生成を行うパッケージである．コーディング，数学などの技術ブログの作成をサポートする．
 公式ドキュメントは https://franklinjl.org/ を参照せよ. なお，公式ドキュメントも Franklin.jl で作成されており, https://github.com/tlienart/franklindocs にてソースが公開されている.
 }
 
 
-\cssprop{(特徴)}{
+\prop{}{特徴}{
 Franklin.jl では次の機能を持っている
 - マークダウンで記述することができる.
 - 数式のレンダリングは KaTeX を用いている. `$` マークで挟むことで数式を表現できる.
@@ -57,7 +55,7 @@ Franklin.jl では次の機能を持っている
 - HTML, CSS, JavaScript の知識があれば，ページの表示を変更することができる．
 }
 
-\cssexample{(事後分布の定義)}{
+\example{}{事後分布の定義}{
 真の分布 $q(x)$ に従う $n$ 個の確率変数の組 $X^n = (X_1,\dots,X_n)$, パラメータ $w \in W \subset \R^d$ を持つ確率モデル $p(x|w)$, パラメータの事前分布 $\varphi(w)$ から定まる逆温度 $\beta$ 付きの $w$ の事後分布 $p(w|X^n)$ を次で定義する:
 $$
 p(w|X^n) = \frac{\displaystyle\prod_{i=1}^n p(X_i|w)^\beta \varphi(w)}{Z_n(\beta)}.
@@ -71,7 +69,7 @@ $$
 
 }
 
-\csslemma{}{
+\lemma{}{}{
 次のようにJuliaのコードを記述することができる:
 }
 
@@ -85,16 +83,16 @@ y = sin(x)
 \output{simplecode}
 }
 
-\cssremark{通し番号について}{
+\remark{}{通し番号について}{
     通し番号は Franklin ではデフォルトでサポートしていない. CSS でカウンタを定義しておく必要がある．
 }
 
-\csschapter{`newcommand` によるタイピングの簡略化}
+\chapter{`newcommand` によるタイピングの簡略化}
 
 `config.md` は文章を記述する上での設定を記述するために用いる.
 $\LaTeX$ の `\newcommand` と同様に数式を記述するコマンドを簡略化できる.
 
-\cssexample{($\mathbb{R}$ の例)}{
+\example{}{$\mathbb{R}$ の例}{
 `config.md` に次を追加しておく:
     ```
     \newcommand{\R}{\mathbb R}
@@ -105,7 +103,7 @@ $\LaTeX$ の `\newcommand` と同様に数式を記述するコマンドを簡�
 
 
 
-\csschapter{グラフの描画}
+\chapter{グラフの描画}
 
 `PyPlot`, `gr,pyplot,plotlyjs` をバックエンドとする `Plots.jl`, `PlotlyJS.jl` を用いた場合で確認している.
 
@@ -138,11 +136,11 @@ Plots.savefig(joinpath(@OUTPUT, "pyplotbkend.svg")) # hide
 
 \fig{pyplotbkend}
 
-\cssremark{Plotly/PlotlyJS について}{
+\remark{}{Plotly/PlotlyJS について}{
 `Plotly`, または `PlotlyJS` による例はサイドメニューのページを参照
 }
 
-\csschapter{Python のコードの実行結果の表示}
+\chapter{Python のコードの実行結果の表示}
 
 `config.md` のコマンドを定義しておく.
 
@@ -166,7 +164,7 @@ println(py"res")
 
 そして該当する Markdown ファイルに例えば下記のように `\pycode` コマンドと組み合わせたものを記述しておく.
 
-\cssprop{(ソースコードの表示)}{Pythonのコードの実行結果を貼り付けることができる.}
+\prop{}{ソースコードの表示}{Pythonのコードの実行結果を貼り付けることができる.}
 
 
 `````
@@ -189,9 +187,9 @@ r = np.linalg.norm(x) / len(x)
 np.round(r, 2)
 }
 
-\csschapter{C のコードの実行結果を表示}
+\chapter{C のコードの実行結果を表示}
 
-\cssprop{(ソースコードの表示)}{
+\prop{}{ソースコードの表示}{
 つぎのように C のコードを貼り付けることができる.
 }
 \Ccode{sample}{
@@ -221,7 +219,7 @@ int main(){
 }
 }
 
-\cssremark{(Cのコードのハイライト)}{
+\remark{}{Cのコードのハイライト}{
 	[Getting hightlight.js](https://highlightjs.org/download/)　から ハイライトしたい言語を選択した後 `highlight.pack.js` を `_lib/hightlight` にコピーする. もともと `_lib/highlight/highlight.pack.js` が配置されているが、Julia,Python,R、Markdownのみをハイライトするようになっている。
 }
 

@@ -3,17 +3,17 @@
 @def hascode = true
 @def hasplotly = true
 
-\csschapter{Using API via Plots.jl}
+\chapter{Using API via Plots.jl}
 
 - Here is an example for those who would like to call PlotlyJS API via Plots.jl.
 
-\csssection{Passing JSON which has `layout` and `data` object}
+\section{Passing JSON which has `layout` and `data` object}
 
 - [Franklin.fdplotly](https://github.com/tlienart/Franklin.jl/blob/2b6423783b4675ab14da74e183545ef2377bdf94/src/manager/extras.jl) function requires `json::String` object as an argument which should contain fields named `layout` and `data`. On the other hand, Plots.jl provides `plotly_layout` and `plotly_series` that build `layout` and `data` respectively. See [here](https://github.com/JuliaPlots/Plots.jl/blob/master/src/backends/plotly.jl) to see more details.
 
 - Here is a short example of creating Plot object via Plots.jl.
 
-\csssubsection{Example 1}
+\subsection{Example 1}
 
 <!-- Since the first call frails, just do same as easysample(below) -->
 ```julia:dummy
@@ -53,7 +53,7 @@ gr(); #hide
 
 \textoutput{easysample}
 
-\csssubsection{Example 2}
+\subsection{Example 2}
 
 - More complicated example can be executed via the following script:
 
@@ -85,7 +85,7 @@ gr(); # hide; back to default backend
 \textoutput{usingfdplotly}
 
 
-\csssection{Using custom function}
+\section{Using custom function}
 
 - There is another approach that creates our own `fdplotly` function which accepts `p::Plots.Plot` object.
 By using `Plots.js_body` function, we can mimic what `Franklin.fdplotly` does:
@@ -135,7 +135,7 @@ gr(); # hide; back to default backend
 
 \textoutput{usingbodyjs}
 
-\csssubsection{Example: Torus}
+\subsection{Example: Torus}
 
 ```julia:torus
 using Plots
