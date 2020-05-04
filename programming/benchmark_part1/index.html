@@ -7,6 +7,7 @@
    
    <link rel="stylesheet" href="/MathSeminar.jl/libs/highlight/github.min.css">
    
+  
 
   <link href="/MathSeminar.jl/css/franklin.css" rel="stylesheet">
   <link href="/MathSeminar.jl/css/vela.css" rel="stylesheet">
@@ -55,9 +56,10 @@
             <li><a href="/MathSeminar.jl/gallery/animation/">Plots.jl animation</a></li>
             <li><a href="/MathSeminar.jl/gallery/curve/">Plots.jl curve</a></li>
             <li><a href="/MathSeminar.jl/gallery/gr/">GR.jl</a></li>
-            <li><a href="/MathSeminar.jl/gallery/plotlyjs1/">PlotlyJS Part1</a></li>
-            <li><a href="/MathSeminar.jl/gallery/plotlyjs2/">PlotlyJS Part2</a></li>
-            <li><a href="/MathSeminar.jl/gallery/plotlyjs3/">PlotlyJS Part3</a></li>
+            <li><a href="/MathSeminar.jl/gallery/plotlyjs1/">PlotlyJS.jl Part1</a></li>
+            <li><a href="/MathSeminar.jl/gallery/plotlyjs2/">PlotlyJS.jl Part2</a></li>
+            <li><a href="/MathSeminar.jl/gallery/plotlyjs3/">PlotlyJS.jl Part3</a></li>
+            <li><a href="/MathSeminar.jl/gallery/jsxgraph/">JSXGraph.jl</a></li>
           </ul>
         </li>
         <li><a href="" class="has-arrow">Topics in Mathematics</a>
@@ -81,7 +83,7 @@
 
 
 <!-- Content appended here -->
-<div class="franklin-content"><h1 id="is_julia_fast_div_classreset"><a href="#is_julia_fast_div_classreset">Is Julia fast ? <div class="reset"></div></a></h1>
+<div class="franklin-content"><h1 id="is_julia_fast_div_classreset_div_classresetsection"><a href="#is_julia_fast_div_classreset_div_classresetsection">Is Julia fast ? <div class="reset"></div> <div class="resetsection"></div></a></h1>
 <ul>
 <li><p>Julia は LLVM による JIT コンパイルにより高速に動作し C 言語と同等のスピードを出すことができます。ここではベンチマークとしてマンデルブロ集合の生成する計算を例にJulia がどれくらいのパフォーマンスを出すのかを調べてみましょう。</p>
 </li>
@@ -155,7 +157,7 @@ int main&#40;&#41;
     fclose&#40;fp&#41;;
     return 0;
 &#125;</code></pre>
-<pre><code class="plaintext">Elapsed time 0.166217 [sec]
+<pre><code class="plaintext">Elapsed time 0.174720 [sec]
 </code></pre>
 <p>描画は下記のとおりです。</p>
 <pre><code class="language-julia">using DelimitedFiles
@@ -224,8 +226,8 @@ main()
 
 using BenchmarkTools
 @btime mand(1250, 1250);</code></pre>
-<pre><code class="plaintext">t - s = 0.22130298614501953
-  215.278 ms (2 allocations: 1.49 MiB)
+<pre><code class="plaintext">t - s = 0.23341608047485352
+  226.440 ms (2 allocations: 1.49 MiB)
 </code></pre>
 <pre><code class="language-julia">Refpath="/tmp/benchC.txt"
 Tarpath="/tmp/benchJ.txt"

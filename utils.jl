@@ -93,6 +93,11 @@ function getnum()
     getnum(state.thm)
 end
 
+function lx_getnum(com, _)
+    global state 
+    getnum(state.thm)
+end
+
 function ref(label::AbstractString)
     global state
     try
