@@ -16,9 +16,10 @@ end
 # global state
 state = State(:chapter, Theorem(), Dict())
 
-function init()
+function lx_initcounter(com, _)
     global state
     state = State(:chapter, Theorem(), Dict())
+    return ""
 end
 
 function setlevel(new::Symbol)
@@ -39,17 +40,19 @@ function record_theorem_number(label)
     state.label2thm[label] = deepcopy(state.thm)
 end
 
-function generate_label(label)
+function lx_generateLabel(com, _)
+    label = Franklin.content(com.braces[1])
     if label != ""
-        return "\\label$(label)"
+        return "\\label{$(label)}"
     else
         return ""
     end
 end
 
-function generate_name(name)
+function lx_generateTheoremName(com, _)
+    name = Franklin.content(com.braces[1])
     if name != ""
-        return "$(name)"
+        return "($name)"
     else
         return ""
     end
@@ -86,22 +89,22 @@ function lx_resetcount(com, _)
 end
 
 
-getnum(t::Theorem)="$(t.chapter).$(t.section).$(t.subsection)"
+get_theorem_number(t::Theorem)="$(t.chapter).$(t.section).$(t.subsection)"
 
-function getnum()
+function get_theorem_number()
     global state 
-    getnum(state.thm)
+    get_theorem_number(state.thm)
 end
 
-function lx_getnum(com, _)
+function lx_getTheoremNumber(com, _)
     global state 
-    getnum(state.thm)
+    get_theorem_number(state.thm)
 end
 
 function ref(label::AbstractString)
     global state
     try
-        n = getnum(state.label2thm[label])    
+        n = get_theorem_number(state.label2thm[label])    
         return "[$n](#$label)"
     catch
         @warn "fail to ref $label"
@@ -115,13 +118,8 @@ function lx_ref(com, _)
     ref(brace_content)
 end
 
-function lx_juliatheorem(com, _)
-    global state
-    increment()
+function lx_recordTheoremNumber(com, _)
     brace_content = Franklin.content(com.braces[1])
     record_theorem_number(brace_content)
-    t = state.thm
-    "counter_$(t.chapter)_$(t.section)_$(t.subsection)"
+    return ""
 end
-
-

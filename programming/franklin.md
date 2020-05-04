@@ -6,9 +6,7 @@
 \toc <!-- table of contents -->
 
 
-```julia:mystate
-Utils.init() # hide
-```
+\initcounter{}
 
 # Franklin Sand Box
 

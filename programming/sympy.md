@@ -1,14 +1,14 @@
 @def title = "SymPy.jl Tutorial"
 
-\csschapter{SymPy.jl for Franklin users}
+\chapter{SymPy.jl for Franklin users}
 
-\csssection{Load some packages}
+\section{Load some packages}
 
 ```julia:load
 using SymPy
 ```
 
-\csssection{Define helper function}
+\section{Define helper function}
 
 ```julia:definefdsympy
 using SymPy
@@ -29,9 +29,9 @@ end
 
 ```
 
-\csschapter{Sample code}
+\chapter{Sample code}
 
-\cssexample{sample}{
+\example{}{sample}{
 ```julia:example1
 @vars x y z
 
@@ -69,7 +69,7 @@ fdsympy([x y])
 }
 
 
-\cssexample{Solve ODE}{
+\example{}{Solve ODE}{
 
 This example is taken from [sympy documentation](https://docs.sympy.org/latest/tutorial/intro.html#the-power-of-symbolic-computation)
 
@@ -84,7 +84,7 @@ fdsympy(sol)
 \textoutput{solveode}
 }
 
-\cssexample{Rotations: Euler angles}{
+\example{}{Rotations: Euler angles}{
 ```julia:matrix
 Rx(θ) = [
     1.   0.        0

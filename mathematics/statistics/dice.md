@@ -1,13 +1,10 @@
 @def title = "Statistics"
 
-
-```julia:init
-Utils.init() # hide
-```
+\initcounter{}
 
 \chapter{統計量の平均, 分散}
 
-\cssdefinition{(標本平均, 標本分散)}{
+\definition{}{標本平均, 標本分散}{
 - $n$ 個のサンプル (sample) $X_1,X_2,\dots,X_n$ を独立に取得したとする. サンプルはデーターの観測等の標本抽出するごとに異なる値を得るので確率変数とみなせる. これらの平均, 分散を各々次で定義する:
 
 - 標本平均
@@ -72,7 +69,7 @@ $$
 ただし $\underset{\star}{=}$ の式変形で確率変数が互いに独立であることを用いている．
 }
 
-\cssprop{}{
+\prop{}{}{
   - 平均が $\mu$, 分散が $\sigma^2$ である分布から独立に抽出したサンプルの $\{X_i\}_{i=1}^n$ から定まる標本分散の平均 $E[S^2]$ は次で与えられる:
 
   $$
@@ -108,7 +105,7 @@ $$
 
 \chapter{Central Limit Theorem}
 
-\csstheorem{}{
+\theorem{clt}{CLT}{
 Mathematically, if $X_{1},X_{2},\dots,X_{n}$
 is a random sample of size $n$ taken from a population with mean $\mu$
 and finite variance $\sigma ^{2}$ and
@@ -121,8 +118,7 @@ is the standard normal distribution.
 }
 
 
-@@cssexample (Throwing Dice)
-\increment{}
+\example{}{Throwing Dices}{
 ```julia:dice
 using Statistics
 using Plots
@@ -150,7 +146,7 @@ plot!(p, x -> pdf(d, x), label=L"\mathcal{N}(μ,σ^2)")
 p = plot!(p, xlim = [-3, 3])
 Plots.savefig(p, joinpath(@OUTPUT, "dice.svg")) # hide
 ```
-@@
-
 \output{dice}
+}
+
 \fig{dice}

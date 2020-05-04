@@ -1,13 +1,9 @@
 @def title = "JSXGraph.jl"
-@def reeval = true
 @def hasjsx = true
-@def reeval = true
 
 \toc
 
-```julia:initcounter
-Utils.init() #hide
-```
+\initcounter{}
 
 \chapter{JSXGraph.jl}
 
@@ -129,8 +125,10 @@ Congratulations!!!
 
 \chapter{Gallery}
 
-@@example\getnum{}
-\increment{}
+\section{Lissajous curve}
+
+\example{}{}{
+
 ```julia:lissajous
 b = board("b3", xlim=[-12, 12], ylim=[-10,10])
 b ++ (
@@ -146,6 +144,6 @@ b ++ plot(f1, f2, a=0, b=2π,
           strokecolor="#aa2233", strokewidth=3)
 print("""~~~$(JSXGraph.standalone(b, preamble=false))~~~""") # hide
 ```
-@@
 
 \textoutput{lissajous}
+}

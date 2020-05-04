@@ -2,9 +2,9 @@
 @def hascode = true
 
 
-\csschapter{C のコードの実行結果を表示}
+\chapter{C のコードの実行結果を表示}
 
-\cssprop{(ソースコードの表示)}{
+\prop{}{ソースコードの表示}{
 つぎのように C のコードを貼り付けることができる.
 }
 

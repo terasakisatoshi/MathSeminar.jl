@@ -36,11 +36,6 @@ For instance:
 \style{width:80%;}{![](path/to/img.png)} -->
 \newcommand{\style}[2]{~~~<div style="!#1;margin-left:auto;margin-right:auto;">~~~!#2~~~</div>~~~}
 
-<!-- define document counter enumerated by _css/theorem.css -->
-\newcommand{\csschapter}[1]{# #1 @@reset@@ @@resetsection@@}
-\newcommand{\csssection}[1]{## #1 @@reset@@}
-\newcommand{\csssubsection}[1]{### #1}
-
 <!-- define document counter enumerated by utils.jl -->
 
 \newcommand{\chapter}[1]{
@@ -59,54 +54,15 @@ For instance:
 }
 \newcommand{\subsection}[1]{### #1}
 
-<!-- numbered definition/prop/lemma/theorem/example/remark enumerated by CSS -->
-<!-- use \increment{} to update the state of theorem defined in utils.jl -->
-\newcommand{\csstheoremcounter}[3]{
-\increment{}
-@@!#1 !#2 \\
-!#3
-@@
-}
-
-\newcommand{\cssproof}[1]{
-@@cssproof
-!#1
-@@
-\\ <!-- new line--> 
-}
-
-\newcommand{\cssdefinition}[2]{\csstheoremcounter{cssdefinition}{#1}{#2}}
-\newcommand{\cssprop}[2]{\csstheoremcounter{cssprop}{#1}{#2}}
-\newcommand{\csslemma}[2]{\csstheoremcounter{csslemma}{#1}{#2}}
-\newcommand{\csstheorem}[2]{\csstheoremcounter{csstheorem}{#1}{#2}}
-\newcommand{\cssexample}[2]{\csstheoremcounter{cssexample}{#1}{#2}}
-\newcommand{\cssremark}[2]{\csstheoremcounter{cssremark}{#1}{#2}}
-
 <!-- theorem_name, label, title, statement-->
 \newcommand{\theoremcounter}[4]{
-```julia:tmptheoremcounter
-# hideall
-Utils.increment()
-Utils.record_theorem_number("!#2")
-thmnum = Utils.getnum()
-label = Utils.generate_label("!#2")
-name = Utils.generate_name("!#3")
-
-theorem_name = "!#1"
-
-print(
-"\\label{!#2}" *
-"@@$(theorem_name)" *
-"~~~<b>$(thmnum):</b>~~~ $(name)~~~</br>~~~" *
-"\n" *
-raw"""
-!#4@@
-"""
-)
-```
-\textoutput{tmptheoremcounter}
+\increment{}
+\recordTheoremNumber{!#2}
+\generateLabel{!#2}
+@@!#1\getTheoremNumber{} \generateTheoremName{!#3} \\ <!-- newline -->
+!#4
+@@
 }
-
 
 <!-- \command{label}{name}{statement} -->
 \newcommand{\definition}[3]{\theoremcounter{definition}{#1}{#2}{#3}}
