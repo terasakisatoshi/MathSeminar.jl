@@ -11,8 +11,8 @@ for i = 1:30
     GR.plot(x, sin.(x .+ 3i / 10.0), size=(400,300))
 end
 
-GR.show()
+s = GR.show()
+println("~~~$(s.s)~~~")
 ```
 
 \textoutput{gr}
-
