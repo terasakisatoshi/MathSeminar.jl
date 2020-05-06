@@ -112,7 +112,7 @@ and finite variance $\sigma ^{2}$ and
 if $\bar{X}$ is the sample mean,
 the limiting form of the distribution of
 $$
-Z=\left({\frac{\bar{X}-\mu }{\sigma /\surd n}}\right)
+Z={\frac{\bar{X}-\mu }{\sigma /\surd n}}
 $$
 is the standard normal distribution.
 }
