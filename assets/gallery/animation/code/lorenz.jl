@@ -14,7 +14,7 @@ u0 = [
     0.0
 ]
 
-tspan = (0.0, 100.0)
+tspan = (0.0, 30.0)
 prob = ODEProblem(lorenz!, u0, tspan)
 sol = solve(prob)
 
@@ -28,9 +28,10 @@ plt = plot3d(
     legend = :false,
 )
 
-anim = @animate for t ∈ range(0, 50, length = 4000)
+anim = @animate for t ∈ range(0, 30, length = 2000)
     r = sol(t)
     push!(plt, r[1], r[2], r[3])
 end every 10
+
 
 gif(anim, joinpath(@OUTPUT, "lorenz.gif")) #hide
