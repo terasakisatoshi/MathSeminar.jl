@@ -1,10 +1,10 @@
-@def title = "GR.jl"
+0;95;0c@def title = "GR.jl"
 
 This example is taken from https://mybinder.org/v2/gh/jheinen/GR.jl/master
 
 ```julia:gr
 using GR
-using LaTeXStrings
+
 GR.inline("mov")
 x = collect(0:0.01:2*pi)
 for i = 1:100
