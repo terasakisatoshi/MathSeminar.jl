@@ -7,15 +7,11 @@ using GR
 
 GR.inline("mov")
 x = collect(0:0.01:2*pi)
-for i = 1:100
-    GR.plot(x, sin.(x .+ i / 10.0), size=(400,300))
+for i = 1:30
+    GR.plot(x, sin.(x .+ 3i / 10.0), size=(400,300))
 end
 
-s = GR.show()
-# render as HTML tag # hide
-println("~~~") # hide
-println(s.s) # hide 
-println("~~~") #hide
+GR.show()
 ```
 
 \textoutput{gr}
