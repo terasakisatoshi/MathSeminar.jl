@@ -1,6 +1,6 @@
 # This file was generated, do not modify it. # hide
 using GR
-using LaTeXStrings
+
 GR.inline("mov")
 x = collect(0:0.01:2*pi)
 for i = 1:100
