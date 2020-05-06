@@ -1,5 +1,5 @@
 # # Introduction to Franklin.jl
-# 
+#
 
 # ---
 
@@ -15,15 +15,15 @@
 # ---
 
 # # What is [Franklin.jl](https://github.com/tlienart/Franklin.jl) ? <img src="https://camo.githubusercontent.com/85517e47b497596f20eae9a49897d4de938976bd/68747470733a2f2f6672616e6b6c696e6a6c2e6f72672f6173736574732f696e6672612f6c6f676f46322e737667", height=150>
-# - simple static site generator (SSG). 
+# - simple static site generator (SSG).
 #    - コーディングや数学などの技術ブログを書く目的として.
 #    - 軽量でページの読み込みが高速
 # - 文法はベーシックなマークダウン.
-#   - KaTeX ベースの数式レンダリングが可能 
+#   - KaTeX ベースの数式レンダリングが可能
 #   - `\mycommand{goma}{kyu}` のような $\LaTeX$ っぽいコマンドを自作可能
 #   - コードブロックを評価しその出力を表示することができる.
 #
-# <pre> 
+# <pre>
 # ```julia:hello
 # println("Hello World") # ← こんな感じでマークダウンの中に挿入できる.
 # ```
@@ -91,7 +91,7 @@
 # - Documenter.jl は？
 #   - ちょっと物足りない. どちらかというとアレは Julia パッケージ, API仕様のドキュメントを管理するのがメイン.
 # - Jupyter Notebook は？
-#   - nbviewer, mybinder は便利. 
+#   - nbviewer, mybinder は便利.
 #   - コードの共有には良いが文章メインの場合だとメリットがなさそう
 # - Qiita/はてなブログは？
 #   - 気軽, コメントなどフィードバックを得られる
@@ -120,7 +120,7 @@
 
 # ## Why Franklin.jl ? (Part 5)
 # - プログラミングが得意な人に数学という高級概念をの記述に耐えうる執筆基盤の発展を促進したい
-#   - 便利な執筆環境は一般的なソフトウェアエンジニア用のためになっている. 
+#   - 便利な執筆環境は一般的なソフトウェアエンジニア用のためになっている.
 #   - `MathJax`, `KaTeX` の登場でインターネット上で”やっと”発信できるようになっている.
 # - 数学が得意な人にリッチな環境で数学的概念を記述・執筆をしてほしい
 #   - 文字通り古めかしいフォントを使ってるサイトを運営している(そういうのに限って重要な事柄が書いてある.)
@@ -137,3 +137,166 @@
 # So, if you are also a greedy, unreasonable, demanding programmer/reseacher, I want you to give it a try.
 #
 # <img src="https://camo.githubusercontent.com/85517e47b497596f20eae9a49897d4de938976bd/68747470733a2f2f6672616e6b6c696e6a6c2e6f72672f6173736574732f696e6672612f6c6f676f46322e737667", height=300>
+
+# ---
+# # Quick Start (Part1)
+# ### Only at the first time
+# ```julia-repl
+# julia> import Pkg; Pkg.install("Franklin"); using Franklin
+# julia> cd("path/to/your/workspace")
+# julia> sitename = "Gomachan" # Anything you want
+# julia> See: https://github.com/tlienart/FranklinTemplates.jl
+# julia> templatename = "vela" # julia> for example
+# julia> newsite(sitename, template=templatename)
+# ```
+# ### From the next time
+# ```julia-repl
+# julia> cd("path/to/your/workspace/Gomachan")
+# julia> using Franklin
+# julia> serve() # Or serve(port=8000)
+# ```
+
+# ---
+# # Quick Start (Part2)
+
+# Open your web browser and access [localhost:8000](http://localhost:8000/)
+# ## Result
+#
+# <div style="text-align:center;">
+#   <img height=300 src="https://user-images.githubusercontent.com/16760547/81135717-47c13e80-8f94-11ea-90e3-5e6b882cc46b.png">
+# </div>
+
+# ---
+
+# ### Directory Structure
+# ```
+# $ tree -L 2
+# .
+# ├── _assets # ユーザーが追加するファイル（画像やコードなど）
+# ├── _css # 見栄えをよくする
+# │   ├── franklin.css　
+# │   └── vela.css
+# ├── _layout # ページレイアウトを編集
+# |   |   (一部略)
+# │   ├── head.html # ページのリンクの追加など基本的にこの中をいじれば良い
+# │   └── page_foot.html
+# ├── _libs # 必要に応じてJSライブラリを追加
+# ├── config.md # 設定ファイル
+# ├── index.md # ホーム
+# ├── menu1.md # サンプル１
+# ├── menu2.md # サンプル２
+# └── menu3.md # サンプル３
+# ```
+
+# ---
+
+# # Syntax (Markdown)
+# - 普段 Qiita, はてなブログ, Jupyter Notebook 書いてるのであればすぐ慣れる.
+# - 数式もドルマークで囲んで書けば良い.
+# ### Examples
+# - `$(x+y)^2 = (x^2 + 2xy + y^2)$` will give: $(x+y)^2 = (x^2 + 2xy + y^2)$
+# - `$$\sum_{k=1}^n k^2 = \frac{1}{6}n(n+1)(2n+1)$$` will give:
+# $$
+# \sum_{k=1}^n k^2 = \frac{1}{6}n(n+1)(2n+1)
+# $$
+
+# ---
+
+# # Syntax (Julia Code)
+# ## Inserting code
+# <img height=100 src="https://user-images.githubusercontent.com/16760547/81142688-3c2d4200-8fab-11ea-86c6-a6320dbd03e7.png">
+# ### With live evaluation
+# <img height=100 src="https://user-images.githubusercontent.com/16760547/81142973-e6a56500-8fab-11ea-8407-bbd312dae5a4.png">
+# will give
+
+println("Live Evaluation")
+
+
+# ---
+
+# # Plots
+# <img height=150 src="https://user-images.githubusercontent.com/16760547/81143519-fcfff080-8fac-11ea-915f-942824be4762.png">
+#
+# will give:
+
+using Plots
+using Distributions
+d = Normal(0, 1)
+p = histogram(rand(d, 5000), normalize=:pdf)
+p = plot!(p, x->pdf(d, x))
+savefig(p, "hist.png") # hide
+
+# <img height=150 src=hist.png>
+
+# ---
+
+# # Inserting Raw HTML
+# You can inject raw HTML by fencing it with `~~~...~~~` .
+# ### Example (Plotly)
+# - See [Work with Plotly](https://franklinjl.org/extras/plotly/) for more details
+# <img height=300 src="https://user-images.githubusercontent.com/16760547/81144177-7c41f400-8fae-11ea-91ad-20d181aadb89.png">
+
+# ---
+
+# # Inserting Raw HTML (via Julia code block)
+#
+# <img height=300 class="center" src="https://user-images.githubusercontent.com/16760547/81147039-6fc09a00-8fb4-11ea-9d6f-87bd97042f4e.png">
+#
+# ### See more concrete example:
+#  - [gallery/plotlyjs3.md](https://github.com/terasakisatoshi/MathSeminar.jl/blob/master/gallery/plotlyjs3.md)
+#  - [programming/sympy.md](https://github.com/terasakisatoshi/MathSeminar.jl/blob/master/programming/sympy.md)
+
+# ---
+
+# # More HTML (CSS, Div blocks)
+#  you can use `@@divname ... @@` which will wrap the content in a `<div class="divname"> ... </div>` block
+# <img height=400 src="https://user-images.githubusercontent.com/16760547/81149499-46eed380-8fb9-11ea-8f36-b85faa999b1a.png">
+
+# ---
+
+# # $\LaTeX$-like commands
+# - Franklin allows the definition of commands using a LaTeX-like syntax. This can be particularly useful for repeating elements or styling inside or outside of maths environment.
+#
+# - To define a command, you must use the following syntax:
+# #### Syntax
+#   ```
+#     \newcommand{\name}{num of arguments}{contents}
+#   ```
+# #### Usage
+
+# - define command
+#   ```
+#     \newcommand{\statement}[2]{
+#     @@!#1 \\
+#     !#2
+#     }
+#   ```
+#
+# - call
+#   `\statement{theorem}{ゴマちゃん可愛い}`
+#
+
+# ---
+
+# # Advanced Topics
+# ## Numbered Theorem
+# ## Interactive Plot
+#
+# ---
+# # Numbered Theorem
+# - We can increment theorem number automatically
+# <pre>
+# \definition{}{(標本平均, 標本分散)}{...} <br>
+# \prop{}{}{...}
+# </pre>
+# <img height=400 src="https://user-images.githubusercontent.com/16760547/81153289-bbc40c80-8fbd-11ea-886e-520823a592d9.png">
+#
+
+# ---
+
+# # Interactive Plot
+# ## JSXGraph.jl
+# - This package aims to help generate JSXGraph code from Julia code that can then be plugged in a statically served website
+# - Official documentation [JSXGraphWeb](https://tlienart.github.io/JSXGraphWeb/)
+# - How to use on webpage built with Franklin [gallery/jsxgraph/](https://terasakisatoshi.github.io/MathSeminar.jl/gallery/jsxgraph/)
+# <img height=300 src=https://user-images.githubusercontent.com/16760547/81154713-23c72280-8fbf-11ea-884e-924c9441b924.png>
