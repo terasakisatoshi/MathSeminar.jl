@@ -300,3 +300,9 @@ savefig(p, "hist.png") # hide
 # - Official documentation [JSXGraphWeb](https://tlienart.github.io/JSXGraphWeb/)
 # - How to use on webpage built with Franklin [gallery/jsxgraph/](https://terasakisatoshi.github.io/MathSeminar.jl/gallery/jsxgraph/)
 # <img height=300 src=https://user-images.githubusercontent.com/16760547/81154713-23c72280-8fbf-11ea-884e-924c9441b924.png>
+
+# ---
+
+# # まとめ
+# Franklin.jl さいつよ
+#
