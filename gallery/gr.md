@@ -1,4 +1,4 @@
-0;95;0c@def title = "GR.jl"
+@def title = "GR.jl"
 
 This example is taken from https://mybinder.org/v2/gh/jheinen/GR.jl/master
 
