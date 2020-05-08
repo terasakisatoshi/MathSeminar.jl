@@ -11,6 +11,3 @@ plot(x, y)
 Plots.savefig(joinpath(@OUTPUT, "plot.png")) # hide
 ```
 
-<!-- To show the result, we need declare \fig command -->
-\fig{plot}
-

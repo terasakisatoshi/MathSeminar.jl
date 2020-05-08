@@ -1,0 +1,22 @@
+# Reference:
+# https://github.com/JuliaImages/ImageShow.jl/blob/master/src/showmime.jl#L115
+
+using Base64
+
+function encodeimage&#40;io::IOBuffer, img&#41;
+    io2&#61;IOBuffer&#40;&#41;
+    b64pipe&#61;Base64EncodePipe&#40;io2&#41;
+    write&#40;io,&quot;&lt;img style&#61;&#39;display:inline&#39; src&#61;&quot;data:image/png;base64,&quot;&#41;
+    show&#40;b64pipe, MIME&quot;image/png&quot;&#40;&#41;, img&#41; # will be valid if we load ImageShow.jl
+    write&#40;io, read&#40;seekstart&#40;io2&#41;&#41;&#41;
+    write&#40;io,&quot;&quot;&gt;&quot;&#41;
+end
+
+function fdimage&#40;img&#41;
+    io &#61; IOBuffer&#40;&#41;
+    encodeimage&#40;io, img&#41;
+    println&#40;&quot;~~~&quot;&#41;
+    println&#40;String&#40;take&#33;&#40;buf&#41;&#41;&#41;
+    println&#40;&quot;~~~&quot;&#41;
+end
+
