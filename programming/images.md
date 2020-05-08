@@ -55,7 +55,7 @@ println(Markdown.htmlesc(src))
 
 using Base64
 
-function encodeimage(io::IOBuffer, img)
+function encodeimage(io::IOContext, img)
     io2=IOBuffer()
     b64pipe=Base64EncodePipe(io2)
     write(io,"<img style='display:inline' src=\"data:image/png;base64,")
@@ -65,10 +65,9 @@ function encodeimage(io::IOBuffer, img)
 end
 
 function fdimage(img)
-    io = IOBuffer()
-    encodeimage(io, img)
+    io = IOContext(stdout)
     println("~~~")
-    println(String(take!(buf)))
+    encodeimage(io, img)
     println("~~~")
 end
 ```
