@@ -63,7 +63,10 @@ RUN mkdir /statements
 COPY .statements/franklin.jl /statements/franklin.jl
 RUN julia -e '\
 using PackageCompiler; \
-PackageCompiler.create_sysimage([:Revise, :OhMyREPL, :Plots, :PyCall], precompile_statements_file="/statements/franklin.jl", replace_default=true); \
+PackageCompiler.create_sysimage(\
+    [:Revise, :OhMyREPL, :Plots, :PyCall, :SpecialFunctions, :DifferentialEquations, :Images], \
+    precompile_statements_file="/statements/franklin.jl", \
+    replace_default=true); \
 '
 
 # set "/work" as default project directory 
