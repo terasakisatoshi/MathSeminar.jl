@@ -4,6 +4,7 @@ Last Modified: {{fd_mtime}}
 
 \toc <!-- table of contents -->
 
+\initcounter{}
 \chapter{About this page}
 
 ~~~
