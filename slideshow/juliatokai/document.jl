@@ -281,7 +281,7 @@ savefig(p, "hist.png") # hide
 # # Advanced Topics
 # ## Numbered Theorem
 # ## Interactive Plot
-#
+# ## Deploying your website
 # ---
 # # Numbered Theorem
 # - We can increment theorem number automatically
@@ -303,6 +303,23 @@ savefig(p, "hist.png") # hide
 
 # ---
 
+# ## Deploying your website 
+# ### Pushing `__site` via `Franklin.publish`
+# - Franklin.publish をするとローカルの `__site` をリポジトリにプッシュしてそれを反映することが可能
+#   - オススメしない. 
+#     - リポジトリ直下のファイルなども全て add してプッシュされる（笑）
+#     - なんかの秘密鍵 push しちゃったな会話を聞いた（闇）
+# ### Using GitHub Actions (オススメ)
+# - Follow the instruction below:
+#   - [Deploying your website](https://franklinjl.org/workflow/deploy/index.html)
+#   - https://github.com/tlienart2/tlienart2.github.io
+
+# ---
+
 # # まとめ
-# Franklin.jl さいつよ
-#
+# - Franklin.jl で Website 作り方を紹介しました.
+# - 質問は Julia 公式 Slack の `franklin` で（英語で）聞ける.
+#   - メンテナーの方はすごく優しい.
+# - コントリビュート歓迎らしいよ
+#   - https://github.com/tlienart/Franklin.jl/issues/404
+# 
