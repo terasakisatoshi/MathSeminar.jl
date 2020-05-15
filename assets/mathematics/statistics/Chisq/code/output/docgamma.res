@@ -15,7 +15,7 @@
 
   and by analytic continuation in the whole complex plane.
 
-  External links: DLMF (https://dlmf.nist.gov/5.2.E1), Wikipedia
+  External links: DLMF (https://dlmf.nist.gov/5.2.1), Wikipedia
   (https://en.wikipedia.org/wiki/Gamma_function).
 
   See also: loggamma(z).
