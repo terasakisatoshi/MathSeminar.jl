@@ -1,7 +1,6 @@
 @def title = "Welcome to MathSeminar.jl"
 
-Last Modified: {{fd_mtime}}
-
+Last Modified: {{ fd_mtime }}
 \toc <!-- table of contents -->
 
 \initcounter{}
