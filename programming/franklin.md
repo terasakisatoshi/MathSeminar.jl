@@ -12,13 +12,13 @@
 
 \label{something}
 
-{{chapter}}
+{{ chapter }}
 @def chapter=1
-{{chapter}}
+{{ chapter }}
 
-{{fd_rpath}}
-{{fd_ctime}}
-{{fd_mtime}}
+{{ fd_mtime }}
+
+{{ title }}
 
 This has a footnote[^1]
 
