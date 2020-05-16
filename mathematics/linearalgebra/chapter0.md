@@ -1,5 +1,7 @@
 @def title = "Linear Algebras"
 
+\toc
+
 \initcounter{}
 
 \chapter{導入}
@@ -36,28 +38,14 @@ $$
 - 以下ではいくつか記号の定義をする.
 
 \definition{}{記号の準備}{
-
+- $\R$ は実数のなす集合とする. $x\in\R$ と表記されていたら, "$x$ は実数である"と解釈する.
+- $A \coloneqq B$ と書かれていたら $A$ を $B$ で定義するという意味である.
 - $\Mat_{m,n}(\R)$ は $m$ 行 $n$ 列の成分が $\R$ の行列の集合をあらわす. $m=n$ であれば $\Mat_{m,n}(\R)$ を $\Mat_{m}(\R)$ と略記することもある. ここでは行列の成分が実数のみの場合を扱う.
 - $A\in\Mat_{n}(\R)$ はしばしば $n$ 次正方行列とよばれる.
 - 行列 $A\in\Mat_{m,n}(\R)$ に対して $A^\top$ は $A$ の転置行列を表す. 定義により $A^\top\in\Mat_{n,m}(\R)$ である.
-- $O(n)$ は $U^\top U = U U^\top=I_n$ を満たす $U\in \Mat_n(\R)$ がなす集合とする:
-- 二つの $n$ 次元ベクトル $x, y\in\R^n$ に対する標準内積を $\bra \bm{x},\bm{y}\ket$ を次で定義する:
-
-$$
-\bra \bm{x},\bm{y} \ket = \sum_{i=1}^n x_i y_i \quad \mathrm{for} \quad
-x = \begin{bmatrix}x_1 \\ x_2 \\ \vdots \\ x_n \end{bmatrix}
-,\ y = \begin{bmatrix}y_1 \\ y_2 \\ \vdots \\ y_n \end{bmatrix}
-$$
-
-$$
-O(n) = \{U\in \Mat_{n}(\R) \mid U^\top U = U U^\top=I_n\}
-$$
-
-ここで $I_n$ は単位行列である.
 
 - $\lambda_1,\dots,\lambda_n\in \R$ に対して , $\diag(\lambda_1, \lambda_2,\dots,\lambda_n)$ を $(i,i)$ - 成分が $\lambda_i$ である対角行列とする. すなわち,
-
-$$
+  $$
 \diag(\lambda_1, \lambda_2,\dots,\lambda_n)
 =
 \begin{bmatrix}
@@ -66,10 +54,32 @@ $$
           &           & \ddots & \\
           &           &        & \lambda_n\\
 \end{bmatrix}
+  $$
+  と定義する.
+
+- $O(n)$ は $U^\top U = U U^\top=I_n$ を満たす $U\in \Mat_n(\R)$ がなす集合とする:
+$$
+O(n) = \{U\in \Mat_{n}(\R) \mid U^\top U = U U^\top=I_n\}
 $$
 
-と定義する.
 }
+
+\definition{}{}{
+- 二つの $n$ 次元ベクトル $\bm{x}, \bm{y}\in\R^n$ に対する標準内積を $\bra \bm{x},\bm{y}\ket$ を次で定義する:
+
+$$
+\bra \bm{x},\bm{y} \ket = \sum_{i=1}^n x_i y_i \quad \mathrm{for} \quad
+\bm{x} = \begin{bmatrix}x_1 \\ x_2 \\ \vdots \\ x_n \end{bmatrix}
+,\ \bm{y} = \begin{bmatrix}y_1 \\ y_2 \\ \vdots \\ y_n \end{bmatrix}_{\textstyle .}
+$$
+
+- またベクトル $\bm{v}$ のノルムは $\norm{\bm{v}}=\sqrt{\bra \bm{v}, \bm{v}\ket}$ で定める.
+
+ここで $I_n$ は単位行列である.
+
+}
+
+<!-- TODO: 直交行列と内積の関係と正規直交基底の話を書く -->
 
 \chapter{証明のための準備}
 
@@ -91,7 +101,7 @@ $$
 さらに $\lambda_i\ (1\leq i \leq n)$ は $A$ の固有値になる.
 }
 
-\section{正定値行列}
+\section{二次形式}
 
 \definition{}{二次形式}{
 - $A$ を $n$ 次実対称行列とする. $\bm{x}\in\R^n$ に対して $q_A(\bm{x}) = \bm{x}^\top A \bm{x}$ を $A$ が定める二次形式 (quadratic form) と呼ぶ. $\bm{x}=\left[x_1,\dots,x_n\right]^\top$, $A=[a_{ij}]_{i,j=1}^{n}$ と成分表示した場合に, $q_A(\bm{x})$ は次のようになる:
@@ -107,6 +117,115 @@ q_A(\bm{x}) = \bm{x}^\top A \bm{x} = \bra \bm{x},A\bm{x} \ket.
 $$
 }
 
-\definition{}{正定値}{
-$\bm{x}$
+\subsection{Example}
+
+ここでは $q_A(\bm{x})$ を SymPy.jl を用いて具体的に記述してみよう.
+
+\example{}{$n=2$ の場合}{
+
+```julia:sympyqf2
+using SymPy
+
+@vars x1 x2 real=true
+@vars a11 a12 real=true
+@vars a21 a22 real=true
+
+a21 = a12
+A = [
+a11 a12
+a21 a22
+]
+
+x=[
+  x1
+  x2
+]
+Utils.fdsympy(x'A*x |> expand)
+```
+
+\textoutput{sympyqf2}
+}
+
+\example{}{$n=3$ の場合}{
+```julia:sympyqf3
+using SymPy
+
+@vars x1 x2 x3 real=true
+@vars a11 a12 a13 real=true
+@vars a21 a22 a23 real=true
+@vars a31 a32 a33 real=true
+
+a21 = a12
+a31 = a13
+a32 = a23
+
+A = [
+a11 a12 a13
+a21 a22 a23
+a31 a32 a33
+]
+
+x=[
+  x1
+  x2
+  x3
+]
+Utils.fdsympy(x'A*x |> expand)
+```
+
+\textoutput{sympyqf3}
+}
+
+\section{半正定値/正定値行列}
+
+- 半正定値/正定値行列行列の定義をおこなう.
+
+\definition{}{半正定値}{
+$n$ 次実対称行列 $A$ が半正定値行列であるとは, 任意の $\bm{x}\in \R^n\setminus \{\bm{0}\}$ に対して $q_A(\bm{x}) \geq 0$ が成り立つことである.
+}
+
+- 要するに $q_A$ の値が 0 以上であることを満たすことである.この条件を強くし, $q_A$ の $\bm{0}$ 以外で真に $0$ 以上を満たす場合は正定値という(次の定義を参照).
+
+\definition{positivedefinite}{正定値}{
+$n$ 次実対称行列 $A$ が正定値行列であるとは, 任意の $\bm{x}\in \R^n\setminus \{\bf{0}\}$ に対して $q_A(\bm{x}) > 0$ が成り立つことである.
+}
+
+- 次の命題は半正定値/正定値行列とその固有値の関係について述べている.
+
+\prop{eigen_value_of_semiposdef}{}{
+  $n$ 次半正定値行列 $A$ の固有値は全て 0 以上である.
+}
+
+\proof{
+  $\lambda$ を $A$ の固有値とし $\bm{v}\neq \bm{0}$ をその対応する固有ベクトルとする. この時
+  $$
+  0 \leq q_A(\bm{v}) = \bra \bm{v},A\bm{v}\ket
+              = \bra \bm{v},\lambda\bm{v}\ket
+              = \lambda \norm{\bm{v}}^2 \label{proofsemiprop}
+  $$
+  という計算から $\lambda$ は 0 以上であることが従う.
+}
+
+\prop{}{}{
+  $n$ 次正定値行列 $A$ の固有値は全て 0 より真に大きい.
+}
+\proof{
+  \ref{eigen_value_of_semiposdef} の証明と同様である. \eqref{proofsemiprop} と同様の記号のもとで
+  $$
+  0 < q_A(\bm{v}) = \lambda \norm{\bm{v}}^2
+  $$
+  が従うことから $\lambda>0$ が従う.
+}
+
+- 次の命題に示すように任意の行列から次のように半正定値行列を構成できる. このテクニックは特異値分解の証明に用いられる.
+
+\prop{}{}{
+  $A\in\Mat_{m,n}(\R)$ に対して $A^\top A\in \Mat_m(\R)$, $AA^\top\in\Mat_n(\R)$ は半正値行列になる.
+}
+\proof{
+  $B \coloneqq A^\top A$ の場合に示す. $\bm{x}\in\R^m$ に対して
+  $$
+  q_{B}(x) = \bra \bm{x}, A^\top A \bm{x}\ket = \bra A \bm{x}, A\bm{x}\ket = \norm{A\bm{x}} \geq 0
+  $$
+  となることから $B$ は半正定値であることがわかった.
 }

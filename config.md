@@ -36,6 +36,7 @@ For instance:
 <!-- New Command w.r.t Linear Algebra -->
 \newcommand{\bra}{\left\langle}
 \newcommand{\ket}{\right\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
 \newcommand{\Mat}{\mathop{\mathrm{Mat}}}
 \newcommand{\diag}{\mathop{\mathrm{diag}}}
 
@@ -78,7 +79,7 @@ For instance:
 \newcommand{\example}[3]{\theoremcounter{example}{#1}{#2}{#3}}
 \newcommand{\remark}[3]{\theoremcounter{remark}{#1}{#2}{#3}}
 \newcommand{\proof}[1]{
-@@proof
+@@proof \\ <!-- new line -->
 !#1
 @@
 \\ <!-- new line-->
