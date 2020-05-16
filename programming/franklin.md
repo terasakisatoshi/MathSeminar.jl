@@ -65,7 +65,7 @@ I just love __bold text__.
 
 
 ```julia:showπ
-# This block causes an error as follow
-# // `\show{showπ}`: could not find the relevant output file. //
 @show π
 ```
+
+\output{showπ}

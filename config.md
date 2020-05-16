@@ -32,6 +32,13 @@ For instance:
 \newcommand{\N}{\mathbb N}
 \newcommand{\space}{\ }
 \newcommand{\newline}{ \\ }
+
+<!-- New Command w.r.t Linear Algebra -->
+\newcommand{\bra}{\left\langle}
+\newcommand{\ket}{\right\rangle}
+\newcommand{\Mat}{\mathop{\mathrm{Mat}}}
+\newcommand{\diag}{\mathop{\mathrm{diag}}}
+
 <!-- Put a box around something and pass some css styling to the box
 (useful for images for instance) e.g. :
 \style{width:80%;}{![](path/to/img.png)} -->
@@ -73,8 +80,8 @@ For instance:
 \newcommand{\proof}[1]{
 @@proof
 !#1
-@@ 
-\\ <!-- new line--> 
+@@
+\\ <!-- new line-->
 }
 
 
