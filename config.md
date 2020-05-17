@@ -39,7 +39,8 @@ For instance:
 \newcommand{\norm}[1]{\left\lVert#1\right\rVert}
 \newcommand{\Mat}{\mathop{\mathrm{Mat}}}
 \newcommand{\diag}{\mathop{\mathrm{diag}}}
-
+\newcommand{\rank}{\mathop{\mathrm{rank}}}
+\newcommand{\Ker}{\mathop{\mathrm{Ker}}}
 <!-- Put a box around something and pass some css styling to the box
 (useful for images for instance) e.g. :
 \style{width:80%;}{![](path/to/img.png)} -->

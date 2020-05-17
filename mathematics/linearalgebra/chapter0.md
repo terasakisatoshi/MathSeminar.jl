@@ -7,8 +7,8 @@
 \chapter{導入}
 - ここでは線形代数学の延長として、行列の特異値分解について述べる. 我々は下記の定理を示すことを目標にする.
 
-\theorem{}{}{
-$\mathrm{rank}(A) = r$ である $m \times n$ 行列 $A\in \Mat_{m,n}(\R)$ に対して次の式を満たす $n$ 次直交行列 $U\in O(n)$, $m$ 次直交行列 $V\in O(m)$, および正の広義単調減少列 $\sigma_1\geq \sigma_2 \geq \dots \geq \sigma_r > 0$ が存在する:
+\theorem{svddecomp}{}{
+$\rank(A) = r>0$ である $m \times n$ 行列 $A\in \Mat_{m,n}(\R)$ に対して次の式を満たす $n$ 次直交行列 $U\in O(n)$, $m$ 次直交行列 $V\in O(m)$, および正の広義単調減少列 $\sigma_1\geq \sigma_2 \geq \dots \geq \sigma_r > 0$ が存在する:
 
 $$
 A = U \Sigma V^{\top}, \label{svd}
@@ -219,7 +219,7 @@ $n$ 次実対称行列 $A$ が正定値行列であるとは, 任意の $\bm{x}\
 
 - 次の命題に示すように任意の行列から次のように半正定値行列を構成できる. このテクニックは特異値分解の証明に用いられる.
 
-\prop{}{}{
+\prop{gram_is_semi_posdef}{}{
   $A\in\Mat_{m,n}(\R)$ に対して $A^\top A\in \Mat_m(\R)$, $AA^\top\in\Mat_n(\R)$ は半正値行列になる.
 }
 \proof{
@@ -228,4 +228,49 @@ $n$ 次実対称行列 $A$ が正定値行列であるとは, 任意の $\bm{x}\
   q_{B}(x) = \bra \bm{x}, A^\top A \bm{x}\ket = \bra A \bm{x}, A\bm{x}\ket = \norm{A\bm{x}} \geq 0
   $$
   となることから $B$ は半正定値であることがわかった.
+}
+
+\chapter{特異値分解の導出}
+
+- いよいよ, \ref{svddecomp} の証明に入る. ゼロでない行列 $A\in\Mat_{m,n}(\R)$ に対する特異値分解の証明に入る.
+- 命題 \ref{eigen_value_of_semiposdef} 及び \ref{gram_is_semi_posdef} から $A^\top A$ は半正定値行列であるため全ての固有値は 0 以上である. そこで $A^\top A\in\Mat_n(\R)$ の固有値を大きい順に並べ
+
+$$
+\lambda_1\geq\lambda_2\geq\dots\geq\lambda_r>\lambda_{r+1}=\dots=\lambda_{n} = 0
+$$
+
+と表記する. ここで $r$ は重複度も込めた正の固有値の数とする. $r$ は $\rank(A^\top A)$ と等しい. また $\bm{u}_i$ を $\lambda_i$ の固有値に対応する固有ベクトルとする.
+
+\lemma{AAtop}{}{
+  $A\bm{u}_i\ (1\leq i \leq r)$ は $AA^\top$ の固有ベクトルになる.
+}
+\proof{
+ $\bm{v}_i = A\bm{u}_i$ とおく. これが固有ベクトルの定義を満たせば良い:
+ $$
+ (A A^\top) \bm{v}_i=(A A^\top) (A\bm{u}_i) = A(A^\top A \bm{u}_i) = \lambda_i A \bm{u}_i=\lambda_i \bm{v}_i.
+ $$
+}
+
+- 同様に $A A^\top\in\Mat_m(\R)$ も半正定値行列である. その固有値を大きい順に並べて
+
+$$
+\mu_1 \geq \mu_2 \geq \dots \geq \mu_s > \mu_{s+1} = \dots = \mu_m = 0
+$$
+
+と表記する. $\bm{v}_i$ を $\mu_i$ に対応する固有ベクトルとする. $s$ は $A A^\top$ の固有値で重複度も込めて 0 よりも大きい物の個数とする. 補題
+
+ \ref{AAtop} によって $s\geq r$ が従う. 同様に $A^\top \bm{v}_i\ (1\leq i\leq j)$ は $A^\top A$ の固有ベクトルとなることが示されるので $s\leq r$ となる. つまり $s=r$ が従う.
+
+\prop{}{}{
+- $A^\top A$ と $A A^\top$ は共通した正の固有値を持つ.
+- $\rank(A^\top A) = \rank(A A^\top)$
+- $\bm{v}_i = \frac{1}{2} A \bm{u}_i\ (1\leq i \leq r)$ は正規直交系をなす.
+}
+
+
+\lemma{}{}{
+$\Mat_{m,n}(\R)$ に対して次が成り立つ:
+$$
+\Ker(A^\top A) = \Ker(A).
+$$
 }
