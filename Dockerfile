@@ -51,9 +51,10 @@ end\n\
 
 RUN julia -E 'using Pkg; \
 Pkg.add(["OhMyREPL", "Revise"]); \
-Pkg.add(["Images", "ImageMagick", "ImageIO"]); \
+Pkg.add(["Images", "ImageMagick", "ImageIO", "ImageShow"]); \
 Pkg.add(["SpecialFunctions", "DifferentialEquations"]); \
 Pkg.add(["Plots", "GR", "PyCall","PyPlot", "SymPy"]); \
+Pkg.add(["StatsPlots", "Turing"]); \
 Pkg.add("PackageCompiler"); \
 Pkg.add(["Documenter", "Literate", "Weave", "Franklin", "NodeJS", "Remark"]); \
 Pkg.add(["WebIO", "Plotly", "PlotlyJS", "ORCA"]); \
@@ -65,7 +66,13 @@ COPY .statements/franklin.jl /statements/franklin.jl
 RUN julia -e '\
 using PackageCompiler; \
 PackageCompiler.create_sysimage(\
-    [:Revise, :OhMyREPL, :Plots, :PyCall, :SpecialFunctions, :DifferentialEquations, :Images], \
+    [\
+     :Revise, :OhMyREPL, \
+     :Plots, :GR, :PyCall, \
+     :SpecialFunctions, :DifferentialEquations, \
+     :StatsPlots, :Turing, \
+     :Images, \
+    ], \
     precompile_statements_file="/statements/franklin.jl", \
     replace_default=true); \
 '
