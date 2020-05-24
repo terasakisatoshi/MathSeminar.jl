@@ -58,6 +58,7 @@
             <li><a href="/MathSeminar.jl/gallery/plotlyjs2/">PlotlyJS.jl Part2</a></li>
             <li><a href="/MathSeminar.jl/gallery/plotlyjs3/">PlotlyJS.jl Part3</a></li>
             <li><a href="/MathSeminar.jl/gallery/jsxgraph/">JSXGraph.jl</a></li>
+            <li><a href="/MathSeminar.jl/gallery/wglmakie/">WGLMakie.jl</a></li>
           </ul>
         </li>
         <li><a href="" class="has-arrow">Topics in Mathematics</a>
@@ -91,29 +92,9 @@
 using Plots
 using SpecialFunctions
 using LaTeXStrings</code></pre>
-<pre><code class="language-julia">@doc Chisq</code></pre><pre><code class="plaintext">  Chisq(ν)
-
-
-  The Chi squared distribution (typically written χ²) with ν degrees of
-  freedom has the probability density function
-
-f(x; k) = \frac{x^{k/2 - 1} e^{-x/2}}{2^{k/2} \Gamma(k/2)}, \quad x > 0.
-
-  If ν is an integer, then it is the distribution of the sum of squares of ν
-  independent standard Normal variates.
-
-  Chisq(k)     # Chi-squared distribution with k degrees of freedom
-  
-  params(d)    # Get the parameters, i.e. (k,)
-  dof(d)       # Get the degrees of freedom, i.e. k
-
-
-  External links
-
-    •    Chi-squared distribution on Wikipedia
-        (http://en.wikipedia.org/wiki/Chi-squared_distribution)</code></pre>
+<pre><code class="language-julia">@doc Chisq</code></pre>
 <h1 id="prepare_standard_normal_distributions"><a href="#prepare_standard_normal_distributions">Prepare standard normal distributions</a></h1>
-<pre><code class="language-julia">d = Normal(0,1)</code></pre><pre><code class="plaintext">Distributions.Normal{Float64}(μ=0.0, σ=1.0)</code></pre>
+<pre><code class="language-julia">d = Normal(0,1)</code></pre>
 <h2 id="plot_histogram"><a href="#plot_histogram">Plot histogram</a></h2>
 <pre><code class="language-julia">sample = rand(d, 10000)
 p = plot(xlim=[-3, 3])
@@ -122,38 +103,7 @@ plot!(x->pdf(d, x),label="pdf")
 savefig(joinpath(@OUTPUT, "normal.svg"))</code></pre>
 <img src="/MathSeminar.jl/assets/mathematics/statistics/Chisq/code/output/normal.svg" alt="">
 <h1 id="prepare_gamma_function"><a href="#prepare_gamma_function">Prepare <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Γ</mi></mrow><annotation encoding="application/x-tex">\Gamma</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord">Γ</span></span></span></span> function</a></h1>
-<pre><code class="language-julia">@doc gamma</code></pre><pre><code class="plaintext">  gamma(z)
-
-
-  Compute the gamma function for complex z, defined by
-
-\Gamma(z)
-:=
-\begin{cases}
-    n!
-    & \text{for} \quad z = n+1 \;, n = 0,1,2,\dots
-    \\
-    \int_0^\infty t^{z-1} {\mathrm e}^{-t} \, {\mathrm d}t
-    & \text{for} \quad \Re(z) > 0
-\end{cases}
-
-  and by analytic continuation in the whole complex plane.
-
-  External links: DLMF (https://dlmf.nist.gov/5.2.1), Wikipedia
-  (https://en.wikipedia.org/wiki/Gamma_function).
-
-  See also: loggamma(z).
-
-  Implementation by
-  ≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡
-
-    •    Float: C standard math library libm
-        (https://en.wikipedia.org/wiki/C_mathematical_functions#libm).
-
-    •    Complex: by exp(loggamma(z)).
-
-    •    BigFloat: C library for multiple-precision floating-point MPFR
-        (https://www.mpfr.org/)</code></pre> 
+<pre><code class="language-julia">@doc gamma</code></pre> 
 <pre><code class="language-julia">Γ(x) = gamma(x);</code></pre>
 <pre><code class="language-julia">function T(n, z) 
     if z > 0
@@ -217,7 +167,7 @@ y = pdf.(χ², x)
 plot!(p, x, y, label=L"\chi^2(3)",line=:dash)</code></pre>
 <img src="/MathSeminar.jl/assets/mathematics/statistics/Chisq/code/output/deg3.svg" alt=""><div class="page-foot">
   <div class="copyright">
-    &copy; SatoshiTerasaki. Last modified: 2020年5月20日 水曜日. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
+    &copy; SatoshiTerasaki. Last modified: 2020年5月24日 日曜日. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
   </div>
 </div>
 </div><!-- CONTENT ENDS HERE -->

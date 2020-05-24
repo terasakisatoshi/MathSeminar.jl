@@ -1,0 +1,510 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="https://cdn.jsdelivr.net/gh/mrdoob/three.js/build/three.js"></script>
+
+<script>
+    window.js_call_session_id = 'standalone';
+    window.websocket_proxy_url = '';
+</script>
+<script src="msgpack.min.js"></script>
+<script src="core.js"></script>
+<script>
+function __on_document_load__(){
+    try {
+        
+(function threejs_module(canvas){
+    var context = canvas.getContext("webgl2", {preserveDrawingBuffer: true});
+    if(!context){
+        context = canvas.getContext("webgl", {preserveDrawingBuffer: true});
+    }
+    var renderer = new THREE.WebGLRenderer({
+        antialias: true, canvas: canvas, context: context,
+        powerPreference: "high-performance"
+    });
+    var ratio = window.devicePixelRatio || 1;
+    // var corrected_width = 960 / ratio;
+    // var corrected_height = 540 / ratio;
+    // canvas.style.width = corrected_width;
+    // canvas.style.height = corrected_height;
+    renderer.setSize(960, 540);
+    renderer.setClearColor("#ff00ff");
+    renderer.setPixelRatio(ratio);
+
+    put_on_heap("2", renderer);
+    put_on_heap("3", window);
+
+    function mousemove(event){
+        var rect = canvas.getBoundingClientRect();
+        var x = event.clientX - rect.left;
+        var y = event.clientY - rect.top;
+        update_obs('1575080186085167823', {
+            mouseposition: [x, y]
+        })
+        return false
+    }
+    canvas.addEventListener("mousemove", mousemove);
+
+    function mousedown(event){
+        update_obs('1575080186085167823', {
+            mousedown: event.buttons
+        })
+        return false;
+    }
+    canvas.addEventListener("mousedown", mousedown);
+
+    function mouseup(event){
+        update_obs('1575080186085167823', {
+            mouseup: event.buttons
+        })
+        return false;
+    }
+    canvas.addEventListener("mouseup", mouseup);
+
+    function wheel(event){
+        update_obs('1575080186085167823', {
+            scroll: [event.deltaX, -event.deltaY]
+        })
+        event.preventDefault()
+        return false;
+    }
+    canvas.addEventListener("wheel", wheel);
+
+    function keydown(event){
+        update_obs('1575080186085167823', {
+            keydown: event.code
+        })
+        return false;
+    }
+    document.addEventListener("keydown", keydown);
+
+    function keyup(event){
+        update_obs('1575080186085167823', {
+            keyup: event.code
+        })
+        return false;
+    }
+    document.addEventListener("keyup", keyup);
+    // This is a pretty ugly work around......
+    // so on keydown, we add the key to the currently pressed keys set
+    // if we open the contextmenu before releasing the key, we'll never
+    // receive an up event, so the key will stay inside the currently_pressed
+    // set... Only option I found is to actually listen to the contextmenu
+    // and remove all keys if its opened.
+    function contextmenu(event){
+        update_obs('1575080186085167823', {
+            keyup: "delete_keys"
+        })
+        return false;
+    }
+    document.addEventListener("contextmenu", contextmenu);
+    document.addEventListener("focusout", contextmenu);
+})((document.querySelector('[data-jscall-id="1"]')));
+
+
+function init_function(__data_dependencies) {
+            {
+        const func = (function update_size(canvas_width){
+    var w_h = deserialize_js(canvas_width);
+    get_heap_object('2').setSize(w_h[0], w_h[1]);
+    var canvas = (document.querySelector('[data-jscall-id="1"]'))
+    canvas.style.width = w_h[0];
+    canvas.style.height = w_h[1];
+});
+        register_onjs(func, '15430538708921002616');
+        }
+
+        put_on_heap('4', new THREE.Scene());
+        get_heap_object('4')['pixelarea'] = deserialize_js(__data_dependencies[0]);
+        get_heap_object('4')['backgroundcolor'] = '#FFFFFF';
+        get_heap_object('4')['clearscene'] = false;
+        put_on_heap('5', new THREE.Scene());
+        put_on_heap('6', new THREE.PerspectiveCamera(45.0, 0.8888889, 1, 1000));
+        get_heap_object('6')['name'] = 'camera';
+        put_on_heap('7', get_heap_object("5").add(get_heap_object('6')));
+        put_on_heap('8', get_heap_object("6").position.set(18.12709, 15.60657, 18.704044));
+        put_on_heap('9', get_heap_object("6").up.set(0.0, 0.0, 1.0));
+        put_on_heap('10', get_heap_object("6").lookAt(1.9230471, -0.59747314, 2.5000002));
+        get_heap_object('6')['fov'] = 45.0;
+        get_heap_object('6')['far'] = 70.16557;
+        get_heap_object('6')['aspect'] = 0.8888888888888888;
+        get_heap_object('5')['pixelarea'] = deserialize_js(__data_dependencies[1]);
+        get_heap_object('5')['backgroundcolor'] = '#FFFFFF';
+        get_heap_object('5')['clearscene'] = true;
+        put_on_heap('11', new THREE.InstancedBufferGeometry());
+        put_on_heap('12', new THREE.Float32BufferAttribute(deserialize_js(__data_dependencies[2]), 2));
+        put_on_heap('13', get_heap_object("12").setUsage(THREE.DynamicDrawUsage));
+        put_on_heap('14', get_heap_object("11").setAttribute('position', get_heap_object('12')));
+        put_on_heap('15', new THREE.Float32BufferAttribute(deserialize_js(__data_dependencies[3]), 2));
+        put_on_heap('16', get_heap_object("15").setUsage(THREE.DynamicDrawUsage));
+        put_on_heap('17', get_heap_object("11").setAttribute('uv', get_heap_object('15')));
+        put_on_heap('18', get_heap_object("11").setIndex(deserialize_js(__data_dependencies[4])));
+        get_heap_object('11')['maxInstancedCount'] = 22;
+        put_on_heap('19', get_heap_object("3").Float32Array.from(deserialize_js(__data_dependencies[5])));
+        put_on_heap('20', new THREE.InstancedBufferAttribute(get_heap_object('19'), 4));
+        put_on_heap('21', get_heap_object("20").setUsage(THREE.DynamicDrawUsage));
+        put_on_heap('22', get_heap_object("11").setAttribute('color', get_heap_object('20')));
+        put_on_heap('23', get_heap_object("3").Float32Array.from(deserialize_js(__data_dependencies[6])));
+        put_on_heap('24', new THREE.InstancedBufferAttribute(get_heap_object('23'), 4));
+        put_on_heap('25', get_heap_object("24").setUsage(THREE.DynamicDrawUsage));
+        put_on_heap('26', get_heap_object("11").setAttribute('rotations', get_heap_object('24')));
+        put_on_heap('27', get_heap_object("3").Float32Array.from(deserialize_js(__data_dependencies[7])));
+        put_on_heap('28', new THREE.InstancedBufferAttribute(get_heap_object('27'), 2));
+        put_on_heap('29', get_heap_object("28").setUsage(THREE.DynamicDrawUsage));
+        put_on_heap('30', get_heap_object("11").setAttribute('markersize', get_heap_object('28')));
+        put_on_heap('31', get_heap_object("3").Float32Array.from(deserialize_js(__data_dependencies[8])));
+        put_on_heap('32', new THREE.InstancedBufferAttribute(get_heap_object('31'), 3));
+        put_on_heap('33', get_heap_object("32").setUsage(THREE.DynamicDrawUsage));
+        put_on_heap('34', get_heap_object("11").setAttribute('offset', get_heap_object('32')));
+        put_on_heap('35', get_heap_object("3").Float32Array.from(deserialize_js(__data_dependencies[9])));
+        put_on_heap('36', new THREE.InstancedBufferAttribute(get_heap_object('35'), 4));
+        put_on_heap('37', get_heap_object("36").setUsage(THREE.DynamicDrawUsage));
+        put_on_heap('38', get_heap_object("11").setAttribute('uv_offset_width', get_heap_object('36')));
+        put_on_heap('39', get_heap_object("3").Float32Array.from(deserialize_js(__data_dependencies[10])));
+        put_on_heap('40', new THREE.InstancedBufferAttribute(get_heap_object('39'), 2));
+        put_on_heap('41', get_heap_object("40").setUsage(THREE.DynamicDrawUsage));
+        put_on_heap('42', get_heap_object("11").setAttribute('marker_offset', get_heap_object('40')));
+        put_on_heap('43', new get_heap_object("3").Object());
+        get_heap_object('43')['billboard'] = deserialize_js(__data_dependencies[11]);
+        get_heap_object('43')['use_pixel_marker'] = deserialize_js(__data_dependencies[12]);
+        put_on_heap('44', new THREE.Matrix4());
+        put_on_heap('45', get_heap_object("44").fromArray(deserialize_js(__data_dependencies[13])));
+        get_heap_object('43')['pixelspace'] = deserialize_js(__data_dependencies[14]);
+        put_on_heap('46', new THREE.Vector2(480.0, 540.0));
+        get_heap_object('43')['resolution'] = deserialize_js(__data_dependencies[15]);
+        get_heap_object('43')['atlas_texture_size'] = deserialize_js(__data_dependencies[16]);
+        get_heap_object('43')['shape_type'] = deserialize_js(__data_dependencies[17]);
+        put_on_heap('47', get_heap_object("3").Float32Array.from(deserialize_js(__data_dependencies[18])));
+        put_on_heap('48', new THREE.DataTexture(get_heap_object('47'), 1024, 1024, THREE.RedFormat, THREE.FloatType));
+        get_heap_object('48')['minFilter'] = THREE.LinearFilter;
+        get_heap_object('48')['magFilter'] = THREE.LinearFilter;
+        get_heap_object('48')['wrapS'] = THREE.ClampToEdgeWrapping;
+        get_heap_object('48')['wrapT'] = THREE.ClampToEdgeWrapping;
+        get_heap_object('48')['anisotropy'] = 16.0;
+        get_heap_object('48')['needsUpdate'] = true;
+        get_heap_object('43')['distancefield'] = deserialize_js(__data_dependencies[19]);
+        get_heap_object('43')['transform_marker'] = deserialize_js(__data_dependencies[20]);
+        put_on_heap('49', new THREE.Sphere());
+        get_heap_object('11')['boundingSphere'] = get_heap_object('49');
+        get_heap_object("11").boundingSphere['radius'] = 1.0e13;
+        put_on_heap('50', new THREE.RawShaderMaterial(deserialize_js(__data_dependencies[21])));
+        put_on_heap('51', new THREE.Mesh(get_heap_object('11'), get_heap_object('50')));
+        get_heap_object('51')['name'] = '954476537197878068';
+        get_heap_object('51')['matrixAutoUpdate'] = false;
+        put_on_heap('52', get_heap_object("51").matrix.set(1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0));
+        put_on_heap('53', get_heap_object("5").add(get_heap_object('51')));
+        put_on_heap('54', new THREE.InstancedBufferGeometry());
+        put_on_heap('55', new THREE.Float32BufferAttribute(deserialize_js(__data_dependencies[22]), 2));
+        put_on_heap('56', get_heap_object("55").setUsage(THREE.DynamicDrawUsage));
+        put_on_heap('57', get_heap_object("54").setAttribute('position', get_heap_object('55')));
+        put_on_heap('58', new THREE.Float32BufferAttribute(deserialize_js(__data_dependencies[23]), 2));
+        put_on_heap('59', get_heap_object("58").setUsage(THREE.DynamicDrawUsage));
+        put_on_heap('60', get_heap_object("54").setAttribute('uv', get_heap_object('58')));
+        put_on_heap('61', get_heap_object("54").setIndex(deserialize_js(__data_dependencies[24])));
+        get_heap_object('54')['maxInstancedCount'] = 39;
+        put_on_heap('62', get_heap_object("3").Float32Array.from(deserialize_js(__data_dependencies[25])));
+        put_on_heap('63', new THREE.InstancedBufferAttribute(get_heap_object('62'), 1));
+        put_on_heap('64', get_heap_object("63").setUsage(THREE.DynamicDrawUsage));
+        put_on_heap('65', get_heap_object("54").setAttribute('linewidth_start', get_heap_object('63')));
+        put_on_heap('66', get_heap_object("3").Float32Array.from(deserialize_js(__data_dependencies[26])));
+        put_on_heap('67', new THREE.InstancedBufferAttribute(get_heap_object('66'), 4));
+        put_on_heap('68', get_heap_object("67").setUsage(THREE.DynamicDrawUsage));
+        put_on_heap('69', get_heap_object("54").setAttribute('color_end', get_heap_object('67')));
+        put_on_heap('70', get_heap_object("3").Float32Array.from(deserialize_js(__data_dependencies[27])));
+        put_on_heap('71', new THREE.InstancedBufferAttribute(get_heap_object('70'), 1));
+        put_on_heap('72', get_heap_object("71").setUsage(THREE.DynamicDrawUsage));
+        put_on_heap('73', get_heap_object("54").setAttribute('linewidth_end', get_heap_object('71')));
+        put_on_heap('74', get_heap_object("3").Float32Array.from(deserialize_js(__data_dependencies[28])));
+        put_on_heap('75', new THREE.InstancedBufferAttribute(get_heap_object('74'), 3));
+        put_on_heap('76', get_heap_object("75").setUsage(THREE.DynamicDrawUsage));
+        put_on_heap('77', get_heap_object("54").setAttribute('segment_start', get_heap_object('75')));
+        put_on_heap('78', get_heap_object("3").Float32Array.from(deserialize_js(__data_dependencies[29])));
+        put_on_heap('79', new THREE.InstancedBufferAttribute(get_heap_object('78'), 4));
+        put_on_heap('80', get_heap_object("79").setUsage(THREE.DynamicDrawUsage));
+        put_on_heap('81', get_heap_object("54").setAttribute('color_start', get_heap_object('79')));
+        put_on_heap('82', get_heap_object("3").Float32Array.from(deserialize_js(__data_dependencies[30])));
+        put_on_heap('83', new THREE.InstancedBufferAttribute(get_heap_object('82'), 3));
+        put_on_heap('84', get_heap_object("83").setUsage(THREE.DynamicDrawUsage));
+        put_on_heap('85', get_heap_object("54").setAttribute('segment_end', get_heap_object('83')));
+        put_on_heap('86', new get_heap_object("3").Object());
+        put_on_heap('87', new THREE.Vector2(480.0, 540.0));
+        get_heap_object('86')['resolution'] = deserialize_js(__data_dependencies[31]);
+        put_on_heap('88', new THREE.Sphere());
+        get_heap_object('54')['boundingSphere'] = get_heap_object('88');
+        get_heap_object("54").boundingSphere['radius'] = 1.0e13;
+        put_on_heap('89', new THREE.RawShaderMaterial(deserialize_js(__data_dependencies[32])));
+        put_on_heap('90', new THREE.Mesh(get_heap_object('54'), get_heap_object('89')));
+        get_heap_object('90')['matrixAutoUpdate'] = false;
+        put_on_heap('91', get_heap_object("90").matrix.set(1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0));
+        get_heap_object('90')['name'] = '5180041694412006675';
+        put_on_heap('92', get_heap_object("5").add(get_heap_object('90')));
+        put_on_heap('93', new THREE.InstancedBufferGeometry());
+        put_on_heap('94', new THREE.Float32BufferAttribute(deserialize_js(__data_dependencies[33]), 3));
+        put_on_heap('95', get_heap_object("94").setUsage(THREE.DynamicDrawUsage));
+        put_on_heap('96', get_heap_object("93").setAttribute('position', get_heap_object('94')));
+        put_on_heap('97', new THREE.Float32BufferAttribute(deserialize_js(__data_dependencies[34]), 3));
+        put_on_heap('98', get_heap_object("97").setUsage(THREE.DynamicDrawUsage));
+        put_on_heap('99', get_heap_object("93").setAttribute('normals', get_heap_object('97')));
+        put_on_heap('100', get_heap_object("93").setIndex(deserialize_js(__data_dependencies[35])));
+        get_heap_object('93')['maxInstancedCount'] = 30;
+        put_on_heap('101', get_heap_object("3").Float32Array.from(deserialize_js(__data_dependencies[36])));
+        put_on_heap('102', new THREE.InstancedBufferAttribute(get_heap_object('101'), 4));
+        put_on_heap('103', get_heap_object("102").setUsage(THREE.DynamicDrawUsage));
+        put_on_heap('104', get_heap_object("93").setAttribute('color', get_heap_object('102')));
+        put_on_heap('105', get_heap_object("3").Float32Array.from(deserialize_js(__data_dependencies[37])));
+        put_on_heap('106', new THREE.InstancedBufferAttribute(get_heap_object('105'), 3));
+        put_on_heap('107', get_heap_object("106").setUsage(THREE.DynamicDrawUsage));
+        put_on_heap('108', get_heap_object("93").setAttribute('offset', get_heap_object('106')));
+        put_on_heap('109', new get_heap_object("3").Object());
+        put_on_heap('110', new THREE.Vector3(0.2, 0.2, 0.2));
+        get_heap_object('109')['specular'] = deserialize_js(__data_dependencies[38]);
+        put_on_heap('111', new THREE.Matrix4());
+        put_on_heap('112', get_heap_object("111").fromArray(deserialize_js(__data_dependencies[39])));
+        get_heap_object('109')['projection'] = deserialize_js(__data_dependencies[40]);
+        put_on_heap('113', new THREE.Vector3(0.5, 0.5, 0.5));
+        get_heap_object('109')['markersize'] = deserialize_js(__data_dependencies[41]);
+        put_on_heap('114', new THREE.Vector4(0.0, 0.0, 0.0, 1.0));
+        get_heap_object('109')['rotations'] = deserialize_js(__data_dependencies[42]);
+        put_on_heap('115', new THREE.Matrix4());
+        put_on_heap('116', get_heap_object("115").fromArray(deserialize_js(__data_dependencies[43])));
+        get_heap_object('109')['projectionview'] = deserialize_js(__data_dependencies[44]);
+        put_on_heap('117', new THREE.Vector3(0.55, 0.55, 0.55));
+        get_heap_object('109')['ambient'] = deserialize_js(__data_dependencies[45]);
+        put_on_heap('118', new THREE.Vector3(18.12709, 15.60657, 18.704044));
+        get_heap_object('109')['lightposition'] = deserialize_js(__data_dependencies[46]);
+        put_on_heap('119', new THREE.Vector4(0.0, 0.0, 0.0, 0.0));
+        get_heap_object('109')['nan_color'] = deserialize_js(__data_dependencies[47]);
+        get_heap_object('109')['shininess'] = deserialize_js(__data_dependencies[48]);
+        put_on_heap('120', new THREE.Vector2(0.0, 0.0));
+        get_heap_object('109')['uv'] = deserialize_js(__data_dependencies[49]);
+        put_on_heap('121', new THREE.Vector2(480.0, 540.0));
+        get_heap_object('109')['resolution'] = deserialize_js(__data_dependencies[50]);
+        put_on_heap('122', new THREE.Matrix4());
+        put_on_heap('123', get_heap_object("122").fromArray(deserialize_js(__data_dependencies[51])));
+        get_heap_object('109')['model'] = deserialize_js(__data_dependencies[52]);
+        put_on_heap('124', new THREE.Vector3(18.12709, 15.60657, 18.704044));
+        get_heap_object('109')['eyeposition'] = deserialize_js(__data_dependencies[53]);
+        put_on_heap('125', new THREE.Matrix4());
+        put_on_heap('126', get_heap_object("125").fromArray(deserialize_js(__data_dependencies[54])));
+        get_heap_object('109')['view'] = deserialize_js(__data_dependencies[55]);
+        put_on_heap('127', new THREE.Vector3(0.4, 0.4, 0.4));
+        get_heap_object('109')['diffuse'] = deserialize_js(__data_dependencies[56]);
+        put_on_heap('128', new THREE.Sphere());
+        get_heap_object('93')['boundingSphere'] = get_heap_object('128');
+        get_heap_object("93").boundingSphere['radius'] = 1.0e13;
+        put_on_heap('129', new THREE.RawShaderMaterial(deserialize_js(__data_dependencies[57])));
+        put_on_heap('130', new THREE.Mesh(get_heap_object('93'), get_heap_object('129')));
+        get_heap_object('130')['name'] = '3258227154515872445';
+        put_on_heap('131', get_heap_object("5").add(get_heap_object('130')));
+        put_on_heap('132', get_heap_object("4").add(get_heap_object('5')));
+        put_on_heap('133', new THREE.Scene());
+        put_on_heap('134', new THREE.PerspectiveCamera(45.0, 0.8888889, 1, 1000));
+        get_heap_object('134')['name'] = 'camera';
+        put_on_heap('135', get_heap_object("133").add(get_heap_object('134')));
+        put_on_heap('136', get_heap_object("134").position.set(3.0976098, 3.0339525, 2.9585564));
+        put_on_heap('137', get_heap_object("134").up.set(0.0, 0.0, 1.0));
+        put_on_heap('138', get_heap_object("134").lookAt(0.13905334, 0.07539606, 0.0));
+        get_heap_object('134')['fov'] = 45.0;
+        get_heap_object('134')['far'] = 12.8109255;
+        get_heap_object('134')['aspect'] = 0.8888888888888888;
+        get_heap_object('133')['pixelarea'] = deserialize_js(__data_dependencies[58]);
+        get_heap_object('133')['backgroundcolor'] = '#FFFFFF';
+        get_heap_object('133')['clearscene'] = true;
+        put_on_heap('139', new THREE.InstancedBufferGeometry());
+        put_on_heap('140', new THREE.Float32BufferAttribute(deserialize_js(__data_dependencies[59]), 2));
+        put_on_heap('141', get_heap_object("140").setUsage(THREE.DynamicDrawUsage));
+        put_on_heap('142', get_heap_object("139").setAttribute('position', get_heap_object('140')));
+        put_on_heap('143', new THREE.Float32BufferAttribute(deserialize_js(__data_dependencies[60]), 2));
+        put_on_heap('144', get_heap_object("143").setUsage(THREE.DynamicDrawUsage));
+        put_on_heap('145', get_heap_object("139").setAttribute('uv', get_heap_object('143')));
+        put_on_heap('146', get_heap_object("139").setIndex(deserialize_js(__data_dependencies[61])));
+        get_heap_object('139')['maxInstancedCount'] = 54;
+        put_on_heap('147', get_heap_object("3").Float32Array.from(deserialize_js(__data_dependencies[62])));
+        put_on_heap('148', new THREE.InstancedBufferAttribute(get_heap_object('147'), 4));
+        put_on_heap('149', get_heap_object("148").setUsage(THREE.DynamicDrawUsage));
+        put_on_heap('150', get_heap_object("139").setAttribute('color', get_heap_object('148')));
+        put_on_heap('151', get_heap_object("3").Float32Array.from(deserialize_js(__data_dependencies[63])));
+        put_on_heap('152', new THREE.InstancedBufferAttribute(get_heap_object('151'), 4));
+        put_on_heap('153', get_heap_object("152").setUsage(THREE.DynamicDrawUsage));
+        put_on_heap('154', get_heap_object("139").setAttribute('rotations', get_heap_object('152')));
+        put_on_heap('155', get_heap_object("3").Float32Array.from(deserialize_js(__data_dependencies[64])));
+        put_on_heap('156', new THREE.InstancedBufferAttribute(get_heap_object('155'), 2));
+        put_on_heap('157', get_heap_object("156").setUsage(THREE.DynamicDrawUsage));
+        put_on_heap('158', get_heap_object("139").setAttribute('markersize', get_heap_object('156')));
+        put_on_heap('159', get_heap_object("3").Float32Array.from(deserialize_js(__data_dependencies[65])));
+        put_on_heap('160', new THREE.InstancedBufferAttribute(get_heap_object('159'), 3));
+        put_on_heap('161', get_heap_object("160").setUsage(THREE.DynamicDrawUsage));
+        put_on_heap('162', get_heap_object("139").setAttribute('offset', get_heap_object('160')));
+        put_on_heap('163', get_heap_object("3").Float32Array.from(deserialize_js(__data_dependencies[66])));
+        put_on_heap('164', new THREE.InstancedBufferAttribute(get_heap_object('163'), 4));
+        put_on_heap('165', get_heap_object("164").setUsage(THREE.DynamicDrawUsage));
+        put_on_heap('166', get_heap_object("139").setAttribute('uv_offset_width', get_heap_object('164')));
+        put_on_heap('167', get_heap_object("3").Float32Array.from(deserialize_js(__data_dependencies[67])));
+        put_on_heap('168', new THREE.InstancedBufferAttribute(get_heap_object('167'), 2));
+        put_on_heap('169', get_heap_object("168").setUsage(THREE.DynamicDrawUsage));
+        put_on_heap('170', get_heap_object("139").setAttribute('marker_offset', get_heap_object('168')));
+        put_on_heap('171', new get_heap_object("3").Object());
+        get_heap_object('171')['billboard'] = deserialize_js(__data_dependencies[68]);
+        get_heap_object('171')['use_pixel_marker'] = deserialize_js(__data_dependencies[69]);
+        put_on_heap('172', new THREE.Matrix4());
+        put_on_heap('173', get_heap_object("172").fromArray(deserialize_js(__data_dependencies[70])));
+        get_heap_object('171')['pixelspace'] = deserialize_js(__data_dependencies[71]);
+        put_on_heap('174', new THREE.Vector2(480.0, 540.0));
+        get_heap_object('171')['resolution'] = deserialize_js(__data_dependencies[72]);
+        get_heap_object('171')['atlas_texture_size'] = deserialize_js(__data_dependencies[73]);
+        get_heap_object('171')['shape_type'] = deserialize_js(__data_dependencies[74]);
+        get_heap_object('48')['needsUpdate'] = true;
+        get_heap_object('171')['distancefield'] = deserialize_js(__data_dependencies[75]);
+        get_heap_object('171')['transform_marker'] = deserialize_js(__data_dependencies[76]);
+        put_on_heap('175', new THREE.Sphere());
+        get_heap_object('139')['boundingSphere'] = get_heap_object('175');
+        get_heap_object("139").boundingSphere['radius'] = 1.0e13;
+        put_on_heap('176', new THREE.RawShaderMaterial(deserialize_js(__data_dependencies[77])));
+        put_on_heap('177', new THREE.Mesh(get_heap_object('139'), get_heap_object('176')));
+        get_heap_object('177')['name'] = '7814686909102479102';
+        get_heap_object('177')['matrixAutoUpdate'] = false;
+        put_on_heap('178', get_heap_object("177").matrix.set(1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0));
+        put_on_heap('179', get_heap_object("133").add(get_heap_object('177')));
+        put_on_heap('180', new THREE.InstancedBufferGeometry());
+        put_on_heap('181', new THREE.Float32BufferAttribute(deserialize_js(__data_dependencies[78]), 2));
+        put_on_heap('182', get_heap_object("181").setUsage(THREE.DynamicDrawUsage));
+        put_on_heap('183', get_heap_object("180").setAttribute('position', get_heap_object('181')));
+        put_on_heap('184', new THREE.Float32BufferAttribute(deserialize_js(__data_dependencies[79]), 2));
+        put_on_heap('185', get_heap_object("184").setUsage(THREE.DynamicDrawUsage));
+        put_on_heap('186', get_heap_object("180").setAttribute('uv', get_heap_object('184')));
+        put_on_heap('187', get_heap_object("180").setIndex(deserialize_js(__data_dependencies[80])));
+        get_heap_object('180')['maxInstancedCount'] = 39;
+        put_on_heap('188', get_heap_object("3").Float32Array.from(deserialize_js(__data_dependencies[81])));
+        put_on_heap('189', new THREE.InstancedBufferAttribute(get_heap_object('188'), 1));
+        put_on_heap('190', get_heap_object("189").setUsage(THREE.DynamicDrawUsage));
+        put_on_heap('191', get_heap_object("180").setAttribute('linewidth_start', get_heap_object('189')));
+        put_on_heap('192', get_heap_object("3").Float32Array.from(deserialize_js(__data_dependencies[82])));
+        put_on_heap('193', new THREE.InstancedBufferAttribute(get_heap_object('192'), 4));
+        put_on_heap('194', get_heap_object("193").setUsage(THREE.DynamicDrawUsage));
+        put_on_heap('195', get_heap_object("180").setAttribute('color_end', get_heap_object('193')));
+        put_on_heap('196', get_heap_object("3").Float32Array.from(deserialize_js(__data_dependencies[83])));
+        put_on_heap('197', new THREE.InstancedBufferAttribute(get_heap_object('196'), 1));
+        put_on_heap('198', get_heap_object("197").setUsage(THREE.DynamicDrawUsage));
+        put_on_heap('199', get_heap_object("180").setAttribute('linewidth_end', get_heap_object('197')));
+        put_on_heap('200', get_heap_object("3").Float32Array.from(deserialize_js(__data_dependencies[84])));
+        put_on_heap('201', new THREE.InstancedBufferAttribute(get_heap_object('200'), 3));
+        put_on_heap('202', get_heap_object("201").setUsage(THREE.DynamicDrawUsage));
+        put_on_heap('203', get_heap_object("180").setAttribute('segment_start', get_heap_object('201')));
+        put_on_heap('204', get_heap_object("3").Float32Array.from(deserialize_js(__data_dependencies[85])));
+        put_on_heap('205', new THREE.InstancedBufferAttribute(get_heap_object('204'), 4));
+        put_on_heap('206', get_heap_object("205").setUsage(THREE.DynamicDrawUsage));
+        put_on_heap('207', get_heap_object("180").setAttribute('color_start', get_heap_object('205')));
+        put_on_heap('208', get_heap_object("3").Float32Array.from(deserialize_js(__data_dependencies[86])));
+        put_on_heap('209', new THREE.InstancedBufferAttribute(get_heap_object('208'), 3));
+        put_on_heap('210', get_heap_object("209").setUsage(THREE.DynamicDrawUsage));
+        put_on_heap('211', get_heap_object("180").setAttribute('segment_end', get_heap_object('209')));
+        put_on_heap('212', new get_heap_object("3").Object());
+        put_on_heap('213', new THREE.Vector2(480.0, 540.0));
+        get_heap_object('212')['resolution'] = deserialize_js(__data_dependencies[87]);
+        put_on_heap('214', new THREE.Sphere());
+        get_heap_object('180')['boundingSphere'] = get_heap_object('214');
+        get_heap_object("180").boundingSphere['radius'] = 1.0e13;
+        put_on_heap('215', new THREE.RawShaderMaterial(deserialize_js(__data_dependencies[88])));
+        put_on_heap('216', new THREE.Mesh(get_heap_object('180'), get_heap_object('215')));
+        get_heap_object('216')['matrixAutoUpdate'] = false;
+        put_on_heap('217', get_heap_object("216").matrix.set(1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0));
+        get_heap_object('216')['name'] = '13162591903522640912';
+        put_on_heap('218', get_heap_object("133").add(get_heap_object('216')));
+        put_on_heap('219', new THREE.InstancedBufferGeometry());
+        put_on_heap('220', new THREE.Float32BufferAttribute(deserialize_js(__data_dependencies[89]), 2));
+        put_on_heap('221', get_heap_object("220").setUsage(THREE.DynamicDrawUsage));
+        put_on_heap('222', get_heap_object("219").setAttribute('position', get_heap_object('220')));
+        put_on_heap('223', new THREE.Float32BufferAttribute(deserialize_js(__data_dependencies[90]), 2));
+        put_on_heap('224', get_heap_object("223").setUsage(THREE.DynamicDrawUsage));
+        put_on_heap('225', get_heap_object("219").setAttribute('uv', get_heap_object('223')));
+        put_on_heap('226', get_heap_object("219").setIndex(deserialize_js(__data_dependencies[91])));
+        get_heap_object('219')['maxInstancedCount'] = 2116;
+        put_on_heap('227', get_heap_object("3").Float32Array.from(deserialize_js(__data_dependencies[92])));
+        put_on_heap('228', new THREE.InstancedBufferAttribute(get_heap_object('227'), 3));
+        put_on_heap('229', get_heap_object("228").setUsage(THREE.DynamicDrawUsage));
+        put_on_heap('230', get_heap_object("219").setAttribute('segment_start', get_heap_object('228')));
+        put_on_heap('231', get_heap_object("3").Float32Array.from(deserialize_js(__data_dependencies[93])));
+        put_on_heap('232', new THREE.InstancedBufferAttribute(get_heap_object('231'), 3));
+        put_on_heap('233', get_heap_object("232").setUsage(THREE.DynamicDrawUsage));
+        put_on_heap('234', get_heap_object("219").setAttribute('segment_end', get_heap_object('232')));
+        put_on_heap('235', new get_heap_object("3").Object());
+        put_on_heap('236', new THREE.Vector4(0.0, 0.0, 0.0, 1.0));
+        get_heap_object('235')['color'] = deserialize_js(__data_dependencies[94]);
+        get_heap_object('235')['linewidth_start'] = deserialize_js(__data_dependencies[95]);
+        put_on_heap('237', new THREE.Vector4(0.0, 0.0, 0.0, 1.0));
+        get_heap_object('235')['color_end'] = deserialize_js(__data_dependencies[96]);
+        get_heap_object('235')['linewidth_end'] = deserialize_js(__data_dependencies[97]);
+        put_on_heap('238', new THREE.Vector4(0.0, 0.0, 0.0, 1.0));
+        get_heap_object('235')['color_start'] = deserialize_js(__data_dependencies[98]);
+        put_on_heap('239', new THREE.Vector2(480.0, 540.0));
+        get_heap_object('235')['resolution'] = deserialize_js(__data_dependencies[99]);
+        get_heap_object('235')['linewidth'] = deserialize_js(__data_dependencies[100]);
+        put_on_heap('240', new THREE.Sphere());
+        get_heap_object('219')['boundingSphere'] = get_heap_object('240');
+        get_heap_object("219").boundingSphere['radius'] = 1.0e13;
+        put_on_heap('241', new THREE.RawShaderMaterial(deserialize_js(__data_dependencies[101])));
+        put_on_heap('242', new THREE.Mesh(get_heap_object('219'), get_heap_object('241')));
+        get_heap_object('242')['matrixAutoUpdate'] = false;
+        put_on_heap('243', get_heap_object("242").matrix.set(1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0));
+        get_heap_object('242')['name'] = '12172518403709281557';
+        put_on_heap('244', get_heap_object("133").add(get_heap_object('242')));
+        put_on_heap('245', get_heap_object("4").add(get_heap_object('133')));
+        {    function render_camera(scene, camera){
+        get_heap_object('2').autoClear = scene.clearscene;
+        var bg = scene.backgroundcolor;
+        var area = scene.pixelarea;
+        if(area){
+            var x = area[0];
+            var y = area[1];
+            var w = area[2];
+            var h = area[3];
+            camera.aspect = w/h;
+            camera.updateProjectionMatrix();
+            get_heap_object('2').setViewport(x, y, w, h);
+            get_heap_object('2').setScissor(x, y, w, h);
+            get_heap_object('2').setScissorTest(true);
+            get_heap_object('2').setClearColor(scene.backgroundcolor);
+            get_heap_object('2').render(scene, camera);
+        }
+    }
+    function render_scene(scene){
+        var camera = scene.getObjectByName("camera");
+        if(camera){
+            render_camera(scene, camera);
+        }
+        for(var i = 0; i < scene.children.length; i++){
+            var child = scene.children[i];
+            render_scene(child);
+        }
+    }
+    function render_all(){
+        render_scene(get_heap_object('4'));
+    }
+    // render first frame
+    render_all();
+    // Render only when something updates!
+    on_update_observables_callbacks.push(render_all);
+}
+
+}
+init_from_file(init_function, "standalone.msgpack");
+
+    } catch (e) {
+        websocket_send({
+            msg_type: JSDoneLoading,
+            exception: String(e),
+            message: "Error during initialization",
+            stacktrace: e.stack
+        });
+    }
+};
+
+</script>
+</head>
+<body onload=__on_document_load__()>
+    <div id="application-dom" data-jscall-id="2">
+  <canvas height="540" data-jscall-id="1" width="960"></canvas>
+</div>
+</body>
+</html>
+
