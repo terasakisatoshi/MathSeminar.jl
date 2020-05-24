@@ -58,7 +58,6 @@ Pkg.add(["StatsPlots", "Turing"]); \
 Pkg.add("PackageCompiler"); \
 Pkg.add(["Documenter", "Literate", "Weave", "Franklin", "NodeJS", "Remark"]); \
 Pkg.add(["WebIO", "Plotly", "PlotlyJS", "ORCA"]); \
-Pkg.precompile() \
 '
 
 RUN mkdir /statements
