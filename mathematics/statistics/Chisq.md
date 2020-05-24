@@ -1,5 +1,5 @@
 @def title = "Chisq distributions"
-@def showall = true
+
 
 # $\chi^2$ distribution
 
