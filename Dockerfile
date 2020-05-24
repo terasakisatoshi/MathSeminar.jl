@@ -67,7 +67,7 @@ using PackageCompiler; \
 PackageCompiler.create_sysimage(\
     [\
      :Revise, :OhMyREPL, \
-     :Plots, :GR, \
+     :Plots, :GR, :SymPy, \
      :SpecialFunctions, :DifferentialEquations, \
      :StatsPlots, :Turing, \
      :Images, \
