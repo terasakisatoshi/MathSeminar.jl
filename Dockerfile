@@ -72,7 +72,6 @@ PackageCompiler.create_sysimage(\
      :StatsPlots, :Turing, \
      :Images, \
     ], \
-    precompile_statements_file="/statements/franklin.jl", \
     replace_default=true); \
 '
 
