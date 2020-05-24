@@ -15,4 +15,4 @@ jobs:
         persist-credentials: false
     - run: julia --project=@. -e 'using Pkg; Pkg.add(["NodeJS", "Franklin", "Literate", "Remark", "Weave"])'
     - run: julia --project=@. -e 'using Pkg; Pkg.instantiate()'
-    - run: julia --project=@. /work/_mytools/deploy.jl
+    - run: julia --project=@. ./_mytools/deploy.jl
