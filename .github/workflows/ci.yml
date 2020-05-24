@@ -13,6 +13,7 @@ jobs:
       uses: actions/checkout@v2
       with:
         persist-credentials: false
+    - run: docker built -t terasakisatoshi/franklin
     - run: docker-compose build julia
     - run: docker-compose run --rm julia julia -e 'using Pkg; Pkg.instantiate()'
     - run: docker-compose run --rm julia julia /work/_mytools/deploy.jl

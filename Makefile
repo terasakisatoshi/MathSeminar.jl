@@ -6,7 +6,7 @@ all: build
 
 build:
 	rm -f Manifest.toml
-	docker-compose build
+	docker build -t terasakisatoshi/franklin .
 	docker-compose run --rm julia julia -e 'using Pkg; Pkg.instantiate()'
 
 slide:
