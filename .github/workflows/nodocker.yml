@@ -1,0 +1,28 @@
+name: CI-no-docker
+on:
+  - pull_request
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      GKSwstype: 100
+      JULIA_NUM_THREADS: 2
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+        persist-credentials: false
+    - name: Install python
+      uses: actions/setup-python@v1
+      with:
+        python-version: '3.x'
+    - run: pip install numpy sympy matplotlib
+    - name: Install Julia
+      uses: julia-actions/setup-julia@v1
+      with:
+        version: 1.4.1
+
+    - run: julia --project=@. -e 'using Pkg; Pkg.add(["NodeJS", "Franklin", "Literate", "Remark", "Weave"])'
+    - run: julia --project=@. -e 'using Pkg; Pkg.instantiate()'
+    - run: julia --project=@. ./_mytools/deploy.jl
