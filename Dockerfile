@@ -53,7 +53,7 @@ RUN julia -E 'using Pkg; \
 Pkg.add(["OhMyREPL", "Revise"]); \
 Pkg.add(["Images", "ImageMagick", "ImageIO", "ImageShow"]); \
 Pkg.add(["SpecialFunctions", "DifferentialEquations"]); \
-Pkg.add(["Plots", "GR", "PyCall","PyPlot", "SymPy"]); \
+Pkg.add(["Plots", "GR", "PyCall", "PyPlot", "SymPy"]); \
 Pkg.add(["StatsPlots", "Turing"]); \
 Pkg.add("PackageCompiler"); \
 Pkg.add(["Documenter", "Literate", "Weave", "Franklin", "NodeJS", "Remark"]); \
@@ -67,7 +67,7 @@ using PackageCompiler; \
 PackageCompiler.create_sysimage(\
     [\
      :Revise, :OhMyREPL, \
-     :Plots, :GR, :PyCall, \
+     :Plots, :GR, :SymPy, :PyPlot, \
      :SpecialFunctions, :DifferentialEquations, \
      :StatsPlots, :Turing, \
      :Images, \
