@@ -10,6 +10,7 @@ all: pull
 
 build:
 	rm -f Manifest.toml
+	docker build -t mathseminarjl .
 	docker-compose build
 	docker-compose run --rm julia julia -e 'using Pkg; Pkg.instantiate()'
 

@@ -25,6 +25,7 @@ jobs:
       uses: webfactory/ssh-agent@v0.2.0
       with:
         ssh-private-key: ${{ secrets.FRANKLIN_PRIV }}
+    - run: docker build -t mathseminarjl .
     - run: docker-compose build julia
     - run: docker-compose run --rm julia julia -e 'using Pkg; Pkg.instantiate()'
     - run: docker-compose run --rm julia julia /work/_mytools/deploy.jl
