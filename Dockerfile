@@ -60,20 +60,18 @@ Pkg.add(["Documenter", "Literate", "Weave", "Franklin", "NodeJS", "Remark"]); \
 Pkg.add(["WebIO", "Plotly", "PlotlyJS", "ORCA"]); \
 '
 
-RUN mkdir /statements
-COPY .statements/franklin.jl /statements/franklin.jl
-RUN julia -e '\
-using PackageCompiler; \
-PackageCompiler.create_sysimage(\
-    [\
-     :Revise, :OhMyREPL, \
-     :Plots, :GR, :SymPy, \
-     :SpecialFunctions, :DifferentialEquations, \
-     :StatsPlots, :Turing, \
-     :Images, \
-    ], \
-    replace_default=true); \
-'
+#RUN julia -e '\
+#using PackageCompiler; \
+#PackageCompiler.create_sysimage(\
+#    [\
+#     :Revise, :OhMyREPL, \
+#     :Plots, :GR, :SymPy, \
+#     :SpecialFunctions, :DifferentialEquations, \
+#     :StatsPlots, :Turing, \
+#     :Images, \
+#    ], \
+#    replace_default=true); \
+#'
 
 # set "/work" as default project directory 
 WORKDIR /work

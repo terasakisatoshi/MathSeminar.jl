@@ -17,7 +17,7 @@ jobs:
       uses: actions/setup-python@v1
       with:
         python-version: '3.x'
-    - run: pip install numpy sympy==1.15.* matplotlib
+    - run: pip install numpy sympy==1.5.* matplotlib
     - name: Install Julia
       uses: julia-actions/setup-julia@v1
       with:
