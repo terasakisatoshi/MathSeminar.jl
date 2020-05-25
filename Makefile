@@ -1,11 +1,16 @@
-.phony : all, build, slide, frankln, web, trace, clean
+.phony : all, pull build, slide, frankln, web, trace, clean
 
 OS:=$(shell uname -s)
 
-all: build
+all: pull
+	rm -f Manifest.toml
+	docker pull terasakisatoshi/mathseminarjl
+	docker tag terasakisatoshi/mathseminarjl mathseminarjl
+	docker run --rm -it julia -e 'using Pkg; Pkg.instantiate()'
 
 build:
 	rm -f Manifest.toml
+	docker build -t mathseminarjl .
 	docker-compose build
 	docker-compose run --rm julia julia -e 'using Pkg; Pkg.instantiate()'
 
