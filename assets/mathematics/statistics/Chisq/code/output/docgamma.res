@@ -1,6 +1,5 @@
   gamma(z)
 
-
   Compute the gamma function for complex z, defined by
 
 \Gamma(z)

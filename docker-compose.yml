@@ -1,14 +1,14 @@
 version: '3'
 services:
   julia:
-    build: ./
+    image: mathseminarjl
     container_name: math-julia
     volumes:
       - ./:/work
     working_dir: /work
     command: julia --project=/work
   franklin:
-    build: ./
+    image: mathseminarjl
     container_name: math-franklin
     volumes:
       - ./:/work
@@ -21,7 +21,7 @@ services:
              using Franklin; serve(port=8001)' &
              python3 -m http.server --bind 0.0.0.0 --directory /work/__site"
   web:
-    build: ./
+    image: mathseminarjl
     container_name: math-web
     volumes:
       - ./:/work
