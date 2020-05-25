@@ -25,10 +25,18 @@ jobs:
       uses: webfactory/ssh-agent@v0.2.0
       with:
         ssh-private-key: ${{ secrets.FRANKLIN_PRIV }}
-    - run: docker build -t mathseminarjl .
-    - run: docker-compose build julia
-    - run: docker-compose run --rm julia julia -e 'using Pkg; Pkg.instantiate()'
-    - run: docker-compose run --rm julia julia /work/_mytools/deploy.jl
+    - name: Install python
+      uses: actions/setup-python@v1
+      with:
+        python-version: '3.x'
+    - run: pip install numpy sympy==1.5.* matplotlib
+    - name: Install Julia
+      uses: julia-actions/setup-julia@v1
+      with:
+        version: 1.4.1
+
+    - run: julia --project=@. -e 'using Pkg; Pkg.instantiate()'
+    - run: julia --project=@. ./_mytools/deploy.jl
     - name: Build and Deploy
       uses: JamesIves/github-pages-deploy-action@releases/v3
       with:
