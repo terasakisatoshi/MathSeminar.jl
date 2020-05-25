@@ -2,7 +2,11 @@
 
 OS:=$(shell uname -s)
 
-all: build
+all: pull
+	rm -f Manifest.toml
+	docker pull terasakisatoshi/mathseminarjl
+	docker tag terasakisatoshi/mathseminarjl mathseminarjl
+	docker run --rm -it julia -e 'using Pkg; Pkg.instantiate()'
 
 build:
 	rm -f Manifest.toml
