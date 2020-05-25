@@ -20,7 +20,7 @@ RUN curl -kL https://bootstrap.pypa.io/get-pip.py | python3 && \
     pip3 install \
     matplotlib \
     numpy \
-    sympy \
+    sympy==1.5.* \
     numba
 
 RUN mkdir -p ${HOME}/.julia/config && \
