@@ -2,11 +2,15 @@
 
 OS:=$(shell uname -s)
 
+REMOTE_DOCKER_REPOSITORY=terasakisatoshi/mathseminarjl:latest
+
 all: pull
+
+pull:
 	rm -f Manifest.toml
-	docker pull terasakisatoshi/mathseminarjl
-	docker tag terasakisatoshi/mathseminarjl mathseminarjl
-	docker run --rm -it julia -e 'using Pkg; Pkg.instantiate()'
+	docker pull ${REMOTE_DOCKER_REPOSITORY}
+	docker tag ${REMOTE_DOCKER_REPOSITORY} mathseminarjl
+	docker-compose run --rm julia julia -e 'using Pkg; Pkg.instantiate()'
 
 build:
 	rm -f Manifest.toml
