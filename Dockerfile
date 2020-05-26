@@ -50,14 +50,25 @@ end\n\
 ' >> ${HOME}/.julia/config/startup.jl && cat ${HOME}/.julia/config/startup.jl
 
 RUN julia -E 'using Pkg; \
-Pkg.add(["OhMyREPL", "Revise"]); \
+
+
+
+'
+
+# Install Julia Package
+RUN julia -E 'using Pkg; \
 Pkg.add(["Images", "ImageMagick", "ImageIO", "ImageShow"]); \
-Pkg.add(["SpecialFunctions", "DifferentialEquations"]); \
-Pkg.add(["Plots", "GR", "PyCall", "PyPlot", "SymPy"]); \
-Pkg.add(["StatsPlots", "Turing"]); \
+Pkg.add(["PyCall", "PyPlot", "SymPy"]); \
+Pkg.add([\
+    PackageSpec(name="OhMyREPL", version="0.5.5"), \
+    PackageSpec(name="Revise", version="2.6"), \
+    PackageSpec(name="Plots", version="1.3"), \
+    PackageSpec(name="GR", version="0.49"), \
+    PackageSpec(name="SymPy",version="1.0"), \
+]); \
 Pkg.add("PackageCompiler"); \
 Pkg.add(["Documenter", "Literate", "Weave", "Franklin", "NodeJS", "Remark"]); \
-Pkg.add(["WebIO", "Plotly", "PlotlyJS", "ORCA"]); \
+Pkg.add(["WebIO", Plotly", "PlotlyJS", "ORCA"]); \
 '
 
 RUN julia -e "using NodeJS; run(\`\$(npm_cmd()) install highlight.js\`); using Franklin"
