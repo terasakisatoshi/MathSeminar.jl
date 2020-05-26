@@ -1,5 +1,4 @@
 @def title = "WGLMakie.jl"
-@def reeval=true
 
 # WGLMakie.jl
 
