@@ -49,14 +49,8 @@ end\n\
 \n\
 ' >> ${HOME}/.julia/config/startup.jl && cat ${HOME}/.julia/config/startup.jl
 
-RUN julia -E 'using Pkg; \
-
-
-
-'
-
 # Install Julia Package
-RUN julia -E 'using Pkg; \
+RUN julia -e 'using Pkg; \
 Pkg.add(["Images", "ImageMagick", "ImageIO", "ImageShow"]); \
 Pkg.add(["PyCall", "PyPlot", "SymPy"]); \
 Pkg.add([\
