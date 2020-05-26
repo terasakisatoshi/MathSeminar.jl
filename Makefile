@@ -1,11 +1,20 @@
-.phony : all, build, slide, frankln, web, trace, clean
+.phony : all, pull build, slide, frankln, web, trace, clean
 
 OS:=$(shell uname -s)
 
-all: build
+REMOTE_DOCKER_REPOSITORY=terasakisatoshi/mathseminarjl:latest
+
+all: pull
+
+pull:
+	rm -f Manifest.toml
+	docker pull ${REMOTE_DOCKER_REPOSITORY}
+	docker tag ${REMOTE_DOCKER_REPOSITORY} mathseminarjl
+	docker-compose run --rm julia julia -e 'using Pkg; Pkg.instantiate()'
 
 build:
 	rm -f Manifest.toml
+	docker build -t mathseminarjl .
 	docker-compose build
 	docker-compose run --rm julia julia -e 'using Pkg; Pkg.instantiate()'
 
