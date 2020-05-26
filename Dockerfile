@@ -60,18 +60,17 @@ Pkg.add(["Documenter", "Literate", "Weave", "Franklin", "NodeJS", "Remark"]); \
 Pkg.add(["WebIO", "Plotly", "PlotlyJS", "ORCA"]); \
 '
 
-#RUN julia -e '\
-#using PackageCompiler; \
-#PackageCompiler.create_sysimage(\
-#    [\
-#     :Revise, :OhMyREPL, \
-#     :Plots, :GR, :SymPy, \
-#     :SpecialFunctions, :DifferentialEquations, \
-#     :StatsPlots, :Turing, \
-#     :Images, \
-#    ], \
-#    replace_default=true); \
-#'
+RUN julia -e "using NodeJS; run(\`\$(npm_cmd()) install highlight.js\`); using Franklin"
+
+RUN julia -e '\
+using PackageCompiler; \
+PackageCompiler.create_sysimage(\
+    [\
+     :Revise, :OhMyREPL, \
+     :Plots, :GR, :SymPy, \
+    ], \
+    replace_default=true); \
+'
 
 # set "/work" as default project directory 
 WORKDIR /work
