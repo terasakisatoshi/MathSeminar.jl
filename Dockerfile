@@ -44,7 +44,7 @@ WORKDIR /work
 ENV JULIA_PROJECT=/work
 
 # Install Julia Package
-RUN julia -E 'using Pkg; \
+RUN julia -e 'using Pkg; \
 Pkg.add([\
     PackageSpec(name="OhMyREPL", version="0.5.5"), \
     PackageSpec(name="Revise", version="2.7.0"), \
