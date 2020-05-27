@@ -49,7 +49,6 @@ end\n\
 \n\
 ' >> ${HOME}/.julia/config/startup.jl && cat ${HOME}/.julia/config/startup.jl
 
-RUN julia -e 'using Pkg; Pkg.generate("/work")'
 # set "/work" as default project directory 
 WORKDIR /work
 ENV JULIA_PROJECT=/work
@@ -57,8 +56,8 @@ ENV JULIA_PROJECT=/work
 # Install Julia Package
 RUN julia -E 'using Pkg; \
 Pkg.add([\
-    PackageSpec(name="OhMyREPL", version="0.5.5"), \
-    PackageSpec(name="Revise", version="2.7.0"), \
+    # PackageSpec(name="OhMyREPL", version="0.5.5"), \
+    # PackageSpec(name="Revise", version="2.7.0"), \
     PackageSpec(name="Plots", version="1.3.3"), \
     PackageSpec(name="GR", version="0.49"), \
     PackageSpec(name="SymPy",version="1.0.20"), \
@@ -71,15 +70,15 @@ Pkg.add(["Plotly", "PlotlyJS", "ORCA"]); \
 
 RUN julia -e "using NodeJS; run(\`\$(npm_cmd()) install highlight.js\`); using Franklin"
 
-RUN julia -e '\
-using PackageCompiler; \
-PackageCompiler.create_sysimage(\
-    [\
-     :Revise, :OhMyREPL, \
-     :Plots, :GR, :SymPy, \
-    ], \
-    replace_default=true); \
-'
+#RUN julia -e '\
+#using PackageCompiler; \
+#PackageCompiler.create_sysimage(\
+#    [\
+#     :Revise, :OhMyREPL, \
+#     :Plots, :GR, :SymPy, \
+#    ], \
+#    replace_default=true); \
+#'
 
 COPY Project.toml /work
 # Initialize Julia package using /work/Project.toml
