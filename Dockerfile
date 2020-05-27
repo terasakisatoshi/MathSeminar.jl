@@ -39,7 +39,7 @@ ENV["PYTHON"]=Sys.which("python3")\n\
 #\n\
 ' >> ${HOME}/.julia/config/startup.jl && cat ${HOME}/.julia/config/startup.jl
 
-RUN julia -e '\
+RUN julia -e 'using Pkg; \
 Pkg.add("PackageCompiler"); \
 Pkg.add(["Documenter", "Literate", "Weave", "Franklin", "NodeJS", "Remark"]); \
 Pkg.add(["Plotly", "PlotlyJS", "ORCA"]); \
