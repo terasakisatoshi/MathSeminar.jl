@@ -39,6 +39,14 @@ ENV["PYTHON"]=Sys.which("python3")\n\
 #\n\
 ' >> ${HOME}/.julia/config/startup.jl && cat ${HOME}/.julia/config/startup.jl
 
+RUN julia -e '\
+Pkg.add("PackageCompiler"); \
+Pkg.add(["Documenter", "Literate", "Weave", "Franklin", "NodeJS", "Remark"]); \
+Pkg.add(["Plotly", "PlotlyJS", "ORCA"]); \
+'
+
+RUN julia -e "using NodeJS; run(\`\$(npm_cmd()) install highlight.js\`); using Franklin"
+
 # set "/work" as default project directory 
 WORKDIR /work
 ENV JULIA_PROJECT=/work
@@ -50,15 +58,10 @@ Pkg.add([\
     PackageSpec(name="Revise", version="2.7.0"), \
     PackageSpec(name="Plots", version="1.3.3"), \
     PackageSpec(name="GR", version="0.49"), \
-    PackageSpec(name="SymPy",version="1.0.20"), \
+    PackageSpec(name="SymPy", version="1.0.20"), \
 ]); \
 Pkg.pin(["OhMyREPL","Revise","Plots","GR","SymPy"]); \
-Pkg.add("PackageCompiler"); \
-Pkg.add(["Documenter", "Literate", "Weave", "Franklin", "NodeJS", "Remark"]); \
-Pkg.add(["Plotly", "PlotlyJS", "ORCA"]); \
 '
-
-RUN julia -e "using NodeJS; run(\`\$(npm_cmd()) install highlight.js\`); using Franklin"
 
 RUN mkdir /sysimage && julia -e '\
 using PackageCompiler; \
@@ -84,4 +87,3 @@ ENV JULIA_NUM_THREADS=4
 EXPOSE 8000
 
 CMD ["julia"]
-
