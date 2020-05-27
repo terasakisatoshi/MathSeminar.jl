@@ -27,26 +27,16 @@ RUN mkdir -p ${HOME}/.julia/config && \
     echo '\
 # set environment variables\n\
 ENV["PYTHON"]=Sys.which("python3")\n\
-\n\
-import Pkg\n\
-let\n\
-    pkgs = ["Revise","OhMyREPL"]\n\
-    for pkg in pkgs\n\
-        if Base.find_package(pkg) === nothing\n\
-            Pkg.add(pkg)\n\
-        end\n\
-    end\n\
-end\n\
-using OhMyREPL \n\
-atreplinit() do repl\n\
-    try\n\
-        @eval using Revise\n\
-        @async Revise.wait_steal_repl_backend()\n\
-    catch e\n\
-        @warn(e.msg)\n\
-    end\n\
-end\n\
-\n\
+#using OhMyREPL \n\
+#atreplinit() do repl\n\
+#    try\n\
+#        @eval using Revise\n\
+#        @async Revise.wait_steal_repl_backend()\n\
+#    catch e\n\
+#        @warn(e.msg)\n\
+#    end\n\
+#end\n\
+#\n\
 ' >> ${HOME}/.julia/config/startup.jl && cat ${HOME}/.julia/config/startup.jl
 
 # set "/work" as default project directory 
