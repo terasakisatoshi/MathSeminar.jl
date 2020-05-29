@@ -117,7 +117,7 @@ r = @. a*(1+cos(θ))
 x = @. r * cos(θ)
 y = @. r * sin(θ)
 
-eq = L"r=a(1+\cos(\theta)"
+eq = L"r=a(1+\cos(\theta))"
 
 p = plot(
     title = eq,
