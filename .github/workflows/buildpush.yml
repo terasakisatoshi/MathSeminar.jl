@@ -13,10 +13,11 @@ jobs:
     runs-on: macOS-latest
     steps:
       - uses: actions/checkout@master
-      - name: Publish to Registry
-        uses: elgohr/Publish-Docker-Github-Action@master
+      - uses: azure/docker-login@v1
         with:
-          name: terasakisatoshi/mathseminarjl
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
-          dockerfile: Dockerfile
+          login-server: index.docker.io
+          username: ${{ secrets.DOCKERIO_USERNAME }}
+          password: ${{ secrets.DOCKERIO_PASSWORD }}
+      - run: |
+          docker build -t terasakisatoshi/mathseminarjl .
+          docker push terasakisatoshi/mathseminarjl:latest
