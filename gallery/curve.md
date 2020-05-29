@@ -1,8 +1,9 @@
 @def title = "Curves"
 @def hascode = true
 
-```julia
+```julia:prepare
 using Plots
+gr()
 using LaTeXStrings
 ```
 
@@ -10,9 +11,6 @@ using LaTeXStrings
 
 
 ```julia:circle
-using Plots
-using LaTeXStrings
-
 θ = 0:0.01:2π
 x = @. cos(θ)
 y = @. sin(θ)
