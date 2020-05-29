@@ -9,7 +9,8 @@ on:
 jobs:
   build-container:
     name: build
-    runs-on: ubuntu-latest
+    #runs-on: ubuntu-latest
+    runs-on: macOS-latest
     steps:
       - uses: actions/checkout@master
       - name: Publish to Registry
