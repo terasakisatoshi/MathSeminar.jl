@@ -1,7 +1,4 @@
 # This file was generated, do not modify it. # hide
-using Plots
-using LaTeXStrings
-
 θ = 0:0.01:2π
 x = @. cos(θ)
 y = @. sin(θ)

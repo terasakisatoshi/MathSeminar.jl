@@ -83,12 +83,10 @@
 
 <!-- Content appended here -->
 <div class="franklin-content"><pre><code class="language-julia">using Plots
+gr()
 using LaTeXStrings</code></pre>
 <h1 id="circle"><a href="#circle">Circle</a></h1>
-<pre><code class="language-julia">using Plots
-using LaTeXStrings
-
-θ = 0:0.01:2π
+<pre><code class="language-julia">θ = 0:0.01:2π
 x = @. cos(θ)
 y = @. sin(θ)
 

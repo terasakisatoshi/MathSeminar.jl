@@ -83,7 +83,7 @@
 
 
 <!-- Content appended here -->
-<div class="franklin-content"><p>Last Modified: 2020年5月29日 金曜日 <div class="franklin-toc"><ol><li><a href="#about_this_page">About this page</a><ol><li><a href="#before_reading">Before reading</a></li><li><a href="#check_julia_version">Check Julia version</a></li></ol></li><li><a href="#introduction_to_franklin">Introduction to Franklin</a></li><li><a href="#newcommand_によるタイピングの簡略化"><code>newcommand</code> によるタイピングの簡略化</a></li><li><a href="#グラフの描画">グラフの描画</a></li><li><a href="#python_のコードの実行結果の表示">Python のコードの実行結果の表示</a></li><li><a href="#c_のコードの実行結果を表示">C のコードの実行結果を表示</a></li><li><a href="#コードの挿入">コードの挿入</a></li></ol></div> </p>
+<div class="franklin-content"><p>Last Modified: 2020年5月29日 金曜日 <div class="franklin-toc"><ol><li><a href="#about_this_page">About this page</a><ol><li><a href="#before_reading">Before reading</a></li><li><a href="#check_julia_version">Check Julia version</a></li></ol></li><li><a href="#introduction_to_franklin">Introduction to Franklin</a></li><li><a href="#newcommand_によるタイピングの簡略化"><code>newcommand</code> によるタイピングの簡略化</a></li><li><a href="#グラフの描画">グラフの描画</a><ol><li><a href="#pyplot">PyPlot</a></li><li><a href="#plots_gr_backend">Plots &#40;GR Backend&#41;</a></li><li><a href="#plots_pyplot_backend">Plots &#40;PyPlot Backend&#41;</a></li></ol></li><li><a href="#python_のコードの実行結果の表示">Python のコードの実行結果の表示</a></li><li><a href="#c_のコードの実行結果を表示">C のコードの実行結果を表示</a></li><li><a href="#コードの挿入">コードの挿入</a></li></ol></div> </p>
  <h1 id="about_this_page"><a href="#about_this_page">About this page</a></h1>            
 
 <details open>
@@ -156,6 +156,7 @@ y = sin(x)
    <div class="example">3.1.0 &#40;<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="double-struck">R</mi></mrow><annotation encoding="application/x-tex">\mathbb{R}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68889em;vertical-align:0em;"></span><span class="mord"><span class="mord mathbb">R</span></span></span></span></span> の例&#41; <br/>  <code>config.md</code> に次を追加しておく:     <pre><code class="language-julia">\newcommand{\R}{\mathbb R}</code></pre> これで <code>\R</code> で <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="double-struck">R</mi></mrow><annotation encoding="application/x-tex">\mathbb R</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68889em;vertical-align:0em;"></span><span class="mord mathbb">R</span></span></span></span> を表記できる.</div>
 <h1 id="グラフの描画"><a href="#グラフの描画">グラフの描画</a></h1>            
 <code>PyPlot</code>, <code>gr,pyplot,plotlyjs</code> をバックエンドとする <code>Plots.jl</code>, <code>PlotlyJS.jl</code> を用いた場合で確認している.</p>
+<h2 id="pyplot"><a href="#pyplot">PyPlot</a></h2>
 <pre><code class="language-julia">using PyPlot
 figure(figsize=(8, 6))
 x = range(-2, 2, length=500)
@@ -163,12 +164,16 @@ for α in 1:4
     PyPlot.plot(x, @. sinc(α * x))
 end</code></pre>
 <img src="/MathSeminar.jl/assets/index/code/output/sinc.svg" alt="">
+<h2 id="plots_gr_backend"><a href="#plots_gr_backend">Plots &#40;GR Backend&#41;</a></h2>
 <pre><code class="language-julia">using Plots
+gr()
 using LaTeXStrings
-Plots.plot(rand(10), xlabel=L"x", ylabel=L"y")</code></pre>
+Plots.plot(rand(10), title=L"\alpha", xlabel=L"x", ylabel=L"y")</code></pre>
 <img src="/MathSeminar.jl/assets/index/code/output/grplot.svg" alt="">
-<pre><code class="language-julia">pyplot()
-Plots.plot(sin)</code></pre>
+<h2 id="plots_pyplot_backend"><a href="#plots_pyplot_backend">Plots &#40;PyPlot Backend&#41;</a></h2>
+<pre><code class="language-julia">using Plots
+pyplot()
+Plots.plot(sin, title=L"y=\sin x")</code></pre>
 <img src="/MathSeminar.jl/assets/index/code/output/pyplotbkend.svg" alt="">
    <div class="remark">4.1.0 &#40;Plotly/PlotlyJS について&#41; <br/>  <code>Plotly</code>, または <code>PlotlyJS</code> による例はサイドメニューのページを参照</div>
 <h1 id="python_のコードの実行結果の表示"><a href="#python_のコードの実行結果の表示">Python のコードの実行結果の表示</a></h1>            
