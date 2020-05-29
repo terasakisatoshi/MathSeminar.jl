@@ -107,6 +107,8 @@ $\LaTeX$ の `\newcommand` と同様に数式を記述するコマンドを簡�
 
 `PyPlot`, `gr,pyplot,plotlyjs` をバックエンドとする `Plots.jl`, `PlotlyJS.jl` を用いた場合で確認している.
 
+## PyPlot
+
 ```julia:pyplot1
 using PyPlot
 figure(figsize=(8, 6))
@@ -119,18 +121,24 @@ PyPlot.savefig(joinpath(@OUTPUT, "sinc.svg")) # hide
 
 \fig{sinc}
 
+## Plots (GR Backend)
+
 ```julia:grplot
 using Plots
+gr()
 using LaTeXStrings
-Plots.plot(rand(10), xlabel=L"x", ylabel=L"y")
+Plots.plot(rand(10), title=L"\alpha", xlabel=L"x", ylabel=L"y")
 Plots.savefig(joinpath(@OUTPUT, "grplot.svg")) # hide
 ```
 
 \fig{grplot}
 
+## Plots (PyPlot Backend)
+
 ```julia:pyplot
+using Plots
 pyplot()
-Plots.plot(sin)
+Plots.plot(sin, title=L"y=\sin x")
 Plots.savefig(joinpath(@OUTPUT, "pyplotbkend.svg")) # hide
 ```
 
