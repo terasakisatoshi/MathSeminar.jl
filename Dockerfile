@@ -66,7 +66,7 @@ Pkg.add([\
     PackageSpec(name="GR", version="0.49"), \
     PackageSpec(name="SymPy", version="1.0.20"), \
 ]); \
-Pkg.pin(["Franklin", OhMyREPL","Revise","Plots","GR","SymPy"]); \
+Pkg.pin(["Franklin", "OhMyREPL","Revise","Plots","GR","SymPy"]); \
 '
 
 RUN mkdir /sysimage && julia -e '\

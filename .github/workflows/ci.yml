@@ -13,7 +13,10 @@ jobs:
       uses: actions/checkout@v2
       with:
         persist-credentials: false
-    - run: docker build -t mathseminarjl .
+    - uses: whoan/docker-build-with-cache-action@v5
+      with:
+        image_name: mathseminarjl
+        push_image_and_stages: false
     - run: docker-compose build julia
     - run: docker-compose run --rm julia julia -e 'using Pkg; Pkg.instantiate()'
     - run: docker-compose run --rm julia julia /work/_mytools/deploy.jl
