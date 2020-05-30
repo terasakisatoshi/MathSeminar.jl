@@ -88,6 +88,9 @@
 <li><p>You can compile <a href="https://www.rust-lang.org/">Rust</a> code and run executable file from Julia with the following code:</p>
 </li>
 </ul>
+<pre><code class="julia hljs">run(<span class="hljs-string">`rustc --version`</span>)</code></pre>
+<pre><code class="plaintext hljs">rustc 1.43.1 (8d69840ab 2020-05-04)
+</code></pre>
 <pre><code class="julia hljs">rscode = <span class="hljs-string">raw"""
 fn main(){
 	println!("Hello Rust from Julia runtime");

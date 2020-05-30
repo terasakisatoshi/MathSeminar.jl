@@ -4,7 +4,7 @@ using Markdown
 
 mdC_code = Markdown.htmlesc(raw"""#include <stdio.h>
 int main(){
-    printf("Hello Pika\n");
+    printf("Hello Goma\n");
     return 0;
 }""")
 
@@ -16,7 +16,7 @@ end
 C_code=raw"""
 #include <stdio.h>
 int main(){
-    printf("Hello Pika\n");
+    printf("Hello Goma\n");
     return 0;
 }
 """

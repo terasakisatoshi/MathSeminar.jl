@@ -1,0 +1,1 @@
+Process(`rustc --version`, ProcessExited(0))
