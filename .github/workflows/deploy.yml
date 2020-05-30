@@ -48,8 +48,7 @@ jobs:
         password: "${{ secrets.DOCKER_PASSWORD }}"
         image_name: terasakisatoshi/mathseminarjl
         push_image_and_stages: false
-    - run: docker build -t terasakisatoshi/mathseminarjl .
-    - run: docker tag terasakisatoshi/mathseminarjl mathseminarjl
+    - run: docker build --cache-from terasakisatoshi/mathseminarjl -t mathseminarjl .
     - run: docker-compose run --rm julia julia -e 'using Pkg; Pkg.instantiate()'
     - run: docker-compose run --rm julia julia /work/_mytools/deploy.jl
 
