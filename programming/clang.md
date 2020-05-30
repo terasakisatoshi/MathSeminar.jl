@@ -1,7 +1,6 @@
 @def title = "C言語コードの挿入"
 @def hascode = true
 
-
 \chapter{C のコードの実行結果を表示}
 
 \prop{}{ソースコードの表示}{
@@ -11,7 +10,7 @@
 \Ccode{sample}{
 #include <stdio.h>
 int main(){
-    printf("Hello Pika\n");
+    printf("Hello Goma\n");
     return 0;
 }
 }

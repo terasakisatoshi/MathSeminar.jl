@@ -4,6 +4,13 @@
 
 - You can compile [Rust](https://www.rust-lang.org/) code and run executable file from Julia with the following code:
 
+```julia:confirmrustversion
+
+run(`rustc --version`)
+```
+
+\output{confirmrustversion}
+
 ```julia
 rscode = raw"""
 fn main(){
