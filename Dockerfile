@@ -57,7 +57,7 @@ Pkg.add([\
     PackageSpec(name="OhMyREPL", version="0.5.5"), \
     PackageSpec(name="Revise", version="2.7.0"), \
     PackageSpec(name="Plots", version="1.3.3"), \
-    PackageSpec(name="GR", version="0.49"), \
+    PackageSpec(name="GR", version="0.50"), \
     PackageSpec(name="SymPy", version="1.0.20"), \
 ]); \
 Pkg.pin(["OhMyREPL","Revise","Plots","GR","SymPy"]); \
