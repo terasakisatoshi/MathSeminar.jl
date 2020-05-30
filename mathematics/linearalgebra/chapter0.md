@@ -243,16 +243,32 @@ $$
 \lambda_1\geq\lambda_2\geq\dots\geq\lambda_r>\lambda_{r+1}=\dots=\lambda_{n} = 0
 $$
 
-と表記する. ここで $r$ は重複度も込めた正の固有値の数とする. $r$ は $\rank(A^\top A)$ と等しい. また $\bm{u}_i$ を $\lambda_i$ の固有値に対応する固有ベクトルとする.
+と表記する. ここで $r$ は重複度も込めた正の固有値の数とする. $r$ は $\rank(A^\top A)$ と等しい. また $\bm{u}_i$ を $\lambda_i$ の固有値に対応する固有ベクトルとする:
+
+$$
+A \bm{u}_i = \lambda_i \bm{u}_i
+$$
 
 \lemma{AAtop}{}{
   $A\bm{u}_i\ (1\leq i \leq r)$ は $AA^\top$ の固有ベクトルになる.
 }
 \proof{
- $\bm{v}_i = A\bm{u}_i$ とおく. これが固有ベクトルの定義を満たせば良い:
+ $\bm{v}_i \coloneq A\bm{u}_i$ とおく. これが固有ベクトルの定義を満たせば良い:
  $$
  (A A^\top) \bm{v}_i=(A A^\top) (A\bm{u}_i) = A(A^\top A \bm{u}_i) = \lambda_i A \bm{u}_i=\lambda_i \bm{v}_i.
  $$
+}
+
+\lemma{}{}{
+  $\bm{v}_i \coloneq A \bm{u}_i \quad (1\leq i \leq r)$ は $\R^m$ における一次独立なベクトルの組みである.
+}
+
+\proof{
+$$
+\sum_{i=1} ^m c_i \bm{v}_i = \bm{0}
+$$
+
+とした場合
 }
 
 - 同様に $A A^\top\in\Mat_m(\R)$ も半正定値行列である. その固有値を大きい順に並べて
