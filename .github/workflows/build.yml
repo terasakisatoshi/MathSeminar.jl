@@ -1,4 +1,4 @@
-name: Build-Push-with-cache
+name: Build Docker image and push to DockerHub
 on:
   schedule:
     - cron: 0 3 * * *
