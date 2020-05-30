@@ -15,8 +15,10 @@ jobs:
         persist-credentials: false
     - uses: whoan/docker-build-with-cache-action@v5
       with:
-        image_name: mathseminarjl
+        username: terasakisatoshi
+        password: "${{ secrets.DOCKER_PASSWORD }}"
+        image_name: terasakisatoshi/mathseminarjl
         push_image_and_stages: false
-    - run: docker-compose build julia
+    - run: docker build --cache-from terasakisatoshi/mathseminarjl -t mathseminarjl .
     - run: docker-compose run --rm julia julia -e 'using Pkg; Pkg.instantiate()'
     - run: docker-compose run --rm julia julia /work/_mytools/deploy.jl
