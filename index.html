@@ -218,11 +218,11 @@ np.round(r, <span class="hljs-number">2</span>)</code></pre> <pre><code class="p
 </code></pre>
 <h1 id="c_のコードの実行結果を表示"><a href="#c_のコードの実行結果を表示">C のコードの実行結果を表示</a></h1>            
    <div class="prop">6.1.0 &#40;ソースコードの表示&#41; <br/>  つぎのように C のコードを貼り付けることができる.</div> 
-<pre><code class="c hljs"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> &amp;lt;stdio.h&amp;gt;</span>
-<span class="hljs-keyword">int</span> main&amp;#<span class="hljs-number">40</span>;&amp;#<span class="hljs-number">41</span>;&amp;#<span class="hljs-number">123</span>;
-    <span class="hljs-built_in">printf</span>&amp;#<span class="hljs-number">40</span>;&amp;quot;Hello Pika\n&amp;quot;&amp;#<span class="hljs-number">41</span>;;
+<pre><code class="c hljs"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>{
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Hello Pika\n"</span>);
     <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
-&amp;#<span class="hljs-number">125</span>;</code></pre>
+}</code></pre>
 <p>まず, <code>config.md</code> に次を記述しておく:</p>
 <pre><code class="plaintext hljs">&lt;!-- display C code with syntax highlight--&gt;
 \newcommand{\Ccode}[2]{
@@ -277,11 +277,11 @@ int main(){
 </code></pre>
 <p>出力結果は次のようになる．コードはハイライトされ，対応する <code>main</code> 関数のコードの実行結果を出力する:</p>
 
-<pre><code class="c hljs"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> &amp;lt;stdio.h&amp;gt;</span>
-<span class="hljs-keyword">int</span> main&amp;#<span class="hljs-number">40</span>;&amp;#<span class="hljs-number">41</span>;&amp;#<span class="hljs-number">123</span>;
-    <span class="hljs-built_in">printf</span>&amp;#<span class="hljs-number">40</span>;&amp;quot;Hello World\n&amp;quot;&amp;#<span class="hljs-number">41</span>;;
+<pre><code class="c hljs"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>{
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Hello World\n"</span>);
     <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
-&amp;#<span class="hljs-number">125</span>;</code></pre>
+}</code></pre>
 <pre><code class="plaintext hljs">Hello World
 </code></pre>
    <div class="remark">6.2.0 &#40;Cのコードのハイライト&#41; <br/>  <a href="https://highlightjs.org/download/">Getting hightlight.js</a>　から ハイライトしたい言語を選択した後 <code>highlight.pack.js</code> を <code>_lib/hightlight</code> にコピーする. もともと <code>_lib/highlight/highlight.pack.js</code> が配置されているが、Julia,Python,R、Markdownのみをハイライトするようになっている。</div>

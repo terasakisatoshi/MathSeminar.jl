@@ -7,6 +7,12 @@ int main(){
     printf("Hello World\n");
     return 0;
 }""")
+mdC_code = raw"""#include "stdio.h"
+int main(){
+    printf("Hello World\n");
+    return 0;
+}"""
+
 
 mdfile = joinpath(dirname(@OUTPUT), "how2embeddC.md")
 open(mdfile,"w") do f

@@ -103,9 +103,9 @@ open(<span class="hljs-string">`rustc -o sample -`</span>, <span class="hljs-str
 
 run(<span class="hljs-string">`./sample`</span>)</code></pre>
 
-<pre><code class="rust hljs"><span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">main</span>&amp;#40;&amp;#41;&amp;#123;
-    <span class="hljs-title">println</span>&amp;#33;&amp;#40;&amp;<span class="hljs-title">quot</span>;<span class="hljs-title">Hello</span> <span class="hljs-title">Rust</span> <span class="hljs-title">from</span> <span class="hljs-title">Julia</span> <span class="hljs-title">runtime</span>&amp;<span class="hljs-title">quot</span>;&amp;#41;;
-&amp;#125;</span></code></pre>
+<pre><code class="rust hljs"><span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">main</span></span>(){
+    <span class="hljs-built_in">println!</span>(<span class="hljs-string">"Hello Rust from Julia runtime"</span>);
+}</code></pre>
 <pre><code class="plaintext hljs">Hello Rust from Julia runtime
 </code></pre><div class="page-foot">
   <div class="copyright">

@@ -7,6 +7,12 @@ int main(){
     printf("Hello Pika\n");
     return 0;
 }""")
+mdC_code = raw"""#include <stdio.h>
+int main(){
+    printf("Hello Pika\n");
+    return 0;
+}"""
+
 
 mdfile = joinpath(dirname(@OUTPUT), "sample.md")
 open(mdfile,"w") do f

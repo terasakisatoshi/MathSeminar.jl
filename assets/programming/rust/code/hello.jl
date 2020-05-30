@@ -5,6 +5,11 @@ using Markdown
 mdrs_code = Markdown.htmlesc(raw"""fn main(){
     println!("Hello Rust from Julia runtime");
 }""")
+mdrs_code = raw"""fn main(){
+    println!("Hello Rust from Julia runtime");
+}"""
+
+
 
 mdfile = joinpath(dirname(@OUTPUT), "hello.md")
 open(mdfile,"w") do f
