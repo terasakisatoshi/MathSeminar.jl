@@ -111,6 +111,8 @@ println(py"res")
 using Markdown
 
 mdC_code = Markdown.htmlesc(raw"""!#2""")
+mdC_code = raw"""!#2"""
+
 
 mdfile = joinpath(dirname(@OUTPUT), "!#1.md")
 open(mdfile,"w") do f
@@ -154,6 +156,9 @@ run(`$exefile`)
 using Markdown
 
 mdrs_code = Markdown.htmlesc(raw"""!#2""")
+mdrs_code = raw"""!#2"""
+
+
 
 mdfile = joinpath(dirname(@OUTPUT), "!#1.md")
 open(mdfile,"w") do f
@@ -182,7 +187,7 @@ run(`$exefile`)
 \input{rust}{!#1.md}
 }
 
-<!-- run C code and display code and its result -->
+<!-- run Rust code and display code and its result -->
 \newcommand{\rustexec}[2]{
 \rustcode{!#1}{!#2}
 
