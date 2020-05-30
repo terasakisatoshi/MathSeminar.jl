@@ -13,6 +13,8 @@ jobs:
       uses: actions/checkout@v2
       with:
         persist-credentials: false
+    - name: Install LaTeX env
+      run: sudo apt-get update && sudo apt-get install -y dvipng texlive-latex-recommended
     - name: Install Rust
       uses: hecrj/setup-rust-action@v1
       with:
