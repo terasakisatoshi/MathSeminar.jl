@@ -40,9 +40,13 @@ jobs:
       uses: julia-actions/setup-julia@v1
       with:
         version: 1.4.1
+    #- run: julia --project=@. -e 'using Pkg; Pkg.instantiate()'
+    #- run: julia --project=@. ./_mytools/deploy.jl
+    
+    - run: docker build -t mathseminarjl .
+    - run: docker-compose run --rm julia julia -e 'using Pkg; Pkg.instantiate()'
+    - run: docker-compose run --rm julia julia /work/_mytools/deploy.jl
 
-    - run: julia --project=@. -e 'using Pkg; Pkg.instantiate()'
-    - run: julia --project=@. ./_mytools/deploy.jl
     - name: Build and Deploy
       uses: JamesIves/github-pages-deploy-action@releases/v3
       with:
