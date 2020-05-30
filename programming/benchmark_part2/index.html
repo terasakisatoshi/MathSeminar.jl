@@ -131,8 +131,8 @@ main()
 
 <span class="hljs-keyword">using</span> BenchmarkTools
 <span class="hljs-meta">@btime</span> mand(<span class="hljs-number">5000</span>, <span class="hljs-number">5000</span>);</code></pre>
-<pre><code class="plaintext hljs">t - s = 3.5296480655670166
-  3.450 s (2 allocations: 23.84 MiB)
+<pre><code class="plaintext hljs">t - s = 3.6053268909454346
+  3.391 s (2 allocations: 23.84 MiB)
 </code></pre>
    <div class="remark">4.1.0 &#40;数値誤差について&#41; <br/>  点の位置をあらわす <code>&#40;4.0 / &#40;M - 1&#41; * &#40;j - 1&#41; - 2.0&#41;</code> は <code>range&#40;-2, 2, length&#40;N&#41;&#41;</code> と数学的に等価ですが，数値の誤差の関係で結果が若干異なることがあります．</div>
 <pre><code class="julia hljs">N=<span class="hljs-number">10</span>; <span class="hljs-meta">@show</span> [<span class="hljs-number">4.0</span>*(i-<span class="hljs-number">1</span>)/(N-<span class="hljs-number">1</span>) - <span class="hljs-number">2.0</span> <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-number">1</span>:N]</code></pre>
@@ -188,8 +188,8 @@ main()
 
 <span class="hljs-keyword">using</span> BenchmarkTools
 <span class="hljs-meta">@btime</span> mand(<span class="hljs-number">5000</span>, <span class="hljs-number">5000</span>);</code></pre>
-<pre><code class="plaintext hljs">t - s = 3.5536539554595947
-  3.581 s (2 allocations: 23.84 MiB)
+<pre><code class="plaintext hljs">t - s = 3.6683499813079834
+  3.598 s (2 allocations: 23.84 MiB)
 </code></pre>
 <pre><code class="julia hljs">Refpath=<span class="hljs-string">"/tmp/resultJ.txt"</span>
 Tarpath=<span class="hljs-string">"/tmp/resultJ1.txt"</span>
@@ -239,8 +239,8 @@ main()
 
 <span class="hljs-keyword">using</span> BenchmarkTools
 <span class="hljs-meta">@btime</span> mand(<span class="hljs-number">5000</span>, <span class="hljs-number">5000</span>);</code></pre>
-<pre><code class="plaintext hljs">t - s = 3.6294679641723633
-  3.640 s (4 allocations: 47.68 MiB)
+<pre><code class="plaintext hljs">t - s = 3.6493020057678223
+  3.609 s (4 allocations: 47.68 MiB)
 </code></pre>
 <pre><code class="julia hljs">Refpath=<span class="hljs-string">"/tmp/resultJ1.txt"</span>
 Tarpath=<span class="hljs-string">"/tmp/resultJ2.txt"</span>
@@ -296,8 +296,8 @@ main()
 
 <span class="hljs-keyword">using</span> BenchmarkTools
 <span class="hljs-meta">@btime</span> mand(<span class="hljs-number">5000</span>, <span class="hljs-number">5000</span>);</code></pre>
-<pre><code class="plaintext hljs">t - s = 3.542395830154419
-  2.614 s (15 allocations: 23.84 MiB)
+<pre><code class="plaintext hljs">t - s = 3.187270164489746
+  2.576 s (15 allocations: 23.84 MiB)
 </code></pre>
 <pre><code class="julia hljs">Refpath=<span class="hljs-string">"/tmp/resultJ1.txt"</span>
 Tarpath=<span class="hljs-string">"/tmp/resultJ3.txt"</span>
