@@ -1,4 +1,4 @@
-name: CI
+name: CI with Docker
 on:
   - pull_request
 

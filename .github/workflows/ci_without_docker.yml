@@ -1,4 +1,4 @@
-name: CI-no-docker
+name: CI without Docker
 on:
   - pull_request
 
