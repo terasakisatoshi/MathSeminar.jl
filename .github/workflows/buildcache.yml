@@ -17,4 +17,4 @@ jobs:
           username: terasakisatoshi
           password: "${{ secrets.DOCKER_PASSWORD }}"
           image_name: terasakisatoshi/mathseminarjl
-          push_image_and_stages: docker run terasakisatoshi/mathseminarjl:latest julia -e 'using InteractiveUtils; versioninfo()'
+          #push_image_and_stages: docker run terasakisatoshi/mathseminarjl:latest julia -e 'using InteractiveUtils; versioninfo()'
