@@ -33,6 +33,7 @@
         <li><a href="" class="has-arrow">Programming</a>
           <ul>
             <li><a href="/MathSeminar.jl/programming/clang">C</a></li>
+            <li><a href="/MathSeminar.jl/programming/rust">Rust</a></li>
             <li><a href="/MathSeminar.jl/programming/benchmark_part1"> Julia benchmark Part1 </a></li>
             <li><a href="/MathSeminar.jl/programming/benchmark_part2"> Julia benchmark Part2 </a></li>
             <li><a href="/MathSeminar.jl/programming/literatejl">Literate.jl</a></li>
@@ -111,9 +112,9 @@
 </div>
 <h2 id="check_julia_version"><a href="#check_julia_version">Check Julia version</a></h2>
          
-<pre><code class="language-julia">using InteractiveUtils
+<pre><code class="julia hljs"><span class="hljs-keyword">using</span> InteractiveUtils
 versioninfo()</code></pre>
-<pre><code class="plaintext">Julia Version 1.4.1
+<pre><code class="plaintext hljs">Julia Version 1.4.1
 Commit 381693d3df* (2020-04-14 17:20 UTC)
 Platform Info:
   OS: Linux (x86_64-pc-linux-gnu)
@@ -122,7 +123,7 @@ Platform Info:
   LIBM: libopenlibm
   LLVM: libLLVM-8.0.1 (ORCJIT, skylake)
 Environment:
-  JULIA_NUM_THREADS = 2
+  JULIA_NUM_THREADS = 4
 </code></pre>
 <h1 id="introduction_to_franklin"><a href="#introduction_to_franklin">Introduction to Franklin</a></h1>            
    <div class="definition">2.1.0 &#40;Franklin.jl について&#41; <br/>  <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a> は Julia で記述された 静的サイトの生成を行うパッケージである．コーディング，数学などの技術ブログの作成をサポートする． 公式ドキュメントは https://franklinjl.org/ を参照せよ. なお，公式ドキュメントも Franklin.jl で作成されており, https://github.com/tlienart/franklindocs にてソースが公開されている.</div>
@@ -148,43 +149,43 @@ p(w|X^n) = \frac{\displaystyle\prod_{i=1}^n p(X_i|w)^\beta \varphi(w)}{Z_n(\beta
 Z_n(\beta) = \int_W \prod_{i=1}^n p(X_i|w)^\beta \varphi(w) dw .
 </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07153em;">Z</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.05278em;">β</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.929066em;vertical-align:-1.277669em;"></span><span class="mop"><span class="mop op-symbol large-op" style="margin-right:0.44445em;position:relative;top:-0.0011249999999999316em;">∫</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:-0.433619em;"><span style="top:-1.7880500000000001em;margin-left:-0.44445em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.13889em;">W</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.9119499999999999em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.6513970000000002em;"><span style="top:-1.872331em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.050005em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∏</span></span></span><span style="top:-4.3000050000000005em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.277669em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">p</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07847em;">X</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.07847em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord">∣</span><span class="mord mathdefault" style="margin-right:0.02691em;">w</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8991079999999999em;"><span style="top:-3.1130000000000004em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.05278em;">β</span></span></span></span></span></span></span></span><span class="mord mathdefault">φ</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.02691em;">w</span><span class="mclose">)</span><span class="mord mathdefault">d</span><span class="mord mathdefault" style="margin-right:0.02691em;">w</span><span class="mord">.</span></span></span></span></span></div>
    <div class="lemma">2.4.0  <br/>  次のようにJuliaのコードを記述することができる:</div>
-<div class="proof"><br/>  <pre><code class="language-julia">x = 3.141592
+<div class="proof"><br/>  <pre><code class="julia hljs">x = <span class="hljs-number">3.141592</span>
 y = sin(x)
-@show y</code></pre> このとき, <code>y</code> の値は評価され次の出力を得ることができる: <pre><code class="plaintext">y = 6.535897930762419e-7
+<span class="hljs-meta">@show</span> y</code></pre> このとき, <code>y</code> の値は評価され次の出力を得ることができる: <pre><code class="plaintext hljs">y = 6.535897930762419e-7
 </code></pre></div> <br/> 
    <div class="remark">2.5.0 &#40;通し番号について&#41; <br/>  通し番号は Franklin ではデフォルトでサポートしていない. CSS でカウンタを定義しておく必要がある．</div>
 <h1 id="newcommand_によるタイピングの簡略化"><a href="#newcommand_によるタイピングの簡略化"><code>newcommand</code> によるタイピングの簡略化</a></h1>            
 <code>config.md</code> は文章を記述する上での設定を記述するために用いる. <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>LaTeX</mtext></mrow><annotation encoding="application/x-tex">\LaTeX</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.89883em;vertical-align:-0.2155em;"></span><span class="mord text"><span class="mord textrm">L</span><span class="mspace" style="margin-right:-0.36em;"></span><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.68333em;"><span style="top:-2.904999em;"><span class="pstrut" style="height:2.7em;"></span><span class="mord"><span class="mord textrm mtight sizing reset-size6 size3">A</span></span></span></span></span></span><span class="mspace" style="margin-right:-0.15em;"></span><span class="mord text"><span class="mord textrm">T</span><span class="mspace" style="margin-right:-0.1667em;"></span><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.46782999999999997em;"><span style="top:-2.7845em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord textrm">E</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2155em;"><span></span></span></span></span><span class="mspace" style="margin-right:-0.125em;"></span><span class="mord textrm">X</span></span></span></span></span></span> の <code>\newcommand</code> と同様に数式を記述するコマンドを簡略化できる.</p>
-   <div class="example">3.1.0 &#40;<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="double-struck">R</mi></mrow><annotation encoding="application/x-tex">\mathbb{R}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68889em;vertical-align:0em;"></span><span class="mord"><span class="mord mathbb">R</span></span></span></span></span> の例&#41; <br/>  <code>config.md</code> に次を追加しておく:     <pre><code class="language-julia">\newcommand{\R}{\mathbb R}</code></pre> これで <code>\R</code> で <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="double-struck">R</mi></mrow><annotation encoding="application/x-tex">\mathbb R</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68889em;vertical-align:0em;"></span><span class="mord mathbb">R</span></span></span></span> を表記できる.</div>
+   <div class="example">3.1.0 &#40;<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="double-struck">R</mi></mrow><annotation encoding="application/x-tex">\mathbb{R}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68889em;vertical-align:0em;"></span><span class="mord"><span class="mord mathbb">R</span></span></span></span></span> の例&#41; <br/>  <code>config.md</code> に次を追加しておく:     <pre><code class="julia hljs">\newcommand{\R}{\mathbb R}</code></pre> これで <code>\R</code> で <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="double-struck">R</mi></mrow><annotation encoding="application/x-tex">\mathbb R</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68889em;vertical-align:0em;"></span><span class="mord mathbb">R</span></span></span></span> を表記できる.</div>
 <h1 id="グラフの描画"><a href="#グラフの描画">グラフの描画</a></h1>            
 <code>PyPlot</code>, <code>gr,pyplot,plotlyjs</code> をバックエンドとする <code>Plots.jl</code>, <code>PlotlyJS.jl</code> を用いた場合で確認している.</p>
 <h2 id="pyplot"><a href="#pyplot">PyPlot</a></h2>
-<pre><code class="language-julia">using PyPlot
-figure(figsize=(8, 6))
-x = range(-2, 2, length=500)
-for α in 1:4
+<pre><code class="julia hljs"><span class="hljs-keyword">using</span> PyPlot
+figure(figsize=(<span class="hljs-number">8</span>, <span class="hljs-number">6</span>))
+x = range(-<span class="hljs-number">2</span>, <span class="hljs-number">2</span>, length=<span class="hljs-number">500</span>)
+<span class="hljs-keyword">for</span> α <span class="hljs-keyword">in</span> <span class="hljs-number">1</span>:<span class="hljs-number">4</span>
     PyPlot.plot(x, @. sinc(α * x))
-end</code></pre>
+<span class="hljs-keyword">end</span></code></pre>
 <img src="/MathSeminar.jl/assets/index/code/output/sinc.svg" alt="">
 <h2 id="plots_gr_backend"><a href="#plots_gr_backend">Plots &#40;GR Backend&#41;</a></h2>
-<pre><code class="language-julia">using Plots
+<pre><code class="julia hljs"><span class="hljs-keyword">using</span> Plots
 gr()
-using LaTeXStrings
-Plots.plot(rand(10), title=L"\alpha", xlabel=L"x", ylabel=L"y")</code></pre>
+<span class="hljs-keyword">using</span> LaTeXStrings
+Plots.plot(rand(<span class="hljs-number">10</span>), title=<span class="hljs-string">L"\alpha"</span>, xlabel=<span class="hljs-string">L"x"</span>, ylabel=<span class="hljs-string">L"y"</span>)</code></pre>
 <img src="/MathSeminar.jl/assets/index/code/output/grplot.svg" alt="">
 <h2 id="plots_pyplot_backend"><a href="#plots_pyplot_backend">Plots &#40;PyPlot Backend&#41;</a></h2>
-<pre><code class="language-julia">using Plots
+<pre><code class="julia hljs"><span class="hljs-keyword">using</span> Plots
 pyplot()
-Plots.plot(sin, title=L"y=\sin x")</code></pre>
+Plots.plot(sin, title=<span class="hljs-string">L"y=\sin x"</span>)</code></pre>
 <img src="/MathSeminar.jl/assets/index/code/output/pyplotbkend.svg" alt="">
    <div class="remark">4.1.0 &#40;Plotly/PlotlyJS について&#41; <br/>  <code>Plotly</code>, または <code>PlotlyJS</code> による例はサイドメニューのページを参照</div>
 <h1 id="python_のコードの実行結果の表示"><a href="#python_のコードの実行結果の表示">Python のコードの実行結果の表示</a></h1>            
 <code>config.md</code> のコマンドを定義しておく.</p>
-<pre><code class="language-plaintext">\newcommand{\pycode}[2]{
+<pre><code class="plaintext hljs">\newcommand{\pycode}[2]{
 ```julia:!#1
 #hideall
 using PyCall
-lines = replace("""!#2""", r"(^|\n)([^\n]+)\n?$" => s"\1res = \2")
+lines = replace("""!#2""", r"(^|\n)([^\n]+)\n?$" =&gt; s"\1res = \2")
 py"""
 $$lines
 """
@@ -197,29 +198,29 @@ println(py"res")
 }</code></pre>
 <p>そして該当する Markdown ファイルに例えば下記のように <code>\pycode</code> コマンドと組み合わせたものを記述しておく.</p>
    <div class="prop">5.1.0 &#40;ソースコードの表示&#41; <br/>  Pythonのコードの実行結果を貼り付けることができる.</div>
-<pre><code class="language-julia">\pycode{py1}{
-import numpy as np
-np.random.seed(2)
-x = np.random.randn(5)
+<pre><code class="julia hljs">\pycode{py1}{
+<span class="hljs-keyword">import</span> numpy as np
+np.random.seed(<span class="hljs-number">2</span>)
+x = np.random.randn(<span class="hljs-number">5</span>)
 r = np.linalg.norm(x) / len(x)
-np.round(r, 2)
+np.round(r, <span class="hljs-number">2</span>)
 }</code></pre>
 <p>と記述することで下記のようになる:</p>
- <pre><code class="language-python">import numpy as np
-np.random.seed(2)
-x = np.random.randn(5)
+ <pre><code class="python hljs"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+np.random.seed(<span class="hljs-number">2</span>)
+x = np.random.randn(<span class="hljs-number">5</span>)
 r = np.linalg.norm(x) / len(x)
-np.round(r, 2)</code></pre> <pre><code class="plaintext">0.65
+np.round(r, <span class="hljs-number">2</span>)</code></pre> <pre><code class="plaintext hljs">0.65
 </code></pre>
 <h1 id="c_のコードの実行結果を表示"><a href="#c_のコードの実行結果を表示">C のコードの実行結果を表示</a></h1>            
    <div class="prop">6.1.0 &#40;ソースコードの表示&#41; <br/>  つぎのように C のコードを貼り付けることができる.</div> 
-<pre><code class="language-c">#include &lt;stdio.h&gt;
-int main&#40;&#41;&#123;
-    printf&#40;&quot;Hello Pika\n&quot;&#41;;
-    return 0;
-&#125;</code></pre>
+<pre><code class="c hljs"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> &amp;lt;stdio.h&amp;gt;</span>
+<span class="hljs-keyword">int</span> main&amp;#<span class="hljs-number">40</span>;&amp;#<span class="hljs-number">41</span>;&amp;#<span class="hljs-number">123</span>;
+    <span class="hljs-built_in">printf</span>&amp;#<span class="hljs-number">40</span>;&amp;quot;Hello Pika\n&amp;quot;&amp;#<span class="hljs-number">41</span>;;
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+&amp;#<span class="hljs-number">125</span>;</code></pre>
 <p>まず, <code>config.md</code> に次を記述しておく:</p>
-<pre><code class="language-plaintext"><!-- display C code with syntax highlight-->
+<pre><code class="plaintext hljs">&lt;!-- display C code with syntax highlight--&gt;
 \newcommand{\Ccode}[2]{
 ```julia:!#1
 #hideall
@@ -254,7 +255,7 @@ run(`$exefile`)
 \input{c}{!#1.md}
 }
 
-<!-- run C code and display code and its result -->
+&lt;!-- run C code and display code and its result --&gt;
 \newcommand{\Cexec}[2]{
 \Ccode{!#1}{!#2}
 
@@ -262,8 +263,8 @@ run(`$exefile`)
 
 }</code></pre>
 <p>そして次のようにタイプする</p>
-<pre><code class="language-plaintext">\Cexec{how2embeddC}{
-#include <stdio.h>
+<pre><code class="plaintext hljs">\Cexec{how2embeddC}{
+#include &lt;stdio.h&gt;
 int main(){
     printf("Hello Pikachu\n");
     return 0;
@@ -272,12 +273,12 @@ int main(){
 </code></pre>
 <p>出力結果は次のようになる．コードはハイライトされ，対応する <code>main</code> 関数のコードの実行結果を出力する:</p>
 
-<pre><code class="language-c">#include &lt;stdio.h&gt;
-int main&#40;&#41;&#123;
-    printf&#40;&quot;Hello World\n&quot;&#41;;
-    return 0;
-&#125;</code></pre>
-<pre><code class="plaintext">Hello World
+<pre><code class="c hljs"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> &amp;lt;stdio.h&amp;gt;</span>
+<span class="hljs-keyword">int</span> main&amp;#<span class="hljs-number">40</span>;&amp;#<span class="hljs-number">41</span>;&amp;#<span class="hljs-number">123</span>;
+    <span class="hljs-built_in">printf</span>&amp;#<span class="hljs-number">40</span>;&amp;quot;Hello World\n&amp;quot;&amp;#<span class="hljs-number">41</span>;;
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+&amp;#<span class="hljs-number">125</span>;</code></pre>
+<pre><code class="plaintext hljs">Hello World
 </code></pre>
    <div class="remark">6.2.0 &#40;Cのコードのハイライト&#41; <br/>  <a href="https://highlightjs.org/download/">Getting hightlight.js</a>　から ハイライトしたい言語を選択した後 <code>highlight.pack.js</code> を <code>_lib/hightlight</code> にコピーする. もともと <code>_lib/highlight/highlight.pack.js</code> が配置されているが、Julia,Python,R、Markdownのみをハイライトするようになっている。</div>
 <h1 id="コードの挿入"><a href="#コードの挿入">コードの挿入</a></h1>
@@ -285,9 +286,9 @@ int main&#40;&#41;&#123;
 <li><p>単にコードを載せたい場合は <code>\input&#123;filetype&#125;&#123;filename&#125;</code> とすれば良い. 例えば</p>
 </li>
 </ul>
-<pre><code class="language-plaintext">\input{julia}{hello.jl}</code></pre>
+<pre><code class="plaintext hljs">\input{julia}{hello.jl}</code></pre>
 <p>と記述しておく. 結果は次のようになる．</p>
-<pre><code class="language-julia">println("Hello")</code></pre>
+<pre><code class="julia hljs">println(<span class="hljs-string">"Hello"</span>)</code></pre>
 <code>hello.jl</code> の実態はソースコードの <code>_assets/index/code/hello.jl</code> に存在する</p>
 <div class="page-foot">
   <div class="copyright">
@@ -305,8 +306,8 @@ int main&#40;&#41;&#123;
 
   
   
-    <script src="/MathSeminar.jl/libs/highlight/highlight.pack.js"></script>
-<script>hljs.initHighlightingOnLoad();hljs.configure({tabReplace: '    '});</script>
+    
+
 
   
 </body>

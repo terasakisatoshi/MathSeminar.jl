@@ -6,9 +6,13 @@
 # specific arguments, see the documentation or ?optimize in the REPL.
 
 using Pkg
-using NodeJS, Franklin, Remark, Weave
+using NodeJS
 
 run(`$(npm_cmd()) install highlight.js`)
+
+Pkg.build("Franklin")
+
+using Franklin, Remark, Weave
 
 Pkg.activate(".")
 Pkg.instantiate()

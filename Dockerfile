@@ -23,6 +23,11 @@ RUN curl -kL https://bootstrap.pypa.io/get-pip.py | python3 && \
     sympy==1.5.* \
     numba
 
+# Setup Rust
+# Reference: https://github.com/rust-lang/rustup/issues/297
+RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+ENV PATH /root/.cargo/bin:$PATH
+
 RUN mkdir -p ${HOME}/.julia/config && \
     echo '\
 # set environment variables\n\

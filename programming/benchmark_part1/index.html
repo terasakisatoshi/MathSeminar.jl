@@ -33,6 +33,7 @@
         <li><a href="" class="has-arrow">Programming</a>
           <ul>
             <li><a href="/MathSeminar.jl/programming/clang">C</a></li>
+            <li><a href="/MathSeminar.jl/programming/rust">Rust</a></li>
             <li><a href="/MathSeminar.jl/programming/benchmark_part1"> Julia benchmark Part1 </a></li>
             <li><a href="/MathSeminar.jl/programming/benchmark_part2"> Julia benchmark Part2 </a></li>
             <li><a href="/MathSeminar.jl/programming/literatejl">Literate.jl</a></li>
@@ -95,151 +96,151 @@
 </li>
 </ul>
 
-<pre><code class="language-c">#include &lt;stdio.h&gt;
-#include &lt;stdint.h&gt;
-#include &lt;time.h&gt;
+<pre><code class="c hljs"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> &amp;lt;stdio.h&amp;gt;</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> &amp;lt;stdint.h&amp;gt;</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> &amp;lt;time.h&amp;gt;</span>
 
-uint8_t cnt&#40;double ReZ,double ImZ,double ReC,double ImC&#41;&#123;
-    uint8_t k&#61;0;
-    while&#40;k &lt; 255&#41;&#123;
-        double new_ReZ &#61; ReZ * ReZ - ImZ * ImZ &#43; ReC ;
-        double new_ImZ &#61; 2 * ReZ * ImZ &#43; ImC;
-        if &#40;new_ReZ * new_ReZ&#43;new_ImZ * new_ImZ&gt;4&#41;&#123;
-            return k;
-        &#125;
-        ReZ &#61; new_ReZ;
-        ImZ &#61; new_ImZ;
-        k&#43;&#61;1;
-    &#125;
-    return k;
-&#125;
+<span class="hljs-keyword">uint8_t</span> cnt&amp;#<span class="hljs-number">40</span>;<span class="hljs-keyword">double</span> ReZ,<span class="hljs-keyword">double</span> ImZ,<span class="hljs-keyword">double</span> ReC,<span class="hljs-keyword">double</span> ImC&amp;#<span class="hljs-number">41</span>;&amp;#<span class="hljs-number">123</span>;
+    <span class="hljs-keyword">uint8_t</span> k&amp;#<span class="hljs-number">61</span>;<span class="hljs-number">0</span>;
+    <span class="hljs-keyword">while</span>&amp;#<span class="hljs-number">40</span>;k &amp;lt; <span class="hljs-number">255</span>&amp;#<span class="hljs-number">41</span>;&amp;#<span class="hljs-number">123</span>;
+        <span class="hljs-keyword">double</span> new_ReZ &amp;#<span class="hljs-number">61</span>; ReZ * ReZ - ImZ * ImZ &amp;#<span class="hljs-number">43</span>; ReC ;
+        <span class="hljs-keyword">double</span> new_ImZ &amp;#<span class="hljs-number">61</span>; <span class="hljs-number">2</span> * ReZ * ImZ &amp;#<span class="hljs-number">43</span>; ImC;
+        <span class="hljs-keyword">if</span> &amp;#<span class="hljs-number">40</span>;new_ReZ * new_ReZ&amp;#<span class="hljs-number">43</span>;new_ImZ * new_ImZ&amp;gt;<span class="hljs-number">4</span>&amp;#<span class="hljs-number">41</span>;&amp;#<span class="hljs-number">123</span>;
+            <span class="hljs-keyword">return</span> k;
+        &amp;#<span class="hljs-number">125</span>;
+        ReZ &amp;#<span class="hljs-number">61</span>; new_ReZ;
+        ImZ &amp;#<span class="hljs-number">61</span>; new_ImZ;
+        k&amp;#<span class="hljs-number">43</span>;&amp;#<span class="hljs-number">61</span>;<span class="hljs-number">1</span>;
+    &amp;#<span class="hljs-number">125</span>;
+    <span class="hljs-keyword">return</span> k;
+&amp;#<span class="hljs-number">125</span>;
 
 
-int main&#40;&#41;
-&#123;
-    clock_t start,end;
-    start &#61; clock&#40;&#41;;
-    int M &#61; 1250;
-    int N &#61; 1250;
-    uint8_t grid&#91;M&#93;&#91;N&#93;;
-    double init_Re &#61; 0.0;
-    double init_Im &#61; 0.0;
-    for &#40;int j &#61; 0; j &lt; M; j&#43;&#43;&#41;
-    &#123;
-        for &#40;int i &#61; 0; i &lt; N; i&#43;&#43;&#41;
-        &#123;
-            double ReC &#61; 4.0 / &#40;N - 1&#41; * i - 2.0;
-            double ImC &#61; 4.0 / &#40;M - 1&#41; * j - 2.0;
-            double ReZ &#61; init_Re;
-            double ImZ &#61; init_Im;
-            grid&#91;j&#93;&#91;i&#93; &#61; cnt&#40;ReZ,ImZ,ReC,ImC&#41;;
-        &#125;
-    &#125;
-    end &#61; clock&#40;&#41;;
-    double cpu_time_used &#61; &#40;&#40;double&#41; &#40;end - start&#41;&#41; / CLOCKS_PER_SEC;
-    printf&#40;&quot;Elapsed time &#37;f &#91;sec&#93;\n&quot;, cpu_time_used&#41;;
+<span class="hljs-keyword">int</span> main&amp;#<span class="hljs-number">40</span>;&amp;#<span class="hljs-number">41</span>;
+&amp;#<span class="hljs-number">123</span>;
+    <span class="hljs-keyword">clock_t</span> start,end;
+    start &amp;#<span class="hljs-number">61</span>; clock&amp;#<span class="hljs-number">40</span>;&amp;#<span class="hljs-number">41</span>;;
+    <span class="hljs-keyword">int</span> M &amp;#<span class="hljs-number">61</span>; <span class="hljs-number">1250</span>;
+    <span class="hljs-keyword">int</span> N &amp;#<span class="hljs-number">61</span>; <span class="hljs-number">1250</span>;
+    <span class="hljs-keyword">uint8_t</span> grid&amp;#<span class="hljs-number">91</span>;M&amp;#<span class="hljs-number">93</span>;&amp;#<span class="hljs-number">91</span>;N&amp;#<span class="hljs-number">93</span>;;
+    <span class="hljs-keyword">double</span> init_Re &amp;#<span class="hljs-number">61</span>; <span class="hljs-number">0.0</span>;
+    <span class="hljs-keyword">double</span> init_Im &amp;#<span class="hljs-number">61</span>; <span class="hljs-number">0.0</span>;
+    <span class="hljs-keyword">for</span> &amp;#<span class="hljs-number">40</span>;<span class="hljs-keyword">int</span> j &amp;#<span class="hljs-number">61</span>; <span class="hljs-number">0</span>; j &amp;lt; M; j&amp;#<span class="hljs-number">43</span>;&amp;#<span class="hljs-number">43</span>;&amp;#<span class="hljs-number">41</span>;
+    &amp;#<span class="hljs-number">123</span>;
+        <span class="hljs-keyword">for</span> &amp;#<span class="hljs-number">40</span>;<span class="hljs-keyword">int</span> i &amp;#<span class="hljs-number">61</span>; <span class="hljs-number">0</span>; i &amp;lt; N; i&amp;#<span class="hljs-number">43</span>;&amp;#<span class="hljs-number">43</span>;&amp;#<span class="hljs-number">41</span>;
+        &amp;#<span class="hljs-number">123</span>;
+            <span class="hljs-keyword">double</span> ReC &amp;#<span class="hljs-number">61</span>; <span class="hljs-number">4.0</span> / &amp;#<span class="hljs-number">40</span>;N - <span class="hljs-number">1</span>&amp;#<span class="hljs-number">41</span>; * i - <span class="hljs-number">2.0</span>;
+            <span class="hljs-keyword">double</span> ImC &amp;#<span class="hljs-number">61</span>; <span class="hljs-number">4.0</span> / &amp;#<span class="hljs-number">40</span>;M - <span class="hljs-number">1</span>&amp;#<span class="hljs-number">41</span>; * j - <span class="hljs-number">2.0</span>;
+            <span class="hljs-keyword">double</span> ReZ &amp;#<span class="hljs-number">61</span>; init_Re;
+            <span class="hljs-keyword">double</span> ImZ &amp;#<span class="hljs-number">61</span>; init_Im;
+            grid&amp;#<span class="hljs-number">91</span>;j&amp;#<span class="hljs-number">93</span>;&amp;#<span class="hljs-number">91</span>;i&amp;#<span class="hljs-number">93</span>; &amp;#<span class="hljs-number">61</span>; cnt&amp;#<span class="hljs-number">40</span>;ReZ,ImZ,ReC,ImC&amp;#<span class="hljs-number">41</span>;;
+        &amp;#<span class="hljs-number">125</span>;
+    &amp;#<span class="hljs-number">125</span>;
+    end &amp;#<span class="hljs-number">61</span>; clock&amp;#<span class="hljs-number">40</span>;&amp;#<span class="hljs-number">41</span>;;
+    <span class="hljs-keyword">double</span> cpu_time_used &amp;#<span class="hljs-number">61</span>; &amp;#<span class="hljs-number">40</span>;&amp;#<span class="hljs-number">40</span>;<span class="hljs-keyword">double</span>&amp;#<span class="hljs-number">41</span>; &amp;#<span class="hljs-number">40</span>;end - start&amp;#<span class="hljs-number">41</span>;&amp;#<span class="hljs-number">41</span>; / CLOCKS_PER_SEC;
+    <span class="hljs-built_in">printf</span>&amp;#<span class="hljs-number">40</span>;&amp;quot;Elapsed time &amp;#<span class="hljs-number">37</span>;f &amp;#<span class="hljs-number">91</span>;sec&amp;#<span class="hljs-number">93</span>;\n&amp;quot;, cpu_time_used&amp;#<span class="hljs-number">41</span>;;
     FILE *fp;
-    fp &#61; fopen&#40;&quot;/tmp/benchC.txt&quot;, &quot;w&quot;&#41;;
-    for &#40;int j &#61; 0; j &lt; M; j&#43;&#43;&#41;
-    &#123;
-        for &#40;int i &#61; 0; i &lt; N; i&#43;&#43;&#41;
-        &#123;
-            fprintf&#40;fp, &quot;&#37;d&quot;, grid&#91;j&#93;&#91;i&#93;&#41;;
-            if &#40;i &#33;&#61; N - 1&#41;
-            &#123;
-                fprintf&#40;fp, &quot;,&quot;&#41;;
-            &#125;
-            else
-            &#123;
-                fprintf&#40;fp, &quot;\n&quot;&#41;;
-            &#125;
-        &#125;
-    &#125;
-    fclose&#40;fp&#41;;
-    return 0;
-&#125;</code></pre>
-<pre><code class="plaintext">Elapsed time 0.200912 [sec]
+    fp &amp;#<span class="hljs-number">61</span>; fopen&amp;#<span class="hljs-number">40</span>;&amp;quot;/tmp/benchC.txt&amp;quot;, &amp;quot;w&amp;quot;&amp;#<span class="hljs-number">41</span>;;
+    <span class="hljs-keyword">for</span> &amp;#<span class="hljs-number">40</span>;<span class="hljs-keyword">int</span> j &amp;#<span class="hljs-number">61</span>; <span class="hljs-number">0</span>; j &amp;lt; M; j&amp;#<span class="hljs-number">43</span>;&amp;#<span class="hljs-number">43</span>;&amp;#<span class="hljs-number">41</span>;
+    &amp;#<span class="hljs-number">123</span>;
+        <span class="hljs-keyword">for</span> &amp;#<span class="hljs-number">40</span>;<span class="hljs-keyword">int</span> i &amp;#<span class="hljs-number">61</span>; <span class="hljs-number">0</span>; i &amp;lt; N; i&amp;#<span class="hljs-number">43</span>;&amp;#<span class="hljs-number">43</span>;&amp;#<span class="hljs-number">41</span>;
+        &amp;#<span class="hljs-number">123</span>;
+            <span class="hljs-built_in">fprintf</span>&amp;#<span class="hljs-number">40</span>;fp, &amp;quot;&amp;#<span class="hljs-number">37</span>;d&amp;quot;, grid&amp;#<span class="hljs-number">91</span>;j&amp;#<span class="hljs-number">93</span>;&amp;#<span class="hljs-number">91</span>;i&amp;#<span class="hljs-number">93</span>;&amp;#<span class="hljs-number">41</span>;;
+            <span class="hljs-keyword">if</span> &amp;#<span class="hljs-number">40</span>;i &amp;#<span class="hljs-number">33</span>;&amp;#<span class="hljs-number">61</span>; N - <span class="hljs-number">1</span>&amp;#<span class="hljs-number">41</span>;
+            &amp;#<span class="hljs-number">123</span>;
+                <span class="hljs-built_in">fprintf</span>&amp;#<span class="hljs-number">40</span>;fp, &amp;quot;,&amp;quot;&amp;#<span class="hljs-number">41</span>;;
+            &amp;#<span class="hljs-number">125</span>;
+            <span class="hljs-keyword">else</span>
+            &amp;#<span class="hljs-number">123</span>;
+                <span class="hljs-built_in">fprintf</span>&amp;#<span class="hljs-number">40</span>;fp, &amp;quot;\n&amp;quot;&amp;#<span class="hljs-number">41</span>;;
+            &amp;#<span class="hljs-number">125</span>;
+        &amp;#<span class="hljs-number">125</span>;
+    &amp;#<span class="hljs-number">125</span>;
+    fclose&amp;#<span class="hljs-number">40</span>;fp&amp;#<span class="hljs-number">41</span>;;
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+&amp;#<span class="hljs-number">125</span>;</code></pre>
+<pre><code class="plaintext hljs">Elapsed time 0.165235 [sec]
 </code></pre>
 <p>描画は下記のとおりです。</p>
-<pre><code class="language-julia">using DelimitedFiles
-using Plots
-img = readdlm("/tmp/benchC.txt",',',Int)
-M,N = img |> size
-p=heatmap(1:N, 1:M, img, aspect_ratio=1, size=(400,400))</code></pre>
+<pre><code class="julia hljs"><span class="hljs-keyword">using</span> DelimitedFiles
+<span class="hljs-keyword">using</span> Plots
+img = readdlm(<span class="hljs-string">"/tmp/benchC.txt"</span>,<span class="hljs-string">','</span>,<span class="hljs-built_in">Int</span>)
+M,N = img |&gt; size
+p=heatmap(<span class="hljs-number">1</span>:N, <span class="hljs-number">1</span>:M, img, aspect_ratio=<span class="hljs-number">1</span>, size=(<span class="hljs-number">400</span>,<span class="hljs-number">400</span>))</code></pre>
 <img src="/MathSeminar.jl/assets/programming/benchmark_part1/code/output/mandC.png" alt="">
 <h2 id="julia_のコード"><a href="#julia_のコード">Julia のコード</a></h2>
          
 <p>最後に Julia のコードを見ていきましょう</p>
-<pre><code class="language-julia">using DelimitedFiles
+<pre><code class="julia hljs"><span class="hljs-keyword">using</span> DelimitedFiles
 
-function cnt(ReZ, ImZ, ReC, ImC)
-    k::UInt8 = 0
-    while (k < 255)
+<span class="hljs-keyword">function</span> cnt(ReZ, ImZ, ReC, ImC)
+    k::<span class="hljs-built_in">UInt8</span> = <span class="hljs-number">0</span>
+    <span class="hljs-keyword">while</span> (k &lt; <span class="hljs-number">255</span>)
         new_ReZ = ReZ * ReZ - ImZ * ImZ + ReC
-        new_ImZ = 2 * ReZ * ImZ + ImC
-        if new_ReZ * new_ReZ + new_ImZ * new_ImZ > 4.
-            return k
-        end
+        new_ImZ = <span class="hljs-number">2</span> * ReZ * ImZ + ImC
+        <span class="hljs-keyword">if</span> new_ReZ * new_ReZ + new_ImZ * new_ImZ &gt; <span class="hljs-number">4.</span>
+            <span class="hljs-keyword">return</span> k
+        <span class="hljs-keyword">end</span>
         ReZ = new_ReZ
         ImZ = new_ImZ
-        k += 1
-    end
-    return k
-end
+        k += <span class="hljs-number">1</span>
+    <span class="hljs-keyword">end</span>
+    <span class="hljs-keyword">return</span> k
+<span class="hljs-keyword">end</span>
 
-function cnt(z,c)
-    k::UInt8 = 0
-    while (k < 255)
-        z = z^2 + c
-        if abs2(z)>4.
-            return k
-        end
-        k += 1
-    end
-    return k
-end
+<span class="hljs-keyword">function</span> cnt(z,c)
+    k::<span class="hljs-built_in">UInt8</span> = <span class="hljs-number">0</span>
+    <span class="hljs-keyword">while</span> (k &lt; <span class="hljs-number">255</span>)
+        z = z^<span class="hljs-number">2</span> + c
+        <span class="hljs-keyword">if</span> abs2(z)&gt;<span class="hljs-number">4.</span>
+            <span class="hljs-keyword">return</span> k
+        <span class="hljs-keyword">end</span>
+        k += <span class="hljs-number">1</span>
+    <span class="hljs-keyword">end</span>
+    <span class="hljs-keyword">return</span> k
+<span class="hljs-keyword">end</span>
 
-function mand(M::Int, N::Int)
-    grid = Array{UInt8}(undef, M, N)
-    init_Re = 0.0
-    init_Im = 0.0
-    for j = 1:M
-        for i = 1:N
-            ReC = 4.0 / (N - 1) * (i - 1) - 2.0
-            ImC = 4.0 / (M - 1) * (j - 1) - 2.0
+<span class="hljs-keyword">function</span> mand(M::<span class="hljs-built_in">Int</span>, N::<span class="hljs-built_in">Int</span>)
+    grid = <span class="hljs-built_in">Array</span>{<span class="hljs-built_in">UInt8</span>}(undef, M, N)
+    init_Re = <span class="hljs-number">0.0</span>
+    init_Im = <span class="hljs-number">0.0</span>
+    <span class="hljs-keyword">for</span> j = <span class="hljs-number">1</span>:M
+        <span class="hljs-keyword">for</span> i = <span class="hljs-number">1</span>:N
+            ReC = <span class="hljs-number">4.0</span> / (N - <span class="hljs-number">1</span>) * (i - <span class="hljs-number">1</span>) - <span class="hljs-number">2.0</span>
+            ImC = <span class="hljs-number">4.0</span> / (M - <span class="hljs-number">1</span>) * (j - <span class="hljs-number">1</span>) - <span class="hljs-number">2.0</span>
             ReZ = init_Re
             ImZ = init_Im
             grid[j, i] = cnt(ReZ, ImZ, ReC, ImC)
-        end
-    end
-    return grid
-end
+        <span class="hljs-keyword">end</span>
+    <span class="hljs-keyword">end</span>
+    <span class="hljs-keyword">return</span> grid
+<span class="hljs-keyword">end</span>
 
-function main()
+<span class="hljs-keyword">function</span> main()
     s = time()
-    M = N = 1250
+    M = N = <span class="hljs-number">1250</span>
     grid = mand(M,N)
     t = time()
-    @show(t - s)
-    writedlm("/tmp/benchJ.txt",grid,",")
-end
+    <span class="hljs-meta">@show</span>(t - s)
+    writedlm(<span class="hljs-string">"/tmp/benchJ.txt"</span>,grid,<span class="hljs-string">","</span>)
+<span class="hljs-keyword">end</span>
 
 main()
 
-using BenchmarkTools
-@btime mand(1250, 1250);</code></pre>
-<pre><code class="plaintext">t - s = 0.2409980297088623
-  236.246 ms (2 allocations: 1.49 MiB)
+<span class="hljs-keyword">using</span> BenchmarkTools
+<span class="hljs-meta">@btime</span> mand(<span class="hljs-number">1250</span>, <span class="hljs-number">1250</span>);</code></pre>
+<pre><code class="plaintext hljs">t - s = 0.21810078620910645
+  213.007 ms (2 allocations: 1.49 MiB)
 </code></pre>
-<pre><code class="language-julia">Refpath="/tmp/benchC.txt"
-Tarpath="/tmp/benchJ.txt"
-run(`bash -c "cmp --silent $Refpath $Tarpath || echo \"files are different\""`)
+<pre><code class="julia hljs">Refpath=<span class="hljs-string">"/tmp/benchC.txt"</span>
+Tarpath=<span class="hljs-string">"/tmp/benchJ.txt"</span>
+run(<span class="hljs-string">`bash -c "cmp --silent <span class="hljs-variable">$Refpath</span> <span class="hljs-variable">$Tarpath</span> || echo \"files are different\""`</span>)
 
-using Plots
-using DelimitedFiles
-img = readdlm(Tarpath,',',Int)
-M,N = img |> size
-p = heatmap(1:N,1:M,img,aspect_ratio=1, size=(400, 400))</code></pre>
+<span class="hljs-keyword">using</span> Plots
+<span class="hljs-keyword">using</span> DelimitedFiles
+img = readdlm(Tarpath,<span class="hljs-string">','</span>,<span class="hljs-built_in">Int</span>)
+M,N = img |&gt; size
+p = heatmap(<span class="hljs-number">1</span>:N,<span class="hljs-number">1</span>:M,img,aspect_ratio=<span class="hljs-number">1</span>, size=(<span class="hljs-number">400</span>, <span class="hljs-number">400</span>))</code></pre>
 
 <img src="/MathSeminar.jl/assets/programming/benchmark_part1/code/output/mandJ.png" alt=""><div class="page-foot">
   <div class="copyright">
@@ -257,8 +258,8 @@ p = heatmap(1:N,1:M,img,aspect_ratio=1, size=(400, 400))</code></pre>
 
   
   
-    <script src="/MathSeminar.jl/libs/highlight/highlight.pack.js"></script>
-<script>hljs.initHighlightingOnLoad();hljs.configure({tabReplace: '    '});</script>
+    
+
 
   
 </body>
