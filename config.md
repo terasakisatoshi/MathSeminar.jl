@@ -146,3 +146,46 @@ run(`$exefile`)
 \codeoutput{!#1}
 
 }
+
+<!-- display Rust code with syntax highlight-->
+\newcommand{\rustcode}[2]{
+```julia:!#1
+#hideall
+using Markdown
+
+mdrs_code = Markdown.htmlesc(raw"""!#2""")
+
+mdfile = joinpath(dirname(@OUTPUT), "!#1.md")
+open(mdfile,"w") do f
+    print(f, mdrs_code)
+end
+
+rs_code=raw"""
+!#2
+"""
+
+exefile = tempname()
+
+#=
+This trick is taken from
+
+https://discourse.julialang.org/t/how-to-make-a-c-function-compiled-by-myself-available-to-ccall/7972/26
+=#
+
+open(`rustc -o $exefile -`, "w") do f
+    print(f, rs_code)
+end
+
+run(`$exefile`)
+```
+
+\input{rust}{!#1.md}
+}
+
+<!-- run C code and display code and its result -->
+\newcommand{\rustexec}[2]{
+\rustcode{!#1}{!#2}
+
+\codeoutput{!#1}
+
+}
