@@ -38,7 +38,7 @@ function __on_document_load__(){
         var rect = canvas.getBoundingClientRect();
         var x = event.clientX - rect.left;
         var y = event.clientY - rect.top;
-        update_obs('11811236278761452458', {
+        update_obs('7775975035422680699', {
             mouseposition: [x, y]
         })
         return false
@@ -46,7 +46,7 @@ function __on_document_load__(){
     canvas.addEventListener("mousemove", mousemove);
 
     function mousedown(event){
-        update_obs('11811236278761452458', {
+        update_obs('7775975035422680699', {
             mousedown: event.buttons
         })
         return false;
@@ -54,7 +54,7 @@ function __on_document_load__(){
     canvas.addEventListener("mousedown", mousedown);
 
     function mouseup(event){
-        update_obs('11811236278761452458', {
+        update_obs('7775975035422680699', {
             mouseup: event.buttons
         })
         return false;
@@ -62,7 +62,7 @@ function __on_document_load__(){
     canvas.addEventListener("mouseup", mouseup);
 
     function wheel(event){
-        update_obs('11811236278761452458', {
+        update_obs('7775975035422680699', {
             scroll: [event.deltaX, -event.deltaY]
         })
         event.preventDefault()
@@ -71,7 +71,7 @@ function __on_document_load__(){
     canvas.addEventListener("wheel", wheel);
 
     function keydown(event){
-        update_obs('11811236278761452458', {
+        update_obs('7775975035422680699', {
             keydown: event.code
         })
         return false;
@@ -79,7 +79,7 @@ function __on_document_load__(){
     document.addEventListener("keydown", keydown);
 
     function keyup(event){
-        update_obs('11811236278761452458', {
+        update_obs('7775975035422680699', {
             keyup: event.code
         })
         return false;
@@ -92,7 +92,7 @@ function __on_document_load__(){
     // set... Only option I found is to actually listen to the contextmenu
     // and remove all keys if its opened.
     function contextmenu(event){
-        update_obs('11811236278761452458', {
+        update_obs('7775975035422680699', {
             keyup: "delete_keys"
         })
         return false;
@@ -111,7 +111,7 @@ function init_function(__data_dependencies) {
     canvas.style.width = w_h[0];
     canvas.style.height = w_h[1];
 });
-        register_onjs(func, '15096528486509067008');
+        register_onjs(func, '11400017191692420626');
         }
 
         put_on_heap('4', new THREE.Scene());
@@ -189,7 +189,7 @@ function init_function(__data_dependencies) {
         get_heap_object("11").boundingSphere['radius'] = 1.0e13;
         put_on_heap('50', new THREE.RawShaderMaterial(deserialize_js(__data_dependencies[21])));
         put_on_heap('51', new THREE.Mesh(get_heap_object('11'), get_heap_object('50')));
-        get_heap_object('51')['name'] = '4056813266331115586';
+        get_heap_object('51')['name'] = '17932834001448611538';
         get_heap_object('51')['matrixAutoUpdate'] = false;
         put_on_heap('52', get_heap_object("51").matrix.set(1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0));
         put_on_heap('53', get_heap_object("5").add(get_heap_object('51')));
@@ -236,7 +236,7 @@ function init_function(__data_dependencies) {
         put_on_heap('90', new THREE.Mesh(get_heap_object('54'), get_heap_object('89')));
         get_heap_object('90')['matrixAutoUpdate'] = false;
         put_on_heap('91', get_heap_object("90").matrix.set(1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0));
-        get_heap_object('90')['name'] = '10127769831486650236';
+        get_heap_object('90')['name'] = '2555582106936705355';
         put_on_heap('92', get_heap_object("5").add(get_heap_object('90')));
         put_on_heap('93', new THREE.InstancedBufferGeometry());
         put_on_heap('94', new THREE.Float32BufferAttribute(deserialize_js(__data_dependencies[33]), 3));
@@ -294,7 +294,7 @@ function init_function(__data_dependencies) {
         get_heap_object("93").boundingSphere['radius'] = 1.0e13;
         put_on_heap('129', new THREE.RawShaderMaterial(deserialize_js(__data_dependencies[57])));
         put_on_heap('130', new THREE.Mesh(get_heap_object('93'), get_heap_object('129')));
-        get_heap_object('130')['name'] = '1223901568420790617';
+        get_heap_object('130')['name'] = '14847920939232443122';
         put_on_heap('131', get_heap_object("5").add(get_heap_object('130')));
         put_on_heap('132', get_heap_object("4").add(get_heap_object('5')));
         put_on_heap('133', new THREE.Scene());
@@ -361,7 +361,7 @@ function init_function(__data_dependencies) {
         get_heap_object("139").boundingSphere['radius'] = 1.0e13;
         put_on_heap('176', new THREE.RawShaderMaterial(deserialize_js(__data_dependencies[77])));
         put_on_heap('177', new THREE.Mesh(get_heap_object('139'), get_heap_object('176')));
-        get_heap_object('177')['name'] = '3622910586950990324';
+        get_heap_object('177')['name'] = '8250994399603017830';
         get_heap_object('177')['matrixAutoUpdate'] = false;
         put_on_heap('178', get_heap_object("177").matrix.set(1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0));
         put_on_heap('179', get_heap_object("133").add(get_heap_object('177')));
@@ -408,7 +408,7 @@ function init_function(__data_dependencies) {
         put_on_heap('216', new THREE.Mesh(get_heap_object('180'), get_heap_object('215')));
         get_heap_object('216')['matrixAutoUpdate'] = false;
         put_on_heap('217', get_heap_object("216").matrix.set(1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0));
-        get_heap_object('216')['name'] = '5784536414101923678';
+        get_heap_object('216')['name'] = '3675277959141761544';
         put_on_heap('218', get_heap_object("133").add(get_heap_object('216')));
         put_on_heap('219', new THREE.InstancedBufferGeometry());
         put_on_heap('220', new THREE.Float32BufferAttribute(deserialize_js(__data_dependencies[89]), 2));
@@ -446,7 +446,7 @@ function init_function(__data_dependencies) {
         put_on_heap('242', new THREE.Mesh(get_heap_object('219'), get_heap_object('241')));
         get_heap_object('242')['matrixAutoUpdate'] = false;
         put_on_heap('243', get_heap_object("242").matrix.set(1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0));
-        get_heap_object('242')['name'] = '15770660120233558296';
+        get_heap_object('242')['name'] = '3815561518577333801';
         put_on_heap('244', get_heap_object("133").add(get_heap_object('242')));
         put_on_heap('245', get_heap_object("4").add(get_heap_object('133')));
         {    function render_camera(scene, camera){
