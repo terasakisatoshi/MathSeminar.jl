@@ -17,7 +17,7 @@ jobs:
       uses: actions/cache@v2
       with:
         path: __site
-        key: build-${{ hashFiles('Dockerfiles') }}
+        key: build-${{ hashFiles('**/Dockerfiles') }}
         restore-keys: |
           build-
     - uses: whoan/docker-build-with-cache-action@v5
