@@ -32,7 +32,7 @@ jobs:
       uses: actions/cache@v2
       with:
         path: __site
-        key: build-${{ hashFiles('Dockerfiles') }}
+        key: build-${{ hashFiles('**/Dockerfiles') }}
         restore-keys: |
           build-
     - run: julia --project=@. -e 'using Pkg; Pkg.instantiate()'
