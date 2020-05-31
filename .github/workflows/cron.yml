@@ -15,6 +15,5 @@ jobs:
       - uses: whoan/docker-build-with-cache-action@v5
         with:
           username: terasakisatoshi
-          password: "${{ secrets.DOCKER_PASSWORD }}"
+          password: ${{ secrets.DOCKER_PASSWORD }}
           image_name: terasakisatoshi/mathseminarjl
-          #push_image_and_stages: docker run terasakisatoshi/mathseminarjl:latest julia -e 'using InteractiveUtils; versioninfo()'
