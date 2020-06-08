@@ -2,7 +2,18 @@
 
 OS:=$(shell uname -s)
 
-REMOTE_DOCKER_REPOSITORY=terasakisatoshi/mathseminarjl:latest
+OS:=$(shell uname -s)
+DOCKERIMAGE=mathseminarjl
+
+ifeq ($(OS), Linux)
+TAG=latest
+REMOTE_DOCKER_REPOSITORY:=terasakisatoshi/${DOCKERIMAGE}:${TAG}
+endif
+ifeq ($(OS), Darwin)
+TAG=mac
+REMOTE_DOCKER_REPOSITORY:=terasakisatoshi/${DOCKERIMAGE}:${TAG}
+endif
+
 
 all: pull
 
