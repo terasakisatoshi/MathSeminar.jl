@@ -96,10 +96,10 @@
 </ul>
 <pre><code class="julia hljs"><span class="hljs-keyword">using</span> JSServe, WGLMakie, AbstractPlotting
 
-<span class="hljs-string">"""
+<span class="hljs-string">&quot;&quot;&quot;
 Write handler by yourself. 
 The Syntax is as same as one uses for Makie.jl plot
-"""</span>
+&quot;&quot;&quot;</span>
 <span class="hljs-keyword">function</span> handler(session, request)
     x = [<span class="hljs-number">2</span> .* (i/<span class="hljs-number">3</span>) .* cos(i) <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">0</span>, stop = <span class="hljs-number">4</span><span class="hljs-literal">π</span>, length = <span class="hljs-number">30</span>)]
     y = [<span class="hljs-number">2</span> .* (i/<span class="hljs-number">3</span>) .* sin(i) <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">0</span>, stop = <span class="hljs-number">4</span><span class="hljs-literal">π</span>, length = <span class="hljs-number">30</span>)]
@@ -109,13 +109,13 @@ The Syntax is as same as one uses for Makie.jl plot
     <span class="hljs-keyword">return</span> vbox(p1, p2)
 <span class="hljs-keyword">end</span>
 
-dir = joinpath(<span class="hljs-meta">@__DIR__</span>, <span class="hljs-string">"__site/gallery/wglmakie/wglmakie"</span>)
+dir = joinpath(<span class="hljs-meta">@__DIR__</span>, <span class="hljs-string">&quot;__site/gallery/wglmakie/wglmakie&quot;</span>)
 !isdir(dir) &amp;&amp; mkdir(dir)
 JSServe.export_standalone(handler, joinpath(<span class="hljs-meta">@OUTPUT</span>, dir))</code></pre>
 
 <p>You can see the reuslt at <a href="/MathSeminar.jl/gallery/wglmakie/wglmakie/index.html">here</a>.<div class="page-foot">
   <div class="copyright">
-    &copy; SatoshiTerasaki. Last modified: 2020年6月8日 月曜日. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
+    &copy; SatoshiTerasaki. Last modified: 2020年6月14日 日曜日. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
   </div>
 </div>
 </div><!-- CONTENT ENDS HERE -->

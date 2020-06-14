@@ -88,7 +88,7 @@
 
 <pre><code class="c hljs"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
 <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>{
-    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Hello Goma\n"</span>);
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Hello Goma\n&quot;</span>);
     <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
 }</code></pre>
 <ul>
@@ -96,19 +96,19 @@
 </li>
 </ul>
 <pre><code class="julia hljs"><span class="hljs-keyword">using</span> Markdown
-Markdown.htmlesc(<span class="hljs-string">raw"""youccode"""</span>)</code></pre>
+Markdown.htmlesc(<span class="hljs-string">raw&quot;&quot;&quot;youccode&quot;&quot;&quot;</span>)</code></pre>
 <p>をしておくと回避できる場合がある. ただし，この場合だと GitHub Actions でページをビルドした場合, コードがめちゃくちゃに表示されることがわかっている．折半案は <code>&quot;stdio.h&quot;</code> のように二重引用符で表現することである.</p>
 
-<pre><code class="c hljs"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">"stdio.h"</span></span>
+<pre><code class="c hljs"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&quot;stdio.h&quot;</span></span>
 <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>{
-    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Hello World\n"</span>);
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Hello World\n&quot;</span>);
     <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
 }</code></pre>
 <pre><code class="plaintext hljs">Hello World
 </code></pre>
 <div class="remark">&#40;Cのコードのハイライト&#41;     <a href="https://highlightjs.org/download/">Getting hightlight.js</a>　から ハイライトしたい言語を選択した後 <code>highlight.pack.js</code> を <code>_lib/hightlight</code> にコピーする. もともと <code>_lib/highlight/highlight.pack.js</code> が配置されているが、Julia,Python,R、Markdownのみをハイライトするようになっている。</div><div class="page-foot">
   <div class="copyright">
-    &copy; SatoshiTerasaki. Last modified: 2020年6月8日 月曜日. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
+    &copy; SatoshiTerasaki. Last modified: 2020年6月14日 日曜日. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
   </div>
 </div>
 </div><!-- CONTENT ENDS HERE -->

@@ -109,7 +109,7 @@ fdplotly(
     JSON.json((
         layout = Plots.plotly_layout(p),
         data = Plots.plotly_series(p),
-    )); style = <span class="hljs-string">"width:300px;height:200x"</span>,
+    )); style = <span class="hljs-string">&quot;width:300px;height:200x&quot;</span>,
 )</code></pre>
 
 <div id="fdpxdz" style="width:300px;height:200x"></div>
@@ -143,7 +143,7 @@ p = plot()
 fdplotly(JSON.json((
     layout = Plots.plotly_layout(p),
     data = Plots.plotly_series(p),
-)); style = <span class="hljs-string">"width:400px;height:300x"</span>,
+)); style = <span class="hljs-string">&quot;width:400px;height:300x&quot;</span>,
 )</code></pre>
 
 <div id="fdpzbr" style="width:400px;height:300x"></div>
@@ -163,8 +163,8 @@ fdplotly(JSON.json((
 <p>By using <code>Plots.js_body</code> function, we can mimic what <code>Franklin.fdplotly</code> does:</p>
 <pre><code class="julia hljs"><span class="hljs-keyword">using</span> Random
 <span class="hljs-keyword">function</span> fdplotly(p::Plots.Plot;
-    id=<span class="hljs-string">"fdp"</span> * Random.randstring(<span class="hljs-string">'a'</span>:<span class="hljs-string">'z'</span>, <span class="hljs-number">3</span>),
-    style = <span class="hljs-string">"width:600px;height:350px"</span>)::Nothing
+    id=<span class="hljs-string">&quot;fdp&quot;</span> * Random.randstring(<span class="hljs-string">&#x27;a&#x27;</span>:<span class="hljs-string">&#x27;z&#x27;</span>, <span class="hljs-number">3</span>),
+    style = <span class="hljs-string">&quot;width:600px;height:350px&quot;</span>)::Nothing
     b = Plots.js_body(p, id)
     <span class="hljs-keyword">return</span> <span class="hljs-literal">nothing</span>
 <span class="hljs-keyword">end</span></code></pre>
@@ -172,7 +172,7 @@ fdplotly(JSON.json((
 <pre><code class="julia hljs"><span class="hljs-keyword">using</span> Plots
 plotlyjs()
 p = plot(rand(<span class="hljs-number">10</span>))
-fdplotly(p; style = <span class="hljs-string">"width:400px;height:300x"</span>)</code></pre>
+fdplotly(p; style = <span class="hljs-string">&quot;width:400px;height:300x&quot;</span>)</code></pre>
 <div id="fdpjhc" style="width:400px;height:300x"></div> <script>     PLOT = document.getElementById('fdpjhc');
     Plotly.plot(PLOT, [
     {
@@ -363,7 +363,7 @@ p = plot()
     scatter!(p, x, y, z, label = <span class="hljs-literal">false</span>, color = :green)
 <span class="hljs-keyword">end</span>
 
-fdplotly(p; style = <span class="hljs-string">"width:400px;height:300x"</span>)</code></pre>
+fdplotly(p; style = <span class="hljs-string">&quot;width:400px;height:300x&quot;</span>)</code></pre>
 <div id="fdpdhs" style="width:400px;height:300x"></div> <script>     PLOT = document.getElementById('fdpdhs');
     Plotly.plot(PLOT, [
     {
@@ -17036,7 +17036,7 @@ fdplotly(p)</code></pre>
 );
  </script><div class="page-foot">
   <div class="copyright">
-    &copy; SatoshiTerasaki. Last modified: 2020年6月8日 月曜日. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
+    &copy; SatoshiTerasaki. Last modified: 2020年6月14日 日曜日. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
   </div>
 </div>
 </div><!-- CONTENT ENDS HERE -->

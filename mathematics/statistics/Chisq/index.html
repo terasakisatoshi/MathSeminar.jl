@@ -99,9 +99,9 @@
 <h2 id="plot_histogram"><a href="#plot_histogram">Plot histogram</a></h2>
 <pre><code class="julia hljs">sample = rand(d, <span class="hljs-number">10000</span>)
 p = plot(xlim=[-<span class="hljs-number">3</span>, <span class="hljs-number">3</span>])
-histogram!(sample, normalize=:pdf, label=<span class="hljs-string">"hist"</span>)
-plot!(x-&gt;pdf(d, x),label=<span class="hljs-string">"pdf"</span>)
-savefig(joinpath(<span class="hljs-meta">@OUTPUT</span>, <span class="hljs-string">"normal.svg"</span>))</code></pre>
+histogram!(sample, normalize=:pdf, label=<span class="hljs-string">&quot;hist&quot;</span>)
+plot!(x-&gt;pdf(d, x),label=<span class="hljs-string">&quot;pdf&quot;</span>)
+savefig(joinpath(<span class="hljs-meta">@OUTPUT</span>, <span class="hljs-string">&quot;normal.svg&quot;</span>))</code></pre>
 <img src="/MathSeminar.jl/assets/mathematics/statistics/Chisq/code/output/normal.svg" alt="">
 <h1 id="prepare_gamma_function"><a href="#prepare_gamma_function">Prepare <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Γ</mi></mrow><annotation encoding="application/x-tex">\Gamma</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord">Γ</span></span></span></span> function</a></h1>
 <pre><code class="julia hljs"><span class="hljs-meta">@doc</span> gamma</code></pre> 
@@ -121,13 +121,13 @@ savefig(joinpath(<span class="hljs-meta">@OUTPUT</span>, <span class="hljs-strin
 X = rand(d, n_trial)
 X² = X .^ <span class="hljs-number">2.</span>
 p = plot()
-histogram!(p, X², normalize=:pdf, label=<span class="hljs-string">L"X^2"</span>)
+histogram!(p, X², normalize=:pdf, label=<span class="hljs-string">L&quot;X^2&quot;</span>)
 x = range(<span class="hljs-number">0.01</span>,<span class="hljs-number">2</span>,length=<span class="hljs-number">100</span>)
 y = T.(<span class="hljs-number">1</span>, x)
-plot!(p, x, y, xlim=[<span class="hljs-number">0</span>,<span class="hljs-number">2</span>], ylim=[<span class="hljs-number">0</span>,<span class="hljs-number">4</span>], label=<span class="hljs-string">L"T_1"</span>)
+plot!(p, x, y, xlim=[<span class="hljs-number">0</span>,<span class="hljs-number">2</span>], ylim=[<span class="hljs-number">0</span>,<span class="hljs-number">4</span>], label=<span class="hljs-string">L&quot;T_1&quot;</span>)
 
 y = pdf.(Chisq(<span class="hljs-number">1</span>), x)
-plot!(p, x, y, line=:dash, label=<span class="hljs-string">L"\chi^2(1)"</span>) ;</code></pre>
+plot!(p, x, y, line=:dash, label=<span class="hljs-string">L&quot;\chi^2(1)&quot;</span>) ;</code></pre>
 <img src="/MathSeminar.jl/assets/mathematics/statistics/Chisq/code/output/deg1.svg" alt="">
 <h2 id="degree_2"><a href="#degree_2">degree &#61; 2</a></h2>
 <pre><code class="julia hljs">n_trial = <span class="hljs-number">100000</span>
@@ -137,16 +137,16 @@ X² = X .^ <span class="hljs-number">2</span>
 Y² = Y .^ <span class="hljs-number">2</span>
 p=plot()
 
-histogram!(p, X².+Y², normalize=:pdf, label=<span class="hljs-string">L"X^2+Y^2"</span>)
+histogram!(p, X².+Y², normalize=:pdf, label=<span class="hljs-string">L&quot;X^2+Y^2&quot;</span>)
 x = range(<span class="hljs-number">0.01</span>,<span class="hljs-number">2</span>,length=<span class="hljs-number">100</span>)
 y = T.(<span class="hljs-number">2</span>, x)
-plot!(p, x, y,xlim=[<span class="hljs-number">0</span>,<span class="hljs-number">5</span>], ylim=[<span class="hljs-number">0</span>,<span class="hljs-number">0.5</span>], label=<span class="hljs-string">L"T_3"</span>)
+plot!(p, x, y,xlim=[<span class="hljs-number">0</span>,<span class="hljs-number">5</span>], ylim=[<span class="hljs-number">0</span>,<span class="hljs-number">0.5</span>], label=<span class="hljs-string">L&quot;T_3&quot;</span>)
 
 χ² = Chisq(<span class="hljs-number">2</span>)
 
 y = pdf.(χ², x)
 χ² = Chisq(<span class="hljs-number">2</span>)
-plot!(p, x, y, label=<span class="hljs-string">L"\chi^2(2)"</span>,line=:dash)</code></pre>
+plot!(p, x, y, label=<span class="hljs-string">L&quot;\chi^2(2)&quot;</span>,line=:dash)</code></pre>
 <img src="/MathSeminar.jl/assets/mathematics/statistics/Chisq/code/output/deg2.svg" alt="">
 <h2 id="degree_3"><a href="#degree_3">degree &#61; 3</a></h2>
 <pre><code class="julia hljs">n_trial = <span class="hljs-number">100000</span>
@@ -157,18 +157,18 @@ X² = X .^ <span class="hljs-number">2</span>
 Y² = Y .^ <span class="hljs-number">2</span>
 Z² = Z .^ <span class="hljs-number">2</span>
 p = plot()
-histogram!(p, X².+Y².+Z², normalize=:pdf, label=<span class="hljs-string">L"X^2+Y^2+Z^2"</span>)
+histogram!(p, X².+Y².+Z², normalize=:pdf, label=<span class="hljs-string">L&quot;X^2+Y^2+Z^2&quot;</span>)
 χ² = Chisq(<span class="hljs-number">3</span>)
 
 x = range(<span class="hljs-number">0.01</span>,<span class="hljs-number">2</span>,length=<span class="hljs-number">100</span>)
 y = T.(<span class="hljs-number">3</span>, x)
-plot!(p, x, y,xlim=[<span class="hljs-number">0</span>,<span class="hljs-number">5</span>], ylim=[<span class="hljs-number">0</span>,<span class="hljs-number">0.5</span>], label=<span class="hljs-string">L"T_3"</span>)
+plot!(p, x, y,xlim=[<span class="hljs-number">0</span>,<span class="hljs-number">5</span>], ylim=[<span class="hljs-number">0</span>,<span class="hljs-number">0.5</span>], label=<span class="hljs-string">L&quot;T_3&quot;</span>)
 y = pdf.(χ², x)
 
-plot!(p, x, y, label=<span class="hljs-string">L"\chi^2(3)"</span>,line=:dash)</code></pre>
+plot!(p, x, y, label=<span class="hljs-string">L&quot;\chi^2(3)&quot;</span>,line=:dash)</code></pre>
 <img src="/MathSeminar.jl/assets/mathematics/statistics/Chisq/code/output/deg3.svg" alt=""><div class="page-foot">
   <div class="copyright">
-    &copy; SatoshiTerasaki. Last modified: 2020年6月8日 月曜日. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
+    &copy; SatoshiTerasaki. Last modified: 2020年6月14日 日曜日. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
   </div>
 </div>
 </div><!-- CONTENT ENDS HERE -->

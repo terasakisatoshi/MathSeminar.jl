@@ -124,7 +124,7 @@
     grid = mand(M,N)
     t = time()
     <span class="hljs-meta">@show</span>(t - s)
-    writedlm(<span class="hljs-string">"/tmp/resultJ.txt"</span>,grid,<span class="hljs-string">","</span>)
+    writedlm(<span class="hljs-string">&quot;/tmp/resultJ.txt&quot;</span>,grid,<span class="hljs-string">&quot;,&quot;</span>)
 <span class="hljs-keyword">end</span>
 
 main()
@@ -141,10 +141,10 @@ main()
 <pre><code class="julia hljs">N=<span class="hljs-number">10</span>; <span class="hljs-meta">@show</span> collect(range(-<span class="hljs-number">2</span>,<span class="hljs-number">2</span>,length=N))</code></pre>
 <pre><code class="plaintext hljs">collect(range(-2, 2, length = N)) = [-2.0, -1.5555555555555556, -1.1111111111111112, -0.6666666666666666, -0.2222222222222222, 0.2222222222222222, 0.6666666666666666, 1.1111111111111112, 1.5555555555555556, 2.0]
 </code></pre>
-<pre><code class="julia hljs">Tarpath=<span class="hljs-string">"/tmp/resultJ.txt"</span>
+<pre><code class="julia hljs">Tarpath=<span class="hljs-string">&quot;/tmp/resultJ.txt&quot;</span>
 <span class="hljs-keyword">using</span> Plots
 <span class="hljs-keyword">using</span> DelimitedFiles
-img = readdlm(Tarpath,<span class="hljs-string">','</span>,<span class="hljs-built_in">Int</span>)
+img = readdlm(Tarpath,<span class="hljs-string">&#x27;,&#x27;</span>,<span class="hljs-built_in">Int</span>)
 M,N = img |&gt; size
 p = heatmap(<span class="hljs-number">1</span>:N,<span class="hljs-number">1</span>:M,img,aspect_ratio=<span class="hljs-number">1</span>, size=(<span class="hljs-number">400</span>, <span class="hljs-number">400</span>))</code></pre>
 <img src="/MathSeminar.jl/assets/programming/benchmark_part2/code/output/mandJ.png" alt="">
@@ -181,7 +181,7 @@ p = heatmap(<span class="hljs-number">1</span>:N,<span class="hljs-number">1</sp
     grid = mand(M, N)
     t = time()
     <span class="hljs-meta">@show</span>(t - s)
-    writedlm(<span class="hljs-string">"/tmp/resultJ1.txt"</span>,grid,<span class="hljs-string">","</span>)
+    writedlm(<span class="hljs-string">&quot;/tmp/resultJ1.txt&quot;</span>,grid,<span class="hljs-string">&quot;,&quot;</span>)
 <span class="hljs-keyword">end</span>
 
 main()
@@ -191,13 +191,13 @@ main()
 <pre><code class="plaintext hljs">t - s = 3.664278984069824
   3.828 s (2 allocations: 23.84 MiB)
 </code></pre>
-<pre><code class="julia hljs">Refpath=<span class="hljs-string">"/tmp/resultJ.txt"</span>
-Tarpath=<span class="hljs-string">"/tmp/resultJ1.txt"</span>
-run(<span class="hljs-string">`bash -c "cmp --silent <span class="hljs-variable">$Refpath</span> <span class="hljs-variable">$Tarpath</span> || echo \"files are different\""`</span>)
+<pre><code class="julia hljs">Refpath=<span class="hljs-string">&quot;/tmp/resultJ.txt&quot;</span>
+Tarpath=<span class="hljs-string">&quot;/tmp/resultJ1.txt&quot;</span>
+run(<span class="hljs-string">`bash -c &quot;cmp --silent <span class="hljs-variable">$Refpath</span> <span class="hljs-variable">$Tarpath</span> || echo \&quot;files are different\&quot;&quot;`</span>)
 
 <span class="hljs-keyword">using</span> Plots
 <span class="hljs-keyword">using</span> DelimitedFiles
-img = readdlm(Tarpath,<span class="hljs-string">','</span>,<span class="hljs-built_in">Int</span>)
+img = readdlm(Tarpath,<span class="hljs-string">&#x27;,&#x27;</span>,<span class="hljs-built_in">Int</span>)
 M,N = img |&gt; size
 p = heatmap(<span class="hljs-number">1</span>:N,<span class="hljs-number">1</span>:M,img,aspect_ratio=<span class="hljs-number">1</span>, size=(<span class="hljs-number">400</span>, <span class="hljs-number">400</span>))</code></pre>
 <pre><code class="plaintext hljs">files are different
@@ -222,7 +222,7 @@ p = heatmap(<span class="hljs-number">1</span>:N,<span class="hljs-number">1</sp
     init_z = complex(<span class="hljs-number">0.0</span>, <span class="hljs-number">0.0</span>)
     xs = range(-<span class="hljs-number">2</span>,<span class="hljs-number">2</span>,length=N)
     ys = range(-<span class="hljs-number">2</span>,<span class="hljs-number">2</span>,length=M)
-    grid = cnt.(init_z,complex.(xs',ys))
+    grid = cnt.(init_z,complex.(xs&#x27;,ys))
     <span class="hljs-keyword">return</span> grid
 <span class="hljs-keyword">end</span>
 
@@ -232,7 +232,7 @@ p = heatmap(<span class="hljs-number">1</span>:N,<span class="hljs-number">1</sp
     grid = mand(M, N)
     t = time()
     <span class="hljs-meta">@show</span>(t - s)
-    writedlm(<span class="hljs-string">"/tmp/resultJ2.txt"</span>,grid,<span class="hljs-string">","</span>)
+    writedlm(<span class="hljs-string">&quot;/tmp/resultJ2.txt&quot;</span>,grid,<span class="hljs-string">&quot;,&quot;</span>)
 <span class="hljs-keyword">end</span>
 
 main()
@@ -242,13 +242,13 @@ main()
 <pre><code class="plaintext hljs">t - s = 3.6903698444366455
   3.818 s (4 allocations: 47.68 MiB)
 </code></pre>
-<pre><code class="julia hljs">Refpath=<span class="hljs-string">"/tmp/resultJ1.txt"</span>
-Tarpath=<span class="hljs-string">"/tmp/resultJ2.txt"</span>
-run(<span class="hljs-string">`bash -c "cmp --silent <span class="hljs-variable">$Refpath</span> <span class="hljs-variable">$Tarpath</span> || echo \"files are different\""`</span>)
+<pre><code class="julia hljs">Refpath=<span class="hljs-string">&quot;/tmp/resultJ1.txt&quot;</span>
+Tarpath=<span class="hljs-string">&quot;/tmp/resultJ2.txt&quot;</span>
+run(<span class="hljs-string">`bash -c &quot;cmp --silent <span class="hljs-variable">$Refpath</span> <span class="hljs-variable">$Tarpath</span> || echo \&quot;files are different\&quot;&quot;`</span>)
 
 <span class="hljs-keyword">using</span> Plots
 <span class="hljs-keyword">using</span> DelimitedFiles
-img = readdlm(Tarpath,<span class="hljs-string">','</span>,<span class="hljs-built_in">Int</span>)
+img = readdlm(Tarpath,<span class="hljs-string">&#x27;,&#x27;</span>,<span class="hljs-built_in">Int</span>)
 M,N = img |&gt; size
 p = heatmap(<span class="hljs-number">1</span>:N,<span class="hljs-number">1</span>:M,img,aspect_ratio=<span class="hljs-number">1</span>, size=(<span class="hljs-number">400</span>, <span class="hljs-number">400</span>))</code></pre>
 
@@ -289,7 +289,7 @@ set environment variable `JULIA_NUM_THREADS=8` before julia begins
     grid = mand(M, N)
     t = time()
     <span class="hljs-meta">@show</span>(t - s)
-    writedlm(<span class="hljs-string">"/tmp/resultJ3.txt"</span>,grid,<span class="hljs-string">","</span>)
+    writedlm(<span class="hljs-string">&quot;/tmp/resultJ3.txt&quot;</span>,grid,<span class="hljs-string">&quot;,&quot;</span>)
 <span class="hljs-keyword">end</span>
 
 main()
@@ -299,21 +299,21 @@ main()
 <pre><code class="plaintext hljs">t - s = 2.9797070026397705
   2.768 s (15 allocations: 23.84 MiB)
 </code></pre>
-<pre><code class="julia hljs">Refpath=<span class="hljs-string">"/tmp/resultJ1.txt"</span>
-Tarpath=<span class="hljs-string">"/tmp/resultJ3.txt"</span>
-run(<span class="hljs-string">`bash -c "cmp --silent <span class="hljs-variable">$Refpath</span> <span class="hljs-variable">$Tarpath</span> || echo \"files are different\""`</span>)
+<pre><code class="julia hljs">Refpath=<span class="hljs-string">&quot;/tmp/resultJ1.txt&quot;</span>
+Tarpath=<span class="hljs-string">&quot;/tmp/resultJ3.txt&quot;</span>
+run(<span class="hljs-string">`bash -c &quot;cmp --silent <span class="hljs-variable">$Refpath</span> <span class="hljs-variable">$Tarpath</span> || echo \&quot;files are different\&quot;&quot;`</span>)
 
 <span class="hljs-keyword">using</span> Plots
 
 <span class="hljs-keyword">using</span> DelimitedFiles
-img = readdlm(Tarpath, <span class="hljs-string">','</span>, <span class="hljs-built_in">Int</span>)
+img = readdlm(Tarpath, <span class="hljs-string">&#x27;,&#x27;</span>, <span class="hljs-built_in">Int</span>)
 M,N = img |&gt; size
 p = heatmap(<span class="hljs-number">1</span>:N, <span class="hljs-number">1</span>:M, img,aspect_ratio=<span class="hljs-number">1</span>, size=(<span class="hljs-number">400</span>, <span class="hljs-number">400</span>))
-savefig(p, joinpath(<span class="hljs-meta">@OUTPUT</span>, <span class="hljs-string">"mandJ3.png"</span>))</code></pre>
+savefig(p, joinpath(<span class="hljs-meta">@OUTPUT</span>, <span class="hljs-string">&quot;mandJ3.png&quot;</span>))</code></pre>
 
 <img src="/MathSeminar.jl/assets/programming/benchmark_part2/code/output/mandJ3.png" alt=""><div class="page-foot">
   <div class="copyright">
-    &copy; SatoshiTerasaki. Last modified: 2020年6月8日 月曜日. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
+    &copy; SatoshiTerasaki. Last modified: 2020年6月14日 日曜日. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
   </div>
 </div>
 </div><!-- CONTENT ENDS HERE -->

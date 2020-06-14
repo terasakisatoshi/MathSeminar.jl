@@ -84,7 +84,7 @@
 
 
 <!-- Content appended here -->
-<div class="franklin-content"><p>Last Modified: 2020年6月8日 月曜日 <div class="franklin-toc"><ol><li><a href="#about_this_page">About this page</a><ol><li><a href="#before_reading">Before reading</a></li><li><a href="#check_julia_version">Check Julia version</a></li></ol></li><li><a href="#introduction_to_franklin">Introduction to Franklin</a></li><li><a href="#newcommand_によるタイピングの簡略化"><code>newcommand</code> によるタイピングの簡略化</a></li><li><a href="#グラフの描画">グラフの描画</a><ol><li><a href="#pyplot">PyPlot</a></li><li><a href="#plots_gr_backend">Plots &#40;GR Backend&#41;</a></li><li><a href="#plots_pyplot_backend">Plots &#40;PyPlot Backend&#41;</a></li></ol></li><li><a href="#python_のコードの実行結果の表示">Python のコードの実行結果の表示</a></li><li><a href="#c_のコードの実行結果を表示">C のコードの実行結果を表示</a></li><li><a href="#コードの挿入">コードの挿入</a></li></ol></div> </p>
+<div class="franklin-content"><p>Last Modified: 2020年6月14日 日曜日 <div class="franklin-toc"><ol><li><a href="#about_this_page">About this page</a><ol><li><a href="#before_reading">Before reading</a></li><li><a href="#check_julia_version">Check Julia version</a></li></ol></li><li><a href="#introduction_to_franklin">Introduction to Franklin</a></li><li><a href="#newcommand_によるタイピングの簡略化"><code>newcommand</code> によるタイピングの簡略化</a></li><li><a href="#グラフの描画">グラフの描画</a><ol><li><a href="#pyplot">PyPlot</a></li><li><a href="#plots_gr_backend">Plots &#40;GR Backend&#41;</a></li><li><a href="#plots_pyplot_backend">Plots &#40;PyPlot Backend&#41;</a></li></ol></li><li><a href="#python_のコードの実行結果の表示">Python のコードの実行結果の表示</a></li><li><a href="#c_のコードの実行結果を表示">C のコードの実行結果を表示</a></li><li><a href="#コードの挿入">コードの挿入</a></li></ol></div> </p>
  <h1 id="about_this_page"><a href="#about_this_page">About this page</a></h1>            
 
 <details open>
@@ -175,12 +175,12 @@ x = range(-<span class="hljs-number">2</span>, <span class="hljs-number">2</span
 <pre><code class="julia hljs"><span class="hljs-keyword">using</span> Plots
 gr()
 <span class="hljs-keyword">using</span> LaTeXStrings
-Plots.plot(rand(<span class="hljs-number">10</span>), title=<span class="hljs-string">L"\alpha"</span>, xlabel=<span class="hljs-string">L"x"</span>, ylabel=<span class="hljs-string">L"y"</span>)</code></pre>
+Plots.plot(rand(<span class="hljs-number">10</span>), title=<span class="hljs-string">L&quot;\alpha&quot;</span>, xlabel=<span class="hljs-string">L&quot;x&quot;</span>, ylabel=<span class="hljs-string">L&quot;y&quot;</span>)</code></pre>
 <img src="/MathSeminar.jl/assets/index/code/output/grplot.svg" alt="">
 <h2 id="plots_pyplot_backend"><a href="#plots_pyplot_backend">Plots &#40;PyPlot Backend&#41;</a></h2>
 <pre><code class="julia hljs"><span class="hljs-keyword">using</span> Plots
 pyplot()
-Plots.plot(sin, title=<span class="hljs-string">L"y=\sin x"</span>)</code></pre>
+Plots.plot(sin, title=<span class="hljs-string">L&quot;y=\sin x&quot;</span>)</code></pre>
 <img src="/MathSeminar.jl/assets/index/code/output/pyplotbkend.svg" alt="">
    <div class="remark">4.1.0 &#40;Plotly/PlotlyJS について&#41; <br/>  <code>Plotly</code>, または <code>PlotlyJS</code> による例はサイドメニューのページを参照</div>
 <h1 id="python_のコードの実行結果の表示"><a href="#python_のコードの実行結果の表示">Python のコードの実行結果の表示</a></h1>            
@@ -189,11 +189,11 @@ Plots.plot(sin, title=<span class="hljs-string">L"y=\sin x"</span>)</code></pre>
 ```julia:!#1
 #hideall
 using PyCall
-lines = replace("""!#2""", r"(^|\n)([^\n]+)\n?$" =&gt; s"\1res = \2")
-py"""
+lines = replace(&quot;&quot;&quot;!#2&quot;&quot;&quot;, r&quot;(^|\n)([^\n]+)\n?$&quot; =&gt; s&quot;\1res = \2&quot;)
+py&quot;&quot;&quot;
 $$lines
-"""
-println(py"res")
+&quot;&quot;&quot;
+println(py&quot;res&quot;)
 ```
 ```python
 #2
@@ -220,7 +220,7 @@ np.round(r, <span class="hljs-number">2</span>)</code></pre> <pre><code class="p
    <div class="prop">6.1.0 &#40;ソースコードの表示&#41; <br/>  つぎのように C のコードを貼り付けることができる.</div> 
 <pre><code class="c hljs"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
 <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>{
-    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Hello Pika\n"</span>);
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Hello Pika\n&quot;</span>);
     <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
 }</code></pre>
 <p>まず, <code>config.md</code> に次を記述しておく:</p>
@@ -230,16 +230,16 @@ np.round(r, <span class="hljs-number">2</span>)</code></pre> <pre><code class="p
 #hideall
 using Markdown
 
-mdC_code = Markdown.htmlesc(raw"""!#2""")
+mdC_code = Markdown.htmlesc(raw&quot;&quot;&quot;!#2&quot;&quot;&quot;)
 
-mdfile = joinpath(dirname(@OUTPUT), "!#1.md")
-open(mdfile,"w") do f
+mdfile = joinpath(dirname(@OUTPUT), &quot;!#1.md&quot;)
+open(mdfile,&quot;w&quot;) do f
     print(f, mdC_code)
 end
 
-C_code=raw"""
+C_code=raw&quot;&quot;&quot;
 !#2
-"""
+&quot;&quot;&quot;
 
 exefile = tempname()
 
@@ -249,7 +249,7 @@ This trick is taken from
 https://discourse.julialang.org/t/how-to-make-a-c-function-compiled-by-myself-available-to-ccall/7972/26
 =#
 
-open(`gcc -Wall -O2 -march=native -xc -o $exefile -`, "w") do f
+open(`gcc -Wall -O2 -march=native -xc -o $exefile -`, &quot;w&quot;) do f
     print(f, C_code)
 end
 
@@ -270,7 +270,7 @@ run(`$exefile`)
 <pre><code class="plaintext hljs">\Cexec{how2embeddC}{
 #include &lt;stdio.h&gt;
 int main(){
-    printf("Hello Pikachu\n");
+    printf(&quot;Hello Pikachu\n&quot;);
     return 0;
 }
 }
@@ -279,7 +279,7 @@ int main(){
 
 <pre><code class="c hljs"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
 <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>{
-    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Hello World\n"</span>);
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Hello World\n&quot;</span>);
     <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
 }</code></pre>
 <pre><code class="plaintext hljs">Hello World
@@ -292,11 +292,11 @@ int main(){
 </ul>
 <pre><code class="plaintext hljs">\input{julia}{hello.jl}</code></pre>
 <p>と記述しておく. 結果は次のようになる．</p>
-<pre><code class="julia hljs">println(<span class="hljs-string">"Hello"</span>)</code></pre>
+<pre><code class="julia hljs">println(<span class="hljs-string">&quot;Hello&quot;</span>)</code></pre>
 <code>hello.jl</code> の実態はソースコードの <code>_assets/index/code/hello.jl</code> に存在する</p>
 <div class="page-foot">
   <div class="copyright">
-    &copy; SatoshiTerasaki. Last modified: 2020年6月8日 月曜日. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
+    &copy; SatoshiTerasaki. Last modified: 2020年6月14日 日曜日. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
   </div>
 </div>
 </div><!-- CONTENT ENDS HERE -->

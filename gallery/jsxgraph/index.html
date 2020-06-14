@@ -99,7 +99,7 @@
 <li><p>Simply to run:</p>
 </li>
 </ul>
-<pre><code class="julia-repl hljs"><span class="hljs-meta">julia&gt;</span><span class="julia"> <span class="hljs-keyword">using</span> Pkg; Pkg.add(<span class="hljs-string">"JSXGraph"</span>)
+<pre><code class="julia-repl hljs"><span class="hljs-meta">julia&gt;</span><span class="julia"> <span class="hljs-keyword">using</span> Pkg; Pkg.add(<span class="hljs-string">&quot;JSXGraph&quot;</span>)
 </span><span class="hljs-meta">julia&gt;</span><span class="julia"> <span class="hljs-keyword">using</span> JSXGraph</span></code></pre>
 <h1 id="insert_secret_ingredient"><a href="#insert_secret_ingredient">Insert secret ingredient</a></h1>            
 <ul>
@@ -149,44 +149,44 @@ println(~~~&amp;lt;script&amp;gt;&amp;#36;&amp;#40;JSXGraph.PREAMBLE&amp;#41;&am
 </li>
 </ul>
 <pre><code class="markdown hljs"><span class="hljs-code">```julia
-b = board("brd", xlim=[-2,2], ylim=[-2,2])
-b ++ point(0, 0, name="Hello World")
+b = board(&quot;brd&quot;, xlim=[-2,2], ylim=[-2,2])
+b ++ point(0, 0, name=&quot;Hello World&quot;)
 ```</span></code></pre>
 <p>Is is enough ? Actually NO. We need insert another secret ingredient like:</p>
 <pre><code class="markdown hljs"><span class="hljs-code">```julia
-println("""~~~&amp;#36;&amp;#40;JSXGraph.standalone&amp;#40;b, preamble&amp;#61;false&amp;#41;&amp;#41;~~~""")
+println(&quot;&quot;&quot;~~~&amp;#36;&amp;#40;JSXGraph.standalone&amp;#40;b, preamble&amp;#61;false&amp;#41;&amp;#41;~~~&quot;&quot;&quot;)
 ```</span></code></pre>
 <p>Therefore, Franklin users should write code like:</p>
 <pre><code class="markdown hljs"><span class="hljs-code">```julia
-b = board("brd", xlim=[-2,2], ylim=[-2,2])
-b ++ point(0, 0, name="hello")
-print("""~~~$(JSXGraph.standalone(b, preamble=false))~~~""") # hide
+b = board(&quot;brd&quot;, xlim=[-2,2], ylim=[-2,2])
+b ++ point(0, 0, name=&quot;hello&quot;)
+print(&quot;&quot;&quot;~~~$(JSXGraph.standalone(b, preamble=false))~~~&quot;&quot;&quot;) # hide
 ```</span></code></pre>
 <p>This will give:</p>
-<pre><code class="julia hljs">b = board(<span class="hljs-string">"brd"</span>, xlim=[-<span class="hljs-number">2</span>,<span class="hljs-number">2</span>], ylim=[-<span class="hljs-number">2</span>,<span class="hljs-number">2</span>])
-b ++ point(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, name=<span class="hljs-string">"hello"</span>)</code></pre>
+<pre><code class="julia hljs">b = board(<span class="hljs-string">&quot;brd&quot;</span>, xlim=[-<span class="hljs-number">2</span>,<span class="hljs-number">2</span>], ylim=[-<span class="hljs-number">2</span>,<span class="hljs-number">2</span>])
+b ++ point(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, name=<span class="hljs-string">&quot;hello&quot;</span>)</code></pre>
 <div id="brd" class="jxgbox" style="width:300px; height:300px;"></div>
 <script>(function(){var brd=JXG.JSXGraph.initBoard("brd",{"boundingbox":[-2,2,2,-2],"axis":false,"showcopyright":false,"shownavigation":false});var hello =brd.create('point', [0, 0], {"name":"hello"});})();</script>
 <p>Congratulations&#33;&#33;&#33;</p>
 <h1 id="gallery"><a href="#gallery">Gallery</a></h1>            
 <h2 id="lissajous_curve"><a href="#lissajous_curve">Lissajous curve</a></h2>
          
-   <div class="example">5.1.1  <br/>  <pre><code class="julia hljs">b = board(<span class="hljs-string">"b3"</span>, xlim=[-<span class="hljs-number">12</span>, <span class="hljs-number">12</span>], ylim=[-<span class="hljs-number">10</span>,<span class="hljs-number">10</span>])
+   <div class="example">5.1.1  <br/>  <pre><code class="julia hljs">b = board(<span class="hljs-string">&quot;b3&quot;</span>, xlim=[-<span class="hljs-number">12</span>, <span class="hljs-number">12</span>], ylim=[-<span class="hljs-number">10</span>,<span class="hljs-number">10</span>])
 b ++ (
-    slider(<span class="hljs-string">"a"</span>, [[-<span class="hljs-number">11</span>,<span class="hljs-number">7</span>],[-<span class="hljs-number">5</span>,<span class="hljs-number">7</span>],[<span class="hljs-number">0</span>,<span class="hljs-number">3</span>,<span class="hljs-number">6</span>]], name=<span class="hljs-string">"a"</span>),
-    slider(<span class="hljs-string">"b"</span>, [[-<span class="hljs-number">11</span>,<span class="hljs-number">5</span>],[-<span class="hljs-number">5</span>,<span class="hljs-number">5</span>],[<span class="hljs-number">0</span>,<span class="hljs-number">2</span>,<span class="hljs-number">6</span>]], name=<span class="hljs-string">"b"</span>),
-    slider(<span class="hljs-string">"A"</span>, [[<span class="hljs-number">1</span>,<span class="hljs-number">7</span>],[<span class="hljs-number">7</span>,<span class="hljs-number">7</span>],[<span class="hljs-number">0</span>,<span class="hljs-number">3</span>,<span class="hljs-number">6</span>]], name=<span class="hljs-string">"A"</span>),
-    slider(<span class="hljs-string">"B"</span>, [[<span class="hljs-number">1</span>,<span class="hljs-number">5</span>],[<span class="hljs-number">7</span>,<span class="hljs-number">5</span>],[<span class="hljs-number">0</span>,<span class="hljs-number">3</span>,<span class="hljs-number">6</span>]], name=<span class="hljs-string">"B"</span>),
-    slider(<span class="hljs-string">"delta"</span>, [[<span class="hljs-number">2</span>,-<span class="hljs-number">7</span>],[<span class="hljs-number">6</span>,-<span class="hljs-number">7</span>],[<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-literal">π</span>]], name=<span class="hljs-string">"&amp;delta;"</span>)
+    slider(<span class="hljs-string">&quot;a&quot;</span>, [[-<span class="hljs-number">11</span>,<span class="hljs-number">7</span>],[-<span class="hljs-number">5</span>,<span class="hljs-number">7</span>],[<span class="hljs-number">0</span>,<span class="hljs-number">3</span>,<span class="hljs-number">6</span>]], name=<span class="hljs-string">&quot;a&quot;</span>),
+    slider(<span class="hljs-string">&quot;b&quot;</span>, [[-<span class="hljs-number">11</span>,<span class="hljs-number">5</span>],[-<span class="hljs-number">5</span>,<span class="hljs-number">5</span>],[<span class="hljs-number">0</span>,<span class="hljs-number">2</span>,<span class="hljs-number">6</span>]], name=<span class="hljs-string">&quot;b&quot;</span>),
+    slider(<span class="hljs-string">&quot;A&quot;</span>, [[<span class="hljs-number">1</span>,<span class="hljs-number">7</span>],[<span class="hljs-number">7</span>,<span class="hljs-number">7</span>],[<span class="hljs-number">0</span>,<span class="hljs-number">3</span>,<span class="hljs-number">6</span>]], name=<span class="hljs-string">&quot;A&quot;</span>),
+    slider(<span class="hljs-string">&quot;B&quot;</span>, [[<span class="hljs-number">1</span>,<span class="hljs-number">5</span>],[<span class="hljs-number">7</span>,<span class="hljs-number">5</span>],[<span class="hljs-number">0</span>,<span class="hljs-number">3</span>,<span class="hljs-number">6</span>]], name=<span class="hljs-string">&quot;B&quot;</span>),
+    slider(<span class="hljs-string">&quot;delta&quot;</span>, [[<span class="hljs-number">2</span>,-<span class="hljs-number">7</span>],[<span class="hljs-number">6</span>,-<span class="hljs-number">7</span>],[<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-literal">π</span>]], name=<span class="hljs-string">&quot;&amp;delta;&quot;</span>)
     )
 <span class="hljs-meta">@jsf</span> f1(t) = val(A)*sin(val(a)*t+val(delta))
 <span class="hljs-meta">@jsf</span> f2(t) = val(B)*sin(val(b)*t)
 b ++ plot(f1, f2, a=<span class="hljs-number">0</span>, b=<span class="hljs-number">2</span><span class="hljs-literal">π</span>,
-          strokecolor=<span class="hljs-string">"#aa2233"</span>, strokewidth=<span class="hljs-number">3</span>)</code></pre>
+          strokecolor=<span class="hljs-string">&quot;#aa2233&quot;</span>, strokewidth=<span class="hljs-number">3</span>)</code></pre>
 <div id="b3" class="jxgbox" style="width:300px; height:300px;"></div>
 <script>(function(){var b3=JXG.JSXGraph.initBoard("b3",{"boundingbox":[-12,10,12,-10],"axis":false,"showcopyright":false,"shownavigation":false});var a=b3.create('slider', [[-11,7],[-5,7],[0,3,6]], {"name":"a"});var b=b3.create('slider', [[-11,5],[-5,5],[0,2,6]], {"name":"b"});var A=b3.create('slider', [[1,7],[7,7],[0,3,6]], {"name":"A"});var B=b3.create('slider', [[1,5],[7,5],[0,3,6]], {"name":"B"});var delta=b3.create('slider', [[2.0,-7.0],[6.0,-7.0],[0.0,0.0,3.141592653589793]], {"name":"&delta;"});function f1(t){return (val(A)*sin(((val(a)*t)+val(delta))))};function f2(t){return (val(B)*sin((val(b)*t)))};b3.create('curve', [function(t){return f1(t);}, function(t){return f2(t);}, 0, 6.283185307179586], {"strokecolor":"#aa2233","strokewidth":3});})();</script></div><div class="page-foot">
   <div class="copyright">
-    &copy; SatoshiTerasaki. Last modified: 2020年6月8日 月曜日. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
+    &copy; SatoshiTerasaki. Last modified: 2020年6月14日 日曜日. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
   </div>
 </div>
 </div><!-- CONTENT ENDS HERE -->

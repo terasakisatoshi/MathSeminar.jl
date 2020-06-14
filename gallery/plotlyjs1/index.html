@@ -88,7 +88,7 @@
 <p>Assuming you already have the Plotly code for some plot, displaying  the  result on a page with Franklin is now pretty straightforward. Start by adding</p>
 <pre><code class="julia hljs"><span class="hljs-meta">@def</span> hasplotly = <span class="hljs-literal">true</span></code></pre>
 <p>so that the JS library  will be  loaded then somewhere appropriate add:</p>
-<pre><code class="html hljs">~~~\n<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"tester"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"width:600px;height:350px;"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>\n\n<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">\n    TESTER = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'tester'</span>);\n    Plotly.plot( TESTER, [{\n    x: [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>],\n    y: [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">4</span>, <span class="hljs-number">8</span>, <span class="hljs-number">16</span>] }], {\n    margin: { <span class="hljs-attr">t</span>: <span class="hljs-number">0</span> } } );\n</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>\n~~~</code></pre>
+<pre><code class="html hljs">~~~\n<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;tester&quot;</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;width:600px;height:350px;&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>\n\n<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">\n    TESTER = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&#x27;tester&#x27;</span>);\n    Plotly.plot( TESTER, [{\n    x: [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>],\n    y: [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">4</span>, <span class="hljs-number">8</span>, <span class="hljs-number">16</span>] }], {\n    margin: { <span class="hljs-attr">t</span>: <span class="hljs-number">0</span> } } );\n</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>\n~~~</code></pre>
 <p>This will give:</p>
 
 <div id="tester" style="width:600px;height:350px;"></div>
@@ -109,7 +109,7 @@ z =  [<span class="hljs-number">10</span>     <span class="hljs-number">10.625</
      <span class="hljs-number">0</span>      <span class="hljs-number">0.625</span>   <span class="hljs-number">2.5</span>   <span class="hljs-number">5.625</span>   <span class="hljs-number">10</span>]
 
 data   = contour(; z=z)
-layout = Layout(; title=<span class="hljs-string">"Basic Contour Plot"</span>)
+layout = Layout(; title=<span class="hljs-string">&quot;Basic Contour Plot&quot;</span>)
 plt    = plot(data, layout)</code></pre> 
 <div id="fdpewa" style="width:600px;height:350px"></div>
 
@@ -120,7 +120,7 @@ plt    = plot(data, layout)</code></pre>
 </script>
 <div class="page-foot">
   <div class="copyright">
-    &copy; SatoshiTerasaki. Last modified: 2020年6月8日 月曜日. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
+    &copy; SatoshiTerasaki. Last modified: 2020年6月14日 日曜日. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
   </div>
 </div>
 </div><!-- CONTENT ENDS HERE -->

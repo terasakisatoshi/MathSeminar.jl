@@ -91,25 +91,25 @@
 <pre><code class="julia hljs">run(<span class="hljs-string">`rustc --version`</span>)</code></pre>
 <pre><code class="plaintext hljs">rustc 1.43.1 (8d69840ab 2020-05-04)
 </code></pre>
-<pre><code class="julia hljs">rscode = <span class="hljs-string">raw"""
+<pre><code class="julia hljs">rscode = <span class="hljs-string">raw&quot;&quot;&quot;
 fn main(){
-	println!("Hello Rust from Julia runtime");
+	println!(&quot;Hello Rust from Julia runtime&quot;);
 }
-"""</span>
+&quot;&quot;&quot;</span>
 
-open(<span class="hljs-string">`rustc -o sample -`</span>, <span class="hljs-string">"w"</span>) <span class="hljs-keyword">do</span> f
+open(<span class="hljs-string">`rustc -o sample -`</span>, <span class="hljs-string">&quot;w&quot;</span>) <span class="hljs-keyword">do</span> f
     print(f, rscode)
 <span class="hljs-keyword">end</span>
 
 run(<span class="hljs-string">`./sample`</span>)</code></pre>
 
 <pre><code class="rust hljs"><span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">main</span></span>(){
-    <span class="hljs-built_in">println!</span>(<span class="hljs-string">"Hello Rust from Julia runtime"</span>);
+    <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;Hello Rust from Julia runtime&quot;</span>);
 }</code></pre>
 <pre><code class="plaintext hljs">Hello Rust from Julia runtime
 </code></pre><div class="page-foot">
   <div class="copyright">
-    &copy; SatoshiTerasaki. Last modified: 2020年6月8日 月曜日. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
+    &copy; SatoshiTerasaki. Last modified: 2020年6月14日 日曜日. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
   </div>
 </div>
 </div><!-- CONTENT ENDS HERE -->

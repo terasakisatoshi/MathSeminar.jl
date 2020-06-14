@@ -92,14 +92,14 @@ x = @. cos(θ)
 y = @. sin(θ)
 
 p = plot(
-    xlabel = <span class="hljs-string">L"x"</span>,
-    ylabel = <span class="hljs-string">L"y"</span>,
+    xlabel = <span class="hljs-string">L&quot;x&quot;</span>,
+    ylabel = <span class="hljs-string">L&quot;y&quot;</span>,
     xlim = [-<span class="hljs-number">1</span>, <span class="hljs-number">1</span>],
     ylim = [-<span class="hljs-number">1</span>, <span class="hljs-number">2</span>],
     aspect_ratio = :equal,
 )
 
-plot!(p, x, y, label = <span class="hljs-string">L"x^2+y^2 = 1"</span>)</code></pre>
+plot!(p, x, y, label = <span class="hljs-string">L&quot;x^2+y^2 = 1&quot;</span>)</code></pre>
 <img src="/MathSeminar.jl/assets/gallery/curve/code/output/circle.svg" alt="">
 <h1 id="astroid"><a href="#astroid">Astroid</a></h1>
 <pre><code class="julia hljs">θ = <span class="hljs-number">0</span>:<span class="hljs-number">0.01</span>:<span class="hljs-number">2</span><span class="hljs-literal">π</span>
@@ -107,12 +107,12 @@ a = <span class="hljs-number">2</span>
 x = @. a * cos(θ)^<span class="hljs-number">3</span>
 y = @. a * sin(θ)^<span class="hljs-number">3</span>
 
-eq = latexstring(<span class="hljs-string">"x^{2/3}+y^{2/3} = <span class="hljs-variable">$a</span>^{2/3}"</span>)
+eq = latexstring(<span class="hljs-string">&quot;x^{2/3}+y^{2/3} = <span class="hljs-variable">$a</span>^{2/3}&quot;</span>)
 
 p = plot(
     title = eq,
-    xlabel = <span class="hljs-string">L"x"</span>,
-    ylabel = <span class="hljs-string">L"y"</span>,
+    xlabel = <span class="hljs-string">L&quot;x&quot;</span>,
+    ylabel = <span class="hljs-string">L&quot;y&quot;</span>,
     xlim = [-<span class="hljs-number">2</span>, <span class="hljs-number">2</span>],
     ylim = [-<span class="hljs-number">2</span>, <span class="hljs-number">2</span>],
     aspect_ratio = :equal,
@@ -125,12 +125,12 @@ plot!(p, x, y, label = :<span class="hljs-literal">false</span>)</code></pre>
 x = @. sin(θ)
 y = @. sin(<span class="hljs-number">2</span>θ)
 
-eq = latexstring(<span class="hljs-string">"y^2=4x^2(1-x^2)"</span>)
+eq = latexstring(<span class="hljs-string">&quot;y^2=4x^2(1-x^2)&quot;</span>)
 
 p = plot(
     title = eq,
-    xlabel = <span class="hljs-string">L"x"</span>,
-    ylabel = <span class="hljs-string">L"y"</span>,
+    xlabel = <span class="hljs-string">L&quot;x&quot;</span>,
+    ylabel = <span class="hljs-string">L&quot;y&quot;</span>,
     xlim = [-<span class="hljs-number">1</span>, <span class="hljs-number">1</span>],
     ylim = [-<span class="hljs-number">1</span>, <span class="hljs-number">1</span>],
     aspect_ratio = :equal,
@@ -145,12 +145,12 @@ r = @. a*θ
 x = @. r * cos(θ)
 y = @. r * sin(θ)
 
-eq = <span class="hljs-string">L"r=a\theta"</span>
+eq = <span class="hljs-string">L&quot;r=a\theta&quot;</span>
 
 p = plot(
     title = eq,
-    xlabel = <span class="hljs-string">L"x"</span>,
-    ylabel = <span class="hljs-string">L"y"</span>,
+    xlabel = <span class="hljs-string">L&quot;x&quot;</span>,
+    ylabel = <span class="hljs-string">L&quot;y&quot;</span>,
     aspect_ratio = :equal,
 )
 
@@ -163,12 +163,12 @@ r = @. a*(<span class="hljs-number">1</span>+cos(θ))
 x = @. r * cos(θ)
 y = @. r * sin(θ)
 
-eq = <span class="hljs-string">L"r=a(1+\cos(\theta))"</span>
+eq = <span class="hljs-string">L&quot;r=a(1+\cos(\theta))&quot;</span>
 
 p = plot(
     title = eq,
-    xlabel = <span class="hljs-string">L"x"</span>,
-    ylabel = <span class="hljs-string">L"y"</span>,
+    xlabel = <span class="hljs-string">L&quot;x&quot;</span>,
+    ylabel = <span class="hljs-string">L&quot;y&quot;</span>,
     aspect_ratio = :equal,
 )
 
@@ -183,12 +183,12 @@ r = @. a*sin(n*θ)
 x = @. r * cos(θ)
 y = @. r * sin(θ)
 
-eq = latexstring(<span class="hljs-string">"r=a\\sin(<span class="hljs-variable">$n</span>\\theta)"</span>)
+eq = latexstring(<span class="hljs-string">&quot;r=a\\sin(<span class="hljs-variable">$n</span>\\theta)&quot;</span>)
 
 p = plot(
     title = eq,
-    xlabel = <span class="hljs-string">L"x"</span>,
-    ylabel = <span class="hljs-string">L"y"</span>,
+    xlabel = <span class="hljs-string">L&quot;x&quot;</span>,
+    ylabel = <span class="hljs-string">L&quot;y&quot;</span>,
     aspect_ratio = :equal,
 )
 
@@ -202,12 +202,12 @@ r = @. a*sin(n*θ)
 x = @. r * cos(θ)
 y = @. r * sin(θ)
 
-eq = latexstring(<span class="hljs-string">"r=a\\sin(<span class="hljs-variable">$n</span>\\theta)"</span>)
+eq = latexstring(<span class="hljs-string">&quot;r=a\\sin(<span class="hljs-variable">$n</span>\\theta)&quot;</span>)
 
 p = plot(
     title = eq,
-    xlabel = <span class="hljs-string">L"x"</span>,
-    ylabel = <span class="hljs-string">L"y"</span>,
+    xlabel = <span class="hljs-string">L&quot;x&quot;</span>,
+    ylabel = <span class="hljs-string">L&quot;y&quot;</span>,
     aspect_ratio = :equal,
 )
 
@@ -221,12 +221,12 @@ r = @. a*sin(n*θ)
 x = @. r * cos(θ)
 y = @. r * sin(θ)
 
-eq = latexstring(<span class="hljs-string">"r=a\\sin(<span class="hljs-variable">$n</span>\\theta)"</span>)
+eq = latexstring(<span class="hljs-string">&quot;r=a\\sin(<span class="hljs-variable">$n</span>\\theta)&quot;</span>)
 
 p = plot(
     title = eq,
-    xlabel = <span class="hljs-string">L"x"</span>,
-    ylabel = <span class="hljs-string">L"y"</span>,
+    xlabel = <span class="hljs-string">L&quot;x&quot;</span>,
+    ylabel = <span class="hljs-string">L&quot;y&quot;</span>,
     aspect_ratio = :equal,
 )
 
@@ -240,12 +240,12 @@ anim = <span class="hljs-meta">@animate</span> <span class="hljs-keyword">for</s
     x = @. r * cos(θ)
     y = @. r * sin(θ)
 
-    eq = latexstring(<span class="hljs-string">"r=a\\sin(<span class="hljs-variable">$n</span>\\theta)"</span>)
+    eq = latexstring(<span class="hljs-string">&quot;r=a\\sin(<span class="hljs-variable">$n</span>\\theta)&quot;</span>)
 
     p = plot(
         title = eq,
-        xlabel = <span class="hljs-string">L"x"</span>,
-        ylabel = <span class="hljs-string">L"y"</span>,
+        xlabel = <span class="hljs-string">L&quot;x&quot;</span>,
+        ylabel = <span class="hljs-string">L&quot;y&quot;</span>,
         xlim=[-<span class="hljs-number">3</span>,<span class="hljs-number">3</span>],
         ylim=[-<span class="hljs-number">3</span>,<span class="hljs-number">3</span>],
         aspect_ratio = :equal,
@@ -254,10 +254,10 @@ anim = <span class="hljs-meta">@animate</span> <span class="hljs-keyword">for</s
     plot!(p, x, y, label = :<span class="hljs-literal">false</span>)
 <span class="hljs-keyword">end</span>
 
-gif(anim, joinpath(<span class="hljs-meta">@OUTPUT</span>,<span class="hljs-string">"roses.gif"</span>), fps=<span class="hljs-number">2</span>)</code></pre>
+gif(anim, joinpath(<span class="hljs-meta">@OUTPUT</span>,<span class="hljs-string">&quot;roses.gif&quot;</span>), fps=<span class="hljs-number">2</span>)</code></pre>
 <p><span style="color:red;">// Image matching '/assets/gallery/curve/code/roses.gif' not found. //</span></p><div class="page-foot">
   <div class="copyright">
-    &copy; SatoshiTerasaki. Last modified: 2020年6月8日 月曜日. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
+    &copy; SatoshiTerasaki. Last modified: 2020年6月14日 日曜日. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
   </div>
 </div>
 </div><!-- CONTENT ENDS HERE -->

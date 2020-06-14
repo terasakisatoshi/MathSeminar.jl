@@ -93,10 +93,10 @@
     ts = -<span class="hljs-number">1</span>:<span class="hljs-number">0.05</span>:<span class="hljs-number">1</span>
     traces=typeof(scatter3d())[]
     marker=attr(
-        color=<span class="hljs-string">"#1f77b4"</span>,
+        color=<span class="hljs-string">&quot;#1f77b4&quot;</span>,
         size=<span class="hljs-number">12</span>,
-        symbol=<span class="hljs-string">"circle"</span>,
-        line=attr(color=<span class="hljs-string">"rgb(0,0,0)"</span>, width=<span class="hljs-number">0</span>),
+        symbol=<span class="hljs-string">&quot;circle&quot;</span>,
+        line=attr(color=<span class="hljs-string">&quot;rgb(0,0,0)&quot;</span>, width=<span class="hljs-number">0</span>),
     )
     <span class="hljs-keyword">for</span> t <span class="hljs-keyword">in</span> ts
         x=@. (t^<span class="hljs-number">2</span>+a)*cos(us)
@@ -106,7 +106,7 @@
             traces,
             scatter3d(
                 x=x,y=y,z=z,
-                mode=<span class="hljs-string">"lines"</span>,
+                mode=<span class="hljs-string">&quot;lines&quot;</span>,
                 marker=marker,
                 showlegend=<span class="hljs-literal">false</span>,
             )
@@ -121,7 +121,7 @@
             traces,
             scatter3d(
                 x=x,y=y,z=z,
-                mode=<span class="hljs-string">"lines"</span>,
+                mode=<span class="hljs-string">&quot;lines&quot;</span>,
                 marker=marker,
                 showlegend=<span class="hljs-literal">false</span>
             )
@@ -148,7 +148,7 @@ p = random_line()</code></pre>
 </script>
 <div class="page-foot">
   <div class="copyright">
-    &copy; SatoshiTerasaki. Last modified: 2020年6月8日 月曜日. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
+    &copy; SatoshiTerasaki. Last modified: 2020年6月14日 日曜日. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
   </div>
 </div>
 </div><!-- CONTENT ENDS HERE -->
