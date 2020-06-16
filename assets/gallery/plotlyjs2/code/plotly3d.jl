@@ -1,6 +1,6 @@
 # This file was generated, do not modify it. # hide
 using PlotlyJS
-function random_line()
+function draw_mesh_surface()
     a=0.1
 
     us = 0:0.05π:2π
@@ -51,5 +51,5 @@ function random_line()
     plot(traces,layout)
 end
 
-p = random_line()
+p = draw_mesh_surface()
 fdplotly(json(p)) # hide
