@@ -16,10 +16,7 @@ services:
     ports:
       - "8000:8000"
     command: >
-      bash -c "\
-             julia -e 'using Pkg; Pkg.instantiate(); 
-             using Franklin; serve(port=8001)' &
-             python3 -m http.server --bind 0.0.0.0 --directory /work/__site"
+      julia -e 'using Franklin; serve(host="0.0.0.0", port=8000)'
   web:
     image: mathseminarjl
     container_name: math-web
