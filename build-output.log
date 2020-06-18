@@ -9,54 +9,54 @@ Status: Downloaded newer image for julia:1.4.2
  ---> 59cbe12733d0
 Step 2/18 : RUN apt-get update &&     apt-get install -y     build-essential     cmake     python3     python3-dev     python3-distutils     curl     ca-certificates     xvfb     dvipng     texlive-latex-recommended      zip     libxt6 libxrender1 libxext6 libgl1-mesa-glx libqt5widgets5 # GR &&     apt-get clean && rm -rf /var/lib/apt/lists/* # clean up
  ---> Using cache
- ---> e4e3841aafe2
+ ---> 56df6f4c1ec2
 Step 3/18 : RUN curl -kL https://bootstrap.pypa.io/get-pip.py | python3 &&     pip3 install     matplotlib     numpy     sympy==1.5.*     numba
  ---> Using cache
- ---> 38b2ceaa9abc
+ ---> fe25c08969d4
 Step 4/18 : RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
  ---> Using cache
- ---> 047c51c79978
+ ---> faa55d2a6d7e
 Step 5/18 : ENV PATH /root/.cargo/bin:$PATH
  ---> Using cache
- ---> b6751f12b550
+ ---> 6a431234a15b
 Step 6/18 : RUN mkdir -p ${HOME}/.julia/config &&     echo 'ENV["PYTHON"]=Sys.which("python3")\n' >> ${HOME}/.julia/config/startup.jl && cat ${HOME}/.julia/config/startup.jl
  ---> Using cache
- ---> 59ca3698727d
+ ---> 77987f3bef87
 Step 7/18 : RUN julia -e 'using Pkg; Pkg.add("PackageCompiler"); Pkg.add(["Documenter", "Literate", "Weave", "Franklin", "NodeJS", "Remark"]); Pkg.add(["Plotly", "PlotlyJS", "ORCA"]); '
  ---> Using cache
- ---> 84e7a5c868fe
+ ---> e27881a1d376
 Step 8/18 : RUN julia -e "using NodeJS; run(\`\$(npm_cmd()) install highlight.js\`); using Franklin"
  ---> Using cache
- ---> e9e85582846f
+ ---> f4a3377b7aeb
 Step 9/18 : WORKDIR /work
  ---> Using cache
- ---> 945d39beb559
+ ---> dcc37661941d
 Step 10/18 : ENV JULIA_PROJECT=/work
  ---> Using cache
- ---> 3dda920a3ad8
+ ---> 3ad6ae29e3f7
 Step 11/18 : RUN julia -e 'using Pkg; Pkg.add([    PackageSpec(name="Franklin", version="0.8.3"),     PackageSpec(name="OhMyREPL", version="0.5.5"),     PackageSpec(name="Revise", version="2.7.0"),     PackageSpec(name="Plots", version="1.3.3"),     PackageSpec(name="GR", version="0.49"),     PackageSpec(name="SymPy", version="1.0.20"), ]); Pkg.pin(["Franklin", "OhMyREPL", "Revise", "Plots", "GR", "SymPy"]); '
  ---> Using cache
- ---> 7e5396c83dfd
+ ---> b41cbfb3d8f2
 Step 12/18 : RUN mkdir /sysimage && julia -e 'using PackageCompiler; PackageCompiler.create_sysimage(    [     :Revise, :OhMyREPL,      :Plots, :GR, :SymPy,     ],     sysimage_path="/sysimage/plotfast.so"); '
  ---> Using cache
- ---> 4803b8c9c1b1
+ ---> b0f92cfea7e3
 Step 13/18 : COPY Project.toml /work
  ---> Using cache
- ---> c8e34c8e36ed
+ ---> 0ddb0b0a21ac
 Step 14/18 : RUN rm /work/Manifest.toml && julia --project=/work -e 'using Pkg; Pkg.instantiate(); Pkg.precompile()' && julia -e 'using InteractiveUtils; versioninfo()'
  ---> Using cache
- ---> 9ae106a77155
+ ---> c452f6fa6fd3
 Step 15/18 : ENV GKSwstype=100
  ---> Using cache
- ---> ae1a70fc2df1
+ ---> 55360d004e35
 Step 16/18 : ENV JULIA_NUM_THREADS=4
  ---> Using cache
- ---> 8951f1d42402
+ ---> de660d6cc984
 Step 17/18 : EXPOSE 8000
  ---> Using cache
- ---> c6db99ef9c68
+ ---> 4890b7f19fc4
 Step 18/18 : CMD ["julia"]
  ---> Using cache
- ---> 4a72a1cf7995
-Successfully built 4a72a1cf7995
+ ---> e495f72c8715
+Successfully built e495f72c8715
 Successfully tagged my_awesome_image:latest
