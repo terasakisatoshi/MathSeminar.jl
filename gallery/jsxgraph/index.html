@@ -85,7 +85,7 @@
 
 
 <!-- Content appended here -->
-<div class="franklin-content"><div class="franklin-toc"><ol><li><a href="#jsxgraphjl">JSXGraph.jl</a></li><li><a href="#install_package">Install Package</a></li><li><a href="#insert_secret_ingredient">Insert secret ingredient</a><ol><li><a href="#insert_jsxgraphpreamble">insert <code>JSXGraph.PREAMBLE</code></a></li><li><a href="#edit_layoutheadhtml">Edit <code>_layout/head.html</code></a></li><li><a href="#edit_configmd">Edit <code>config.md</code></a></li></ol></li><li><a href="#lets_get_started">Let&#39;s get started</a><ol><li><a href="#hello_world">Hello World</a></li></ol></li><li><a href="#gallery">Gallery</a><ol><li><a href="#lissajous_curve">Lissajous curve</a></li></ol></li></ol></div>
+<div class="franklin-content"><div class="franklin-toc"><ol><li><a href="#jsxgraphjl">JSXGraph.jl</a></li><li><a href="#install_package">Install Package</a></li><li><a href="#insert_secret_ingredient">Insert secret ingredient</a><ol><li><a href="#insert_jsxgraphpreamble">insert <code>JSXGraph.PREAMBLE</code></a></li><li><a href="#edit_layoutheadhtml">Edit <code>_layout/head.html</code></a></li><li><a href="#edit_configmd">Edit <code>config.md</code></a></li></ol></li><li><a href="#lets_get_started">Let&#39;s get started</a><ol><li><a href="#hello_world">Hello World</a></li></ol></li><li><a href="#gallery">Gallery</a><ol><li><a href="#lissajous_curve">Lissajous curve</a></li></ol></li><li><a href="#appendix_using_javascript_directly">Appendix: Using JavaScript directly</a></li></ol></div>
 
 <h1 id="jsxgraphjl"><a href="#jsxgraphjl">JSXGraph.jl</a></h1>            
 <ul>
@@ -99,8 +99,8 @@
 <li><p>Simply to run:</p>
 </li>
 </ul>
-<pre><code class="julia-repl hljs"><span class="hljs-meta">julia&gt;</span><span class="julia"> <span class="hljs-keyword">using</span> Pkg; Pkg.add(<span class="hljs-string">&quot;JSXGraph&quot;</span>)
-</span><span class="hljs-meta">julia&gt;</span><span class="julia"> <span class="hljs-keyword">using</span> JSXGraph</span></code></pre>
+<pre><code class="language-julia-repl">julia> using Pkg; Pkg.add("JSXGraph")
+julia> using JSXGraph</code></pre>
 <h1 id="insert_secret_ingredient"><a href="#insert_secret_ingredient">Insert secret ingredient</a></h1>            
 <ul>
 <li><p>O.K. how do I embed the result of JSXGraph.jl ?</p>
@@ -114,11 +114,11 @@
 <li><p>According to the <a href="https://github.com/tlienart/JSXGraphWeb/blob/master/index.md">index.md of https://github.com/tlienart/JSXGraphWeb</a>, we need inject raw HTML consisted of the output of <code>&lt;script&gt;&#36;&#40;JSXGraph.PREAMBLE&#41;&lt;/script&gt;</code>. Namely, insert the following code before writing your Julia code w.r.t JSXGraph.</p>
 </li>
 </ul>
-<pre><code class="markdown hljs"><span class="hljs-code">```julia:preamble
+<pre><code class="language-markdown">```julia:preamble
 # Insert secret ingredient. It is not a trade secret since Franklin is OSS.
-println(~~~&amp;lt;script&amp;gt;&amp;#36;&amp;#40;JSXGraph.PREAMBLE&amp;#41;&amp;lt;/script&amp;gt;~~~)
-```</span>
-\textoutput&amp;#123;preamble&amp;#125;</code></pre>
+println(~~~&lt;script&gt;&#36;&#40;JSXGraph.PREAMBLE&#41;&lt;/script&gt;~~~)
+```
+\textoutput&#123;preamble&#125;</code></pre>
  <script>function val(x){return x.Value();};function valx(p){return p.X();};function valy(p){return p.Y();};function abs(x){return Math.abs(x);};function acos(x){return Math.acos(x);};function acosh(x){return Math.acosh(x);};function asin(x){return Math.asin(x);};function asinh(x){return Math.asinh(x);};function atan(x){return Math.atan(x);};function atanh(x){return Math.atanh(x);};function ceil(x){return Math.ceil(x);};function cos(x){return Math.cos(x);};function cosh(x){return Math.cosh(x);};function exp(x){return Math.exp(x);};function expm1(x){return Math.expm1(x);};function floor(x){return Math.floor(x);};function hypot(x){return Math.hypot(x);};function log(x){return Math.log(x);};function log1p(x){return Math.log1p(x);};function log10(x){return Math.log10(x);};function log2(x){return Math.log2(x);};function max(x){return Math.max(x);};function min(x){return Math.min(x);};function round(x){return Math.round(x);};function sign(x){return Math.sign(x);};function sin(x){return Math.sin(x);};function sinh(x){return Math.sinh(x);};function sqrt(x){return Math.sqrt(x);};function tan(x){return Math.tan(x);};function tanh(x){return Math.tanh(x);};function trunc(x){return Math.trunc(x);};function rand(){return Math.random();};const π=Math.PI;const ℯ=Math.E;const pi=Math.PI;</script>
 <h2 id="edit_layoutheadhtml"><a href="#edit_layoutheadhtml">Edit <code>_layout/head.html</code></a></h2>
          
@@ -128,13 +128,13 @@ println(~~~&amp;lt;script&amp;gt;&amp;#36;&amp;#40;JSXGraph.PREAMBLE&amp;#41;&am
 <li><p>Create <code>head_jsx.html</code> under <code>_layout</code> directory, where <code>head_jsx.html</code> is same as</p>
 </li>
 </ul>
-<pre><code class="julia hljs">&amp;lt;link rel&amp;<span class="hljs-comment">#61;&amp;quot;stylesheet&amp;quot; href&amp;#61;&amp;quot;/libs/jsx/jsxgraph.css&amp;quot;&amp;gt;</span>
-&amp;lt;script src&amp;<span class="hljs-comment">#61;&amp;quot;/libs/jsx/jsxgraphcore.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;</span></code></pre>
+<pre><code class="language-julia">&lt;link rel&#61;&quot;stylesheet&quot; href&#61;&quot;/libs/jsx/jsxgraph.css&quot;&gt;
+&lt;script src&#61;&quot;/libs/jsx/jsxgraphcore.js&quot;&gt;&lt;/script&gt;</code></pre>
 <h2 id="edit_configmd"><a href="#edit_configmd">Edit <code>config.md</code></a></h2>
          
 <ul>
 <li><p>Create a variable <code>hasjsx</code> with default value <code>false</code>: in your <code>config.md</code> write</p>
-<pre><code class="julia hljs"><span class="hljs-meta">@def</span> hasjsx = <span class="hljs-literal">false</span></code></pre></p>
+<pre><code class="language-julia">@def hasjsx = false</code></pre></p>
 </li>
 <li><p>This procedure is same as <a href="https://franklinjl.org/extras/plotly/#work_with_plotly">Working with Plotly</a>.</p>
 </li>
@@ -148,45 +148,138 @@ println(~~~&amp;lt;script&amp;gt;&amp;#36;&amp;#40;JSXGraph.PREAMBLE&amp;#41;&am
 <li><p>Everything happens on a Hello world example. Let&#39;s add an object on a board with <code>Hello World</code>.</p>
 </li>
 </ul>
-<pre><code class="markdown hljs"><span class="hljs-code">```julia
-b = board(&quot;brd&quot;, xlim=[-2,2], ylim=[-2,2])
-b ++ point(0, 0, name=&quot;Hello World&quot;)
-```</span></code></pre>
+<pre><code class="language-markdown">```julia
+b = board("brd", xlim=[-2,2], ylim=[-2,2])
+b ++ point(0, 0, name="Hello World")
+```</code></pre>
 <p>Is is enough ? Actually NO. We need insert another secret ingredient like:</p>
-<pre><code class="markdown hljs"><span class="hljs-code">```julia
-println(&quot;&quot;&quot;~~~&amp;#36;&amp;#40;JSXGraph.standalone&amp;#40;b, preamble&amp;#61;false&amp;#41;&amp;#41;~~~&quot;&quot;&quot;)
-```</span></code></pre>
+<pre><code class="language-markdown">```julia
+println("""~~~&#36;&#40;JSXGraph.standalone&#40;b, preamble&#61;false&#41;&#41;~~~""")
+```</code></pre>
 <p>Therefore, Franklin users should write code like:</p>
-<pre><code class="markdown hljs"><span class="hljs-code">```julia
-b = board(&quot;brd&quot;, xlim=[-2,2], ylim=[-2,2])
-b ++ point(0, 0, name=&quot;hello&quot;)
-print(&quot;&quot;&quot;~~~$(JSXGraph.standalone(b, preamble=false))~~~&quot;&quot;&quot;) # hide
-```</span></code></pre>
+<pre><code class="language-markdown">```julia
+b = board("brd", xlim=[-2,2], ylim=[-2,2])
+b ++ point(0, 0, name="hello")
+print("""~~~$(JSXGraph.standalone(b, preamble=false))~~~""") # hide
+```</code></pre>
 <p>This will give:</p>
-<pre><code class="julia hljs">b = board(<span class="hljs-string">&quot;brd&quot;</span>, xlim=[-<span class="hljs-number">2</span>,<span class="hljs-number">2</span>], ylim=[-<span class="hljs-number">2</span>,<span class="hljs-number">2</span>])
-b ++ point(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, name=<span class="hljs-string">&quot;hello&quot;</span>)</code></pre>
+<pre><code class="language-julia">b = board("brd", xlim=[-2,2], ylim=[-2,2])
+b ++ point(0, 0, name="hello")</code></pre>
 <div id="brd" class="jxgbox" style="width:300px; height:300px;"></div>
 <script>(function(){var brd=JXG.JSXGraph.initBoard("brd",{"boundingbox":[-2,2,2,-2],"axis":false,"showcopyright":false,"shownavigation":false});var hello =brd.create('point', [0, 0], {"name":"hello"});})();</script>
 <p>Congratulations&#33;&#33;&#33;</p>
 <h1 id="gallery"><a href="#gallery">Gallery</a></h1>            
 <h2 id="lissajous_curve"><a href="#lissajous_curve">Lissajous curve</a></h2>
          
-   <div class="example">5.1.1  <br/>  <pre><code class="julia hljs">b = board(<span class="hljs-string">&quot;b3&quot;</span>, xlim=[-<span class="hljs-number">12</span>, <span class="hljs-number">12</span>], ylim=[-<span class="hljs-number">10</span>,<span class="hljs-number">10</span>])
+   <div class="example">5.1.1  <br/>  <pre><code class="language-julia">b = board("b3", xlim=[-12, 12], ylim=[-10,10])
 b ++ (
-    slider(<span class="hljs-string">&quot;a&quot;</span>, [[-<span class="hljs-number">11</span>,<span class="hljs-number">7</span>],[-<span class="hljs-number">5</span>,<span class="hljs-number">7</span>],[<span class="hljs-number">0</span>,<span class="hljs-number">3</span>,<span class="hljs-number">6</span>]], name=<span class="hljs-string">&quot;a&quot;</span>),
-    slider(<span class="hljs-string">&quot;b&quot;</span>, [[-<span class="hljs-number">11</span>,<span class="hljs-number">5</span>],[-<span class="hljs-number">5</span>,<span class="hljs-number">5</span>],[<span class="hljs-number">0</span>,<span class="hljs-number">2</span>,<span class="hljs-number">6</span>]], name=<span class="hljs-string">&quot;b&quot;</span>),
-    slider(<span class="hljs-string">&quot;A&quot;</span>, [[<span class="hljs-number">1</span>,<span class="hljs-number">7</span>],[<span class="hljs-number">7</span>,<span class="hljs-number">7</span>],[<span class="hljs-number">0</span>,<span class="hljs-number">3</span>,<span class="hljs-number">6</span>]], name=<span class="hljs-string">&quot;A&quot;</span>),
-    slider(<span class="hljs-string">&quot;B&quot;</span>, [[<span class="hljs-number">1</span>,<span class="hljs-number">5</span>],[<span class="hljs-number">7</span>,<span class="hljs-number">5</span>],[<span class="hljs-number">0</span>,<span class="hljs-number">3</span>,<span class="hljs-number">6</span>]], name=<span class="hljs-string">&quot;B&quot;</span>),
-    slider(<span class="hljs-string">&quot;delta&quot;</span>, [[<span class="hljs-number">2</span>,-<span class="hljs-number">7</span>],[<span class="hljs-number">6</span>,-<span class="hljs-number">7</span>],[<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-literal">π</span>]], name=<span class="hljs-string">&quot;&amp;delta;&quot;</span>)
+    slider("a", [[-11,7],[-5,7],[0,3,6]], name="a"),
+    slider("b", [[-11,5],[-5,5],[0,2,6]], name="b"),
+    slider("A", [[1,7],[7,7],[0,3,6]], name="A"),
+    slider("B", [[1,5],[7,5],[0,3,6]], name="B"),
+    slider("delta", [[2,-7],[6,-7],[0,0,π]], name="&delta;")
     )
-<span class="hljs-meta">@jsf</span> f1(t) = val(A)*sin(val(a)*t+val(delta))
-<span class="hljs-meta">@jsf</span> f2(t) = val(B)*sin(val(b)*t)
-b ++ plot(f1, f2, a=<span class="hljs-number">0</span>, b=<span class="hljs-number">2</span><span class="hljs-literal">π</span>,
-          strokecolor=<span class="hljs-string">&quot;#aa2233&quot;</span>, strokewidth=<span class="hljs-number">3</span>)</code></pre>
+@jsf f1(t) = val(A)*sin(val(a)*t+val(delta))
+@jsf f2(t) = val(B)*sin(val(b)*t)
+b ++ plot(f1, f2, a=0, b=2π,
+          strokecolor="#aa2233", strokewidth=3)</code></pre>
 <div id="b3" class="jxgbox" style="width:300px; height:300px;"></div>
-<script>(function(){var b3=JXG.JSXGraph.initBoard("b3",{"boundingbox":[-12,10,12,-10],"axis":false,"showcopyright":false,"shownavigation":false});var a=b3.create('slider', [[-11,7],[-5,7],[0,3,6]], {"name":"a"});var b=b3.create('slider', [[-11,5],[-5,5],[0,2,6]], {"name":"b"});var A=b3.create('slider', [[1,7],[7,7],[0,3,6]], {"name":"A"});var B=b3.create('slider', [[1,5],[7,5],[0,3,6]], {"name":"B"});var delta=b3.create('slider', [[2.0,-7.0],[6.0,-7.0],[0.0,0.0,3.141592653589793]], {"name":"&delta;"});function f1(t){return (val(A)*sin(((val(a)*t)+val(delta))))};function f2(t){return (val(B)*sin((val(b)*t)))};b3.create('curve', [function(t){return f1(t);}, function(t){return f2(t);}, 0, 6.283185307179586], {"strokecolor":"#aa2233","strokewidth":3});})();</script></div><div class="page-foot">
+<script>(function(){var b3=JXG.JSXGraph.initBoard("b3",{"boundingbox":[-12,10,12,-10],"axis":false,"showcopyright":false,"shownavigation":false});var a=b3.create('slider', [[-11,7],[-5,7],[0,3,6]], {"name":"a"});var b=b3.create('slider', [[-11,5],[-5,5],[0,2,6]], {"name":"b"});var A=b3.create('slider', [[1,7],[7,7],[0,3,6]], {"name":"A"});var B=b3.create('slider', [[1,5],[7,5],[0,3,6]], {"name":"B"});var delta=b3.create('slider', [[2.0,-7.0],[6.0,-7.0],[0.0,0.0,3.141592653589793]], {"name":"&delta;"});function f1(t){return (val(A)*sin(((val(a)*t)+val(delta))))};function f2(t){return (val(B)*sin((val(b)*t)))};b3.create('curve', [function(t){return f1(t);}, function(t){return f2(t);}, 0, 6.283185307179586], {"strokecolor":"#aa2233","strokewidth":3});})();</script></div>
+<h1 id="appendix_using_javascript_directly"><a href="#appendix_using_javascript_directly">Appendix: Using JavaScript directly</a></h1>            
+<ul>
+<li><p>Since, JSXGraph.jl is still WIP, it does not support <code>text</code> object. If you wish you&#39;ll need to write JavaScript by yourself.</p>
+</li>
+</ul>
+
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<div id="board" class="jxgbox" style="width:500px; height:500px;"></div>
+<script type="text/javascript">
+    JXG.Options.text.useMathJax = true;
+    var board = JXG.JSXGraph.initBoard(
+        "board",
+        {
+            boundingbox: [-15, 15, 15, -15],
+            axis: true
+        }
+    );
+    /* The slider neesd the following input parameters:
+    [[x1, y1], [x2, y2], [min, start, max]]
+    [x1, y1]: first point of the ruler
+    [x2, y2]: last point of the ruler
+    min: minimum value of the slider
+    start: initial value of the slider
+    max: maximum value of the slider
+    */
+    var a = board.create("slider", [[8, 7], [12, 7], [-3, 0.1, 10]], { name: "a" });
+    var b = board.create("slider", [[8, 6], [12, 6], [-1, 1, 5]], { name: "b" });
+    var c = board.create("slider", [[8, 5], [12, 5], [-10, -5, 2]], { name: "c" });
+    // y = ax^2+bx+c
+    var func = board.create(
+        "functiongraph",
+        [
+            function (x) {
+                return a.Value() * x * x + b.Value() * x + c.Value();
+            }
+        ]
+    )
+    var quadratic = board.create(
+        'text',
+        [
+            2,
+            10,
+            function () {
+                return '\\[f(x) = ax^2+bx+c\\]';
+            }
+        ],
+        { fontSize: 20 }
+    );
+</script>
+
+<pre><code class="language-html">&lt;script id&#61;&quot;MathJax-script&quot; async src&#61;&quot;https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js&quot;&gt;&lt;/script&gt;
+&lt;div id&#61;&quot;board&quot; class&#61;&quot;jxgbox&quot; style&#61;&quot;width:500px; height:500px;&quot;&gt;&lt;/div&gt;
+&lt;script type&#61;&quot;text/javascript&quot;&gt;
+    JXG.Options.text.useMathJax &#61; true;
+    var board &#61; JXG.JSXGraph.initBoard&#40;
+        &quot;board&quot;,
+        &#123;
+            boundingbox: &#91;-15, 15, 15, -15&#93;,
+            axis: true
+        &#125;
+    &#41;;
+    /* The slider neesd the following input parameters:
+    &#91;&#91;x1, y1&#93;, &#91;x2, y2&#93;, &#91;min, start, max&#93;&#93;
+    &#91;x1, y1&#93;: first point of the ruler
+    &#91;x2, y2&#93;: last point of the ruler
+    min: minimum value of the slider
+    start: initial value of the slider
+    max: maximum value of the slider
+    */
+    var a &#61; board.create&#40;&quot;slider&quot;, &#91;&#91;8, 7&#93;, &#91;12, 7&#93;, &#91;-3, 0.1, 10&#93;&#93;, &#123; name: &quot;a&quot; &#125;&#41;;
+    var b &#61; board.create&#40;&quot;slider&quot;, &#91;&#91;8, 6&#93;, &#91;12, 6&#93;, &#91;-1, 1, 5&#93;&#93;, &#123; name: &quot;b&quot; &#125;&#41;;
+    var c &#61; board.create&#40;&quot;slider&quot;, &#91;&#91;8, 5&#93;, &#91;12, 5&#93;, &#91;-10, -5, 2&#93;&#93;, &#123; name: &quot;c&quot; &#125;&#41;;
+    // y &#61; ax^2&#43;bx&#43;c
+    var func &#61; board.create&#40;
+        &quot;functiongraph&quot;,
+        &#91;
+            function &#40;x&#41; &#123;
+                return a.Value&#40;&#41; * x * x &#43; b.Value&#40;&#41; * x &#43; c.Value&#40;&#41;;
+            &#125;
+        &#93;
+    &#41;
+    var quadratic &#61; board.create&#40;
+        &#39;text&#39;,
+        &#91;
+            2,
+            10,
+            function &#40;&#41; &#123;
+                return &#39;\\&#91;f&#40;x&#41; &#61; ax^2&#43;bx&#43;c\\&#93;&#39;;
+            &#125;
+        &#93;,
+        &#123; fontSize: 20 &#125;
+    &#41;;
+&lt;/script&gt;</code></pre><div class="page-foot">
   <div class="copyright">
-    &copy; SatoshiTerasaki. Last modified: 2020年6月18日 木曜日. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
+    &copy; SatoshiTerasaki. Last modified: 2020年6月19日 金曜日. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
   </div>
 </div>
 </div><!-- CONTENT ENDS HERE -->
@@ -195,8 +288,8 @@ b ++ plot(f1, f2, a=<span class="hljs-number">0</span>, b=<span class="hljs-numb
   <script src="/MathSeminar.jl/libs/vela/slideout.min.js"></script>
   
   
-    
-
+    <script src="/MathSeminar.jl/libs/highlight/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();hljs.configure({tabReplace: '    '});</script>
 
   
 </body>
