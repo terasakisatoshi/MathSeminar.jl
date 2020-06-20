@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+   <link rel="stylesheet" href="/MathSeminar.jl/libs/highlight/github.min.css">
+   
+  
+
+  <link href="/MathSeminar.jl/css/franklin.css" rel="stylesheet">
+  <link href="/MathSeminar.jl/css/vela.css" rel="stylesheet">
+  <script src="/MathSeminar.jl/libs/vela/jquery.min.js"></script>
+  <link rel="stylesheet" href="/MathSeminar.jl/css/theorem.css">
+   <title>JSXGraph.jl</title>  
+  <!-- PLOTLY -->
+  
+
+  <title>Franklin Example | Vela</title>
+</head>
+<body>
+  <div class="main-nav" id="menu">
+    <div class="flex-container">
+      <span class="sidebar-brand">
+        <h3 style='font-size: 25px'>MathSeminar.jl</h3>
+      </span>
+    </div> <!-- class="flex-container" -->
+
+    <nav class="sidebar-nav">
+      <ul class="metismenu"  id="metismenu" >
+        <li><a href="/MathSeminar.jl/index.html">Home</a></li>
+        <li><a href="" class="has-arrow">Programming</a>
+          <ul>
+            <li><a href="/MathSeminar.jl/programming/clang">C</a></li>
+            <li><a href="/MathSeminar.jl/programming/rust">Rust</a></li>
+            <li><a href="/MathSeminar.jl/programming/benchmark_part1"> Julia benchmark Part1 </a></li>
+            <li><a href="/MathSeminar.jl/programming/benchmark_part2"> Julia benchmark Part2 </a></li>
+            <li><a href="/MathSeminar.jl/programming/literatejl">Literate.jl</a></li>
+            <li><a href="/MathSeminar.jl/programming/sympy">SymPy.jl</a></li>
+            <li><a href="/MathSeminar.jl/programming/franklin">Franklin.jl</a></li>
+            <li><a href="/MathSeminar.jl/programming/weave">Weave.jl</a></li>
+            <li><a href="/MathSeminar.jl/programming/theoremcounter">Theorem Counter</a></li>
+            <li><a href="/MathSeminar.jl/programming/images">Images.jl</a></li>
+          </ul>
+        </li>
+        <li><a href="" class="has-arrow">Slide Show</a>
+          <ul>
+            <li><a href="/MathSeminar.jl/slideshow/tutorial/build/">Remark.jl</a>
+            <li><a href="/MathSeminar.jl/slideshow/juliatokai/build">JuliaTokai</a>
+          </ul>
+        </li>
+        <li><a href="" class="has-arrow">Gallery</a>
+          <ul>
+            <li><a href="/MathSeminar.jl/gallery/animation/">Plots.jl animation</a></li>
+            <li><a href="/MathSeminar.jl/gallery/curve/">Plots.jl curve</a></li>
+            <li><a href="/MathSeminar.jl/gallery/gr/">GR.jl</a></li>
+            <li><a href="/MathSeminar.jl/gallery/plotlyjs1/">PlotlyJS.jl Part1</a></li>
+            <li><a href="/MathSeminar.jl/gallery/plotlyjs2/">PlotlyJS.jl Part2</a></li>
+            <li><a href="/MathSeminar.jl/gallery/plotlyjs3/">PlotlyJS.jl Part3</a></li>
+            <li><a href="/MathSeminar.jl/gallery/jsxgraph_js/">JSXGraph (JS)</a></li>
+            <li><a href="/MathSeminar.jl/gallery/jsxgraph_jl/">JSXGraph (Julia)</a></li>
+            <li><a href="/MathSeminar.jl/gallery/wglmakie/">WGLMakie.jl</a></li>
+          </ul>
+        </li>
+        <li><a href="" class="has-arrow">Topics in Mathematics</a>
+          <ul>
+            <li><a href="/MathSeminar.jl/mathematics/linearalgebra/chapter0">Linear Algebra</a></li>
+            <li><a href="/MathSeminar.jl/mathematics/statistics/dice">Dice</a></li>
+            <li><a href="/MathSeminar.jl/mathematics/statistics/Chisq">Chisq Distributions</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div> <!-- main nav menu -->
+
+  <main id="panel">
+    <div class="toggle-button hamburger hamburger--spin">
+      <div class="hamburger-box">
+        <div class="hamburger-inner"></div>
+      </div>
+    </div>
+    <h1 class="page title">JSXGraph.jl</h1>
+    <hr>
+
+
+<!-- Content appended here -->
+<div class="franklin-content"><div class="franklin-toc"><ol><li><a href="#jsxgraph">JSXGraph</a></li></ol></div>
+
+<h1 id="jsxgraph"><a href="#jsxgraph">JSXGraph</a></h1>            
+<ul>
+<li><p>Since, JSXGraph.jl is still WIP, it does not support <code>text</code> object. If you wish you&#39;ll need to write JavaScript by yourself.</p>
+</li>
+</ul>
+
+<link rel="stylesheet" type="text/css" href="http://jsxgraph.uni-bayreuth.de/distrib/jsxgraph.css" />
+<script type="text/javascript" src="http://jsxgraph.uni-bayreuth.de/distrib/jsxgraphcore.js"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<div id="board" class="jxgbox" style="width:500px; height:500px;"></div>
+<script type="text/javascript">
+    JXG.Options.text.useMathJax = true;
+    var board = JXG.JSXGraph.initBoard(
+        "board",
+        {
+            boundingbox: [-15, 15, 15, -15],
+            axis: true
+        }
+    );
+    /* The slider neesd the following input parameters:
+    [[x1, y1], [x2, y2], [min, start, max]]
+    [x1, y1]: first point of the ruler
+    [x2, y2]: last point of the ruler
+    min: minimum value of the slider
+    start: initial value of the slider
+    max: maximum value of the slider
+    */
+    var a = board.create("slider", [[8, 7], [12, 7], [-3, 0.1, 10]], { name: "a" });
+    var b = board.create("slider", [[8, 6], [12, 6], [-1, 1, 5]], { name: "b" });
+    var c = board.create("slider", [[8, 5], [12, 5], [-10, -5, 2]], { name: "c" });
+    // y = ax^2+bx+c
+    var func = board.create(
+        "functiongraph",
+        [
+            function (x) {
+                return a.Value() * x * x + b.Value() * x + c.Value();
+            }
+        ]
+    )
+    var quadratic = board.create(
+        'text',
+        [
+            2,
+            10,
+            function () {
+                return '\\[f(x) = ax^2+bx+c\\]';
+            }
+        ],
+        { fontSize: 20 }
+    );
+</script>
+
+<ul>
+<li><p>Here is the code that reproduces the result above:</p>
+</li>
+</ul>
+<pre><code class="language-html">&lt;link rel&#61;&quot;stylesheet&quot; type&#61;&quot;text/css&quot; href&#61;&quot;http://jsxgraph.uni-bayreuth.de/distrib/jsxgraph.css&quot; /&gt;
+&lt;script type&#61;&quot;text/javascript&quot; src&#61;&quot;http://jsxgraph.uni-bayreuth.de/distrib/jsxgraphcore.js&quot;&gt;&lt;/script&gt;
+&lt;script id&#61;&quot;MathJax-script&quot; async src&#61;&quot;https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js&quot;&gt;&lt;/script&gt;
+&lt;script id&#61;&quot;MathJax-script&quot; async src&#61;&quot;https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js&quot;&gt;&lt;/script&gt;
+&lt;div id&#61;&quot;board&quot; class&#61;&quot;jxgbox&quot; style&#61;&quot;width:500px; height:500px;&quot;&gt;&lt;/div&gt;
+&lt;script type&#61;&quot;text/javascript&quot;&gt;
+    JXG.Options.text.useMathJax &#61; true;
+    var board &#61; JXG.JSXGraph.initBoard&#40;
+        &quot;board&quot;,
+        &#123;
+            boundingbox: &#91;-15, 15, 15, -15&#93;,
+            axis: true
+        &#125;
+    &#41;;
+    /* The slider neesd the following input parameters:
+    &#91;&#91;x1, y1&#93;, &#91;x2, y2&#93;, &#91;min, start, max&#93;&#93;
+    &#91;x1, y1&#93;: first point of the ruler
+    &#91;x2, y2&#93;: last point of the ruler
+    min: minimum value of the slider
+    start: initial value of the slider
+    max: maximum value of the slider
+    */
+    var a &#61; board.create&#40;&quot;slider&quot;, &#91;&#91;8, 7&#93;, &#91;12, 7&#93;, &#91;-3, 0.1, 10&#93;&#93;, &#123; name: &quot;a&quot; &#125;&#41;;
+    var b &#61; board.create&#40;&quot;slider&quot;, &#91;&#91;8, 6&#93;, &#91;12, 6&#93;, &#91;-1, 1, 5&#93;&#93;, &#123; name: &quot;b&quot; &#125;&#41;;
+    var c &#61; board.create&#40;&quot;slider&quot;, &#91;&#91;8, 5&#93;, &#91;12, 5&#93;, &#91;-10, -5, 2&#93;&#93;, &#123; name: &quot;c&quot; &#125;&#41;;
+    // y &#61; ax^2&#43;bx&#43;c
+    var func &#61; board.create&#40;
+        &quot;functiongraph&quot;,
+        &#91;
+            function &#40;x&#41; &#123;
+                return a.Value&#40;&#41; * x * x &#43; b.Value&#40;&#41; * x &#43; c.Value&#40;&#41;;
+            &#125;
+        &#93;
+    &#41;
+    var quadratic &#61; board.create&#40;
+        &#39;text&#39;,
+        &#91;
+            2,
+            10,
+            function &#40;&#41; &#123;
+                return &#39;\\&#91;f&#40;x&#41; &#61; ax^2&#43;bx&#43;c\\&#93;&#39;;
+            &#125;
+        &#93;,
+        &#123; fontSize: 20 &#125;
+    &#41;;
+&lt;/script&gt;</code></pre><div class="page-foot">
+  <div class="copyright">
+    &copy; SatoshiTerasaki. Last modified: 2020年6月20日 土曜日. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
+  </div>
+</div>
+</div><!-- CONTENT ENDS HERE -->
+  </main> <!-- end of id=main -->
+  <script src="/MathSeminar.jl/libs/vela/metisMenu.min.js"></script>
+  <script src="/MathSeminar.jl/libs/vela/slideout.min.js"></script>
+  
+  
+    <script src="/MathSeminar.jl/libs/highlight/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();hljs.configure({tabReplace: '    '});</script>
+
+  
+</body>
+</html>
