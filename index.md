@@ -110,11 +110,11 @@ $\LaTeX$ の `\newcommand` と同様に数式を記述するコマンドを簡�
 ## PyPlot
 
 ```julia:pyplot1
-using PyPlot
-figure(figsize=(8, 6))
+import PyPlot
+PyPlot.figure(figsize=(8, 6))
 x = range(-2, 2, length=500)
-for α in 1:4
-    PyPlot.plot(x, @. sinc(α * x))
+for α in 1:5
+    PyPlot.plot(x, sinc.(α .* x))
 end
 PyPlot.savefig(joinpath(@OUTPUT, "sinc.svg")) # hide
 ```
@@ -140,6 +140,7 @@ using Plots
 pyplot()
 Plots.plot(sin, title=L"y=\sin x")
 Plots.savefig(joinpath(@OUTPUT, "pyplotbkend.svg")) # hide
+gr()
 ```
 
 \fig{pyplotbkend}
