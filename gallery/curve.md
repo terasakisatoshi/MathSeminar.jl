@@ -5,6 +5,7 @@
 using Plots
 gr()
 using LaTeXStrings
+using LaTeXStrings: latexstring
 ```
 
 # Circle
