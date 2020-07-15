@@ -41,238 +41,239 @@ Step 12/18 : RUN mkdir /sysimage && julia -e 'using PackageCompiler; PackageComp
  ---> Using cache
  ---> 0379d6b63ee5
 Step 13/18 : COPY Project.toml /work
- ---> 7f0acc8ebbce
+ ---> a28b2ef0cacc
 Step 14/18 : RUN rm /work/Manifest.toml && julia --project=/work -e 'using Pkg; Pkg.instantiate(); Pkg.precompile()' && julia -e 'using InteractiveUtils; versioninfo()'
- ---> Running in c61b1311752c
+ ---> Running in abc19fd0bcb2
 [91m   Updating[0m[91m registry at `~/.julia/registries/General`[0m[91m
-[0m[91m   Updating [0m[91mgit-repo `https://github.com/JuliaRegistries/General.git`
+[0m[91m   Updating git-repo `https://github.com/JuliaRegistries/General.git`
 [0m[?25l    Fetching: [>                                        ]  0.0 %[2K[?25h[91m  Installed[0m[91m [0m[91mImageShow ────────────────── v0.2.3[0m[91m
 [0m[91m  Installed[0m[91m [0m[91mBenchmarkTools ───────────── v0.5.0[0m[91m
 [0m[91m  Installed[0m[91m [0m[91mJSXGraph ─────────────────── v0.1.6[0m[91m
-[0m[91m  Installed[0m[91m [0m[91mSymPy ────────────────────── v1.0.26[0m[91m
-[0m[91m  Installed [0m[91mRemark ───────────────────── v0.2.1[0m[91m
-[0m[91m  Installed [0m[91mRevise ───────────────────── v2.7.3[0m[91m
-[0m[91m  Installed Distributions ────────────── v0.23.4[0m[91m
-[0m[91m  Installed Franklin ─────────────────── v0.8.6
-[0m[91m  Installed ImageIO ──────────────────── v0.2.0
-[0m[91m  Installed Images ───────────────────── v0.22.4[0m[91m
-[0m[91m  Installed[0m[91m [0m[91mTestImages ───────────────── v1.1.0[0m[91m
+[0m[91m  Installed[0m[91m [0m[91mRemark ───────────────────── v0.2.1[0m[91m
+[0m[91m  Installed[0m[91m Revise ───────────────────── v2.7.3[0m[91m
+[0m[91m  Installed[0m[91m [0m[91mDistributions ────────────── v0.23.4[0m[91m
+[0m[91m  Installed[0m[91m [0m[91mFranklin ─────────────────── v0.8.6
+[0m[91m  Installed[0m[91m [0m[91mImageIO ──────────────────── v0.2.0[0m[91m
+[0m[91m  Installed[0m[91m [0m[91mSymPy ────────────────────── v1.0.26
+[0m[91m  Installed[0m[91m [0m[91mImages ───────────────────── v0.22.4
+[0m[91m  Installed ImageMagick ──────────────── v1.1.5
 [0m[91m  Installed[0m[91m [0m[91mPyPlot ───────────────────── v2.9.0[0m[91m
-[0m[91m  Installed ImageMagick ──────────────── v1.1.5[0m[91m
-[0m[91m  Installed[0m[91m Plots ────────────────────── v1.5.4
-[0m[91m  Installed JSServe ──────────────────── v0.6.8[0m[91m
-[0m[91m  Installed WGLMakie ─────────────────── v0.2.5
-[0m[91m  Installed[0m[91m ORCA ─────────────────────── v0.3.1
-[0m[91m  Installed[0m[91m [0m[91mSafeTestsets ─────────────── v0.0.1[0m[91m
-[0m[91m  Installed[0m[91m [0m[91mDiffEqFinancial ──────────── v2.4.0[0m[91m
-[0m[91m  Installed[0m[91m [0m[91mImageContainers ──────────── v0.1.0[0m[91m
-[0m[91m  Installed[0m[91m [0m[91mUnPack ───────────────────── v1.0.1[0m[91m
-[0m[91m  Installed[0m[91m [0m[91mDiffEqPhysics ────────────── v3.2.0[0m[91m
-[0m[91m  Installed[0m[91m [0m[91mIndirectArrays ───────────── v0.5.1[0m[91m
 [0m[91m  Installed[0m[91m [0m[91mDifferentialEquations ────── v6.15.0[0m[91m
+[0m[91m  Installed[0m[91m [0m[91mTestImages ───────────────── v1.1.0[0m[91m
+[0m[91m  Installed[0m[91m [0m[91mJSServe ──────────────────── v0.6.8[0m[91m
+[0m[91m  Installed[0m[91m GR ───────────────────────── v0.50.1
+[0m[91m  Installed[0m[91m [0m[91mPlots ────────────────────── v1.5.4[0m[91m
+[0m[91m  Installed[0m[91m [0m[91mWGLMakie ─────────────────── v0.2.5[0m[91m
+[0m[91m  Installed [0m[91mDiffEqFinancial ──────────── v2.4.0
+[0m[91m  Installed [0m[91mDiffEqPhysics ────────────── v3.2.0
+[0m[91m  Installed[0m[91m UnPack ───────────────────── v1.0.1[0m[91m
+[0m[91m  Installed[0m[91m ImageContainers ──────────── v0.1.0[0m[91m
+[0m[91m  Installed[0m[91m [0m[91mORCA ─────────────────────── v0.3.1[0m[91m
+[0m[91m  Installed[0m[91m IndirectArrays ───────────── v0.5.1[0m[91m
 [0m[91m  Installed[0m[91m [0m[91mAdapt ────────────────────── v2.0.2[0m[91m
-[0m[91m  Installed[0m[91m IterativeSolvers ─────────── v0.8.4
+[0m[91m  Installed[0m[91m [0m[91mIterativeSolvers ─────────── v0.8.4[0m[91m
+[0m[91m  Installed[0m[91m [0m[91mSafeTestsets ─────────────── v0.0.1[0m[91m
+[0m[91m  Installed[0m[91m [0m[91mCombinatorics ────────────── v1.0.2[0m[91m
 [0m[91m  Installed[0m[91m [0m[91mRecursiveFactorization ───── v0.1.4[0m[91m
-[0m[91m  Installed MKL_jll ──────────────────── v2020.1.216+0[0m[91m
-[0m[91m  Installed[0m[91m AxisAlgorithms ───────────── v1.0.0
-[0m[91m  Installed JuliaVariables ───────────── v0.2.0[0m[91m
-[0m[91m  Installed [0m[91mCombinatorics ────────────── v1.0.2[0m[91m
-[0m[91m  Installed ArrayInterface ───────────── v2.9.1
-[0m[91m  Installed[0m[91m Hyperscript ──────────────── v0.0.3
-[0m[91m  Installed SIMDPirates ──────────────── v0.8.16
-[0m[91m  Installed LoggingExtras ────────────── v0.4.2
-[0m[91m  Installed ImageFiltering ───────────── v0.6.14
-[0m[91m  Installed ProgressLogging ──────────── v0.1.3
-[0m[91m  Installed LineSearches ─────────────── v7.0.1[0m[91m
-[0m[91m  Installed[0m[91m [0m[91mSparseDiffTools ──────────── v1.9.1[0m[91m
+[0m[91m  Installed[0m[91m [0m[91mJuliaVariables ───────────── v0.2.0[0m[91m
+[0m[91m  Installed[0m[91m [0m[91mMKL_jll ──────────────────── v2020.1.216+0[0m[91m
+[0m[91m  Installed[0m[91m [0m[91mAxisAlgorithms ───────────── v1.0.0[0m[91m
+[0m[91m  Installed[0m[91m [0m[91mHyperscript ──────────────── v0.0.3[0m[91m
+[0m[91m  Installed[0m[91m [0m[91mArrayInterface ───────────── v2.9.1[0m[91m
+[0m[91m  Installed[0m[91m [0m[91mImageFiltering ───────────── v0.6.14[0m[91m
+[0m[91m  Installed SIMDPirates ──────────────── v0.8.16[0m[91m
+[0m[91m  Installed[0m[91m [0m[91mProgressLogging ──────────── v0.1.3[0m[91m
+[0m[91m  Installed[0m[91m [0m[91mLineSearches ─────────────── v7.0.1[0m[91m
 [0m[91m  Installed[0m[91m [0m[91mSundials_jll ─────────────── v5.2.0+0[0m[91m
+[0m[91m  Installed[0m[91m [0m[91mLoggingExtras ────────────── v0.4.2[0m[91m
 [0m[91m  Installed[0m[91m [0m[91mQuadGK ───────────────────── v2.4.0[0m[91m
-[0m[91m  Installed[0m[91m [0m[91mComputationalResources ───── v0.3.2[0m[91m
-[0m[91m  Installed GenericSVD ───────────────── v0.3.0[0m[91m
-[0m[91m  Installed SimpleTraits ─────────────── v0.9.2
+[0m[91m  Installed[0m[91m [0m[91mSparseDiffTools ──────────── v1.9.1[0m[91m
+[0m[91m  Installed[0m[91m [0m[91mComputationalResources ───── v0.3.2
+[0m[91m  Installed[0m[91m [0m[91mSimpleTraits ─────────────── v0.9.2
+[0m[91m  Installed[0m[91m [0m[91mStochasticDiffEq ─────────── v6.24.0[0m[91m
+[0m[91m  Installed[0m[91m [0m[91mMsgPack ──────────────────── v1.1.0[0m[91m
 [0m[91m  Installed[0m[91m [0m[91mCompat ───────────────────── v3.13.0[0m[91m
 [0m[91m  Installed[0m[91m [0m[91mPoissonRandom ────────────── v0.4.0[0m[91m
 [0m[91m  Installed[0m[91m [0m[91mCustomUnitRanges ─────────── v1.0.0[0m[91m
-[0m[91m  Installed[0m[91m [0m[91mMsgPack ──────────────────── v1.1.0[0m[91m
-[0m[91m  Installed[0m[91m [0m[91mStochasticDiffEq ─────────── v6.24.0[0m[91m
-[0m[91m  Installed [0m[91mLoweredCodeUtils ─────────── v0.4.6
-[0m[91m  Installed[0m[91m [0m[91mAbstractFFTs ─────────────── v0.5.0[0m[91m
-[0m[91m  Installed[0m[91m DelayDiffEq ──────────────── v5.24.1[0m[91m
-[0m[91m  Installed [0m[91mPidfile ──────────────────── v1.2.0
-[0m[91m  Installed [0m[91mFormatting ───────────────── v0.4.1
+[0m[91m  Installed[0m[91m [0m[91mLoweredCodeUtils ─────────── v0.4.6[0m[91m
+[0m[91m  Installed AbstractFFTs ─────────────── v0.5.0[0m[91m
+[0m[91m  Installed GenericSVD ───────────────── v0.3.0
+[0m[91m  Installed[0m[91m [0m[91mPidfile ──────────────────── v1.2.0[0m[91m
+[0m[91m  Installed[0m[91m [0m[91mFormatting ───────────────── v0.4.1[0m[91m
 [0m[91m  Installed[0m[91m [0m[91mCoordinateTransformations ── v0.6.0[0m[91m
-[0m[91m  Installed[0m[91m [0m[91mAbstractPlotting ─────────── v0.11.2[0m[91m
-[0m[91m  Installed[0m[91m [0m[91mJuliaInterpreter ─────────── v0.7.24[0m[91m
 [0m[91m  Installed[0m[91m [0m[91mColorTypes ───────────────── v0.10.6[0m[91m
+[0m[91m  Installed[0m[91m [0m[91mJuliaInterpreter ─────────── v0.7.24[0m[91m
 [0m[91m  Installed[0m[91m [0m[91mDistances ────────────────── v0.8.2[0m[91m
-[0m[91m  Installed[0m[91m [0m[91mArnoldiMethod ────────────── v0.0.4[0m[91m
+[0m[91m  Installed [0m[91mArnoldiMethod ────────────── v0.0.4[0m[91m
+[0m[91m  Installed DelayDiffEq ──────────────── v5.24.1
 [0m[91m  Installed[0m[91m [0m[91mColorVectorSpace ─────────── v0.8.5[0m[91m
-[0m[91m  Installed[0m[91m [0m[91mImageContrastAdjustment ──── v0.3.5[0m[91m
-[0m[91m  Installed[0m[91m [0m[91mImageMorphology ──────────── v0.2.8
 [0m[91m  Installed[0m[91m [0m[91mDiffResults ──────────────── v1.0.2[0m[91m
-[0m[91m  Installed [0m[91mCanonicalTraits ──────────── v0.2.1[0m[91m
-[0m[91m  Installed [0m[91mSignedDistanceFields ─────── v0.4.0[0m[91m
-[0m[91m  Installed[0m[91m WoodburyMatrices ─────────── v0.5.2
-[0m[91m  Installed FFTViews ─────────────────── v0.3.1
+[0m[91m  Installed[0m[91m [0m[91mImageMorphology ──────────── v0.2.8[0m[91m
+[0m[91m  Installed[0m[91m [0m[91mCanonicalTraits ──────────── v0.2.1[0m[91m
+[0m[91m  Installed[0m[91m [0m[91mWoodburyMatrices ─────────── v0.5.2[0m[91m
+[0m[91m  Installed[0m[91m [0m[91mSignedDistanceFields ─────── v0.4.0[0m[91m
 [0m[91m  Installed[0m[91m [0m[91mContour ──────────────────── v0.5.4[0m[91m
-[0m[91m  Installed[0m[91m [0m[91mLeftChildRightSiblingTrees ─ v0.1.2[0m[91m
-[0m[91m  Installed[0m[91m [0m[91mPaddedViews ──────────────── v0.5.5[0m[91m
-[0m[91m  Installed[0m[91m [0m[91mMosaicViews ──────────────── v0.2.2[0m[91m
+[0m[91m  Installed ImageContrastAdjustment ──── v0.3.5
+[0m[91m  Installed FFTViews ─────────────────── v0.3.1[0m[91m
 [0m[91m  Installed[0m[91m [0m[91mImageDistances ───────────── v0.2.7[0m[91m
-[0m[91m  Installed[0m[91m [0m[91mFunctionWrappers ─────────── v1.1.1[0m[91m
-[0m[91m  Installed[0m[91m [0m[91mDataStructures ───────────── v0.17.19[0m[91m
-[0m[91m  Installed[0m[91m [0m[91mOpenSSL_jll ──────────────── v1.1.1+4[0m[91m
+[0m[91m  Installed[0m[91m [0m[91mMosaicViews ──────────────── v0.2.2[0m[91m
+[0m[91m  Installed[0m[91m [0m[91mPaddedViews ──────────────── v0.5.5[0m[91m
 [0m[91m  Installed[0m[91m [0m[91mMLStyle ──────────────────── v0.3.1[0m[91m
+[0m[91m  Installed[0m[91m [0m[91mOpenSSL_jll ──────────────── v1.1.1+4[0m[91m
+[0m[91m  Installed[0m[91m [0m[91mFunctionWrappers ─────────── v1.1.1[0m[91m
 [0m[91m  Installed[0m[91m [0m[91mImageMetadata ────────────── v0.9.1[0m[91m
-[0m[91m  Installed[0m[91m [0m[91mArpack_jll ───────────────── v3.5.0+3[0m[91m
+[0m[91m  Installed[0m[91m [0m[91mLeftChildRightSiblingTrees ─ v0.1.2
 [0m[91m  Installed[0m[91m [0m[91mImageAxes ────────────────── v0.6.4[0m[91m
+[0m[91m  Installed[0m[91m [0m[91mDataStructures ───────────── v0.17.19[0m[91m
+[0m[91m  Installed[0m[91m [0m[91mArpack_jll ───────────────── v3.5.0+3[0m[91m
 [0m[91m  Installed[0m[91m [0m[91mTimerOutputs ─────────────── v0.5.6[0m[91m
-[0m[91m  Installed[0m[91m [0m[91mUnitful ──────────────────── v1.3.0[0m[91m
-[0m[91m  Installed[0m[91m [0m[91mArrayLayouts ─────────────── v0.3.6[0m[91m
-[0m[91m  Installed[0m[91m [0m[91mShaderAbstractions ───────── v0.2.2[0m[91m
-[0m[91m  Installed[0m[91m [0m[91mChainRulesCore ───────────── v0.9.3[0m[91m
-[0m[91m  Installed[0m[91m [0m[91mStatsFuns ────────────────── v0.9.5[0m[91m
-[0m[91m  Installed[0m[91m [0m[91mLatexify ─────────────────── v0.13.5[0m[91m
-[0m[91m  Installed[0m[91m StructTypes ──────────────── v1.1.0
+[0m[91m  Installed[0m[91m [0m[91mShaderAbstractions ───────── v0.2.2
+[0m[91m  Installed [0m[91mArrayLayouts ─────────────── v0.3.6[0m[91m
+[0m[91m  Installed[0m[91m Unitful ──────────────────── v1.3.0[0m[91m
+[0m[91m  Installed[0m[91m [0m[91mStructTypes ──────────────── v1.1.0
+[0m[91m  Installed[0m[91m [0m[91mChainRulesCore ───────────── v0.9.3
 [0m[91m  Installed[0m[91m [0m[91mStringDistances ──────────── v0.6.5[0m[91m
-[0m[91m  Installed NameResolution ───────────── v0.1.3[0m[91m
-[0m[91m  Installed[0m[91m [0m[91mNaNMath ──────────────────── v0.3.4[0m[91m
-[0m[91m  Installed [0m[91mParameters ───────────────── v0.12.1[0m[91m
-[0m[91m  Installed[0m[91m [0m[91mDiffEqBase ───────────────── v6.40.7
-[0m[91m  Installed[0m[91m [0m[91mColorBrewer ──────────────── v0.4.0[0m[91m
-[0m[91m  Installed[0m[91m DiffRules ────────────────── v1.0.1[0m[91m
+[0m[91m  Installed[0m[91m [0m[91mStatsFuns ────────────────── v0.9.5[0m[91m
+[0m[91m  Installed[0m[91m [0m[91mNameResolution ───────────── v0.1.3[0m[91m
 [0m[91m  Installed[0m[91m [0m[91mStaticArrays ─────────────── v0.12.4[0m[91m
-[0m[91m  Installed [0m[91mConsoleProgressMonitor ───── v0.1.2
+[0m[91m  Installed[0m[91m [0m[91mLatexify ─────────────────── v0.13.5[0m[91m
+[0m[91m  Installed[0m[91m [0m[91mNaNMath ──────────────────── v0.3.4[0m[91m
+[0m[91m  Installed[0m[91m [0m[91mColorBrewer ──────────────── v0.4.0[0m[91m
+[0m[91m  Installed[0m[91m [0m[91mDiffRules ────────────────── v1.0.1[0m[91m
+[0m[91m  Installed[0m[91m [0m[91mParameters ───────────────── v0.12.1[0m[91m
+[0m[91m  Installed[0m[91m [0m[91mDiffEqBase ───────────────── v6.40.7[0m[91m
+[0m[91m  Installed[0m[91m [0m[91mAbstractPlotting ─────────── v0.11.2[0m[91m
+[0m[91m  Installed[0m[91m [0m[91mConsoleProgressMonitor ───── v0.1.2[0m[91m
+[0m[91m  Installed[0m[91m [0m[91mZygoteRules ──────────────── v0.2.0[0m[91m
 [0m[91m  Installed Zlib_jll ─────────────────── v1.2.11+14[0m[91m
-[0m[91m  Installed ZygoteRules ──────────────── v0.2.0[0m[91m
-[0m[91m  Installed[0m[91m [0m[91mLoopVectorization ────────── v0.8.17[0m[91m
-[0m[91m  Installed[0m[91m [0m[91mImageMagick_jll ──────────── v6.9.10-12+3[0m[91m
 [0m[91m  Installed[0m[91m [0m[91mRecipesPipeline ──────────── v0.1.11[0m[91m
 [0m[91m  Installed[0m[91m [0m[91mMbedTLS_jll ──────────────── v2.16.6+1[0m[91m
-[0m[91m  Installed[0m[91m [0m[91mFileIO ───────────────────── v1.3.0
-[0m[91m  Installed AxisArrays ───────────────── v0.4.3
-[0m[91m  Installed[0m[91m [0m[91mJSON3 ────────────────────── v1.1.0
-[0m[91m  Installed[0m[91m [0m[91mMETIS_jll ────────────────── v5.1.0+4[0m[91m
-[0m[91m  Installed[0m[91m [0m[91mSundials ─────────────────── v4.2.5[0m[91m
-[0m[91m  Installed [0m[91mCatIndices ───────────────── v0.2.1
-[0m[91m  Installed SuiteSparse_jll ──────────── v5.4.0+8[0m[91m
+[0m[91m  Installed[0m[91m [0m[91mImageMagick_jll ──────────── v6.9.10-12+3[0m[91m
+[0m[91m  Installed[0m[91m [0m[91mAxisArrays ───────────────── v0.4.3[0m[91m
+[0m[91m  Installed[0m[91m [0m[91mFileIO ───────────────────── v1.3.0[0m[91m
+[0m[91m  Installed[0m[91m [0m[91mJSON3 ────────────────────── v1.1.0[0m[91m
+[0m[91m  Installed[0m[91m [0m[91mLoopVectorization ────────── v0.8.17[0m[91m
+[0m[91m  Installed[0m[91m CatIndices ───────────────── v0.2.1
+[0m[91m  Installed[0m[91m METIS_jll ────────────────── v5.1.0+4[0m[91m
 [0m[91m  Installed[0m[91m [0m[91mFFTW_jll ─────────────────── v3.3.9+5[0m[91m
 [0m[91m  Installed[0m[91m [0m[91mFreeType ─────────────────── v3.0.1[0m[91m
-[0m[91m  Installed[0m[91m [0m[91mModelingToolkit ──────────── v3.13.0[0m[91m
-[0m[91m  Installed[0m[91m [0m[91mDiffEqJump ───────────────── v6.9.3[0m[91m
-[0m[91m  Installed[0m[91m [0m[91mIntelOpenMP_jll ──────────── v2018.0.3+0[0m[91m
-[0m[91m  Installed[0m[91m [0m[91mForwardDiff ──────────────── v0.10.12[0m[91m
+[0m[91m  Installed[0m[91m [0m[91mSundials ─────────────────── v4.2.5[0m[91m
+[0m[91m  Installed[0m[91m IntelOpenMP_jll ──────────── v2018.0.3+0[0m[91m
+[0m[91m  Installed ModelingToolkit ──────────── v3.13.0
 [0m[91m  Installed[0m[91m [0m[91mOpenBLAS_jll ─────────────── v0.3.9+5[0m[91m
 [0m[91m  Installed[0m[91m [0m[91mHTTP ─────────────────────── v0.8.16[0m[91m
+[0m[91m  Installed[0m[91m [0m[91mSuiteSparse_jll ──────────── v5.4.0+8
 [0m[91m  Installed[0m[91m [0m[91mIntervalSets ─────────────── v0.5.1[0m[91m
-[0m[91m  Installed [0m[91mPDMats ───────────────────── v0.9.12
+[0m[91m  Installed[0m[91m [0m[91mPDMats ───────────────────── v0.9.12[0m[91m
 [0m[91m  Installed[0m[91m [0m[91mNLSolversBase ────────────── v7.6.1[0m[91m
-[0m[91m  Installed VectorizationBase ────────── v0.12.21[0m[91m
-[0m[91m  Installed[0m[91m [0m[91mDiffEqNoiseProcess ───────── v5.1.0[0m[91m
-[0m[91m  Installed[0m[91m Rmath_jll ────────────────── v0.2.2+1
+[0m[91m  Installed[0m[91m [0m[91mForwardDiff ──────────────── v0.10.12[0m[91m
+[0m[91m  Installed[0m[91m [0m[91mDiffEqJump ───────────────── v6.9.3[0m[91m
+[0m[91m  Installed[0m[91m [0m[91mVectorizationBase ────────── v0.12.21[0m[91m
 [0m[91m  Installed[0m[91m [0m[91mNLsolve ──────────────────── v4.4.0[0m[91m
-[0m[91m  Installed[0m[91m [0m[91mArpack ───────────────────── v0.4.0
-[0m[91m  Installed EllipsisNotation ─────────── v0.4.0[0m[91m
-[0m[91m  Installed ProgressMeter ────────────── v1.3.2
-[0m[91m  Installed[0m[91m PrettyPrint ──────────────── v0.1.0
-[0m[91m  Installed Rmath ────────────────────── v0.6.1
-[0m[91m  Installed LabelledArrays ───────────── v1.3.0[0m[91m
-[0m[91m  Installed[0m[91m [0m[91mImageCore ────────────────── v0.8.14[0m[91m
+[0m[91m  Installed[0m[91m [0m[91mRmath_jll ────────────────── v0.2.2+1[0m[91m
+[0m[91m  Installed[0m[91m DiffEqNoiseProcess ───────── v5.1.0[0m[91m
+[0m[91m  Installed[0m[91m [0m[91mProgressMeter ────────────── v1.3.2[0m[91m
+[0m[91m  Installed[0m[91m Arpack ───────────────────── v0.4.0[0m[91m
+[0m[91m  Installed[0m[91m [0m[91mEllipsisNotation ─────────── v0.4.0[0m[91m
+[0m[91m  Installed[0m[91m [0m[91mPrettyPrint ──────────────── v0.1.0[0m[91m
+[0m[91m  Installed[0m[91m [0m[91mRmath ────────────────────── v0.6.1[0m[91m
 [0m[91m  Installed[0m[91m [0m[91mVertexSafeGraphs ─────────── v0.1.2[0m[91m
+[0m[91m  Installed[0m[91m [0m[91mLabelledArrays ───────────── v1.3.0[0m[91m
 [0m[91m  Installed[0m[91m [0m[91mQuartzImageIO ────────────── v0.7.1[0m[91m
-[0m[91m  Installed[0m[91m Graphics ─────────────────── v1.0.2
-[0m[91m  Installed GeometryBasics ───────────── v0.2.15[0m[91m
+[0m[91m  Installed[0m[91m [0m[91mImageCore ────────────────── v0.8.14[0m[91m
+[0m[91m  Installed[0m[91m [0m[91mGraphics ─────────────────── v1.0.2[0m[91m
 [0m[91m  Installed[0m[91m [0m[91mFreeTypeAbstraction ──────── v0.8.0[0m[91m
-[0m[91m  Installed[0m[91m [0m[91mGeneralizedGenerated ─────── v0.2.4[0m[91m
-[0m[91m  Installed[0m[91m [0m[91mCEnum ────────────────────── v0.4.1[0m[91m
+[0m[91m  Installed[0m[91m [0m[91mGeometryBasics ───────────── v0.2.15[0m[91m
 [0m[91m  Installed[0m[91m [0m[91mIdentityRanges ───────────── v0.3.1[0m[91m
 [0m[91m  Installed[0m[91m [0m[91mTerminalLoggers ──────────── v0.1.2[0m[91m
+[0m[91m  Installed [0m[91mGeneralizedGenerated ─────── v0.2.4[0m[91m
+[0m[91m  Installed[0m[91m [0m[91mCEnum ────────────────────── v0.4.1[0m[91m
 [0m[91m  Installed[0m[91m [0m[91mImageQualityIndexes ──────── v0.1.4[0m[91m
-[0m[91m  Installed[0m[91m [0m[91mAbstractAlgebra ──────────── v0.9.2[0m[91m
-[0m[91m  Installed[0m[91m [0m[91mPNGFiles ─────────────────── v0.2.1[0m[91m
-[0m[91m  Installed ConstructionBase ─────────── v1.0.0[0m[91m
-[0m[91m  Installed Inflate ──────────────────── v0.1.2
-[0m[91m  Installed[0m[91m [0m[91mRotations ────────────────── v1.0.1[0m[91m
-[0m[91m  Installed[0m[91m [0m[91mLLVM ─────────────────────── v2.0.0[0m[91m
-[0m[91m  Installed[0m[91m [0m[91mOrdinaryDiffEq ───────────── v5.41.0[0m[91m
-[0m[91m  Installed[0m[91m [0m[91mMappedArrays ─────────────── v0.2.2[0m[91m
-[0m[91m  Installed FFTW ─────────────────────── v1.2.2[0m[91m
+[0m[91m  Installed[0m[91m PNGFiles ─────────────────── v0.2.1[0m[91m
 [0m[91m  Installed[0m[91m [0m[91mJpegTurbo_jll ────────────── v2.0.1+1[0m[91m
-[0m[91m  Installed[0m[91m [0m[91mSLEEFPirates ─────────────── v0.5.4[0m[91m
+[0m[91m  Installed[0m[91m [0m[91mConstructionBase ─────────── v1.0.0[0m[91m
+[0m[91m  Installed[0m[91m [0m[91mInflate ──────────────────── v0.1.2[0m[91m
+[0m[91m  Installed[0m[91m [0m[91mRotations ────────────────── v1.0.1[0m[91m
+[0m[91m  Installed [0m[91mAbstractAlgebra ──────────── v0.9.2[0m[91m
+[0m[91m  Installed [0m[91mLLVM ─────────────────────── v2.0.0[0m[91m
+[0m[91m  Installed[0m[91m [0m[91mOrdinaryDiffEq ───────────── v5.41.0[0m[91m
 [0m[91m  Installed[0m[91m [0m[91mlibpng_jll ───────────────── v1.6.37+3[0m[91m
+[0m[91m  Installed[0m[91m [0m[91mMappedArrays ─────────────── v0.2.2[0m[91m
 [0m[91m  Installed[0m[91m [0m[91mZstd_jll ─────────────────── v1.4.5+0[0m[91m
-[0m[91m  Installed[0m[91m [0m[91mStructArrays ─────────────── v0.4.4[0m[91m
+[0m[91m  Installed[0m[91m [0m[91mCpuId ────────────────────── v0.2.2[0m[91m
+[0m[91m  Installed[0m[91m [0m[91mFFTW ─────────────────────── v1.2.2[0m[91m
+[0m[91m  Installed[0m[91m [0m[91mSLEEFPirates ─────────────── v0.5.4[0m[91m
 [0m[91m  Installed[0m[91m [0m[91mRangeArrays ──────────────── v0.3.2[0m[91m
 [0m[91m  Installed[0m[91m [0m[91mParameterizedFunctions ───── v5.4.0[0m[91m
-[0m[91m  Installed[0m[91m [0m[91mCpuId ────────────────────── v0.2.2[0m[91m
-[0m[91m  Installed Interpolations ───────────── v0.12.10
-[0m[91m  Installed[0m[91m [0m[91mBoundaryValueDiffEq ──────── v2.5.0[0m[91m
+[0m[91m  Installed[0m[91m [0m[91mIterTools ────────────────── v1.3.0[0m[91m
 [0m[91m  Installed[0m[91m [0m[91mTiledIteration ───────────── v0.2.4[0m[91m
-[0m[91m  Installed [0m[91mIterTools ────────────────── v1.3.0
-[0m[91m  Installed[0m[91m RandomNumbers ────────────── v1.4.0[0m[91m
-[0m[91m  Installed[0m[91m ResettableStacks ─────────── v1.0.0[0m[91m
-[0m[91m  Installed TreeViews ────────────────── v0.3.0[0m[91m
-[0m[91m  Installed[0m[91m [0m[91mColors ───────────────────── v0.12.3[0m[91m
+[0m[91m  Installed[0m[91m [0m[91mBoundaryValueDiffEq ──────── v2.5.0[0m[91m
+[0m[91m  Installed[0m[91m [0m[91mStructArrays ─────────────── v0.4.4[0m[91m
+[0m[91m  Installed[0m[91m [0m[91mResettableStacks ─────────── v1.0.0[0m[91m
+[0m[91m  Installed[0m[91m [0m[91mTreeViews ────────────────── v0.3.0[0m[91m
 [0m[91m  Installed[0m[91m [0m[91mExponentialUtilities ─────── v1.7.0[0m[91m
-[0m[91m  Installed[0m[91m [0m[91mBandedMatrices ───────────── v0.15.15[0m[91m
 [0m[91m  Installed[0m[91m [0m[91mImageTransformations ─────── v0.8.5[0m[91m
-[0m[91m  Installed AbstractTrees ────────────── v0.3.3
-[0m[91m  Installed[0m[91m [0m[91mPacking ──────────────────── v0.4.0[0m[91m
-[0m[91m  Installed[0m[91m [0m[91mDimensionalPlotRecipes ───── v1.2.0[0m[91m
-[0m[91m  Installed[0m[91m [0m[91mDiffEqCallbacks ──────────── v2.13.4
+[0m[91m  Installed [0m[91mColors ───────────────────── v0.12.3[0m[91m
+[0m[91m  Installed[0m[91m [0m[91mBandedMatrices ───────────── v0.15.15[0m[91m
+[0m[91m  Installed[0m[91m [0m[91mRandomNumbers ────────────── v1.4.0[0m[91m
+[0m[91m  Installed[0m[91m [0m[91mInterpolations ───────────── v0.12.10
 [0m[91m  Installed[0m[91m [0m[91mMultiScaleArrays ─────────── v1.8.1[0m[91m
-[0m[91m  Installed OrderedCollections ───────── v1.3.0[0m[91m
-[0m[91m  Installed [0m[91mUnicodeFun ───────────────── v0.4.1
+[0m[91m  Installed[0m[91m [0m[91mAbstractTrees ────────────── v0.3.3
+[0m[91m  Installed[0m[91m [0m[91mDimensionalPlotRecipes ───── v1.2.0[0m[91m
+[0m[91m  Installed[0m[91m [0m[91mPacking ──────────────────── v0.4.0[0m[91m
+[0m[91m  Installed[0m[91m [0m[91mUnicodeFun ───────────────── v0.4.1[0m[91m
 [0m[91m  Installed[0m[91m [0m[91mWidgetsBase ──────────────── v0.1.2[0m[91m
-[0m[91m  Installed[0m[91m [0m[91mSteadyStateDiffEq ────────── v1.5.1[0m[91m
-[0m[91m  Installed FiniteDiff ───────────────── v2.4.1[0m[91m
+[0m[91m  Installed[0m[91m [0m[91mOrderedCollections ───────── v1.3.0[0m[91m
+[0m[91m  Installed[0m[91m [0m[91mDiffEqCallbacks ──────────── v2.13.4[0m[91m
+[0m[91m  Installed[0m[91m SteadyStateDiffEq ────────── v1.5.1[0m[91m
+[0m[91m  Installed FixedPointNumbers ────────── v0.7.1
+[0m[91m  Installed[0m[91m [0m[91mFiniteDiff ───────────────── v2.4.1
 [0m[91m  Installed[0m[91m [0m[91mFillArrays ───────────────── v0.8.13[0m[91m
-[0m[91m  Installed[0m[91m [0m[91mFixedPointNumbers ────────── v0.7.1[0m[91m
-[0m[91m  Installed [0m[91mLibtiff_jll ──────────────── v4.1.0+0[0m[91m
-[0m[91m  Installed [0m[91mOffsetArrays ─────────────── v1.1.1
-[0m[91m  Installed [0m[91mCrayons ──────────────────── v4.0.3[0m[91m
+[0m[91m  Installed[0m[91m [0m[91mOffsetArrays ─────────────── v1.1.1[0m[91m
+[0m[91m  Installed[0m[91m [0m[91mCrayons ──────────────────── v4.0.3[0m[91m
+[0m[91m  Installed[0m[91m [0m[91mLibtiff_jll ──────────────── v4.1.0+0[0m[91m
+[0m[91m  Installed[0m[91m [0m[91mRatios ───────────────────── v0.4.0[0m[91m
 [0m[91m  Installed[0m[91m [0m[91mParsers ──────────────────── v1.0.7[0m[91m
-[0m[91m  Installed [0m[91mLightGraphs ──────────────── v1.3.3[0m[91m
-[0m[91m  Installed Ratios ───────────────────── v0.4.0[0m[91m
-[0m[91m  Installed Roots ────────────────────── v1.0.3
+[0m[91m  Installed[0m[91m [0m[91mRoots ────────────────────── v1.0.3[0m[91m
+[0m[91m  Installed[0m[91m [0m[91mSymbolicUtils ────────────── v0.4.3[0m[91m
+[0m[91m  Installed LightGraphs ──────────────── v1.3.3
 [0m[91m  Installed RecursiveArrayTools ──────── v2.5.0
-[0m[91m  Installed MuladdMacro ──────────────── v0.2.2
 [0m[91m  Installed CommonSubexpressions ─────── v0.3.0
-[0m[91m  Installed SymbolicUtils ────────────── v0.4.3
-[0m[91m######################################################################## [0m[91m100.0%[0m[91m#=#=#                                                                         [0m[91m                                                                         [0m[91m  0.7%[0m[91m###                                                                        4.3%[0m[91m#####################                     [0m[91m                                30.2%[0m[91m####################################################################     [0m[91m 94.7%[0m[91m##############[0m[91m########################################################## [0m[91m100.0%[0m[91m
-[0m[91m###############################[0m[91m######################################### 100.0%[0m[91m#=#=#                                                                         [0m[91m########################  [0m[91m                                                33.9%[0m[91m#########################################################                 80.[0m[91m4%[0m[91m######################################################################## 100.0%[0m[91m
-[0m[91m######################################################################## 100.0%[0m[91m#=#=#                                                                         [0m[91m#######           [0m[91m                                                        1[0m[91m0[0m[91m.[0m[91m5[0m[91m%[0m[91m########################################[0m[91m#####################[0m[91m##           88[0m[91m.4%[0m[91m##################################[0m[91m###################################### 100.0%[0m[91m
-[0m[91m##########################[0m[91m############################################## [0m[91m100.0%[0m[91m#=#=#                                                                         [0m[91m                                                         [0m[91m        [0m[91m          0.8%[0m[91m###                       [0m[91m                    [0m[91m        [0m[91m      [0m[91m        [0m[91m [0m[91m    [0m[91m  5.5%[0m[91m#[0m[91m###########################[0m[91m##          [0m[91m                         [0m[91m         41.9%[0m[91m######################################################################## [0m[91m100.0%
-[0m[91m######################################################################## [0m[91m100.0%[0m[91m#=#=#                                                                         [0m[91m###   [0m[91m                                  [0m[91m                                 [0m[91m  5.5%[0m[91m[0m[91m##############################                [0m[91m                       [0m[91m    [0m[91m 42.2%[0m[91m########################################################################[0m[91m 100.0%
-[0m[91m######################################################################## [0m[91m100.0%[0m[91m#=#=#                                                                         [0m[91m###########                                                              [0m[91m 16.3%[0m[91m###################################[0m[91m#####################                  77.9%[0m[91m###########[0m[91m###########################################################[0m[91m## 100.0%[0m[91m
-[0m[91m######################################################################## [0m[91m100.0%[0m[91m#=#=#                                                                         [0m[91m#                                        [0m[91m                                  [0m[91m2.7%[0m[91m###                                          [0m[91m [0m[91m                            [0m[91m 5.5%[0m[91m#######                                                  [0m[91m                  9.8%[0m[91m#########             [0m[91m           [0m[91m                        [0m[91m         [0m[91m        12.6%[0m[91m############             [0m[91m                   [0m[91m                              16.8%[0m[91m###############                                           [0m[91m               [0m[91m 21.1%[0m[91m##################                                                       [0m[91m 25.3%[0m[91m###################[0m[91m##                                                     29.6%[0m[91m#########################                                                 35.2%[0m[91m###########################[0m[91m##                                             40.9%[0m[91m###########################[0m[91m######                                         46.5%[0m[91m####################################                                     [0m[91m 50.8%[0m[91m#########################################                                 57.8%[0m[91m############################################[0m[91m#                             63.5%[0m[91m#################################################                         69.2[0m[91m%[0m[91m#####################################################                    [0m[91m 74.8%[0m[91m#########################################################                 80.4%[0m[91m##############################################################            86.2%[0m[91m###################################################################       93.2%[0m[91m######################################################################## 100.0%
-[0m[91m######################################################################## 100.0%[0m[91m#=#=#                                                                         [0m[91m#                                                                          2.3%[0m[91m[0m[91m############                  [0m[91m                                            17.7%[0m[91m######################################################################## 100.0%
-[0m[91m#=#=#                                                                         [0m[91m######################################################################## 100.[0m[91m0%[0m[91m##O#- #                                                                       [0m[91m#####                                                                      7.3%[0m[91m####################################                                     [0m[91m 51.1%[0m[91m######################################################################## 100.0%[0m[91m
-[0m[91m###############################[0m[91m##############################[0m[91m########### 100.0%[0m[91m#=#=#                                                                         [0m[91m                                                                         [0m[91m  0.2%[0m[91m#                                                                          1.9%[0m[91m##                                                                         4.1%[0m[91m####                                 [0m[91m                                      5.6%[0m[91m#####       [0m[91m                                                               7.4%[0m[91m######                 [0m[91m                                                    9.1%[0m[91m#######                                                                  [0m[91m 10.7%[0m[91m########                                       [0m[91m                           12.4%[0m[91m##########                                               [0m[91m                 14.2%[0m[91m###########                                          [0m[91m                     15.9%[0m[91m############                                                     [0m[91m         17.7%[0m[91m#############[0m[91m#                                                            19.6%[0m[91m###############                      [0m[91m                                     21.4%[0m[91m################        [0m[91m                                                  23.3%[0m[91m##################                                                       [0m[91m 25.0%[0m[91m###################                          [0m[91m                             26.6%[0m[91m####################                                                      28.5%[0m[91m######################                                                    30.7%[0m[91m#######################                                 [0m[91m                  33.0%[0m[91m#########################                        [0m[91m                         35.3%[0m[91m###########################                                     [0m[91m          37.9%[0m[91m#############################                                             40.4%[0m[91m###############################                                           43.1%[0m[91m################################                                          45.5%[0m[91m##################################                                        48.2%[0m[91m####################################                                      50.5%[0m[91m######################################                                    53.6%[0m[91m########################################          [0m[91m                        56.7%[0m[91m###########################################                               60.0%[0m[91m#############################################                            [0m[91m 63.3%[0m[91m################################################                          67.0%[0m[91m##################################################                        70.7%[0m[91m########[0m[91m#############################################                     74.2%[0m[91m#######################################################                   77.5%[0m[91m##########################################################                81.0%[0m[91m############################################################              84.3%[0m[91m###############################################################           87.6%[0m[91m##########################################[0m[91m########################        91.7%[0m[91m##########################################[0m[91m#########################       94.2%[0m[91m#####################################################################     96[0m[91m.6%[0m[91m##################################################[0m[91m#####################   99.7%[0m[91m######################################################[0m[91m################## 100.0%
-[0m[91m#=#=#                                                                         [0m[91m######################################################################## [0m[91m100.0%[0m[91m##O#- #                                                                       [0m[91m####################                                                      27.9%[0m[91m######################################################################## 100.0%[0m[91m
-[0m[91m######################################################################## [0m[91m100.0%[0m[91m#=#=#                                                                         [0m[91m#                                                                        [0m[91m  1.5%[0m[91m########                                                                  11.1%[0m[91m##################################################[0m[91m####################    98.0%####[0m[91m############################[0m[91m######################[0m[91m################## 100.0%[0m[91m
-[0m[91m######################################################################## [0m[91m100.0%[0m[91m#=#=#                                                                         [0m[91m##                                                                         3.9%[0m[91m#############################################[0m[91m                             63.6%[0m[91m######################################################################## [0m[91m100.0%
-[0m[91m#############################################[0m[91m########################### 100.0%[0m[91m#=#=#                                                                         [0m[91m########                                                                 [0m[91m 12.3%[0m[91m###############################################                          [0m[91m 65.8%[0m[91m######################################################################## 100.0%
-[0m[91m######################################[0m[91m################################## 100.0%[0m[91m#=#=#                                                                         [0m[91m                                                                           1.3%[0m[91m#######                                                                    [0m[91m9.8%[0m[91m##############################################                            64.7%[0m[91m######################################################################## 100.0%
+[0m[91m  Installed MuladdMacro ──────────────── v0.2.2
+[0m[91m#=#=#                                                                         [0m[91m######################################################################## [0m[91m100.0%[0m[91m##O#- #                                                                       [0m[91m######################################################################## 100.0%
+[0m[91m########################################[0m[91m################################ 100.0%[0m[91m#=#=#                                                                         [0m[91m#######################[0m[91m################################################# [0m[91m10[0m[91m0.0%[0m[91m
+[0m[91m######################################################################## 100.0%[0m[91m#####################################[0m[91m######################[0m[91m#[0m[91m#[0m[91m#[0m[91m#[0m[91m######### 100.0%[0m[91m
+[0m[91m############################[0m[91m############################################ 100.0%[0m[91m#################################################                         68.6%[0m[91m######################################################################## 100.0%[0m[91m
+[0m[91m###########################[0m[91m#[0m[91m############################################ 100.0%[0m[91m######################################################################## 100.0%[0m[91m
+[0m[91m##########################################[0m[91m########################[0m[91m###### 100.0%[0m[91m#=#=#                                                                         [0m[91m################################[0m[91m######################################## [0m[91m100.0%[0m[91m
+[0m[91m######################################################################## [0m[91m100.0%[0m[91m#####################################[0m[91m################################### 100.0[0m[91m%[0m[91m
+[0m[91m#=#=#                                                                         [0m[91m############################[0m[91m##########[0m[91m######################[0m[91m#########[0m[91m### 10[0m[91m0.0%[0m[91m#############[0m[91m######                                            [0m[91m          [0m[91m 27.0%[0m[91m############################################[0m[91m############################ 100.0%
+[0m[91m##########################[0m[91m############################################## 100.0%[0m[91m#=#=#                                                                         [0m[91m##########################################[0m[91m###########[0m[91m################### 10[0m[91m0.0%[0m[91m
+[0m[91m#=#=#                                                                         [0m[91m##O#- #                                                                       ###################[0m[91m###########[0m[91m#########################[0m[91m################# 100.0%[0m[91m#####                                                                      7.4%[0m[91m####################################[0m[91m#################################### 100.0%
+[0m[91m######################################################################## 100.0%[0m[91m############[0m[91m###################[0m[91m######################################### 100.0[0m[91m%[0m[91m
+[0m[91m######################################################################## 100.0%[0m[91m######################################################################## 100.0%
+[0m[91m######################################################################## [0m[91m100.0%[0m[91m###########################################################[0m[91m############# [0m[91m100.0%
+[0m[91m##################################################[0m[91m###################### [0m[91m100.0%[0m[91m##################################[0m[91m###################################### 100.0%
+[0m[91m######################################################################## 100.0%[0m[91m#######################                                                   32.3%[0m[91m####################################[0m[91m#################################### 100.0%[0m[91m
 [0m[91m   Updating `/work/Project.toml`
 [0m[91m  [537997a7] + AbstractPlotting v0.11.2
 [0m[91m  [6e4b80f9] + BenchmarkTools v0.5.0
 [0m[91m  [0c46a032] + DifferentialEquations v6.15.0
 [0m[91m  [31c24e10] + Distributions v0.23.4
-  [713c75ef] + Franklin v0.8.6
-[0m[91m  [28b8d3ca] + GR v0.49.1
+[0m[91m  [713c75ef] + Franklin v0.8.6
+[0m[91m  [28b8d3ca][0m[91m + GR v0.50.1
 [0m[91m  [d7fcca20] + ImageContainers v0.1.0
-[0m[91m  [82e4d734] + ImageIO v0.2.0
-[0m[91m  [6218d12a] + ImageMagick v1.1.5
+[0m[91m  [82e4d734][0m[91m + ImageIO v0.2.0
+[0m[91m  [6218d12a][0m[91m + ImageMagick v1.1.5
 [0m[91m  [4e3cecfd] + ImageShow v0.2.3
 [0m[91m  [916415d5] + Images v0.22.4
-  [682c06a0] + JSON v0.21.0
+[0m[91m  [682c06a0] + JSON v0.21.0
 [0m[91m  [824d6782] + JSServe v0.6.8
 [0m[91m  [97e4c2e4] + JSXGraph v0.1.6
-  [b964fa9f][0m[91m + LaTeXStrings v1.1.0
-  [98b081ad] + Literate v2.5.0
-[0m[91m  [2bd173c7] + NodeJS v1.1.1
-[0m[91m  [47be7bcc] + ORCA v0.3.1
+[0m[91m  [b964fa9f][0m[91m + LaTeXStrings v1.1.0
+[0m[91m  [98b081ad][0m[91m + Literate v2.5.0
+[0m[91m  [2bd173c7][0m[91m + NodeJS v1.1.1
+[0m[91m  [47be7bcc][0m[91m + ORCA v0.3.1
 [0m[91m  [5fb14364] + OhMyREPL v0.5.5
 [0m[91m  [f0f68f2c] + PlotlyJS v0.13.1
 [0m[91m  [91a5bcdd] + Plots v1.5.4
@@ -285,7 +286,7 @@ Step 14/18 : RUN rm /work/Manifest.toml && julia --project=/work -e 'using Pkg; 
 [0m[91m  [5e47fb64] + TestImages v1.1.0
 [0m[91m  [276b4fcb] + WGLMakie v0.2.5
 [0m[91m  [44d3d7a6] + Weave v0.10.2
-[0m[91m   Updating `/work/Manifest.toml`
+   Updating [0m[91m`/work/Manifest.toml`
 [0m[91m  [c3fe647b] + AbstractAlgebra v0.9.2
 [0m[91m  [621f4979] + AbstractFFTs v0.5.0
 [0m[91m  [537997a7] + AbstractPlotting v0.11.2
@@ -296,7 +297,7 @@ Step 14/18 : RUN rm /work/Manifest.toml && julia --project=/work -e 'using Pkg; 
 [0m[91m  [68821587] + Arpack_jll v3.5.0+3
 [0m[91m  [4fba245c] + ArrayInterface v2.9.1
 [0m[91m  [4c555306] + ArrayLayouts v0.3.6
-[0m[91m [0m[91m [bf4720bc] + AssetRegistry v0.1.0
+[0m[91m  [bf4720bc] + AssetRegistry v0.1.0
 [0m[91m  [13072b0f] + AxisAlgorithms v1.0.0
 [0m[91m  [39de3d68] + AxisArrays v0.4.3
 [0m[91m  [aae01518] + BandedMatrices v0.15.15
@@ -370,7 +371,7 @@ Step 14/18 : RUN rm /work/Manifest.toml && julia --project=/work -e 'using Pkg; 
 [0m[91m  [559328eb] + FriBidi_jll v1.0.5+3
 [0m[91m  [069b7b12] + FunctionWrappers v1.1.1
 [0m[91m  [de31a74c] + FunctionalCollections v0.5.0
-[0m[91m  [28b8d3ca] + GR v0.49.1
+[0m[91m  [28b8d3ca] + GR v0.50.1
 [0m[91m  [6b9d7cbe] + GeneralizedGenerated v0.2.4
 [0m[91m  [01680d73] + GenericSVD v0.3.0
 [0m[91m  [5c1252a2] + GeometryBasics v0.2.15
@@ -557,9 +558,9 @@ Step 14/18 : RUN rm /work/Manifest.toml && julia --project=/work -e 'using Pkg; 
   [ade2ca70] + Dates 
   [8bb1440f] + DelimitedFiles 
   [8ba89e20] + Distributed 
-[0m[91m  [7b1f6079] + FileWatching 
+  [7b1f6079] + FileWatching 
   [b77e0a4c] + InteractiveUtils 
-  [76f85450] + LibGit2 
+  [76f85450][0m[91m + LibGit2 
   [8f399da3] + Libdl 
   [37e2e46d] + LinearAlgebra 
   [56ddb016] + Logging 
@@ -574,16 +575,17 @@ Step 14/18 : RUN rm /work/Manifest.toml && julia --project=/work -e 'using Pkg; 
   [1a1011a3] + SharedArrays 
   [6462fe0b] + Sockets 
   [2f01184e] + SparseArrays 
-  [10745b16][0m[91m + Statistics 
+  [10745b16] + Statistics 
   [4607b0f0] + SuiteSparse 
   [8dfed614] + Test 
   [cf7118a7] + UUIDs 
-  [4ec0a83e] + Unicode 
+[0m[91m  [4ec0a83e] + Unicode 
 [0m[91m   Building Remark ──────→ `~/.julia/packages/Remark/OMbcR/deps/build.log`
+[0m[91m   Building GR ──────────→ `~/.julia/packages/GR/Atztx/deps/build.log`
 [0m[91m   Building Plots ───────→ `~/.julia/packages/Plots/jpF9l/deps/build.log`
-[0m[91m   Building TestImages ──→ `~/.julia/packages/TestImages/cc9Cr/deps/build.log`[0m[91m
+[0m[91m   Building TestImages ──→ `~/.julia/packages/TestImages/cc9Cr/deps/build.log`
 [0m[91m   Building ORCA ────────→ `~/.julia/packages/ORCA/fiEmb/deps/build.log`
-[0m[91m   Building FFTW ────────→ `~/.julia/packages/FFTW/kcXL6/deps/build.log`[0m[91m
+[0m[91m   Building FFTW ────────→ `~/.julia/packages/FFTW/kcXL6/deps/build.log`
 [0m[91m   Building SLEEFPirates → `~/.julia/packages/SLEEFPirates/QzifL/deps/build.log`
 [0m[91mPrecompiling project...
 [0m[91mWARNING: using HTTP.stack in module Mux conflicts with an existing identifier.
@@ -591,7 +593,7 @@ Step 14/18 : RUN rm /work/Manifest.toml && julia --project=/work -e 'using Pkg; 
 Commit 44fa15b150* (2020-05-23 18:35 UTC)
 Platform Info:
   OS: Linux (x86_64-pc-linux-gnu)
-  CPU: Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz
+  CPU: Intel(R) Xeon(R) Platinum 8171M CPU @ 2.60GHz
   WORD_SIZE: 64
   LIBM: libopenlibm
   LLVM: libLLVM-8.0.1 (ORCJIT, skylake)
@@ -600,23 +602,23 @@ Environment:
   JULIA_PATH = /usr/local/julia
   JULIA_PROJECT = /work
   JULIA_VERSION = 1.4.2
-Removing intermediate container c61b1311752c
- ---> c41cdfc56194
+Removing intermediate container abc19fd0bcb2
+ ---> 3044b577a28b
 Step 15/18 : ENV GKSwstype=100
- ---> Running in d0270725e39e
-Removing intermediate container d0270725e39e
- ---> 5def3e71683d
+ ---> Running in a05fbf269e43
+Removing intermediate container a05fbf269e43
+ ---> 74dace6a269f
 Step 16/18 : ENV JULIA_NUM_THREADS=4
- ---> Running in 501ab1c5ba1d
-Removing intermediate container 501ab1c5ba1d
- ---> 69bed7c24f14
+ ---> Running in c90a5648c46d
+Removing intermediate container c90a5648c46d
+ ---> a81eaa5b0155
 Step 17/18 : EXPOSE 8000
- ---> Running in c8083637be23
-Removing intermediate container c8083637be23
- ---> d967599e5740
+ ---> Running in 15da9ebdb846
+Removing intermediate container 15da9ebdb846
+ ---> 5b02af1c58d4
 Step 18/18 : CMD ["julia"]
- ---> Running in 3a8048ac8440
-Removing intermediate container 3a8048ac8440
- ---> 3ece049385c5
-Successfully built 3ece049385c5
+ ---> Running in 6807d790fd95
+Removing intermediate container 6807d790fd95
+ ---> 51f577d29451
+Successfully built 51f577d29451
 Successfully tagged my_awesome_image:latest
