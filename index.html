@@ -119,10 +119,10 @@ versioninfo()</code></pre>
 Commit 44fa15b150* (2020-05-23 18:35 UTC)
 Platform Info:
   OS: Linux (x86_64-pc-linux-gnu)
-  CPU: Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz
+  CPU: Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz
   WORD_SIZE: 64
   LIBM: libopenlibm
-  LLVM: libLLVM-8.0.1 (ORCJIT, haswell)
+  LLVM: libLLVM-8.0.1 (ORCJIT, skylake)
 Environment:
   JULIA_PATH = /usr/local/julia
   JULIA_GPG = 3673DF529D9049477F76B37566E3C7DC03D6E495
@@ -165,11 +165,11 @@ y = sin(x)
 <h1 id="グラフの描画"><a href="#グラフの描画">グラフの描画</a></h1>            
 <code>PyPlot</code>, <code>gr,pyplot,plotlyjs</code> をバックエンドとする <code>Plots.jl</code>, <code>PlotlyJS.jl</code> を用いた場合で確認している.</p>
 <h2 id="pyplot"><a href="#pyplot">PyPlot</a></h2>
-<pre><code class="julia hljs"><span class="hljs-keyword">using</span> PyPlot
-figure(figsize=(<span class="hljs-number">8</span>, <span class="hljs-number">6</span>))
+<pre><code class="julia hljs"><span class="hljs-keyword">import</span> PyPlot
+PyPlot.figure(figsize=(<span class="hljs-number">8</span>, <span class="hljs-number">6</span>))
 x = range(-<span class="hljs-number">2</span>, <span class="hljs-number">2</span>, length=<span class="hljs-number">500</span>)
-<span class="hljs-keyword">for</span> α <span class="hljs-keyword">in</span> <span class="hljs-number">1</span>:<span class="hljs-number">4</span>
-    PyPlot.plot(x, @. sinc(α * x))
+<span class="hljs-keyword">for</span> α <span class="hljs-keyword">in</span> <span class="hljs-number">1</span>:<span class="hljs-number">5</span>
+    PyPlot.plot(x, sinc.(α .* x))
 <span class="hljs-keyword">end</span></code></pre>
 <img src="/MathSeminar.jl/assets/index/code/output/sinc.svg" alt="">
 <h2 id="plots_gr_backend"><a href="#plots_gr_backend">Plots &#40;GR Backend&#41;</a></h2>
@@ -181,7 +181,8 @@ Plots.plot(rand(<span class="hljs-number">10</span>), title=<span class="hljs-st
 <h2 id="plots_pyplot_backend"><a href="#plots_pyplot_backend">Plots &#40;PyPlot Backend&#41;</a></h2>
 <pre><code class="julia hljs"><span class="hljs-keyword">using</span> Plots
 pyplot()
-Plots.plot(sin, title=<span class="hljs-string">L&quot;y=\sin x&quot;</span>)</code></pre>
+Plots.plot(sin, title=<span class="hljs-string">L&quot;y=\sin x&quot;</span>)
+gr()</code></pre>
 <img src="/MathSeminar.jl/assets/index/code/output/pyplotbkend.svg" alt="">
    <div class="remark">4.1.0 &#40;Plotly/PlotlyJS について&#41; <br/>  <code>Plotly</code>, または <code>PlotlyJS</code> による例はサイドメニューのページを参照</div>
 <h1 id="python_のコードの実行結果の表示"><a href="#python_のコードの実行結果の表示">Python のコードの実行結果の表示</a></h1>            

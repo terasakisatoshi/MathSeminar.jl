@@ -3,3 +3,4 @@ using Plots
 pyplot()
 Plots.plot(sin, title=L"y=\sin x")
 Plots.savefig(joinpath(@OUTPUT, "pyplotbkend.svg")) # hide
+gr()
