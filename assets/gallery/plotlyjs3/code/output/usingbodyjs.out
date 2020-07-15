@@ -1,4 +1,4 @@
-~~~<div id="fdpdhs" style="width:400px;height:300x"></div> <script>     PLOT = document.getElementById('fdpdhs');
+~~~<div id="fdplgj" style="width:400px;height:300x"></div> <script>     PLOT = document.getElementById('fdplgj');
     Plotly.plot(PLOT, [
     {
         "xaxis": "x1",
@@ -1963,7 +1963,8 @@
         }
     },
     "legend": {
-        "tracegroupgap": 0,
+        "yanchor": "auto",
+        "xanchor": "auto",
         "bordercolor": "rgba(0, 0, 0, 1.000)",
         "bgcolor": "rgba(255, 255, 255, 1.000)",
         "font": {
@@ -1971,7 +1972,10 @@
             "family": "sans-serif",
             "size": 11
         },
+        "tracegroupgap": 0,
         "y": 1.0,
+        "borderwidth": 1,
+        "traceorder": "normal",
         "x": 1.0
     },
     "width": 600

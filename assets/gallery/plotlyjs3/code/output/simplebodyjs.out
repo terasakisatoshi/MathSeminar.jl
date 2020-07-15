@@ -1,4 +1,4 @@
-~~~<div id="fdpjhc" style="width:400px;height:300x"></div> <script>     PLOT = document.getElementById('fdpjhc');
+~~~<div id="fdphus" style="width:400px;height:300x"></div> <script>     PLOT = document.getElementById('fdphus');
     Plotly.plot(PLOT, [
     {
         "xaxis": "x1",
@@ -31,16 +31,16 @@
             "width": 1
         },
         "y": [
-            0.36258953642274894,
-            0.111696893388195,
-            0.6816009784939971,
-            0.3732337883714154,
-            0.27235722890525427,
-            0.1435573354173525,
-            0.626523006995584,
-            0.3123970793759372,
-            0.8472060442896698,
-            0.8971131752600121
+            0.7157972538561255,
+            0.16181343860289177,
+            0.28684040470725947,
+            0.014835864171255597,
+            0.5029165291666473,
+            0.784754944239509,
+            0.001124167789452013,
+            0.12000533324081508,
+            0.3752650316608297,
+            0.4063006740907724
         ],
         "type": "scatter"
     }
@@ -112,6 +112,7 @@
         "showticklabels": true,
         "gridwidth": 0.5,
         "tickvals": [
+            0.0,
             0.2,
             0.4,
             0.6000000000000001,
@@ -120,8 +121,8 @@
         "visible": true,
         "ticks": "inside",
         "range": [
-            0.08813440493204049,
-            0.9206756637161666
+            -0.022384755504049694,
+            0.8082638675330107
         ],
         "domain": [
             1.0,
@@ -142,6 +143,7 @@
         },
         "tickcolor": "rgb(0, 0, 0)",
         "ticktext": [
+            "0.0",
             "0.2",
             "0.4",
             "0.6",
@@ -158,7 +160,8 @@
         "anchor": "x1"
     },
     "legend": {
-        "tracegroupgap": 0,
+        "yanchor": "auto",
+        "xanchor": "auto",
         "bordercolor": "rgba(0, 0, 0, 1.000)",
         "bgcolor": "rgba(255, 255, 255, 1.000)",
         "font": {
@@ -166,7 +169,10 @@
             "family": "sans-serif",
             "size": 11
         },
+        "tracegroupgap": 0,
         "y": 1.0,
+        "borderwidth": 1,
+        "traceorder": "normal",
         "x": 1.0
     },
     "width": 600
