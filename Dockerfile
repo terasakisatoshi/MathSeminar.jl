@@ -59,12 +59,12 @@ ENV JULIA_PROJECT=/work
 # Install Julia Package
 RUN julia -e 'using Pkg; \
 Pkg.add([\
-    PackageSpec(name="Franklin", version="0.8.3"), \
+    PackageSpec(name="Franklin", version="0.8.6"), \
     PackageSpec(name="OhMyREPL", version="0.5.5"), \
-    PackageSpec(name="Revise", version="2.7.0"), \
-    PackageSpec(name="Plots", version="1.3.3"), \
-    PackageSpec(name="GR", version="0.49"), \
-    PackageSpec(name="SymPy", version="1.0.20"), \
+    PackageSpec(name="Revise", version="2.7.3"), \
+    PackageSpec(name="Plots", version="1.5.5"), \
+    PackageSpec(name="GR", version="0.51.0"), \
+    PackageSpec(name="SymPy", version="1.0.26"), \
 ]); \
 Pkg.pin(["Franklin", "OhMyREPL", "Revise", "Plots", "GR", "SymPy"]); \
 '
