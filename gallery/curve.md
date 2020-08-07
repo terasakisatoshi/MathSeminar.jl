@@ -3,7 +3,7 @@
 
 ```julia:prepare
 using Plots
-gr()
+pyplot()
 using LaTeXStrings
 using LaTeXStrings: latexstring
 ```
@@ -12,6 +12,7 @@ using LaTeXStrings: latexstring
 
 
 ```julia:circle
+function plotcurve() # hide
 θ = 0:0.01:2π
 x = @. cos(θ)
 y = @. sin(θ)
@@ -26,6 +27,9 @@ p = plot(
 
 plot!(p, x, y, label = L"x^2+y^2 = 1")
 Plots.savefig(joinpath(@OUTPUT, "circle.svg")) #hide
+
+end # hide
+plotcurve() # hide
 ```
 
 \fig{circle.svg}
@@ -34,6 +38,7 @@ Plots.savefig(joinpath(@OUTPUT, "circle.svg")) #hide
 
 
 ```julia:astroid
+function plotcurve() #hide
 θ = 0:0.01:2π
 a = 2
 x = @. a * cos(θ)^3
@@ -52,14 +57,16 @@ p = plot(
 
 plot!(p, x, y, label = :false)
 Plots.savefig(joinpath(@OUTPUT, "astroid.png")) #hide
+end # hide
+plotcurve() # hide
 ```
 
 \fig{astroid.png}
 
 # Lissajous
 
-
 ```julia:lissajous
+function plotcurve() # hide
 θ = 0:0.01:2π
 x = @. sin(θ)
 y = @. sin(2θ)
@@ -77,6 +84,8 @@ p = plot(
 
 plot!(p, x, y, label=false)
 Plots.savefig(joinpath(@OUTPUT, "lissajous.png")) #hide
+end # hide
+plotcurve() # hide
 ```
 
 \fig{lissajous}
@@ -85,6 +94,7 @@ Plots.savefig(joinpath(@OUTPUT, "lissajous.png")) #hide
 
 
 ```julia:archimedean
+function plotcurve() # hide
 θ = 0:0.01:2π
 a = 2
 r = @. a*θ
@@ -102,6 +112,8 @@ p = plot(
 
 plot!(p, x, y, label = :false)
 Plots.savefig(joinpath(@OUTPUT, "archimedean.png")) #hide
+end #hide
+plotcurve() # hide
 ```
 
 \fig{archimedean}
