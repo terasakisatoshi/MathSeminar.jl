@@ -17,7 +17,11 @@ using Franklin, Remark, Weave
 Pkg.activate(".")
 Pkg.instantiate()
 
-Remark.slideshow("./slideshow/tutorial/example.jl", "./slideshow/tutorial")
-Remark.slideshow("./slideshow/juliatokai/document.jl", "./slideshow/juliatokai")
+# make slide
+Remark.slideshow("./slideshow/remark")
+Remark.slideshow("./slideshow/franklin")
+Remark.slideshow("slideshow/dash", options = Dict("ratio" => "16:9"), title = "Dash.jl")
+
+
 weave(joinpath("./programming", "weave.jmd"), out_path="./programming", doctype="github")
 optimize(minify=false, prepath="MathSeminar.jl")
