@@ -1,4 +1,5 @@
 # This file was generated, do not modify it. # hide
+function plotcurve() # hide
 θ = 0:0.01:2π
 a = 2
 anim = @animate for n in 2:10
@@ -21,3 +22,5 @@ anim = @animate for n in 2:10
 end
 
 gif(anim, joinpath(@OUTPUT,"roses.gif"), fps=2)
+end # hide
+plotcurve() # hide
