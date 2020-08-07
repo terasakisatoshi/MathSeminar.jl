@@ -8,7 +8,8 @@
 - Here is my example that export JS from Makie plot:
 
 ```julia:wglmakie
-using JSServe, WGLMakie, AbstractPlotting
+using JSServe, WGLMakie
+using AbstractPlotting: meshscatter, vbox, wireframe
 
 """
 Write handler by yourself. 
