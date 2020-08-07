@@ -122,6 +122,7 @@ plotcurve() # hide
 
 
 ```julia:cardioid
+function plotcurve() # hide
 θ = 0:0.01:2π
 a = 2
 r = @. a*(1+cos(θ))
@@ -139,6 +140,8 @@ p = plot(
 
 plot!(p, x, y, label = :false)
 Plots.savefig(joinpath(@OUTPUT, "cardioid.png")) #hide
+end #hide
+plotcurve() # hide
 ```
 
 \fig{cardioid}
@@ -149,6 +152,7 @@ Plots.savefig(joinpath(@OUTPUT, "cardioid.png")) #hide
 
 
 ```julia:rose2
+function plotcurve() #hide
 θ = 0:0.01:2π
 a = 2
 n = 2
@@ -167,6 +171,8 @@ p = plot(
 
 plot!(p, x, y, label = :false)
 Plots.savefig(joinpath(@OUTPUT, "rose2.png")) #hide
+end # hide
+plotcurve() # hide
 ```
 
 \fig{rose2}
@@ -176,6 +182,7 @@ Plots.savefig(joinpath(@OUTPUT, "rose2.png")) #hide
 
 
 ```julia:rose3
+function plotcurve() # hide
 θ = 0:0.01:2π
 a = 2
 n = 3
@@ -194,6 +201,8 @@ p = plot(
 
 plot!(p, x, y, label=false)
 Plots.savefig(joinpath(@OUTPUT,"rose3.png")) #hide
+end # hide
+plotcurve() # hide
 ```
 
 \fig{rose3}
@@ -202,6 +211,7 @@ Plots.savefig(joinpath(@OUTPUT,"rose3.png")) #hide
 
 
 ```julia:rose4
+function plotcurve() # hide
 θ = 0:0.01:2π
 a = 2
 n = 4
@@ -220,6 +230,8 @@ p = plot(
 
 plot!(p, x, y, label = :false)
 Plots.savefig(joinpath(@OUTPUT,"rose4.png")) #hide
+end # hide
+plotcurve() # hide
 ```
 
 \fig{rose4.png}
@@ -228,6 +240,7 @@ Plots.savefig(joinpath(@OUTPUT,"rose4.png")) #hide
 
 
 ```julia:roses
+function plotcurve() # hide
 θ = 0:0.01:2π
 a = 2
 anim = @animate for n in 2:10
@@ -250,6 +263,8 @@ anim = @animate for n in 2:10
 end
 
 gif(anim, joinpath(@OUTPUT,"roses.gif"), fps=2)
+end # hide
+plotcurve() # hide
 ```
 
 \fig{roses.gif}
