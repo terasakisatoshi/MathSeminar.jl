@@ -1,5 +1,6 @@
 # This file was generated, do not modify it. # hide
-using JSServe, WGLMakie, AbstractPlotting
+using JSServe, WGLMakie
+using AbstractPlotting: meshscatter, vbox, wireframe
 
 """
 Write handler by yourself. 

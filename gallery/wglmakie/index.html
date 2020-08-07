@@ -96,7 +96,8 @@
 <li><p>Here is my example that export JS from Makie plot:</p>
 </li>
 </ul>
-<pre><code class="julia hljs"><span class="hljs-keyword">using</span> JSServe, WGLMakie, AbstractPlotting
+<pre><code class="julia hljs"><span class="hljs-keyword">using</span> JSServe, WGLMakie
+<span class="hljs-keyword">using</span> AbstractPlotting: meshscatter, vbox, wireframe
 
 <span class="hljs-string">&quot;&quot;&quot;
 Write handler by yourself. 
@@ -114,7 +115,8 @@ The Syntax is as same as one uses for Makie.jl plot
 dir = joinpath(<span class="hljs-meta">@__DIR__</span>, <span class="hljs-string">&quot;__site/gallery/wglmakie/wglmakie&quot;</span>)
 !isdir(dir) &amp;&amp; mkdir(dir)
 JSServe.export_standalone(handler, joinpath(<span class="hljs-meta">@OUTPUT</span>, dir))</code></pre>
-
+<pre><code class="plaintext hljs">UndefVarError: to_colormap not defined
+</code></pre>
 <p>You can see the reuslt at <a href="/MathSeminar.jl/gallery/wglmakie/wglmakie/index.html">here</a>.</p>
 <div class="page-foot">
   <div class="copyright">

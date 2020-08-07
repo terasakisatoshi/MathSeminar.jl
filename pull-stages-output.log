@@ -6,24 +6,22 @@ a3da280c0a89: Pulling fs layer
 fa47779652df: Pulling fs layer
 f8f7ef68704d: Pulling fs layer
 01d3a806d83e: Pulling fs layer
-33fc255698c1: Pulling fs layer
-92922fdb41d0: Pulling fs layer
-7b7414911b26: Pulling fs layer
-f0a52102f54b: Pulling fs layer
-8f785be09c27: Pulling fs layer
-ca43d6b21737: Pulling fs layer
-c034915252b4: Pulling fs layer
+7c2e936d31d1: Pulling fs layer
+055db05623eb: Pulling fs layer
+184df8a43bc8: Pulling fs layer
+843ee95f3971: Pulling fs layer
+740d3dbad664: Pulling fs layer
+224ca52a4398: Pulling fs layer
+055db05623eb: Waiting
+184df8a43bc8: Waiting
+843ee95f3971: Waiting
+740d3dbad664: Waiting
+224ca52a4398: Waiting
 a3da280c0a89: Waiting
 fa47779652df: Waiting
-f8f7ef68704d: Waiting
 01d3a806d83e: Waiting
-33fc255698c1: Waiting
-92922fdb41d0: Waiting
-7b7414911b26: Waiting
-f0a52102f54b: Waiting
-8f785be09c27: Waiting
-ca43d6b21737: Waiting
-c034915252b4: Waiting
+7c2e936d31d1: Waiting
+f8f7ef68704d: Waiting
 09cf61844c59: Verifying Checksum
 09cf61844c59: Download complete
 bf5952930446: Verifying Checksum
@@ -34,38 +32,35 @@ fa47779652df: Verifying Checksum
 fa47779652df: Download complete
 01d3a806d83e: Verifying Checksum
 01d3a806d83e: Download complete
+7c2e936d31d1: Verifying Checksum
+7c2e936d31d1: Download complete
+055db05623eb: Verifying Checksum
+055db05623eb: Download complete
+184df8a43bc8: Verifying Checksum
+184df8a43bc8: Download complete
 f8f7ef68704d: Verifying Checksum
 f8f7ef68704d: Download complete
-92922fdb41d0: Verifying Checksum
-92922fdb41d0: Download complete
-7b7414911b26: Verifying Checksum
-7b7414911b26: Download complete
 a3da280c0a89: Verifying Checksum
 a3da280c0a89: Download complete
-33fc255698c1: Verifying Checksum
-33fc255698c1: Download complete
-ca43d6b21737: Verifying Checksum
-ca43d6b21737: Download complete
-8f785be09c27: Verifying Checksum
-8f785be09c27: Download complete
-f0a52102f54b: Verifying Checksum
-f0a52102f54b: Download complete
-c034915252b4: Verifying Checksum
-c034915252b4: Download complete
+740d3dbad664: Verifying Checksum
+740d3dbad664: Download complete
+843ee95f3971: Verifying Checksum
+843ee95f3971: Download complete
 bf5952930446: Pull complete
+224ca52a4398: Verifying Checksum
+224ca52a4398: Download complete
 09cf61844c59: Pull complete
 fb69c373bb8b: Pull complete
 a3da280c0a89: Pull complete
 fa47779652df: Pull complete
 f8f7ef68704d: Pull complete
 01d3a806d83e: Pull complete
-33fc255698c1: Pull complete
-92922fdb41d0: Pull complete
-7b7414911b26: Pull complete
-f0a52102f54b: Pull complete
-8f785be09c27: Pull complete
-ca43d6b21737: Pull complete
-c034915252b4: Pull complete
-Digest: sha256:86ae182996b4ae31981de9fa02ea4315a52dd46231f1478a07714b0b60347254
+7c2e936d31d1: Pull complete
+055db05623eb: Pull complete
+184df8a43bc8: Pull complete
+843ee95f3971: Pull complete
+740d3dbad664: Pull complete
+224ca52a4398: Pull complete
+Digest: sha256:3087133e2313d2a3ab66b94b345f3e6434d544012f183458ad9d741454a1063d
 Status: Downloaded newer image for terasakisatoshi/mathseminarjl-stages
 docker.io/terasakisatoshi/mathseminarjl-stages
