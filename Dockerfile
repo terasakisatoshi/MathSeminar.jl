@@ -61,16 +61,6 @@ Pkg.add([\
 Pkg.pin(["Franklin", "OhMyREPL", "Revise", "Plots", "GR", "SymPy"]); \
 '
 
-#RUN mkdir /sysimage && julia -e '\
-#using PackageCompiler; \
-#PackageCompiler.create_sysimage(\
-#    [\
-#     :Revise, :OhMyREPL, \
-#     :Plots, :GR, :SymPy, \
-#    ], \
-#    sysimage_path="/sysimage/plotfast.so"); \
-#'
-
 COPY Project.toml /work
 # Initialize Julia package using /work/Project.toml
 RUN rm /work/Manifest.toml && julia --project=/work -e 'using Pkg; \
