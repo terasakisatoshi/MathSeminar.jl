@@ -10,18 +10,18 @@ b6ed4b7d3af4: Pulling fs layer
 fcfdac28e09d: Pulling fs layer
 5014fcf43c55: Pulling fs layer
 decf47c1c0fb: Pulling fs layer
-633220446cef: Pulling fs layer
-3736a2bd8840: Pulling fs layer
+adf0c2186933: Pulling fs layer
+bd6c0717407e: Pulling fs layer
 ef64c19edabd: Waiting
 f1bc65243eb2: Waiting
-5eb0379c21d9: Waiting
-b6ed4b7d3af4: Waiting
 765fbfb5ca39: Waiting
 fcfdac28e09d: Waiting
 5014fcf43c55: Waiting
+5eb0379c21d9: Waiting
 decf47c1c0fb: Waiting
-633220446cef: Waiting
-3736a2bd8840: Waiting
+b6ed4b7d3af4: Waiting
+adf0c2186933: Waiting
+bd6c0717407e: Waiting
 f94669dc25b4: Verifying Checksum
 f94669dc25b4: Download complete
 6ec8c9369e08: Verifying Checksum
@@ -38,18 +38,18 @@ fcfdac28e09d: Verifying Checksum
 fcfdac28e09d: Download complete
 5014fcf43c55: Verifying Checksum
 5014fcf43c55: Download complete
-765fbfb5ca39: Verifying Checksum
-765fbfb5ca39: Download complete
-633220446cef: Verifying Checksum
-633220446cef: Download complete
 ef64c19edabd: Verifying Checksum
 ef64c19edabd: Download complete
+adf0c2186933: Verifying Checksum
+adf0c2186933: Download complete
+765fbfb5ca39: Verifying Checksum
+765fbfb5ca39: Download complete
 decf47c1c0fb: Verifying Checksum
 decf47c1c0fb: Download complete
 6ec8c9369e08: Pull complete
+bd6c0717407e: Verifying Checksum
+bd6c0717407e: Download complete
 f94669dc25b4: Pull complete
-3736a2bd8840: Verifying Checksum
-3736a2bd8840: Download complete
 bf5c91d4983b: Pull complete
 ef64c19edabd: Pull complete
 f1bc65243eb2: Pull complete
@@ -59,8 +59,8 @@ b6ed4b7d3af4: Pull complete
 fcfdac28e09d: Pull complete
 5014fcf43c55: Pull complete
 decf47c1c0fb: Pull complete
-633220446cef: Pull complete
-3736a2bd8840: Pull complete
-Digest: sha256:3b0dbdf7fed9b62e10ff146dcbc9e60880fc0ef32cae83430cfeeb40b399daa2
+adf0c2186933: Pull complete
+bd6c0717407e: Pull complete
+Digest: sha256:a41b739b43b2bd323d8cc56074a891537a29ab6198f28ae3cb26ecac3eaf93dc
 Status: Downloaded newer image for terasakisatoshi/mathseminarjl-stages
 docker.io/terasakisatoshi/mathseminarjl-stages

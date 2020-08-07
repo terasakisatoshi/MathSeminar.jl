@@ -52,4 +52,4 @@ function draw_mesh_surface()
 end
 
 p = draw_mesh_surface()
-fdplotly(json(p)) # hide
+fdplotly(PlotlyJS.json(p)) # hide
