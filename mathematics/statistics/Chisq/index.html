@@ -107,7 +107,8 @@ plot!(x-&gt;pdf(d, x),label=<span class="hljs-string">&quot;pdf&quot;</span>)
 savefig(joinpath(<span class="hljs-meta">@OUTPUT</span>, <span class="hljs-string">&quot;normal.svg&quot;</span>))</code></pre>
 <img src="/MathSeminar.jl/assets/mathematics/statistics/Chisq/code/output/normal.svg" alt="">
 <h1 id="prepare_gamma_function"><a href="#prepare_gamma_function">Prepare <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Γ</mi></mrow><annotation encoding="application/x-tex">\Gamma</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord">Γ</span></span></span></span> function</a></h1>
-<pre><code class="julia hljs"><span class="hljs-meta">@doc</span> gamma</code></pre> 
+<pre><code class="julia hljs"><span class="hljs-meta">@doc</span> gamma</code></pre>
+
 <pre><code class="julia hljs">Γ(x) = gamma(x);</code></pre>
 <pre><code class="julia hljs"><span class="hljs-keyword">function</span> T(n, z) 
     <span class="hljs-keyword">if</span> z &gt; <span class="hljs-number">0</span>
@@ -169,7 +170,8 @@ plot!(p, x, y,xlim=[<span class="hljs-number">0</span>,<span class="hljs-number"
 y = pdf.(χ², x)
 
 plot!(p, x, y, label=<span class="hljs-string">L&quot;\chi^2(3)&quot;</span>,line=:dash)</code></pre>
-<img src="/MathSeminar.jl/assets/mathematics/statistics/Chisq/code/output/deg3.svg" alt=""><div class="page-foot">
+<img src="/MathSeminar.jl/assets/mathematics/statistics/Chisq/code/output/deg3.svg" alt="">
+<div class="page-foot">
   <div class="copyright">
     &copy; SatoshiTerasaki. Last modified: 2020年8月7日 金曜日. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
   </div>
