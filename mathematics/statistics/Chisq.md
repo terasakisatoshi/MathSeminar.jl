@@ -11,7 +11,7 @@
 ```julia:loadmodule
 using Distributions 
 using Plots
-gr()
+pyplot()
 using SpecialFunctions
 using LaTeXStrings
 ```
