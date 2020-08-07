@@ -1,4 +1,5 @@
 # This file was generated, do not modify it. # hide
+function plotcurve() # hide
 θ = 0:0.01:2π
 a = 2
 r = @. a*θ
@@ -16,3 +17,5 @@ p = plot(
 
 plot!(p, x, y, label = :false)
 Plots.savefig(joinpath(@OUTPUT, "archimedean.png")) #hide
+end #hide
+plotcurve() # hide

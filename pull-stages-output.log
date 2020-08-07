@@ -14,12 +14,12 @@ adf0c2186933: Pulling fs layer
 bd6c0717407e: Pulling fs layer
 ef64c19edabd: Waiting
 f1bc65243eb2: Waiting
+5eb0379c21d9: Waiting
+b6ed4b7d3af4: Waiting
 765fbfb5ca39: Waiting
 fcfdac28e09d: Waiting
 5014fcf43c55: Waiting
-5eb0379c21d9: Waiting
 decf47c1c0fb: Waiting
-b6ed4b7d3af4: Waiting
 adf0c2186933: Waiting
 bd6c0717407e: Waiting
 f94669dc25b4: Verifying Checksum
@@ -40,15 +40,15 @@ fcfdac28e09d: Download complete
 5014fcf43c55: Download complete
 ef64c19edabd: Verifying Checksum
 ef64c19edabd: Download complete
-adf0c2186933: Verifying Checksum
-adf0c2186933: Download complete
-765fbfb5ca39: Verifying Checksum
-765fbfb5ca39: Download complete
 decf47c1c0fb: Verifying Checksum
 decf47c1c0fb: Download complete
-6ec8c9369e08: Pull complete
+765fbfb5ca39: Verifying Checksum
+765fbfb5ca39: Download complete
+adf0c2186933: Verifying Checksum
+adf0c2186933: Download complete
 bd6c0717407e: Verifying Checksum
 bd6c0717407e: Download complete
+6ec8c9369e08: Pull complete
 f94669dc25b4: Pull complete
 bf5c91d4983b: Pull complete
 ef64c19edabd: Pull complete
