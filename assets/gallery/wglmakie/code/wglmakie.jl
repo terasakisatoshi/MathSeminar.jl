@@ -16,5 +16,5 @@ function handler(session, request)
 end
 
 dir = joinpath(@__DIR__, "__site/gallery/wglmakie/wglmakie")
-!isdir(dir) && mkdir(dir)
+!isdir(dir) && mkpath(dir)
 JSServe.export_standalone(handler, joinpath(@OUTPUT, dir))

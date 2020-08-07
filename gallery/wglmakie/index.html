@@ -113,7 +113,7 @@ The Syntax is as same as one uses for Makie.jl plot
 <span class="hljs-keyword">end</span>
 
 dir = joinpath(<span class="hljs-meta">@__DIR__</span>, <span class="hljs-string">&quot;__site/gallery/wglmakie/wglmakie&quot;</span>)
-!isdir(dir) &amp;&amp; mkdir(dir)
+!isdir(dir) &amp;&amp; mkpath(dir)
 JSServe.export_standalone(handler, joinpath(<span class="hljs-meta">@OUTPUT</span>, dir))</code></pre>
 <pre><code class="plaintext hljs">UndefVarError: to_colormap not defined
 </code></pre>
