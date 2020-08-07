@@ -1,4 +1,4 @@
-~~~<div id="fdpnfx" style="width:600px;height:350px"></div> <script>     PLOT = document.getElementById('fdpnfx');
+~~~<div id="fdpphq" style="width:600px;height:350px"></div> <script>     PLOT = document.getElementById('fdpphq');
     Plotly.plot(PLOT, [
     {
         "xaxis": "x1",
