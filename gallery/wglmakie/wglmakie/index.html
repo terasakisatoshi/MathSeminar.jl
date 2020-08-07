@@ -5,7 +5,7 @@
 <script src="https://cdn.jsdelivr.net/gh/mrdoob/three.js/build/three.js"></script>
 
 <script>
-    window.js_call_session_id = '2b48a48e-4b9a-4f66-91f5-4dd5008504ce';
+    window.js_call_session_id = '75106278-aee5-470a-aa11-3be83fa4c3d7';
     window.websocket_proxy_url = '';
 </script>
 <script src="msgpack.min.js"></script>
@@ -20,7 +20,7 @@ function init_function(__data_dependencies) {
             {
         const func = (function setup([scenes, duplicates]){
     const canvas = (document.querySelector('[data-jscall-id="1"]'))
-    const renderer = WGLMakie.threejs_module(canvas, "10026894697451044435", 960, 540)
+    const renderer = WGLMakie.threejs_module(canvas, "2948838065382350660", 960, 540)
     WGLMakie.set_duplicate_references(duplicates)
     const three_scenes = scenes.map(WGLMakie.deserialize_scene)
     const cam = new THREE.PerspectiveCamera(45, 1, 0, 100)
@@ -49,13 +49,13 @@ function init_function(__data_dependencies) {
     put_on_heap('1', context);
 }
 );
-        register_onjs(func, '427641141447160225');
+        register_onjs(func, '5782052437232820987');
         }
 
         {const value = deserialize_js(__data_dependencies[0]);
-                          registered_observables['427641141447160225'] = value;
+                          registered_observables['5782052437232820987'] = value;
                           // update all onjs callbacks
-                          run_js_callbacks('427641141447160225', value);}
+                          run_js_callbacks('5782052437232820987', value);}
         {
         const func = (function update_size(canvas_width){
     const context = get_heap_object('1');
@@ -65,12 +65,12 @@ function init_function(__data_dependencies) {
     canvas.style.width = w_h[0];
     canvas.style.height = w_h[1];
 });
-        register_onjs(func, '15425306353204806291');
+        register_onjs(func, '9635412553470868785');
         }
 
 
 }
-init_from_file(init_function, "2b48a48e-4b9a-4f66-91f5-4dd5008504ce.msgpack");
+init_from_file(init_function, "75106278-aee5-470a-aa11-3be83fa4c3d7.msgpack");
 
     } catch (e) {
         websocket_send({
