@@ -13,7 +13,7 @@ function draw_mesh_surface()
     a=0.1
     us = 0:0.05π:2π
     ts = -1:0.05:1
-    traces=typeof(scatter3d())[]
+    traces=typeof(PlotlyJS.scatter3d())[]
     marker=attr(
         color="#1f77b4",
         size=12,
