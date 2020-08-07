@@ -42,13 +42,13 @@ jobs:
     #    version: 1.4.1
     #- run: julia --project=@. -e 'using Pkg; Pkg.instantiate()'
     #- run: julia --project=@. ./_mytools/deploy.jl
-    - name: Cache __site
-      uses: actions/cache@v2
-      with:
-        path: __site
-        key: build-${{ hashFiles('**/Dockerfiles') }}
-        restore-keys: |
-          build-
+    #- name: Cache __site
+    #  uses: actions/cache@v2
+    #  with:
+    #    path: __site
+    #    key: build-${{ hashFiles('**/Dockerfiles') }}
+    #    restore-keys: |
+    #      build-
     - uses: whoan/docker-build-with-cache-action@v5
       with:
         username: terasakisatoshi
