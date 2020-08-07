@@ -1,8 +1,8 @@
 # This file was generated, do not modify it. # hide
-using PlotlyJS
+using PlotlyJS: PlotlyJS, attr
+
 function draw_mesh_surface()
     a=0.1
-
     us = 0:0.05π:2π
     ts = -1:0.05:1
     traces=typeof(scatter3d())[]
@@ -18,7 +18,7 @@ function draw_mesh_surface()
         z=t*ones(length(x))
         push!(
             traces,
-            scatter3d(
+            PlotlyJS.scatter3d(
                 x=x,y=y,z=z,
                 mode="lines",
                 marker=marker,
@@ -33,7 +33,7 @@ function draw_mesh_surface()
         z = ts
         push!(
             traces,
-            scatter3d(
+            PlotlyJS.scatter3d(
                 x=x,y=y,z=z,
                 mode="lines",
                 marker=marker,
@@ -42,13 +42,13 @@ function draw_mesh_surface()
         )
     end
 
-    layout = Layout(
+    layout = PlotlyJS.Layout(
         autosize=true,
         width=500,
         height=500,
         margin=attr(l=0, r=0, b=150, t=0),
     )
-    plot(traces,layout)
+    PlotlyJS.plot(traces,layout)
 end
 
 p = draw_mesh_surface()

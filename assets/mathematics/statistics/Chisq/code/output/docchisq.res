@@ -3,7 +3,7 @@
   The Chi squared distribution (typically written χ²) with ν degrees of
   freedom has the probability density function
 
-  f(x; k) = \frac{x^{k/2 - 1} e^{-x/2}}{2^{k/2} \Gamma(k/2)}, \quad x > 0.
+f(x; k) = \frac{x^{k/2 - 1} e^{-x/2}}{2^{k/2} \Gamma(k/2)}, \quad x > 0.
 
   If ν is an integer, then it is the distribution of the sum of squares of ν
   independent standard Normal variates.

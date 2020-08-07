@@ -2,7 +2,7 @@
 
   Compute the gamma function for complex z, defined by
 
-  \Gamma(z)
+\Gamma(z)
 :=
 \begin{cases}
     n!
