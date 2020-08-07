@@ -1,4 +1,4 @@
-FROM julia:1.4.2
+FROM julia:1.5.0
 
 RUN apt-get update && \
     apt-get install -y \
@@ -33,21 +33,13 @@ RUN mkdir -p ${HOME}/.julia/config && \
 # set environment variables\n\
 ENV["PYTHON"]=Sys.which("python3")\n\
 #using OhMyREPL \n\
-#atreplinit() do repl\n\
-#    try\n\
-#        @eval using Revise\n\
-#        @async Revise.wait_steal_repl_backend()\n\
-#    catch e\n\
-#        @warn(e.msg)\n\
-#    end\n\
-#end\n\
+#using Revise \n\
 #\n\
 ' >> ${HOME}/.julia/config/startup.jl && cat ${HOME}/.julia/config/startup.jl
 
 RUN julia -e 'using Pkg; \
 Pkg.add("PackageCompiler"); \
 Pkg.add(["Documenter", "Literate", "Weave", "Franklin", "NodeJS", "Remark"]); \
-Pkg.add(["Plotly", "PlotlyJS", "ORCA"]); \
 '
 
 RUN julia -e "using NodeJS; run(\`\$(npm_cmd()) install highlight.js\`); using Franklin"
@@ -59,25 +51,25 @@ ENV JULIA_PROJECT=/work
 # Install Julia Package
 RUN julia -e 'using Pkg; \
 Pkg.add([\
-    PackageSpec(name="Franklin", version="0.8.6"), \
+    PackageSpec(name="Franklin", version="0.9.1"), \
     PackageSpec(name="OhMyREPL", version="0.5.5"), \
     PackageSpec(name="Revise", version="2.7.3"), \
-    PackageSpec(name="Plots", version="1.5.5"), \
+    PackageSpec(name="Plots", version="1.5.8"), \
     PackageSpec(name="GR", version="0.51.0"), \
     PackageSpec(name="SymPy", version="1.0.26"), \
 ]); \
 Pkg.pin(["Franklin", "OhMyREPL", "Revise", "Plots", "GR", "SymPy"]); \
 '
 
-RUN mkdir /sysimage && julia -e '\
-using PackageCompiler; \
-PackageCompiler.create_sysimage(\
-    [\
-     :Revise, :OhMyREPL, \
-     :Plots, :GR, :SymPy, \
-    ], \
-    sysimage_path="/sysimage/plotfast.so"); \
-'
+#RUN mkdir /sysimage && julia -e '\
+#using PackageCompiler; \
+#PackageCompiler.create_sysimage(\
+#    [\
+#     :Revise, :OhMyREPL, \
+#     :Plots, :GR, :SymPy, \
+#    ], \
+#    sysimage_path="/sysimage/plotfast.so"); \
+#'
 
 COPY Project.toml /work
 # Initialize Julia package using /work/Project.toml
