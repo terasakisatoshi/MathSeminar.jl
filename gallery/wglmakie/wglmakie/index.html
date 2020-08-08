@@ -1,15 +1,15 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<script src="1_wglmakie.js"></script>
 <script src="https://cdn.jsdelivr.net/gh/mrdoob/three.js/build/three.js"></script>
-<script src="wglmakie.js"></script>
 
 <script>
-    window.js_call_session_id = 'd9372795-10a4-42f5-9406-ae623ea6498c';
+    window.js_call_session_id = '272209b2-9f34-42b6-9c0d-c046a7614966';
     window.websocket_proxy_url = '';
 </script>
-<script src="msgpack.min.js"></script>
-<script src="core.js"></script>
+<script src="1_msgpack.min.js"></script>
+<script src="1_core.js"></script>
 <script>
 function __on_document_load__(){
     try {
@@ -20,7 +20,7 @@ function init_function(__data_dependencies) {
             {
         const func = (function setup([scenes, duplicates]){
     const canvas = (document.querySelector('[data-jscall-id="1"]'))
-    const renderer = WGLMakie.threejs_module(canvas, "9459472096866213480", 960, 540)
+    const renderer = WGLMakie.threejs_module(canvas, "16938574710659973504", 960, 540)
     WGLMakie.set_duplicate_references(duplicates)
     const three_scenes = scenes.map(WGLMakie.deserialize_scene)
     const cam = new THREE.PerspectiveCamera(45, 1, 0, 100)
@@ -49,13 +49,13 @@ function init_function(__data_dependencies) {
     put_on_heap('1', context);
 }
 );
-        register_onjs(func, '3521146041731838146');
+        register_onjs(func, '17396077567147400205');
         }
 
         {const value = deserialize_js(__data_dependencies[0]);
-                          registered_observables['3521146041731838146'] = value;
+                          registered_observables['17396077567147400205'] = value;
                           // update all onjs callbacks
-                          run_js_callbacks('3521146041731838146', value);}
+                          run_js_callbacks('17396077567147400205', value);}
         {
         const func = (function update_size(canvas_width){
     const context = get_heap_object('1');
@@ -65,12 +65,12 @@ function init_function(__data_dependencies) {
     canvas.style.width = w_h[0];
     canvas.style.height = w_h[1];
 });
-        register_onjs(func, '15277765797199209163');
+        register_onjs(func, '3513844742915436688');
         }
 
 
 }
-init_from_file(init_function, "d9372795-10a4-42f5-9406-ae623ea6498c.msgpack");
+init_from_file(init_function, "272209b2-9f34-42b6-9c0d-c046a7614966.msgpack");
 
     } catch (e) {
         websocket_send({
