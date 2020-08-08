@@ -12,7 +12,7 @@
   <link href="/MathSeminar.jl/css/vela.css" rel="stylesheet">
   <script src="/MathSeminar.jl/libs/vela/jquery.min.js"></script>
   <link rel="stylesheet" href="/MathSeminar.jl/css/theorem.css">
-   <title>JSXGraph.jl</title>  
+   <title>JSXGraph</title>  
   <!-- PLOTLY -->
   
 
@@ -80,7 +80,7 @@
         <div class="hamburger-inner"></div>
       </div>
     </div>
-    <h1 class="page title">JSXGraph.jl</h1>
+    <h1 class="page title">JSXGraph</h1>
     <hr>
 
 
@@ -90,13 +90,14 @@
 <h1 id="jsxgraph"><a href="#jsxgraph">JSXGraph</a></h1></p>
 <p>         
 <ul>
+<li><p><a href="https://jsxgraph.uni-bayreuth.de/wp/index.html">JSXGraph</a> is a cross-browser JavaScript library for interactive geometry, function plotting, charting, and data visualization in the web browser.</p>
+</li>
 <li><p>Since, JSXGraph.jl is still WIP, it does not support <code>text</code> object. If you wish you&#39;ll need to write JavaScript by yourself.</p>
 </li>
 </ul>
 
-<link rel="stylesheet" type="text/css" href="http://jsxgraph.uni-bayreuth.de/distrib/jsxgraph.css" />
-<script type="text/javascript" src="http://jsxgraph.uni-bayreuth.de/distrib/jsxgraphcore.js"></script>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="/MathSeminar.jl/libs/jsx/jsxgraph.css">
+<script type="text/javascript" src="/MathSeminar.jl/libs/jsx/jsxgraphcore.js"></script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <div id="board" class="jxgbox" style="width:500px; height:500px;"></div>
 <script type="text/javascript">
@@ -145,9 +146,8 @@
 <li><p>Here is the code that reproduces the result above:</p>
 </li>
 </ul>
-<pre><code class="language-html">&lt;link rel&#61;&quot;stylesheet&quot; type&#61;&quot;text/css&quot; href&#61;&quot;http://jsxgraph.uni-bayreuth.de/distrib/jsxgraph.css&quot; /&gt;
-&lt;script type&#61;&quot;text/javascript&quot; src&#61;&quot;http://jsxgraph.uni-bayreuth.de/distrib/jsxgraphcore.js&quot;&gt;&lt;/script&gt;
-&lt;script id&#61;&quot;MathJax-script&quot; async src&#61;&quot;https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js&quot;&gt;&lt;/script&gt;
+<pre><code class="language-html">&lt;link rel&#61;&quot;stylesheet&quot; href&#61;&quot;/libs/jsx/jsxgraph.css&quot;&gt;
+&lt;script type&#61;&quot;text/javascript&quot; src&#61;&quot;/libs/jsx/jsxgraphcore.js&quot;&gt;&lt;/script&gt;
 &lt;script id&#61;&quot;MathJax-script&quot; async src&#61;&quot;https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js&quot;&gt;&lt;/script&gt;
 &lt;div id&#61;&quot;board&quot; class&#61;&quot;jxgbox&quot; style&#61;&quot;width:500px; height:500px;&quot;&gt;&lt;/div&gt;
 &lt;script type&#61;&quot;text/javascript&quot;&gt;
