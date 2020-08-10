@@ -1,5 +1,6 @@
 @def title = "JSXGraph"
 @def hasjsx = false
+@def hasmath = false
 
 
 \toc
