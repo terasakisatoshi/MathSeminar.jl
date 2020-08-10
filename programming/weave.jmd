@@ -1,5 +1,6 @@
 @def title = "Weave.jl"
 
+\initcounter{}
 \chapter{Weave.jl}
 
 \definition{}{[Weave.jl](https://github.com/JunoLab/Weave.jl)}{
