@@ -2,14 +2,12 @@ version: '3'
 services:
   julia:
     image: mathseminarjl
-    user: "${UID}:${GID}"
     container_name: math-julia
     volumes:
       - ./:/work
     working_dir: /work
     command: julia --project=/work
   franklin:
-    user: "${UID}:${GID}"
     image: mathseminarjl
     container_name: math-franklin
     volumes:
@@ -21,7 +19,6 @@ services:
       julia -e 'using Franklin; serve(host="0.0.0.0", port=8000)'
   web:
     image: mathseminarjl
-    user: "${UID}:${GID}"    
     container_name: math-web
     volumes:
       - ./:/work
