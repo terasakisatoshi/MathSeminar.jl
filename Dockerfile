@@ -4,9 +4,6 @@ RUN apt-get update && \
     apt-get install -y \
     build-essential \
     cmake \
-    python3 \
-    python3-dev \
-    python3-distutils \
     curl \
     ca-certificates \
     xvfb \
@@ -16,13 +13,6 @@ RUN apt-get update && \
     libxt6 libxrender1 libxext6 libgl1-mesa-glx libqt5widgets5 # GR && \
     apt-get clean && rm -rf /var/lib/apt/lists/* # clean up    
 
-RUN curl -kL https://bootstrap.pypa.io/get-pip.py | python3 && \
-    pip3 install \
-    matplotlib \
-    numpy \
-    sympy==1.5.* \
-    numba
-
 # Setup Rust
 # Reference: https://github.com/rust-lang/rustup/issues/297
 RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
@@ -30,19 +20,22 @@ ENV PATH /root/.cargo/bin:$PATH
 
 RUN mkdir -p ${HOME}/.julia/config && \
     echo '\
-# set environment variables\n\
-ENV["PYTHON"]=Sys.which("python3")\n\
-#using OhMyREPL \n\
-#using Revise \n\
-#\n\
+# Install Python and R via Conda \n\
+ENV["R_HOME"]="*" \n\
+ENV["PYTHON"]="" \n\
 ' >> ${HOME}/.julia/config/startup.jl && cat ${HOME}/.julia/config/startup.jl
 
 RUN julia -e 'using Pkg; \
-Pkg.add("PackageCompiler"); \
+Pkg.add(["PyCall", "Conda"]); using PyCall, Conda;\
 Pkg.add(["Documenter", "Literate", "Weave", "Franklin", "NodeJS", "Remark"]); \
 '
 
 RUN julia -e "using NodeJS; run(\`\$(npm_cmd()) install highlight.js\`); using Franklin"
+
+ENV PATH /root/.julia/conda/3/bin:$PATH
+
+RUN	conda install r-base=3.4 && \
+    julia -e 'using Pkg; pkg"add RCall#master"; Pkg.build("RCall"); using RCall'
 
 # set "/work" as default project directory 
 WORKDIR /work
@@ -61,9 +54,15 @@ Pkg.add([\
 Pkg.pin(["Franklin", "OhMyREPL", "Revise", "Plots", "GR", "SymPy"]); \
 '
 
+RUN conda install -y \
+    matplotlib \
+    numpy \
+    sympy=1.5 \
+    numba
+
 COPY Project.toml /work
 # Initialize Julia package using /work/Project.toml
-RUN rm /work/Manifest.toml && julia --project=/work -e 'using Pkg; \
+RUN rm -f /work/Manifest.toml && julia --project=/work -e 'using Pkg; \
 Pkg.instantiate(); \
 Pkg.precompile()' && \
 # Check Julia version \
