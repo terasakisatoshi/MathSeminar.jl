@@ -3,7 +3,7 @@
 This example is taken from https://mybinder.org/v2/gh/jheinen/GR.jl/master
 
 ```julia:gr
-using GR
+import GR
 
 GR.inline("mov")
 x = collect(0:0.01:2*pi)
