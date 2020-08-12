@@ -76,6 +76,7 @@ N=10; @show collect(range(-2,2,length=N))
 ```julia:plotmandJ
 Tarpath="/tmp/resultJ.txt"
 using Plots
+gr()
 using DelimitedFiles
 img = readdlm(Tarpath,',',Int)
 M,N = img |> size
@@ -136,6 +137,7 @@ Tarpath="/tmp/resultJ1.txt"
 run(`bash -c "cmp --silent $Refpath $Tarpath || echo \"files are different\""`)
 
 using Plots
+gr()
 using DelimitedFiles
 img = readdlm(Tarpath,',',Int)
 M,N = img |> size
@@ -194,6 +196,7 @@ Tarpath="/tmp/resultJ2.txt"
 run(`bash -c "cmp --silent $Refpath $Tarpath || echo \"files are different\""`)
 
 using Plots
+gr()
 using DelimitedFiles
 img = readdlm(Tarpath,',',Int)
 M,N = img |> size
@@ -259,6 +262,7 @@ Tarpath="/tmp/resultJ3.txt"
 run(`bash -c "cmp --silent $Refpath $Tarpath || echo \"files are different\""`)
 
 using Plots
+gr()
 
 using DelimitedFiles
 img = readdlm(Tarpath, ',', Int)
