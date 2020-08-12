@@ -4,6 +4,7 @@ Tarpath="/tmp/resultJ3.txt"
 run(`bash -c "cmp --silent $Refpath $Tarpath || echo \"files are different\""`)
 
 using Plots
+gr()
 
 using DelimitedFiles
 img = readdlm(Tarpath, ',', Int)

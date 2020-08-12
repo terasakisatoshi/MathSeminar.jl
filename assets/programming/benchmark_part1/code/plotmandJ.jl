@@ -4,6 +4,7 @@ Tarpath="/tmp/benchJ.txt"
 run(`bash -c "cmp --silent $Refpath $Tarpath || echo \"files are different\""`)
 
 using Plots
+gr()
 using DelimitedFiles
 img = readdlm(Tarpath,',',Int)
 M,N = img |> size
