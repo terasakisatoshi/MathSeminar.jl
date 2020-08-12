@@ -32,10 +32,17 @@ Pkg.add(["Documenter", "Literate", "Weave", "Franklin", "NodeJS", "Remark"]); \
 
 RUN julia -e "using NodeJS; run(\`\$(npm_cmd()) install highlight.js\`); using Franklin"
 
+# Add conda's path
 ENV PATH /root/.julia/conda/3/bin:$PATH
 
 RUN	conda install r-base=3.4 && \
     julia -e 'using Pkg; pkg"add RCall#master"; Pkg.build("RCall"); using RCall'
+
+RUN conda install -y \
+    matplotlib \
+    numpy \
+    sympy \
+    numba
 
 # set "/work" as default project directory 
 WORKDIR /work
@@ -49,16 +56,10 @@ Pkg.add([\
     PackageSpec(name="Revise", version="2.7.3"), \
     PackageSpec(name="Plots", version="1.5.8"), \
     PackageSpec(name="GR", version="0.51.0"), \
-    PackageSpec(name="SymPy", version="1.0.26"), \
+    PackageSpec(name="SymPy", version="1.0.27"), \
 ]); \
 Pkg.pin(["Franklin", "OhMyREPL", "Revise", "Plots", "GR", "SymPy"]); \
 '
-
-RUN conda install -y \
-    matplotlib \
-    numpy \
-    sympy=1.5 \
-    numba
 
 COPY Project.toml /work
 # Initialize Julia package using /work/Project.toml

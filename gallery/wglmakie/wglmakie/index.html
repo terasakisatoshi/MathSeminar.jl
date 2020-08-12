@@ -1,11 +1,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<script src="https://cdn.jsdelivr.net/gh/mrdoob/three.js/build/three.js"></script>
 <script src="1_wglmakie.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/mrdoob/three.js/build/three.js"></script>
 
 <script>
-    window.js_call_session_id = 'ec3ced93-7965-445a-91eb-4b38724bf052';
+    window.js_call_session_id = '187434d8-2570-421e-8a2d-da7b163ce799';
     window.websocket_proxy_url = '';
 </script>
 <script src="1_msgpack.min.js"></script>
@@ -20,7 +20,7 @@ function init_function(__data_dependencies) {
             {
         const func = (function setup([scenes, duplicates]){
     const canvas = (document.querySelector('[data-jscall-id="1"]'))
-    const renderer = WGLMakie.threejs_module(canvas, "6892257399886579666", 960, 540)
+    const renderer = WGLMakie.threejs_module(canvas, "8259016063025968469", 960, 540)
     WGLMakie.set_duplicate_references(duplicates)
     const three_scenes = scenes.map(WGLMakie.deserialize_scene)
     const cam = new THREE.PerspectiveCamera(45, 1, 0, 100)
@@ -49,13 +49,13 @@ function init_function(__data_dependencies) {
     put_on_heap('1', context);
 }
 );
-        register_onjs(func, '12253589739956179364');
+        register_onjs(func, '17014780561885994259');
         }
 
         {const value = deserialize_js(__data_dependencies[0]);
-                          registered_observables['12253589739956179364'] = value;
+                          registered_observables['17014780561885994259'] = value;
                           // update all onjs callbacks
-                          run_js_callbacks('12253589739956179364', value);}
+                          run_js_callbacks('17014780561885994259', value);}
         {
         const func = (function update_size(canvas_width){
     const context = get_heap_object('1');
@@ -65,12 +65,12 @@ function init_function(__data_dependencies) {
     canvas.style.width = w_h[0];
     canvas.style.height = w_h[1];
 });
-        register_onjs(func, '8481918673237337006');
+        register_onjs(func, '2578224207149315131');
         }
 
 
 }
-init_from_file(init_function, "ec3ced93-7965-445a-91eb-4b38724bf052.msgpack");
+init_from_file(init_function, "187434d8-2570-421e-8a2d-da7b163ce799.msgpack");
 
     } catch (e) {
         websocket_send({

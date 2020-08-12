@@ -17,6 +17,6 @@ p = plot(
 )
 
 plot!(p, x, y, label = :false)
-Plots.savefig(joinpath(@OUTPUT,"rose4.png")) #hide
+Plots.savefig(joinpath(@OUTPUT,"rose4.svg")) #hide
 end # hide
 plotcurve() # hide

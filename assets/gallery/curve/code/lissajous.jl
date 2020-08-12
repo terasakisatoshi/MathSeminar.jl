@@ -16,6 +16,6 @@ p = plot(
 )
 
 plot!(p, x, y, label=false)
-Plots.savefig(joinpath(@OUTPUT, "lissajous.png")) #hide
+Plots.savefig(joinpath(@OUTPUT, "lissajous.svg")) #hide
 end # hide
 plotcurve() # hide
