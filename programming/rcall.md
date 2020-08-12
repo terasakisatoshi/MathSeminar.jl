@@ -6,11 +6,13 @@
 using RCall
 ```
 
-```julia
-using Plots
-pyplot()
+\output{prepareRCall}
 
-xJ =  rand(3) 
+```julia:twice
+using Plots
+gr()
+
+xJ =  rand(4) 
 @show xJ
 @rput xJ
 R"x <- 2*xJ"
@@ -18,7 +20,7 @@ xR =  convert(Array{Float64}, R"x")
 @show xR
 plot(xJ)
 plot!(xR)
-Plots.savefig(joinpath(@OUTPUT, "rcall.svg")) # hide
-gr() # hide
+Plots.savefig(joinpath(@OUTPUT, "twice.png")) # hide
 ```
 
+\fig{twice.png}
