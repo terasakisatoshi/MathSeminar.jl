@@ -3,7 +3,7 @@
 
 ```julia:prepare
 using Plots
-pyplot()
+gr()
 using LaTeXStrings
 using LaTeXStrings: latexstring
 ```
@@ -56,12 +56,12 @@ p = plot(
 )
 
 plot!(p, x, y, label = :false)
-Plots.savefig(joinpath(@OUTPUT, "astroid.png")) #hide
+Plots.savefig(joinpath(@OUTPUT, "astroid.svg")) #hide
 end # hide
 plotcurve() # hide
 ```
 
-\fig{astroid.png}
+\fig{astroid.svg}
 
 # Lissajous
 
@@ -83,7 +83,7 @@ p = plot(
 )
 
 plot!(p, x, y, label=false)
-Plots.savefig(joinpath(@OUTPUT, "lissajous.png")) #hide
+Plots.savefig(joinpath(@OUTPUT, "lissajous.svg")) #hide
 end # hide
 plotcurve() # hide
 ```
@@ -111,7 +111,7 @@ p = plot(
 )
 
 plot!(p, x, y, label = :false)
-Plots.savefig(joinpath(@OUTPUT, "archimedean.png")) #hide
+Plots.savefig(joinpath(@OUTPUT, "archimedean.svg")) #hide
 end #hide
 plotcurve() # hide
 ```
@@ -139,7 +139,7 @@ p = plot(
 )
 
 plot!(p, x, y, label = :false)
-Plots.savefig(joinpath(@OUTPUT, "cardioid.png")) #hide
+Plots.savefig(joinpath(@OUTPUT, "cardioid.svg")) #hide
 end #hide
 plotcurve() # hide
 ```
@@ -170,7 +170,7 @@ p = plot(
 )
 
 plot!(p, x, y, label = :false)
-Plots.savefig(joinpath(@OUTPUT, "rose2.png")) #hide
+Plots.savefig(joinpath(@OUTPUT, "rose2.svg")) #hide
 end # hide
 plotcurve() # hide
 ```
@@ -200,7 +200,7 @@ p = plot(
 )
 
 plot!(p, x, y, label=false)
-Plots.savefig(joinpath(@OUTPUT,"rose3.png")) #hide
+Plots.savefig(joinpath(@OUTPUT,"rose3.svg")) #hide
 end # hide
 plotcurve() # hide
 ```
@@ -229,12 +229,12 @@ p = plot(
 )
 
 plot!(p, x, y, label = :false)
-Plots.savefig(joinpath(@OUTPUT,"rose4.png")) #hide
+Plots.savefig(joinpath(@OUTPUT,"rose4.svg")) #hide
 end # hide
 plotcurve() # hide
 ```
 
-\fig{rose4.png}
+\fig{rose4.svg}
 
 ## Rose (gif)
 
