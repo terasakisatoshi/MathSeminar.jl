@@ -1,5 +1,5 @@
 # This file was generated, do not modify it. # hide
-using GR
+import GR
 
 GR.inline("mov")
 x = collect(0:0.01:2*pi)
