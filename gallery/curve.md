@@ -26,7 +26,7 @@ p = plot(
 )
 
 plot!(p, x, y, label = L"x^2+y^2 = 1")
-Plots.savefig(joinpath(@OUTPUT, "circle.svg")) #hide
+Plots.savefig(joinpath(@OUTPUT, "circle.png")) #hide
 
 end # hide
 plotcurve() # hide
@@ -56,7 +56,7 @@ p = plot(
 )
 
 plot!(p, x, y, label = :false)
-Plots.savefig(joinpath(@OUTPUT, "astroid.svg")) #hide
+Plots.savefig(joinpath(@OUTPUT, "astroid.png")) #hide
 end # hide
 plotcurve() # hide
 ```
@@ -83,7 +83,7 @@ p = plot(
 )
 
 plot!(p, x, y, label=false)
-Plots.savefig(joinpath(@OUTPUT, "lissajous.svg")) #hide
+Plots.savefig(joinpath(@OUTPUT, "lissajous.png")) #hide
 end # hide
 plotcurve() # hide
 ```
@@ -111,7 +111,7 @@ p = plot(
 )
 
 plot!(p, x, y, label = :false)
-Plots.savefig(joinpath(@OUTPUT, "archimedean.svg")) #hide
+Plots.savefig(joinpath(@OUTPUT, "archimedean.png")) #hide
 end #hide
 plotcurve() # hide
 ```
@@ -139,7 +139,7 @@ p = plot(
 )
 
 plot!(p, x, y, label = :false)
-Plots.savefig(joinpath(@OUTPUT, "cardioid.svg")) #hide
+Plots.savefig(joinpath(@OUTPUT, "cardioid.png")) #hide
 end #hide
 plotcurve() # hide
 ```
@@ -170,7 +170,7 @@ p = plot(
 )
 
 plot!(p, x, y, label = :false)
-Plots.savefig(joinpath(@OUTPUT, "rose2.svg")) #hide
+Plots.savefig(joinpath(@OUTPUT, "rose2.png")) #hide
 end # hide
 plotcurve() # hide
 ```
@@ -200,7 +200,7 @@ p = plot(
 )
 
 plot!(p, x, y, label=false)
-Plots.savefig(joinpath(@OUTPUT,"rose3.svg")) #hide
+Plots.savefig(joinpath(@OUTPUT,"rose3.png")) #hide
 end # hide
 plotcurve() # hide
 ```
@@ -229,7 +229,7 @@ p = plot(
 )
 
 plot!(p, x, y, label = :false)
-Plots.savefig(joinpath(@OUTPUT,"rose4.svg")) #hide
+Plots.savefig(joinpath(@OUTPUT,"rose4.png")) #hide
 end # hide
 plotcurve() # hide
 ```

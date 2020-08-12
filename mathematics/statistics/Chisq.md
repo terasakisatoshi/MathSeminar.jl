@@ -36,7 +36,7 @@ sample = rand(d, 10000)
 p = plot(xlim=[-3, 3])
 histogram!(sample, normalize=:pdf, label="hist")
 plot!(x->pdf(d, x),label="pdf")
-savefig(joinpath(@OUTPUT, "normal.svg"))
+savefig(joinpath(@OUTPUT, "normal.png"))
 ```
 
 \fig{normal}
@@ -83,10 +83,10 @@ plot!(p, x, y, xlim=[0,2], ylim=[0,4], label=L"T_1")
 
 y = pdf.(Chisq(1), x)
 plot!(p, x, y, line=:dash, label=L"\chi^2(1)") ;
-savefig(joinpath(@OUTPUT, "deg1.svg")) #hide
+savefig(joinpath(@OUTPUT, "deg1.png")) #hide
 ```
 
-\fig{deg1.svg}
+\fig{deg1}
 
 
 ## degree = 2
@@ -110,7 +110,7 @@ plot!(p, x, y,xlim=[0,5], ylim=[0,0.5], label=L"T_3")
 y = pdf.(χ², x)
 χ² = Chisq(2)
 plot!(p, x, y, label=L"\chi^2(2)",line=:dash)
-savefig(joinpath(@OUTPUT, "deg2.svg")) #hide
+savefig(joinpath(@OUTPUT, "deg2.png")) #hide
 ```
 
 \fig{deg2}
@@ -136,7 +136,7 @@ plot!(p, x, y,xlim=[0,5], ylim=[0,0.5], label=L"T_3")
 y = pdf.(χ², x)
 
 plot!(p, x, y, label=L"\chi^2(3)",line=:dash)
-savefig(joinpath(@OUTPUT, "deg3.svg")) #hide
+savefig(joinpath(@OUTPUT, "deg3.png")) #hide
 ```
 
 \fig{deg3}

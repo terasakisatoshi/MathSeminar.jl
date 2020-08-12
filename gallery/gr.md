@@ -13,7 +13,7 @@ end
 
 s = GR.show()
 println("~~~$(s.s)~~~")
-GR.inline("svg")
+GR.inline("png")
 ```
 
 \textoutput{gr}

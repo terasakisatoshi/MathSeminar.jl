@@ -6,7 +6,7 @@
 using RCall
 ```
 
-```julia:twice
+```julia
 using Plots
 pyplot()
 
@@ -22,5 +22,3 @@ Plots.savefig(joinpath(@OUTPUT, "rcall.svg")) # hide
 gr() # hide
 ```
 
-\output{twice}
-\fig{rcall}

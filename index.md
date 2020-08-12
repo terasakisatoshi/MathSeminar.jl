@@ -116,7 +116,7 @@ x = range(-2, 2, length=500)
 for α in 1:5
     PyPlot.plot(x, sinc.(α .* x))
 end
-PyPlot.savefig(joinpath(@OUTPUT, "sinc.svg")) # hide
+PyPlot.savefig(joinpath(@OUTPUT, "sinc.png")) # hide
 ```
 
 \fig{sinc}
@@ -128,7 +128,7 @@ using Plots
 gr()
 using LaTeXStrings
 Plots.plot(rand(10), title=L"\alpha", xlabel=L"x", ylabel=L"y")
-Plots.savefig(joinpath(@OUTPUT, "grplot.svg")) # hide
+Plots.savefig(joinpath(@OUTPUT, "grplot.png")) # hide
 ```
 
 \fig{grplot}
@@ -139,7 +139,7 @@ Plots.savefig(joinpath(@OUTPUT, "grplot.svg")) # hide
 using Plots
 pyplot()
 Plots.plot(sin, title=L"y=\sin x")
-Plots.savefig(joinpath(@OUTPUT, "pyplotbkend.svg")) # hide
+Plots.savefig(joinpath(@OUTPUT, "pyplotbkend.png")) # hide
 gr()
 ```
 
