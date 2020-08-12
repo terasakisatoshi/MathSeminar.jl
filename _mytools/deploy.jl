@@ -24,4 +24,4 @@ Remark.slideshow("slideshow/dash", options = Dict("ratio" => "16:9"), title = "D
 
 
 weave(joinpath("./programming", "weave.jmd"), out_path="./programming", doctype="github")
-optimize(minify=false, prepath="MathSeminar.jl", clear=false)
+optimize(minify=false, prepath="MathSeminar.jl", clear=true)
