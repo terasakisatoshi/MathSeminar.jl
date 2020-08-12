@@ -32,7 +32,7 @@ end # hide
 plotcurve() # hide
 ```
 
-\fig{circle.svg}
+\fig{circle}
 
 # Astroid
 
@@ -61,7 +61,7 @@ end # hide
 plotcurve() # hide
 ```
 
-\fig{astroid.svg}
+\fig{astroid}
 
 # Lissajous
 
@@ -234,7 +234,7 @@ end # hide
 plotcurve() # hide
 ```
 
-\fig{rose4.svg}
+\fig{rose4}
 
 ## Rose (gif)
 
