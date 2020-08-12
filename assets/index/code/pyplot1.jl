@@ -5,4 +5,4 @@ x = range(-2, 2, length=500)
 for α in 1:5
     PyPlot.plot(x, sinc.(α .* x))
 end
-PyPlot.savefig(joinpath(@OUTPUT, "sinc.svg")) # hide
+PyPlot.savefig(joinpath(@OUTPUT, "sinc.png")) # hide

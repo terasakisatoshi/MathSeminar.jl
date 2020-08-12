@@ -18,6 +18,9 @@ RUN apt-get update && \
 RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 ENV PATH /root/.cargo/bin:$PATH
 
+ENV GKSwstype=100
+ENV JULIA_NUM_THREADS=8
+
 RUN mkdir -p ${HOME}/.julia/config && \
     echo '\
 # Install Python and R via Conda \n\
@@ -69,8 +72,6 @@ Pkg.precompile()' && \
 # Check Julia version \
 julia -e 'using InteractiveUtils; versioninfo()'
 
-ENV GKSwstype=100
-ENV JULIA_NUM_THREADS=4
 # For Http Server
 EXPOSE 8000
 

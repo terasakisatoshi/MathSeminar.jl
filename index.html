@@ -30,6 +30,13 @@
     <nav class="sidebar-nav">
       <ul class="metismenu"  id="metismenu" >
         <li><a href="/MathSeminar.jl/index.html">Home</a></li>
+        <li><a href="" class="has-arrow">Slide Show</a>
+          <ul>
+            <li><a href="/MathSeminar.jl/slideshow/remark/build/">Introduction to Remark.jl</a>
+            <li><a href="/MathSeminar.jl/slideshow/franklin/build">Introduction to Franklin.jl</a>
+            <li><a href="/MathSeminar.jl/slideshow/dash/build">Introduction to Dash.jl</a>
+          </ul>
+        </li>
         <li><a href="" class="has-arrow">Programming</a>
           <ul>
             <li><a href="/MathSeminar.jl/programming/clang">C</a></li>
@@ -43,13 +50,6 @@
             <li><a href="/MathSeminar.jl/programming/theoremcounter">Theorem Counter</a></li>
             <li><a href="/MathSeminar.jl/programming/images">Images.jl</a></li>
             <li><a href="/MathSeminar.jl/programming/rcall">RCall.jl</a></li>
-          </ul>
-        </li>
-        <li><a href="" class="has-arrow">Slide Show</a>
-          <ul>
-            <li><a href="/MathSeminar.jl/slideshow/remark/build/">Introduction to Remark.jl</a>
-            <li><a href="/MathSeminar.jl/slideshow/franklin/build">Introduction to Franklin.jl</a>
-            <li><a href="/MathSeminar.jl/slideshow/dash/build">Introduction to Dash.jl</a>
           </ul>
         </li>
         <li><a href="" class="has-arrow">Gallery</a>
@@ -188,19 +188,19 @@ x = range(-<span class="hljs-number">2</span>, <span class="hljs-number">2</span
 <span class="hljs-keyword">for</span> α <span class="hljs-keyword">in</span> <span class="hljs-number">1</span>:<span class="hljs-number">5</span>
     PyPlot.plot(x, sinc.(α .* x))
 <span class="hljs-keyword">end</span></code></pre>
-<img src="/MathSeminar.jl/assets/index/code/output/sinc.svg" alt="">
+<img src="/MathSeminar.jl/assets/index/code/output/sinc.png" alt="">
 <h2 id="plots_gr_backend"><a href="#plots_gr_backend">Plots &#40;GR Backend&#41;</a></h2>
 <pre><code class="julia hljs"><span class="hljs-keyword">using</span> Plots
 gr()
 <span class="hljs-keyword">using</span> LaTeXStrings
 Plots.plot(rand(<span class="hljs-number">10</span>), title=<span class="hljs-string">L&quot;\alpha&quot;</span>, xlabel=<span class="hljs-string">L&quot;x&quot;</span>, ylabel=<span class="hljs-string">L&quot;y&quot;</span>)</code></pre>
-<img src="/MathSeminar.jl/assets/index/code/output/grplot.svg" alt="">
+<img src="/MathSeminar.jl/assets/index/code/output/grplot.png" alt="">
 <h2 id="plots_pyplot_backend"><a href="#plots_pyplot_backend">Plots &#40;PyPlot Backend&#41;</a></h2>
 <pre><code class="julia hljs"><span class="hljs-keyword">using</span> Plots
 pyplot()
 Plots.plot(sin, title=<span class="hljs-string">L&quot;y=\sin x&quot;</span>)
 gr()</code></pre>
-<img src="/MathSeminar.jl/assets/index/code/output/pyplotbkend.svg" alt="">
+<img src="/MathSeminar.jl/assets/index/code/output/pyplotbkend.png" alt="">
   </p>
 <p><div class="remark">4.1.0 &#40;Plotly/PlotlyJS について&#41; <br/> <code>Plotly</code>, または <code>PlotlyJS</code> による例はサイドメニューのページを参照</div>
 <h1 id="python_のコードの実行結果の表示"><a href="#python_のコードの実行結果の表示">Python のコードの実行結果の表示</a></h1></p>

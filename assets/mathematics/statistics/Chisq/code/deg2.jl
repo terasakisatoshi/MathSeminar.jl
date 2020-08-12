@@ -16,4 +16,4 @@ plot!(p, x, y,xlim=[0,5], ylim=[0,0.5], label=L"T_3")
 y = pdf.(χ², x)
 χ² = Chisq(2)
 plot!(p, x, y, label=L"\chi^2(2)",line=:dash)
-savefig(joinpath(@OUTPUT, "deg2.svg")) #hide
+savefig(joinpath(@OUTPUT, "deg2.png")) #hide

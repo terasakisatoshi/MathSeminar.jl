@@ -13,7 +13,7 @@ p = plot(
 )
 
 plot!(p, x, y, label = L"x^2+y^2 = 1")
-Plots.savefig(joinpath(@OUTPUT, "circle.svg")) #hide
+Plots.savefig(joinpath(@OUTPUT, "circle.png")) #hide
 
 end # hide
 plotcurve() # hide

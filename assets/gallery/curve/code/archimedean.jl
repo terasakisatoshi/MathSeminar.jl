@@ -16,6 +16,6 @@ p = plot(
 )
 
 plot!(p, x, y, label = :false)
-Plots.savefig(joinpath(@OUTPUT, "archimedean.svg")) #hide
+Plots.savefig(joinpath(@OUTPUT, "archimedean.png")) #hide
 end #hide
 plotcurve() # hide

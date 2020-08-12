@@ -30,6 +30,13 @@
     <nav class="sidebar-nav">
       <ul class="metismenu"  id="metismenu" >
         <li><a href="/MathSeminar.jl/index.html">Home</a></li>
+        <li><a href="" class="has-arrow">Slide Show</a>
+          <ul>
+            <li><a href="/MathSeminar.jl/slideshow/remark/build/">Introduction to Remark.jl</a>
+            <li><a href="/MathSeminar.jl/slideshow/franklin/build">Introduction to Franklin.jl</a>
+            <li><a href="/MathSeminar.jl/slideshow/dash/build">Introduction to Dash.jl</a>
+          </ul>
+        </li>
         <li><a href="" class="has-arrow">Programming</a>
           <ul>
             <li><a href="/MathSeminar.jl/programming/clang">C</a></li>
@@ -43,13 +50,6 @@
             <li><a href="/MathSeminar.jl/programming/theoremcounter">Theorem Counter</a></li>
             <li><a href="/MathSeminar.jl/programming/images">Images.jl</a></li>
             <li><a href="/MathSeminar.jl/programming/rcall">RCall.jl</a></li>
-          </ul>
-        </li>
-        <li><a href="" class="has-arrow">Slide Show</a>
-          <ul>
-            <li><a href="/MathSeminar.jl/slideshow/remark/build/">Introduction to Remark.jl</a>
-            <li><a href="/MathSeminar.jl/slideshow/franklin/build">Introduction to Franklin.jl</a>
-            <li><a href="/MathSeminar.jl/slideshow/dash/build">Introduction to Dash.jl</a>
           </ul>
         </li>
         <li><a href="" class="has-arrow">Gallery</a>
@@ -105,7 +105,7 @@ gr()
 p = plot(xlim=[-<span class="hljs-number">3</span>, <span class="hljs-number">3</span>])
 histogram!(sample, normalize=:pdf, label=<span class="hljs-string">&quot;hist&quot;</span>)
 plot!(x-&gt;pdf(d, x),label=<span class="hljs-string">&quot;pdf&quot;</span>)
-savefig(joinpath(<span class="hljs-meta">@OUTPUT</span>, <span class="hljs-string">&quot;normal.svg&quot;</span>))</code></pre>
+savefig(joinpath(<span class="hljs-meta">@OUTPUT</span>, <span class="hljs-string">&quot;normal.png&quot;</span>))</code></pre>
 <img src="/MathSeminar.jl/assets/mathematics/statistics/Chisq/code/output/normal.svg" alt="">
 <h1 id="prepare_gamma_function"><a href="#prepare_gamma_function">Prepare <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Γ</mi></mrow><annotation encoding="application/x-tex">\Gamma</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord">Γ</span></span></span></span> function</a></h1>
 <pre><code class="julia hljs"><span class="hljs-meta">@doc</span> gamma</code></pre>

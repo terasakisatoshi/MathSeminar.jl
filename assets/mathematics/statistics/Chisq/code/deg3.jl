@@ -16,4 +16,4 @@ plot!(p, x, y,xlim=[0,5], ylim=[0,0.5], label=L"T_3")
 y = pdf.(χ², x)
 
 plot!(p, x, y, label=L"\chi^2(3)",line=:dash)
-savefig(joinpath(@OUTPUT, "deg3.svg")) #hide
+savefig(joinpath(@OUTPUT, "deg3.png")) #hide

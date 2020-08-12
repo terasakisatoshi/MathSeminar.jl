@@ -10,4 +10,4 @@ plot!(p, x, y, xlim=[0,2], ylim=[0,4], label=L"T_1")
 
 y = pdf.(Chisq(1), x)
 plot!(p, x, y, line=:dash, label=L"\chi^2(1)") ;
-savefig(joinpath(@OUTPUT, "deg1.svg")) #hide
+savefig(joinpath(@OUTPUT, "deg1.png")) #hide
