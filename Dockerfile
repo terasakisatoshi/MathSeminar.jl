@@ -30,6 +30,7 @@ ENV["PYTHON"]="" \n\
 
 RUN julia -e 'using Pkg; \
 Pkg.add(["PyCall", "Conda"]); using PyCall, Conda;\
+using Conda; Conda.add(["matplotlib", "sympy", "numpy", "numba" ]); \
 Pkg.add(["Documenter", "Literate", "Weave", "Franklin", "NodeJS", "Remark"]); \
 '
 
@@ -37,12 +38,6 @@ RUN julia -e "using NodeJS; run(\`\$(npm_cmd()) install highlight.js\`); using F
 
 # Add conda's path
 ENV PATH /root/.julia/conda/3/bin:$PATH
-
-RUN conda install -y \
-    matplotlib \
-    numpy \
-    sympy \
-    numba
 
 RUN	conda install r-base=3.4 && \
     julia -e 'using Pkg; pkg"add RCall"; Pkg.build("RCall"); using RCall'
@@ -60,8 +55,12 @@ Pkg.add([\
     PackageSpec(name="Plots", version="1.5.8"), \
     PackageSpec(name="GR", version="0.51.0"), \
     PackageSpec(name="SymPy", version="1.0.27"), \
+    PackageSpec(name="PyPlot", version="2.9.0"), \
+    PackageSpec(name="TestImages", version="1.2.1"), \
+    PackageSpec(name="ImageMagick", version="1.1.5"), \
 ]); \
-Pkg.pin(["Franklin", "OhMyREPL", "Revise", "Plots", "GR", "SymPy"]); \
+Pkg.pin(["Franklin", "OhMyREPL", "Revise", "Plots", "GR", "SymPy", "PyPlot", "TestImages"]); \
+using PyPlot, SymPy, TestImages ; testimage("c"); testimage("m"); \
 '
 
 COPY Project.toml /work
