@@ -92,7 +92,7 @@
 </ul>
 <pre><code class="julia hljs"><span class="hljs-keyword">using</span> RCall</code></pre>
 <pre><code class="julia hljs"><span class="hljs-keyword">using</span> Plots
-gr()
+pyplot()
 
 xJ =  rand(<span class="hljs-number">3</span>) 
 <span class="hljs-meta">@show</span> xJ
@@ -101,10 +101,9 @@ xJ =  rand(<span class="hljs-number">3</span>)
 xR =  convert(<span class="hljs-built_in">Array</span>{<span class="hljs-built_in">Float64</span>}, <span class="hljs-string">R&quot;x&quot;</span>)
 <span class="hljs-meta">@show</span> xR
 plot(xJ)
-plot!(xR)
-Plots.savefig(joinpath(<span class="hljs-meta">@OUTPUT</span>, <span class="hljs-string">&quot;rcall.svg&quot;</span>))</code></pre>
-<p><pre><code class="plaintext hljs">xJ = [0.6945785912345266, 0.043711316842217185, 0.29853556903455103]
-xR = [1.3891571824690532, 0.08742263368443437, 0.5970711380691021]
+plot!(xR)</code></pre>
+<p><pre><code class="plaintext hljs">xJ = [0.034878331606312374, 0.26756584890359103, 0.596170423324907]
+xR = [0.06975666321262475, 0.5351316978071821, 1.192340846649814]
 </code></pre> <img src="/MathSeminar.jl/assets/programming/rcall/code/output/rcall.svg" alt=""></p>
 <div class="page-foot">
   <div class="copyright">

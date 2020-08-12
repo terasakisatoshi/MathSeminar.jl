@@ -1,6 +1,6 @@
 # This file was generated, do not modify it. # hide
 using Plots
-gr()
+pyplot()
 
 xJ =  rand(3) 
 @show xJ
@@ -10,4 +10,5 @@ xR =  convert(Array{Float64}, R"x")
 @show xR
 plot(xJ)
 plot!(xR)
-Plots.savefig(joinpath(@OUTPUT, "rcall.svg"))
+Plots.savefig(joinpath(@OUTPUT, "rcall.svg")) # hide
+gr() # hide
