@@ -7,7 +7,7 @@ mutable struct Theorem
     Theorem()=new(0,0,0)
 end
 
-mutable struct State 
+mutable struct State
     level::Symbol
     thm::Theorem
     label2thm::Dict{Any,Any}
@@ -92,19 +92,19 @@ end
 get_theorem_number(t::Theorem)="$(t.chapter).$(t.section).$(t.subsection)"
 
 function get_theorem_number()
-    global state 
+    global state
     get_theorem_number(state.thm)
 end
 
 function lx_getTheoremNumber(com, _)
-    global state 
+    global state
     get_theorem_number(state.thm)
 end
 
 function ref(label::AbstractString)
     global state
     try
-        n = get_theorem_number(state.label2thm[label])    
+        n = get_theorem_number(state.label2thm[label])
         return "[$n](#$label)"
     catch
         @warn "fail to ref $label"
@@ -140,4 +140,3 @@ end
 function fdsympy(x::AbstractArray{T}; mode="equation*", itex=true) where T<:SymbolicObject
     SymPy.sympy.latex(x, mode=mode,itex=itex) |> print
 end
-
