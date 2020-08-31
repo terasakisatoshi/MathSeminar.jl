@@ -19,15 +19,12 @@
 # - Dash.jl の README.md に従えば良い.
 # - Python での dash_core_components などは対応するリポジトリの `jl` ブランチで管理されている
 # ```julia
-# using 
-# # using Dash
+# using Pkg
+# Pkg.add(PackageSpec(url="https://github.com/plotly/DashBase.jl.git"))
+# Pkg.add(PackageSpec(url="https://github.com/plotly/dash-html-components.git", rev="master"))
+# Pkg.add(PackageSpec(url="https://github.com/plotly/dash-core-components.git", rev="master"))
+# Pkg.add(PackageSpec(url="https://github.com/plotly/dash-table.git", rev="master"))
 # Pkg.add(PackageSpec(url="https://github.com/plotly/Dash.jl.git", rev="dev"))
-# # using DashCoreComponents
-# Pkg.add(PackageSpec(url="https://github.com/plotly/dash-html-components.git", rev="jl"))
-# # using DashHtmlComponents
-# Pkg.add(PackageSpec(url="https://github.com/plotly/dash-core-components.git", rev="jl"))
-# # using DashTable
-# Pkg.add(PackageSpec(url="https://github.com/plotly/dash-table.git", rev="jl"))
 # ```
 # 
 #
