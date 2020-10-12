@@ -126,7 +126,7 @@ end
 
 function lx_bold(com, _)
     text = Franklin.content(com.braces[1])
-    return "$(text)"
+    return "__$(text)__"
 end
 
 
