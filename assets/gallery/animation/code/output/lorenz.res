@@ -1,1 +1,0 @@
-Plots.AnimatedGif("/work/__site/assets/gallery/animation/code/output/lorenz.gif")

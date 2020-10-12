@@ -1,1 +1,0 @@
-Utils.state = Main.Utils.State(:section, Main.Utils.Theorem(3, 1, 0), Dict{Any,Any}("label2" => Main.Utils.Theorem(3, 0, 0),"label1" => Main.Utils.Theorem(2, 0, 0),"label3" => Main.Utils.Theorem(3, 1, 0)))

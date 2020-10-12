@@ -92,7 +92,17 @@
 <p>Assuming you already have the Plotly code for some plot, displaying  the  result on a page with Franklin is now pretty straightforward. Start by adding</p>
 <pre><code class="julia hljs"><span class="hljs-meta">@def</span> hasplotly = <span class="hljs-literal">true</span></code></pre>
 <p>so that the JS library  will be  loaded then somewhere appropriate add:</p>
-<pre><code class="html hljs">~~~\n<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;tester&quot;</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;width:600px;height:350px;&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>\n\n<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">\n    TESTER = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&#x27;tester&#x27;</span>);\n    Plotly.plot( TESTER, [{\n    x: [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>],\n    y: [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">4</span>, <span class="hljs-number">8</span>, <span class="hljs-number">16</span>] }], {\n    margin: { <span class="hljs-attr">t</span>: <span class="hljs-number">0</span> } } );\n</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>\n~~~</code></pre>
+<pre><code class="html hljs">~~~
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;tester&quot;</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;width:600px;height:350px;&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+    TESTER = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&#x27;tester&#x27;</span>);
+    Plotly.plot( TESTER, [{
+    <span class="hljs-attr">x</span>: [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>],
+    <span class="hljs-attr">y</span>: [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">4</span>, <span class="hljs-number">8</span>, <span class="hljs-number">16</span>] }], {
+    <span class="hljs-attr">margin</span>: { <span class="hljs-attr">t</span>: <span class="hljs-number">0</span> } } );
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+~~~</code></pre>
 <p>This will give:</p>
 
 <div id="tester" style="width:600px;height:350px;"></div>
@@ -116,17 +126,17 @@ data   = contour(; z=z)
 layout = Layout(; title=<span class="hljs-string">&quot;Basic Contour Plot&quot;</span>)
 plt    = plot(data, layout)</code></pre>
 
-<div id="fdpbaw" style="width:600px;height:350px"></div>
+<div id="fdpqzi" style="width:600px;height:350px"></div>
 
 <script>
 	var fig = {"layout":{"margin":{"l":50,"b":50,"r":50,"t":60},"title":"Basic Contour Plot"},"data":[{"type":"contour","z":[[10.0,5.625,2.5,0.625,0.0],[10.625,6.25,3.125,1.25,0.625],[12.5,8.125,5.0,3.125,2.5],[15.625,11.25,8.125,6.25,5.625],[20.0,15.625,12.5,10.625,10.0]]}]};
-	CONTAINER = document.getElementById('fdpbaw');
+	CONTAINER = document.getElementById('fdpqzi');
 	Plotly.newPlot(CONTAINER, fig.data, fig.layout)
 </script>
 
 <div class="page-foot">
   <div class="copyright">
-    &copy; SatoshiTerasaki. Last modified: 2020年9月10日 木曜日. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
+    &copy; SatoshiTerasaki. Last modified: 2020年10月12日 月曜日. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
   </div>
 </div>
 </div><!-- CONTENT ENDS HERE -->

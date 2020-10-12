@@ -1,11 +1,12 @@
-~~~<div id="fdpaym" style="width:600px;height:350px"></div> <script>     PLOT = document.getElementById('fdpaym');
+~~~<div id="fdppwj" style="width:600px;height:350px"></div> <script>     PLOT = document.getElementById('fdppwj');
     Plotly.plot(PLOT, [
     {
-        "xaxis": "x1",
+        "xaxis": "x",
         "colorbar": {
             "title": ""
         },
-        "yaxis": "y1",
+        "yaxis": "y",
+        "zaxis": "z",
         "x": [
             4.0,
             3.989821441880933,
@@ -159,14 +160,16 @@
             0.0,
             0.0
         ],
-        "type": "scatter3d"
+        "type": "scatter3d",
+        "scene": "scene"
     },
     {
-        "xaxis": "x1",
+        "xaxis": "x",
         "colorbar": {
             "title": ""
         },
-        "yaxis": "y1",
+        "yaxis": "y",
+        "zaxis": "z",
         "x": [
             3.9592857675237307,
             3.9492108124500467,
@@ -320,14 +323,16 @@
             0.5678107932405703,
             0.5692593530931406
         ],
-        "type": "scatter3d"
+        "type": "scatter3d",
+        "scene": "scene"
     },
     {
-        "xaxis": "x1",
+        "xaxis": "x",
         "colorbar": {
             "title": ""
         },
-        "yaxis": "y1",
+        "yaxis": "y",
+        "zaxis": "z",
         "x": [
             3.8379718944579895,
             3.828205639461218,
@@ -481,14 +486,16 @@
             1.1240625961618749,
             1.1269302273657187
         ],
-        "type": "scatter3d"
+        "type": "scatter3d",
+        "scene": "scene"
     },
     {
-        "xaxis": "x1",
+        "xaxis": "x",
         "colorbar": {
             "title": ""
         },
-        "yaxis": "y1",
+        "yaxis": "y",
+        "zaxis": "z",
         "x": [
             3.6385279814180738,
             3.6292692392863946,
@@ -642,14 +649,16 @@
             1.6574317261541727,
             1.6616600520075455
         ],
-        "type": "scatter3d"
+        "type": "scatter3d",
+        "scene": "scene"
     },
     {
-        "xaxis": "x1",
+        "xaxis": "x",
         "colorbar": {
             "title": ""
         },
-        "yaxis": "y1",
+        "yaxis": "y",
+        "zaxis": "z",
         "x": [
             3.365014131324725,
             3.356451383347932,
@@ -803,14 +812,16 @@
             2.157060325840378,
             2.16256326982239
         ],
-        "type": "scatter3d"
+        "type": "scatter3d",
+        "scene": "scene"
     },
     {
-        "xaxis": "x1",
+        "xaxis": "x",
         "colorbar": {
             "title": ""
         },
-        "yaxis": "y1",
+        "yaxis": "y",
+        "zaxis": "z",
         "x": [
             3.022998297417033,
             3.015305856451008,
@@ -964,14 +975,16 @@
             2.6127773977407833,
             2.6194429357811404
         ],
-        "type": "scatter3d"
+        "type": "scatter3d",
+        "scene": "scene"
     },
     {
-        "xaxis": "x1",
+        "xaxis": "x",
         "colorbar": {
             "title": ""
         },
-        "yaxis": "y1",
+        "yaxis": "y",
+        "zaxis": "z",
         "x": [
             2.6194429357811404,
             2.6127773977407833,
@@ -1125,14 +1138,16 @@
             3.015305856451008,
             3.022998297417033
         ],
-        "type": "scatter3d"
+        "type": "scatter3d",
+        "scene": "scene"
     },
     {
-        "xaxis": "x1",
+        "xaxis": "x",
         "colorbar": {
             "title": ""
         },
-        "yaxis": "y1",
+        "yaxis": "y",
+        "zaxis": "z",
         "x": [
             2.1625632698223907,
             2.1570603258403787,
@@ -1286,14 +1301,16 @@
             3.3564513833479315,
             3.3650141313247244
         ],
-        "type": "scatter3d"
+        "type": "scatter3d",
+        "scene": "scene"
     },
     {
-        "xaxis": "x1",
+        "xaxis": "x",
         "colorbar": {
             "title": ""
         },
-        "yaxis": "y1",
+        "yaxis": "y",
+        "zaxis": "z",
         "x": [
             1.6616600520075457,
             1.657431726154173,
@@ -1447,14 +1464,16 @@
             3.629269239286394,
             3.6385279814180733
         ],
-        "type": "scatter3d"
+        "type": "scatter3d",
+        "scene": "scene"
     },
     {
-        "xaxis": "x1",
+        "xaxis": "x",
         "colorbar": {
             "title": ""
         },
-        "yaxis": "y1",
+        "yaxis": "y",
+        "zaxis": "z",
         "x": [
             1.1269302273657191,
             1.1240625961618753,
@@ -1608,14 +1627,16 @@
             3.828205639461218,
             3.8379718944579895
         ],
-        "type": "scatter3d"
+        "type": "scatter3d",
+        "scene": "scene"
     },
     {
-        "xaxis": "x1",
+        "xaxis": "x",
         "colorbar": {
             "title": ""
         },
-        "yaxis": "y1",
+        "yaxis": "y",
+        "zaxis": "z",
         "x": [
             0.5692593530931405,
             0.5678107932405702,
@@ -1769,14 +1790,16 @@
             3.9492108124500467,
             3.9592857675237307
         ],
-        "type": "scatter3d"
+        "type": "scatter3d",
+        "scene": "scene"
     },
     {
-        "xaxis": "x1",
+        "xaxis": "x",
         "colorbar": {
             "title": ""
         },
-        "yaxis": "y1",
+        "yaxis": "y",
+        "zaxis": "z",
         "x": [
             2.4492935982947064e-16,
             2.443061028984481e-16,
@@ -1930,14 +1953,16 @@
             3.989821441880933,
             4.0
         ],
-        "type": "scatter3d"
+        "type": "scatter3d",
+        "scene": "scene"
     },
     {
-        "xaxis": "x1",
+        "xaxis": "x",
         "colorbar": {
             "title": ""
         },
-        "yaxis": "y1",
+        "yaxis": "y",
+        "zaxis": "z",
         "x": [
             -0.56925935309314,
             -0.5678107932405697,
@@ -2091,14 +2116,16 @@
             3.949210812450047,
             3.959285767523731
         ],
-        "type": "scatter3d"
+        "type": "scatter3d",
+        "scene": "scene"
     },
     {
-        "xaxis": "x1",
+        "xaxis": "x",
         "colorbar": {
             "title": ""
         },
-        "yaxis": "y1",
+        "yaxis": "y",
+        "zaxis": "z",
         "x": [
             -1.1269302273657187,
             -1.1240625961618749,
@@ -2252,14 +2279,16 @@
             3.828205639461218,
             3.8379718944579895
         ],
-        "type": "scatter3d"
+        "type": "scatter3d",
+        "scene": "scene"
     },
     {
-        "xaxis": "x1",
+        "xaxis": "x",
         "colorbar": {
             "title": ""
         },
-        "yaxis": "y1",
+        "yaxis": "y",
+        "zaxis": "z",
         "x": [
             -1.6616600520075453,
             -1.6574317261541724,
@@ -2413,14 +2442,16 @@
             3.6292692392863946,
             3.6385279814180738
         ],
-        "type": "scatter3d"
+        "type": "scatter3d",
+        "scene": "scene"
     },
     {
-        "xaxis": "x1",
+        "xaxis": "x",
         "colorbar": {
             "title": ""
         },
-        "yaxis": "y1",
+        "yaxis": "y",
+        "zaxis": "z",
         "x": [
             -2.1625632698223907,
             -2.1570603258403787,
@@ -2574,14 +2605,16 @@
             3.3564513833479315,
             3.3650141313247244
         ],
-        "type": "scatter3d"
+        "type": "scatter3d",
+        "scene": "scene"
     },
     {
-        "xaxis": "x1",
+        "xaxis": "x",
         "colorbar": {
             "title": ""
         },
-        "yaxis": "y1",
+        "yaxis": "y",
+        "zaxis": "z",
         "x": [
             -2.61944293578114,
             -2.612777397740783,
@@ -2735,14 +2768,16 @@
             3.015305856451008,
             3.022998297417033
         ],
-        "type": "scatter3d"
+        "type": "scatter3d",
+        "scene": "scene"
     },
     {
-        "xaxis": "x1",
+        "xaxis": "x",
         "colorbar": {
             "title": ""
         },
-        "yaxis": "y1",
+        "yaxis": "y",
+        "zaxis": "z",
         "x": [
             -3.0229982974170326,
             -3.0153058564510076,
@@ -2896,14 +2931,16 @@
             2.6127773977407838,
             2.619442935781141
         ],
-        "type": "scatter3d"
+        "type": "scatter3d",
+        "scene": "scene"
     },
     {
-        "xaxis": "x1",
+        "xaxis": "x",
         "colorbar": {
             "title": ""
         },
-        "yaxis": "y1",
+        "yaxis": "y",
+        "zaxis": "z",
         "x": [
             -3.3650141313247244,
             -3.3564513833479315,
@@ -3057,14 +3094,16 @@
             2.157060325840379,
             2.162563269822391
         ],
-        "type": "scatter3d"
+        "type": "scatter3d",
+        "scene": "scene"
     },
     {
-        "xaxis": "x1",
+        "xaxis": "x",
         "colorbar": {
             "title": ""
         },
-        "yaxis": "y1",
+        "yaxis": "y",
+        "zaxis": "z",
         "x": [
             -3.638527981418073,
             -3.6292692392863937,
@@ -3218,14 +3257,16 @@
             1.657431726154174,
             1.6616600520075469
         ],
-        "type": "scatter3d"
+        "type": "scatter3d",
+        "scene": "scene"
     },
     {
-        "xaxis": "x1",
+        "xaxis": "x",
         "colorbar": {
             "title": ""
         },
-        "yaxis": "y1",
+        "yaxis": "y",
+        "zaxis": "z",
         "x": [
             -3.8379718944579895,
             -3.828205639461218,
@@ -3379,14 +3420,16 @@
             1.1240625961618749,
             1.1269302273657187
         ],
-        "type": "scatter3d"
+        "type": "scatter3d",
+        "scene": "scene"
     },
     {
-        "xaxis": "x1",
+        "xaxis": "x",
         "colorbar": {
             "title": ""
         },
-        "yaxis": "y1",
+        "yaxis": "y",
+        "zaxis": "z",
         "x": [
             -3.9592857675237307,
             -3.9492108124500467,
@@ -3540,14 +3583,16 @@
             0.5678107932405704,
             0.5692593530931407
         ],
-        "type": "scatter3d"
+        "type": "scatter3d",
+        "scene": "scene"
     },
     {
-        "xaxis": "x1",
+        "xaxis": "x",
         "colorbar": {
             "title": ""
         },
-        "yaxis": "y1",
+        "yaxis": "y",
+        "zaxis": "z",
         "x": [
             -4.0,
             -3.989821441880933,
@@ -3701,14 +3746,16 @@
             4.886122057968962e-16,
             4.898587196589413e-16
         ],
-        "type": "scatter3d"
+        "type": "scatter3d",
+        "scene": "scene"
     },
     {
-        "xaxis": "x1",
+        "xaxis": "x",
         "colorbar": {
             "title": ""
         },
-        "yaxis": "y1",
+        "yaxis": "y",
+        "zaxis": "z",
         "x": [
             -3.959285767523731,
             -3.949210812450047,
@@ -3862,14 +3909,16 @@
             -0.5678107932405694,
             -0.5692593530931397
         ],
-        "type": "scatter3d"
+        "type": "scatter3d",
+        "scene": "scene"
     },
     {
-        "xaxis": "x1",
+        "xaxis": "x",
         "colorbar": {
             "title": ""
         },
-        "yaxis": "y1",
+        "yaxis": "y",
+        "zaxis": "z",
         "x": [
             -3.83797189445799,
             -3.8282056394612183,
@@ -4023,14 +4072,16 @@
             -1.1240625961618738,
             -1.1269302273657176
         ],
-        "type": "scatter3d"
+        "type": "scatter3d",
+        "scene": "scene"
     },
     {
-        "xaxis": "x1",
+        "xaxis": "x",
         "colorbar": {
             "title": ""
         },
-        "yaxis": "y1",
+        "yaxis": "y",
+        "zaxis": "z",
         "x": [
             -3.6385279814180733,
             -3.629269239286394,
@@ -4184,14 +4235,16 @@
             -1.6574317261541731,
             -1.661660052007546
         ],
-        "type": "scatter3d"
+        "type": "scatter3d",
+        "scene": "scene"
     },
     {
-        "xaxis": "x1",
+        "xaxis": "x",
         "colorbar": {
             "title": ""
         },
-        "yaxis": "y1",
+        "yaxis": "y",
+        "zaxis": "z",
         "x": [
             -3.365014131324725,
             -3.356451383347932,
@@ -4345,14 +4398,16 @@
             -2.157060325840378,
             -2.16256326982239
         ],
-        "type": "scatter3d"
+        "type": "scatter3d",
+        "scene": "scene"
     },
     {
-        "xaxis": "x1",
+        "xaxis": "x",
         "colorbar": {
             "title": ""
         },
-        "yaxis": "y1",
+        "yaxis": "y",
+        "zaxis": "z",
         "x": [
             -3.0229982974170335,
             -3.0153058564510085,
@@ -4506,14 +4561,16 @@
             -2.612777397740783,
             -2.61944293578114
         ],
-        "type": "scatter3d"
+        "type": "scatter3d",
+        "scene": "scene"
     },
     {
-        "xaxis": "x1",
+        "xaxis": "x",
         "colorbar": {
             "title": ""
         },
-        "yaxis": "y1",
+        "yaxis": "y",
+        "zaxis": "z",
         "x": [
             -2.619442935781141,
             -2.6127773977407838,
@@ -4667,14 +4724,16 @@
             -3.0153058564510076,
             -3.0229982974170326
         ],
-        "type": "scatter3d"
+        "type": "scatter3d",
+        "scene": "scene"
     },
     {
-        "xaxis": "x1",
+        "xaxis": "x",
         "colorbar": {
             "title": ""
         },
-        "yaxis": "y1",
+        "yaxis": "y",
+        "zaxis": "z",
         "x": [
             -2.1625632698223898,
             -2.1570603258403778,
@@ -4828,14 +4887,16 @@
             -3.3564513833479324,
             -3.3650141313247253
         ],
-        "type": "scatter3d"
+        "type": "scatter3d",
+        "scene": "scene"
     },
     {
-        "xaxis": "x1",
+        "xaxis": "x",
         "colorbar": {
             "title": ""
         },
-        "yaxis": "y1",
+        "yaxis": "y",
+        "zaxis": "z",
         "x": [
             -1.6616600520075455,
             -1.6574317261541727,
@@ -4989,14 +5050,16 @@
             -3.6292692392863946,
             -3.6385279814180738
         ],
-        "type": "scatter3d"
+        "type": "scatter3d",
+        "scene": "scene"
     },
     {
-        "xaxis": "x1",
+        "xaxis": "x",
         "colorbar": {
             "title": ""
         },
-        "yaxis": "y1",
+        "yaxis": "y",
+        "zaxis": "z",
         "x": [
             -1.126930227365719,
             -1.124062596161875,
@@ -5150,14 +5213,16 @@
             -3.828205639461218,
             -3.8379718944579895
         ],
-        "type": "scatter3d"
+        "type": "scatter3d",
+        "scene": "scene"
     },
     {
-        "xaxis": "x1",
+        "xaxis": "x",
         "colorbar": {
             "title": ""
         },
-        "yaxis": "y1",
+        "yaxis": "y",
+        "zaxis": "z",
         "x": [
             -0.5692593530931409,
             -0.5678107932405706,
@@ -5311,14 +5376,16 @@
             -3.9492108124500467,
             -3.9592857675237307
         ],
-        "type": "scatter3d"
+        "type": "scatter3d",
+        "scene": "scene"
     },
     {
-        "xaxis": "x1",
+        "xaxis": "x",
         "colorbar": {
             "title": ""
         },
-        "yaxis": "y1",
+        "yaxis": "y",
+        "zaxis": "z",
         "x": [
             -7.347880794884119e-16,
             -7.329183086953443e-16,
@@ -5472,14 +5539,16 @@
             -3.989821441880933,
             -4.0
         ],
-        "type": "scatter3d"
+        "type": "scatter3d",
+        "scene": "scene"
     },
     {
-        "xaxis": "x1",
+        "xaxis": "x",
         "colorbar": {
             "title": ""
         },
-        "yaxis": "y1",
+        "yaxis": "y",
+        "zaxis": "z",
         "x": [
             0.5692593530931395,
             0.5678107932405692,
@@ -5633,14 +5702,16 @@
             -3.949210812450047,
             -3.959285767523731
         ],
-        "type": "scatter3d"
+        "type": "scatter3d",
+        "scene": "scene"
     },
     {
-        "xaxis": "x1",
+        "xaxis": "x",
         "colorbar": {
             "title": ""
         },
-        "yaxis": "y1",
+        "yaxis": "y",
+        "zaxis": "z",
         "x": [
             1.1269302273657174,
             1.1240625961618735,
@@ -5794,14 +5865,16 @@
             -3.8282056394612183,
             -3.83797189445799
         ],
-        "type": "scatter3d"
+        "type": "scatter3d",
+        "scene": "scene"
     },
     {
-        "xaxis": "x1",
+        "xaxis": "x",
         "colorbar": {
             "title": ""
         },
-        "yaxis": "y1",
+        "yaxis": "y",
+        "zaxis": "z",
         "x": [
             1.6616600520075442,
             1.6574317261541713,
@@ -5955,14 +6028,16 @@
             -3.629269239286395,
             -3.638527981418074
         ],
-        "type": "scatter3d"
+        "type": "scatter3d",
+        "scene": "scene"
     },
     {
-        "xaxis": "x1",
+        "xaxis": "x",
         "colorbar": {
             "title": ""
         },
-        "yaxis": "y1",
+        "yaxis": "y",
+        "zaxis": "z",
         "x": [
             2.1625632698223884,
             2.1570603258403764,
@@ -6116,14 +6191,16 @@
             -3.356451383347933,
             -3.3650141313247257
         ],
-        "type": "scatter3d"
+        "type": "scatter3d",
+        "scene": "scene"
     },
     {
-        "xaxis": "x1",
+        "xaxis": "x",
         "colorbar": {
             "title": ""
         },
-        "yaxis": "y1",
+        "yaxis": "y",
+        "zaxis": "z",
         "x": [
             2.619442935781138,
             2.612777397740781,
@@ -6277,14 +6354,16 @@
             -3.01530585645101,
             -3.022998297417035
         ],
-        "type": "scatter3d"
+        "type": "scatter3d",
+        "scene": "scene"
     },
     {
-        "xaxis": "x1",
+        "xaxis": "x",
         "colorbar": {
             "title": ""
         },
-        "yaxis": "y1",
+        "yaxis": "y",
+        "zaxis": "z",
         "x": [
             3.0229982974170335,
             3.0153058564510085,
@@ -6438,14 +6517,16 @@
             -2.6127773977407824,
             -2.6194429357811395
         ],
-        "type": "scatter3d"
+        "type": "scatter3d",
+        "scene": "scene"
     },
     {
-        "xaxis": "x1",
+        "xaxis": "x",
         "colorbar": {
             "title": ""
         },
-        "yaxis": "y1",
+        "yaxis": "y",
+        "zaxis": "z",
         "x": [
             3.365014131324725,
             3.356451383347932,
@@ -6599,14 +6680,16 @@
             -2.1570603258403778,
             -2.1625632698223898
         ],
-        "type": "scatter3d"
+        "type": "scatter3d",
+        "scene": "scene"
     },
     {
-        "xaxis": "x1",
+        "xaxis": "x",
         "colorbar": {
             "title": ""
         },
-        "yaxis": "y1",
+        "yaxis": "y",
+        "zaxis": "z",
         "x": [
             3.6385279814180733,
             3.629269239286394,
@@ -6760,14 +6843,16 @@
             -1.657431726154173,
             -1.6616600520075457
         ],
-        "type": "scatter3d"
+        "type": "scatter3d",
+        "scene": "scene"
     },
     {
-        "xaxis": "x1",
+        "xaxis": "x",
         "colorbar": {
             "title": ""
         },
-        "yaxis": "y1",
+        "yaxis": "y",
+        "zaxis": "z",
         "x": [
             3.8379718944579895,
             3.828205639461218,
@@ -6921,14 +7006,16 @@
             -1.1240625961618753,
             -1.1269302273657191
         ],
-        "type": "scatter3d"
+        "type": "scatter3d",
+        "scene": "scene"
     },
     {
-        "xaxis": "x1",
+        "xaxis": "x",
         "colorbar": {
             "title": ""
         },
-        "yaxis": "y1",
+        "yaxis": "y",
+        "zaxis": "z",
         "x": [
             3.9592857675237307,
             3.9492108124500467,
@@ -7082,14 +7169,16 @@
             -0.5678107932405709,
             -0.5692593530931412
         ],
-        "type": "scatter3d"
+        "type": "scatter3d",
+        "scene": "scene"
     },
     {
-        "xaxis": "x1",
+        "xaxis": "x",
         "colorbar": {
             "title": ""
         },
-        "yaxis": "y1",
+        "yaxis": "y",
+        "zaxis": "z",
         "x": [
             4.0,
             3.989821441880933,
@@ -7243,14 +7332,16 @@
             -9.772244115937924e-16,
             -9.797174393178826e-16
         ],
-        "type": "scatter3d"
+        "type": "scatter3d",
+        "scene": "scene"
     },
     {
-        "xaxis": "x1",
+        "xaxis": "x",
         "colorbar": {
             "title": ""
         },
-        "yaxis": "y1",
+        "yaxis": "y",
+        "zaxis": "z",
         "x": [
             4.0,
             3.9592857675237307,
@@ -7404,14 +7495,16 @@
             -0.5692593530931412,
             -9.797174393178826e-16
         ],
-        "type": "scatter3d"
+        "type": "scatter3d",
+        "scene": "scene"
     },
     {
-        "xaxis": "x1",
+        "xaxis": "x",
         "colorbar": {
             "title": ""
         },
-        "yaxis": "y1",
+        "yaxis": "y",
+        "zaxis": "z",
         "x": [
             3.989821441880933,
             3.9492108124500467,
@@ -7565,14 +7658,16 @@
             -0.5678107932405709,
             -9.772244115937924e-16
         ],
-        "type": "scatter3d"
+        "type": "scatter3d",
+        "scene": "scene"
     },
     {
-        "xaxis": "x1",
+        "xaxis": "x",
         "colorbar": {
             "title": ""
         },
-        "yaxis": "y1",
+        "yaxis": "y",
+        "zaxis": "z",
         "x": [
             3.9594929736144975,
             3.919191044260524,
@@ -7726,14 +7821,16 @@
             -0.5634946021841567,
             -9.69796079276686e-16
         ],
-        "type": "scatter3d"
+        "type": "scatter3d",
+        "scene": "scene"
     },
     {
-        "xaxis": "x1",
+        "xaxis": "x",
         "colorbar": {
             "title": ""
         },
-        "yaxis": "y1",
+        "yaxis": "y",
+        "zaxis": "z",
         "x": [
             3.9096319953545184,
             3.869837578865637,
@@ -7887,14 +7984,16 @@
             -0.55639864512694,
             -9.57583661790998e-16
         ],
-        "type": "scatter3d"
+        "type": "scatter3d",
+        "scene": "scene"
     },
     {
-        "xaxis": "x1",
+        "xaxis": "x",
         "colorbar": {
             "title": ""
         },
-        "yaxis": "y1",
+        "yaxis": "y",
+        "zaxis": "z",
         "x": [
             3.841253532831181,
             3.802155110497186,
@@ -8048,14 +8147,16 @@
             -0.5466673752915554,
             -9.408357687390337e-16
         ],
-        "type": "scatter3d"
+        "type": "scatter3d",
+        "scene": "scene"
     },
     {
-        "xaxis": "x1",
+        "xaxis": "x",
         "colorbar": {
             "title": ""
         },
-        "yaxis": "y1",
+        "yaxis": "y",
+        "zaxis": "z",
         "x": [
             3.755749574354258,
             3.717521459031031,
@@ -8209,14 +8310,16 @@
             -0.5344988932691864,
             -9.198933389263952e-16
         ],
-        "type": "scatter3d"
+        "type": "scatter3d",
+        "scene": "scene"
     },
     {
-        "xaxis": "x1",
+        "xaxis": "x",
         "colorbar": {
             "title": ""
         },
-        "yaxis": "y1",
+        "yaxis": "y",
+        "zaxis": "z",
         "x": [
             3.654860733945285,
             3.617659521547726,
@@ -8370,14 +8473,16 @@
             -0.5201409142628041,
             -8.95182699831088e-16
         ],
-        "type": "scatter3d"
+        "type": "scatter3d",
+        "scene": "scene"
     },
     {
-        "xaxis": "x1",
+        "xaxis": "x",
         "colorbar": {
             "title": ""
         },
-        "yaxis": "y1",
+        "yaxis": "y",
+        "zaxis": "z",
         "x": [
             3.5406408174555977,
             3.504602199116384,
@@ -8531,14 +8636,16 @@
             -0.5038857253199861,
             -8.672068888054931e-16
         ],
-        "type": "scatter3d"
+        "type": "scatter3d",
+        "scene": "scene"
     },
     {
-        "xaxis": "x1",
+        "xaxis": "x",
         "colorbar": {
             "title": ""
         },
-        "yaxis": "y1",
+        "yaxis": "y",
+        "zaxis": "z",
         "x": [
             3.4154150130018865,
             3.380651012791312,
@@ -8692,14 +8799,16 @@
             -0.48606423521151415,
             -8.365354126865152e-16
         ],
-        "type": "scatter3d"
+        "type": "scatter3d",
+        "scene": "scene"
     },
     {
-        "xaxis": "x1",
+        "xaxis": "x",
         "colorbar": {
             "title": ""
         },
-        "yaxis": "y1",
+        "yaxis": "y",
+        "zaxis": "z",
         "x": [
             3.2817325568414297,
             3.2483292512803836,
@@ -8853,14 +8962,16 @@
             -0.46703923808306314,
             -8.037926542787033e-16
         ],
-        "type": "scatter3d"
+        "type": "scatter3d",
+        "scene": "scene"
     },
     {
-        "xaxis": "x1",
+        "xaxis": "x",
         "colorbar": {
             "title": ""
         },
-        "yaxis": "y1",
+        "yaxis": "y",
+        "zaxis": "z",
         "x": [
             3.1423148382732853,
             3.1103306040635132,
@@ -9014,14 +9125,16 @@
             -0.4471980280126073,
             -7.696451617209223e-16
         ],
-        "type": "scatter3d"
+        "type": "scatter3d",
+        "scene": "scene"
     },
     {
-        "xaxis": "x1",
+        "xaxis": "x",
         "colorbar": {
             "title": ""
         },
-        "yaxis": "y1",
+        "yaxis": "y",
+        "zaxis": "z",
         "x": [
             3.0,
             2.969464325642798,
@@ -9175,14 +9288,16 @@
             -0.42694451481985596,
             -7.347880794884119e-16
         ],
-        "type": "scatter3d"
+        "type": "scatter3d",
+        "scene": "scene"
     },
     {
-        "xaxis": "x1",
+        "xaxis": "x",
         "colorbar": {
             "title": ""
         },
-        "yaxis": "y1",
+        "yaxis": "y",
+        "zaxis": "z",
         "x": [
             2.857685161726715,
             2.8285980472220835,
@@ -9336,14 +9451,16 @@
             -0.40669100162710464,
             -6.999309972559016e-16
         ],
-        "type": "scatter3d"
+        "type": "scatter3d",
+        "scene": "scene"
     },
     {
-        "xaxis": "x1",
+        "xaxis": "x",
         "colorbar": {
             "title": ""
         },
-        "yaxis": "y1",
+        "yaxis": "y",
+        "zaxis": "z",
         "x": [
             2.7182674431585703,
             2.6905994000052122,
@@ -9497,14 +9614,16 @@
             -0.3868497915566487,
             -6.657835046981206e-16
         ],
-        "type": "scatter3d"
+        "type": "scatter3d",
+        "scene": "scene"
     },
     {
-        "xaxis": "x1",
+        "xaxis": "x",
         "colorbar": {
             "title": ""
         },
-        "yaxis": "y1",
+        "yaxis": "y",
+        "zaxis": "z",
         "x": [
             2.584584986998114,
             2.558277638494285,
@@ -9658,14 +9777,16 @@
             -0.3678247944281978,
             -6.330407462903087e-16
         ],
-        "type": "scatter3d"
+        "type": "scatter3d",
+        "scene": "scene"
     },
     {
-        "xaxis": "x1",
+        "xaxis": "x",
         "colorbar": {
             "title": ""
         },
-        "yaxis": "y1",
+        "yaxis": "y",
+        "zaxis": "z",
         "x": [
             2.4593591825444023,
             2.4343264521692123,
@@ -9819,14 +9940,16 @@
             -0.35000330431972576,
             -6.023692701713307e-16
         ],
-        "type": "scatter3d"
+        "type": "scatter3d",
+        "scene": "scene"
     },
     {
-        "xaxis": "x1",
+        "xaxis": "x",
         "colorbar": {
             "title": ""
         },
-        "yaxis": "y1",
+        "yaxis": "y",
+        "zaxis": "z",
         "x": [
             2.345139266054715,
             2.32126912973787,
@@ -9980,14 +10103,16 @@
             -0.33374811537690774,
             -5.743934591457359e-16
         ],
-        "type": "scatter3d"
+        "type": "scatter3d",
+        "scene": "scene"
     },
     {
-        "xaxis": "x1",
+        "xaxis": "x",
         "colorbar": {
             "title": ""
         },
-        "yaxis": "y1",
+        "yaxis": "y",
+        "zaxis": "z",
         "x": [
             2.244250425645742,
             2.2214071922545653,
@@ -10141,14 +10266,16 @@
             -0.3193901363705255,
             -5.496828200504286e-16
         ],
-        "type": "scatter3d"
+        "type": "scatter3d",
+        "scene": "scene"
     },
     {
-        "xaxis": "x1",
+        "xaxis": "x",
         "colorbar": {
             "title": ""
         },
-        "yaxis": "y1",
+        "yaxis": "y",
+        "zaxis": "z",
         "x": [
             2.158746467168819,
             2.13677354078841,
@@ -10302,14 +10429,16 @@
             -0.3072216543481565,
             -5.287403902377902e-16
         ],
-        "type": "scatter3d"
+        "type": "scatter3d",
+        "scene": "scene"
     },
     {
-        "xaxis": "x1",
+        "xaxis": "x",
         "colorbar": {
             "title": ""
         },
-        "yaxis": "y1",
+        "yaxis": "y",
+        "zaxis": "z",
         "x": [
             2.090368004645482,
             2.069091072419959,
@@ -10463,14 +10592,16 @@
             -0.2974903845127719,
             -5.119924971858258e-16
         ],
-        "type": "scatter3d"
+        "type": "scatter3d",
+        "scene": "scene"
     },
     {
-        "xaxis": "x1",
+        "xaxis": "x",
         "colorbar": {
             "title": ""
         },
-        "yaxis": "y1",
+        "yaxis": "y",
+        "zaxis": "z",
         "x": [
             2.0405070263855025,
             2.0197376070250725,
@@ -10624,14 +10755,16 @@
             -0.2903944274555551,
             -4.997800797001379e-16
         ],
-        "type": "scatter3d"
+        "type": "scatter3d",
+        "scene": "scene"
     },
     {
-        "xaxis": "x1",
+        "xaxis": "x",
         "colorbar": {
             "title": ""
         },
-        "yaxis": "y1",
+        "yaxis": "y",
+        "zaxis": "z",
         "x": [
             2.010178558119067,
             1.9897178388355494,
@@ -10785,14 +10918,16 @@
             -0.28607823639914093,
             -4.923517473830314e-16
         ],
-        "type": "scatter3d"
+        "type": "scatter3d",
+        "scene": "scene"
     },
     {
-        "xaxis": "x1",
+        "xaxis": "x",
         "colorbar": {
             "title": ""
         },
-        "yaxis": "y1",
+        "yaxis": "y",
+        "zaxis": "z",
         "x": [
             2.0,
             1.9796428837618654,
@@ -10946,14 +11081,16 @@
             -0.2846296765465706,
             -4.898587196589413e-16
         ],
-        "type": "scatter3d"
+        "type": "scatter3d",
+        "scene": "scene"
     },
     {
-        "xaxis": "x1",
+        "xaxis": "x",
         "colorbar": {
             "title": ""
         },
-        "yaxis": "y1",
+        "yaxis": "y",
+        "zaxis": "z",
         "x": [
             2.010178558119067,
             1.9897178388355494,
@@ -11107,14 +11244,16 @@
             -0.28607823639914093,
             -4.923517473830314e-16
         ],
-        "type": "scatter3d"
+        "type": "scatter3d",
+        "scene": "scene"
     },
     {
-        "xaxis": "x1",
+        "xaxis": "x",
         "colorbar": {
             "title": ""
         },
-        "yaxis": "y1",
+        "yaxis": "y",
+        "zaxis": "z",
         "x": [
             2.0405070263855025,
             2.0197376070250725,
@@ -11268,14 +11407,16 @@
             -0.2903944274555551,
             -4.997800797001379e-16
         ],
-        "type": "scatter3d"
+        "type": "scatter3d",
+        "scene": "scene"
     },
     {
-        "xaxis": "x1",
+        "xaxis": "x",
         "colorbar": {
             "title": ""
         },
-        "yaxis": "y1",
+        "yaxis": "y",
+        "zaxis": "z",
         "x": [
             2.0903680046454816,
             2.0690910724199587,
@@ -11429,14 +11570,16 @@
             -0.2974903845127718,
             -5.119924971858257e-16
         ],
-        "type": "scatter3d"
+        "type": "scatter3d",
+        "scene": "scene"
     },
     {
-        "xaxis": "x1",
+        "xaxis": "x",
         "colorbar": {
             "title": ""
         },
-        "yaxis": "y1",
+        "yaxis": "y",
+        "zaxis": "z",
         "x": [
             2.158746467168819,
             2.13677354078841,
@@ -11590,14 +11733,16 @@
             -0.3072216543481565,
             -5.287403902377902e-16
         ],
-        "type": "scatter3d"
+        "type": "scatter3d",
+        "scene": "scene"
     },
     {
-        "xaxis": "x1",
+        "xaxis": "x",
         "colorbar": {
             "title": ""
         },
-        "yaxis": "y1",
+        "yaxis": "y",
+        "zaxis": "z",
         "x": [
             2.244250425645742,
             2.2214071922545653,
@@ -11751,14 +11896,16 @@
             -0.3193901363705255,
             -5.496828200504286e-16
         ],
-        "type": "scatter3d"
+        "type": "scatter3d",
+        "scene": "scene"
     },
     {
-        "xaxis": "x1",
+        "xaxis": "x",
         "colorbar": {
             "title": ""
         },
-        "yaxis": "y1",
+        "yaxis": "y",
+        "zaxis": "z",
         "x": [
             2.345139266054715,
             2.32126912973787,
@@ -11912,14 +12059,16 @@
             -0.33374811537690774,
             -5.743934591457359e-16
         ],
-        "type": "scatter3d"
+        "type": "scatter3d",
+        "scene": "scene"
     },
     {
-        "xaxis": "x1",
+        "xaxis": "x",
         "colorbar": {
             "title": ""
         },
-        "yaxis": "y1",
+        "yaxis": "y",
+        "zaxis": "z",
         "x": [
             2.4593591825444028,
             2.4343264521692127,
@@ -12073,14 +12222,16 @@
             -0.35000330431972587,
             -6.023692701713308e-16
         ],
-        "type": "scatter3d"
+        "type": "scatter3d",
+        "scene": "scene"
     },
     {
-        "xaxis": "x1",
+        "xaxis": "x",
         "colorbar": {
             "title": ""
         },
-        "yaxis": "y1",
+        "yaxis": "y",
+        "zaxis": "z",
         "x": [
             2.5845849869981135,
             2.5582776384942845,
@@ -12234,14 +12385,16 @@
             -0.3678247944281977,
             -6.330407462903086e-16
         ],
-        "type": "scatter3d"
+        "type": "scatter3d",
+        "scene": "scene"
     },
     {
-        "xaxis": "x1",
+        "xaxis": "x",
         "colorbar": {
             "title": ""
         },
-        "yaxis": "y1",
+        "yaxis": "y",
+        "zaxis": "z",
         "x": [
             2.7182674431585703,
             2.6905994000052122,
@@ -12395,14 +12548,16 @@
             -0.3868497915566487,
             -6.657835046981206e-16
         ],
-        "type": "scatter3d"
+        "type": "scatter3d",
+        "scene": "scene"
     },
     {
-        "xaxis": "x1",
+        "xaxis": "x",
         "colorbar": {
             "title": ""
         },
-        "yaxis": "y1",
+        "yaxis": "y",
+        "zaxis": "z",
         "x": [
             2.8576851617267147,
             2.828598047222083,
@@ -12556,14 +12711,16 @@
             -0.4066910016271046,
             -6.999309972559015e-16
         ],
-        "type": "scatter3d"
+        "type": "scatter3d",
+        "scene": "scene"
     },
     {
-        "xaxis": "x1",
+        "xaxis": "x",
         "colorbar": {
             "title": ""
         },
-        "yaxis": "y1",
+        "yaxis": "y",
+        "zaxis": "z",
         "x": [
             3.0,
             2.969464325642798,
@@ -12717,14 +12874,16 @@
             -0.42694451481985596,
             -7.347880794884119e-16
         ],
-        "type": "scatter3d"
+        "type": "scatter3d",
+        "scene": "scene"
     },
     {
-        "xaxis": "x1",
+        "xaxis": "x",
         "colorbar": {
             "title": ""
         },
-        "yaxis": "y1",
+        "yaxis": "y",
+        "zaxis": "z",
         "x": [
             3.142314838273285,
             3.110330604063513,
@@ -12878,14 +13037,16 @@
             -0.4471980280126072,
             -7.696451617209222e-16
         ],
-        "type": "scatter3d"
+        "type": "scatter3d",
+        "scene": "scene"
     },
     {
-        "xaxis": "x1",
+        "xaxis": "x",
         "colorbar": {
             "title": ""
         },
-        "yaxis": "y1",
+        "yaxis": "y",
+        "zaxis": "z",
         "x": [
             3.2817325568414293,
             3.248329251280383,
@@ -13039,14 +13200,16 @@
             -0.4670392380830631,
             -8.037926542787032e-16
         ],
-        "type": "scatter3d"
+        "type": "scatter3d",
+        "scene": "scene"
     },
     {
-        "xaxis": "x1",
+        "xaxis": "x",
         "colorbar": {
             "title": ""
         },
-        "yaxis": "y1",
+        "yaxis": "y",
+        "zaxis": "z",
         "x": [
             3.415415013001886,
             3.3806510127913114,
@@ -13200,14 +13363,16 @@
             -0.48606423521151404,
             -8.365354126865151e-16
         ],
-        "type": "scatter3d"
+        "type": "scatter3d",
+        "scene": "scene"
     },
     {
-        "xaxis": "x1",
+        "xaxis": "x",
         "colorbar": {
             "title": ""
         },
-        "yaxis": "y1",
+        "yaxis": "y",
+        "zaxis": "z",
         "x": [
             3.5406408174555972,
             3.5046021991163836,
@@ -13361,14 +13526,16 @@
             -0.503885725319986,
             -8.67206888805493e-16
         ],
-        "type": "scatter3d"
+        "type": "scatter3d",
+        "scene": "scene"
     },
     {
-        "xaxis": "x1",
+        "xaxis": "x",
         "colorbar": {
             "title": ""
         },
-        "yaxis": "y1",
+        "yaxis": "y",
+        "zaxis": "z",
         "x": [
             3.6548607339452843,
             3.617659521547725,
@@ -13522,14 +13689,16 @@
             -0.520140914262804,
             -8.951826998310877e-16
         ],
-        "type": "scatter3d"
+        "type": "scatter3d",
+        "scene": "scene"
     },
     {
-        "xaxis": "x1",
+        "xaxis": "x",
         "colorbar": {
             "title": ""
         },
-        "yaxis": "y1",
+        "yaxis": "y",
+        "zaxis": "z",
         "x": [
             3.755749574354258,
             3.717521459031031,
@@ -13683,14 +13852,16 @@
             -0.5344988932691864,
             -9.198933389263952e-16
         ],
-        "type": "scatter3d"
+        "type": "scatter3d",
+        "scene": "scene"
     },
     {
-        "xaxis": "x1",
+        "xaxis": "x",
         "colorbar": {
             "title": ""
         },
-        "yaxis": "y1",
+        "yaxis": "y",
+        "zaxis": "z",
         "x": [
             3.841253532831181,
             3.802155110497186,
@@ -13844,14 +14015,16 @@
             -0.5466673752915554,
             -9.408357687390337e-16
         ],
-        "type": "scatter3d"
+        "type": "scatter3d",
+        "scene": "scene"
     },
     {
-        "xaxis": "x1",
+        "xaxis": "x",
         "colorbar": {
             "title": ""
         },
-        "yaxis": "y1",
+        "yaxis": "y",
+        "zaxis": "z",
         "x": [
             3.9096319953545184,
             3.869837578865637,
@@ -14005,14 +14178,16 @@
             -0.55639864512694,
             -9.57583661790998e-16
         ],
-        "type": "scatter3d"
+        "type": "scatter3d",
+        "scene": "scene"
     },
     {
-        "xaxis": "x1",
+        "xaxis": "x",
         "colorbar": {
             "title": ""
         },
-        "yaxis": "y1",
+        "yaxis": "y",
+        "zaxis": "z",
         "x": [
             3.9594929736144975,
             3.919191044260524,
@@ -14166,14 +14341,16 @@
             -0.5634946021841567,
             -9.69796079276686e-16
         ],
-        "type": "scatter3d"
+        "type": "scatter3d",
+        "scene": "scene"
     },
     {
-        "xaxis": "x1",
+        "xaxis": "x",
         "colorbar": {
             "title": ""
         },
-        "yaxis": "y1",
+        "yaxis": "y",
+        "zaxis": "z",
         "x": [
             3.989821441880933,
             3.9492108124500467,
@@ -14327,14 +14504,16 @@
             -0.5678107932405709,
             -9.772244115937924e-16
         ],
-        "type": "scatter3d"
+        "type": "scatter3d",
+        "scene": "scene"
     },
     {
-        "xaxis": "x1",
+        "xaxis": "x",
         "colorbar": {
             "title": ""
         },
-        "yaxis": "y1",
+        "yaxis": "y",
+        "zaxis": "z",
         "x": [
             4.0,
             3.9592857675237307,
@@ -14488,7 +14667,8 @@
             -0.5692593530931412,
             -9.797174393178826e-16
         ],
-        "type": "scatter3d"
+        "type": "scatter3d",
+        "scene": "scene"
     }
 ]
 , {
@@ -14527,10 +14707,6 @@
                 -4.24,
                 4.24
             ],
-            "domain": [
-                0.0,
-                0.0
-            ],
             "tickmode": "array",
             "linecolor": "rgba(0, 0, 0, 1.000)",
             "showgrid": true,
@@ -14559,8 +14735,17 @@
                 "family": "sans-serif",
                 "size": 11
             },
-            "zerolinecolor": "rgba(0, 0, 0, 1.000)",
-            "anchor": "y1"
+            "zerolinecolor": "rgba(0, 0, 0, 1.000)"
+        },
+        "domain": {
+            "y": [
+                1.0,
+                1.0
+            ],
+            "x": [
+                0.0,
+                0.0
+            ]
         },
         "yaxis": {
             "showticklabels": true,
@@ -14578,10 +14763,6 @@
                 -4.24,
                 4.24
             ],
-            "domain": [
-                1.0,
-                1.0
-            ],
             "tickmode": "array",
             "linecolor": "rgba(0, 0, 0, 1.000)",
             "showgrid": true,
@@ -14610,8 +14791,7 @@
                 "family": "sans-serif",
                 "size": 11
             },
-            "zerolinecolor": "rgba(0, 0, 0, 1.000)",
-            "anchor": "x1"
+            "zerolinecolor": "rgba(0, 0, 0, 1.000)"
         },
         "zaxis": {
             "showticklabels": true,

@@ -147,10 +147,54 @@
 <li><p>Here is the code that reproduces the result above:</p>
 </li>
 </ul>
-<pre><code class="html hljs"><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;stylesheet&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;/libs/jsx/jsxgraph.css&quot;</span>&gt;</span>\n<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/javascript&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;/libs/jsx/jsxgraphcore.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>\n<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;MathJax-script&quot;</span> <span class="hljs-attr">async</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>\n<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;board&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;jxgbox&quot;</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;width:500px; height:500px;&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>\n<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/javascript&quot;</span>&gt;</span><span class="javascript">\n    JXG.Options.text.useMathJax = <span class="hljs-literal">true</span>;\n    <span class="hljs-keyword">var</span> board = JXG.JSXGraph.initBoard(\n        <span class="hljs-string">&quot;board&quot;</span>,\n        {\n            boundingbox: [<span class="hljs-number">-15</span>, <span class="hljs-number">15</span>, <span class="hljs-number">15</span>, <span class="hljs-number">-15</span>],\n            axis: <span class="hljs-literal">true</span>\n        }\n    );\n    <span class="hljs-comment">/* The slider neesd the following input parameters:\n    [[x1, y1], [x2, y2], [min, start, max]]\n    [x1, y1]: first point of the ruler\n    [x2, y2]: last point of the ruler\n    min: minimum value of the slider\n    start: initial value of the slider\n    max: maximum value of the slider\n    */</span>\n    <span class="hljs-keyword">var</span> a = board.create(<span class="hljs-string">&quot;slider&quot;</span>, [[<span class="hljs-number">8</span>, <span class="hljs-number">7</span>], [<span class="hljs-number">12</span>, <span class="hljs-number">7</span>], [<span class="hljs-number">-3</span>, <span class="hljs-number">0.1</span>, <span class="hljs-number">10</span>]], { <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;a&quot;</span> });\n    <span class="hljs-keyword">var</span> b = board.create(<span class="hljs-string">&quot;slider&quot;</span>, [[<span class="hljs-number">8</span>, <span class="hljs-number">6</span>], [<span class="hljs-number">12</span>, <span class="hljs-number">6</span>], [<span class="hljs-number">-1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">5</span>]], { <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;b&quot;</span> });\n    <span class="hljs-keyword">var</span> c = board.create(<span class="hljs-string">&quot;slider&quot;</span>, [[<span class="hljs-number">8</span>, <span class="hljs-number">5</span>], [<span class="hljs-number">12</span>, <span class="hljs-number">5</span>], [<span class="hljs-number">-10</span>, <span class="hljs-number">-5</span>, <span class="hljs-number">2</span>]], { <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;c&quot;</span> });\n    <span class="hljs-comment">// y = ax^2+bx+c\n    var func = board.create(\n        &quot;functiongraph&quot;,\n        [\n            function (x) {\n                return a.Value() * x * x + b.Value() * x + c.Value();\n            }\n        ]\n    )\n    var quadratic = board.create(\n        &#x27;text&#x27;,\n        [\n            2,\n            10,\n            function () {\n                return &#x27;\\\\[f(x) = ax^2+bx+c\\\\]&#x27;;\n            }\n        ],\n        { fontSize: 20 }\n    );\n</span></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
+<pre><code class="html hljs"><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;stylesheet&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;/libs/jsx/jsxgraph.css&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/javascript&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;/libs/jsx/jsxgraphcore.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;MathJax-script&quot;</span> <span class="hljs-attr">async</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;board&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;jxgbox&quot;</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;width:500px; height:500px;&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/javascript&quot;</span>&gt;</span><span class="javascript">
+    JXG.Options.text.useMathJax = <span class="hljs-literal">true</span>;
+    <span class="hljs-keyword">var</span> board = JXG.JSXGraph.initBoard(
+        <span class="hljs-string">&quot;board&quot;</span>,
+        {
+            <span class="hljs-attr">boundingbox</span>: [<span class="hljs-number">-15</span>, <span class="hljs-number">15</span>, <span class="hljs-number">15</span>, <span class="hljs-number">-15</span>],
+            <span class="hljs-attr">axis</span>: <span class="hljs-literal">true</span>
+        }
+    );
+    <span class="hljs-comment">/* The slider neesd the following input parameters:
+    [[x1, y1], [x2, y2], [min, start, max]]
+    [x1, y1]: first point of the ruler
+    [x2, y2]: last point of the ruler
+    min: minimum value of the slider
+    start: initial value of the slider
+    max: maximum value of the slider
+    */</span>
+    <span class="hljs-keyword">var</span> a = board.create(<span class="hljs-string">&quot;slider&quot;</span>, [[<span class="hljs-number">8</span>, <span class="hljs-number">7</span>], [<span class="hljs-number">12</span>, <span class="hljs-number">7</span>], [<span class="hljs-number">-3</span>, <span class="hljs-number">0.1</span>, <span class="hljs-number">10</span>]], { <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;a&quot;</span> });
+    <span class="hljs-keyword">var</span> b = board.create(<span class="hljs-string">&quot;slider&quot;</span>, [[<span class="hljs-number">8</span>, <span class="hljs-number">6</span>], [<span class="hljs-number">12</span>, <span class="hljs-number">6</span>], [<span class="hljs-number">-1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">5</span>]], { <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;b&quot;</span> });
+    <span class="hljs-keyword">var</span> c = board.create(<span class="hljs-string">&quot;slider&quot;</span>, [[<span class="hljs-number">8</span>, <span class="hljs-number">5</span>], [<span class="hljs-number">12</span>, <span class="hljs-number">5</span>], [<span class="hljs-number">-10</span>, <span class="hljs-number">-5</span>, <span class="hljs-number">2</span>]], { <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;c&quot;</span> });
+    <span class="hljs-comment">// y = ax^2+bx+c</span>
+    <span class="hljs-keyword">var</span> func = board.create(
+        <span class="hljs-string">&quot;functiongraph&quot;</span>,
+        [
+            <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x</span>) </span>{
+                <span class="hljs-keyword">return</span> a.Value() * x * x + b.Value() * x + c.Value();
+            }
+        ]
+    )
+    <span class="hljs-keyword">var</span> quadratic = board.create(
+        <span class="hljs-string">&#x27;text&#x27;</span>,
+        [
+            <span class="hljs-number">2</span>,
+            <span class="hljs-number">10</span>,
+            <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+                <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;\\[f(x) = ax^2+bx+c\\]&#x27;</span>;
+            }
+        ],
+        { <span class="hljs-attr">fontSize</span>: <span class="hljs-number">20</span> }
+    );
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
 <div class="page-foot">
   <div class="copyright">
-    &copy; SatoshiTerasaki. Last modified: 2020年9月10日 木曜日. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
+    &copy; SatoshiTerasaki. Last modified: 2020年10月12日 月曜日. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
   </div>
 </div>
 </div><!-- CONTENT ENDS HERE -->

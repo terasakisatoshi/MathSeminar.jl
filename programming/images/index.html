@@ -105,21 +105,21 @@
 
 using Base64
 
-function encodeimage&amp;#40;io::IOBuffer, img&amp;#41;
-    io2&amp;#61;IOBuffer&amp;#40;&amp;#41;
-    b64pipe&amp;#61;Base64EncodePipe&amp;#40;io2&amp;#41;
-    write&amp;#40;io,&amp;quot;&amp;lt;img style&amp;#61;&amp;#39;display:inline&amp;#39; src&amp;#61;&amp;quot;data:image/png;base64,&amp;quot;&amp;#41;
-    show&amp;#40;b64pipe, MIME&amp;quot;image/png&amp;quot;&amp;#40;&amp;#41;, img&amp;#41; # will be valid if we load ImageShow.jl
-    write&amp;#40;io, read&amp;#40;seekstart&amp;#40;io2&amp;#41;&amp;#41;&amp;#41;
-    write&amp;#40;io,&amp;quot;&amp;quot;&amp;gt;&amp;quot;&amp;#41;
+function encodeimage(io::IOBuffer, img)
+    io2=IOBuffer()
+    b64pipe=Base64EncodePipe(io2)
+    write(io,&quot;&lt;img style=&#x27;display:inline&#x27; src=&quot;data:image/png;base64,&quot;)
+    show(b64pipe, MIME&quot;image/png&quot;(), img) # will be valid if we load ImageShow.jl
+    write(io, read(seekstart(io2)))
+    write(io,&quot;&quot;&gt;&quot;)
 end
 
-function fdimage&amp;#40;img&amp;#41;
-    io &amp;#61; IOBuffer&amp;#40;&amp;#41;
-    encodeimage&amp;#40;io, img&amp;#41;
-    println&amp;#40;&amp;quot;~~~&amp;quot;&amp;#41;
-    println&amp;#40;String&amp;#40;take&amp;#33;&amp;#40;buf&amp;#41;&amp;#41;&amp;#41;
-    println&amp;#40;&amp;quot;~~~&amp;quot;&amp;#41;
+function fdimage(img)
+    io = IOBuffer()
+    encodeimage(io, img)
+    println(&quot;~~~&quot;)
+    println(String(take!(buf)))
+    println(&quot;~~~&quot;)
 end
 
 </code></pre>
@@ -32949,7 +32949,7 @@ println(<span class="hljs-string">&quot;~~~&quot;</span>)</code></pre>
 </svg></div>
 <div class="page-foot">
   <div class="copyright">
-    &copy; SatoshiTerasaki. Last modified: 2020年9月10日 木曜日. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
+    &copy; SatoshiTerasaki. Last modified: 2020年10月12日 月曜日. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
   </div>
 </div>
 </div><!-- CONTENT ENDS HERE -->
