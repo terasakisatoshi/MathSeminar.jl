@@ -10,7 +10,7 @@ TAG=latest
 REMOTE_DOCKER_REPOSITORY:=terasakisatoshi/${DOCKERIMAGE}:${TAG}
 endif
 ifeq ($(OS), Darwin)
-TAG=mac
+TAG=latest
 REMOTE_DOCKER_REPOSITORY:=terasakisatoshi/${DOCKERIMAGE}:${TAG}
 endif
 
