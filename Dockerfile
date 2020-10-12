@@ -49,7 +49,7 @@ ENV JULIA_PROJECT=/work
 # Install Julia Package
 RUN julia -e 'using Pkg; \
 Pkg.add([\
-    PackageSpec(name="Franklin", version="0.9.10"), \
+    PackageSpec(name="Franklin", version="0.10.3"), \
     PackageSpec(name="OhMyREPL", version="0.5.5"), \
     PackageSpec(name="Revise", version="2.7.3"), \
     PackageSpec(name="Plots", version="1.5.8"), \
