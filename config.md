@@ -53,6 +53,7 @@ For instance:
 \setlevel{chapter} \increment{}
 \setlevel{subsection} \resetcount{} <!-- reset subsection -->
 \setlevel{section} \resetcount{}    <!-- reset section -->
+\setlevel{subsection}
 }
 \newcommand{\section}[1]{
 ## #1
