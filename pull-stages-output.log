@@ -30,12 +30,14 @@ b6a50acaca53: Verifying Checksum
 b6a50acaca53: Download complete
 ca4a31f98e1d: Verifying Checksum
 ca4a31f98e1d: Download complete
-161d7ecee1d8: Verifying Checksum
-161d7ecee1d8: Download complete
-b47e6d7e2c93: Verifying Checksum
-b47e6d7e2c93: Download complete
+d121f8d1c412: Pull complete
+a27e46e0dbc6: Pull complete
 76bedd4328b8: Verifying Checksum
 76bedd4328b8: Download complete
+b47e6d7e2c93: Verifying Checksum
+b47e6d7e2c93: Download complete
+161d7ecee1d8: Verifying Checksum
+161d7ecee1d8: Download complete
 48d4f45b4f27: Verifying Checksum
 48d4f45b4f27: Download complete
 5b329e6699f3: Verifying Checksum
@@ -48,8 +50,6 @@ bcf2c2d5bcdc: Download complete
 57621b19eab0: Download complete
 36c3333c4c4d: Verifying Checksum
 36c3333c4c4d: Download complete
-d121f8d1c412: Pull complete
-a27e46e0dbc6: Pull complete
 b6a50acaca53: Pull complete
 76bedd4328b8: Pull complete
 161d7ecee1d8: Pull complete
