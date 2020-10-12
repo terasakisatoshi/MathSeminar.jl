@@ -50,14 +50,14 @@ ENV JULIA_PROJECT=/work
 RUN julia -e 'using Pkg; \
 Pkg.add([\
     PackageSpec(name="Franklin", version="0.10.3"), \
-    PackageSpec(name="OhMyREPL", version="0.5.5"), \
-    PackageSpec(name="Revise", version="2.7.3"), \
-    PackageSpec(name="Plots", version="1.5.8"), \
-    PackageSpec(name="GR", version="0.51.0"), \
-    PackageSpec(name="SymPy", version="1.0.27"), \
+    PackageSpec(name="OhMyREPL", version="0.5.9"), \
+    PackageSpec(name="Revise", version="3.1.4"), \
+    PackageSpec(name="Plots", version="1.6.10"), \
+    PackageSpec(name="GR", version="0.52.0"), \
+    PackageSpec(name="SymPy", version="1.0.31"), \
     PackageSpec(name="PyPlot", version="2.9.0"), \
-    PackageSpec(name="TestImages", version="1.2.1"), \
-    PackageSpec(name="ImageMagick", version="1.1.5"), \
+    PackageSpec(name="TestImages", version="1.2.3"), \
+    PackageSpec(name="ImageMagick", version="1.1.6"), \
 ]); \
 Pkg.pin(["Franklin", "OhMyREPL", "Revise", "Plots", "GR", "SymPy", "PyPlot", "TestImages"]); \
 using PyPlot, SymPy, TestImages ; testimage("c"); testimage("m"); \
