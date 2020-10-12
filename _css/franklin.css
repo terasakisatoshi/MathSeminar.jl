@@ -82,7 +82,7 @@ html {
 ================================================================== */
 
 body {
-    counter-reset: eqnum section chapter theorem;
+    counter-reset: eqnum section chapter;
 }
 
 .franklin-content h1 { font-size: 24px; }

@@ -40,8 +40,7 @@ versioninfo()
 \chapter{Introduction to Franklin}
 
 \definition{}{Franklin.jl について}{
-[Franklin.jl](https://github.com/tlienart/Franklin.jl) は Julia で記述された
-静的サイトの生成を行うパッケージである．コーディング，数学などの技術ブログの作成をサポートする．
+[Franklin.jl](https://github.com/tlienart/Franklin.jl) は Julia で記述された静的サイトの生成を行うパッケージである．コーディング，数学などの技術ブログの作成をサポートする．
 公式ドキュメントは https://franklinjl.org/ を参照せよ. なお，公式ドキュメントも Franklin.jl で作成されており, https://github.com/tlienart/franklindocs にてソースが公開されている.
 }
 
@@ -244,4 +243,5 @@ int main(){
 
 \input{julia}{hello.jl}
 
-`hello.jl` の実態はソースコードの `_assets/index/code/hello.jl` に存在する
+`hello.jl` の実態はソースコードの `_assets/index/code/hello.jl` に存在する.
+

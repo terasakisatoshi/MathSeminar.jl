@@ -67,18 +67,18 @@ For instance:
 \increment{}
 \recordTheoremNumber{!#2}
 \generateLabel{!#2}
-@@!#1\getTheoremNumber{} \generateTheoremName{!#3} \\ <!-- newline -->
+@@colorblock \bold{#1} \getTheoremNumber{} \generateTheoremName{!#3} \\ <!-- newline -->
 !#4
 @@
 }
 
 <!-- \command{label}{name}{statement} -->
-\newcommand{\definition}[3]{\theoremcounter{definition}{#1}{#2}{#3}}
-\newcommand{\lemma}[3]{\theoremcounter{lemma}{#1}{#2}{#3}}
-\newcommand{\prop}[3]{\theoremcounter{prop}{#1}{#2}{#3}}
-\newcommand{\theorem}[3]{\theoremcounter{theorem}{#1}{#2}{#3}}
-\newcommand{\example}[3]{\theoremcounter{example}{#1}{#2}{#3}}
-\newcommand{\remark}[3]{\theoremcounter{remark}{#1}{#2}{#3}}
+\newcommand{\definition}[3]{\theoremcounter{Definition}{#1}{#2}{#3}}
+\newcommand{\lemma}[3]{\theoremcounter{Lemma}{#1}{#2}{#3}}
+\newcommand{\prop}[3]{\theoremcounter{Proposition}{#1}{#2}{#3}}
+\newcommand{\theorem}[3]{\theoremcounter{Theorem}{#1}{#2}{#3}}
+\newcommand{\example}[3]{\theoremcounter{Example}{#1}{#2}{#3}}
+\newcommand{\remark}[3]{\theoremcounter{Remark}{#1}{#2}{#3}}
 \newcommand{\proof}[1]{
 @@proof \\ <!-- new line -->
 !#1
@@ -194,3 +194,4 @@ run(`$exefile`)
 \codeoutput{!#1}
 
 }
+

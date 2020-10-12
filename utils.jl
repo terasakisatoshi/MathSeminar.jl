@@ -124,6 +124,11 @@ function lx_recordTheoremNumber(com, _)
     return ""
 end
 
+function lx_bold(com, _)
+    text = Franklin.content(com.braces[1])
+    return "$(text)"
+end
+
 
 using SymPy
 using SymPy: SymbolicObject
