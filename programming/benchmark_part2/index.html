@@ -135,8 +135,8 @@ main()
 
 <span class="hljs-keyword">using</span> BenchmarkTools
 <span class="hljs-meta">@btime</span> mand(<span class="hljs-number">5000</span>, <span class="hljs-number">5000</span>);</code></pre>
-<pre><code class="plaintext hljs">t - s = 3.412045955657959
-  3.440 s (2 allocations: 23.84 MiB)
+<pre><code class="plaintext hljs">t - s = 3.614527940750122
+  3.600 s (2 allocations: 23.84 MiB)
 </code></pre>
   </p>
 <p><div class="colorblock"><strong>Remark</strong> 7.0.1 &#40;数値誤差について&#41; <br/>  点の位置をあらわす <code>&#40;4.0 / &#40;M - 1&#41; * &#40;j - 1&#41; - 2.0&#41;</code> は <code>range&#40;-2, 2, length&#40;N&#41;&#41;</code> と数学的に等価ですが，数値の誤差の関係で結果が若干異なることがあります．</div>
@@ -194,8 +194,8 @@ main()
 
 <span class="hljs-keyword">using</span> BenchmarkTools
 <span class="hljs-meta">@btime</span> mand(<span class="hljs-number">5000</span>, <span class="hljs-number">5000</span>);</code></pre>
-<pre><code class="plaintext hljs">t - s = 3.774322986602783
-  3.736 s (2 allocations: 23.84 MiB)
+<pre><code class="plaintext hljs">t - s = 3.763543128967285
+  3.760 s (2 allocations: 23.84 MiB)
 </code></pre>
 <pre><code class="julia hljs">Refpath=<span class="hljs-string">&quot;/tmp/resultJ.txt&quot;</span>
 Tarpath=<span class="hljs-string">&quot;/tmp/resultJ1.txt&quot;</span>
@@ -246,8 +246,8 @@ main()
 
 <span class="hljs-keyword">using</span> BenchmarkTools
 <span class="hljs-meta">@btime</span> mand(<span class="hljs-number">5000</span>, <span class="hljs-number">5000</span>);</code></pre>
-<pre><code class="plaintext hljs">t - s = 3.7816410064697266
-  3.681 s (4 allocations: 47.68 MiB)
+<pre><code class="plaintext hljs">t - s = 3.952755928039551
+  3.953 s (4 allocations: 47.68 MiB)
 </code></pre>
 <pre><code class="julia hljs">Refpath=<span class="hljs-string">&quot;/tmp/resultJ1.txt&quot;</span>
 Tarpath=<span class="hljs-string">&quot;/tmp/resultJ2.txt&quot;</span>
@@ -304,8 +304,8 @@ main()
 
 <span class="hljs-keyword">using</span> BenchmarkTools
 <span class="hljs-meta">@btime</span> mand(<span class="hljs-number">5000</span>, <span class="hljs-number">5000</span>);</code></pre>
-<pre><code class="plaintext hljs">t - s = 2.9460039138793945
-  2.722 s (13 allocations: 23.84 MiB)
+<pre><code class="plaintext hljs">t - s = 2.9017951488494873
+  2.831 s (13 allocations: 23.84 MiB)
 </code></pre>
 <pre><code class="julia hljs">Refpath=<span class="hljs-string">&quot;/tmp/resultJ1.txt&quot;</span>
 Tarpath=<span class="hljs-string">&quot;/tmp/resultJ3.txt&quot;</span>
@@ -323,7 +323,7 @@ savefig(p, joinpath(<span class="hljs-meta">@OUTPUT</span>, <span class="hljs-st
 <img src="/MathSeminar.jl/assets/programming/benchmark_part2/code/output/mandJ3.png" alt="">
 <div class="page-foot">
   <div class="copyright">
-    &copy; SatoshiTerasaki. Last modified: 2020年10月12日 月曜日. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
+    &copy; SatoshiTerasaki. Last modified: 2020年11月4日 水曜日. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
   </div>
 </div>
 </div><!-- CONTENT ENDS HERE -->

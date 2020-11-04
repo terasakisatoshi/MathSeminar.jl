@@ -2,10 +2,10 @@ Julia Version 1.5.2
 Commit 539f3ce943 (2020-09-23 23:17 UTC)
 Platform Info:
   OS: Linux (x86_64-pc-linux-gnu)
-  CPU: Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz
+  CPU: Intel(R) Xeon(R) Platinum 8171M CPU @ 2.60GHz
   WORD_SIZE: 64
   LIBM: libopenlibm
-  LLVM: libLLVM-9.0.1 (ORCJIT, haswell)
+  LLVM: libLLVM-9.0.1 (ORCJIT, skylake-avx512)
 Environment:
   JULIA_PATH = /usr/local/julia
   JULIA_GPG = 3673DF529D9049477F76B37566E3C7DC03D6E495
