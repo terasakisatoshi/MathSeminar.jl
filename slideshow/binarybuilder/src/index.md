@@ -188,6 +188,29 @@ References:
 
 ---
 
+# Examples
+
+- [TestImages.jl](https://github.com/JuliaImages/TestImages.jl)
+  - GitHub Release ページの [v1.3.0-artifacts](https://github.com/JuliaImages/TestImages.jl/releases/tag/v1.3.0-artifacts) からダウンロードするようになっている.
+- [PackageCompiler.jl](https://github.com/JuliaLang/PackageCompiler.jl)
+
+```toml
+[[x86_64-w64-mingw32]]
+git-tree-sha1 = "fdff308295487f361ef6e8dc2d27f5abe8a6eee9"
+os = "windows"
+arch = "x86_64"
+lazy = true
+
+    [[x86_64-w64-mingw32.download]]
+    sha256 = "fe3f401bc936fbe6af940b26c5e0f266f762a3416f979c706e599b24082dc5c7"
+    url = "https://github.com/JuliaLang/PackageCompiler.jl/releases/download/v1.0.0/x86_64-8.1.0-release-posix-seh-rt_v6-rev0.tar.gz"
+```
+
+  - Windows 環境でコンパイラーがない場合に動的 (lazy) にダウンロードされる.
+    - See [`get_compiler`](https://github.com/JuliaLang/PackageCompiler.jl/blob/69f556a6d6d1abb3f9f9d1bb46edfe4df5c66d25/src/PackageCompiler.jl#L97-L111) function
+
+---
+
 class: center, middle
 
 # JLL 入門
@@ -298,4 +321,26 @@ using libcxxwrap_julia_jll # for libcxxwrap_julia and libcxxwrap_julia_stl
 
 ---
 
-# a
+# 疑問
+
+
+## リポジトリはどこ？
+
+- [https://github.com/JuliaBinaryWrappers](JuliaBinaryWrappers) という Organization で見つけることができる.
+- これらは自動でリポジトリが作られている (<--- 下記参照)
+
+## どうやって作ってるの?
+
+- BinaryBuilder.jl を使って JLL を作成するスクリプト `build_tarball.jl` を作成する.
+  - あとで詳しく述べる.
+- `build_tarball.jl` を集めている [Yggdrasil](https://github.com/JuliaPackaging/Yggdrasil) に PR(Pull Request) を送る.
+- PR が通ると `XXX_jll` パッケージが JuliaBinaryWrappers 以下にリポジトリが作られる.
+
+---
+
+class: center, middle
+
+# BinaryBuilder.jl
+
+やっと話せる.
+

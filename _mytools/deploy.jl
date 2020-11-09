@@ -20,7 +20,8 @@ Pkg.instantiate()
 # make slide
 Remark.slideshow("./slideshow/remark")
 Remark.slideshow("./slideshow/franklin")
-Remark.slideshow("slideshow/dash", options = Dict("ratio" => "16:9"), title = "Dash.jl")
+Remark.slideshow("./slideshow/dash", options = Dict("ratio" => "16:9"), title = "Dash.jl")
+Remark.slideshow("./slideshow/binarybuild", options = Dict("ratio" => "16:9"), title = "BinaryBuilder.jl")
 
 
 weave(joinpath("./programming", "weave.jmd"), out_path="./programming", doctype="github")
