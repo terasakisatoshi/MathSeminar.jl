@@ -263,6 +263,35 @@ SHA1(<span class="hljs-string">&quot;888cda53d12753313f13b607a2655448bfc11be5&qu
 </li>
 </ul>
 <hr />
+<h1 id="examples"><a href="#examples">Examples</a></h1>
+<ul>
+<li><p><a href="https://github.com/JuliaImages/TestImages.jl">TestImages.jl</a></p>
+<ul>
+<li><p>GitHub Release ページの <a href="https://github.com/JuliaImages/TestImages.jl/releases/tag/v1.3.0-artifacts">v1.3.0-artifacts</a> からダウンロードするようになっている.</p>
+</li>
+</ul>
+</li>
+<li><p><a href="https://github.com/JuliaLang/PackageCompiler.jl">PackageCompiler.jl</a></p>
+</li>
+</ul>
+<pre><code class="toml hljs"><span class="hljs-section">[[x86_64-w64-mingw32]]</span>
+<span class="hljs-attr">git-tree-sha1</span> = <span class="hljs-string">&quot;fdff308295487f361ef6e8dc2d27f5abe8a6eee9&quot;</span>
+<span class="hljs-attr">os</span> = <span class="hljs-string">&quot;windows&quot;</span>
+<span class="hljs-attr">arch</span> = <span class="hljs-string">&quot;x86_64&quot;</span>
+<span class="hljs-attr">lazy</span> = <span class="hljs-literal">true</span>
+
+    <span class="hljs-section">[[x86_64-w64-mingw32.download]]</span>
+    <span class="hljs-attr">sha256</span> = <span class="hljs-string">&quot;fe3f401bc936fbe6af940b26c5e0f266f762a3416f979c706e599b24082dc5c7&quot;</span>
+    <span class="hljs-attr">url</span> = <span class="hljs-string">&quot;https://github.com/JuliaLang/PackageCompiler.jl/releases/download/v1.0.0/x86_64-8.1.0-release-posix-seh-rt_v6-rev0.tar.gz&quot;</span></code></pre>
+<ul>
+<li><p>Windows 環境でコンパイラーがない場合に動的 &#40;lazy&#41; にダウンロードされる.</p>
+<ul>
+<li><p>See <a href="https://github.com/JuliaLang/PackageCompiler.jl/blob/69f556a6d6d1abb3f9f9d1bb46edfe4df5c66d25/src/PackageCompiler.jl#L97-L111"><code>get_compiler</code></a> function</p>
+</li>
+</ul>
+</li>
+</ul>
+<hr />
 <p>class: center, middle</p>
 <h1 id="jll_入門"><a href="#jll_入門">JLL 入門</a></h1>
 <hr />
@@ -357,7 +386,31 @@ module CxxWrap
 (中略: omitted)
 using libcxxwrap_julia_jll # for libcxxwrap_julia and libcxxwrap_julia_stl</code></pre>
 <hr />
-<h1 id="a"><a href="#a">a</a></h1>
+<h1 id="疑問"><a href="#疑問">疑問</a></h1>
+<h2 id="リポジトリはどこ"><a href="#リポジトリはどこ">リポジトリはどこ？</a></h2>
+<ul>
+<li><p><a href="JuliaBinaryWrappers">https://github.com/JuliaBinaryWrappers</a> という Organization で見つけることができる.</p>
+</li>
+<li><p>これらは自動でリポジトリが作られている &#40;&lt;–- 下記参照&#41;</p>
+</li>
+</ul>
+<h2 id="どうやって作ってるの"><a href="#どうやって作ってるの">どうやって作ってるの?</a></h2>
+<ul>
+<li><p>BinaryBuilder.jl を使って JLL を作成するスクリプト <code>build_tarball.jl</code> を作成する.</p>
+<ul>
+<li><p>あとで詳しく述べる.</p>
+</li>
+</ul>
+</li>
+<li><p><code>build_tarball.jl</code> を集めている <a href="https://github.com/JuliaPackaging/Yggdrasil">Yggdrasil</a> に PR&#40;Pull Request&#41; を送る.</p>
+</li>
+<li><p>PR が通ると <code>XXX_jll</code> パッケージが JuliaBinaryWrappers 以下にリポジトリが作られる.</p>
+</li>
+</ul>
+<hr />
+<p>class: center, middle</p>
+<h1 id="binarybuilderjl"><a href="#binarybuilderjl">BinaryBuilder.jl</a></h1>
+<p>やっと話せる.</p>
 <div class="page-foot">
   <div class="copyright">
     &copy; SatoshiTerasaki. Last modified: 2020年11月9日 月曜日. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
