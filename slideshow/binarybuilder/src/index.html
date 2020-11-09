@@ -356,8 +356,8 @@ Updating <span class="hljs-string">`~/.julia/environments/v1.5/Project.toml`</sp
 Updating <span class="hljs-string">`~/.julia/environments/v1.5/Manifest.toml`</span>
   [b7e79332] + HelloWorldFortran_jll v1<span class="hljs-number">.1</span><span class="hljs-number">.0</span>+<span class="hljs-number">0</span></code></pre>
 <h3 id="lets_run"><a href="#lets_run">Let&#39;s run</a></h3>
-<pre><code class="julia hljs">julia&gt;  HelloWorldFortran_jll.hello_world(x-&gt;run(<span class="hljs-string">`<span class="hljs-variable">$x</span>`</span>)) <span class="hljs-comment"># ,or use do-syntax as follow:</span>
-julia&gt; <span class="hljs-keyword">using</span> HelloWorldFortran_jll: hello_world
+<pre><code class="julia hljs">julia&gt; <span class="hljs-keyword">using</span> HelloWorldFortran_jll: hello_world
+julia&gt; HelloWorldFortran_jll.hello_world(x-&gt;run(<span class="hljs-string">`<span class="hljs-variable">$x</span>`</span>)) <span class="hljs-comment"># ,or use do-syntax as follow:</span>
 julia&gt; hello_world() <span class="hljs-keyword">do</span> exe
            run(<span class="hljs-string">`<span class="hljs-variable">$exe</span>`</span>)
        <span class="hljs-keyword">end</span>
