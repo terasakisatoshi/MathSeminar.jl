@@ -282,8 +282,8 @@ Updating `~/.julia/environments/v1.5/Manifest.toml`
 ### Let's run
 
 ```julia
-julia>  HelloWorldFortran_jll.hello_world(x->run(`$x`)) # ,or use do-syntax as follow:
 julia> using HelloWorldFortran_jll: hello_world
+julia> HelloWorldFortran_jll.hello_world(x->run(`$x`)) # ,or use do-syntax as follow:
 julia> hello_world() do exe
            run(`$exe`)
        end
