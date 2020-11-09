@@ -107,9 +107,9 @@ class: center, middle
 
 --
 
-## Artifact system
+## Artifacts
 
-#### 生成物・依存関係
+#### 生成物/依存関係の管理
 
 --
 
@@ -121,7 +121,70 @@ class: center, middle
 
 ## BinaryBuilder
 
-#### ライブラリ，ラッパーの生成
+#### 依存関係, ライブラリ, ラッパーの生成
+
+---
+
+class: center, middle
+
+# Artifacts 入門
+
+---
+
+# Artifacts 入門 (概要)
+
+- パッケージマネージャ Pkg が機能を持っている.
+- ファイルは `Artifacts.toml` で行う.生成物(e.g. データ，実行形式)の実体, 格納場所をハッシュで紐づけ.
+
+#### Example
+
+https://julialang.github.io/Pkg.jl/dev/artifacts/#Artifacts から引用
+
+```toml
+$ cat Artifacts.toml
+# a simple Artifacts.toml file
+[socrates]
+git-tree-sha1 = "43563e7631a7eafae1f9f8d9d332e3de44ad7239"
+
+    [[socrates.download]]
+    url = "https://github.com/staticfloat/small_bin/raw/master/socrates.tar.gz"
+    sha256 = "e65d2f13f2085f2c279830e863292312a72930fee5ba3c792b14c33ce5c5cc58"
+$ julia -q
+julia> rootpath = artifact"socrates"
+Downloading artifact: socrates
+######################################################################## 
+julia> open(joinpath(rootpath, "bin", "socrates")) do file; println(read(file, String)); end
+#!/bin/bash
+
+echo -n "ἔοικα γοῦν τούτου γε σμικρῷ τινι αὐτῷ τούτῳ σοφώτερος εἶναι, ὅτι ἃ μὴ οἶδα οὐδὲ οἴομαι εἰδέναι."
+```
+
+---
+
+# Artifacts 入門 (toml の作成)
+
+`Artifacts.toml` 自信を作る方法の情報が断片的だったのでまとめておく.
+
+- 手動で編集をするものではない 
+- [r3tex/ObjectDetector.jl/dev/artifacts/generate_artifacts.jl](https://github.com/r3tex/ObjectDetector.jl/blob/master/dev/artifacts/generate_artifacts.jl#L50) にあるように `bind_artifact!` 関数で作る.
+- [ArtifactUtils.jl](https://github.com/simeonschaub/ArtifactUtils.jl) で作る(これが一番簡単).
+
+```julia
+julia> using ArtifactUtils, Pkg.Artifacts # Pkg.Artifacts provides the artifact string macro
+julia> add_artifact!(
+           "Artifacts.toml", "JuliaMono",
+           "https://github.com/cormullion/juliamono/releases/download/v0.021/JuliaMono.tar.gz",
+           force=true,
+       )
+SHA1("888cda53d12753313f13b607a2655448bfc11be5")
+```
+
+- JLLで運用する場合は BinaryBuilder.jl がお世話してくれるので概念的を知っていれば良さそう.
+
+References:
+
+- [A couple of questions about Artifacts](https://discourse.julialang.org/t/a-couple-of-questions-about-artifacts/33367)
+- [Providing Artifacts basics](https://discourse.julialang.org/t/providing-artifacts-basics/35459/5)
 
 ---
 
@@ -169,7 +232,8 @@ pkg> add OrenokangaetaSaitsuyoJuliaPackage
   - JLL は主にそのようなラップする機能を果たしているのが多い.
   - あるパッケージの補助の役割を果たしているのでエンドユーザは意識する必要はない.
   - 通常の Julia パッケージとして扱える(See next page).
-
+  - Julia パッケージに対する(Julia以外の)依存関係を JLL で閉じた世界を作りたい.
+  
 ## References
 
 - [Pkg + BinaryBuilder -- The Next Generation](https://julialang.org/blog/2019/11/artifacts/#julia_library_jll_packages)
