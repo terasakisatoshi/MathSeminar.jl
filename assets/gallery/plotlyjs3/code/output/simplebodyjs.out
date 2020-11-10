@@ -1,4 +1,4 @@
-~~~<div id="fdpafz" style="width:400px;height:300x"></div> <script>     PLOT = document.getElementById('fdpafz');
+~~~<div id="fdpxyo" style="width:400px;height:300x"></div> <script>     PLOT = document.getElementById('fdpxyo');
     Plotly.plot(PLOT, [
     {
         "xaxis": "x",
@@ -31,16 +31,16 @@
             "width": 1
         },
         "y": [
-            0.6174568410018444,
-            0.1383181006448142,
-            0.3965597789477029,
-            0.64665227109421,
-            0.37046823915108007,
-            0.5908542394634881,
-            0.28361987069220773,
-            0.55809317814088,
-            0.3224936194384169,
-            0.1472710809660558
+            0.9614246238665105,
+            0.3596310281507811,
+            0.9764571307930363,
+            0.40455660588666653,
+            0.09485331773469463,
+            0.09764683602014257,
+            0.7124048431241603,
+            0.17327199935495674,
+            0.7613693867637246,
+            0.9851162634519952
         ],
         "type": "scatter"
     }
@@ -113,16 +113,16 @@
         "gridwidth": 0.5,
         "tickvals": [
             0.2,
-            0.30000000000000004,
             0.4,
-            0.5,
-            0.6000000000000001
+            0.6000000000000001,
+            0.8,
+            1.0
         ],
         "visible": true,
         "ticks": "inside",
         "range": [
-            0.12306807553133232,
-            0.6619022962076918
+            0.06814542936317561,
+            1.0118241518235143
         ],
         "domain": [
             1.0,
@@ -144,10 +144,10 @@
         "tickcolor": "rgb(0, 0, 0)",
         "ticktext": [
             "0.2",
-            "0.3",
             "0.4",
-            "0.5",
-            "0.6"
+            "0.6",
+            "0.8",
+            "1.0"
         ],
         "zeroline": false,
         "type": "-",
@@ -160,20 +160,28 @@
         "anchor": "x"
     },
     "legend": {
-        "yanchor": "auto",
-        "xanchor": "auto",
-        "bordercolor": "rgba(0, 0, 0, 1.000)",
-        "bgcolor": "rgba(255, 255, 255, 1.000)",
+        "borderwidth": 1,
+        "tracegroupgap": 0,
         "font": {
             "color": "rgba(0, 0, 0, 1.000)",
             "family": "sans-serif",
             "size": 11
         },
-        "tracegroupgap": 0,
-        "y": 1.0,
-        "borderwidth": 1,
+        "title": {
+            "font": {
+                "color": "rgba(0, 0, 0, 1.000)",
+                "family": "sans-serif",
+                "size": 15
+            },
+            "text": ""
+        },
         "traceorder": "normal",
-        "x": 1.0
+        "x": 1.0,
+        "yanchor": "auto",
+        "xanchor": "auto",
+        "bordercolor": "rgba(0, 0, 0, 1.000)",
+        "bgcolor": "rgba(255, 255, 255, 1.000)",
+        "y": 1.0
     },
     "width": 600
 }

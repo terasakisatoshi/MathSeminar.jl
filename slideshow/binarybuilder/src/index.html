@@ -320,7 +320,7 @@ SHA1(<span class="hljs-string">&quot;888cda53d12753313f13b607a2655448bfc11be5&qu
 ...</code></pre>
 <p>これってなんだろう？</p>
 <hr />
-<h1 id="jll_julia_library_packages"><a href="#jll_julia_library_packages">JLL &#40;Julia library packages&#41;</a></h1>
+<h1 id="jll_julia_library_packages"><a href="#jll_julia_library_packages">JLL &#40;Julia library&#41; packages</a></h1>
 <h2 id="a_pun_on_dynamic-link_library"><a href="#a_pun_on_dynamic-link_library">A pun on &quot;Dynamic-Link Library&quot;</a></h2>
 <ul>
 <li><p>Julia界隈における <code>DLL&#40;&#61;Dynamic-Link Library&#41;</code> の役割を果たす.</p>
@@ -411,9 +411,304 @@ using libcxxwrap_julia_jll # for libcxxwrap_julia and libcxxwrap_julia_stl</code
 <p>class: center, middle</p>
 <h1 id="binarybuilderjl"><a href="#binarybuilderjl">BinaryBuilder.jl</a></h1>
 <p>やっと話せる.</p>
+<hr />
+<h1 id="binarybuilderjl_概要"><a href="#binarybuilderjl_概要">BinaryBuilder.jl &#40;概要&#41;</a></h1>
+<ul>
+<li><p>Julia パッケージの依存関係 &#40;ライブラリ/実行形式/データ&#41; をビルドする機能を持つ:</p>
+<ul>
+<li><p>例えば, C/C&#43;&#43; のコードをクロスコンパイルできる.</p>
+</li>
+<li><p>開発者は Windows, Mac, Linux など Julia が動作する各プラットフォームに対し配布ができる．</p>
+<ul>
+<li><p>開発者/ユーザー は <code>XXX_jll</code> という名前の Julia パッケージをインストールするだけで OK となる.</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>哲学:</p>
+<ul>
+<li><p><code>When you want something done right, you do it yourself.</code></p>
+<ul>
+<li><p><code>No more compiling on user&#39;s machines.</code></p>
+</li>
+<li><p><code>No more struggling with system package managers.</code></p>
+</li>
+<li><p><code>No more needing sudo access to install that little mathematical optimization library.</code></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>See:</p>
+<ul>
+<li><p><a href="https://github.com/JuliaPackaging/BinaryBuilder.jl#philosophy">BinaryBuilder.jl/README.md</a></p>
+</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h1 id="binarybuilderjl_で_jll_を作成"><a href="#binarybuilderjl_で_jll_を作成">BinaryBuilder.jl で JLL を作成</a></h1>
+<h3 id="対話方式"><a href="#対話方式"><ol>
+<li><p>対話方式</p>
+</li>
+</ol>
+</a></h3>
+<pre><code class="julia hljs">julia&gt; <span class="hljs-keyword">using</span> BinaryBuilder
+julia&gt; BinaryBuilder.run_wizard()</code></pre>
+<h3 id="ol_start2_ビルドスクリプトを作る"><a href="#ol_start2_ビルドスクリプトを作る"><ol start="2">
+<li><p>ビルドスクリプトを作る</p>
+</li>
+</ol>
+</a></h3>
+<ul>
+<li><p>慣習として <code>build_tarball.jl</code> というファイル名で作る.</p>
+</li>
+</ul>
+<pre><code class="console hljs"><span class="hljs-meta">$</span><span class="bash"> julia build_tarball.jl --verbose --debug --deploy=<span class="hljs-built_in">local</span></span></code></pre>
+<ul>
+<li><p>このスライドではこちらのケースを扱う.</p>
+</li>
+</ul>
+<hr />
+<h1 id="binarybuilderjl_環境構築"><a href="#binarybuilderjl_環境構築">BinaryBuilder.jl &#40;環境構築&#41;</a></h1>
+<ul>
+<li><p>GitHub アカウント取得 &#40;必須？ JLL リモートリポジトリからのインストール確認のため使う&#41;</p>
+</li>
+<li><p>Docker のインストール &#40;必須&#41;</p>
+</li>
+<li><p>BinaryBuilder.jl のインストール &#40;必須&#41;</p>
+</li>
+</ul>
+<pre><code class="julia hljs">pkg&gt; add BinaryBuilder</code></pre>
+<hr />
+<h1 id="build_tarballjl_概要"><a href="#build_tarballjl_概要"><code>build_tarball.jl</code> &#40;概要&#41;</a></h1>
+<ul>
+<li><p>https://github.com/JuliaPackaging/Yggdrasil を参考にすれば良い. 特に <a href="https://github.com/JuliaPackaging/Yggdrasil/tree/master/H">Hello 系</a>.</p>
+</li>
+<li><p>基本的に下記のようなフォーマットになる.</p>
+</li>
+</ul>
+<pre><code class="julia hljs"><span class="hljs-comment"># Note that this script can accept some limited command-line arguments, run</span>
+<span class="hljs-comment"># `julia build_tarballs.jl --help` to see a usage message.</span>
+<span class="hljs-keyword">using</span> BinaryBuilder, Pkg
+
+name = <span class="hljs-string">&quot;libhello&quot;</span> <span class="hljs-comment"># &quot;libhello_jll&quot; というパッケージになる</span>
+version = <span class="hljs-string">v&quot;0.1.0&quot;</span> <span class="hljs-comment"># ソフトウェアとしてのバージョン</span>
+<span class="hljs-comment"># Collection of sources required to complete build</span>
+sources = [...]
+<span class="hljs-comment"># Bash recipe for building across all platforms</span>
+script = <span class="hljs-string">&quot;&quot;</span>
+<span class="hljs-comment"># These are the platforms we will build for by default, unless further</span>
+<span class="hljs-comment"># platforms are passed in on the command line</span>
+platforms = [...]
+<span class="hljs-comment"># The products that we will ensure are always built</span>
+products = [...]
+<span class="hljs-comment"># Dependencies that must be installed before this package can be built</span>
+dependencies = [...]
+<span class="hljs-comment"># Build the tarballs, and possibly a `build.jl` as well.</span>
+build_tarballs(<span class="hljs-literal">ARGS</span>, name, version, sources, script, platforms, products, dependencies)</code></pre>
+<hr />
+<h1 id="build_tarballjl_応用例"><a href="#build_tarballjl_応用例"><code>build_tarball.jl</code> &#40;応用例&#41;</a></h1>
+<ul>
+<li><p>実際に動作する例をもとに説明する.</p>
+</li>
+</ul>
+<h4 id="libhellobuilderjl"><a href="#libhellobuilderjl">LibHelloBuilder.jl</a></h4>
+<ul>
+<li><p>CxxWrap.jl で C&#43;&#43; のコードを Julia から呼び出す自作ビルダーパッケージ．</p>
+</li>
+<li><p>See:</p>
+<ul>
+<li><p>https://github.com/terasakisatoshi/LibHelloBuilder.jl </p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="opencvbuilderjl"><a href="#opencvbuilderjl">OpenCVBuilder.jl</a></h4>
+<ul>
+<li><p>OpenCV をラップすることを目的とした自作ビルダーパッケージ。</p>
+</li>
+<li><p>See:</p>
+<ul>
+<li><p>https://github.com/terasakisatoshi/OpenCVBuilder.jl</p>
+</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h1 id="build_tarballjl_sources"><a href="#build_tarballjl_sources"><code>build_tarball.jl</code> &#40;<code>sources</code>&#41;</a></h1>
+<ul>
+<li><p>ビルドする対象をコンテナに導入する.</p>
+</li>
+</ul>
+<pre><code class="console hljs"><span class="hljs-meta">$</span><span class="bash"> git <span class="hljs-built_in">clone</span> https://github.com/terasakisatoshi/LibHelloBuilder.jl</span>
+$ cd LibHelloBuilder.jl
+<span class="hljs-meta">$</span><span class="bash"> tree helloworld</span>
+helloworld
+├── CMakeLists.txt
+└── hello.cpp</code></pre>
+<pre><code class="julia hljs">sources = [
+    <span class="hljs-comment"># target は ビルドするコンテナ内におけるディレクトリ名と対応</span>
+    DirectorySource(<span class="hljs-string">&quot;helloworld&quot;</span>, target=<span class="hljs-string">&quot;projectname&quot;</span>),
+]</code></pre>
+<ul>
+<li><p>外部のソースコードを持ってくる場合は <code>GitSource</code> を使う. &#40;OpenCVBuilder.jl&#41;</p>
+</li>
+</ul>
+<pre><code class="julia hljs">sources = [
+    GitSource(
+      <span class="hljs-string">&quot;https://github.com/opencv/opencv.git&quot;</span>, <span class="hljs-comment"># Git の URL</span>
+      <span class="hljs-string">&quot;d5fd2f0155ffad366f9ac912dfd6d189a7a6a98e&quot;</span>, <span class="hljs-comment"># コミットのハッシュ値</span>
+    ),
+]</code></pre>
+<p><hr /> <code>build_tarball.jl</code> &#40;コンテナ内の構造&#41;</p>
+<pre><code class="console hljs">.
+├── artifacts
+│   ├── 34dcc7878f4ffd630320e286a3cac94577f45f38
+│   ├── 6017255205dc4fbf4d962903a855a0c631f092dc
+│   └── 857aa8cbc45a01504f6bae1a91afc4ce3d4de5e5
+├── destdir
+│   ├── bin
+│   ├── etc
+│   ├── include
+│   ├── lib
+│   ├── libexec
+│   ├── logs
+│   └── share
+├── metadir
+└── srcdir
+    └── projectname</code></pre>
+<hr />
+<h1 id="build_tarballjl_script"><a href="#build_tarballjl_script"><code>build_tarball.jl</code> &#40;<code>script</code>&#41;</a></h1>
+<ul>
+<li><p>CxxWrap.jl でラップするときは下記のコードをほぼコピペで良い.</p>
+</li>
+</ul>
+<pre><code class="julia hljs"><span class="hljs-comment"># Bash recipe for building across all platforms</span>
+script = <span class="hljs-string">raw&quot;&quot;&quot;
+# Override compiler ID to silence the horrible &quot;No features found&quot; cmake error
+if [[ <span class="hljs-variable">$target</span> == *&quot;apple-darwin&quot;* ]]; then
+  macos_extra_flags=&quot;-DCMAKE_CXX_COMPILER_ID=AppleClang -DCMAKE_CXX_COMPILER_VERSION=10.0.0 -DCMAKE_CXX_STANDARD_COMPUTED_DEFAULT=11&quot;
+fi
+Julia_PREFIX=<span class="hljs-variable">$prefix</span>
+mkdir build
+cd build
+cmake -DJulia_PREFIX=<span class="hljs-variable">$Julia_PREFIX</span> -DCMAKE_FIND_ROOT_PATH=<span class="hljs-variable">$prefix</span> -DJlCxx_DIR=<span class="hljs-variable">$prefix</span>/lib/cmake/JlCxx \
+      -DCMAKE_INSTALL_PREFIX=<span class="hljs-variable">$prefix</span> -DCMAKE_TOOLCHAIN_FILE=${CMAKE_TARGET_TOOLCHAIN} \
+      <span class="hljs-variable">$macos_extra_flags</span> -DCMAKE_BUILD_TYPE=Release \
+      ../projectname/
+VERBOSE=ON cmake --build . --config Release --target install -- -j${nproc}
+install_license ${WORKSPACE}/srcdir/projectname/LICENSE
+&quot;&quot;&quot;</span></code></pre>
+<hr />
+<h1 id="build_tarballjl_platform"><a href="#build_tarballjl_platform"><code>build_tarball.jl</code> &#40;<code>platform</code>&#41;</a></h1>
+<ul>
+<li><p>配布対象の OS を指定する.</p>
+</li>
+</ul>
+<pre><code class="julia hljs">platforms = [
+    Windows(:x86_64; compiler_abi=CompilerABI(cxxstring_abi=:cxx11)),
+    Linux(:x86_64; libc=:glibc, compiler_abi=CompilerABI(cxxstring_abi=:cxx11)),
+    MacOS(:x86_64; compiler_abi=CompilerABI(cxxstring_abi=:cxx11)),
+]</code></pre>
+<ul>
+<li><p>他の例は次を参照せよ:</p>
+<ul>
+<li><p>https://github.com/JuliaPackaging/Yggdrasil/blob/master/J/Julia/Julia&#37;401.5/build_tarballs.jl</p>
+</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h1 id="build_tarballjl_products"><a href="#build_tarballjl_products"><code>build_tarball.jl</code> &#40;<code>products</code>&#41;</a></h1>
+<h3 id="libhellobuilderjl__2"><a href="#libhellobuilderjl__2">LibHelloBuilder.jl</a></h3>
+<ul>
+<li><p>LibHelloBuilder.jl の例では <code>script</code> で指定した方法で <code>libhello&#91;.so, .dylib, .dll&#93;</code> をビルドした. </p>
+</li>
+</ul>
+<pre><code class="julia hljs"><span class="hljs-comment"># The products that we will ensure are always built</span>
+products = [
+　  <span class="hljs-comment"># `libhello_jll.jl` パッケージの利用時に libhello_jll.libhello でライブラリのパスを指定できる.</span>
+    LibraryProduct(<span class="hljs-string">&quot;libhello&quot;</span>, :libhello), 
+]</code></pre>
+<hr />
+<h1 id="build_tarballjl_products__2"><a href="#build_tarballjl_products__2"><code>build_tarball.jl</code> &#40;<code>products</code>&#41;</a></h1>
+<h3 id="opencvbuilderjl__2"><a href="#opencvbuilderjl__2">OpenCVBuilder.jl</a></h3>
+<ul>
+<li><p>Linux/Mac と Windows ではビルドして得られるライブラリ名が微妙に異なる:</p>
+<ul>
+<li><p><code>libopencv_videoio&#91;．so,.dylib&#93;</code>, <code>libopencv_videoio450.dll</code></p>
+</li>
+</ul>
+</li>
+<li><p>OS の違いを次のようにして吸収できる.</p>
+</li>
+</ul>
+<pre><code class="julia hljs">products = [
+    LibraryProduct([<span class="hljs-string">&quot;libopencv_calib3d&quot;</span>, <span class="hljs-string">&quot;libopencv_calib3d450&quot;</span>], :libopencv_calib3d),
+    ...
+    ...(中略)
+    ...
+    LibraryProduct([<span class="hljs-string">&quot;libopencv_videoio&quot;</span>, <span class="hljs-string">&quot;libopencv_videoio450&quot;</span>], :libopencv_videoio),
+]</code></pre>
+<hr />
+<h1 id="build_tarballjl_dependencies"><a href="#build_tarballjl_dependencies"><code>build_tarball.jl</code> &#40;<code>dependencies</code>&#41;</a></h1>
+<h4 id="libhellobuilderjl__3"><a href="#libhellobuilderjl__3">LibHelloBuilder.jl</a></h4>
+<ul>
+<li><p><code>CxxWrap.jl</code> に関する <code>dependencies</code> は次で良い.</p>
+</li>
+</ul>
+<pre><code class="julia hljs"><span class="hljs-comment"># Dependencies that must be installed before this package can be built</span>
+dependencies = [
+    <span class="hljs-comment"># XXX_jll.jl の利用時に依存するもの</span>
+    Dependency(<span class="hljs-string">&quot;libcxxwrap_julia_jll&quot;</span>),
+    <span class="hljs-comment"># C++ソースのビルド時のみに依存するもの</span>
+    BuildDependency(PackageSpec(name=<span class="hljs-string">&quot;Julia_jll&quot;</span>, version=<span class="hljs-string">v&quot;1.5.0+0&quot;</span>)),
+]</code></pre>
+<hr />
+<h1 id="build_tarballjl_dependencies__2"><a href="#build_tarballjl_dependencies__2"><code>build_tarball.jl</code> &#40;<code>dependencies</code>&#41;</a></h1>
+<h4 id="opencvbuilderjl__3"><a href="#opencvbuilderjl__3">OpenCVBuilder.jl</a></h4>
+<ul>
+<li><p>Linux 向けの環境で <code>cv２::imshow</code> などの OpenCV の GUI 機能を使うときは <code>-DWITH_QT</code> で OpenCV をビルドする必要がある.</p>
+</li>
+<li><p>See:</p>
+<ul>
+<li><p><a href="https://github.com/terasakisatoshi/OpenCVBuilder.jl/blob/main/qt/build_tarball.jl#L16-L38">OpenCVBuilder.jl/qt/build_tarball.jl</a></p>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code class="julia hljs"><span class="hljs-comment"># Dependencies that must be installed before this package can be built</span>
+dependencies = [
+    Dependency(<span class="hljs-string">&quot;Qt_jll&quot;</span>),
+    Dependency(<span class="hljs-string">&quot;GTK3_jll&quot;</span>), <span class="hljs-comment"># `-DWITH_QT` のくせにこれを入れないとビルドが通らない．</span>
+]</code></pre>
+<hr />
+<h1 id="ビルド時の依存関係は"><a href="#ビルド時の依存関係は">ビルド時の依存関係は？</a></h1>
+<ul>
+<li><p>Q: Ubuntu ベースの Docker のように <code>apt-get install foo-dev</code> とかするの？</p>
+</li>
+<li><p>A: <code>dependencies &#61; &#91;Dependency&#40;&quot;foo_jll&quot;&#41;&#93;</code> のように JLL package で解決することになる.</p>
+<ul>
+<li><p>哲学:</p>
+<ul>
+<li><p><code>When you want something done right, you do it yourself.</code></p>
+</li>
+</ul>
+</li>
+<li><p>ちなみに コンテナ内は Alpine Linux なのでパッケージマネージャは <code>apk</code></p>
+<ul>
+<li><p><code>The rootfs image is based upon the</code>alpine<code>docker image, and is used to build compilers for every target platform we support.</code></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 <div class="page-foot">
   <div class="copyright">
-    &copy; SatoshiTerasaki. Last modified: 2020年11月9日 月曜日. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
+    &copy; SatoshiTerasaki. Last modified: 2020年11月10日 火曜日. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
   </div>
 </div>
 </div><!-- CONTENT ENDS HERE -->
