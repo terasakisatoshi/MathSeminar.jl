@@ -246,7 +246,7 @@ pkg> add OrenokangaetaSaitsuyoJuliaPackage
 
 ---
 
-# JLL (Julia library packages)
+# JLL (Julia library) packages
 
 ## A pun on "Dynamic-Link Library"
 
@@ -344,3 +344,276 @@ class: center, middle
 
 やっと話せる.
 
+---
+
+# BinaryBuilder.jl (概要)
+
+- Julia パッケージの依存関係 (ライブラリ/実行形式/データ) をビルドする機能を持つ:
+  - 例えば, C/C++ のコードをクロスコンパイルできる.
+  - 開発者は Windows, Mac, Linux など Julia が動作する各プラットフォームに対し配布ができる．
+    - 開発者/ユーザー は `XXX_jll` という名前の Julia パッケージをインストールするだけで OK となる.
+- 哲学:
+  - `When you want something done right, you do it yourself.`
+    - `No more compiling on user's machines.`
+    - `No more struggling with system package managers.`
+    - `No more needing sudo access to install that little mathematical optimization library.`
+
+- See:
+  - [BinaryBuilder.jl/README.md](https://github.com/JuliaPackaging/BinaryBuilder.jl#philosophy)
+
+---
+
+# BinaryBuilder.jl で JLL を作成
+
+### 1. 対話方式
+
+```julia
+julia> using BinaryBuilder
+julia> BinaryBuilder.run_wizard()
+```
+
+### 2. ビルドスクリプトを作る
+
+- 慣習として `build_tarball.jl` というファイル名で作る.
+```console
+$ julia build_tarball.jl --verbose --debug --deploy=local
+```
+- このスライドではこちらのケースを扱う.
+
+---
+
+# BinaryBuilder.jl (環境構築)
+
+- GitHub アカウント取得 (必須？ JLL リモートリポジトリからのインストール確認のため使う)
+- Docker のインストール (必須)
+- BinaryBuilder.jl のインストール (必須)
+
+```julia
+pkg> add BinaryBuilder
+```
+
+---
+
+# `build_tarball.jl` (概要)
+
+- https://github.com/JuliaPackaging/Yggdrasil を参考にすれば良い. 特に [Hello 系](https://github.com/JuliaPackaging/Yggdrasil/tree/master/H).
+- 基本的に下記のようなフォーマットになる.
+
+```julia
+# Note that this script can accept some limited command-line arguments, run
+# `julia build_tarballs.jl --help` to see a usage message.
+using BinaryBuilder, Pkg
+
+name = "libhello" # "libhello_jll" というパッケージになる
+version = v"0.1.0" # ソフトウェアとしてのバージョン
+# Collection of sources required to complete build
+sources = [...]
+# Bash recipe for building across all platforms
+script = ""
+# These are the platforms we will build for by default, unless further
+# platforms are passed in on the command line
+platforms = [...]
+# The products that we will ensure are always built
+products = [...]
+# Dependencies that must be installed before this package can be built
+dependencies = [...]
+# Build the tarballs, and possibly a `build.jl` as well.
+build_tarballs(ARGS, name, version, sources, script, platforms, products, dependencies)
+```
+
+---
+
+# `build_tarball.jl` (応用例)
+
+- 実際に動作する例をもとに説明する.
+
+#### LibHelloBuilder.jl
+
+- CxxWrap.jl で C++ のコードを Julia から呼び出す自作ビルダーパッケージ．
+- See:
+  - https://github.com/terasakisatoshi/LibHelloBuilder.jl 
+
+#### OpenCVBuilder.jl
+
+- OpenCV をラップすることを目的とした自作ビルダーパッケージ。
+- See:
+  - https://github.com/terasakisatoshi/OpenCVBuilder.jl
+
+---
+
+# `build_tarball.jl` (`sources`)
+
+- ビルドする対象をコンテナに導入する.
+
+```console
+$ git clone https://github.com/terasakisatoshi/LibHelloBuilder.jl
+$ cd LibHelloBuilder.jl
+$ tree helloworld
+helloworld
+├── CMakeLists.txt
+└── hello.cpp
+```
+
+
+```julia
+sources = [
+    # target は ビルドするコンテナ内におけるディレクトリ名と対応
+    DirectorySource("helloworld", target="projectname"),
+]
+```
+
+- 外部のソースコードを持ってくる場合は `GitSource` を使う. (OpenCVBuilder.jl)
+
+```julia
+sources = [
+    GitSource(
+      "https://github.com/opencv/opencv.git", # Git の URL
+      "d5fd2f0155ffad366f9ac912dfd6d189a7a6a98e", # コミットのハッシュ値
+    ),
+]
+```
+
+--- `build_tarball.jl` (コンテナ内の構造)
+
+```console
+.
+├── artifacts
+│   ├── 34dcc7878f4ffd630320e286a3cac94577f45f38
+│   ├── 6017255205dc4fbf4d962903a855a0c631f092dc
+│   └── 857aa8cbc45a01504f6bae1a91afc4ce3d4de5e5
+├── destdir
+│   ├── bin
+│   ├── etc
+│   ├── include
+│   ├── lib
+│   ├── libexec
+│   ├── logs
+│   └── share
+├── metadir
+└── srcdir
+    └── projectname
+```
+
+---
+
+# `build_tarball.jl` (`script`)
+
+- CxxWrap.jl でラップするときは下記のコードをほぼコピペで良い.
+
+```julia
+# Bash recipe for building across all platforms
+script = raw"""
+# Override compiler ID to silence the horrible "No features found" cmake error
+if [[ $target == *"apple-darwin"* ]]; then
+  macos_extra_flags="-DCMAKE_CXX_COMPILER_ID=AppleClang -DCMAKE_CXX_COMPILER_VERSION=10.0.0 -DCMAKE_CXX_STANDARD_COMPUTED_DEFAULT=11"
+fi
+Julia_PREFIX=$prefix
+mkdir build
+cd build
+cmake -DJulia_PREFIX=$Julia_PREFIX -DCMAKE_FIND_ROOT_PATH=$prefix -DJlCxx_DIR=$prefix/lib/cmake/JlCxx \
+      -DCMAKE_INSTALL_PREFIX=$prefix -DCMAKE_TOOLCHAIN_FILE=${CMAKE_TARGET_TOOLCHAIN} \
+      $macos_extra_flags -DCMAKE_BUILD_TYPE=Release \
+      ../projectname/
+VERBOSE=ON cmake --build . --config Release --target install -- -j${nproc}
+install_license ${WORKSPACE}/srcdir/projectname/LICENSE
+"""
+```
+
+---
+
+# `build_tarball.jl` (`platform`)
+
+- 配布対象の OS を指定する.
+
+```julia
+platforms = [
+    Windows(:x86_64; compiler_abi=CompilerABI(cxxstring_abi=:cxx11)),
+    Linux(:x86_64; libc=:glibc, compiler_abi=CompilerABI(cxxstring_abi=:cxx11)),
+    MacOS(:x86_64; compiler_abi=CompilerABI(cxxstring_abi=:cxx11)),
+]
+```
+
+- 他の例は次を参照せよ:
+  - https://github.com/JuliaPackaging/Yggdrasil/blob/master/J/Julia/Julia%401.5/build_tarballs.jl
+
+---
+
+# `build_tarball.jl` (`products`)
+
+### LibHelloBuilder.jl
+- LibHelloBuilder.jl の例では `script` で指定した方法で `libhello[.so, .dylib, .dll]` をビルドした. 
+
+```julia
+# The products that we will ensure are always built
+products = [
+　  # `libhello_jll.jl` パッケージの利用時に libhello_jll.libhello でライブラリのパスを指定できる.
+    LibraryProduct("libhello", :libhello), 
+]
+```
+
+---
+
+# `build_tarball.jl` (`products`)
+
+### OpenCVBuilder.jl
+
+- Linux/Mac と Windows ではビルドして得られるライブラリ名が微妙に異なる:
+  - `libopencv_videoio[．so,.dylib]`, `libopencv_videoio450.dll`
+- OS の違いを次のようにして吸収できる.
+
+```julia
+products = [
+    LibraryProduct(["libopencv_calib3d", "libopencv_calib3d450"], :libopencv_calib3d),
+    ...
+    ...(中略)
+    ...
+    LibraryProduct(["libopencv_videoio", "libopencv_videoio450"], :libopencv_videoio),
+]
+```
+
+---
+
+# `build_tarball.jl` (`dependencies`)
+
+#### LibHelloBuilder.jl
+
+- `CxxWrap.jl` に関する `dependencies` は次で良い.
+
+```julia
+# Dependencies that must be installed before this package can be built
+dependencies = [
+    # XXX_jll.jl の利用時に依存するもの
+    Dependency("libcxxwrap_julia_jll"),
+    # C++ソースのビルド時のみに依存するもの
+    BuildDependency(PackageSpec(name="Julia_jll", version=v"1.5.0+0")),
+]
+```
+
+---
+
+# `build_tarball.jl` (`dependencies`)
+
+#### OpenCVBuilder.jl
+
+- Linux 向けの環境で `cv２::imshow` などの OpenCV の GUI 機能を使うときは `-DWITH_QT` で OpenCV をビルドする必要がある.
+- See:
+  - [OpenCVBuilder.jl/qt/build_tarball.jl](https://github.com/terasakisatoshi/OpenCVBuilder.jl/blob/main/qt/build_tarball.jl#L16-L38)
+
+```julia
+# Dependencies that must be installed before this package can be built
+dependencies = [
+    Dependency("Qt_jll"),
+    Dependency("GTK3_jll"), # `-DWITH_QT` のくせにこれを入れないとビルドが通らない．
+]
+```
+
+---
+
+# ビルド時の依存関係は？
+
+- Q: Ubuntu ベースの Docker のように `apt-get install foo-dev` とかするの？
+- A: `dependencies = [Dependency("foo_jll")]` のように JLL package で解決することになる.
+  - 哲学:
+    - `When you want something done right, you do it yourself.`
+  - ちなみに コンテナ内は Alpine Linux なのでパッケージマネージャは `apk`
+    - `The rootfs image is based upon the `alpine` docker image, and is used to build compilers for every target platform we support.`
