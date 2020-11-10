@@ -447,7 +447,7 @@ build_tarballs(ARGS, name, version, sources, script, platforms, products, depend
 
 ```console
 $ git clone https://github.com/terasakisatoshi/LibHelloBuilder.jl
-$ cd LibHelloBuilder.jl
+$ cd LibHelloBuilder.jl
 $ tree helloworld
 helloworld
 ├── CMakeLists.txt
@@ -457,7 +457,7 @@ helloworld
 
 ```julia
 sources = [
-    # target は ビルドするコンテナ内におけるディレクトリ名と対応
+    # target は ビルドするコンテナ内におけるディレクトリ名と対応
     DirectorySource("helloworld", target="projectname"),
 ]
 ```
@@ -603,7 +603,7 @@ dependencies = [
 # Dependencies that must be installed before this package can be built
 dependencies = [
     Dependency("Qt_jll"),
-    Dependency("GTK3_jll"), # `-DWITH_QT` のくせにこれを入れないとビルドが通らない．
+    Dependency("GTK3_jll"), # `-DWITH_QT` のくせにこれを入れないとビルドが通らない．
 ]
 ```
 
@@ -617,3 +617,58 @@ dependencies = [
     - `When you want something done right, you do it yourself.`
   - ちなみに コンテナ内は Alpine Linux なのでパッケージマネージャは `apk`
     - `The rootfs image is based upon the `alpine` docker image, and is used to build compilers for every target platform we support.`
+
+--- 
+
+# Tips
+
+```console
+$ julia build_tarball.jl --verbose --debug --deploy=local
+```
+
+- BinaryBuilder.jl を初めて利用する時にプラット毎のコンパイラーがダウンロードされる.
+  - Mac 向けにビルドする際は [Apple and Xcode SDK agreement](https://images.apple.com/legal/sla/docs/xcode.pdf) に同意する必要がある.
+  - `BINARYBUILDER_AUTOMATIC_APPLE` environment variable is set to `true`.
+- `--verbose` はビルド時の出力を詳細なものにする
+- `--debug` は `script` が失敗した時に対話セッションを当該の環境にアタッチしてくれる. デバッグのお供.
+- `--deploy=local` で `~/.julia/dev` に JLL パッケージ `<name>_jll` が作られる. 
+  - `products` で指定した `lib` や `bin` は `~/.julia/artifacts/xxxx/` に格納される.
+  - `xxxx` は `~/.julia/dev/<name>_jll/Artifacts.toml` に記載されているハッシュと対応
+
+---
+
+# Tips (`--deply` option)
+
+```console
+$ julia build_tarball.jl --verbose --debug --deploy=<yourgithubaccountname>/<name>_jll.jl
+```
+
+- GitHub のリモートリポジトリとして `<name>_jll.jl (e.g. libhello_jll.jl)` が自動的に作られる.
+  - Julia 関係のソースがプッシュされる
+  - ビルド生成物は `version` のタグが付与され GitHub Release にアップロードされる
+
+- 初回の利用時に GitHub アカウント名・ログインパスワード(必要に応じて二段階認証の６桁番号)が要請される.
+- その時に `GITHUB_TOKEN` が作られる. ここで発行されたトークンは `https://github.com/settings/tokens` で管理できる.
+  - `Settings/Developer settings/Personal Access tokens`
+  - 発行トークンは他の人に漏らさないように.
+    - リポジトリを勝手に編集されます．
+
+---
+
+# JLL の使用
+
+- LibHelloBuilder.jl から [libhello_jll.jl](https://github.com/terasakisatoshi/libhello_jll.jl) を作成するフローを説明した.
+  - https://github.com/terasakisatoshi/LibHello.jl で libhello_jll.jl を利用する例を示している.
+- OpenCVBuilder.jl から [OpenCVQt_jll.jl](https://github.com/terasakisatoshi/OpenCVQt_jll.jl) が作られた.
+  - [VideoCaptureWrapBuilder.jl](https://github.com/terasakisatoshi/VideoCaptureWrapBuilder.jl/blob/main/build_tarball.jl#L53) で利用．
+  - [VideoCaptureWrap_jll.jl](https://github.com/terasakisatoshi/VideoCaptureWrap_jll.jl) が作られる.
+  - これは [VideoCaptureWrap.jl](https://github.com/terasakisatoshi/VideoCaptureWrap.jl) で利用される.
+
+---
+
+# まとめ
+
+- BinaryBuilder.jl の入門のための事前知識を導入した.
+- 具体例を通して `build_tarball.jl` の構成法を示した.
+- 応用先を示した.
+
