@@ -543,13 +543,13 @@ build_tarballs(<span class="hljs-literal">ARGS</span>, name, version, sources, s
 </li>
 </ul>
 <pre><code class="console hljs"><span class="hljs-meta">$</span><span class="bash"> git <span class="hljs-built_in">clone</span> https://github.com/terasakisatoshi/LibHelloBuilder.jl</span>
-$ cd LibHelloBuilder.jl
+<span class="hljs-meta">$</span><span class="bash"> <span class="hljs-built_in">cd</span> LibHelloBuilder.jl</span>
 <span class="hljs-meta">$</span><span class="bash"> tree helloworld</span>
 helloworld
 ├── CMakeLists.txt
 └── hello.cpp</code></pre>
 <pre><code class="julia hljs">sources = [
-    <span class="hljs-comment"># target は ビルドするコンテナ内におけるディレクトリ名と対応</span>
+    <span class="hljs-comment"># target は ビルドするコンテナ内におけるディレクトリ名と対応</span>
     DirectorySource(<span class="hljs-string">&quot;helloworld&quot;</span>, target=<span class="hljs-string">&quot;projectname&quot;</span>),
 ]</code></pre>
 <ul>
@@ -682,7 +682,7 @@ dependencies = [
 <pre><code class="julia hljs"><span class="hljs-comment"># Dependencies that must be installed before this package can be built</span>
 dependencies = [
     Dependency(<span class="hljs-string">&quot;Qt_jll&quot;</span>),
-    Dependency(<span class="hljs-string">&quot;GTK3_jll&quot;</span>), <span class="hljs-comment"># `-DWITH_QT` のくせにこれを入れないとビルドが通らない．</span>
+    Dependency(<span class="hljs-string">&quot;GTK3_jll&quot;</span>), <span class="hljs-comment"># `-DWITH_QT` のくせにこれを入れないとビルドが通らない．</span>
 ]</code></pre>
 <hr />
 <h1 id="ビルド時の依存関係は"><a href="#ビルド時の依存関係は">ビルド時の依存関係は？</a></h1>
@@ -704,6 +704,88 @@ dependencies = [
 </ul>
 </li>
 </ul>
+</li>
+</ul>
+<p><hr /> </p>
+<h1 id="tips"><a href="#tips">Tips</a></h1>
+<pre><code class="console hljs"><span class="hljs-meta">$</span><span class="bash"> julia build_tarball.jl --verbose --debug --deploy=<span class="hljs-built_in">local</span></span></code></pre>
+<ul>
+<li><p>BinaryBuilder.jl を初めて利用する時にプラット毎のコンパイラーがダウンロードされる.</p>
+<ul>
+<li><p>Mac 向けにビルドする際は <a href="https://images.apple.com/legal/sla/docs/xcode.pdf">Apple and Xcode SDK agreement</a> に同意する必要がある.</p>
+</li>
+<li><p><code>BINARYBUILDER_AUTOMATIC_APPLE</code> environment variable is set to <code>true</code>.</p>
+</li>
+</ul>
+</li>
+<li><p><code>--verbose</code> はビルド時の出力を詳細なものにする</p>
+</li>
+<li><p><code>--debug</code> は <code>script</code> が失敗した時に対話セッションを当該の環境にアタッチしてくれる. デバッグのお供.</p>
+</li>
+<li><p><code>--deploy&#61;local</code> で <code>~/.julia/dev</code> に JLL パッケージ <code>&lt;name&gt;_jll</code> が作られる. </p>
+<ul>
+<li><p><code>products</code> で指定した <code>lib</code> や <code>bin</code> は <code>~/.julia/artifacts/xxxx/</code> に格納される.</p>
+</li>
+<li><p><code>xxxx</code> は <code>~/.julia/dev/&lt;name&gt;_jll/Artifacts.toml</code> に記載されているハッシュと対応</p>
+</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h1 id="tips_--deply_option"><a href="#tips_--deply_option">Tips &#40;<code>--deply</code> option&#41;</a></h1>
+<pre><code class="console hljs"><span class="hljs-meta">$</span><span class="bash"> julia build_tarball.jl --verbose --debug --deploy=&lt;yourgithubaccountname&gt;/&lt;name&gt;_jll.jl</span></code></pre>
+<ul>
+<li><p>GitHub のリモートリポジトリとして <code>&lt;name&gt;_jll.jl &#40;e.g. libhello_jll.jl&#41;</code> が自動的に作られる.</p>
+<ul>
+<li><p>Julia 関係のソースがプッシュされる</p>
+</li>
+<li><p>ビルド生成物は <code>version</code> のタグが付与され GitHub Release にアップロードされる</p>
+</li>
+</ul>
+</li>
+<li><p>初回の利用時に GitHub アカウント名・ログインパスワード&#40;必要に応じて二段階認証の６桁番号&#41;が要請される.</p>
+</li>
+<li><p>その時に <code>GITHUB_TOKEN</code> が作られる. ここで発行されたトークンは <code>https://github.com/settings/tokens</code> で管理できる.</p>
+<ul>
+<li><p><code>Settings/Developer settings/Personal Access tokens</code></p>
+</li>
+<li><p>発行トークンは他の人に漏らさないように.</p>
+<ul>
+<li><p>リポジトリを勝手に編集されます．</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h1 id="jll_の使用"><a href="#jll_の使用">JLL の使用</a></h1>
+<ul>
+<li><p>LibHelloBuilder.jl から <a href="https://github.com/terasakisatoshi/libhello_jll.jl">libhello_jll.jl</a> を作成するフローを説明した.</p>
+<ul>
+<li><p>https://github.com/terasakisatoshi/LibHello.jl で libhello_jll.jl を利用する例を示している.</p>
+</li>
+</ul>
+</li>
+<li><p>OpenCVBuilder.jl から <a href="https://github.com/terasakisatoshi/OpenCVQt_jll.jl">OpenCVQt_jll.jl</a> が作られた.</p>
+<ul>
+<li><p><a href="https://github.com/terasakisatoshi/VideoCaptureWrapBuilder.jl/blob/main/build_tarball.jl#L53">VideoCaptureWrapBuilder.jl</a> で利用．</p>
+</li>
+<li><p><a href="https://github.com/terasakisatoshi/VideoCaptureWrap_jll.jl">VideoCaptureWrap_jll.jl</a> が作られる.</p>
+</li>
+<li><p>これは <a href="https://github.com/terasakisatoshi/VideoCaptureWrap.jl">VideoCaptureWrap.jl</a> で利用される.</p>
+</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h1 id="まとめ"><a href="#まとめ">まとめ</a></h1>
+<ul>
+<li><p>BinaryBuilder.jl の入門のための事前知識を導入した.</p>
+</li>
+<li><p>具体例を通して <code>build_tarball.jl</code> の構成法を示した.</p>
+</li>
+<li><p>応用先を示した.</p>
 </li>
 </ul>
 <div class="page-foot">
