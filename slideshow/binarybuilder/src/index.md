@@ -660,7 +660,6 @@ $ julia build_tarball.jl --verbose --debug --deploy=<yourgithubaccountname>/<nam
 - LibGit 周りのエラーメッセージが出る
   - `--deploy=<yourgithubaccountname>/<name>_jll.jl` のオプションでリポジトリがプッシュされない場合がある.
   - GitHub のリポジトリのデフォルトブランチが `main` になったため `master` ブランチがローカルリポジトリににないため.
-    - 今後修正されるはず.
 - gcc のバージョンが v8 以上を要請する C++ ライブラリ を CxxWrap.jl でラップできていない
   - e.g. Matplot++ という C++ 製ライブラリ
   - BuildDependency で提供される Julia とのコンパチビリティの問題.
@@ -687,3 +686,8 @@ $ julia build_tarball.jl --verbose --debug --deploy=<yourgithubaccountname>/<nam
 - 具体例を通して `build_tarball.jl` の構成法を示した.
 - 応用先を示した.
 
+---
+
+class: center, middle
+
+# おちまい
