@@ -655,6 +655,21 @@ $ julia build_tarball.jl --verbose --debug --deploy=<yourgithubaccountname>/<nam
 
 ---
 
+# Tips (現時点での制限事項)
+
+- LibGit 周りのエラーメッセージが出る
+  - `--deploy=<yourgithubaccountname>/<name>_jll.jl` のオプションでリポジトリがプッシュされない場合がある.
+  - GitHub のリポジトリのデフォルトブランチが `main` になったため `master` ブランチがローカルリポジトリににないため.
+    - 今後修正されるはず.
+- gcc のバージョンが v8 以上を要請する C++ ライブラリ を CxxWrap.jl でラップできていない
+  - e.g. Matplot++ という C++ 製ライブラリ
+  - BuildDependency で提供される Julia とのコンパチビリティの問題.
+- PackageCompiler.jl の create_app 機能を使える？
+  - ビルド時にこける.
+  - まだクロスコンパイルに PackageCompiler.jl が対応してないから?
+
+---
+
 # JLL の使用
 
 - LibHelloBuilder.jl から [libhello_jll.jl](https://github.com/terasakisatoshi/libhello_jll.jl) を作成するフローを説明した.
