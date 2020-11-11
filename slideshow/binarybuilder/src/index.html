@@ -759,6 +759,38 @@ dependencies = [
 </li>
 </ul>
 <hr />
+<h1 id="tips_現時点での制限事項"><a href="#tips_現時点での制限事項">Tips &#40;現時点での制限事項&#41;</a></h1>
+<ul>
+<li><p>LibGit 周りのエラーメッセージが出る</p>
+<ul>
+<li><p><code>--deploy&#61;&lt;yourgithubaccountname&gt;/&lt;name&gt;_jll.jl</code> のオプションでリポジトリがプッシュされない場合がある.</p>
+</li>
+<li><p>GitHub のリポジトリのデフォルトブランチが <code>main</code> になったため <code>master</code> ブランチがローカルリポジトリににないため.</p>
+<ul>
+<li><p>今後修正されるはず.</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>gcc のバージョンが v8 以上を要請する C&#43;&#43; ライブラリ を CxxWrap.jl でラップできていない</p>
+<ul>
+<li><p>e.g. Matplot&#43;&#43; という C&#43;&#43; 製ライブラリ</p>
+</li>
+<li><p>BuildDependency で提供される Julia とのコンパチビリティの問題.</p>
+</li>
+</ul>
+</li>
+<li><p>PackageCompiler.jl の create_app 機能を使える？</p>
+<ul>
+<li><p>ビルド時にこける.</p>
+</li>
+<li><p>まだクロスコンパイルに PackageCompiler.jl が対応してないから?</p>
+</li>
+</ul>
+</li>
+</ul>
+<hr />
 <h1 id="jll_の使用"><a href="#jll_の使用">JLL の使用</a></h1>
 <ul>
 <li><p>LibHelloBuilder.jl から <a href="https://github.com/terasakisatoshi/libhello_jll.jl">libhello_jll.jl</a> を作成するフローを説明した.</p>
@@ -790,7 +822,7 @@ dependencies = [
 </ul>
 <div class="page-foot">
   <div class="copyright">
-    &copy; SatoshiTerasaki. Last modified: 2020年11月10日 火曜日. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
+    &copy; SatoshiTerasaki. Last modified: 2020年11月11日 水曜日. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
   </div>
 </div>
 </div><!-- CONTENT ENDS HERE -->
