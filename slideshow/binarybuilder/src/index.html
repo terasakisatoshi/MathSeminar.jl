@@ -263,7 +263,7 @@ SHA1(<span class="hljs-string">&quot;888cda53d12753313f13b607a2655448bfc11be5&qu
 </li>
 </ul>
 <hr />
-<h1 id="examples"><a href="#examples">Examples</a></h1>
+<h1 id="examples_part_1"><a href="#examples_part_1">Examples &#40;part 1&#41;</a></h1>
 <ul>
 <li><p><a href="https://github.com/JuliaImages/TestImages.jl">TestImages.jl</a></p>
 <ul>
@@ -291,6 +291,31 @@ SHA1(<span class="hljs-string">&quot;888cda53d12753313f13b607a2655448bfc11be5&qu
 </ul>
 </li>
 </ul>
+<hr />
+<h1 id="examples_part_2"><a href="#examples_part_2">Examples &#40;part 2&#41;</a></h1>
+<ul>
+<li><p>OS 毎に異なる配布物を指定することもできる.</p>
+</li>
+<li><p>自作パッケージ <a href="https://github.com/terasakisatoshi/MatplotWrap.jl">MatplotWrap.jl</a> の場合:</p>
+</li>
+</ul>
+<pre><code class="toml hljs"><span class="hljs-section">[[libmplxx]]</span>
+<span class="hljs-attr">arch</span> = <span class="hljs-string">&quot;x86_64&quot;</span>
+<span class="hljs-attr">git-tree-sha1</span> = <span class="hljs-string">&quot;7744f0719758a79793187f8d0ec21133c3f3a882&quot;</span>
+<span class="hljs-attr">os</span> = <span class="hljs-string">&quot;macos&quot;</span>
+
+    <span class="hljs-section">[[libmplxx.download]]</span>
+    <span class="hljs-attr">sha256</span> = <span class="hljs-string">&quot;56c10af8cddda0a2e09d8e1c968ae1a3d4e9cac9d38bb6acee82c31531822d31&quot;</span>
+    <span class="hljs-attr">url</span> = <span class="hljs-string">&quot;https://github.com/terasakisatoshi/MatplotWrapBuilder.jl/releases/download/v0.1.1/Binary.Packages.MacOSX.zip&quot;</span>
+<span class="hljs-section">[[libmplxx]]</span>
+<span class="hljs-attr">arch</span> = <span class="hljs-string">&quot;x86_64&quot;</span>
+<span class="hljs-attr">git-tree-sha1</span> = <span class="hljs-string">&quot;75f221ceaad2f03f5851de233f3633b6eb10cbd2&quot;</span>
+<span class="hljs-attr">libc</span> = <span class="hljs-string">&quot;glibc&quot;</span>
+<span class="hljs-attr">os</span> = <span class="hljs-string">&quot;linux&quot;</span>
+
+    <span class="hljs-section">[[libmplxx.download]]</span>
+    <span class="hljs-attr">sha256</span> = <span class="hljs-string">&quot;b28efca2e46e894abb5aa270ed56e2050240cb72151a1bba511903c52baebbac&quot;</span>
+    <span class="hljs-attr">url</span> = <span class="hljs-string">&quot;https://github.com/terasakisatoshi/MatplotWrapBuilder.jl/releases/download/v0.1.1/Binary.Packages.Linux.tar.gz&quot;</span></code></pre>
 <hr />
 <p>class: center, middle</p>
 <h1 id="jll_入門"><a href="#jll_入門">JLL 入門</a></h1>
@@ -562,25 +587,31 @@ helloworld
       <span class="hljs-string">&quot;d5fd2f0155ffad366f9ac912dfd6d189a7a6a98e&quot;</span>, <span class="hljs-comment"># コミットのハッシュ値</span>
     ),
 ]</code></pre>
-<p><hr /> <code>build_tarball.jl</code> &#40;コンテナ内の構造&#41;</p>
-<pre><code class="console hljs">.
-├── artifacts
-│   ├── 34dcc7878f4ffd630320e286a3cac94577f45f38
-│   ├── 6017255205dc4fbf4d962903a855a0c631f092dc
-│   └── 857aa8cbc45a01504f6bae1a91afc4ce3d4de5e5
-├── destdir
-│   ├── bin
-│   ├── etc
-│   ├── include
-│   ├── lib
-│   ├── libexec
-│   ├── logs
-│   └── share
-├── metadir
-└── srcdir
-    └── projectname</code></pre>
 <hr />
 <h1 id="build_tarballjl_script"><a href="#build_tarballjl_script"><code>build_tarball.jl</code> &#40;<code>script</code>&#41;</a></h1>
+<ul>
+<li><p>前ページの <code>source</code> で指定したファイルなどを加工，ビルドするための操作を書いていく. </p>
+</li>
+<li><p>ビルドする操作はホスト環境ではなく BinaryBuilder が用意した Docker のコンテナの内部で操作することを記述する.</p>
+</li>
+</ul>
+<pre><code class="console hljs">sandbox:${WORKSPACE} tree -d -L 2
+.
+├── artifacts
+│   └── ...
+├── destdir # 生成物はここに配置させていく `${prefix}` という環境変数でアクセスできる.
+│   ├── bin
+│   ├── etc
+│   ├── include
+│   ├── lib
+│   ├── libexec
+│   ├── logs
+│   └── share
+├── metadir
+└── srcdir # &lt;--- 最初この位置にいる.
+    └── # srcdir 以下に `source` で指定したファイルなどが落ちてくる.</code></pre>
+<hr />
+<h1 id="build_tarballjl_script__2"><a href="#build_tarballjl_script__2"><code>build_tarball.jl</code> &#40;<code>script</code>&#41;</a></h1>
 <ul>
 <li><p>CxxWrap.jl でラップするときは下記のコードをほぼコピペで良い.</p>
 </li>
@@ -601,6 +632,26 @@ cmake -DJulia_PREFIX=<span class="hljs-variable">$Julia_PREFIX</span> -DCMAKE_FI
 VERBOSE=ON cmake --build . --config Release --target install -- -j${nproc}
 install_license ${WORKSPACE}/srcdir/projectname/LICENSE
 &quot;&quot;&quot;</span></code></pre>
+<hr />
+<h1 id="tips"><a href="#tips">Tips</a></h1>
+<h2 id="automatic_environment_variables"><a href="#automatic_environment_variables">Automatic environment variables</a></h2>
+<ul>
+<li><p><code>prefix</code>: the path to the top-directory of where all the products should be installed. This will be the top-directory of the generated tarball</p>
+</li>
+<li><p><a href="https://juliapackaging.github.io/BinaryBuilder.jl/stable/build_tips/#Automatic-environment-variables">Automatic environment variables</a></p>
+</li>
+</ul>
+<h2 id="debug"><a href="#debug">Debug</a></h2>
+<ul>
+<li><p><code>build_tarball.jl</code> を走らせる時に <code>--debug</code> オプションをつけるとビルド操作で失敗した時にコンテナ内に入ることができる</p>
+</li>
+<li><p>次のようにして入ることもできる</p>
+</li>
+</ul>
+<pre><code class="julia hljs">$ cd build/&lt;platform&gt;/xxx <span class="hljs-comment"># ホスト環境</span>
+$ julia
+julia&gt; <span class="hljs-keyword">using</span> BinaryBuilder; BinaryBuilder.runshell()
+sandbox:${WORKSPACE} <span class="hljs-comment"># コンテナ内部</span></code></pre>
 <hr />
 <h1 id="build_tarballjl_platform"><a href="#build_tarballjl_platform"><code>build_tarball.jl</code> &#40;<code>platform</code>&#41;</a></h1>
 <ul>
@@ -707,7 +758,7 @@ dependencies = [
 </li>
 </ul>
 <p><hr /> </p>
-<h1 id="tips"><a href="#tips">Tips</a></h1>
+<h1 id="tips__2"><a href="#tips__2">Tips</a></h1>
 <pre><code class="console hljs"><span class="hljs-meta">$</span><span class="bash"> julia build_tarball.jl --verbose --debug --deploy=<span class="hljs-built_in">local</span></span></code></pre>
 <ul>
 <li><p>BinaryBuilder.jl を初めて利用する時にプラット毎のコンパイラーがダウンロードされる.</p>
@@ -821,7 +872,7 @@ dependencies = [
 <h1 id="おちまい"><a href="#おちまい">おちまい</a></h1>
 <div class="page-foot">
   <div class="copyright">
-    &copy; SatoshiTerasaki. Last modified: 2020年11月11日 水曜日. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
+    &copy; SatoshiTerasaki. Last modified: 2020年11月13日 金曜日. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
   </div>
 </div>
 </div><!-- CONTENT ENDS HERE -->

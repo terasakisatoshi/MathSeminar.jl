@@ -1,4 +1,4 @@
-~~~<div id="fdpesq" style="width:400px;height:300x"></div> <script>     PLOT = document.getElementById('fdpesq');
+~~~<div id="fdpski" style="width:400px;height:300x"></div> <script>     PLOT = document.getElementById('fdpski');
     Plotly.plot(PLOT, [
     {
         "xaxis": "x",
@@ -31,16 +31,16 @@
             "width": 1
         },
         "y": [
-            0.2784953110629158,
-            0.8250217809027645,
-            0.00869674079010574,
-            0.39473949897692684,
-            0.33498782443349473,
-            0.3222418466299817,
-            0.19198859995088524,
-            0.7687848080966533,
-            0.5666355267860244,
-            0.7488210477135937
+            0.20003112747753282,
+            0.37221319040372314,
+            0.8619805270410688,
+            0.6885865283687049,
+            0.2541816870401272,
+            0.37935305650581186,
+            0.6116827132857814,
+            0.2763929625857864,
+            0.9302492091650039,
+            0.8542109998658884
         ],
         "type": "scatter"
     }
@@ -112,7 +112,6 @@
         "showticklabels": true,
         "gridwidth": 0.5,
         "tickvals": [
-            0.0,
             0.2,
             0.4,
             0.6000000000000001,
@@ -121,8 +120,8 @@
         "visible": true,
         "ticks": "inside",
         "range": [
-            -0.015793010413274022,
-            0.8495115321061442
+            0.1781245850269087,
+            0.952155751615628
         ],
         "domain": [
             1.0,
@@ -143,7 +142,6 @@
         },
         "tickcolor": "rgb(0, 0, 0)",
         "ticktext": [
-            "0.0",
             "0.2",
             "0.4",
             "0.6",
@@ -160,20 +158,28 @@
         "anchor": "x"
     },
     "legend": {
-        "yanchor": "auto",
-        "xanchor": "auto",
-        "bordercolor": "rgba(0, 0, 0, 1.000)",
-        "bgcolor": "rgba(255, 255, 255, 1.000)",
+        "borderwidth": 1,
+        "tracegroupgap": 0,
         "font": {
             "color": "rgba(0, 0, 0, 1.000)",
             "family": "sans-serif",
             "size": 11
         },
-        "tracegroupgap": 0,
-        "y": 1.0,
-        "borderwidth": 1,
+        "title": {
+            "font": {
+                "color": "rgba(0, 0, 0, 1.000)",
+                "family": "sans-serif",
+                "size": 15
+            },
+            "text": ""
+        },
         "traceorder": "normal",
-        "x": 1.0
+        "x": 1.0,
+        "yanchor": "auto",
+        "xanchor": "auto",
+        "bordercolor": "rgba(0, 0, 0, 1.000)",
+        "bgcolor": "rgba(255, 255, 255, 1.000)",
+        "y": 1.0
     },
     "width": 600
 }

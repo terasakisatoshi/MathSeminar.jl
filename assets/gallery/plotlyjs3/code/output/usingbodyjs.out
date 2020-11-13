@@ -1,4 +1,4 @@
-~~~<div id="fdplfq" style="width:400px;height:300x"></div> <script>     PLOT = document.getElementById('fdplfq');
+~~~<div id="fdplvr" style="width:400px;height:300x"></div> <script>     PLOT = document.getElementById('fdplvr');
     Plotly.plot(PLOT, [
     {
         "xaxis": "x",
@@ -2003,20 +2003,28 @@
         }
     },
     "legend": {
-        "yanchor": "auto",
-        "xanchor": "auto",
-        "bordercolor": "rgba(0, 0, 0, 1.000)",
-        "bgcolor": "rgba(255, 255, 255, 1.000)",
+        "borderwidth": 1,
+        "tracegroupgap": 0,
         "font": {
             "color": "rgba(0, 0, 0, 1.000)",
             "family": "sans-serif",
             "size": 11
         },
-        "tracegroupgap": 0,
-        "y": 1.0,
-        "borderwidth": 1,
+        "title": {
+            "font": {
+                "color": "rgba(0, 0, 0, 1.000)",
+                "family": "sans-serif",
+                "size": 15
+            },
+            "text": ""
+        },
         "traceorder": "normal",
-        "x": 1.0
+        "x": 1.0,
+        "yanchor": "auto",
+        "xanchor": "auto",
+        "bordercolor": "rgba(0, 0, 0, 1.000)",
+        "bgcolor": "rgba(255, 255, 255, 1.000)",
+        "y": 1.0
     },
     "width": 600
 }
