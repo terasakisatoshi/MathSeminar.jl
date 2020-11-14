@@ -150,7 +150,7 @@ git-tree-sha1 = "43563e7631a7eafae1f9f8d9d332e3de44ad7239"
     url = "https://github.com/staticfloat/small_bin/raw/master/socrates.tar.gz"
     sha256 = "e65d2f13f2085f2c279830e863292312a72930fee5ba3c792b14c33ce5c5cc58"
 $ julia -q
-julia> rootpath = artifact"socrates"
+julia>using Pkg.Artifacts; rootpath = artifact"socrates"
 Downloading artifact: socrates
 ######################################################################## 
 julia> open(joinpath(rootpath, "bin", "socrates")) do file; println(read(file, String)); end
@@ -192,6 +192,21 @@ References:
 
 - [TestImages.jl](https://github.com/JuliaImages/TestImages.jl)
   - GitHub Release ページの [v1.3.0-artifacts](https://github.com/JuliaImages/TestImages.jl/releases/tag/v1.3.0-artifacts) からダウンロードするようになっている.
+
+```toml
+[images]
+git-tree-sha1 = "535631fca290e924d01d3a00c1333ecaba8b4ec9"
+lazy = true
+
+    [[images.download]]
+    sha256 = "93b9964ca392d12008e85fc18c7a50e32c38ee3bac5d7e64914c4e21c1d01e87"
+    url = "https://github.com/JuliaImages/TestImages.jl/releases/download/v1.3.0-artifacts/images.tar.gz"
+```
+
+---
+
+# Examples (part 2)
+
 - [PackageCompiler.jl](https://github.com/JuliaLang/PackageCompiler.jl)
 
 ```toml
@@ -211,7 +226,7 @@ lazy = true
 
 ---
 
-# Examples (part 2)
+# Examples (part 3)
 
 - OS 毎に異なる配布物を指定することもできる.
 - 自作パッケージ [MatplotWrap.jl](https://github.com/terasakisatoshi/MatplotWrap.jl) の場合:
