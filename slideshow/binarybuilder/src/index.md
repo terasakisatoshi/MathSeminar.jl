@@ -150,7 +150,7 @@ git-tree-sha1 = "43563e7631a7eafae1f9f8d9d332e3de44ad7239"
     url = "https://github.com/staticfloat/small_bin/raw/master/socrates.tar.gz"
     sha256 = "e65d2f13f2085f2c279830e863292312a72930fee5ba3c792b14c33ce5c5cc58"
 $ julia -q
-julia>using Pkg.Artifacts; rootpath = artifact"socrates"
+julia> using Pkg.Artifacts; rootpath = artifact"socrates"
 Downloading artifact: socrates
 ######################################################################## 
 julia> open(joinpath(rootpath, "bin", "socrates")) do file; println(read(file, String)); end
@@ -297,8 +297,8 @@ pkg> add OrenokangaetaSaitsuyoJuliaPackage
 - Julia のパッケージは C/C++/Fortran で作られた既存のライブラリ/実行形式をラップしている物がある.
   - JLL は主にそのようなラップする機能を果たしているのが多い.
   - あるパッケージの補助の役割を果たしているのでエンドユーザは意識する必要はない.
-  - 通常の Julia パッケージとして扱える(See next page).
-  - Julia パッケージに対する(Julia以外の)依存関係を JLL で閉じた世界を作りたい.
+  - 通常の Julia パッケージとして扱える (See next page).
+  - Julia パッケージに対する (Julia以外の) 依存関係を JLL で閉じた世界を作りたい.
   
 ## References
 
