@@ -226,7 +226,7 @@ git-tree-sha1 = &quot;43563e7631a7eafae1f9f8d9d332e3de44ad7239&quot;
     url = &quot;https://github.com/staticfloat/small_bin/raw/master/socrates.tar.gz&quot;
     sha256 = &quot;e65d2f13f2085f2c279830e863292312a72930fee5ba3c792b14c33ce5c5cc58&quot;
 $ julia -q
-julia&gt; rootpath = artifact&quot;socrates&quot;
+julia&gt;using Pkg.Artifacts; rootpath = artifact&quot;socrates&quot;
 Downloading artifact: socrates
 ######################################################################## 
 julia&gt; open(joinpath(rootpath, &quot;bin&quot;, &quot;socrates&quot;)) do file; println(read(file, String)); end
@@ -271,6 +271,17 @@ SHA1(<span class="hljs-string">&quot;888cda53d12753313f13b607a2655448bfc11be5&qu
 </li>
 </ul>
 </li>
+</ul>
+<pre><code class="toml hljs"><span class="hljs-section">[images]</span>
+<span class="hljs-attr">git-tree-sha1</span> = <span class="hljs-string">&quot;535631fca290e924d01d3a00c1333ecaba8b4ec9&quot;</span>
+<span class="hljs-attr">lazy</span> = <span class="hljs-literal">true</span>
+
+    <span class="hljs-section">[[images.download]]</span>
+    <span class="hljs-attr">sha256</span> = <span class="hljs-string">&quot;93b9964ca392d12008e85fc18c7a50e32c38ee3bac5d7e64914c4e21c1d01e87&quot;</span>
+    <span class="hljs-attr">url</span> = <span class="hljs-string">&quot;https://github.com/JuliaImages/TestImages.jl/releases/download/v1.3.0-artifacts/images.tar.gz&quot;</span></code></pre>
+<hr />
+<h1 id="examples_part_2"><a href="#examples_part_2">Examples &#40;part 2&#41;</a></h1>
+<ul>
 <li><p><a href="https://github.com/JuliaLang/PackageCompiler.jl">PackageCompiler.jl</a></p>
 </li>
 </ul>
@@ -292,7 +303,7 @@ SHA1(<span class="hljs-string">&quot;888cda53d12753313f13b607a2655448bfc11be5&qu
 </li>
 </ul>
 <hr />
-<h1 id="examples_part_2"><a href="#examples_part_2">Examples &#40;part 2&#41;</a></h1>
+<h1 id="examples_part_3"><a href="#examples_part_3">Examples &#40;part 3&#41;</a></h1>
 <ul>
 <li><p>OS 毎に異なる配布物を指定することもできる.</p>
 </li>
@@ -872,7 +883,7 @@ dependencies = [
 <h1 id="おちまい"><a href="#おちまい">おちまい</a></h1>
 <div class="page-foot">
   <div class="copyright">
-    &copy; SatoshiTerasaki. Last modified: 2020年11月13日 金曜日. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
+    &copy; SatoshiTerasaki. Last modified: 2020年11月14日 土曜日. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
   </div>
 </div>
 </div><!-- CONTENT ENDS HERE -->
