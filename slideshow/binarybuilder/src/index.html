@@ -226,7 +226,7 @@ git-tree-sha1 = &quot;43563e7631a7eafae1f9f8d9d332e3de44ad7239&quot;
     url = &quot;https://github.com/staticfloat/small_bin/raw/master/socrates.tar.gz&quot;
     sha256 = &quot;e65d2f13f2085f2c279830e863292312a72930fee5ba3c792b14c33ce5c5cc58&quot;
 $ julia -q
-julia&gt;using Pkg.Artifacts; rootpath = artifact&quot;socrates&quot;
+julia&gt; using Pkg.Artifacts; rootpath = artifact&quot;socrates&quot;
 Downloading artifact: socrates
 ######################################################################## 
 julia&gt; open(joinpath(rootpath, &quot;bin&quot;, &quot;socrates&quot;)) do file; println(read(file, String)); end
@@ -367,9 +367,9 @@ SHA1(<span class="hljs-string">&quot;888cda53d12753313f13b607a2655448bfc11be5&qu
 </li>
 <li><p>あるパッケージの補助の役割を果たしているのでエンドユーザは意識する必要はない.</p>
 </li>
-<li><p>通常の Julia パッケージとして扱える&#40;See next page&#41;.</p>
+<li><p>通常の Julia パッケージとして扱える &#40;See next page&#41;.</p>
 </li>
-<li><p>Julia パッケージに対する&#40;Julia以外の&#41;依存関係を JLL で閉じた世界を作りたい.</p>
+<li><p>Julia パッケージに対する &#40;Julia以外の&#41; 依存関係を JLL で閉じた世界を作りたい.</p>
 </li>
 </ul>
 </li>
