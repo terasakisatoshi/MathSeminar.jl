@@ -150,7 +150,7 @@ git-tree-sha1 = "43563e7631a7eafae1f9f8d9d332e3de44ad7239"
     url = "https://github.com/staticfloat/small_bin/raw/master/socrates.tar.gz"
     sha256 = "e65d2f13f2085f2c279830e863292312a72930fee5ba3c792b14c33ce5c5cc58"
 $ julia -q
-julia> rootpath = artifact"socrates"
+julia> using Pkg.Artifacts; rootpath = artifact"socrates"
 Downloading artifact: socrates
 ######################################################################## 
 julia> open(joinpath(rootpath, "bin", "socrates")) do file; println(read(file, String)); end
@@ -188,10 +188,25 @@ References:
 
 ---
 
-# Examples
+# Examples (part 1)
 
 - [TestImages.jl](https://github.com/JuliaImages/TestImages.jl)
   - GitHub Release ページの [v1.3.0-artifacts](https://github.com/JuliaImages/TestImages.jl/releases/tag/v1.3.0-artifacts) からダウンロードするようになっている.
+
+```toml
+[images]
+git-tree-sha1 = "535631fca290e924d01d3a00c1333ecaba8b4ec9"
+lazy = true
+
+    [[images.download]]
+    sha256 = "93b9964ca392d12008e85fc18c7a50e32c38ee3bac5d7e64914c4e21c1d01e87"
+    url = "https://github.com/JuliaImages/TestImages.jl/releases/download/v1.3.0-artifacts/images.tar.gz"
+```
+
+---
+
+# Examples (part 2)
+
 - [PackageCompiler.jl](https://github.com/JuliaLang/PackageCompiler.jl)
 
 ```toml
@@ -208,6 +223,34 @@ lazy = true
 
   - Windows 環境でコンパイラーがない場合に動的 (lazy) にダウンロードされる.
     - See [`get_compiler`](https://github.com/JuliaLang/PackageCompiler.jl/blob/69f556a6d6d1abb3f9f9d1bb46edfe4df5c66d25/src/PackageCompiler.jl#L97-L111) function
+
+---
+
+# Examples (part 3)
+
+- OS 毎に異なる配布物を指定することもできる.
+- 自作パッケージ [MatplotWrap.jl](https://github.com/terasakisatoshi/MatplotWrap.jl) の場合:
+
+```toml
+
+[[libmplxx]]
+arch = "x86_64"
+git-tree-sha1 = "7744f0719758a79793187f8d0ec21133c3f3a882"
+os = "macos"
+
+    [[libmplxx.download]]
+    sha256 = "56c10af8cddda0a2e09d8e1c968ae1a3d4e9cac9d38bb6acee82c31531822d31"
+    url = "https://github.com/terasakisatoshi/MatplotWrapBuilder.jl/releases/download/v0.1.1/Binary.Packages.MacOSX.zip"
+[[libmplxx]]
+arch = "x86_64"
+git-tree-sha1 = "75f221ceaad2f03f5851de233f3633b6eb10cbd2"
+libc = "glibc"
+os = "linux"
+
+    [[libmplxx.download]]
+    sha256 = "b28efca2e46e894abb5aa270ed56e2050240cb72151a1bba511903c52baebbac"
+    url = "https://github.com/terasakisatoshi/MatplotWrapBuilder.jl/releases/download/v0.1.1/Binary.Packages.Linux.tar.gz"
+```
 
 ---
 
@@ -254,8 +297,8 @@ pkg> add OrenokangaetaSaitsuyoJuliaPackage
 - Julia のパッケージは C/C++/Fortran で作られた既存のライブラリ/実行形式をラップしている物がある.
   - JLL は主にそのようなラップする機能を果たしているのが多い.
   - あるパッケージの補助の役割を果たしているのでエンドユーザは意識する必要はない.
-  - 通常の Julia パッケージとして扱える(See next page).
-  - Julia パッケージに対する(Julia以外の)依存関係を JLL で閉じた世界を作りたい.
+  - 通常の Julia パッケージとして扱える (See next page).
+  - Julia パッケージに対する (Julia以外の) 依存関係を JLL で閉じた世界を作りたい.
   
 ## References
 
@@ -473,26 +516,31 @@ sources = [
 ]
 ```
 
---- `build_tarball.jl` (コンテナ内の構造)
+---
+
+# `build_tarball.jl` (`script`)
+
+- 前ページの `source` で指定したファイルなどを加工，ビルドするための操作を書いていく. 
+- ビルドする操作はホスト環境ではなく BinaryBuilder が用意した Docker のコンテナの内部で操作することを記述する.
 
 ```console
+sandbox:${WORKSPACE} tree -d -L 2
 .
 ├── artifacts
-│   ├── 34dcc7878f4ffd630320e286a3cac94577f45f38
-│   ├── 6017255205dc4fbf4d962903a855a0c631f092dc
-│   └── 857aa8cbc45a01504f6bae1a91afc4ce3d4de5e5
-├── destdir
-│   ├── bin
-│   ├── etc
-│   ├── include
-│   ├── lib
-│   ├── libexec
-│   ├── logs
-│   └── share
+│   └── ...
+├── destdir # 生成物はここに配置させていく `${prefix}` という環境変数でアクセスできる.
+│   ├── bin
+│   ├── etc
+│   ├── include
+│   ├── lib
+│   ├── libexec
+│   ├── logs
+│   └── share
 ├── metadir
-└── srcdir
-    └── projectname
+└── srcdir # <--- 最初この位置にいる.
+    └── # srcdir 以下に `source` で指定したファイルなどが落ちてくる.
 ```
+
 
 ---
 
@@ -517,6 +565,27 @@ cmake -DJulia_PREFIX=$Julia_PREFIX -DCMAKE_FIND_ROOT_PATH=$prefix -DJlCxx_DIR=$p
 VERBOSE=ON cmake --build . --config Release --target install -- -j${nproc}
 install_license ${WORKSPACE}/srcdir/projectname/LICENSE
 """
+```
+
+---
+
+# Tips
+
+## Automatic environment variables
+
+- `prefix`: the path to the top-directory of where all the products should be installed. This will be the top-directory of the generated tarball
+- [Automatic environment variables](https://juliapackaging.github.io/BinaryBuilder.jl/stable/build_tips/#Automatic-environment-variables)
+
+## Debug
+
+- `build_tarball.jl` を走らせる時に `--debug` オプションをつけるとビルド操作で失敗した時にコンテナ内に入ることができる
+- 次のようにして入ることもできる
+
+```julia
+$ cd build/<platform>/xxx # ホスト環境
+$ julia
+julia> using BinaryBuilder; BinaryBuilder.runshell()
+sandbox:${WORKSPACE} # コンテナ内部
 ```
 
 ---
