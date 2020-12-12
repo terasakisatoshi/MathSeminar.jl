@@ -2,8 +2,6 @@ class: center, middle
 
 # BinaryBuilder.jl 入門
 
-ごまふあざらし
-
 ---
 
 class: center, middle
@@ -596,10 +594,10 @@ sandbox:${WORKSPACE} # コンテナ内部
 
 ```julia
 platforms = [
-    Windows(:x86_64; compiler_abi=CompilerABI(cxxstring_abi=:cxx11)),
-    Linux(:x86_64; libc=:glibc, compiler_abi=CompilerABI(cxxstring_abi=:cxx11)),
-    MacOS(:x86_64; compiler_abi=CompilerABI(cxxstring_abi=:cxx11)),
-]
+    Windows(:x86_64),
+    Linux(:x86_64; libc=:glibc),
+    MacOS(:x86_64),
+] |> expand_cxxstring_abis
 ```
 
 - 他の例は次を参照せよ:
@@ -652,9 +650,9 @@ products = [
 # Dependencies that must be installed before this package can be built
 dependencies = [
     # XXX_jll.jl の利用時に依存するもの
-    Dependency("libcxxwrap_julia_jll"),
+    Dependency(PackageSpec(name="libcxxwrap_julia_jll", rev="libcxxwrap_julia-v0.8.5+0")),
     # C++ソースのビルド時のみに依存するもの
-    BuildDependency(PackageSpec(name="Julia_jll", version=v"1.5.0+0")),
+    BuildDependency(PackageSpec(name="libjulia_jll", version=v"1.5.1")),
 ]
 ```
 
@@ -754,6 +752,15 @@ $ julia build_tarball.jl --verbose --debug --deploy=<yourgithubaccountname>/<nam
 - BinaryBuilder.jl の入門のための事前知識を導入した.
 - 具体例を通して `build_tarball.jl` の構成法を示した.
 - 応用先を示した.
+
+---
+
+# Appendix
+
+- Apple シリコン対応もあって Yggdrasil が持っているレシピが整備されている
+- 対応プラットフォームに `armv7l` が含まれるようになったのでラズパイで動かなかったパッケージが動作して嬉しい
+  - 例えば SpecialFunctions_jll.jl など
+- Qt_jll が AArch64 対応された．
 
 ---
 
