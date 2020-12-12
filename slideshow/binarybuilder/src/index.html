@@ -89,7 +89,6 @@
 <!-- Content appended here -->
 <div class="franklin-content"><p>class: center, middle</p>
 <h1 id="binarybuilderjl_入門"><a href="#binarybuilderjl_入門">BinaryBuilder.jl 入門</a></h1>
-<p>ごまふあざらし</p>
 <hr />
 <p>class: center, middle</p>
 <h1 id="の前に"><a href="#の前に">の前に</a></h1>
@@ -670,10 +669,10 @@ sandbox:${WORKSPACE} <span class="hljs-comment"># コンテナ内部</span></cod
 </li>
 </ul>
 <pre><code class="julia hljs">platforms = [
-    Windows(:x86_64; compiler_abi=CompilerABI(cxxstring_abi=:cxx11)),
-    Linux(:x86_64; libc=:glibc, compiler_abi=CompilerABI(cxxstring_abi=:cxx11)),
-    MacOS(:x86_64; compiler_abi=CompilerABI(cxxstring_abi=:cxx11)),
-]</code></pre>
+    Windows(:x86_64),
+    Linux(:x86_64; libc=:glibc),
+    MacOS(:x86_64),
+] |&gt; expand_cxxstring_abis</code></pre>
 <ul>
 <li><p>他の例は次を参照せよ:</p>
 <ul>
@@ -724,9 +723,9 @@ products = [
 <pre><code class="julia hljs"><span class="hljs-comment"># Dependencies that must be installed before this package can be built</span>
 dependencies = [
     <span class="hljs-comment"># XXX_jll.jl の利用時に依存するもの</span>
-    Dependency(<span class="hljs-string">&quot;libcxxwrap_julia_jll&quot;</span>),
+    Dependency(PackageSpec(name=<span class="hljs-string">&quot;libcxxwrap_julia_jll&quot;</span>, rev=<span class="hljs-string">&quot;libcxxwrap_julia-v0.8.5+0&quot;</span>)),
     <span class="hljs-comment"># C++ソースのビルド時のみに依存するもの</span>
-    BuildDependency(PackageSpec(name=<span class="hljs-string">&quot;Julia_jll&quot;</span>, version=<span class="hljs-string">v&quot;1.5.0+0&quot;</span>)),
+    BuildDependency(PackageSpec(name=<span class="hljs-string">&quot;libjulia_jll&quot;</span>, version=<span class="hljs-string">v&quot;1.5.1&quot;</span>)),
 ]</code></pre>
 <hr />
 <h1 id="build_tarballjl_dependencies__2"><a href="#build_tarballjl_dependencies__2"><code>build_tarball.jl</code> &#40;<code>dependencies</code>&#41;</a></h1>
@@ -876,6 +875,20 @@ dependencies = [
 <li><p>具体例を通して <code>build_tarball.jl</code> の構成法を示した.</p>
 </li>
 <li><p>応用先を示した.</p>
+</li>
+</ul>
+<hr />
+<h1 id="appendix"><a href="#appendix">Appendix</a></h1>
+<ul>
+<li><p>Apple シリコン対応もあって Yggdrasil が持っているレシピが整備されている</p>
+</li>
+<li><p>対応プラットフォームに <code>armv7l</code> が含まれるようになったのでラズパイで動かなかったパッケージが動作して嬉しい</p>
+<ul>
+<li><p>例えば SpecialFunctions_jll.jl など</p>
+</li>
+</ul>
+</li>
+<li><p>Qt_jll が AArch64 対応された．</p>
 </li>
 </ul>
 <hr />
