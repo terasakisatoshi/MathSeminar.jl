@@ -16,7 +16,7 @@ services:
     ports:
       - "8000:8000"
     command: >
-      julia -e 'using Franklin; serve(host="0.0.0.0", port=8000)'
+      julia --project=@. -e 'using Franklin; serve(host="0.0.0.0", port=8000)'
   web:
     image: mathseminarjl
     container_name: math-web
