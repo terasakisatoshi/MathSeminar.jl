@@ -50,6 +50,7 @@
             <li><a href="/MathSeminar.jl/programming/theoremcounter">Theorem Counter</a></li>
             <li><a href="/MathSeminar.jl/programming/images">Images.jl</a></li>
             <li><a href="/MathSeminar.jl/programming/rcall">RCall.jl</a></li>
+            <li><a href="/MathSeminar.jl/programming/asciinema">asciinema</a></li>
           </ul>
         </li>
         <li><a href="" class="has-arrow">Gallery</a>
@@ -88,25 +89,25 @@
 
 <!-- Content appended here -->
 <div class="franklin-content"><p>class: center, middle</p>
-<h1 id="binarybuilderjl_入門"><a href="#binarybuilderjl_入門">BinaryBuilder.jl 入門</a></h1>
+<h1 id="binarybuilderjl_入門"><a href="#binarybuilderjl_入門" class="header-anchor">BinaryBuilder.jl 入門</a></h1>
 <hr />
 <p>class: center, middle</p>
-<h1 id="の前に"><a href="#の前に">の前に</a></h1>
+<h1 id="の前に"><a href="#の前に" class="header-anchor">の前に</a></h1>
 <p>– </p>
-<h2 id="ソフトウェア開発のモチベーション"><a href="#ソフトウェア開発のモチベーション">ソフトウェア開発のモチベーション</a></h2>
+<h2 id="ソフトウェア開発のモチベーション"><a href="#ソフトウェア開発のモチベーション" class="header-anchor">ソフトウェア開発のモチベーション</a></h2>
 <p>–</p>
-<h2 id="注意"><a href="#注意">注意</a></h2>
+<h2 id="注意"><a href="#注意" class="header-anchor">注意</a></h2>
 <p>一部幼児退化しているところあり</p>
 <hr />
-<h1 id="開発のモチベーション理想"><a href="#開発のモチベーション理想">開発のモチベーション&#40;理想&#41;</a></h1>
-<h4 id="xxx_関連のたのちぃ楽しい_こと"><a href="#xxx_関連のたのちぃ楽しい_こと"><code>XXX</code> 関連のたのちぃ&#40;楽しい&#41; こと</a></h4>
+<h1 id="開発のモチベーション理想"><a href="#開発のモチベーション理想" class="header-anchor">開発のモチベーション&#40;理想&#41;</a></h1>
+<h4 id="xxx_関連のたのちぃ楽しい_こと"><a href="#xxx_関連のたのちぃ楽しい_こと" class="header-anchor"><code>XXX</code> 関連のたのちぃ&#40;楽しい&#41; こと</a></h4>
 <ul>
 <li><p>技術 <code>XXX</code> を使いたい, 技術 <code>XXX</code> でパッケージ開発をしたい &#40;e.g. <code>XXX &#61; JuliaLang</code>&#41;</p>
 </li>
 <li><p><code>オレノツクッタサイツヨライブラリ for XXX</code> ヲツクッタヨ. ヨカッタラツカッテクレ</p>
 </li>
 </ul>
-<h4 id="技術_xxx_でうれちぃ嬉しい_こと"><a href="#技術_xxx_でうれちぃ嬉しい_こと">技術 <code>XXX</code> でうれちぃ&#40;嬉しい&#41; こと</a></h4>
+<h4 id="技術_xxx_でうれちぃ嬉しい_こと"><a href="#技術_xxx_でうれちぃ嬉しい_こと" class="header-anchor">技術 <code>XXX</code> でうれちぃ&#40;嬉しい&#41; こと</a></h4>
 <ul>
 <li><p>他の進行中のプロジェクトと連携 &#40;Go/Rust/...&#41;</p>
 </li>
@@ -115,14 +116,14 @@
 <li><p>依存関係をスムーズにインストール</p>
 </li>
 </ul>
-<h4 id="結果"><a href="#結果">結果</a></h4>
+<h4 id="結果"><a href="#結果" class="header-anchor">結果</a></h4>
 <ul>
 <li><p>ククク, いでよ我の最強のソフトウェア&#33;&#33;&#33; &#40;ぽちっとな！&#41;</p>
 </li>
 </ul>
 <hr />
-<h1 id="開発のモチベーション現実_part_1"><a href="#開発のモチベーション現実_part_1">開発のモチベーション&#40;現実 part 1&#41;</a></h1>
-<h4 id="ちゅらい辛い"><a href="#ちゅらい辛い">ちゅらい&#40;辛い&#41;</a></h4>
+<h1 id="開発のモチベーション現実_part_1"><a href="#開発のモチベーション現実_part_1" class="header-anchor">開発のモチベーション&#40;現実 part 1&#41;</a></h1>
+<h4 id="ちゅらい辛い"><a href="#ちゅらい辛い" class="header-anchor">ちゅらい&#40;辛い&#41;</a></h4>
 <ul>
 <li><p>デブロイ先でうまくいかない</p>
 <ul>
@@ -152,8 +153,8 @@
 </li>
 </ul>
 <hr />
-<h1 id="開発のモチベーション現実_part_2"><a href="#開発のモチベーション現実_part_2">開発のモチベーション&#40;現実 part 2&#41;</a></h1>
-<h4 id="ちゅらい辛い__2"><a href="#ちゅらい辛い__2">ちゅらい&#40;辛い&#41;</a></h4>
+<h1 id="開発のモチベーション現実_part_2"><a href="#開発のモチベーション現実_part_2" class="header-anchor">開発のモチベーション&#40;現実 part 2&#41;</a></h1>
+<h4 id="ちゅらい辛い__2"><a href="#ちゅらい辛い__2" class="header-anchor">ちゅらい&#40;辛い&#41;</a></h4>
 <ul>
 <li><p>ここから手動でダウンロードしてと指示</p>
 <ul>
@@ -176,45 +177,45 @@
 <li><p>Linux/Mac で動作確認したよ！ Windows は... コントリビューションイズウェルカム！</p>
 </li>
 </ul>
-<h4 id="結果__2"><a href="#結果__2">結果</a></h4>
+<h4 id="結果__2"><a href="#結果__2" class="header-anchor">結果</a></h4>
 <ul>
 <li><p>バカな, 私の作ったソフトウェアは完璧だったはず&#40;ウワァァ&#41;</p>
 </li>
 </ul>
 <hr />
 <p>class: center, middle</p>
-<h1 id="こうして_現実世界はソフトウェア開発者を次々絶望の底に叩きつけた"><a href="#こうして_現実世界はソフトウェア開発者を次々絶望の底に叩きつけた">こうして, 現実世界はソフトウェア開発者を次々絶望の底に叩きつけた.</a></h1>
+<h1 id="こうして_現実世界はソフトウェア開発者を次々絶望の底に叩きつけた"><a href="#こうして_現実世界はソフトウェア開発者を次々絶望の底に叩きつけた" class="header-anchor">こうして, 現実世界はソフトウェア開発者を次々絶望の底に叩きつけた.</a></h1>
 <p>– </p>
-<h2 id="もちろん人類は愚かではない_彼らは様々な技術で現実世界と向き合うのである"><a href="#もちろん人類は愚かではない_彼らは様々な技術で現実世界と向き合うのである">もちろん人類は愚かではない. 彼らは様々な技術で現実世界と向き合うのである</a></h2>
+<h2 id="もちろん人類は愚かではない_彼らは様々な技術で現実世界と向き合うのである"><a href="#もちろん人類は愚かではない_彼らは様々な技術で現実世界と向き合うのである" class="header-anchor">もちろん人類は愚かではない. 彼らは様々な技術で現実世界と向き合うのである</a></h2>
 <hr />
 <p>class: center, middle</p>
-<h1 id="ここから真面目な話"><a href="#ここから真面目な話">ここから真面目な話</a></h1>
+<h1 id="ここから真面目な話"><a href="#ここから真面目な話" class="header-anchor">ここから真面目な話</a></h1>
 <p>– </p>
-<h2 id="julia_コミュニティにおける工夫"><a href="#julia_コミュニティにおける工夫">Julia コミュニティにおける工夫</a></h2>
+<h2 id="julia_コミュニティにおける工夫"><a href="#julia_コミュニティにおける工夫" class="header-anchor">Julia コミュニティにおける工夫</a></h2>
 <hr />
 <p>class: center, middle</p>
-<h1 id="julia_コミュニティにおける工夫__2"><a href="#julia_コミュニティにおける工夫__2">Julia コミュニティにおける工夫</a></h1>
+<h1 id="julia_コミュニティにおける工夫__2"><a href="#julia_コミュニティにおける工夫__2" class="header-anchor">Julia コミュニティにおける工夫</a></h1>
 <p>–</p>
-<h2 id="artifacts"><a href="#artifacts">Artifacts</a></h2>
-<h4 id="生成物依存関係の管理"><a href="#生成物依存関係の管理">生成物/依存関係の管理</a></h4>
+<h2 id="artifacts"><a href="#artifacts" class="header-anchor">Artifacts</a></h2>
+<h4 id="生成物依存関係の管理"><a href="#生成物依存関係の管理" class="header-anchor">生成物/依存関係の管理</a></h4>
 <p>–</p>
-<h2 id="jll_package"><a href="#jll_package">JLL package</a></h2>
-<h4 id="ライブラリ実行形式のラッパー"><a href="#ライブラリ実行形式のラッパー">ライブラリ・実行形式のラッパー</a></h4>
+<h2 id="jll_package"><a href="#jll_package" class="header-anchor">JLL package</a></h2>
+<h4 id="ライブラリ実行形式のラッパー"><a href="#ライブラリ実行形式のラッパー" class="header-anchor">ライブラリ・実行形式のラッパー</a></h4>
 <p>–</p>
-<h2 id="binarybuilder"><a href="#binarybuilder">BinaryBuilder</a></h2>
-<h4 id="依存関係_ライブラリ_ラッパーの生成"><a href="#依存関係_ライブラリ_ラッパーの生成">依存関係, ライブラリ, ラッパーの生成</a></h4>
+<h2 id="binarybuilder"><a href="#binarybuilder" class="header-anchor">BinaryBuilder</a></h2>
+<h4 id="依存関係_ライブラリ_ラッパーの生成"><a href="#依存関係_ライブラリ_ラッパーの生成" class="header-anchor">依存関係, ライブラリ, ラッパーの生成</a></h4>
 <hr />
 <p>class: center, middle</p>
-<h1 id="artifacts_入門"><a href="#artifacts_入門">Artifacts 入門</a></h1>
+<h1 id="artifacts_入門"><a href="#artifacts_入門" class="header-anchor">Artifacts 入門</a></h1>
 <hr />
-<h1 id="artifacts_入門_概要"><a href="#artifacts_入門_概要">Artifacts 入門 &#40;概要&#41;</a></h1>
+<h1 id="artifacts_入門_概要"><a href="#artifacts_入門_概要" class="header-anchor">Artifacts 入門 &#40;概要&#41;</a></h1>
 <ul>
 <li><p>パッケージマネージャ Pkg が機能を持っている.</p>
 </li>
 <li><p>ファイルは <code>Artifacts.toml</code> で行う.生成物&#40;e.g. データ，実行形式&#41;の実体, 格納場所をハッシュで紐づけ.</p>
 </li>
 </ul>
-<h4 id="example"><a href="#example">Example</a></h4>
+<h4 id="example"><a href="#example" class="header-anchor">Example</a></h4>
 <p>https://julialang.github.io/Pkg.jl/dev/artifacts/#Artifacts から引用</p>
 <pre><code class="toml hljs">$ cat Artifacts.toml
 # a simple Artifacts.toml file
@@ -233,7 +234,7 @@ julia&gt; open(joinpath(rootpath, &quot;bin&quot;, &quot;socrates&quot;)) do fil
 
 echo -n &quot;ἔοικα γοῦν τούτου γε σμικρῷ τινι αὐτῷ τούτῳ σοφώτερος εἶναι, ὅτι ἃ μὴ οἶδα οὐδὲ οἴομαι εἰδέναι.&quot;</code></pre>
 <hr />
-<h1 id="artifacts_入門_toml_の作成"><a href="#artifacts_入門_toml_の作成">Artifacts 入門 &#40;toml の作成&#41;</a></h1>
+<h1 id="artifacts_入門_toml_の作成"><a href="#artifacts_入門_toml_の作成" class="header-anchor">Artifacts 入門 &#40;toml の作成&#41;</a></h1>
 <p><code>Artifacts.toml</code> 自信を作る方法の情報が断片的だったのでまとめておく.</p>
 <ul>
 <li><p>手動で編集をするものではない </p>
@@ -262,7 +263,7 @@ SHA1(<span class="hljs-string">&quot;888cda53d12753313f13b607a2655448bfc11be5&qu
 </li>
 </ul>
 <hr />
-<h1 id="examples_part_1"><a href="#examples_part_1">Examples &#40;part 1&#41;</a></h1>
+<h1 id="examples_part_1"><a href="#examples_part_1" class="header-anchor">Examples &#40;part 1&#41;</a></h1>
 <ul>
 <li><p><a href="https://github.com/JuliaImages/TestImages.jl">TestImages.jl</a></p>
 <ul>
@@ -279,7 +280,7 @@ SHA1(<span class="hljs-string">&quot;888cda53d12753313f13b607a2655448bfc11be5&qu
     <span class="hljs-attr">sha256</span> = <span class="hljs-string">&quot;93b9964ca392d12008e85fc18c7a50e32c38ee3bac5d7e64914c4e21c1d01e87&quot;</span>
     <span class="hljs-attr">url</span> = <span class="hljs-string">&quot;https://github.com/JuliaImages/TestImages.jl/releases/download/v1.3.0-artifacts/images.tar.gz&quot;</span></code></pre>
 <hr />
-<h1 id="examples_part_2"><a href="#examples_part_2">Examples &#40;part 2&#41;</a></h1>
+<h1 id="examples_part_2"><a href="#examples_part_2" class="header-anchor">Examples &#40;part 2&#41;</a></h1>
 <ul>
 <li><p><a href="https://github.com/JuliaLang/PackageCompiler.jl">PackageCompiler.jl</a></p>
 </li>
@@ -302,7 +303,7 @@ SHA1(<span class="hljs-string">&quot;888cda53d12753313f13b607a2655448bfc11be5&qu
 </li>
 </ul>
 <hr />
-<h1 id="examples_part_3"><a href="#examples_part_3">Examples &#40;part 3&#41;</a></h1>
+<h1 id="examples_part_3"><a href="#examples_part_3" class="header-anchor">Examples &#40;part 3&#41;</a></h1>
 <ul>
 <li><p>OS 毎に異なる配布物を指定することもできる.</p>
 </li>
@@ -328,9 +329,9 @@ SHA1(<span class="hljs-string">&quot;888cda53d12753313f13b607a2655448bfc11be5&qu
     <span class="hljs-attr">url</span> = <span class="hljs-string">&quot;https://github.com/terasakisatoshi/MatplotWrapBuilder.jl/releases/download/v0.1.1/Binary.Packages.Linux.tar.gz&quot;</span></code></pre>
 <hr />
 <p>class: center, middle</p>
-<h1 id="jll_入門"><a href="#jll_入門">JLL 入門</a></h1>
+<h1 id="jll_入門"><a href="#jll_入門" class="header-anchor">JLL 入門</a></h1>
 <hr />
-<h1 id="jll_入門_導入"><a href="#jll_入門_導入">JLL 入門 &#40;導入&#41;</a></h1>
+<h1 id="jll_入門_導入"><a href="#jll_入門_導入" class="header-anchor">JLL 入門 &#40;導入&#41;</a></h1>
 <ul>
 <li><p>パッケージ導入時に <code>_jll</code> というパッケージがインストールされているのを見かける.</p>
 </li>
@@ -355,8 +356,8 @@ SHA1(<span class="hljs-string">&quot;888cda53d12753313f13b607a2655448bfc11be5&qu
 ...</code></pre>
 <p>これってなんだろう？</p>
 <hr />
-<h1 id="jll_julia_library_packages"><a href="#jll_julia_library_packages">JLL &#40;Julia library&#41; packages</a></h1>
-<h2 id="a_pun_on_dynamic-link_library"><a href="#a_pun_on_dynamic-link_library">A pun on &quot;Dynamic-Link Library&quot;</a></h2>
+<h1 id="jll_julia_library_packages"><a href="#jll_julia_library_packages" class="header-anchor">JLL &#40;Julia library&#41; packages</a></h1>
+<h2 id="a_pun_on_dynamic-link_library"><a href="#a_pun_on_dynamic-link_library" class="header-anchor">A pun on &quot;Dynamic-Link Library&quot;</a></h2>
 <ul>
 <li><p>Julia界隈における <code>DLL&#40;&#61;Dynamic-Link Library&#41;</code> の役割を果たす.</p>
 </li>
@@ -373,14 +374,14 @@ SHA1(<span class="hljs-string">&quot;888cda53d12753313f13b607a2655448bfc11be5&qu
 </ul>
 </li>
 </ul>
-<h2 id="references"><a href="#references">References</a></h2>
+<h2 id="references"><a href="#references" class="header-anchor">References</a></h2>
 <ul>
 <li><p><a href="https://julialang.org/blog/2019/11/artifacts/#julia_library_jll_packages">Pkg &#43; BinaryBuilder – The Next Generation</a></p>
 </li>
 </ul>
 <hr />
-<h1 id="example_of_jll_helloworldfortran_jll"><a href="#example_of_jll_helloworldfortran_jll">Example of JLL: <code>HelloWorldFortran_jll</code></a></h1>
-<h3 id="install"><a href="#install">Install</a></h3>
+<h1 id="example_of_jll_helloworldfortran_jll"><a href="#example_of_jll_helloworldfortran_jll" class="header-anchor">Example of JLL: <code>HelloWorldFortran_jll</code></a></h1>
+<h3 id="install"><a href="#install" class="header-anchor">Install</a></h3>
 <pre><code class="julia hljs">(<span class="hljs-meta">@v1</span><span class="hljs-number">.5</span>) pkg&gt; add HelloWorldFortran_jll
   Resolving package versions...
   Installed HelloWorldFortran_jll ─ v1<span class="hljs-number">.1</span><span class="hljs-number">.0</span>+<span class="hljs-number">0</span>
@@ -390,7 +391,7 @@ Updating <span class="hljs-string">`~/.julia/environments/v1.5/Project.toml`</sp
   [b7e79332] + HelloWorldFortran_jll v1<span class="hljs-number">.1</span><span class="hljs-number">.0</span>+<span class="hljs-number">0</span>
 Updating <span class="hljs-string">`~/.julia/environments/v1.5/Manifest.toml`</span>
   [b7e79332] + HelloWorldFortran_jll v1<span class="hljs-number">.1</span><span class="hljs-number">.0</span>+<span class="hljs-number">0</span></code></pre>
-<h3 id="lets_run"><a href="#lets_run">Let&#39;s run</a></h3>
+<h3 id="lets_run"><a href="#lets_run" class="header-anchor">Let&#39;s run</a></h3>
 <pre><code class="julia hljs">julia&gt; <span class="hljs-keyword">using</span> HelloWorldFortran_jll: hello_world
 julia&gt; HelloWorldFortran_jll.hello_world(x-&gt;run(<span class="hljs-string">`<span class="hljs-variable">$x</span>`</span>)) <span class="hljs-comment"># ,or use do-syntax as follow:</span>
 julia&gt; hello_world() <span class="hljs-keyword">do</span> exe
@@ -398,7 +399,7 @@ julia&gt; hello_world() <span class="hljs-keyword">do</span> exe
        <span class="hljs-keyword">end</span>
 Hello, World!</code></pre>
 <p><hr /> </p>
-<h1 id="example_of_jll_libcxxwrap_julia_jll"><a href="#example_of_jll_libcxxwrap_julia_jll">Example of JLL: <code>libcxxwrap_julia_jll</code></a></h1>
+<h1 id="example_of_jll_libcxxwrap_julia_jll"><a href="#example_of_jll_libcxxwrap_julia_jll" class="header-anchor">Example of JLL: <code>libcxxwrap_julia_jll</code></a></h1>
 <ul>
 <li><p><a href="https://github.com/JuliaInterop/CxxWrap.jl">CxxWrap.jl</a> が依存する JLL パッケージ</p>
 </li>
@@ -421,15 +422,15 @@ module CxxWrap
 (中略: omitted)
 using libcxxwrap_julia_jll # for libcxxwrap_julia and libcxxwrap_julia_stl</code></pre>
 <hr />
-<h1 id="疑問"><a href="#疑問">疑問</a></h1>
-<h2 id="リポジトリはどこ"><a href="#リポジトリはどこ">リポジトリはどこ？</a></h2>
+<h1 id="疑問"><a href="#疑問" class="header-anchor">疑問</a></h1>
+<h2 id="リポジトリはどこ"><a href="#リポジトリはどこ" class="header-anchor">リポジトリはどこ？</a></h2>
 <ul>
 <li><p><a href="JuliaBinaryWrappers">https://github.com/JuliaBinaryWrappers</a> という Organization で見つけることができる.</p>
 </li>
 <li><p>これらは自動でリポジトリが作られている &#40;&lt;–- 下記参照&#41;</p>
 </li>
 </ul>
-<h2 id="どうやって作ってるの"><a href="#どうやって作ってるの">どうやって作ってるの?</a></h2>
+<h2 id="どうやって作ってるの"><a href="#どうやって作ってるの" class="header-anchor">どうやって作ってるの?</a></h2>
 <ul>
 <li><p>BinaryBuilder.jl を使って JLL を作成するスクリプト <code>build_tarball.jl</code> を作成する.</p>
 <ul>
@@ -444,10 +445,10 @@ using libcxxwrap_julia_jll # for libcxxwrap_julia and libcxxwrap_julia_stl</code
 </ul>
 <hr />
 <p>class: center, middle</p>
-<h1 id="binarybuilderjl"><a href="#binarybuilderjl">BinaryBuilder.jl</a></h1>
+<h1 id="binarybuilderjl"><a href="#binarybuilderjl" class="header-anchor">BinaryBuilder.jl</a></h1>
 <p>やっと話せる.</p>
 <hr />
-<h1 id="binarybuilderjl_概要"><a href="#binarybuilderjl_概要">BinaryBuilder.jl &#40;概要&#41;</a></h1>
+<h1 id="binarybuilderjl_概要"><a href="#binarybuilderjl_概要" class="header-anchor">BinaryBuilder.jl &#40;概要&#41;</a></h1>
 <ul>
 <li><p>Julia パッケージの依存関係 &#40;ライブラリ/実行形式/データ&#41; をビルドする機能を持つ:</p>
 <ul>
@@ -483,15 +484,15 @@ using libcxxwrap_julia_jll # for libcxxwrap_julia and libcxxwrap_julia_stl</code
 </li>
 </ul>
 <hr />
-<h1 id="binarybuilderjl_で_jll_を作成"><a href="#binarybuilderjl_で_jll_を作成">BinaryBuilder.jl で JLL を作成</a></h1>
-<h3 id="対話方式"><a href="#対話方式"><ol>
+<h1 id="binarybuilderjl_で_jll_を作成"><a href="#binarybuilderjl_で_jll_を作成" class="header-anchor">BinaryBuilder.jl で JLL を作成</a></h1>
+<h3 id="対話方式"><a href="#対話方式" class="header-anchor"><ol>
 <li><p>対話方式</p>
 </li>
 </ol>
 </a></h3>
 <pre><code class="julia hljs">julia&gt; <span class="hljs-keyword">using</span> BinaryBuilder
 julia&gt; BinaryBuilder.run_wizard()</code></pre>
-<h3 id="ol_start2_ビルドスクリプトを作る"><a href="#ol_start2_ビルドスクリプトを作る"><ol start="2">
+<h3 id="ol_start2_ビルドスクリプトを作る"><a href="#ol_start2_ビルドスクリプトを作る" class="header-anchor"><ol start="2">
 <li><p>ビルドスクリプトを作る</p>
 </li>
 </ol>
@@ -506,7 +507,7 @@ julia&gt; BinaryBuilder.run_wizard()</code></pre>
 </li>
 </ul>
 <hr />
-<h1 id="binarybuilderjl_環境構築"><a href="#binarybuilderjl_環境構築">BinaryBuilder.jl &#40;環境構築&#41;</a></h1>
+<h1 id="binarybuilderjl_環境構築"><a href="#binarybuilderjl_環境構築" class="header-anchor">BinaryBuilder.jl &#40;環境構築&#41;</a></h1>
 <ul>
 <li><p>GitHub アカウント取得 &#40;必須？ JLL リモートリポジトリからのインストール確認のため使う&#41;</p>
 </li>
@@ -517,7 +518,7 @@ julia&gt; BinaryBuilder.run_wizard()</code></pre>
 </ul>
 <pre><code class="julia hljs">pkg&gt; add BinaryBuilder</code></pre>
 <hr />
-<h1 id="build_tarballjl_概要"><a href="#build_tarballjl_概要"><code>build_tarball.jl</code> &#40;概要&#41;</a></h1>
+<h1 id="build_tarballjl_概要"><a href="#build_tarballjl_概要" class="header-anchor"><code>build_tarball.jl</code> &#40;概要&#41;</a></h1>
 <ul>
 <li><p>https://github.com/JuliaPackaging/Yggdrasil を参考にすれば良い. 特に <a href="https://github.com/JuliaPackaging/Yggdrasil/tree/master/H">Hello 系</a>.</p>
 </li>
@@ -544,12 +545,12 @@ dependencies = [...]
 <span class="hljs-comment"># Build the tarballs, and possibly a `build.jl` as well.</span>
 build_tarballs(<span class="hljs-literal">ARGS</span>, name, version, sources, script, platforms, products, dependencies)</code></pre>
 <hr />
-<h1 id="build_tarballjl_応用例"><a href="#build_tarballjl_応用例"><code>build_tarball.jl</code> &#40;応用例&#41;</a></h1>
+<h1 id="build_tarballjl_応用例"><a href="#build_tarballjl_応用例" class="header-anchor"><code>build_tarball.jl</code> &#40;応用例&#41;</a></h1>
 <ul>
 <li><p>実際に動作する例をもとに説明する.</p>
 </li>
 </ul>
-<h4 id="libhellobuilderjl"><a href="#libhellobuilderjl">LibHelloBuilder.jl</a></h4>
+<h4 id="libhellobuilderjl"><a href="#libhellobuilderjl" class="header-anchor">LibHelloBuilder.jl</a></h4>
 <ul>
 <li><p>CxxWrap.jl で C&#43;&#43; のコードを Julia から呼び出す自作ビルダーパッケージ．</p>
 </li>
@@ -560,7 +561,7 @@ build_tarballs(<span class="hljs-literal">ARGS</span>, name, version, sources, s
 </ul>
 </li>
 </ul>
-<h4 id="opencvbuilderjl"><a href="#opencvbuilderjl">OpenCVBuilder.jl</a></h4>
+<h4 id="opencvbuilderjl"><a href="#opencvbuilderjl" class="header-anchor">OpenCVBuilder.jl</a></h4>
 <ul>
 <li><p>OpenCV をラップすることを目的とした自作ビルダーパッケージ。</p>
 </li>
@@ -572,7 +573,7 @@ build_tarballs(<span class="hljs-literal">ARGS</span>, name, version, sources, s
 </li>
 </ul>
 <hr />
-<h1 id="build_tarballjl_sources"><a href="#build_tarballjl_sources"><code>build_tarball.jl</code> &#40;<code>sources</code>&#41;</a></h1>
+<h1 id="build_tarballjl_sources"><a href="#build_tarballjl_sources" class="header-anchor"><code>build_tarball.jl</code> &#40;<code>sources</code>&#41;</a></h1>
 <ul>
 <li><p>ビルドする対象をコンテナに導入する.</p>
 </li>
@@ -598,7 +599,7 @@ helloworld
     ),
 ]</code></pre>
 <hr />
-<h1 id="build_tarballjl_script"><a href="#build_tarballjl_script"><code>build_tarball.jl</code> &#40;<code>script</code>&#41;</a></h1>
+<h1 id="build_tarballjl_script"><a href="#build_tarballjl_script" class="header-anchor"><code>build_tarball.jl</code> &#40;<code>script</code>&#41;</a></h1>
 <ul>
 <li><p>前ページの <code>source</code> で指定したファイルなどを加工，ビルドするための操作を書いていく. </p>
 </li>
@@ -621,7 +622,7 @@ helloworld
 └── srcdir # &lt;--- 最初この位置にいる.
     └── # srcdir 以下に `source` で指定したファイルなどが落ちてくる.</code></pre>
 <hr />
-<h1 id="build_tarballjl_script__2"><a href="#build_tarballjl_script__2"><code>build_tarball.jl</code> &#40;<code>script</code>&#41;</a></h1>
+<h1 id="build_tarballjl_script__2"><a href="#build_tarballjl_script__2" class="header-anchor"><code>build_tarball.jl</code> &#40;<code>script</code>&#41;</a></h1>
 <ul>
 <li><p>CxxWrap.jl でラップするときは下記のコードをほぼコピペで良い.</p>
 </li>
@@ -643,15 +644,15 @@ VERBOSE=ON cmake --build . --config Release --target install -- -j${nproc}
 install_license ${WORKSPACE}/srcdir/projectname/LICENSE
 &quot;&quot;&quot;</span></code></pre>
 <hr />
-<h1 id="tips"><a href="#tips">Tips</a></h1>
-<h2 id="automatic_environment_variables"><a href="#automatic_environment_variables">Automatic environment variables</a></h2>
+<h1 id="tips"><a href="#tips" class="header-anchor">Tips</a></h1>
+<h2 id="automatic_environment_variables"><a href="#automatic_environment_variables" class="header-anchor">Automatic environment variables</a></h2>
 <ul>
 <li><p><code>prefix</code>: the path to the top-directory of where all the products should be installed. This will be the top-directory of the generated tarball</p>
 </li>
 <li><p><a href="https://juliapackaging.github.io/BinaryBuilder.jl/stable/build_tips/#Automatic-environment-variables">Automatic environment variables</a></p>
 </li>
 </ul>
-<h2 id="debug"><a href="#debug">Debug</a></h2>
+<h2 id="debug"><a href="#debug" class="header-anchor">Debug</a></h2>
 <ul>
 <li><p><code>build_tarball.jl</code> を走らせる時に <code>--debug</code> オプションをつけるとビルド操作で失敗した時にコンテナ内に入ることができる</p>
 </li>
@@ -663,7 +664,7 @@ $ julia
 julia&gt; <span class="hljs-keyword">using</span> BinaryBuilder; BinaryBuilder.runshell()
 sandbox:${WORKSPACE} <span class="hljs-comment"># コンテナ内部</span></code></pre>
 <hr />
-<h1 id="build_tarballjl_platform"><a href="#build_tarballjl_platform"><code>build_tarball.jl</code> &#40;<code>platform</code>&#41;</a></h1>
+<h1 id="build_tarballjl_platform"><a href="#build_tarballjl_platform" class="header-anchor"><code>build_tarball.jl</code> &#40;<code>platform</code>&#41;</a></h1>
 <ul>
 <li><p>配布対象の OS を指定する.</p>
 </li>
@@ -682,8 +683,8 @@ sandbox:${WORKSPACE} <span class="hljs-comment"># コンテナ内部</span></cod
 </li>
 </ul>
 <hr />
-<h1 id="build_tarballjl_products"><a href="#build_tarballjl_products"><code>build_tarball.jl</code> &#40;<code>products</code>&#41;</a></h1>
-<h3 id="libhellobuilderjl__2"><a href="#libhellobuilderjl__2">LibHelloBuilder.jl</a></h3>
+<h1 id="build_tarballjl_products"><a href="#build_tarballjl_products" class="header-anchor"><code>build_tarball.jl</code> &#40;<code>products</code>&#41;</a></h1>
+<h3 id="libhellobuilderjl__2"><a href="#libhellobuilderjl__2" class="header-anchor">LibHelloBuilder.jl</a></h3>
 <ul>
 <li><p>LibHelloBuilder.jl の例では <code>script</code> で指定した方法で <code>libhello&#91;.so, .dylib, .dll&#93;</code> をビルドした. </p>
 </li>
@@ -694,8 +695,8 @@ products = [
     LibraryProduct(<span class="hljs-string">&quot;libhello&quot;</span>, :libhello), 
 ]</code></pre>
 <hr />
-<h1 id="build_tarballjl_products__2"><a href="#build_tarballjl_products__2"><code>build_tarball.jl</code> &#40;<code>products</code>&#41;</a></h1>
-<h3 id="opencvbuilderjl__2"><a href="#opencvbuilderjl__2">OpenCVBuilder.jl</a></h3>
+<h1 id="build_tarballjl_products__2"><a href="#build_tarballjl_products__2" class="header-anchor"><code>build_tarball.jl</code> &#40;<code>products</code>&#41;</a></h1>
+<h3 id="opencvbuilderjl__2"><a href="#opencvbuilderjl__2" class="header-anchor">OpenCVBuilder.jl</a></h3>
 <ul>
 <li><p>Linux/Mac と Windows ではビルドして得られるライブラリ名が微妙に異なる:</p>
 <ul>
@@ -714,8 +715,8 @@ products = [
     LibraryProduct([<span class="hljs-string">&quot;libopencv_videoio&quot;</span>, <span class="hljs-string">&quot;libopencv_videoio450&quot;</span>], :libopencv_videoio),
 ]</code></pre>
 <hr />
-<h1 id="build_tarballjl_dependencies"><a href="#build_tarballjl_dependencies"><code>build_tarball.jl</code> &#40;<code>dependencies</code>&#41;</a></h1>
-<h4 id="libhellobuilderjl__3"><a href="#libhellobuilderjl__3">LibHelloBuilder.jl</a></h4>
+<h1 id="build_tarballjl_dependencies"><a href="#build_tarballjl_dependencies" class="header-anchor"><code>build_tarball.jl</code> &#40;<code>dependencies</code>&#41;</a></h1>
+<h4 id="libhellobuilderjl__3"><a href="#libhellobuilderjl__3" class="header-anchor">LibHelloBuilder.jl</a></h4>
 <ul>
 <li><p><code>CxxWrap.jl</code> に関する <code>dependencies</code> は次で良い.</p>
 </li>
@@ -728,8 +729,8 @@ dependencies = [
     BuildDependency(PackageSpec(name=<span class="hljs-string">&quot;libjulia_jll&quot;</span>, version=<span class="hljs-string">v&quot;1.5.1&quot;</span>)),
 ]</code></pre>
 <hr />
-<h1 id="build_tarballjl_dependencies__2"><a href="#build_tarballjl_dependencies__2"><code>build_tarball.jl</code> &#40;<code>dependencies</code>&#41;</a></h1>
-<h4 id="opencvbuilderjl__3"><a href="#opencvbuilderjl__3">OpenCVBuilder.jl</a></h4>
+<h1 id="build_tarballjl_dependencies__2"><a href="#build_tarballjl_dependencies__2" class="header-anchor"><code>build_tarball.jl</code> &#40;<code>dependencies</code>&#41;</a></h1>
+<h4 id="opencvbuilderjl__3"><a href="#opencvbuilderjl__3" class="header-anchor">OpenCVBuilder.jl</a></h4>
 <ul>
 <li><p>Linux 向けの環境で <code>cv２::imshow</code> などの OpenCV の GUI 機能を使うときは <code>-DWITH_QT</code> で OpenCV をビルドする必要がある.</p>
 </li>
@@ -746,7 +747,7 @@ dependencies = [
     Dependency(<span class="hljs-string">&quot;GTK3_jll&quot;</span>), <span class="hljs-comment"># `-DWITH_QT` のくせにこれを入れないとビルドが通らない．</span>
 ]</code></pre>
 <hr />
-<h1 id="ビルド時の依存関係は"><a href="#ビルド時の依存関係は">ビルド時の依存関係は？</a></h1>
+<h1 id="ビルド時の依存関係は"><a href="#ビルド時の依存関係は" class="header-anchor">ビルド時の依存関係は？</a></h1>
 <ul>
 <li><p>Q: Ubuntu ベースの Docker のように <code>apt-get install foo-dev</code> とかするの？</p>
 </li>
@@ -768,7 +769,7 @@ dependencies = [
 </li>
 </ul>
 <p><hr /> </p>
-<h1 id="tips__2"><a href="#tips__2">Tips</a></h1>
+<h1 id="tips__2"><a href="#tips__2" class="header-anchor">Tips</a></h1>
 <pre><code class="console hljs"><span class="hljs-meta">$</span><span class="bash"> julia build_tarball.jl --verbose --debug --deploy=<span class="hljs-built_in">local</span></span></code></pre>
 <ul>
 <li><p>BinaryBuilder.jl を初めて利用する時にプラット毎のコンパイラーがダウンロードされる.</p>
@@ -793,7 +794,7 @@ dependencies = [
 </li>
 </ul>
 <hr />
-<h1 id="tips_--deply_option"><a href="#tips_--deply_option">Tips &#40;<code>--deply</code> option&#41;</a></h1>
+<h1 id="tips_--deply_option"><a href="#tips_--deply_option" class="header-anchor">Tips &#40;<code>--deply</code> option&#41;</a></h1>
 <pre><code class="console hljs"><span class="hljs-meta">$</span><span class="bash"> julia build_tarball.jl --verbose --debug --deploy=&lt;yourgithubaccountname&gt;/&lt;name&gt;_jll.jl</span></code></pre>
 <ul>
 <li><p>GitHub のリモートリポジトリとして <code>&lt;name&gt;_jll.jl &#40;e.g. libhello_jll.jl&#41;</code> が自動的に作られる.</p>
@@ -820,7 +821,7 @@ dependencies = [
 </li>
 </ul>
 <hr />
-<h1 id="tips_現時点での制限事項"><a href="#tips_現時点での制限事項">Tips &#40;現時点での制限事項&#41;</a></h1>
+<h1 id="tips_現時点での制限事項"><a href="#tips_現時点での制限事項" class="header-anchor">Tips &#40;現時点での制限事項&#41;</a></h1>
 <ul>
 <li><p>LibGit 周りのエラーメッセージが出る</p>
 <ul>
@@ -848,7 +849,7 @@ dependencies = [
 </li>
 </ul>
 <hr />
-<h1 id="jll_の使用"><a href="#jll_の使用">JLL の使用</a></h1>
+<h1 id="jll_の使用"><a href="#jll_の使用" class="header-anchor">JLL の使用</a></h1>
 <ul>
 <li><p>LibHelloBuilder.jl から <a href="https://github.com/terasakisatoshi/libhello_jll.jl">libhello_jll.jl</a> を作成するフローを説明した.</p>
 <ul>
@@ -868,7 +869,7 @@ dependencies = [
 </li>
 </ul>
 <hr />
-<h1 id="まとめ"><a href="#まとめ">まとめ</a></h1>
+<h1 id="まとめ"><a href="#まとめ" class="header-anchor">まとめ</a></h1>
 <ul>
 <li><p>BinaryBuilder.jl の入門のための事前知識を導入した.</p>
 </li>
@@ -878,7 +879,7 @@ dependencies = [
 </li>
 </ul>
 <hr />
-<h1 id="appendix"><a href="#appendix">Appendix</a></h1>
+<h1 id="appendix"><a href="#appendix" class="header-anchor">Appendix</a></h1>
 <ul>
 <li><p>Apple シリコン対応もあって Yggdrasil が持っているレシピが整備されている</p>
 </li>
@@ -893,10 +894,10 @@ dependencies = [
 </ul>
 <hr />
 <p>class: center, middle</p>
-<h1 id="おちまい"><a href="#おちまい">おちまい</a></h1>
+<h1 id="おちまい"><a href="#おちまい" class="header-anchor">おちまい</a></h1>
 <div class="page-foot">
   <div class="copyright">
-    &copy; SatoshiTerasaki. Last modified: 2021年1月23日 土曜日. Website built with 
+    &copy; SatoshiTerasaki. Last modified: 2021年3月20日 土曜日. Website built with 
     <a href="http://github.com/terasakisatoshi/MathSeminar.jl">MathSeminar.jl</a>
     <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
   </div>

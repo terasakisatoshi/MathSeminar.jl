@@ -51,6 +51,7 @@
             <li><a href="/MathSeminar.jl/programming/theoremcounter">Theorem Counter</a></li>
             <li><a href="/MathSeminar.jl/programming/images">Images.jl</a></li>
             <li><a href="/MathSeminar.jl/programming/rcall">RCall.jl</a></li>
+            <li><a href="/MathSeminar.jl/programming/asciinema">asciinema</a></li>
           </ul>
         </li>
         <li><a href="" class="has-arrow">Gallery</a>
@@ -88,8 +89,8 @@
 
 
 <!-- Content appended here -->
-<div class="franklin-content"><p>Last Modified: 2021年1月23日 土曜日 <div class="franklin-toc"><ol><li><a href="#about_this_page">About this page</a><ol><li><a href="#before_reading">Before reading</a></li><li><a href="#check_julia_version">Check Julia version</a></li></ol></li><li><a href="#introduction_to_franklin">Introduction to Franklin</a></li><li><a href="#newcommand_によるタイピングの簡略化"><code>newcommand</code> によるタイピングの簡略化</a></li><li><a href="#グラフの描画">グラフの描画</a><ol><li><a href="#pyplot">PyPlot</a></li><li><a href="#plots_gr_backend">Plots &#40;GR Backend&#41;</a></li><li><a href="#plots_pyplot_backend">Plots &#40;PyPlot Backend&#41;</a></li></ol></li><li><a href="#python_のコードの実行結果の表示">Python のコードの実行結果の表示</a></li><li><a href="#c_のコードの実行結果を表示">C のコードの実行結果を表示</a></li><li><a href="#コードの挿入">コードの挿入</a></li></ol></div> </p>
-<p> <h1 id="about_this_page"><a href="#about_this_page">About this page</a></h1></p>
+<div class="franklin-content"><p>Last Modified: 2021年3月20日 土曜日 <div class="franklin-toc"><ol><li><a href="#about_this_page">About this page</a><ol><li><a href="#before_reading">Before reading</a></li><li><a href="#check_julia_version">Check Julia version</a></li></ol></li><li><a href="#introduction_to_franklin">Introduction to Franklin</a></li><li><a href="#newcommand_によるタイピングの簡略化"><code>newcommand</code> によるタイピングの簡略化</a></li><li><a href="#グラフの描画">グラフの描画</a><ol><li><a href="#pyplot">PyPlot</a></li><li><a href="#plots_gr_backend">Plots &#40;GR Backend&#41;</a></li><li><a href="#plots_pyplot_backend">Plots &#40;PyPlot Backend&#41;</a></li></ol></li><li><a href="#python_のコードの実行結果の表示">Python のコードの実行結果の表示</a></li><li><a href="#c_のコードの実行結果を表示">C のコードの実行結果を表示</a></li><li><a href="#コードの挿入">コードの挿入</a></li></ol></div> </p>
+<p> <h1 id="about_this_page"><a href="#about_this_page" class="header-anchor">About this page</a></h1></p>
 <p>      </p>
 
 <details open>
@@ -105,7 +106,7 @@
 <ul> <li class="has-line-data" data-line-start="0" data-line-end="1">This is my web page based on <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>. All codes used for creating this web site can be found at <a href="https://github.com/terasakisatoshi/MathSeminar.jl">https://github.com/terasakisatoshi/MathSeminar.jl</a></li> </ul>
 </details>
 
-<h2 id="before_reading"><a href="#before_reading">Before reading</a></h2></p>
+<h2 id="before_reading"><a href="#before_reading" class="header-anchor">Before reading</a></h2></p>
 <p>    
   </p>
 <p><div class="colorblock"><p><strong>Remark</strong> 1.1.1 &#40;推奨ブラウザについて&#41; <br/> </p>
@@ -115,26 +116,26 @@
 <li><p>iPad などから Safari で閲覧する場合, 設定&#40;ホーム画面の歯車アイコン&#41; -&gt; Safari -&gt; デスクトップ用Webサイト まで進み「全てのWebサイト」を無効にします．&#40;When using Safari from an iPad or other device, go to Settings &#40;gear icon on the home screen&#41; -&gt; Safari -&gt; Desktop Web Sites and disable &quot;All Web Sites&quot;.&#41;</p>
 </li>
 </ul></div>
-<h2 id="check_julia_version"><a href="#check_julia_version">Check Julia version</a></h2></p>
+<h2 id="check_julia_version"><a href="#check_julia_version" class="header-anchor">Check Julia version</a></h2></p>
 <p>    
 <pre><code class="julia hljs"><span class="hljs-keyword">using</span> InteractiveUtils
 versioninfo()</code></pre>
-<pre><code class="plaintext hljs">Julia Version 1.5.3
-Commit 788b2c77c1 (2020-11-09 13:37 UTC)
+<pre><code class="plaintext hljs">Julia Version 1.6.0-rc3
+Commit 23267f0d46 (2021-03-16 17:04 UTC)
 Platform Info:
   OS: Linux (x86_64-pc-linux-gnu)
-  CPU: Intel(R) Xeon(R) Platinum 8171M CPU @ 2.60GHz
+  CPU: Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz
   WORD_SIZE: 64
   LIBM: libopenlibm
-  LLVM: libLLVM-9.0.1 (ORCJIT, skylake-avx512)
+  LLVM: libLLVM-11.0.1 (ORCJIT, broadwell)
 Environment:
   JULIA_PATH = /usr/local/julia
   JULIA_GPG = 3673DF529D9049477F76B37566E3C7DC03D6E495
-  JULIA_VERSION = 1.5.3
+  JULIA_VERSION = 1.6.0-rc3
   JULIA_NUM_THREADS = 8
   JULIA_PROJECT = /work
 </code></pre>
-<h1 id="introduction_to_franklin"><a href="#introduction_to_franklin">Introduction to Franklin</a></h1></p>
+<h1 id="introduction_to_franklin"><a href="#introduction_to_franklin" class="header-anchor">Introduction to Franklin</a></h1></p>
 <p>      
   </p>
 <p><div class="colorblock"><strong>Definition</strong> 2.0.1 &#40;Franklin.jl について&#41; <br/>  <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a> は Julia で記述された静的サイトの生成を行うパッケージである．コーディング，数学などの技術ブログの作成をサポートする． 公式ドキュメントは https://franklinjl.org/ を参照せよ. なお，公式ドキュメントも Franklin.jl で作成されており, https://github.com/tlienart/franklindocs にてソースが公開されている.</div>
@@ -172,17 +173,17 @@ y = sin(x)
 <p><br/> 
   </p>
 <p><div class="colorblock"><strong>Remark</strong> 2.0.5 &#40;通し番号について&#41; <br/>  通し番号は Franklin ではデフォルトでサポートしていない. CSS でカウンタを定義しておく必要がある．</div>
-<h1 id="newcommand_によるタイピングの簡略化"><a href="#newcommand_によるタイピングの簡略化"><code>newcommand</code> によるタイピングの簡略化</a></h1></p>
+<h1 id="newcommand_によるタイピングの簡略化"><a href="#newcommand_によるタイピングの簡略化" class="header-anchor"><code>newcommand</code> によるタイピングの簡略化</a></h1></p>
 <p>      
 <p><code>config.md</code> は文章を記述する上での設定を記述するために用いる. <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>LaTeX</mtext></mrow><annotation encoding="application/x-tex">\LaTeX</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.89883em;vertical-align:-0.2155em;"></span><span class="mord text"><span class="mord textrm">L</span><span class="mspace" style="margin-right:-0.36em;"></span><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.68333em;"><span style="top:-2.904999em;"><span class="pstrut" style="height:2.7em;"></span><span class="mord"><span class="mord textrm mtight sizing reset-size6 size3">A</span></span></span></span></span></span><span class="mspace" style="margin-right:-0.15em;"></span><span class="mord text"><span class="mord textrm">T</span><span class="mspace" style="margin-right:-0.1667em;"></span><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.46782999999999997em;"><span style="top:-2.7845em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord textrm">E</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2155em;"><span></span></span></span></span><span class="mspace" style="margin-right:-0.125em;"></span><span class="mord textrm">X</span></span></span></span></span></span> の <code>\newcommand</code> と同様に数式を記述するコマンドを簡略化できる.</p>
   </p>
 <p><div class="colorblock"><p><strong>Example</strong> 3.0.1 &#40;<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="double-struck">R</mi></mrow><annotation encoding="application/x-tex">\mathbb{R}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68889em;vertical-align:0em;"></span><span class="mord"><span class="mord mathbb">R</span></span></span></span></span> の例&#41; <br/> <code>config.md</code> に次を追加しておく:</p>
 <pre><code class="julia hljs">\newcommand{\R}{\mathbb R}</code></pre>
 <p>これで <code>\R</code> で <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="double-struck">R</mi></mrow><annotation encoding="application/x-tex">\mathbb R</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68889em;vertical-align:0em;"></span><span class="mord mathbb">R</span></span></span></span> を表記できる.</p></div>
-<h1 id="グラフの描画"><a href="#グラフの描画">グラフの描画</a></h1></p>
+<h1 id="グラフの描画"><a href="#グラフの描画" class="header-anchor">グラフの描画</a></h1></p>
 <p>      
 <p><code>PyPlot</code>, <code>gr,pyplot,plotlyjs</code> をバックエンドとする <code>Plots.jl</code>, <code>PlotlyJS.jl</code> を用いた場合で確認している.</p>
-<h2 id="pyplot"><a href="#pyplot">PyPlot</a></h2>
+<h2 id="pyplot"><a href="#pyplot" class="header-anchor">PyPlot</a></h2>
 <pre><code class="julia hljs"><span class="hljs-keyword">import</span> PyPlot
 PyPlot.figure(figsize=(<span class="hljs-number">8</span>, <span class="hljs-number">6</span>))
 x = range(-<span class="hljs-number">2</span>, <span class="hljs-number">2</span>, length=<span class="hljs-number">500</span>)
@@ -190,13 +191,13 @@ x = range(-<span class="hljs-number">2</span>, <span class="hljs-number">2</span
     PyPlot.plot(x, sinc.(α .* x))
 <span class="hljs-keyword">end</span></code></pre>
 <img src="/MathSeminar.jl/assets/index/code/output/sinc.png" alt="">
-<h2 id="plots_gr_backend"><a href="#plots_gr_backend">Plots &#40;GR Backend&#41;</a></h2>
+<h2 id="plots_gr_backend"><a href="#plots_gr_backend" class="header-anchor">Plots &#40;GR Backend&#41;</a></h2>
 <pre><code class="julia hljs"><span class="hljs-keyword">using</span> Plots
 gr()
 <span class="hljs-keyword">using</span> LaTeXStrings
 Plots.plot(rand(<span class="hljs-number">10</span>), title=<span class="hljs-string">L&quot;\alpha&quot;</span>, xlabel=<span class="hljs-string">L&quot;x&quot;</span>, ylabel=<span class="hljs-string">L&quot;y&quot;</span>)</code></pre>
 <img src="/MathSeminar.jl/assets/index/code/output/grplot.png" alt="">
-<h2 id="plots_pyplot_backend"><a href="#plots_pyplot_backend">Plots &#40;PyPlot Backend&#41;</a></h2>
+<h2 id="plots_pyplot_backend"><a href="#plots_pyplot_backend" class="header-anchor">Plots &#40;PyPlot Backend&#41;</a></h2>
 <pre><code class="julia hljs"><span class="hljs-keyword">using</span> Plots
 pyplot()
 Plots.plot(sin, title=<span class="hljs-string">L&quot;y=\sin x&quot;</span>)
@@ -204,7 +205,7 @@ gr()</code></pre>
 <img src="/MathSeminar.jl/assets/index/code/output/pyplotbkend.png" alt="">
   </p>
 <p><div class="colorblock"><strong>Remark</strong> 4.0.1 &#40;Plotly/PlotlyJS について&#41; <br/> <code>Plotly</code>, または <code>PlotlyJS</code> による例はサイドメニューのページを参照</div>
-<h1 id="python_のコードの実行結果の表示"><a href="#python_のコードの実行結果の表示">Python のコードの実行結果の表示</a></h1></p>
+<h1 id="python_のコードの実行結果の表示"><a href="#python_のコードの実行結果の表示" class="header-anchor">Python のコードの実行結果の表示</a></h1></p>
 <p>      
 <p><code>config.md</code> のコマンドを定義しておく.</p>
 <pre><code class="plaintext hljs">\newcommand{\pycode}[2]{
@@ -241,7 +242,7 @@ r = np.linalg.norm(x) / <span class="hljs-built_in">len</span>(x)
 np.<span class="hljs-built_in">round</span>(r, <span class="hljs-number">2</span>)</code></pre>
 <p><pre><code class="plaintext hljs">0.65
 </code></pre>
-<h1 id="c_のコードの実行結果を表示"><a href="#c_のコードの実行結果を表示">C のコードの実行結果を表示</a></h1></p>
+<h1 id="c_のコードの実行結果を表示"><a href="#c_のコードの実行結果を表示" class="header-anchor">C のコードの実行結果を表示</a></h1></p>
 <p>      
 <p>  </p>
 <p><div class="colorblock"><strong>Proposition</strong> 6.0.1 &#40;ソースコードの表示&#41; <br/>  つぎのように C のコードを貼り付けることができる.</div> </p>
@@ -313,7 +314,7 @@ int main(){
 </code></pre>
   </p>
 <p><div class="colorblock"><strong>Remark</strong> 6.0.2 &#40;Cのコードのハイライト&#41; <br/>  <a href="https://highlightjs.org/download/">Getting hightlight.js</a>　から ハイライトしたい言語を選択した後 <code>highlight.pack.js</code> を <code>_lib/hightlight</code> にコピーする. もともと <code>_lib/highlight/highlight.pack.js</code> が配置されているが、Julia,Python,R、Markdownのみをハイライトするようになっている。</div>
-<h1 id="コードの挿入"><a href="#コードの挿入">コードの挿入</a></h1>
+<h1 id="コードの挿入"><a href="#コードの挿入" class="header-anchor">コードの挿入</a></h1>
 <ul>
 <li><p>単にコードを載せたい場合は <code>\input&#123;filetype&#125;&#123;filename&#125;</code> とすれば良い. 例えば</p>
 </li>
@@ -324,7 +325,7 @@ int main(){
 <p><code>hello.jl</code> の実態はソースコードの <code>_assets/index/code/hello.jl</code> に存在する.</p>
 <div class="page-foot">
   <div class="copyright">
-    &copy; SatoshiTerasaki. Last modified: 2021年1月23日 土曜日. Website built with 
+    &copy; SatoshiTerasaki. Last modified: 2021年3月20日 土曜日. Website built with 
     <a href="http://github.com/terasakisatoshi/MathSeminar.jl">MathSeminar.jl</a>
     <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
   </div>
