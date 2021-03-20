@@ -1,4 +1,4 @@
-~~~<div id="fdpweu" style="width:600px;height:350px"></div> <script>     PLOT = document.getElementById('fdpweu');
+~~~<div id="fdpvez" style="width:600px;height:350px"></div> <script>     PLOT = document.getElementById('fdpvez');
     Plotly.plot(PLOT, [
     {
         "xaxis": "x",
@@ -14692,23 +14692,8 @@
             }
         },
         "xaxis": {
-            "tickangle": 0,
-            "showline": true,
-            "gridcolor": "rgba(0, 0, 0, 0.100)",
             "showticklabels": true,
             "gridwidth": 0.5,
-            "titlefont": {
-                "color": "rgba(0, 0, 0, 1.000)",
-                "family": "sans-serif",
-                "size": 15
-            },
-            "visible": true,
-            "ticks": "inside",
-            "range": [
-                -4.24,
-                4.24
-            ],
-            "tickmode": "array",
             "tickvals": [
                 -4.0,
                 -2.0,
@@ -14716,6 +14701,25 @@
                 2.0,
                 4.0
             ],
+            "visible": true,
+            "ticks": "inside",
+            "range": [
+                -4.24,
+                4.24
+            ],
+            "tickmode": "array",
+            "linecolor": "rgba(0, 0, 0, 1.000)",
+            "showgrid": true,
+            "title": "",
+            "mirror": false,
+            "tickangle": 0,
+            "showline": true,
+            "gridcolor": "rgba(0, 0, 0, 0.100)",
+            "titlefont": {
+                "color": "rgba(0, 0, 0, 1.000)",
+                "family": "sans-serif",
+                "size": 15
+            },
             "tickcolor": "rgb(0, 0, 0)",
             "ticktext": [
                 "-4",
@@ -14724,8 +14728,6 @@
                 "2",
                 "4"
             ],
-            "linecolor": "rgba(0, 0, 0, 1.000)",
-            "showgrid": true,
             "zeroline": false,
             "type": "-",
             "tickfont": {
@@ -14733,9 +14735,7 @@
                 "family": "sans-serif",
                 "size": 11
             },
-            "title": "",
-            "zerolinecolor": "rgba(0, 0, 0, 1.000)",
-            "mirror": false
+            "zerolinecolor": "rgba(0, 0, 0, 1.000)"
         },
         "domain": {
             "y": [
@@ -14748,23 +14748,8 @@
             ]
         },
         "yaxis": {
-            "tickangle": 0,
-            "showline": true,
-            "gridcolor": "rgba(0, 0, 0, 0.100)",
             "showticklabels": true,
             "gridwidth": 0.5,
-            "titlefont": {
-                "color": "rgba(0, 0, 0, 1.000)",
-                "family": "sans-serif",
-                "size": 15
-            },
-            "visible": true,
-            "ticks": "inside",
-            "range": [
-                -4.24,
-                4.24
-            ],
-            "tickmode": "array",
             "tickvals": [
                 -4.0,
                 -2.0,
@@ -14772,6 +14757,25 @@
                 2.0,
                 4.0
             ],
+            "visible": true,
+            "ticks": "inside",
+            "range": [
+                -4.24,
+                4.24
+            ],
+            "tickmode": "array",
+            "linecolor": "rgba(0, 0, 0, 1.000)",
+            "showgrid": true,
+            "title": "",
+            "mirror": false,
+            "tickangle": 0,
+            "showline": true,
+            "gridcolor": "rgba(0, 0, 0, 0.100)",
+            "titlefont": {
+                "color": "rgba(0, 0, 0, 1.000)",
+                "family": "sans-serif",
+                "size": 15
+            },
             "tickcolor": "rgb(0, 0, 0)",
             "ticktext": [
                 "-4",
@@ -14780,8 +14784,6 @@
                 "2",
                 "4"
             ],
-            "linecolor": "rgba(0, 0, 0, 1.000)",
-            "showgrid": true,
             "zeroline": false,
             "type": "-",
             "tickfont": {
@@ -14789,28 +14791,11 @@
                 "family": "sans-serif",
                 "size": 11
             },
-            "title": "",
-            "zerolinecolor": "rgba(0, 0, 0, 1.000)",
-            "mirror": false
+            "zerolinecolor": "rgba(0, 0, 0, 1.000)"
         },
         "zaxis": {
-            "tickangle": 0,
-            "showline": true,
-            "gridcolor": "rgba(0, 0, 0, 0.100)",
             "showticklabels": true,
             "gridwidth": 0.5,
-            "titlefont": {
-                "color": "rgba(0, 0, 0, 1.000)",
-                "family": "sans-serif",
-                "size": 15
-            },
-            "visible": true,
-            "ticks": "inside",
-            "range": [
-                -1.06,
-                1.06
-            ],
-            "tickmode": "array",
             "tickvals": [
                 -1.0,
                 -0.5,
@@ -14818,6 +14803,25 @@
                 0.5,
                 1.0
             ],
+            "visible": true,
+            "ticks": "inside",
+            "range": [
+                -1.06,
+                1.06
+            ],
+            "tickmode": "array",
+            "linecolor": "rgba(0, 0, 0, 1.000)",
+            "showgrid": true,
+            "title": "",
+            "mirror": false,
+            "tickangle": 0,
+            "showline": true,
+            "gridcolor": "rgba(0, 0, 0, 0.100)",
+            "titlefont": {
+                "color": "rgba(0, 0, 0, 1.000)",
+                "family": "sans-serif",
+                "size": 15
+            },
             "tickcolor": "rgb(0, 0, 0)",
             "ticktext": [
                 "-1.0",
@@ -14826,8 +14830,6 @@
                 "0.5",
                 "1.0"
             ],
-            "linecolor": "rgba(0, 0, 0, 1.000)",
-            "showgrid": true,
             "zeroline": false,
             "type": "-",
             "tickfont": {
@@ -14835,9 +14837,7 @@
                 "family": "sans-serif",
                 "size": 11
             },
-            "title": "",
-            "zerolinecolor": "rgba(0, 0, 0, 1.000)",
-            "mirror": false
+            "zerolinecolor": "rgba(0, 0, 0, 1.000)"
         }
     },
     "width": 600

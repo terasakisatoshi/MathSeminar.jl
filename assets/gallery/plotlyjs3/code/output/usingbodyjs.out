@@ -1,4 +1,4 @@
-~~~<div id="fdpzap" style="width:400px;height:300x"></div> <script>     PLOT = document.getElementById('fdpzap');
+~~~<div id="fdpnwh" style="width:400px;height:300x"></div> <script>     PLOT = document.getElementById('fdpnwh');
     Plotly.plot(PLOT, [
     {
         "xaxis": "x",
@@ -1842,23 +1842,8 @@
             }
         },
         "xaxis": {
-            "tickangle": 0,
-            "showline": true,
-            "gridcolor": "rgba(0, 0, 0, 0.100)",
             "showticklabels": true,
             "gridwidth": 0.5,
-            "titlefont": {
-                "color": "rgba(0, 0, 0, 1.000)",
-                "family": "sans-serif",
-                "size": 15
-            },
-            "visible": true,
-            "ticks": "inside",
-            "range": [
-                -3.1691386877612104,
-                3.1691386877612104
-            ],
-            "tickmode": "array",
             "tickvals": [
                 -3.0,
                 -2.0,
@@ -1868,6 +1853,25 @@
                 2.0,
                 3.0
             ],
+            "visible": true,
+            "ticks": "inside",
+            "range": [
+                -3.1691386877612104,
+                3.1691386877612104
+            ],
+            "tickmode": "array",
+            "linecolor": "rgba(0, 0, 0, 1.000)",
+            "showgrid": true,
+            "title": "",
+            "mirror": false,
+            "tickangle": 0,
+            "showline": true,
+            "gridcolor": "rgba(0, 0, 0, 0.100)",
+            "titlefont": {
+                "color": "rgba(0, 0, 0, 1.000)",
+                "family": "sans-serif",
+                "size": 15
+            },
             "tickcolor": "rgb(0, 0, 0)",
             "ticktext": [
                 "-3",
@@ -1878,8 +1882,6 @@
                 "2",
                 "3"
             ],
-            "linecolor": "rgba(0, 0, 0, 1.000)",
-            "showgrid": true,
             "zeroline": false,
             "type": "-",
             "tickfont": {
@@ -1887,9 +1889,7 @@
                 "family": "sans-serif",
                 "size": 11
             },
-            "title": "",
-            "zerolinecolor": "rgba(0, 0, 0, 1.000)",
-            "mirror": false
+            "zerolinecolor": "rgba(0, 0, 0, 1.000)"
         },
         "domain": {
             "y": [
@@ -1902,16 +1902,17 @@
             ]
         },
         "yaxis": {
-            "tickangle": 0,
-            "showline": true,
-            "gridcolor": "rgba(0, 0, 0, 0.100)",
             "showticklabels": true,
             "gridwidth": 0.5,
-            "titlefont": {
-                "color": "rgba(0, 0, 0, 1.000)",
-                "family": "sans-serif",
-                "size": 15
-            },
+            "tickvals": [
+                -3.0,
+                -2.0,
+                -1.0,
+                0.0,
+                1.0,
+                2.0,
+                3.0
+            ],
             "visible": true,
             "ticks": "inside",
             "range": [
@@ -1919,15 +1920,18 @@
                 3.1583144724103285
             ],
             "tickmode": "array",
-            "tickvals": [
-                -3.0,
-                -2.0,
-                -1.0,
-                0.0,
-                1.0,
-                2.0,
-                3.0
-            ],
+            "linecolor": "rgba(0, 0, 0, 1.000)",
+            "showgrid": true,
+            "title": "",
+            "mirror": false,
+            "tickangle": 0,
+            "showline": true,
+            "gridcolor": "rgba(0, 0, 0, 0.100)",
+            "titlefont": {
+                "color": "rgba(0, 0, 0, 1.000)",
+                "family": "sans-serif",
+                "size": 15
+            },
             "tickcolor": "rgb(0, 0, 0)",
             "ticktext": [
                 "-3",
@@ -1938,8 +1942,6 @@
                 "2",
                 "3"
             ],
-            "linecolor": "rgba(0, 0, 0, 1.000)",
-            "showgrid": true,
             "zeroline": false,
             "type": "-",
             "tickfont": {
@@ -1947,21 +1949,20 @@
                 "family": "sans-serif",
                 "size": 11
             },
-            "title": "",
-            "zerolinecolor": "rgba(0, 0, 0, 1.000)",
-            "mirror": false
+            "zerolinecolor": "rgba(0, 0, 0, 1.000)"
         },
         "zaxis": {
-            "tickangle": 0,
-            "showline": true,
-            "gridcolor": "rgba(0, 0, 0, 0.100)",
             "showticklabels": true,
             "gridwidth": 0.5,
-            "titlefont": {
-                "color": "rgba(0, 0, 0, 1.000)",
-                "family": "sans-serif",
-                "size": 15
-            },
+            "tickvals": [
+                -3.0,
+                -2.0,
+                -1.0,
+                0.0,
+                1.0,
+                2.0,
+                3.0
+            ],
             "visible": true,
             "ticks": "inside",
             "range": [
@@ -1969,15 +1970,18 @@
                 3.178772517306245
             ],
             "tickmode": "array",
-            "tickvals": [
-                -3.0,
-                -2.0,
-                -1.0,
-                0.0,
-                1.0,
-                2.0,
-                3.0
-            ],
+            "linecolor": "rgba(0, 0, 0, 1.000)",
+            "showgrid": true,
+            "title": "",
+            "mirror": false,
+            "tickangle": 0,
+            "showline": true,
+            "gridcolor": "rgba(0, 0, 0, 0.100)",
+            "titlefont": {
+                "color": "rgba(0, 0, 0, 1.000)",
+                "family": "sans-serif",
+                "size": 15
+            },
             "tickcolor": "rgb(0, 0, 0)",
             "ticktext": [
                 "-3",
@@ -1988,8 +1992,6 @@
                 "2",
                 "3"
             ],
-            "linecolor": "rgba(0, 0, 0, 1.000)",
-            "showgrid": true,
             "zeroline": false,
             "type": "-",
             "tickfont": {
@@ -1997,19 +1999,12 @@
                 "family": "sans-serif",
                 "size": 11
             },
-            "title": "",
-            "zerolinecolor": "rgba(0, 0, 0, 1.000)",
-            "mirror": false
+            "zerolinecolor": "rgba(0, 0, 0, 1.000)"
         }
     },
     "legend": {
-        "yanchor": "auto",
-        "xanchor": "auto",
-        "bordercolor": "rgba(0, 0, 0, 1.000)",
-        "bgcolor": "rgba(255, 255, 255, 1.000)",
         "borderwidth": 1,
         "tracegroupgap": 0,
-        "y": 1.0,
         "font": {
             "color": "rgba(0, 0, 0, 1.000)",
             "family": "sans-serif",
@@ -2024,7 +2019,12 @@
             "text": ""
         },
         "traceorder": "normal",
-        "x": 1.0
+        "x": 1.0,
+        "yanchor": "auto",
+        "xanchor": "auto",
+        "bordercolor": "rgba(0, 0, 0, 1.000)",
+        "bgcolor": "rgba(255, 255, 255, 1.000)",
+        "y": 1.0
     },
     "width": 600
 }

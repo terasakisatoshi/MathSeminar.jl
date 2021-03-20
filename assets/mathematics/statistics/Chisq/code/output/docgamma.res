@@ -22,10 +22,10 @@
   Implementation by
   ≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡
 
-    •  Float: C standard math library libm
-       (https://en.wikipedia.org/wiki/C_mathematical_functions#libm).
+    •    Float: C standard math library libm
+        (https://en.wikipedia.org/wiki/C_mathematical_functions#libm).
 
-    •  Complex: by exp(loggamma(z)).
+    •    Complex: by exp(loggamma(z)).
 
-    •  BigFloat: C library for multiple-precision floating-point MPFR
-       (https://www.mpfr.org/)
+    •    BigFloat: C library for multiple-precision floating-point MPFR
+        (https://www.mpfr.org/)

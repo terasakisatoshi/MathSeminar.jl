@@ -15,5 +15,5 @@
 
   External links
 
-    •  Chi-squared distribution on Wikipedia
-       (http://en.wikipedia.org/wiki/Chi-squared_distribution)
+    •    Chi-squared distribution on Wikipedia
+        (http://en.wikipedia.org/wiki/Chi-squared_distribution)
