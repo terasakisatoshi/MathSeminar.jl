@@ -106,6 +106,9 @@
 <li><p>Simply to run:</p>
 </li>
 </ul>
+Deprecated as of 10.7.0. highlight(lang, code, ...args) has been deprecated.
+Deprecated as of 10.7.0. Please use highlight(code, options) instead.
+https://github.com/highlightjs/highlight.js/issues/2277
 <pre><code class="julia-repl hljs"><span class="hljs-meta">julia&gt;</span><span class="julia"> <span class="hljs-keyword">using</span> Pkg; Pkg.add(<span class="hljs-string">&quot;JSXGraph&quot;</span>)
 </span><span class="hljs-meta">julia&gt;</span><span class="julia"> <span class="hljs-keyword">using</span> JSXGraph</span></code></pre>
 <h1 id="insert_secret_ingredient"><a href="#insert_secret_ingredient" class="header-anchor">Insert secret ingredient</a></h1></p>
@@ -122,6 +125,9 @@
 <li><p>According to the <a href="https://github.com/tlienart/JSXGraphWeb/blob/master/index.md">index.md of https://github.com/tlienart/JSXGraphWeb</a>, we need inject raw HTML consisted of the output of <code>&lt;script&gt;&#36;&#40;JSXGraph.PREAMBLE&#41;&lt;/script&gt;</code>. Namely, insert the following code before writing your Julia code w.r.t JSXGraph.</p>
 </li>
 </ul>
+Deprecated as of 10.7.0. highlight(lang, code, ...args) has been deprecated.
+Deprecated as of 10.7.0. Please use highlight(code, options) instead.
+https://github.com/highlightjs/highlight.js/issues/2277
 <pre><code class="markdown hljs"><span class="hljs-code">```julia:preamble
 # Insert secret ingredient. It is not a trade secret since Franklin is OSS.
 println(~~~&lt;script&gt;$(JSXGraph.PREAMBLE)&lt;/script&gt;~~~)
@@ -137,6 +143,9 @@ println(~~~&lt;script&gt;$(JSXGraph.PREAMBLE)&lt;/script&gt;~~~)
 <li><p>Create <code>head_jsx.html</code> under <code>_layout</code> directory, where <code>head_jsx.html</code> is same as</p>
 </li>
 </ul>
+Deprecated as of 10.7.0. highlight(lang, code, ...args) has been deprecated.
+Deprecated as of 10.7.0. Please use highlight(code, options) instead.
+https://github.com/highlightjs/highlight.js/issues/2277
 <pre><code class="julia hljs">&lt;link rel=&quot;stylesheet&quot; href=&quot;/libs/jsx/jsxgraph.css&quot;&gt;
 &lt;script src=&quot;/libs/jsx/jsxgraphcore.js&quot;&gt;&lt;/script&gt;</code></pre>
 <h2 id="edit_configmd"><a href="#edit_configmd" class="header-anchor">Edit <code>config.md</code></a></h2></p>
@@ -145,6 +154,9 @@ println(~~~&lt;script&gt;$(JSXGraph.PREAMBLE)&lt;/script&gt;~~~)
 <li><p>Create a variable <code>hasjsx</code> with default value <code>false</code>: in your <code>config.md</code> write</p>
 </li>
 </ul>
+Deprecated as of 10.7.0. highlight(lang, code, ...args) has been deprecated.
+Deprecated as of 10.7.0. Please use highlight(code, options) instead.
+https://github.com/highlightjs/highlight.js/issues/2277
 <pre><code class="julia hljs"><span class="hljs-meta">@def</span> hasjsx = <span class="hljs-literal">false</span></code></pre>
 <ul>
 <li><p>This procedure is same as <a href="https://franklinjl.org/extras/plotly/#work_with_plotly">Working with Plotly</a>.</p>
@@ -160,21 +172,33 @@ println(~~~&lt;script&gt;$(JSXGraph.PREAMBLE)&lt;/script&gt;~~~)
 <li><p>Everything happens on a Hello world example. Let&#39;s add an object on a board with <code>Hello World</code>.</p>
 </li>
 </ul>
+Deprecated as of 10.7.0. highlight(lang, code, ...args) has been deprecated.
+Deprecated as of 10.7.0. Please use highlight(code, options) instead.
+https://github.com/highlightjs/highlight.js/issues/2277
 <pre><code class="markdown hljs"><span class="hljs-code">```julia
 b = board(&quot;brd&quot;, xlim=[-2,2], ylim=[-2,2])
 b ++ point(0, 0, name=&quot;Hello World&quot;)
 ```</span></code></pre>
 <p>Is is enough ? Actually NO. We need insert another secret ingredient like:</p>
+Deprecated as of 10.7.0. highlight(lang, code, ...args) has been deprecated.
+Deprecated as of 10.7.0. Please use highlight(code, options) instead.
+https://github.com/highlightjs/highlight.js/issues/2277
 <pre><code class="markdown hljs"><span class="hljs-code">```julia
 println(&quot;&quot;&quot;~~~$(JSXGraph.standalone(b, preamble=false))~~~&quot;&quot;&quot;)
 ```</span></code></pre>
 <p>Therefore, Franklin users should write code like:</p>
+Deprecated as of 10.7.0. highlight(lang, code, ...args) has been deprecated.
+Deprecated as of 10.7.0. Please use highlight(code, options) instead.
+https://github.com/highlightjs/highlight.js/issues/2277
 <pre><code class="markdown hljs"><span class="hljs-code">```julia
 b = board(&quot;brd&quot;, xlim=[-2,2], ylim=[-2,2])
 b ++ point(0, 0, name=&quot;hello&quot;)
 print(&quot;&quot;&quot;~~~$(JSXGraph.standalone(b, preamble=false))~~~&quot;&quot;&quot;) # hide
 ```</span></code></pre>
 <p>This will give:</p>
+Deprecated as of 10.7.0. highlight(lang, code, ...args) has been deprecated.
+Deprecated as of 10.7.0. Please use highlight(code, options) instead.
+https://github.com/highlightjs/highlight.js/issues/2277
 <pre><code class="julia hljs">b = board(<span class="hljs-string">&quot;brd&quot;</span>, xlim=[-<span class="hljs-number">2</span>,<span class="hljs-number">2</span>], ylim=[-<span class="hljs-number">2</span>,<span class="hljs-number">2</span>])
 b ++ point(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, name=<span class="hljs-string">&quot;hello&quot;</span>)</code></pre>
 <div id="brd" class="jxgbox" style="width:300px; height:300px;"></div>
@@ -186,6 +210,9 @@ b ++ point(<span class="hljs-number">0</span>, <span class="hljs-number">0</span
 <p>    
   </p>
 <p><div class="colorblock"><p><strong>Example</strong> 5.1.1  <br/> </p>
+Deprecated as of 10.7.0. highlight(lang, code, ...args) has been deprecated.
+Deprecated as of 10.7.0. Please use highlight(code, options) instead.
+https://github.com/highlightjs/highlight.js/issues/2277
 <pre><code class="julia hljs">b = board(<span class="hljs-string">&quot;b3&quot;</span>, xlim=[-<span class="hljs-number">12</span>, <span class="hljs-number">12</span>], ylim=[-<span class="hljs-number">10</span>,<span class="hljs-number">10</span>])
 b ++ (
     slider(<span class="hljs-string">&quot;a&quot;</span>, [[-<span class="hljs-number">11</span>,<span class="hljs-number">7</span>],[-<span class="hljs-number">5</span>,<span class="hljs-number">7</span>],[<span class="hljs-number">0</span>,<span class="hljs-number">3</span>,<span class="hljs-number">6</span>]], name=<span class="hljs-string">&quot;a&quot;</span>),
@@ -202,7 +229,7 @@ b ++ plot(f1, f2, a=<span class="hljs-number">0</span>, b=<span class="hljs-numb
 <script>(function(){var b3=JXG.JSXGraph.initBoard("b3",{"boundingbox":[-12,10,12,-10],"axis":false,"showcopyright":false,"shownavigation":false});var a=b3.create('slider', [[-11,7],[-5,7],[0,3,6]], {"name":"a"});var b=b3.create('slider', [[-11,5],[-5,5],[0,2,6]], {"name":"b"});var A=b3.create('slider', [[1,7],[7,7],[0,3,6]], {"name":"A"});var B=b3.create('slider', [[1,5],[7,5],[0,3,6]], {"name":"B"});var delta=b3.create('slider', [[2.0,-7.0],[6.0,-7.0],[0.0,0.0,3.141592653589793]], {"name":"&delta;"});function f1(t){return (val(A)*sin(((val(a)*t)+val(delta))))};function f2(t){return (val(B)*sin((val(b)*t)))};b3.create('curve', [function(t){return f1(t);}, function(t){return f2(t);}, 0, 6.283185307179586], {"strokecolor":"#aa2233","strokewidth":3});})();</script></div>
 <div class="page-foot">
   <div class="copyright">
-    &copy; SatoshiTerasaki. Last modified: 2021年3月20日 土曜日. Website built with 
+    &copy; SatoshiTerasaki. Last modified: 2021年3月21日 日曜日. Website built with 
     <a href="http://github.com/terasakisatoshi/MathSeminar.jl">MathSeminar.jl</a>
     <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
   </div>

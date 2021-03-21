@@ -1,4 +1,4 @@
-10-element Array{Float64,1}:
+10-element Vector{Float64}:
  -2.0
  -1.5555555555555556
  -1.1111111111111112
