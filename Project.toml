@@ -1,3 +1,7 @@
+name = "MyUtils"
+uuid = "ac29e060-ae72-491d-b555-b71211d47abb"
+authors = ["Satoshi Terasaki <terasakisatoshi.math@gmail.com>"]
+
 [deps]
 AbstractPlotting = "537997a7-5e4e-5d89-9595-2241ea00577e"
 BenchmarkTools = "6e4b80f9-dd63-53aa-95a3-0cdb28fa8baf"

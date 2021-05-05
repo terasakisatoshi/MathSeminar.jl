@@ -21,4 +21,4 @@ x=[
   x2
   x3
 ]
-Utils.fdsympy(x'A*x |> expand)
+MyUtils.fdsympy(x'A*x |> expand)

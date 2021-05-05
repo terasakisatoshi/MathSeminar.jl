@@ -64,6 +64,7 @@ using PyPlot, SymPy, TestImages ; testimage("c"); testimage("m"); \
 '
 
 COPY Project.toml /work
+COPY ./src/MyUtils.jl /work/src/MyUtils.jl
 # Initialize Julia package using /work/Project.toml
 RUN rm -f /work/Manifest.toml && julia --project=/work -e 'using Pkg; \
 Pkg.instantiate(); \

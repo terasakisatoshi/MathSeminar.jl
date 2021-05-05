@@ -15,4 +15,4 @@ x=[
   x1
   x2
 ]
-Utils.fdsympy(x'A*x |> expand)
+MyUtils.fdsympy(x'A*x |> expand)
