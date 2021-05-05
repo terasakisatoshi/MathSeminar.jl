@@ -2,13 +2,18 @@
 
 \toc
 
+```julia:usingutils
+using MyUtils #hide
+```
+
 \initcounter{}
 
 \remark{}{}{
-  このページは工事中です.
+このページは工事中です.
 }
 
 \chapter{導入}
+
 - ここでは線形代数学の延長として、行列の特異値分解について述べる. 我々は下記の定理を示すことを目標にする.
 
 \theorem{svddecomp}{}{
@@ -42,6 +47,7 @@ $$
 - 以下ではいくつか記号の定義をする.
 
 \definition{}{記号の準備}{
+
 - $\R$ は実数のなす集合とする. $x\in\R$ と表記されていたら, "$x$ は実数である"と解釈する.
 - $A \coloneqq B$ と書かれていたら $A$ を $B$ で定義するという意味である.
 - $\Mat_{m,n}(\R)$ は $m$ 行 $n$ 列の成分が $\R$ の行列の集合をあらわす. $m=n$ であれば $\Mat_{m,n}(\R)$ を $\Mat_{m}(\R)$ と略記することもある. ここでは行列の成分が実数のみの場合を扱う.
@@ -49,26 +55,29 @@ $$
 - 行列 $A\in\Mat_{m,n}(\R)$ に対して $A^\top$ は $A$ の転置行列を表す. 定義により $A^\top\in\Mat_{n,m}(\R)$ である.
 
 - $\lambda_1,\dots,\lambda_n\in \R$ に対して , $\diag(\lambda_1, \lambda_2,\dots,\lambda_n)$ を $(i,i)$ - 成分が $\lambda_i$ である対角行列とする. すなわち,
+
   $$
-\diag(\lambda_1, \lambda_2,\dots,\lambda_n)
-=
-\begin{bmatrix}
-\lambda_1 &           &        &\\
+  \diag(\lambda_1, \lambda_2,\dots,\lambda_n)
+  =
+  \begin{bmatrix}
+  \lambda_1 &           &        &\\
           & \lambda_2 &        &\\
           &           & \ddots & \\
           &           &        & \lambda_n\\
-\end{bmatrix}
+  \end{bmatrix}
   $$
+
   と定義する.
 
 - $O(n)$ は $U^\top U = U U^\top=I_n$ を満たす $U\in \Mat_n(\R)$ がなす集合とする:
-$$
-O(n) = \{U\in \Mat_{n}(\R) \mid U^\top U = U U^\top=I_n\}
-$$
+  $$
+  O(n) = \{U\in \Mat_{n}(\R) \mid U^\top U = U U^\top=I_n\}
+  $$
 
 }
 
 \definition{}{}{
+
 - 二つの $n$ 次元ベクトル $\bm{x}, \bm{y}\in\R^n$ に対する標準内積を $\bra \bm{x},\bm{y}\ket$ を次で定義する:
 
 $$
@@ -108,6 +117,7 @@ $$
 \section{二次形式}
 
 \definition{}{二次形式}{
+
 - $A$ を $n$ 次実対称行列とする. $\bm{x}\in\R^n$ に対して $q_A(\bm{x}) = \bm{x}^\top A \bm{x}$ を $A$ が定める二次形式 (quadratic form) と呼ぶ. $\bm{x}=\left[x_1,\dots,x_n\right]^\top$, $A=[a_{ij}]_{i,j=1}^{n}$ と成分表示した場合に, $q_A(\bm{x})$ は次のようになる:
 
 $$
@@ -119,6 +129,7 @@ $$
 $$
 q_A(\bm{x}) = \bm{x}^\top A \bm{x} = \bra \bm{x},A\bm{x} \ket.
 $$
+
 }
 
 \subsection{Example}
@@ -144,13 +155,14 @@ x=[
   x1
   x2
 ]
-Utils.fdsympy(x'A*x |> expand)
+MyUtils.fdsympy(x'A*x |> expand)
 ```
 
 \textoutput{sympyqf2}
 }
 
 \example{}{$n=3$ の場合}{
+
 ```julia:sympyqf3
 using SymPy
 
@@ -174,7 +186,7 @@ x=[
   x2
   x3
 ]
-Utils.fdsympy(x'A*x |> expand)
+MyUtils.fdsympy(x'A*x |> expand)
 ```
 
 \textoutput{sympyqf3}
@@ -197,41 +209,47 @@ $n$ 次実対称行列 $A$ が正定値行列であるとは, 任意の $\bm{x}\
 - 次の命題は半正定値/正定値行列とその固有値の関係について述べている.
 
 \prop{eigen_value_of_semiposdef}{}{
-  $n$ 次半正定値行列 $A$ の固有値は全て 0 以上である.
+$n$ 次半正定値行列 $A$ の固有値は全て 0 以上である.
 }
 
 \proof{
-  $\lambda$ を $A$ の固有値とし $\bm{v}\neq \bm{0}$ をその対応する固有ベクトルとする. この時
-  $$
-  0 \leq q_A(\bm{v}) = \bra \bm{v},A\bm{v}\ket
-              = \bra \bm{v},\lambda\bm{v}\ket
-              = \lambda \norm{\bm{v}}^2 \label{proofsemiprop}
-  $$
-  という計算から $\lambda$ は 0 以上であることが従う.
+$\lambda$ を $A$ の固有値とし $\bm{v}\neq \bm{0}$ をその対応する固有ベクトルとする. この時
+
+$$
+0 \leq q_A(\bm{v}) = \bra \bm{v},A\bm{v}\ket
+            = \bra \bm{v},\lambda\bm{v}\ket
+            = \lambda \norm{\bm{v}}^2 \label{proofsemiprop}
+$$
+
+という計算から $\lambda$ は 0 以上であることが従う.
 }
 
 \prop{}{}{
-  $n$ 次正定値行列 $A$ の固有値は全て 0 より真に大きい.
+$n$ 次正定値行列 $A$ の固有値は全て 0 より真に大きい.
 }
 \proof{
-  \ref{eigen_value_of_semiposdef} の証明と同様である. \eqref{proofsemiprop} と同様の記号のもとで
-  $$
-  0 < q_A(\bm{v}) = \lambda \norm{\bm{v}}^2
-  $$
-  が従うことから $\lambda>0$ が従う.
+\ref{eigen_value_of_semiposdef} の証明と同様である. \eqref{proofsemiprop} と同様の記号のもとで
+
+$$
+0 < q_A(\bm{v}) = \lambda \norm{\bm{v}}^2
+$$
+
+が従うことから $\lambda>0$ が従う.
 }
 
 - 次の命題に示すように任意の行列から次のように半正定値行列を構成できる. このテクニックは特異値分解の証明に用いられる.
 
 \prop{gram_is_semi_posdef}{}{
-  $A\in\Mat_{m,n}(\R)$ に対して $A^\top A\in \Mat_m(\R)$, $AA^\top\in\Mat_n(\R)$ は半正値行列になる.
+$A\in\Mat_{m,n}(\R)$ に対して $A^\top A\in \Mat_m(\R)$, $AA^\top\in\Mat_n(\R)$ は半正値行列になる.
 }
 \proof{
-  $B \coloneqq A^\top A$ の場合に示す. $\bm{x}\in\R^m$ に対して
-  $$
-  q_{B}(x) = \bra \bm{x}, A^\top A \bm{x}\ket = \bra A \bm{x}, A\bm{x}\ket = \norm{A\bm{x}} \geq 0
-  $$
-  となることから $B$ は半正定値であることがわかった.
+$B \coloneqq A^\top A$ の場合に示す. $\bm{x}\in\R^m$ に対して
+
+$$
+q_{B}(x) = \bra \bm{x}, A^\top A \bm{x}\ket = \bra A \bm{x}, A\bm{x}\ket = \norm{A\bm{x}} \geq 0
+$$
+
+となることから $B$ は半正定値であることがわかった.
 }
 
 \chapter{特異値分解の導出}
@@ -250,20 +268,23 @@ A \bm{u}_i = \lambda_i \bm{u}_i
 $$
 
 \lemma{AAtop}{}{
-  $A\bm{u}_i\ (1\leq i \leq r)$ は $AA^\top$ の固有ベクトルになる.
+$A\bm{u}_i\ (1\leq i \leq r)$ は $AA^\top$ の固有ベクトルになる.
 }
 \proof{
- $\bm{v}_i \coloneq A\bm{u}_i$ とおく. これが固有ベクトルの定義を満たせば良い:
- $$
- (A A^\top) \bm{v}_i=(A A^\top) (A\bm{u}_i) = A(A^\top A \bm{u}_i) = \lambda_i A \bm{u}_i=\lambda_i \bm{v}_i.
- $$
+$\bm{v}_i \coloneqq A\bm{u}_i$ とおく. これが固有ベクトルの定義を満たせば良い:
+
+$$
+(A A^\top) \bm{v}_i=(A A^\top) (A\bm{u}_i) = A(A^\top A \bm{u}_i) = \lambda_i A \bm{u}_i=\lambda_i \bm{v}_i.
+$$
+
 }
 
 \lemma{}{}{
-  $\bm{v}_i \coloneq A \bm{u}_i \quad (1\leq i \leq r)$ は $\R^m$ における一次独立なベクトルの組みである.
+$\bm{v}_i \coloneqq A \bm{u}_i \quad (1\leq i \leq r)$ は $\R^m$ における一次独立なベクトルの組みである.
 }
 
 \proof{
+
 $$
 \sum_{i=1} ^m c_i \bm{v}_i = \bm{0}
 $$
@@ -279,18 +300,20 @@ $$
 
 と表記する. $\bm{v}_i$ を $\mu_i$ に対応する固有ベクトルとする. $s$ は $A A^\top$ の固有値で重複度も込めて 0 よりも大きい物の個数とする. 補題
 
- \ref{AAtop} によって $s\geq r$ が従う. 同様に $A^\top \bm{v}_i\ (1\leq i\leq j)$ は $A^\top A$ の固有ベクトルとなることが示されるので $s\leq r$ となる. つまり $s=r$ が従う.
+\ref{AAtop} によって $s\geq r$ が従う. 同様に $A^\top \bm{v}_i\ (1\leq i\leq j)$ は $A^\top A$ の固有ベクトルとなることが示されるので $s\leq r$ となる. つまり $s=r$ が従う.
 
 \prop{}{}{
+
 - $A^\top A$ と $A A^\top$ は共通した正の固有値を持つ.
 - $\rank(A^\top A) = \rank(A A^\top)$
 - $\bm{v}_i = \frac{1}{2} A \bm{u}_i\ (1\leq i \leq r)$ は正規直交系をなす.
-}
-
+  }
 
 \lemma{}{}{
 $\Mat_{m,n}(\R)$ に対して次が成り立つ:
+
 $$
 \Ker(A^\top A) = \Ker(A).
 $$
+
 }
