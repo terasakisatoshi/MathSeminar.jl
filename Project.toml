@@ -48,3 +48,6 @@ UnicodePlots = "b8865327-cd53-5732-bb35-84acbb429228"
 VisualRegressionTests = "34922c18-7c2a-561c-bac1-01e79b2c4c92"
 WGLMakie = "276b4fcb-3e11-5398-bf8b-a0c2d153d008"
 Weave = "44d3d7a6-8a23-5bf8-98c5-b353f8df5ec9"
+
+[compat]
+Images = "0.24"
