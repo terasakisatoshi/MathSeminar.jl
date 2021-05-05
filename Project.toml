@@ -47,7 +47,7 @@ Weave = "44d3d7a6-8a23-5bf8-98c5-b353f8df5ec9"
 
 [compat]
 AbstractPlotting = "0.12"
-BenchmarkTools = "0.5"
+BenchmarkTools = "0.5, 0.7"
 DifferentialEquations = "6.13"
 Distributions = "0.23, 0.24"
 FFMPEG = "0.4"
