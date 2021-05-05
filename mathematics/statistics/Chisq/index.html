@@ -94,27 +94,15 @@
 <li><p>The Chi squared distribution <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>χ</mi><mn>2</mn></msup><mo stretchy="false">(</mo><mi>k</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\chi^2(k)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathdefault">χ</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mclose">)</span></span></span></span> with some integer <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span> degrees of freedom is the sum of squares of <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span> independent standard Normal variates.</p>
 </li>
 </ul>
-Deprecated as of 10.7.0. highlight(lang, code, ...args) has been deprecated.
-Deprecated as of 10.7.0. Please use highlight(code, options) instead.
-https://github.com/highlightjs/highlight.js/issues/2277
 <pre><code class="julia hljs"><span class="hljs-keyword">using</span> Distributions 
 <span class="hljs-keyword">using</span> Plots
 gr()
 <span class="hljs-keyword">using</span> SpecialFunctions
 <span class="hljs-keyword">using</span> LaTeXStrings</code></pre>
-Deprecated as of 10.7.0. highlight(lang, code, ...args) has been deprecated.
-Deprecated as of 10.7.0. Please use highlight(code, options) instead.
-https://github.com/highlightjs/highlight.js/issues/2277
 <pre><code class="julia hljs"><span class="hljs-meta">@doc</span> Chisq</code></pre>
 <h1 id="prepare_standard_normal_distributions"><a href="#prepare_standard_normal_distributions" class="header-anchor">Prepare standard normal distributions</a></h1>
-Deprecated as of 10.7.0. highlight(lang, code, ...args) has been deprecated.
-Deprecated as of 10.7.0. Please use highlight(code, options) instead.
-https://github.com/highlightjs/highlight.js/issues/2277
 <pre><code class="julia hljs">d = Normal(<span class="hljs-number">0</span>,<span class="hljs-number">1</span>)</code></pre>
 <h2 id="plot_histogram"><a href="#plot_histogram" class="header-anchor">Plot histogram</a></h2>
-Deprecated as of 10.7.0. highlight(lang, code, ...args) has been deprecated.
-Deprecated as of 10.7.0. Please use highlight(code, options) instead.
-https://github.com/highlightjs/highlight.js/issues/2277
 <pre><code class="julia hljs">sample = rand(d, <span class="hljs-number">10000</span>)
 p = plot(xlim=[-<span class="hljs-number">3</span>, <span class="hljs-number">3</span>])
 histogram!(sample, normalize=:pdf, label=<span class="hljs-string">&quot;hist&quot;</span>)
@@ -122,18 +110,9 @@ plot!(x-&gt;pdf(d, x),label=<span class="hljs-string">&quot;pdf&quot;</span>)
 savefig(joinpath(<span class="hljs-meta">@OUTPUT</span>, <span class="hljs-string">&quot;normal.png&quot;</span>))</code></pre>
 <img src="/MathSeminar.jl/assets/mathematics/statistics/Chisq/code/output/normal.png" alt="">
 <h1 id="prepare_gamma_function"><a href="#prepare_gamma_function" class="header-anchor">Prepare <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Γ</mi></mrow><annotation encoding="application/x-tex">\Gamma</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord">Γ</span></span></span></span> function</a></h1>
-Deprecated as of 10.7.0. highlight(lang, code, ...args) has been deprecated.
-Deprecated as of 10.7.0. Please use highlight(code, options) instead.
-https://github.com/highlightjs/highlight.js/issues/2277
 <pre><code class="julia hljs"><span class="hljs-meta">@doc</span> gamma</code></pre>
 
-Deprecated as of 10.7.0. highlight(lang, code, ...args) has been deprecated.
-Deprecated as of 10.7.0. Please use highlight(code, options) instead.
-https://github.com/highlightjs/highlight.js/issues/2277
 <pre><code class="julia hljs">Γ(x) = gamma(x);</code></pre>
-Deprecated as of 10.7.0. highlight(lang, code, ...args) has been deprecated.
-Deprecated as of 10.7.0. Please use highlight(code, options) instead.
-https://github.com/highlightjs/highlight.js/issues/2277
 <pre><code class="julia hljs"><span class="hljs-keyword">function</span> T(n, z) 
     <span class="hljs-keyword">if</span> z &gt; <span class="hljs-number">0</span>
         a = z^(n/<span class="hljs-number">2</span> - <span class="hljs-number">1</span>)*exp(-z/<span class="hljs-number">2</span>)
@@ -145,9 +124,6 @@ https://github.com/highlightjs/highlight.js/issues/2277
 <span class="hljs-keyword">end</span>;</code></pre>
 <h1 id="generate_chi2_distribution_with"><a href="#generate_chi2_distribution_with" class="header-anchor">Generate <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>χ</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">\chi^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.008548em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault">χ</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span> distribution with ...</a></h1>
 <h2 id="degree_1"><a href="#degree_1" class="header-anchor">degree &#61; 1</a></h2>
-Deprecated as of 10.7.0. highlight(lang, code, ...args) has been deprecated.
-Deprecated as of 10.7.0. Please use highlight(code, options) instead.
-https://github.com/highlightjs/highlight.js/issues/2277
 <pre><code class="julia hljs">n_trial = <span class="hljs-number">100000</span>
 X = rand(d, n_trial)
 X² = X .^ <span class="hljs-number">2.</span>
@@ -161,9 +137,6 @@ y = pdf.(Chisq(<span class="hljs-number">1</span>), x)
 plot!(p, x, y, line=:dash, label=<span class="hljs-string">L&quot;\chi^2(1)&quot;</span>) ;</code></pre>
 <img src="/MathSeminar.jl/assets/mathematics/statistics/Chisq/code/output/deg1.png" alt="">
 <h2 id="degree_2"><a href="#degree_2" class="header-anchor">degree &#61; 2</a></h2>
-Deprecated as of 10.7.0. highlight(lang, code, ...args) has been deprecated.
-Deprecated as of 10.7.0. Please use highlight(code, options) instead.
-https://github.com/highlightjs/highlight.js/issues/2277
 <pre><code class="julia hljs">n_trial = <span class="hljs-number">100000</span>
 X = rand(d, n_trial)
 Y = rand(d, n_trial)
@@ -183,9 +156,6 @@ y = pdf.(χ², x)
 plot!(p, x, y, label=<span class="hljs-string">L&quot;\chi^2(2)&quot;</span>,line=:dash)</code></pre>
 <img src="/MathSeminar.jl/assets/mathematics/statistics/Chisq/code/output/deg2.png" alt="">
 <h2 id="degree_3"><a href="#degree_3" class="header-anchor">degree &#61; 3</a></h2>
-Deprecated as of 10.7.0. highlight(lang, code, ...args) has been deprecated.
-Deprecated as of 10.7.0. Please use highlight(code, options) instead.
-https://github.com/highlightjs/highlight.js/issues/2277
 <pre><code class="julia hljs">n_trial = <span class="hljs-number">100000</span>
 X = rand(d, n_trial)
 Y = rand(d, n_trial)
@@ -206,7 +176,7 @@ plot!(p, x, y, label=<span class="hljs-string">L&quot;\chi^2(3)&quot;</span>,lin
 <img src="/MathSeminar.jl/assets/mathematics/statistics/Chisq/code/output/deg3.png" alt="">
 <div class="page-foot">
   <div class="copyright">
-    &copy; SatoshiTerasaki. Last modified: 2021年3月21日 日曜日. Website built with 
+    &copy; SatoshiTerasaki. Last modified: 2021年5月5日 水曜日. Website built with 
     <a href="http://github.com/terasakisatoshi/MathSeminar.jl">MathSeminar.jl</a>
     <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
   </div>

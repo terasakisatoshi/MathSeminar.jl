@@ -91,9 +91,6 @@
 <!-- Content appended here -->
 <div class="franklin-content"><h1 id="パフォーマンスを維持したままjuliaらしく"><a href="#パフォーマンスを維持したままjuliaらしく" class="header-anchor">パフォーマンスを維持したままJuliaらしく</a></h1></p>
 <p>      
-Deprecated as of 10.7.0. highlight(lang, code, ...args) has been deprecated.
-Deprecated as of 10.7.0. Please use highlight(code, options) instead.
-https://github.com/highlightjs/highlight.js/issues/2277
 <pre><code class="julia hljs"><span class="hljs-keyword">using</span> DelimitedFiles
 
 <span class="hljs-keyword">function</span> cnt(ReZ, ImZ, ReC, ImC)
@@ -140,35 +137,17 @@ main()
 
 <span class="hljs-keyword">using</span> BenchmarkTools
 <span class="hljs-meta">@btime</span> mand(<span class="hljs-number">5000</span>, <span class="hljs-number">5000</span>);</code></pre>
-Deprecated as of 10.7.0. highlight(lang, code, ...args) has been deprecated.
-Deprecated as of 10.7.0. Please use highlight(code, options) instead.
-https://github.com/highlightjs/highlight.js/issues/2277
-<pre><code class="plaintext hljs">t - s = 2.7680342197418213
-  2.820 s (2 allocations: 23.84 MiB)
+<pre><code class="plaintext hljs">t - s = 2.625053882598877
+  2.604 s (2 allocations: 23.84 MiB)
 </code></pre>
   </p>
 <p><div class="colorblock"><strong>Remark</strong> 7.0.1 &#40;数値誤差について&#41; <br/>  点の位置をあらわす <code>&#40;4.0 / &#40;M - 1&#41; * &#40;j - 1&#41; - 2.0&#41;</code> は <code>range&#40;-2, 2, length&#40;N&#41;&#41;</code> と数学的に等価ですが，数値の誤差の関係で結果が若干異なることがあります．</div>
-Deprecated as of 10.7.0. highlight(lang, code, ...args) has been deprecated.
-Deprecated as of 10.7.0. Please use highlight(code, options) instead.
-https://github.com/highlightjs/highlight.js/issues/2277
 <pre><code class="julia hljs">N=<span class="hljs-number">10</span>; <span class="hljs-meta">@show</span> [<span class="hljs-number">4.0</span>*(i-<span class="hljs-number">1</span>)/(N-<span class="hljs-number">1</span>) - <span class="hljs-number">2.0</span> <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-number">1</span>:N]</code></pre>
-Deprecated as of 10.7.0. highlight(lang, code, ...args) has been deprecated.
-Deprecated as of 10.7.0. Please use highlight(code, options) instead.
-https://github.com/highlightjs/highlight.js/issues/2277
 <pre><code class="plaintext hljs">[(4.0 * (i - 1)) / (N - 1) - 2.0 for i = 1:N] = [-2.0, -1.5555555555555556, -1.1111111111111112, -0.6666666666666667, -0.22222222222222232, 0.22222222222222232, 0.6666666666666665, 1.1111111111111112, 1.5555555555555554, 2.0]
 </code></pre>
-Deprecated as of 10.7.0. highlight(lang, code, ...args) has been deprecated.
-Deprecated as of 10.7.0. Please use highlight(code, options) instead.
-https://github.com/highlightjs/highlight.js/issues/2277
 <pre><code class="julia hljs">N=<span class="hljs-number">10</span>; <span class="hljs-meta">@show</span> collect(range(-<span class="hljs-number">2</span>,<span class="hljs-number">2</span>,length=N))</code></pre>
-Deprecated as of 10.7.0. highlight(lang, code, ...args) has been deprecated.
-Deprecated as of 10.7.0. Please use highlight(code, options) instead.
-https://github.com/highlightjs/highlight.js/issues/2277
 <pre><code class="plaintext hljs">collect(range(-2, 2, length = N)) = [-2.0, -1.5555555555555556, -1.1111111111111112, -0.6666666666666666, -0.2222222222222222, 0.2222222222222222, 0.6666666666666666, 1.1111111111111112, 1.5555555555555556, 2.0]
 </code></pre>
-Deprecated as of 10.7.0. highlight(lang, code, ...args) has been deprecated.
-Deprecated as of 10.7.0. Please use highlight(code, options) instead.
-https://github.com/highlightjs/highlight.js/issues/2277
 <pre><code class="julia hljs">Tarpath=<span class="hljs-string">&quot;/tmp/resultJ.txt&quot;</span>
 <span class="hljs-keyword">using</span> Plots
 gr()
@@ -177,9 +156,6 @@ img = readdlm(Tarpath,<span class="hljs-string">&#x27;,&#x27;</span>,<span class
 M,N = img |&gt; size
 p = heatmap(<span class="hljs-number">1</span>:N,<span class="hljs-number">1</span>:M,img,aspect_ratio=<span class="hljs-number">1</span>, size=(<span class="hljs-number">400</span>, <span class="hljs-number">400</span>))</code></pre>
 <img src="/MathSeminar.jl/assets/programming/benchmark_part2/code/output/mandJ.png" alt="">
-Deprecated as of 10.7.0. highlight(lang, code, ...args) has been deprecated.
-Deprecated as of 10.7.0. Please use highlight(code, options) instead.
-https://github.com/highlightjs/highlight.js/issues/2277
 <pre><code class="julia hljs"><span class="hljs-keyword">using</span> DelimitedFiles
 
 <span class="hljs-keyword">function</span> cnt(z,c)
@@ -220,15 +196,9 @@ main()
 
 <span class="hljs-keyword">using</span> BenchmarkTools
 <span class="hljs-meta">@btime</span> mand(<span class="hljs-number">5000</span>, <span class="hljs-number">5000</span>);</code></pre>
-Deprecated as of 10.7.0. highlight(lang, code, ...args) has been deprecated.
-Deprecated as of 10.7.0. Please use highlight(code, options) instead.
-https://github.com/highlightjs/highlight.js/issues/2277
-<pre><code class="plaintext hljs">t - s = 3.1006619930267334
-  3.118 s (2 allocations: 23.84 MiB)
+<pre><code class="plaintext hljs">t - s = 3.1645569801330566
+  3.031 s (2 allocations: 23.84 MiB)
 </code></pre>
-Deprecated as of 10.7.0. highlight(lang, code, ...args) has been deprecated.
-Deprecated as of 10.7.0. Please use highlight(code, options) instead.
-https://github.com/highlightjs/highlight.js/issues/2277
 <pre><code class="julia hljs">Refpath=<span class="hljs-string">&quot;/tmp/resultJ.txt&quot;</span>
 Tarpath=<span class="hljs-string">&quot;/tmp/resultJ1.txt&quot;</span>
 run(<span class="hljs-string">`bash -c &quot;cmp --silent <span class="hljs-variable">$Refpath</span> <span class="hljs-variable">$Tarpath</span> || echo \&quot;files are different\&quot;&quot;`</span>)
@@ -239,15 +209,9 @@ gr()
 img = readdlm(Tarpath,<span class="hljs-string">&#x27;,&#x27;</span>,<span class="hljs-built_in">Int</span>)
 M,N = img |&gt; size
 p = heatmap(<span class="hljs-number">1</span>:N,<span class="hljs-number">1</span>:M,img,aspect_ratio=<span class="hljs-number">1</span>, size=(<span class="hljs-number">400</span>, <span class="hljs-number">400</span>))</code></pre>
-Deprecated as of 10.7.0. highlight(lang, code, ...args) has been deprecated.
-Deprecated as of 10.7.0. Please use highlight(code, options) instead.
-https://github.com/highlightjs/highlight.js/issues/2277
 <pre><code class="plaintext hljs">files are different
 </code></pre>
 <img src="/MathSeminar.jl/assets/programming/benchmark_part2/code/output/mandJ1.png" alt="">
-Deprecated as of 10.7.0. highlight(lang, code, ...args) has been deprecated.
-Deprecated as of 10.7.0. Please use highlight(code, options) instead.
-https://github.com/highlightjs/highlight.js/issues/2277
 <pre><code class="julia hljs"><span class="hljs-keyword">using</span> DelimitedFiles
 
 <span class="hljs-keyword">function</span> cnt(z,c)
@@ -284,15 +248,9 @@ main()
 
 <span class="hljs-keyword">using</span> BenchmarkTools
 <span class="hljs-meta">@btime</span> mand(<span class="hljs-number">5000</span>, <span class="hljs-number">5000</span>);</code></pre>
-Deprecated as of 10.7.0. highlight(lang, code, ...args) has been deprecated.
-Deprecated as of 10.7.0. Please use highlight(code, options) instead.
-https://github.com/highlightjs/highlight.js/issues/2277
-<pre><code class="plaintext hljs">t - s = 3.2144389152526855
-  3.156 s (4 allocations: 47.68 MiB)
+<pre><code class="plaintext hljs">t - s = 3.0019140243530273
+  3.074 s (4 allocations: 47.68 MiB)
 </code></pre>
-Deprecated as of 10.7.0. highlight(lang, code, ...args) has been deprecated.
-Deprecated as of 10.7.0. Please use highlight(code, options) instead.
-https://github.com/highlightjs/highlight.js/issues/2277
 <pre><code class="julia hljs">Refpath=<span class="hljs-string">&quot;/tmp/resultJ1.txt&quot;</span>
 Tarpath=<span class="hljs-string">&quot;/tmp/resultJ2.txt&quot;</span>
 run(<span class="hljs-string">`bash -c &quot;cmp --silent <span class="hljs-variable">$Refpath</span> <span class="hljs-variable">$Tarpath</span> || echo \&quot;files are different\&quot;&quot;`</span>)
@@ -305,9 +263,6 @@ M,N = img |&gt; size
 p = heatmap(<span class="hljs-number">1</span>:N,<span class="hljs-number">1</span>:M,img,aspect_ratio=<span class="hljs-number">1</span>, size=(<span class="hljs-number">400</span>, <span class="hljs-number">400</span>))</code></pre>
 
 <img src="/MathSeminar.jl/assets/programming/benchmark_part2/code/output/mandJ2.png" alt="">
-Deprecated as of 10.7.0. highlight(lang, code, ...args) has been deprecated.
-Deprecated as of 10.7.0. Please use highlight(code, options) instead.
-https://github.com/highlightjs/highlight.js/issues/2277
 <pre><code class="julia hljs"><span class="hljs-comment">#=
 set environment variable `JULIA_NUM_THREADS=8` before julia begins
 =#</span>
@@ -351,15 +306,9 @@ main()
 
 <span class="hljs-keyword">using</span> BenchmarkTools
 <span class="hljs-meta">@btime</span> mand(<span class="hljs-number">5000</span>, <span class="hljs-number">5000</span>);</code></pre>
-Deprecated as of 10.7.0. highlight(lang, code, ...args) has been deprecated.
-Deprecated as of 10.7.0. Please use highlight(code, options) instead.
-https://github.com/highlightjs/highlight.js/issues/2277
-<pre><code class="plaintext hljs">t - s = 2.154118061065674
-  1.822 s (46 allocations: 23.85 MiB)
+<pre><code class="plaintext hljs">t - s = 1.9964358806610107
+  1.754 s (46 allocations: 23.85 MiB)
 </code></pre>
-Deprecated as of 10.7.0. highlight(lang, code, ...args) has been deprecated.
-Deprecated as of 10.7.0. Please use highlight(code, options) instead.
-https://github.com/highlightjs/highlight.js/issues/2277
 <pre><code class="julia hljs">Refpath=<span class="hljs-string">&quot;/tmp/resultJ1.txt&quot;</span>
 Tarpath=<span class="hljs-string">&quot;/tmp/resultJ3.txt&quot;</span>
 run(<span class="hljs-string">`bash -c &quot;cmp --silent <span class="hljs-variable">$Refpath</span> <span class="hljs-variable">$Tarpath</span> || echo \&quot;files are different\&quot;&quot;`</span>)
@@ -376,7 +325,7 @@ savefig(p, joinpath(<span class="hljs-meta">@OUTPUT</span>, <span class="hljs-st
 <img src="/MathSeminar.jl/assets/programming/benchmark_part2/code/output/mandJ3.png" alt="">
 <div class="page-foot">
   <div class="copyright">
-    &copy; SatoshiTerasaki. Last modified: 2021年3月21日 日曜日. Website built with 
+    &copy; SatoshiTerasaki. Last modified: 2021年5月5日 水曜日. Website built with 
     <a href="http://github.com/terasakisatoshi/MathSeminar.jl">MathSeminar.jl</a>
     <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
   </div>

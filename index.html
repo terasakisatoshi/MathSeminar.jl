@@ -89,7 +89,7 @@
 
 
 <!-- Content appended here -->
-<div class="franklin-content"><p>Last Modified: 2021年3月21日 日曜日 <div class="franklin-toc"><ol><li><a href="#about_this_page">About this page</a><ol><li><a href="#before_reading">Before reading</a></li><li><a href="#check_julia_version">Check Julia version</a></li></ol></li><li><a href="#introduction_to_franklin">Introduction to Franklin</a></li><li><a href="#newcommand_によるタイピングの簡略化"><code>newcommand</code> によるタイピングの簡略化</a></li><li><a href="#グラフの描画">グラフの描画</a><ol><li><a href="#pyplot">PyPlot</a></li><li><a href="#plots_gr_backend">Plots &#40;GR Backend&#41;</a></li><li><a href="#plots_pyplot_backend">Plots &#40;PyPlot Backend&#41;</a></li></ol></li><li><a href="#python_のコードの実行結果の表示">Python のコードの実行結果の表示</a></li><li><a href="#c_のコードの実行結果を表示">C のコードの実行結果を表示</a></li><li><a href="#コードの挿入">コードの挿入</a></li></ol></div> </p>
+<div class="franklin-content"><p>Last Modified: 2021年5月5日 水曜日 <div class="franklin-toc"><ol><li><a href="#about_this_page">About this page</a><ol><li><a href="#before_reading">Before reading</a></li><li><a href="#check_julia_version">Check Julia version</a></li></ol></li><li><a href="#introduction_to_franklin">Introduction to Franklin</a></li><li><a href="#newcommand_によるタイピングの簡略化"><code>newcommand</code> によるタイピングの簡略化</a></li><li><a href="#グラフの描画">グラフの描画</a><ol><li><a href="#pyplot">PyPlot</a></li><li><a href="#plots_gr_backend">Plots &#40;GR Backend&#41;</a></li><li><a href="#plots_pyplot_backend">Plots &#40;PyPlot Backend&#41;</a></li></ol></li><li><a href="#python_のコードの実行結果の表示">Python のコードの実行結果の表示</a></li><li><a href="#c_のコードの実行結果を表示">C のコードの実行結果を表示</a></li><li><a href="#コードの挿入">コードの挿入</a></li></ol></div> </p>
 <p> <h1 id="about_this_page"><a href="#about_this_page" class="header-anchor">About this page</a></h1></p>
 <p>      </p>
 
@@ -118,16 +118,10 @@
 </ul></div>
 <h2 id="check_julia_version"><a href="#check_julia_version" class="header-anchor">Check Julia version</a></h2></p>
 <p>    
-Deprecated as of 10.7.0. highlight(lang, code, ...args) has been deprecated.
-Deprecated as of 10.7.0. Please use highlight(code, options) instead.
-https://github.com/highlightjs/highlight.js/issues/2277
 <pre><code class="julia hljs"><span class="hljs-keyword">using</span> InteractiveUtils
 versioninfo()</code></pre>
-Deprecated as of 10.7.0. highlight(lang, code, ...args) has been deprecated.
-Deprecated as of 10.7.0. Please use highlight(code, options) instead.
-https://github.com/highlightjs/highlight.js/issues/2277
-<pre><code class="plaintext hljs">Julia Version 1.6.0-rc3
-Commit 23267f0d46 (2021-03-16 17:04 UTC)
+<pre><code class="plaintext hljs">Julia Version 1.6.1
+Commit 6aaedecc44 (2021-04-23 05:59 UTC)
 Platform Info:
   OS: Linux (x86_64-pc-linux-gnu)
   CPU: Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz
@@ -137,7 +131,7 @@ Platform Info:
 Environment:
   JULIA_PATH = /usr/local/julia
   JULIA_GPG = 3673DF529D9049477F76B37566E3C7DC03D6E495
-  JULIA_VERSION = 1.6.0-rc3
+  JULIA_VERSION = 1.6.1
   JULIA_NUM_THREADS = 8
   JULIA_PROJECT = /work
 </code></pre>
@@ -171,16 +165,10 @@ Z_n(\beta) = \int_W \prod_{i=1}^n p(X_i|w)^\beta \varphi(w) dw .
   </p>
 <p><div class="colorblock"><strong>Lemma</strong> 2.0.4  <br/>  次のようにJuliaのコードを記述することができる:</div>
 <div class="proof"><p><br/> </p>
-Deprecated as of 10.7.0. highlight(lang, code, ...args) has been deprecated.
-Deprecated as of 10.7.0. Please use highlight(code, options) instead.
-https://github.com/highlightjs/highlight.js/issues/2277
 <pre><code class="julia hljs">x = <span class="hljs-number">3.141592</span>
 y = sin(x)
 <span class="hljs-meta">@show</span> y</code></pre>
-<p>このとき, <code>y</code> の値は評価され次の出力を得ることができる: Deprecated as of 10.7.0. highlight(lang, code, ...args) has been deprecated.
-Deprecated as of 10.7.0. Please use highlight(code, options) instead.
-https://github.com/highlightjs/highlight.js/issues/2277
-<pre><code class="plaintext hljs">y = 6.535897930762419e-7
+<p>このとき, <code>y</code> の値は評価され次の出力を得ることができる: <pre><code class="plaintext hljs">y = 6.535897930762419e-7
 </code></pre></p></div></p>
 <p><br/> 
   </p>
@@ -190,18 +178,12 @@ https://github.com/highlightjs/highlight.js/issues/2277
 <p><code>config.md</code> は文章を記述する上での設定を記述するために用いる. <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>LaTeX</mtext></mrow><annotation encoding="application/x-tex">\LaTeX</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.89883em;vertical-align:-0.2155em;"></span><span class="mord text"><span class="mord textrm">L</span><span class="mspace" style="margin-right:-0.36em;"></span><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.68333em;"><span style="top:-2.904999em;"><span class="pstrut" style="height:2.7em;"></span><span class="mord"><span class="mord textrm mtight sizing reset-size6 size3">A</span></span></span></span></span></span><span class="mspace" style="margin-right:-0.15em;"></span><span class="mord text"><span class="mord textrm">T</span><span class="mspace" style="margin-right:-0.1667em;"></span><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.46782999999999997em;"><span style="top:-2.7845em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord textrm">E</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2155em;"><span></span></span></span></span><span class="mspace" style="margin-right:-0.125em;"></span><span class="mord textrm">X</span></span></span></span></span></span> の <code>\newcommand</code> と同様に数式を記述するコマンドを簡略化できる.</p>
   </p>
 <p><div class="colorblock"><p><strong>Example</strong> 3.0.1 &#40;<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="double-struck">R</mi></mrow><annotation encoding="application/x-tex">\mathbb{R}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68889em;vertical-align:0em;"></span><span class="mord"><span class="mord mathbb">R</span></span></span></span></span> の例&#41; <br/> <code>config.md</code> に次を追加しておく:</p>
-Deprecated as of 10.7.0. highlight(lang, code, ...args) has been deprecated.
-Deprecated as of 10.7.0. Please use highlight(code, options) instead.
-https://github.com/highlightjs/highlight.js/issues/2277
 <pre><code class="julia hljs">\newcommand{\R}{\mathbb R}</code></pre>
 <p>これで <code>\R</code> で <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="double-struck">R</mi></mrow><annotation encoding="application/x-tex">\mathbb R</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68889em;vertical-align:0em;"></span><span class="mord mathbb">R</span></span></span></span> を表記できる.</p></div>
 <h1 id="グラフの描画"><a href="#グラフの描画" class="header-anchor">グラフの描画</a></h1></p>
 <p>      
 <p><code>PyPlot</code>, <code>gr,pyplot,plotlyjs</code> をバックエンドとする <code>Plots.jl</code>, <code>PlotlyJS.jl</code> を用いた場合で確認している.</p>
 <h2 id="pyplot"><a href="#pyplot" class="header-anchor">PyPlot</a></h2>
-Deprecated as of 10.7.0. highlight(lang, code, ...args) has been deprecated.
-Deprecated as of 10.7.0. Please use highlight(code, options) instead.
-https://github.com/highlightjs/highlight.js/issues/2277
 <pre><code class="julia hljs"><span class="hljs-keyword">import</span> PyPlot
 PyPlot.figure(figsize=(<span class="hljs-number">8</span>, <span class="hljs-number">6</span>))
 x = range(-<span class="hljs-number">2</span>, <span class="hljs-number">2</span>, length=<span class="hljs-number">500</span>)
@@ -210,18 +192,12 @@ x = range(-<span class="hljs-number">2</span>, <span class="hljs-number">2</span
 <span class="hljs-keyword">end</span></code></pre>
 <img src="/MathSeminar.jl/assets/index/code/output/sinc.png" alt="">
 <h2 id="plots_gr_backend"><a href="#plots_gr_backend" class="header-anchor">Plots &#40;GR Backend&#41;</a></h2>
-Deprecated as of 10.7.0. highlight(lang, code, ...args) has been deprecated.
-Deprecated as of 10.7.0. Please use highlight(code, options) instead.
-https://github.com/highlightjs/highlight.js/issues/2277
 <pre><code class="julia hljs"><span class="hljs-keyword">using</span> Plots
 gr()
 <span class="hljs-keyword">using</span> LaTeXStrings
 Plots.plot(rand(<span class="hljs-number">10</span>), title=<span class="hljs-string">L&quot;\alpha&quot;</span>, xlabel=<span class="hljs-string">L&quot;x&quot;</span>, ylabel=<span class="hljs-string">L&quot;y&quot;</span>)</code></pre>
 <img src="/MathSeminar.jl/assets/index/code/output/grplot.png" alt="">
 <h2 id="plots_pyplot_backend"><a href="#plots_pyplot_backend" class="header-anchor">Plots &#40;PyPlot Backend&#41;</a></h2>
-Deprecated as of 10.7.0. highlight(lang, code, ...args) has been deprecated.
-Deprecated as of 10.7.0. Please use highlight(code, options) instead.
-https://github.com/highlightjs/highlight.js/issues/2277
 <pre><code class="julia hljs"><span class="hljs-keyword">using</span> Plots
 pyplot()
 Plots.plot(sin, title=<span class="hljs-string">L&quot;y=\sin x&quot;</span>)
@@ -232,9 +208,6 @@ gr()</code></pre>
 <h1 id="python_のコードの実行結果の表示"><a href="#python_のコードの実行結果の表示" class="header-anchor">Python のコードの実行結果の表示</a></h1></p>
 <p>      
 <p><code>config.md</code> のコマンドを定義しておく.</p>
-Deprecated as of 10.7.0. highlight(lang, code, ...args) has been deprecated.
-Deprecated as of 10.7.0. Please use highlight(code, options) instead.
-https://github.com/highlightjs/highlight.js/issues/2277
 <pre><code class="plaintext hljs">\newcommand{\pycode}[2]{
 ```julia:!#1
 #hideall
@@ -253,9 +226,6 @@ println(py&quot;res&quot;)
 <p>そして該当する Markdown ファイルに例えば下記のように <code>\pycode</code> コマンドと組み合わせたものを記述しておく.</p>
   </p>
 <p><div class="colorblock"><strong>Proposition</strong> 5.0.1 &#40;ソースコードの表示&#41; <br/>  Pythonのコードの実行結果を貼り付けることができる.</div>
-Deprecated as of 10.7.0. highlight(lang, code, ...args) has been deprecated.
-Deprecated as of 10.7.0. Please use highlight(code, options) instead.
-https://github.com/highlightjs/highlight.js/issues/2277
 <pre><code class="julia hljs">\pycode{py1}{
 <span class="hljs-keyword">import</span> numpy as np
 np.random.seed(<span class="hljs-number">2</span>)
@@ -265,35 +235,23 @@ np.round(r, <span class="hljs-number">2</span>)
 }</code></pre>
 <p>と記述することで下記のようになる:</p>
 </p>
-Deprecated as of 10.7.0. highlight(lang, code, ...args) has been deprecated.
-Deprecated as of 10.7.0. Please use highlight(code, options) instead.
-https://github.com/highlightjs/highlight.js/issues/2277
 <pre><code class="python hljs"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
 np.random.seed(<span class="hljs-number">2</span>)
 x = np.random.randn(<span class="hljs-number">5</span>)
 r = np.linalg.norm(x) / <span class="hljs-built_in">len</span>(x)
 np.<span class="hljs-built_in">round</span>(r, <span class="hljs-number">2</span>)</code></pre>
-<p>Deprecated as of 10.7.0. highlight(lang, code, ...args) has been deprecated.
-Deprecated as of 10.7.0. Please use highlight(code, options) instead.
-https://github.com/highlightjs/highlight.js/issues/2277
-<pre><code class="plaintext hljs">0.65
+<p><pre><code class="plaintext hljs">0.65
 </code></pre>
 <h1 id="c_のコードの実行結果を表示"><a href="#c_のコードの実行結果を表示" class="header-anchor">C のコードの実行結果を表示</a></h1></p>
 <p>      
 <p>  </p>
 <p><div class="colorblock"><strong>Proposition</strong> 6.0.1 &#40;ソースコードの表示&#41; <br/>  つぎのように C のコードを貼り付けることができる.</div> </p>
-<p>Deprecated as of 10.7.0. highlight(lang, code, ...args) has been deprecated.
-Deprecated as of 10.7.0. Please use highlight(code, options) instead.
-https://github.com/highlightjs/highlight.js/issues/2277
-<pre><code class="c hljs"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+<p><pre><code class="c hljs"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
 <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>{
     <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Hello Pika\n&quot;</span>);
     <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
 }</code></pre></p>
 <p>まず, <code>config.md</code> に次を記述しておく:</p>
-Deprecated as of 10.7.0. highlight(lang, code, ...args) has been deprecated.
-Deprecated as of 10.7.0. Please use highlight(code, options) instead.
-https://github.com/highlightjs/highlight.js/issues/2277
 <pre><code class="plaintext hljs">&lt;!-- display C code with syntax highlight--&gt;
 \newcommand{\Ccode}[2]{
 ```julia:!#1
@@ -337,9 +295,6 @@ run(`$exefile`)
 
 }</code></pre>
 <p>そして次のようにタイプする</p>
-Deprecated as of 10.7.0. highlight(lang, code, ...args) has been deprecated.
-Deprecated as of 10.7.0. Please use highlight(code, options) instead.
-https://github.com/highlightjs/highlight.js/issues/2277
 <pre><code class="plaintext hljs">\Cexec{how2embeddC}{
 #include &lt;stdio.h&gt;
 int main(){
@@ -350,18 +305,12 @@ int main(){
 </code></pre>
 <p>出力結果は次のようになる．コードはハイライトされ，対応する <code>main</code> 関数のコードの実行結果を出力する:</p>
 </p>
-<p>Deprecated as of 10.7.0. highlight(lang, code, ...args) has been deprecated.
-Deprecated as of 10.7.0. Please use highlight(code, options) instead.
-https://github.com/highlightjs/highlight.js/issues/2277
-<pre><code class="c hljs"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+<p><pre><code class="c hljs"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
 <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>{
     <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Hello World\n&quot;</span>);
     <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
 }</code></pre></p>
-<p>Deprecated as of 10.7.0. highlight(lang, code, ...args) has been deprecated.
-Deprecated as of 10.7.0. Please use highlight(code, options) instead.
-https://github.com/highlightjs/highlight.js/issues/2277
-<pre><code class="plaintext hljs">Hello World
+<p><pre><code class="plaintext hljs">Hello World
 </code></pre>
   </p>
 <p><div class="colorblock"><strong>Remark</strong> 6.0.2 &#40;Cのコードのハイライト&#41; <br/>  <a href="https://highlightjs.org/download/">Getting hightlight.js</a>　から ハイライトしたい言語を選択した後 <code>highlight.pack.js</code> を <code>_lib/hightlight</code> にコピーする. もともと <code>_lib/highlight/highlight.pack.js</code> が配置されているが、Julia,Python,R、Markdownのみをハイライトするようになっている。</div>
@@ -370,19 +319,13 @@ https://github.com/highlightjs/highlight.js/issues/2277
 <li><p>単にコードを載せたい場合は <code>\input&#123;filetype&#125;&#123;filename&#125;</code> とすれば良い. 例えば</p>
 </li>
 </ul>
-Deprecated as of 10.7.0. highlight(lang, code, ...args) has been deprecated.
-Deprecated as of 10.7.0. Please use highlight(code, options) instead.
-https://github.com/highlightjs/highlight.js/issues/2277
 <pre><code class="plaintext hljs">\input{julia}{hello.jl}</code></pre>
 <p>と記述しておく. 結果は次のようになる．</p>
-Deprecated as of 10.7.0. highlight(lang, code, ...args) has been deprecated.
-Deprecated as of 10.7.0. Please use highlight(code, options) instead.
-https://github.com/highlightjs/highlight.js/issues/2277
 <pre><code class="julia hljs">println(<span class="hljs-string">&quot;Hello&quot;</span>)</code></pre>
 <p><code>hello.jl</code> の実態はソースコードの <code>_assets/index/code/hello.jl</code> に存在する.</p>
 <div class="page-foot">
   <div class="copyright">
-    &copy; SatoshiTerasaki. Last modified: 2021年3月21日 日曜日. Website built with 
+    &copy; SatoshiTerasaki. Last modified: 2021年5月5日 水曜日. Website built with 
     <a href="http://github.com/terasakisatoshi/MathSeminar.jl">MathSeminar.jl</a>
     <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
   </div>

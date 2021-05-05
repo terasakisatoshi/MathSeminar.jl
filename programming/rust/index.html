@@ -93,18 +93,9 @@
 <li><p>You can compile <a href="https://www.rust-lang.org/">Rust</a> code and run executable file from Julia with the following code:</p>
 </li>
 </ul>
-Deprecated as of 10.7.0. highlight(lang, code, ...args) has been deprecated.
-Deprecated as of 10.7.0. Please use highlight(code, options) instead.
-https://github.com/highlightjs/highlight.js/issues/2277
 <pre><code class="julia hljs">run(<span class="hljs-string">`rustc --version`</span>)</code></pre>
-Deprecated as of 10.7.0. highlight(lang, code, ...args) has been deprecated.
-Deprecated as of 10.7.0. Please use highlight(code, options) instead.
-https://github.com/highlightjs/highlight.js/issues/2277
-<pre><code class="plaintext hljs">rustc 1.50.0 (cb75ad5db 2021-02-10)
+<pre><code class="plaintext hljs">rustc 1.51.0 (2fd73fabe 2021-03-23)
 </code></pre>
-Deprecated as of 10.7.0. highlight(lang, code, ...args) has been deprecated.
-Deprecated as of 10.7.0. Please use highlight(code, options) instead.
-https://github.com/highlightjs/highlight.js/issues/2277
 <pre><code class="julia hljs">rscode = <span class="hljs-string">raw&quot;&quot;&quot;
 fn main(){
 	println!(&quot;Hello Rust from Julia runtime&quot;);
@@ -117,20 +108,14 @@ open(<span class="hljs-string">`rustc -o sample -`</span>, <span class="hljs-str
 
 run(<span class="hljs-string">`./sample`</span>)</code></pre>
 </p>
-<p>Deprecated as of 10.7.0. highlight(lang, code, ...args) has been deprecated.
-Deprecated as of 10.7.0. Please use highlight(code, options) instead.
-https://github.com/highlightjs/highlight.js/issues/2277
-<pre><code class="rust hljs"><span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">main</span></span>(){
+<p><pre><code class="rust hljs"><span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">main</span></span>(){
     <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;Hello Rust from Julia runtime&quot;</span>);
 }</code></pre></p>
-<p>Deprecated as of 10.7.0. highlight(lang, code, ...args) has been deprecated.
-Deprecated as of 10.7.0. Please use highlight(code, options) instead.
-https://github.com/highlightjs/highlight.js/issues/2277
-<pre><code class="plaintext hljs">Hello Rust from Julia runtime
+<p><pre><code class="plaintext hljs">Hello Rust from Julia runtime
 </code></pre>
 <div class="page-foot">
   <div class="copyright">
-    &copy; SatoshiTerasaki. Last modified: 2021年3月21日 日曜日. Website built with 
+    &copy; SatoshiTerasaki. Last modified: 2021年5月5日 水曜日. Website built with 
     <a href="http://github.com/terasakisatoshi/MathSeminar.jl">MathSeminar.jl</a>
     <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
   </div>

@@ -1,66 +1,66 @@
 1: Pulling from terasakisatoshi/mathseminarjl-stages
-6f28985ad184: Pulling fs layer
-19fec5d00e16: Pulling fs layer
-15c03d011c4f: Pulling fs layer
-442fd8424e68: Pulling fs layer
-bde598b1c099: Pulling fs layer
-792850e4c5fe: Pulling fs layer
-977d49d12e05: Pulling fs layer
-f8cf989bad75: Pulling fs layer
-671d013e1b3f: Pulling fs layer
-9979b850ba2c: Pulling fs layer
-202c43e2a158: Pulling fs layer
-045dab1f5095: Pulling fs layer
-0a9fbe1777db: Pulling fs layer
-442fd8424e68: Waiting
-bde598b1c099: Waiting
-792850e4c5fe: Waiting
-977d49d12e05: Waiting
-f8cf989bad75: Waiting
-671d013e1b3f: Waiting
-9979b850ba2c: Waiting
-202c43e2a158: Waiting
-045dab1f5095: Waiting
-0a9fbe1777db: Waiting
-19fec5d00e16: Verifying Checksum
-19fec5d00e16: Download complete
-6f28985ad184: Verifying Checksum
-6f28985ad184: Download complete
-15c03d011c4f: Verifying Checksum
-15c03d011c4f: Download complete
-792850e4c5fe: Verifying Checksum
-792850e4c5fe: Download complete
-bde598b1c099: Verifying Checksum
-bde598b1c099: Download complete
-442fd8424e68: Verifying Checksum
-442fd8424e68: Download complete
-f8cf989bad75: Verifying Checksum
-f8cf989bad75: Download complete
-9979b850ba2c: Verifying Checksum
-9979b850ba2c: Download complete
-202c43e2a158: Verifying Checksum
-202c43e2a158: Download complete
-045dab1f5095: Verifying Checksum
-045dab1f5095: Download complete
-6f28985ad184: Pull complete
-19fec5d00e16: Pull complete
-671d013e1b3f: Verifying Checksum
-671d013e1b3f: Download complete
-0a9fbe1777db: Verifying Checksum
-0a9fbe1777db: Download complete
-977d49d12e05: Verifying Checksum
-977d49d12e05: Download complete
-15c03d011c4f: Pull complete
-442fd8424e68: Pull complete
-bde598b1c099: Pull complete
-792850e4c5fe: Pull complete
-977d49d12e05: Pull complete
-f8cf989bad75: Pull complete
-671d013e1b3f: Pull complete
-9979b850ba2c: Pull complete
-202c43e2a158: Pull complete
-045dab1f5095: Pull complete
-0a9fbe1777db: Pull complete
-Digest: sha256:595df7b404e0cb7732fe85281cf17400033cab240366178fbf4d2d739317ac19
+f7ec5a41d630: Pulling fs layer
+113f91229f9c: Pulling fs layer
+a2af2149ee70: Pulling fs layer
+e4dd94c174bc: Pulling fs layer
+ffbece9f24cd: Pulling fs layer
+fbebfcfaf7bd: Pulling fs layer
+07ad7305968d: Pulling fs layer
+89f94cb7a0a4: Pulling fs layer
+c20705cf7a08: Pulling fs layer
+e33337160611: Pulling fs layer
+7e465be9150b: Pulling fs layer
+7688d4a25b28: Pulling fs layer
+e21d022c3eb3: Pulling fs layer
+e4dd94c174bc: Waiting
+ffbece9f24cd: Waiting
+fbebfcfaf7bd: Waiting
+07ad7305968d: Waiting
+89f94cb7a0a4: Waiting
+c20705cf7a08: Waiting
+e33337160611: Waiting
+7e465be9150b: Waiting
+7688d4a25b28: Waiting
+e21d022c3eb3: Waiting
+113f91229f9c: Verifying Checksum
+113f91229f9c: Download complete
+f7ec5a41d630: Verifying Checksum
+f7ec5a41d630: Download complete
+ffbece9f24cd: Verifying Checksum
+ffbece9f24cd: Download complete
+fbebfcfaf7bd: Verifying Checksum
+fbebfcfaf7bd: Download complete
+f7ec5a41d630: Pull complete
+e4dd94c174bc: Verifying Checksum
+e4dd94c174bc: Download complete
+89f94cb7a0a4: Verifying Checksum
+89f94cb7a0a4: Download complete
+c20705cf7a08: Verifying Checksum
+c20705cf7a08: Download complete
+e33337160611: Verifying Checksum
+e33337160611: Download complete
+7e465be9150b: Verifying Checksum
+7e465be9150b: Download complete
+7688d4a25b28: Verifying Checksum
+7688d4a25b28: Download complete
+a2af2149ee70: Verifying Checksum
+a2af2149ee70: Download complete
+113f91229f9c: Pull complete
+e21d022c3eb3: Verifying Checksum
+e21d022c3eb3: Download complete
+a2af2149ee70: Pull complete
+e4dd94c174bc: Pull complete
+07ad7305968d: Verifying Checksum
+07ad7305968d: Download complete
+ffbece9f24cd: Pull complete
+fbebfcfaf7bd: Pull complete
+07ad7305968d: Pull complete
+89f94cb7a0a4: Pull complete
+c20705cf7a08: Pull complete
+e33337160611: Pull complete
+7e465be9150b: Pull complete
+7688d4a25b28: Pull complete
+e21d022c3eb3: Pull complete
+Digest: sha256:d331d6790c8a58b07e968d1ed91e943347229fc9c94ccd91b56f3f633e074a87
 Status: Downloaded newer image for terasakisatoshi/mathseminarjl-stages
 docker.io/terasakisatoshi/mathseminarjl-stages

@@ -17,7 +17,8 @@
   External links: DLMF (https://dlmf.nist.gov/5.2.1), Wikipedia
   (https://en.wikipedia.org/wiki/Gamma_function).
 
-  See also: loggamma(z).
+  See also: loggamma(z) for \log \Gamma(z) and gamma(a,z) for the upper
+  incomplete gamma function \Gamma(a,z).
 
   Implementation by
   ≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡
@@ -29,3 +30,18 @@
 
     •  BigFloat: C library for multiple-precision floating-point MPFR
        (https://www.mpfr.org/)
+
+  gamma(a,x)
+
+  Returns the upper incomplete gamma function
+
+  \Gamma(a,x) = \int_x^\infty t^{a-1} e^{-t} dt \, ,
+
+  supporting arbitrary real or complex a and x.
+
+  (The ordinary gamma function gamma(x) corresponds to \Gamma(a) =
+  \Gamma(a,0). See also the gamma_inc function to compute both the upper and
+  lower (\gamma(a,x)) incomplete gamma functions scaled by \Gamma(a).
+
+  External links: DLMF (https://dlmf.nist.gov/8.2.2), Wikipedia
+  (https://en.wikipedia.org/wiki/Incomplete_gamma_function)

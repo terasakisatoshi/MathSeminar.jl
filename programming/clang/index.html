@@ -93,10 +93,7 @@
   </p>
 <p><div class="colorblock"><strong>Proposition</strong> 2.0.1 &#40;ソースコードの表示&#41; <br/>  つぎのように C のコードを貼り付けることができる.</div>
 </p>
-<p>Deprecated as of 10.7.0. highlight(lang, code, ...args) has been deprecated.
-Deprecated as of 10.7.0. Please use highlight(code, options) instead.
-https://github.com/highlightjs/highlight.js/issues/2277
-<pre><code class="c hljs"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+<p><pre><code class="c hljs"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
 <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>{
     <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Hello Goma\n&quot;</span>);
     <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
@@ -105,30 +102,21 @@ https://github.com/highlightjs/highlight.js/issues/2277
 <li><p>ただし，環境によっては <code>include</code> の周りの <code>&lt;</code> と <code>&gt;</code> が表示されないことがある．これは <code>&lt;</code> をマークダウンにおけるコメントと解釈してしまうためである．</p>
 </li>
 </ul>
-Deprecated as of 10.7.0. highlight(lang, code, ...args) has been deprecated.
-Deprecated as of 10.7.0. Please use highlight(code, options) instead.
-https://github.com/highlightjs/highlight.js/issues/2277
 <pre><code class="julia hljs"><span class="hljs-keyword">using</span> Markdown
 Markdown.htmlesc(<span class="hljs-string">raw&quot;&quot;&quot;youccode&quot;&quot;&quot;</span>)</code></pre>
 <p>をしておくと回避できる場合がある. ただし，この場合だと GitHub Actions でページをビルドした場合, コードがめちゃくちゃに表示されることがわかっている．折半案は <code>&quot;stdio.h&quot;</code> のように二重引用符で表現することである.</p>
 </p>
-<p>Deprecated as of 10.7.0. highlight(lang, code, ...args) has been deprecated.
-Deprecated as of 10.7.0. Please use highlight(code, options) instead.
-https://github.com/highlightjs/highlight.js/issues/2277
-<pre><code class="c hljs"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&quot;stdio.h&quot;</span></span>
+<p><pre><code class="c hljs"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&quot;stdio.h&quot;</span></span>
 <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>{
     <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Hello World\n&quot;</span>);
     <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
 }</code></pre></p>
-<p>Deprecated as of 10.7.0. highlight(lang, code, ...args) has been deprecated.
-Deprecated as of 10.7.0. Please use highlight(code, options) instead.
-https://github.com/highlightjs/highlight.js/issues/2277
-<pre><code class="plaintext hljs">Hello World
+<p><pre><code class="plaintext hljs">Hello World
 </code></pre>
 <div class="remark">&#40;Cのコードのハイライト&#41;     <a href="https://highlightjs.org/download/">Getting hightlight.js</a>　から ハイライトしたい言語を選択した後 <code>highlight.pack.js</code> を <code>_lib/hightlight</code> にコピーする. もともと <code>_lib/highlight/highlight.pack.js</code> が配置されているが、Julia,Python,R、Markdownのみをハイライトするようになっている。</div>
 <div class="page-foot">
   <div class="copyright">
-    &copy; SatoshiTerasaki. Last modified: 2021年3月21日 日曜日. Website built with 
+    &copy; SatoshiTerasaki. Last modified: 2021年5月5日 水曜日. Website built with 
     <a href="http://github.com/terasakisatoshi/MathSeminar.jl">MathSeminar.jl</a>
     <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
   </div>

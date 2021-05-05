@@ -102,10 +102,7 @@
 </li>
 </ul>
 </p>
-<p>Deprecated as of 10.7.0. highlight(lang, code, ...args) has been deprecated.
-Deprecated as of 10.7.0. Please use highlight(code, options) instead.
-https://github.com/highlightjs/highlight.js/issues/2277
-<pre><code class="c hljs"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+<p><pre><code class="c hljs"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
 <span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdint.h&gt;</span></span>
 <span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;time.h&gt;</span></span>
 
@@ -168,15 +165,9 @@ https://github.com/highlightjs/highlight.js/issues/2277
     fclose(fp);
     <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
 }</code></pre></p>
-<p>Deprecated as of 10.7.0. highlight(lang, code, ...args) has been deprecated.
-Deprecated as of 10.7.0. Please use highlight(code, options) instead.
-https://github.com/highlightjs/highlight.js/issues/2277
-<pre><code class="plaintext hljs">Elapsed time 0.159435 [sec]
+<p><pre><code class="plaintext hljs">Elapsed time 0.148000 [sec]
 </code></pre>
 <p>描画は下記のとおりです。</p>
-Deprecated as of 10.7.0. highlight(lang, code, ...args) has been deprecated.
-Deprecated as of 10.7.0. Please use highlight(code, options) instead.
-https://github.com/highlightjs/highlight.js/issues/2277
 <pre><code class="julia hljs"><span class="hljs-keyword">using</span> DelimitedFiles
 <span class="hljs-keyword">using</span> Plots
 gr()
@@ -187,9 +178,6 @@ p=heatmap(<span class="hljs-number">1</span>:N, <span class="hljs-number">1</spa
 <h2 id="julia_のコード"><a href="#julia_のコード" class="header-anchor">Julia のコード</a></h2></p>
 <p>    
 <p>最後に Julia のコードを見ていきましょう</p>
-Deprecated as of 10.7.0. highlight(lang, code, ...args) has been deprecated.
-Deprecated as of 10.7.0. Please use highlight(code, options) instead.
-https://github.com/highlightjs/highlight.js/issues/2277
 <pre><code class="julia hljs"><span class="hljs-keyword">using</span> DelimitedFiles
 
 <span class="hljs-keyword">function</span> cnt(ReZ, ImZ, ReC, ImC)
@@ -248,15 +236,9 @@ main()
 
 <span class="hljs-keyword">using</span> BenchmarkTools
 <span class="hljs-meta">@btime</span> mand(<span class="hljs-number">1250</span>, <span class="hljs-number">1250</span>);</code></pre>
-Deprecated as of 10.7.0. highlight(lang, code, ...args) has been deprecated.
-Deprecated as of 10.7.0. Please use highlight(code, options) instead.
-https://github.com/highlightjs/highlight.js/issues/2277
-<pre><code class="plaintext hljs">t - s = 0.19110393524169922
-  158.624 ms (2 allocations: 1.49 MiB)
+<pre><code class="plaintext hljs">t - s = 0.16821718215942383
+  160.855 ms (2 allocations: 1.49 MiB)
 </code></pre>
-Deprecated as of 10.7.0. highlight(lang, code, ...args) has been deprecated.
-Deprecated as of 10.7.0. Please use highlight(code, options) instead.
-https://github.com/highlightjs/highlight.js/issues/2277
 <pre><code class="julia hljs">Refpath=<span class="hljs-string">&quot;/tmp/benchC.txt&quot;</span>
 Tarpath=<span class="hljs-string">&quot;/tmp/benchJ.txt&quot;</span>
 run(<span class="hljs-string">`bash -c &quot;cmp --silent <span class="hljs-variable">$Refpath</span> <span class="hljs-variable">$Tarpath</span> || echo \&quot;files are different\&quot;&quot;`</span>)
@@ -271,7 +253,7 @@ p = heatmap(<span class="hljs-number">1</span>:N,<span class="hljs-number">1</sp
 <img src="/MathSeminar.jl/assets/programming/benchmark_part1/code/output/mandJ.png" alt="">
 <div class="page-foot">
   <div class="copyright">
-    &copy; SatoshiTerasaki. Last modified: 2021年3月21日 日曜日. Website built with 
+    &copy; SatoshiTerasaki. Last modified: 2021年5月5日 水曜日. Website built with 
     <a href="http://github.com/terasakisatoshi/MathSeminar.jl">MathSeminar.jl</a>
     <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
   </div>
