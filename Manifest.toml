@@ -1675,9 +1675,9 @@ uuid = "ea8e919c-243c-51af-8825-aaa63cd721ce"
 
 [[SLEEFPirates]]
 deps = ["IfElse", "Libdl", "VectorizationBase"]
-git-tree-sha1 = "91a650350dcf6e0fc1a014b59669e704d8f579ae"
+git-tree-sha1 = "1829b212b1fa5a1db6d25e30c6d4cc43a9ea6297"
 uuid = "476501e8-09a2-5ece-8869-fb82de89a1fa"
-version = "0.6.17"
+version = "0.6.18"
 
 [[SafeTestsets]]
 deps = ["Test"]
@@ -1998,9 +1998,9 @@ version = "1.7.0"
 
 [[VectorizationBase]]
 deps = ["ArrayInterface", "Hwloc", "IfElse", "Libdl", "LinearAlgebra", "Static"]
-git-tree-sha1 = "2eda6a7dfa1e9ebf66bc6cc8218f200ffdda5516"
+git-tree-sha1 = "dfe4ad3f00e243f97280f08cb82ab4b685f5559b"
 uuid = "3d5dd08c-fd9d-11e8-17fa-ed2836048c2f"
-version = "0.19.38"
+version = "0.19.39"
 
 [[VersionParsing]]
 git-tree-sha1 = "80229be1f670524750d905f8fc8148e5a8c4537f"

@@ -590,6 +590,99 @@ Dash is running on http://127.0.0.1:8050/
  * Debug mode: on</code></pre>
 <h1 id="result__2"><a href="#result__2" class="header-anchor">Result</a></h1>
 <p>&lt;img width&#61;&quot;395&quot; alt&#61;&quot;Screen Shot 2021-05-12 at 21 53 08&quot; src&#61;&quot;https://user-images.githubusercontent.com/16760547/117978243-a326c900-b36c-11eb-9724-0f495bbe41a3.png&quot;&gt;</p>
+<hr />
+<h1 id="utilize_component_from_julia"><a href="#utilize_component_from_julia" class="header-anchor">Utilize component from Julia</a></h1>
+<pre><code class="language-console">&#36; julia --project&#61;@. -e &#39;using Pkg; Pkg.add&#40;&#91;&quot;Dash&quot;, &quot;DashCoreComponents&quot;, &quot;DashHtmlComponents&quot;&#93;&#41;&#39;
+&#36; cat app.jl # please create it by yourself
+using Dash, DashHtmlComponents, DashCoreComponents
+using MyDashComponent
+
+app &#61; dash&#40;external_stylesheets &#61; &#91;&quot;https://codepen.io/chriddyp/pen/bWLwgP.css&quot;&#93;&#41;
+
+app.layout &#61; html_div&#40;&#41; do
+        html_h1&#40;&quot;Hello Dash&quot;&#41;,
+        html_div&#40;&quot;Dash.jl: Julia interface for Dash&quot;&#41;,
+        dcc_input&#40;id &#61; &quot;input&quot;, value&#61;&quot;initial value&quot;, type &#61; &quot;text&quot;&#41;,
+        html_br&#40;&#41;,
+        dash_mydashcomponent&#40;id&#61;&quot;mycomponent&quot;, value&#61;&quot;これは価値です&#40;駄洒落&#41;&quot;&#41;,
+        html_div&#40;&quot;&quot;, id&#61;&quot;inner-div&quot;&#41;
+    end
+
+callback&#33;&#40;app, Output&#40;&quot;mycomponent&quot;, &quot;value&quot;&#41;, Input&#40;&quot;input&quot;, &quot;value&quot;&#41;&#41; do v
+    v
+end
+
+callback&#33;&#40;app, Output&#40;&quot;inner-div&quot;, &quot;children&quot;&#41;, Input&#40;&quot;mycomponent&quot;, &quot;value&quot;&#41;&#41; do input_value
+    input_value
+end
+
+run_server&#40;app, &quot;0.0.0.0&quot;, 8080, debug&#61;true&#41;
+&#36; julia --project&#61;@. app.jl</code></pre>
+<hr />
+<h1 id="result__3"><a href="#result__3" class="header-anchor">Result</a></h1>
+<p>&lt;img width&#61;&quot;363&quot; alt&#61;&quot;Screen Shot 2021-05-12 at 22 09 49&quot; src&#61;&quot;https://user-images.githubusercontent.com/16760547/117980367-dc603880-b36e-11eb-9f0d-28ab54eb6291.png&quot;&gt;</p>
+<hr />
+<h2 id="examplecomponent"><a href="#examplecomponent" class="header-anchor">ExampleComponent</a></h2>
+<ul>
+<li><p><code>src/lib/components/MyDashComponent.react.js</code> </p>
+</li>
+</ul>
+<pre><code class="language-babel">import React, &#123;Component&#125; from &#39;react&#39;;
+import PropTypes from &#39;prop-types&#39;;
+export default class MyDashComponent extends Component &#123;
+    render&#40;&#41; &#123;
+        const &#123;id, label, setProps, value&#125; &#61; this.props;
+        return &#40;
+            &lt;div id&#61;&#123;id&#125;&gt;
+                ExampleComponent: &#123;label&#125;&amp;nbsp;
+                &lt;input
+                    value&#61;&#123;value&#125;
+                    onChange&#61;&#123;
+                        e &#61;&gt; setProps&#40;&#123; value: e.target.value &#125;&#41;
+                    &#125;
+                /&gt;
+            &lt;/div&gt;
+        &#41;;
+    &#125;
+&#125;
+MyDashComponent.defaultProps &#61; &#123;&#125;;
+MyDashComponent.propTypes &#61; &#123;
+    id: PropTypes.string,
+    label: PropTypes.string.isRequired,
+    value: PropTypes.string,
+    setProps: PropTypes.func
+&#125;;</code></pre>
+<hr />
+<h1 id="workflow"><a href="#workflow" class="header-anchor">Workflow</a></h1>
+<ul>
+<li><p>色々いじって試してみよう. JS コードを編集したら下記を実行することをお忘れなく.</p>
+</li>
+</ul>
+<pre><code class="language-console">&#36; npm run build</code></pre>
+<ul>
+<li><p>jsxgraph ライブラリをインストールする</p>
+</li>
+</ul>
+<pre><code class="language-console">&#36; npm install jsxgraph</code></pre>
+<h2 id="callback_との連携"><a href="#callback_との連携" class="header-anchor">callback&#33; との連携</a></h2>
+<pre><code class="language-js">componentDidUpdate&#40;prevProps, prevState&#41; &#123; // Dash 側からの変更を検知
+    this.props.setProps&#40;// Dash 側で自動的に付与されるメソッド
+      &#123;value: this.props.example.toString&#40;&#41;&#125; // 更新を Dash 側に通知
+    &#41;
+&#125;</code></pre>
+<hr />
+<h1 id="a_hrefhttpsgithubcomterasakisatoshimy-jsxgraph-componentgitexample"><a href="#a_hrefhttpsgithubcomterasakisatoshimy-jsxgraph-componentgitexample" class="header-anchor"><a href="https://github.com/terasakisatoshi/my-jsxgraph-component.git">Example</a></a></h1>
+<pre><code class="language-console">&#36; git clone https://github.com/terasakisatoshi/my-jsxgraph-component.git
+&#36; cd my-jsxgraph-component
+&#36; npm install
+&#36; julia -e &#39;using Pkg; Pkg.add&#40;&#91;&quot;Dash&quot;, &quot;DashCoreComponents&quot;, &quot;DashHtmlComponents&quot;&#93;&#41;&#39;
+&#36; julia --project&#61;@. -e &#39;using Pkg; Pkg.instantiate&#40;&#41;&#39;
+&#36; julia --project&#61;@. app.jl</code></pre>
+<h2 id="result__4"><a href="#result__4" class="header-anchor">Result</a></h2>
+<p>&lt;div class&#61;&quot;center&quot;&gt;     &lt;img width&#61;&quot;400&quot; alt&#61;&quot;Screen Shot 2021-05-12 at 17 51 30&quot; src&#61;&quot;https://user-images.githubusercontent.com/16760547/117947558-4535b980-b34b-11eb-84c9-aad97442cf4d.png&quot;&gt; &lt;/div&gt;</p>
+<p><hr /> </p>
+<p>class: center, middle</p>
+<h1 id="おちまい__2"><a href="#おちまい__2" class="header-anchor">おちまい</a></h1>
 <div class="page-foot">
   <div class="copyright">
     &copy; SatoshiTerasaki. Last modified: 2021年5月12日 水曜日. Website built with 
