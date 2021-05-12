@@ -50,6 +50,7 @@ WGLMakie = "276b4fcb-3e11-5398-bf8b-a0c2d153d008"
 Weave = "44d3d7a6-8a23-5bf8-98c5-b353f8df5ec9"
 
 [compat]
+OffsetArrays = "1.8"
 JSServe = "1.2"
 Plots = "1.14"
 VisualRegressionTests = "1.0"
