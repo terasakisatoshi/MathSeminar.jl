@@ -555,3 +555,126 @@ Dash is running on http://127.0.0.1:8050/
 
 <img width="395" alt="Screen Shot 2021-05-12 at 21 53 08" src="https://user-images.githubusercontent.com/16760547/117978243-a326c900-b36c-11eb-9724-0f495bbe41a3.png">
 
+---
+
+
+# Utilize component from Julia
+```console
+$ julia --project=@. -e 'using Pkg; Pkg.add(["Dash", "DashCoreComponents", "DashHtmlComponents"])'
+$ cat app.jl # please create it by yourself
+using Dash, DashHtmlComponents, DashCoreComponents
+using MyDashComponent
+
+app = dash(external_stylesheets = ["https://codepen.io/chriddyp/pen/bWLwgP.css"])
+
+app.layout = html_div() do
+        html_h1("Hello Dash"),
+        html_div("Dash.jl: Julia interface for Dash"),
+        dcc_input(id = "input", value="initial value", type = "text"),
+        html_br(),
+        dash_mydashcomponent(id="mycomponent", value="これは価値です(駄洒落)"),
+        html_div("", id="inner-div")
+    end
+
+callback!(app, Output("mycomponent", "value"), Input("input", "value")) do v
+    v
+end
+
+callback!(app, Output("inner-div", "children"), Input("mycomponent", "value")) do input_value
+    input_value
+end
+
+run_server(app, "0.0.0.0", 8080, debug=true)
+$ julia --project=@. app.jl
+```
+
+---
+
+# Result
+
+<img width="363" alt="Screen Shot 2021-05-12 at 22 09 49" src="https://user-images.githubusercontent.com/16760547/117980367-dc603880-b36e-11eb-9f0d-28ab54eb6291.png">
+
+---
+
+## ExampleComponent
+
+- `src/lib/components/MyDashComponent.react.js` 
+
+```babel
+import React, {Component} from 'react';
+import PropTypes from 'prop-types';
+export default class MyDashComponent extends Component {
+    render() {
+        const {id, label, setProps, value} = this.props;
+        return (
+            <div id={id}>
+                ExampleComponent: {label}&nbsp;
+                <input
+                    value={value}
+                    onChange={
+                        e => setProps({ value: e.target.value })
+                    }
+                />
+            </div>
+        );
+    }
+}
+MyDashComponent.defaultProps = {};
+MyDashComponent.propTypes = {
+    id: PropTypes.string,
+    label: PropTypes.string.isRequired,
+    value: PropTypes.string,
+    setProps: PropTypes.func
+};
+```
+
+---
+
+# Workflow
+
+- 色々いじって試してみよう. JS コードを編集したら下記を実行することをお忘れなく.
+
+```console
+$ npm run build
+```
+
+- jsxgraph ライブラリをインストールする
+
+```console
+$ npm install jsxgraph
+```
+
+## callback! との連携
+
+```js
+componentDidUpdate(prevProps, prevState) { // Dash 側からの変更を検知
+    this.props.setProps(// Dash 側で自動的に付与されるメソッド
+      {value: this.props.example.toString()} // 更新を Dash 側に通知
+    )
+}
+```
+
+
+---
+
+# [Example](https://github.com/terasakisatoshi/my-jsxgraph-component.git)
+
+```console
+$ git clone https://github.com/terasakisatoshi/my-jsxgraph-component.git
+$ cd my-jsxgraph-component
+$ npm install
+$ julia -e 'using Pkg; Pkg.add(["Dash", "DashCoreComponents", "DashHtmlComponents"])'
+$ julia --project=@. -e 'using Pkg; Pkg.instantiate()'
+$ julia --project=@. app.jl
+```
+
+## Result
+
+<div class="center">
+    <img width="400" alt="Screen Shot 2021-05-12 at 17 51 30" src="https://user-images.githubusercontent.com/16760547/117947558-4535b980-b34b-11eb-84c9-aad97442cf4d.png">
+</div>
+
+--- 
+
+class: center, middle
+# おちまい
