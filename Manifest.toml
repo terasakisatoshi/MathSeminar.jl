@@ -176,9 +176,9 @@ version = "0.9.7"
 
 [[ChainRulesCore]]
 deps = ["Compat", "LinearAlgebra", "SparseArrays"]
-git-tree-sha1 = "e6b23566e025d3b0d9ccc397f5c7a134af552e27"
+git-tree-sha1 = "9b0375dc013ab0fc472b37cb8b18eed66b83f76b"
 uuid = "d360d2e6-b24c-11e9-a2a3-2a2ae2dbcce4"
-version = "0.9.42"
+version = "0.9.43"
 
 [[CodeTracking]]
 deps = ["InteractiveUtils", "UUIDs"]
@@ -401,9 +401,9 @@ uuid = "8ba89e20-285c-5b6f-9357-94700520ee1b"
 
 [[Distributions]]
 deps = ["FillArrays", "LinearAlgebra", "PDMats", "Printf", "QuadGK", "Random", "SparseArrays", "SpecialFunctions", "Statistics", "StatsBase", "StatsFuns"]
-git-tree-sha1 = "36aa8125c8caa6a449b54d5d45ac97afd392549d"
+git-tree-sha1 = "3f61d283e34acbebba27c459cf7ea28ec6cc56fb"
 uuid = "31c24e10-a181-5473-b8eb-7969acd0382f"
-version = "0.25.0"
+version = "0.25.1"
 
 [[DocStringExtensions]]
 deps = ["LibGit2", "Markdown", "Pkg", "Test"]
@@ -481,9 +481,9 @@ version = "3.3.9+7"
 
 [[FastBroadcast]]
 deps = ["LinearAlgebra"]
-git-tree-sha1 = "2586e428f7e52f8e566ec383c19a08a5bc190c96"
+git-tree-sha1 = "92128d93be25c141c046a9a3861a34633d19f927"
 uuid = "7034ab61-46d4-4ed7-9d0f-46aef9175898"
-version = "0.1.5"
+version = "0.1.6"
 
 [[FastClosures]]
 git-tree-sha1 = "acebe244d53ee1b461970f8910c235b259e772ef"
@@ -1312,9 +1312,9 @@ version = "1.4.1"
 
 [[OrdinaryDiffEq]]
 deps = ["Adapt", "ArrayInterface", "DataStructures", "DiffEqBase", "DocStringExtensions", "ExponentialUtilities", "FastClosures", "FiniteDiff", "ForwardDiff", "LinearAlgebra", "Logging", "MacroTools", "MuladdMacro", "NLsolve", "RecursiveArrayTools", "Reexport", "SparseArrays", "SparseDiffTools", "StaticArrays", "UnPack"]
-git-tree-sha1 = "230bcc84cd55f2730a843d1d080a5da33d18c80f"
+git-tree-sha1 = "3d0e9d4324011d40b900b8fd52490d824d3c595c"
 uuid = "1dea7af3-3e70-54e6-95c3-0bf5283fa5ed"
-version = "5.53.1"
+version = "5.53.2"
 
 [[PCRE_jll]]
 deps = ["Artifacts", "JLLWrappers", "Libdl", "Pkg"]
@@ -1704,10 +1704,10 @@ uuid = "47a9eef4-7e08-11e9-0b38-333d64bd3804"
 version = "1.13.2"
 
 [[SpecialFunctions]]
-deps = ["ChainRulesCore", "OpenSpecFun_jll"]
-git-tree-sha1 = "5919936c0e92cff40e57d0ddf0ceb667d42e5902"
+deps = ["ChainRulesCore", "LogExpFunctions", "OpenSpecFun_jll"]
+git-tree-sha1 = "9146da51b38e9705b9f5ccfadc3ab10a482cae36"
 uuid = "276daf66-3868-5448-9aa4-cd146d93841b"
-version = "1.3.0"
+version = "1.4.0"
 
 [[StableRNGs]]
 deps = ["Random", "Test"]

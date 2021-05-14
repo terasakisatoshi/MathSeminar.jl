@@ -35,7 +35,7 @@
 
   Returns the upper incomplete gamma function
 
-  \Gamma(a,x) = \int_x^\infty t^{a-1} e^{-t} dt \, ,
+  \Gamma(a,x) = \int_x^\infty t^{a-1} e^{-t} dt \,
 
   supporting arbitrary real or complex a and x.
 
