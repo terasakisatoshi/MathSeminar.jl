@@ -486,7 +486,7 @@ $ npm start
 
 ---
 
-# Getting Started (Part 2)
+# Getting Started (Part 1)
 
 - 下記を実行(ちょっと時間がかかる)
 
