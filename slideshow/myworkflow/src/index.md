@@ -4,6 +4,8 @@ class: center, middle
 
 ごまふあざらし
 
+![](assets/qrcode.png)
+
 ---
 
 # Motivation
