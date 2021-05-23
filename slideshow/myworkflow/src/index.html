@@ -4,14 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
-  
+   <link rel="stylesheet" href="/MathSeminar.jl/libs/highlight/github.min.css">
+   
   
 
   <link href="/MathSeminar.jl/css/franklin.css" rel="stylesheet">
   <link href="/MathSeminar.jl/css/vela.css" rel="stylesheet">
   <script src="/MathSeminar.jl/libs/vela/jquery.min.js"></script>
   <link rel="stylesheet" href="/MathSeminar.jl/css/theorem.css">
-   <title>MyWorkflow.jl の宣伝</title>  
+   <title><a href="https://github.com/terasakisatoshi/MyWorkflow.jl">MyWorkflow.jl</a> の宣伝</title>  
   <!-- PLOTLY -->
   
 
@@ -85,18 +86,91 @@
         <div class="hamburger-inner"></div>
       </div>
     </div>
-    <h1 class="page title">MyWorkflow.jl の宣伝</h1>
+    <h1 class="page title"><a href="https://github.com/terasakisatoshi/MyWorkflow.jl">MyWorkflow.jl</a> の宣伝</h1>
     <hr>
 
 
 <!-- Content appended here -->
 <div class="franklin-content"><p>class: center, middle</p>
-<h1 id="myworkflowjl_の宣伝"><a href="#myworkflowjl_の宣伝" class="header-anchor">MyWorkflow.jl の宣伝</a></h1>
+<h1 id="a_hrefhttpsgithubcomterasakisatoshimyworkflowjlmyworkflowjl_の宣伝"><a href="#a_hrefhttpsgithubcomterasakisatoshimyworkflowjlmyworkflowjl_の宣伝" class="header-anchor"><a href="https://github.com/terasakisatoshi/MyWorkflow.jl">MyWorkflow.jl</a> の宣伝</a></h1>
+<p>ごまふあざらし</p>
 <hr />
-<h2 id="plots"><a href="#plots" class="header-anchor">Plots</a></h2>
-<p><img src="assets/sin.png" alt="" /></p>
+<h1 id="motivation"><a href="#motivation" class="header-anchor">Motivation</a></h1>
+<ul>
+<li><p>プログラミング言語の学習における学習者の負荷を軽減するため</p>
+<ul>
+<li><p>環境構築</p>
+</li>
+<li><p>Jupyter Notebook の管理</p>
+</li>
+<li><p>パッケージ構成</p>
+</li>
+<li><p>テスト/CI/CD をどうするか？</p>
+</li>
+<li><p>公開/配布をどうするか？</p>
+</li>
+</ul>
+</li>
+</ul>
 <hr />
-<h2 id="install"><a href="#install" class="header-anchor">Install</a></h2>
+<h1 id="have_a_try"><a href="#have_a_try" class="header-anchor">Have a try&#33;</a></h1>
+<ul>
+<li><p>https://mybinder.org/ を利用して Julia の環境が手元になくても Web で動かすことができる.</p>
+</li>
+</ul>
+<h2 id="example"><a href="#example" class="header-anchor">Example</a></h2>
+<ul>
+<li><p>MyWorkflow.jl master &#40;nightly&#41; <a href="https://mybinder.org/v2/gh/terasakisatoshi/MyWorkflow.jl/master"><img src="https://mybinder.org/badge_logo.svg" alt="Binder" /></a> Julia v1.6.1</p>
+</li>
+<li><p>MyWorkflow.jl v0.24.0 &#40;stable&#41; <a href="https://mybinder.org/v2/gh/terasakisatoshi/MyWorkflow.jl/v0.24.0"><img src="https://mybinder.org/badge_logo.svg" alt="Binder" /></a> Julia v1.6.1</p>
+</li>
+</ul>
+<hr />
+<h1 id="result_part_1"><a href="#result_part_1" class="header-anchor">Result &#40;Part 1&#41;</a></h1>
+<p>&lt;img width&#61;&quot;800&quot; alt&#61;&quot;Screen Shot 2021-05-23 at 17 53 37&quot; src&#61;&quot;https://user-images.githubusercontent.com/16760547/119254180-e3e5d400-bbef-11eb-82f2-4cf07c1b91f4.png&quot;&gt;</p>
+<hr />
+<h1 id="result_part_2"><a href="#result_part_2" class="header-anchor">Result &#40;Part 2&#41;</a></h1>
+<p>&lt;img width&#61;&quot;600&quot; alt&#61;&quot;Screen Shot 2021-05-23 at 17 55 13&quot; src&#61;&quot;https://user-images.githubusercontent.com/16760547/119254221-1263af00-bbf0-11eb-8a06-dc8820776cd4.png&quot;&gt;</p>
+<hr />
+<h1 id="usage_part_1"><a href="#usage_part_1" class="header-anchor">Usage &#40;Part 1&#41;</a></h1>
+<ul>
+<li><p>Install Docker and Docker Compose. see the following link to learn more with your operating system:</p>
+<ul>
+<li><p><a href="https://docs.docker.com/docker-for-windows/install/">Install Docker Desktop on Windows</a></p>
+</li>
+<li><p><a href="https://docs.docker.com/docker-for-mac/install/">Install Docker Desktop on Mac</a></p>
+</li>
+<li><p><a href="https://docs.docker.com/install/linux/docker-ce/ubuntu/">Get Docker Engine - Community for Ubuntu</a></p>
+</li>
+</ul>
+</li>
+<li><p>To test out you&#39;ve installed docker, just try:</p>
+</li>
+</ul>
+<pre><code class="console hljs"><span class="hljs-meta">$</span><span class="bash"> docker run --rm -it julia</span>
+<span class="hljs-meta">#</span><span class="bash"> some staff happens ...</span></code></pre>
+<hr />
+<h1 id="usage_part_2"><a href="#usage_part_2" class="header-anchor">Usage &#40;Part 2&#41;</a></h1>
+<pre><code class="console hljs"><span class="hljs-meta">$</span><span class="bash"> https://github.com/terasakisatoshi/MyWorkflow.jl.git</span>
+<span class="hljs-meta">$</span><span class="bash"> make</span>
+<span class="hljs-meta">$</span><span class="bash"> docker-compose up lab</span>
+Docker Compose is now in the Docker CLI, try `docker compose up`
+Starting mylab ... done
+Attaching to mylab
+<span class="hljs-meta">#</span><span class="bash"> some staff happens...</span>
+mylab      |
+mylab      |     To access the server, open this file in a browser:
+mylab      |         file:///root/.local/share/jupyter/runtime/jpserver-1-open.html
+mylab      |     Or copy and paste one of these URLs:
+mylab      |         http://1bafb42c152f:8888/lab?token=xxxxx...
+mylab      |         http://127.0.0.1:8888/lab?token=xxxxx...</code></pre>
+<p>Open a Browser and go to <code>http://localhost:8888/lab?token&#61;xxxxx...</code></p>
+<hr />
+<h1 id="result"><a href="#result" class="header-anchor">Result</a></h1>
+<p>&lt;img width&#61;&quot;800&quot; src&#61;&quot;https://user-images.githubusercontent.com/16760547/119253138-c3ffe180-bbea-11eb-888b-424d5896f47e.png&quot;&gt;</p>
+<hr />
+<h1 id="result_gif"><a href="#result_gif" class="header-anchor">Result &#40;Gif&#41;</a></h1>
+<p>&lt;img width&#61;&quot;800&quot; src&#61;&quot;https://user-images.githubusercontent.com/16760547/119253679-4f7a7200-bbed-11eb-812a-ac4bd50d5a5e.gif&quot;&gt;</p>
 <hr />
 <p>class: center, middle</p>
 <h1 id="おちまい"><a href="#おちまい" class="header-anchor">おちまい</a></h1>
@@ -112,6 +186,10 @@
   <script src="/MathSeminar.jl/libs/vela/metisMenu.min.js"></script>
   <script src="/MathSeminar.jl/libs/vela/slideout.min.js"></script>
   
+  
+    
+
+
   
 </body>
 </html>
