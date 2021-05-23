@@ -94,6 +94,12 @@ Open a Browser and go to `http://localhost:8888/lab?token=xxxxx...`
 
 ---
 
+# DevContainer
+
+<img width="800" alt="Screen Shot 2021-05-23 at 18 10 27" src="https://user-images.githubusercontent.com/16760547/119254700-d1b96500-bbf2-11eb-990d-7316a91d3961.png">
+
+---
+
 class: center, middle
 
 # おちまい
