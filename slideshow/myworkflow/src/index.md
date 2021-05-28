@@ -83,6 +83,10 @@ julia> π^2/6
   - MyWorkflow.jl master (nightly) [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/terasakisatoshi/MyWorkflow.jl/master) Julia v1.6.1
   - MyWorkflow.jl v0.24.0 (stable) [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/terasakisatoshi/MyWorkflow.jl/v0.24.0) Julia v1.6.1
 
+<div style="text-align: center">
+  <img src="assets/myworkflow-v0.24.0.png">
+</div>
+
 ---
 
 # Result (Part 1)
