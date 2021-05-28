@@ -1,6 +1,6 @@
 class: center, middle
 
-# [MyWorkflow.jl](https://github.com/terasakisatoshi/MyWorkflow.jl) の宣伝
+# Julia プロジェクト [MyWorkflow.jl](https://github.com/terasakisatoshi/MyWorkflow.jl) の紹介
 
 ごまふあざらし
 
@@ -8,7 +8,46 @@ class: center, middle
 
 ---
 
-# Motivation
+# 自己紹介
+
+- 細々と仕事で Python/Julia を用いたプログラムを書いています.
+
+# ここではなすこと
+
+- 自作 Julia プロジェクトの [MyWorkflow.jl](https://github.com/terasakisatoshi/MyWorkflow.jl) の紹介
+
+---
+
+# Julia の嬉しいところ
+
+- 動的言語であることによる簡易さ
+- ギリシャ文字, 添字, 修飾文字が変数に使え数学的概念の記述が楽しくできる.
+```julia
+julia> using SpecialFunctions
+julia> ζ(s) = zeta(s)
+julia> ζ(2)
+1.6449340668482273
+julia> sum(n->1/n^2, 1:100000)
+1.644924066898228
+julia> π^2/6
+1.6449340668482264
+```
+- サイエンスがバックグラウンドにある人が多いコミュニティ
+- REPL/Jupyter/Pluto などリッチな開発環境
+- 他の言語との連携が充実
+- Web 開発もできる
+
+---
+
+# Motivation (Part 1)
+
+- 開発環境
+- すぐ使いたい
+- 関数のグラフを書きたい, データの可視化をしたい
+
+---
+
+# Motivation (Part 2)
 
 - プログラミング言語の学習における学習者の負荷を軽減するため
   - 環境構築
@@ -16,6 +55,18 @@ class: center, middle
   - パッケージ構成
   - テスト/CI/CD をどうするか？
   - 公開/配布をどうするか？
+
+---
+
+# Motivation (Part 2)
+
+- プログラミング言語の学習における学習者の負荷を軽減するため
+  - 環境構築
+  - Jupyter Notebook の管理
+  - パッケージ構成
+  - テスト/CI/CD をどうするか？
+  - 公開/配布をどうするか？
+
 
 ---
 
