@@ -1,6 +1,6 @@
 class: center, middle
 
-# [MyWorkflow.jl](https://github.com/terasakisatoshi/MyWorkflow.jl) の宣伝
+# Julia プロジェクト [MyWorkflow.jl](https://github.com/terasakisatoshi/MyWorkflow.jl) の紹介
 
 ごまふあざらし
 
@@ -8,7 +8,49 @@ class: center, middle
 
 ---
 
-# Motivation
+# 自己紹介
+
+- 細々と仕事で Python/Julia を用いたプログラムを書いています.
+
+# ここではなすこと
+
+- 自作 Julia プロジェクトの [MyWorkflow.jl](https://github.com/terasakisatoshi/MyWorkflow.jl) の紹介
+
+---
+
+# Julia の嬉しいところ
+
+- 動的言語であることによる簡易さ
+- ギリシャ文字, 添字, 修飾文字が変数に使え数学的概念の記述が楽しくできる.
+```julia
+julia> using SpecialFunctions
+julia> ζ(s) = zeta(s)
+julia> ζ(2)
+1.6449340668482273
+julia> sum(n->1/n^2, 1:100000)
+1.644924066898228
+julia> π^2/6
+1.6449340668482264
+```
+- サイエンスがバックグラウンドにある人が多いコミュニティ
+- REPL/Jupyter/Pluto などリッチな開発環境
+- 他の言語との連携が充実
+- Web 開発もできる
+  - このスライド，Web ページの作成も Julia が一枚噛んでいます.
+
+---
+
+# Motivation (Part 1)
+
+- 下記のようなわがままな人にでも使ってもらうようにしたい.
+  - 開発環境構築めんどくさい
+  - すぐ使いたい
+  - 関数のグラフを書きたい, データの可視化をしたい
+  - とりあえず手元で触れるもの
+
+---
+
+# Motivation (Part 2-1)
 
 - プログラミング言語の学習における学習者の負荷を軽減するため
   - 環境構築
@@ -19,15 +61,31 @@ class: center, middle
 
 ---
 
+# Motivation (Part 2-2)
+
+- プログラミング言語の学習における学習者の負荷を軽減するため
+  - 環境構築
+    - [Docker](https://www.docker.com/)
+  - Jupyter Notebook の管理
+    - [Jupytext](https://jupytext.readthedocs.io/en/latest/)
+  - パッケージ構成
+    - [PkgTemplates.jl](https://github.com/invenia/PkgTemplates.jl)
+  - テスト/CI/CD をどうするか？
+    - [GitHub Actions](https://docs.github.com/en/actions) の活用
+  - 公開/配布をどうするか？
+    - [GitHub](https://github.com/), [Binder](https://mybinder.org/)
+
+---
+
 # Have a try!
 
 - https://mybinder.org/ を利用して Julia の環境が手元になくても Web で動かすことができる.
-
-## Example
-
   - MyWorkflow.jl master (nightly) [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/terasakisatoshi/MyWorkflow.jl/master) Julia v1.6.1
-
   - MyWorkflow.jl v0.24.0 (stable) [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/terasakisatoshi/MyWorkflow.jl/v0.24.0) Julia v1.6.1
+
+<div style="text-align: center">
+  <img src="assets/myworkflow-v0.24.0.png">
+</div>
 
 ---
 
@@ -42,6 +100,47 @@ class: center, middle
 <img width="600" alt="Screen Shot 2021-05-23 at 17 55 13" src="https://user-images.githubusercontent.com/16760547/119254221-1263af00-bbf0-11eb-8a06-dc8820776cd4.png">
 
 ---
+
+# Example 1
+
+- PCA を MNIST に適用
+
+<img width="654" alt="Screen Shot 2021-05-28 at 14 16 17" src="https://user-images.githubusercontent.com/16760547/119933658-7951e100-bfbf-11eb-8881-1206eb734046.png">
+
+---
+
+# Example 2
+
+- Interact.jl の例
+
+<img width="650" alt="Screen Shot 2021-05-28 at 14 18 45" src="https://user-images.githubusercontent.com/16760547/119933767-aa321600-bfbf-11eb-8c3c-8d1dcd468b62.png">
+
+---
+
+# Example 3
+
+- Images.jl の例
+
+![image](https://user-images.githubusercontent.com/16760547/119933941-fb420a00-bfbf-11eb-997f-c210827e2556.png)
+
+---
+
+class: center, middle
+
+# 続きは GitHub で
+
+Your contribution is welcome!
+
+---
+
+class: center, middle
+
+# Appendix
+
+開発者向け
+
+---
+
 
 # Usage (Part 1)
 
@@ -104,3 +203,4 @@ class: center, middle
 
 # おちまい
 
+- このスライドは https://terasakisatoshi.github.io/MathSeminar.jl/ からも閲覧することができます.
