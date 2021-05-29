@@ -12,6 +12,12 @@ class: center, middle
 
 - 細々と仕事で Python/Julia を用いたプログラムを書いています.
 
+<img width="500" alt="Goma" src="https://user-images.githubusercontent.com/16760547/120053415-f97e5200-c064-11eb-8f0a-122a7f38f45c.jpeg
+">
+
+---
+
+
 # ここではなすこと
 
 - 自作 Julia プロジェクトの [MyWorkflow.jl](https://github.com/terasakisatoshi/MyWorkflow.jl) の紹介
