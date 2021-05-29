@@ -22,6 +22,7 @@ Remark.slideshow("./slideshow/remark")
 Remark.slideshow("./slideshow/franklin")
 Remark.slideshow("./slideshow/dash", options = Dict("ratio" => "16:9"), title = "Dash.jl")
 Remark.slideshow("./slideshow/binarybuilder", options = Dict("ratio" => "16:9"), title = "BinaryBuilder.jl")
+Remark.slideshow("./slideshow/myworkflow", options = Dict("ratio" => "16:9"), title = "MyWorkflow.jl")
 
 
 weave(joinpath("./programming", "weave.jmd"), out_path="./programming", doctype="github")
