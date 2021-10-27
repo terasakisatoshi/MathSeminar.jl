@@ -9,8 +9,8 @@
 
 ```julia:wglmakie
 using JSServe, WGLMakie
-using AbstractPlotting: to_colormap, meshscatter, vbox, wireframe
-using AbstractPlotting: Point3f0, Sphere
+using WGLMakie: to_colormap, meshscatter, vbox, wireframe
+using WGLMakie: Point3f0, Sphere
 
 """
 Write handler by yourself. 
