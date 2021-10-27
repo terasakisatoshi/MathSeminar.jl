@@ -1,4 +1,4 @@
-FROM julia:1.6.1
+FROM julia:1.6.3
 
 RUN apt-get update && \
     apt-get install -y \
@@ -39,7 +39,7 @@ RUN julia -e "using NodeJS; run(\`\$(npm_cmd()) install highlight.js\`); using F
 # Add conda's path
 ENV PATH /root/.julia/conda/3/bin:$PATH
 
-RUN	conda install r-base=3.4 && \
+RUN	conda install r-base && \
     julia -e 'using Pkg; pkg"add RCall"; Pkg.build("RCall"); using RCall'
 
 # set "/work" as default project directory 
@@ -49,17 +49,17 @@ ENV JULIA_PROJECT=/work
 # Install Julia Package
 RUN julia -e 'using Pkg; \
 Pkg.add([\
-    PackageSpec(name="Franklin", version="0.10.36"), \
-    PackageSpec(name="OhMyREPL", version="0.5.10"), \
-    PackageSpec(name="Revise", version="3.1.15"), \
-    PackageSpec(name="Plots", version="1.13.2"), \
-    PackageSpec(name="GR", version="0.57.4"), \
-    PackageSpec(name="SymPy", version="1.0.44"), \
-    PackageSpec(name="PyPlot", version="2.9.0"), \
-    PackageSpec(name="TestImages", version="1.5.0"), \
-    PackageSpec(name="ImageMagick", version="1.2.1"), \
+    PackageSpec(name="Franklin"), \
+    PackageSpec(name="Revise"), \
+    PackageSpec(name="Plots"), \
+    PackageSpec(name="GR"), \
+    PackageSpec(name="SymPy"), \
+    PackageSpec(name="PyPlot"), \
+    PackageSpec(name="ImageIO"), \
+    PackageSpec(name="TestImages"), \
+    PackageSpec(name="ImageMagick"), \
 ]); \
-Pkg.pin(["Franklin", "OhMyREPL", "Revise", "Plots", "GR", "SymPy", "PyPlot", "TestImages"]); \
+Pkg.pin(["Franklin", "Revise", "Plots", "GR", "SymPy", "PyPlot", "ImageIO", "TestImages"]); \
 using PyPlot, SymPy, TestImages ; testimage("c"); testimage("m"); \
 '
 

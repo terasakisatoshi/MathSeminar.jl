@@ -61,9 +61,9 @@ end
 function increment()
     global state
     t = state.thm
-    if state.level == :chapter && (t.chapter += 1) end
-    if state.level == :section && (t.section += 1) end
-    if state.level == :subsection && (t.subsection += 1) end
+    state.level == :chapter && (t.chapter += 1)
+    state.level == :section && (t.section += 1)
+    state.level == :subsection && (t.subsection += 1)
     # update
     state.thm = t
 end
@@ -76,9 +76,9 @@ end
 function resetcount()
     global state
     t = state.thm
-    if state.level == :chapter && (t.chapter = 0) end
-    if state.level == :section && (t.section = 0) end
-    if state.level == :subsection && (t.subsection = 0) end
+    state.level == :chapter && (t.chapter = 0)
+    state.level == :section && (t.section = 0)
+    state.level == :subsection && (t.subsection = 0)
     # update
     state.thm = t
 end
