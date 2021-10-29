@@ -1,0 +1,14 @@
+Julia Version 1.6.3
+Commit ae8452a9e0 (2021-09-23 17:34 UTC)
+Platform Info:
+  OS: Linux (x86_64-pc-linux-gnu)
+  CPU: Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz
+  WORD_SIZE: 64
+  LIBM: libopenlibm
+  LLVM: libLLVM-11.0.1 (ORCJIT, broadwell)
+Environment:
+  JULIA_PATH = /usr/local/julia
+  JULIA_GPG = 3673DF529D9049477F76B37566E3C7DC03D6E495
+  JULIA_VERSION = 1.6.3
+  JULIA_NUM_THREADS = 8
+  JULIA_PROJECT = /work

@@ -1,0 +1,22 @@
+
+.colorblock {
+  background-color: aliceblue;
+  border-left: 5px solid cornflowerblue;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 1em;
+}
+
+.proof {
+    display: block;
+    margin: 12px 0;
+    font-style: normal;
+}
+.proof:before {
+    content: "Proof.";
+}
+.proof:after {
+    content: "\25FC";
+    float:right;
+}
+

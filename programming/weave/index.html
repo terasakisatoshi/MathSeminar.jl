@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+   <link rel="stylesheet" href="/MathSeminar.jl/libs/highlight/github.min.css">
+   
+  
+
+  <link href="/MathSeminar.jl/css/franklin.css" rel="stylesheet">
+  <link href="/MathSeminar.jl/css/vela.css" rel="stylesheet">
+  <script src="/MathSeminar.jl/libs/vela/jquery.min.js"></script>
+  <link rel="stylesheet" href="/MathSeminar.jl/css/theorem.css">
+   <title>Weave.jl</title>  
+  <!-- PLOTLY -->
+  
+
+  <title>Franklin Example | Vela</title>
+</head>
+<body>
+  <div class="main-nav" id="menu">
+    <div class="flex-container">
+      <span class="sidebar-brand">
+        <h3 style='font-size: 25px'>MathSeminar.jl</h3>
+      </span>
+    </div> <!-- class="flex-container" -->
+
+    <nav class="sidebar-nav">
+      <ul class="metismenu"  id="metismenu" >
+        <li><a href="/MathSeminar.jl/index.html">Home</a></li>
+        <li><a href="" class="has-arrow">Slide Show</a>
+          <ul>
+            <li><a href="/MathSeminar.jl/slideshow/remark/build/">Introduction to Remark.jl</a>
+            <li><a href="/MathSeminar.jl/slideshow/franklin/build">Introduction to Franklin.jl</a>
+            <li><a href="/MathSeminar.jl/slideshow/dash/build">Introduction to Dash.jl</a>
+            <li><a href="/MathSeminar.jl/slideshow/binarybuilder/build">Introduction to BinaryBuilder.jl</a>
+            <li><a href="/MathSeminar.jl/slideshow/myworkflow/build">Introduction to MyWorkflow.jl</a>
+          </ul>
+        </li>
+        <li><a href="" class="has-arrow">Programming</a>
+          <ul>
+            <li><a href="/MathSeminar.jl/programming/clang">C</a></li>
+            <li><a href="/MathSeminar.jl/programming/rust">Rust</a></li>
+            <li><a href="/MathSeminar.jl/programming/benchmark_part1"> Julia benchmark Part1 </a></li>
+            <li><a href="/MathSeminar.jl/programming/benchmark_part2"> Julia benchmark Part2 </a></li>
+            <li><a href="/MathSeminar.jl/programming/literatejl">Literate.jl</a></li>
+            <li><a href="/MathSeminar.jl/programming/sympy">SymPy.jl</a></li>
+            <li><a href="/MathSeminar.jl/programming/franklin">Franklin.jl</a></li>
+            <li><a href="/MathSeminar.jl/programming/weave">Weave.jl</a></li>
+            <li><a href="/MathSeminar.jl/programming/theoremcounter">Theorem Counter</a></li>
+            <li><a href="/MathSeminar.jl/programming/images">Images.jl</a></li>
+            <li><a href="/MathSeminar.jl/programming/rcall">RCall.jl</a></li>
+            <li><a href="/MathSeminar.jl/programming/asciinema">asciinema</a></li>
+          </ul>
+        </li>
+        <li><a href="" class="has-arrow">Gallery</a>
+          <ul>
+            <li><a href="/MathSeminar.jl/gallery/animation/">Plots.jl animation</a></li>
+            <li><a href="/MathSeminar.jl/gallery/curve/">Plots.jl curve</a></li>
+            <li><a href="/MathSeminar.jl/gallery/gr/">GR.jl</a></li>
+            <li><a href="/MathSeminar.jl/gallery/plotlyjs1/">PlotlyJS.jl Part1</a></li>
+            <li><a href="/MathSeminar.jl/gallery/plotlyjs2/">PlotlyJS.jl Part2</a></li>
+            <li><a href="/MathSeminar.jl/gallery/plotlyjs3/">PlotlyJS.jl Part3</a></li>
+            <li><a href="/MathSeminar.jl/gallery/jsxgraph_js/">JSXGraph (JS)</a></li>
+            <li><a href="/MathSeminar.jl/gallery/jsxgraph_jl/">JSXGraph (Julia)</a></li>
+            <li><a href="/MathSeminar.jl/gallery/wglmakie/">WGLMakie.jl</a></li>
+          </ul>
+        </li>
+        <li><a href="" class="has-arrow">Topics in Mathematics</a>
+          <ul>
+            <li><a href="/MathSeminar.jl/mathematics/linearalgebra/chapter0">Linear Algebra</a></li>
+            <li><a href="/MathSeminar.jl/mathematics/statistics/dice">Dice</a></li>
+            <li><a href="/MathSeminar.jl/mathematics/statistics/Chisq">Chisq Distributions</a></li>
+            <li><a href="/MathSeminar.jl/mathematics/statistics/Law_of_Large_Numbers">Law_of_Large_Numbers</a></li>
+            <li><a href="/MathSeminar.jl/mathematics/visualizations/triangular_function_addition_theorem">Triangular function addition theorem</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div> <!-- main nav menu -->
+
+  <main id="panel">
+    <div class="toggle-button hamburger hamburger--spin">
+      <div class="hamburger-box">
+        <div class="hamburger-inner"></div>
+      </div>
+    </div>
+    <h1 class="page title">Weave.jl</h1>
+    <hr>
+
+
+<!-- Content appended here -->
+<div class="franklin-content"><p> <h1 id="weavejl"><a href="#weavejl" class="header-anchor">Weave.jl</a></h1></p>
+<p>      </p>
+  </p>
+<p><div class="colorblock"><p><strong>Definition</strong> 1.0.1 &#40;<a href="https://github.com/JunoLab/Weave.jl">Weave.jl</a>&#41; <br/> </p>
+<ul>
+<li><p>Weave <span class="bibref">(<a href="#weavejl">Pastell, Matti. 2017</a>)</span> is a scientific report generator/literate programming tool for Julia. It resembles Pweave, knitr, R Markdown, and Sweave.</p>
+</li>
+<li><p>You can write your documentation and code in input document using Markdown, Noweb or ordinal Julia script syntax, and then use weave function to execute code and generate an output document while capturing results and figures.</p>
+</li>
+</ul></div>
+<p>This file is generated via:</p>
+<pre><code class="julia hljs"><span class="hljs-keyword">using</span> Weave
+thisdir = <span class="hljs-string">&quot;programming/&quot;</span>
+weave(joinpath(thisdir,<span class="hljs-string">&quot;weave.jmd&quot;</span>), out_path=thisdir, doctype=:github)</code></pre>
+<h1 id="references"><a href="#references" class="header-anchor">References</a></h1>
+<ol>
+<li><p><a id="weavejl" class="anchor"></a> Pastell, Matti. 2017. Weave.jl: Scientific Reports Using Julia. The Journal of Open Source Software. <a href="http://dx.doi.org/10.21105/joss.00204">http://dx.doi.org/10.21105/joss.00204</a></p>
+</li>
+</ol>
+<div class="page-foot">
+  <div class="copyright">
+    &copy; SatoshiTerasaki. Last modified: 2021年10月29日 金曜日. Website built with 
+    <a href="http://github.com/terasakisatoshi/MathSeminar.jl">MathSeminar.jl</a>
+    <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
+  </div>
+</div>
+</div><!-- CONTENT ENDS HERE -->
+  </main> <!-- end of id=main -->
+  <script src="/MathSeminar.jl/libs/vela/metisMenu.min.js"></script>
+  <script src="/MathSeminar.jl/libs/vela/slideout.min.js"></script>
+  
+  
+    
+
+
+  
+</body>
+</html>

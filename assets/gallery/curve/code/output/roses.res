@@ -1,0 +1,1 @@
+Plots.AnimatedGif("/work/__site/assets/gallery/curve/code/output/roses.gif")

@@ -1,0 +1,971 @@
+Sending build context to Docker daemon  6.904MB
+Step 1/19 : FROM julia:1.6.3
+1.6.3: Pulling from library/julia
+b380bbd43752: Already exists
+b9b8d869efae: Already exists
+c5bb6b59a073: Already exists
+Digest: sha256:7ad7e4c153714ddec04d3caff9f18ff18203fe854539ca6e174a8bc36c3c200f
+Status: Downloaded newer image for julia:1.6.3
+ ---> ac8cdc518243
+Step 2/19 : RUN apt-get update &&     apt-get install -y     build-essential     cmake     curl     ca-certificates     xvfb     dvipng     texlive-latex-recommended      zip     libxt6 libxrender1 libxext6 libgl1-mesa-glx libqt5widgets5 # GR &&     apt-get clean && rm -rf /var/lib/apt/lists/* # clean up
+ ---> Using cache
+ ---> 65c73b896a51
+Step 3/19 : RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+ ---> Using cache
+ ---> 78219e8aefa6
+Step 4/19 : ENV PATH /root/.cargo/bin:$PATH
+ ---> Using cache
+ ---> 8ad99619fa4e
+Step 5/19 : ENV GKSwstype=100
+ ---> Using cache
+ ---> ac83d1f06dcb
+Step 6/19 : ENV JULIA_NUM_THREADS=8
+ ---> Using cache
+ ---> 6051de8f08a5
+Step 7/19 : RUN mkdir -p ${HOME}/.julia/config &&     echo 'ENV["R_HOME"]="*" \nENV["PYTHON"]="" \n' >> ${HOME}/.julia/config/startup.jl && cat ${HOME}/.julia/config/startup.jl
+ ---> Using cache
+ ---> 09470979450b
+Step 8/19 : RUN julia -e 'using Pkg; Pkg.add(["PyCall", "Conda"]); using PyCall, Conda;using Conda; Conda.add(["matplotlib", "sympy", "numpy", "numba" ]); Pkg.add(["Documenter", "Literate", "Weave", "Franklin", "NodeJS", "Remark"]); '
+ ---> Using cache
+ ---> 7b6d1d4dbd15
+Step 9/19 : RUN julia -e "using NodeJS; run(\`\$(npm_cmd()) install highlight.js\`); using Franklin"
+ ---> Using cache
+ ---> 2edd98ae9215
+Step 10/19 : ENV PATH /root/.julia/conda/3/bin:$PATH
+ ---> Using cache
+ ---> 75d088dcaa14
+Step 11/19 : RUN	conda install r-base &&     julia -e 'using Pkg; pkg"add RCall"; Pkg.build("RCall"); using RCall'
+ ---> Using cache
+ ---> 6c8f769792d9
+Step 12/19 : WORKDIR /work
+ ---> Using cache
+ ---> 24ee3bcbe93e
+Step 13/19 : ENV JULIA_PROJECT=/work
+ ---> Using cache
+ ---> 5c2fcc485991
+Step 14/19 : RUN julia -e 'using Pkg; Pkg.add([    PackageSpec(name="Franklin"),     PackageSpec(name="Revise"),     PackageSpec(name="Plots"),     PackageSpec(name="GR"),     PackageSpec(name="SymPy"),     PackageSpec(name="PyPlot"),     PackageSpec(name="ImageIO"),     PackageSpec(name="TestImages"),     PackageSpec(name="ImageMagick"), ]); Pkg.pin(["Franklin", "Revise", "Plots", "GR", "SymPy", "PyPlot", "ImageIO", "TestImages"]); using PyPlot, SymPy, TestImages ; testimage("c"); testimage("m"); '
+ ---> Using cache
+ ---> 61780810caf9
+Step 15/19 : COPY Project.toml /work
+ ---> ee03c92b28af
+Step 16/19 : COPY ./src/MyUtils.jl /work/src/MyUtils.jl
+ ---> 3fdc73210fec
+Step 17/19 : RUN rm -f /work/Manifest.toml && julia --project=/work -e 'using Pkg; Pkg.instantiate(); Pkg.precompile()' && julia -e 'using InteractiveUtils; versioninfo()'
+ ---> Running in c814960fb5c1
+[91m    Updating[0m[91m registry at `~/.julia/registries/General`
+[0m[91m   Installed StableRNGs ─────────────────────── v1.0.0
+[0m[91m   Installed Polyester ──────────────────────── v0.5.4
+[0m[91m   Installed Plotly ─────────────────────────── v0.4.1
+[0m[91m   Installed BenchmarkTools ─────────────────── v1.2.0
+[0m[91m   Installed JSXGraph ───────────────────────── v0.1.6
+[0m[91m   Installed ImageShow ──────────────────────── v0.3.1
+[0m[91m   Installed Images ─────────────────────────── v0.24.1
+[0m[91m   Installed HDF5 ───────────────────────────── v0.15.7
+[0m[91m   Installed Distributions ──────────────────── v0.25.23
+[0m[91m   Installed Gtk ────────────────────────────── v1.1.9
+[0m[91m   Installed OhMyREPL ───────────────────────── v0.5.10
+[0m[91m   Installed GeometryTypes ──────────────────── v0.8.4
+[0m[91m   Installed PGFPlotsX ──────────────────────── v1.4.1
+[0m[91m   Installed DifferentialEquations ──────────── v6.19.0
+[0m[91m   Installed ImageContainers ────────────────── v0.1.1
+[0m[91m   Installed JSServe ────────────────────────── v1.2.3
+[0m[91m   Installed Plots ──────────────────────────── v1.23.2
+[0m[91m   Installed ORCA ───────────────────────────── v0.5.0
+[0m[91m   Installed BitTwiddlingConvenienceFunctions ─ v0.1.1
+[0m[91m   Installed DiffResults ────────────────────── v1.0.3
+[0m[91m   Installed Sundials ───────────────────────── v4.6.0
+[0m[91m   Installed NLsolve ────────────────────────── v4.5.1
+[0m[91m   Installed UnicodePlots ───────────────────── v2.4.6
+[0m[91m   Installed AssetRegistry ──────────────────── v0.1.0
+[0m[91m   Installed PlotlyJS ───────────────────────── v0.15.0
+[0m[91m   Installed ColorVectorSpace ───────────────── v0.8.7
+[0m[91m   Installed DimensionalPlotRecipes ─────────── v1.2.0
+[0m[91m   Installed ATK_jll ────────────────────────── v2.36.1+0
+[0m[91m   Installed UnPack ─────────────────────────── v1.0.2
+[0m[91m   Installed Tokenize ───────────────────────── v0.5.21
+[0m[91m   Installed Xorg_libXdamage_jll ────────────── v1.1.5+4
+[0m[91m   Installed DelayDiffEq ────────────────────── v5.31.1
+[0m[91m   Installed ImageAxes ──────────────────────── v0.6.9
+[0m[91m   Installed PlotlyBase ─────────────────────── v0.4.3
+[0m[91m   Installed DiffEqNoiseProcess ─────────────── v5.9.0
+[0m[91m   Installed StructTypes ────────────────────── v1.8.1
+[0m[91m   Installed Combinatorics ──────────────────── v1.0.2
+[0m[91m   Installed CodecZlib ──────────────────────── v0.7.0
+[0m[91m   Installed URIParser ──────────────────────── v0.4.1
+[0m[91m   Installed RecursiveArrayTools ────────────── v2.20.0
+[0m[91m   Installed WoodburyMatrices ───────────────── v0.5.5
+[0m[91m   Installed MultivariatePolynomials ────────── v0.3.18
+   Installed SLEEFPirates ───────────────────── v0.6.28
+[0m[91m   Installed TranscodingStreams ─────────────── v0.9.6
+[0m[91m   Installed SafeTestsets ───────────────────── v0.0.1
+[0m[91m   Installed WidgetsBase ────────────────────── v0.1.3
+[0m[91m   Installed FastClosures ───────────────────── v0.3.2
+[0m[91m   Installed DiffRules ──────────────────────── v1.3.1
+[0m[91m   Installed PolyesterWeave ─────────────────── v0.1.2
+[0m[91m   Installed JSON3 ──────────────────────────── v1.9.2
+[0m[91m   Installed Symbolics ──────────────────────── v3.5.1
+[0m[91m   Installed ImageMorphology ────────────────── v0.2.11
+[0m[91m   Installed hicolor_icon_theme_jll ─────────── v0.17.0+3
+[0m[91m   Installed HDF5_jll ───────────────────────── v1.12.0+1
+[0m[91m   Installed DEDataArrays ───────────────────── v0.2.0
+[0m[91m   Installed Mux ────────────────────────────── v0.7.6
+[0m[91m   Installed CommonMark ─────────────────────── v0.8.3
+[0m[91m   Installed ModelingToolkit ────────────────── v6.7.1
+[0m[91m   Installed Pidfile ────────────────────────── v1.2.0
+[0m[91m   Installed Sundials_jll ───────────────────── v5.2.0+1
+[0m[91m   Installed PoissonRandom ──────────────────── v0.4.0
+[0m[91m   Installed ComputationalResources ─────────── v0.3.2
+[0m[91m   Installed MacroTools ─────────────────────── v0.5.9
+[0m[91m   Installed ForwardDiff ────────────────────── v0.10.21
+[0m[91m   Installed AbstractTrees ──────────────────── v0.3.4
+[0m[91m   Installed Libepoxy_jll ───────────────────── v1.5.8+0
+[0m[91m   Installed PDMats ─────────────────────────── v0.11.1
+[0m[91m   Installed IndirectArrays ─────────────────── v0.5.1
+[0m[91m   Installed DiffEqJump ─────────────────────── v7.3.1
+[0m[91m   Installed NonlinearSolve ─────────────────── v0.3.11
+[0m[91m   Installed IfElse ─────────────────────────── v0.1.1
+[0m[91m   Installed iso_codes_jll ──────────────────── v4.3.0+4
+[0m[91m   Installed Remark ─────────────────────────── v0.3.2
+[0m[91m   Installed LineSearches ───────────────────── v7.1.1
+[0m[91m   Installed Random123 ──────────────────────── v1.4.2
+[0m[91m   Installed Parameters ─────────────────────── v0.12.3
+[0m[91m   Installed OrdinaryDiffEq ─────────────────── v5.65.0
+[0m[91m   Installed PositiveFactorizations ─────────── v0.2.4
+[0m[91m   Installed Hyperscript ────────────────────── v0.0.4
+[0m[91m   Installed TermInterface ──────────────────── v0.1.8
+[0m[91m   Installed Netpbm ─────────────────────────── v1.0.1
+[0m[91m   Installed MKL_jll ────────────────────────── v2021.1.1+2
+[0m[91m   Installed SIMDTypes ──────────────────────── v0.1.0
+[0m[91m   Installed FiniteDiff ─────────────────────── v2.8.1
+[0m[91m   Installed MuladdMacro ────────────────────── v0.2.2
+[0m[91m   Installed RecursiveFactorization ─────────── v0.2.4
+[0m[91m   Installed adwaita_icon_theme_jll ─────────── v3.33.92+5
+[0m[91m   Installed QuadGK ─────────────────────────── v2.4.2
+[0m[91m   Installed LabelledArrays ─────────────────── v1.6.5
+[0m[91m   Installed WebSockets ─────────────────────── v1.5.9
+[0m[91m   Installed Cairo ──────────────────────────── v1.0.5
+[0m[91m   Installed ThreadingUtilities ─────────────── v0.4.6
+[0m[91m   Installed VectorizationBase ──────────────── v0.21.18
+[0m[91m   Installed DynamicPolynomials ─────────────── v0.3.21
+[0m[91m   Installed CloseOpenIntervals ─────────────── v0.1.4
+[0m[91m   Installed ExponentialUtilities ───────────── v1.10.1
+[0m[91m   Installed Setfield ───────────────────────── v0.8.0
+[0m[91m   Installed Hwloc ──────────────────────────── v2.0.0
+[0m[91m   Installed Interpolations ─────────────────── v0.13.4
+[0m[91m   Installed Widgets ────────────────────────── v0.6.4
+[0m[91m   Installed NLSolversBase ──────────────────── v7.8.1
+[0m[91m   Installed DiffEqFinancial ────────────────── v2.4.0
+[0m[91m   Installed ParameterizedFunctions ─────────── v5.12.1
+[0m[91m   Installed RuntimeGeneratedFunctions ──────── v0.5.3
+[0m[91m   Installed Xorg_libXtst_jll ───────────────── v1.2.3+4
+[0m[91m   Installed CPUSummary ─────────────────────── v0.1.6
+[0m[91m   Installed SimpleTraits ───────────────────── v0.9.4
+[0m[91m   Installed HostCPUFeatures ────────────────── v0.1.5
+[0m[91m   Installed CompositeTypes ─────────────────── v0.1.2
+[0m[91m   Installed GTK3_jll ───────────────────────── v3.24.30+0
+[0m[91m   Installed Ratios ─────────────────────────── v0.4.2
+[0m[91m   Installed FFTW ───────────────────────────── v1.4.5
+[0m[91m   Installed WebIO ──────────────────────────── v0.8.16
+[0m[91m   Installed FastBroadcast ──────────────────── v0.1.10
+[0m[91m   Installed ImageQualityIndexes ────────────── v0.2.2
+[0m[91m   Installed DomainSets ─────────────────────── v0.5.9
+[0m[91m   Installed FFTW_jll ───────────────────────── v3.3.10+0
+[0m[91m   Installed Lz4_jll ────────────────────────── v1.9.3+0
+[0m[91m   Installed Lazy ───────────────────────────── v0.15.1
+[0m[91m   Installed TimerOutputs ───────────────────── v0.5.13
+[0m[91m   Installed Rotations ──────────────────────── v1.0.3
+[0m[91m   Installed ConstructionBase ───────────────── v1.3.0
+[0m[91m   Installed ManualMemory ───────────────────── v0.1.6
+[0m[91m   Installed MutableArithmetics ─────────────── v0.2.22
+[0m[91m   Installed gdk_pixbuf_jll ─────────────────── v2.42.6+0
+[0m[91m   Installed IntelOpenMP_jll ────────────────── v2018.0.3+2
+[0m[91m   Installed Pango_jll ──────────────────────── v1.47.0+0
+[0m[91m   Installed SteadyStateDiffEq ──────────────── v1.6.6
+[0m[91m   Installed SciMLBase ──────────────────────── v1.19.2
+[0m[91m   Installed IterativeSolvers ───────────────── v0.9.1
+[0m[91m   Installed JuliaFormatter ─────────────────── v0.18.1
+[0m[91m   Installed Optim ──────────────────────────── v1.4.1
+[0m[91m   Installed at_spi2_atk_jll ────────────────── v2.34.1+4
+[0m[91m   Installed DiffEqPhysics ──────────────────── v3.9.0
+[0m[91m   Installed ArrayLayouts ───────────────────── v0.7.7
+[0m[91m   Installed FFTViews ───────────────────────── v0.3.2
+[0m[91m   Installed JLFzf ──────────────────────────── v0.1.4
+[0m[91m   Installed ColorTypes ─────────────────────── v0.10.12
+[0m[91m   Installed ImageCore ──────────────────────── v0.8.22
+[0m[91m   Installed ImageMetadata ──────────────────── v0.9.5
+[0m[91m   Installed ArgCheck ───────────────────────── v2.1.0
+[0m[91m   Installed Blosc_jll ──────────────────────── v1.21.0+0
+[0m[91m   Installed CustomUnitRanges ───────────────── v1.0.2
+[0m[91m   Installed Blosc ──────────────────────────── v0.7.1
+[0m[91m   Installed TiledIteration ─────────────────── v0.3.1
+[0m[91m   Installed DiffEqBase ─────────────────────── v6.75.0
+[0m[91m   Installed BandedMatrices ─────────────────── v0.16.11
+[0m[91m   Installed JSExpr ─────────────────────────── v0.5.3
+[0m[91m   Installed CatIndices ─────────────────────── v0.2.2
+[0m[91m   Installed StochasticDiffEq ───────────────── v6.40.0
+[0m[91m   Installed GLFW_jll ───────────────────────── v3.3.5+1
+[0m[91m   Installed BoundaryValueDiffEq ────────────── v2.7.1
+[0m[91m   Installed CoordinateTransformations ──────── v0.6.1
+[0m[91m   Installed QuartzImageIO ──────────────────── v0.7.3
+[0m[91m   Installed TriangularSolve ────────────────── v0.1.7
+[0m[91m   Installed TreeViews ──────────────────────── v0.3.0
+[0m[91m   Installed SymbolicUtils ──────────────────── v0.17.0
+[0m[91m   Installed RandomNumbers ──────────────────── v1.5.3
+[0m[91m   Installed ZygoteRules ────────────────────── v0.2.2
+[0m[91m   Installed IdentityRanges ─────────────────── v0.3.1
+[0m[91m   Installed ResettableStacks ───────────────── v1.1.1
+[0m[91m   Installed Pipe ───────────────────────────── v1.3.0
+[0m[91m   Installed ImageDistances ─────────────────── v0.2.13
+[0m[91m   Installed FunctionalCollections ──────────── v0.5.0
+[0m[91m   Installed ArnoldiMethod ──────────────────── v0.1.0
+[0m[91m   Installed at_spi2_core_jll ───────────────── v2.34.0+4
+[0m[91m   Installed ImageTransformations ───────────── v0.8.13
+[0m[91m   Installed VertexSafeGraphs ───────────────── v0.1.2
+[0m[91m   Installed AxisAlgorithms ─────────────────── v1.0.1
+[0m[91m   Installed Bijections ─────────────────────── v0.1.3
+[0m[91m   Installed LayoutPointers ─────────────────── v0.1.4
+[0m[91m   Installed MultiScaleArrays ───────────────── v1.8.1
+[0m[91m   Installed CSTParser ──────────────────────── v3.2.4
+[0m[91m   Installed CommonSubexpressions ───────────── v0.3.0
+[0m[91m   Installed BinDeps ────────────────────────── v1.0.2
+[0m[91m   Installed ImageFiltering ─────────────────── v0.6.21
+[0m[91m   Installed Dbus_jll ───────────────────────── v1.12.16+3
+[0m[91m   Installed fzf_jll ────────────────────────── v0.27.2+0
+[0m[91m   Installed Hiccup ─────────────────────────── v0.2.2
+[0m[91m   Installed Xorg_libXcomposite_jll ─────────── v0.4.5+4
+[0m[91m   Installed MsgPack ────────────────────────── v1.1.0
+[0m[91m   Installed FillArrays ─────────────────────── v0.12.7
+[0m[91m   Installed StrideArraysCore ───────────────── v0.2.7
+[0m[91m   Installed LightGraphs ────────────────────── v1.3.5
+[0m[91m   Installed Hwloc_jll ──────────────────────── v2.5.0+0
+[0m[91m   Installed DiffEqCallbacks ────────────────── v2.17.0
+[0m[91m   Installed Parsers ────────────────────────── v2.1.1
+[0m[91m   Installed FunctionWrappers ───────────────── v1.1.2
+[0m[91m   Installed Observables ────────────────────── v0.4.0
+[0m[91m   Installed Blink ──────────────────────────── v0.12.5
+[0m[91m   Installed SIMDDualNumbers ────────────────── v0.1.0
+[0m[91m   Installed PreallocationTools ─────────────── v0.1.1
+[0m[91m   Installed Unitful ────────────────────────── v1.9.1
+[0m[91m   Installed SparseDiffTools ────────────────── v1.17.1
+[0m[91m   Installed ImageContrastAdjustment ────────── v0.3.7
+[0m[91m   Installed LoopVectorization ──────────────── v0.12.90
+[0m[91m    Updating `/work/Project.toml`
+[0m[91m [0m[91m [6e4b80f9] + BenchmarkTools v1.2.0
+[0m[91m  [0c46a032] [0m[91m+ DifferentialEquations v6.19.0
+[0m[91m  [31c24e10] + Distributions v0.25.23
+[0m[91m  [c87230d0] [0m[91m+ FFMPEG v0.4.1
+[0m[91m  [5789e2e9] [0m[91m+ FileIO v1.11.1
+[0m[91m  [713c75ef] [0m[91m+ Franklin v0.10.61
+[0m[91m  [28b8d3ca] [0m[91m+ GR v0.61.0
+[0m[91m  [5c1252a2] [0m[91m+ GeometryBasics v0.4.1
+[0m[91m  [4d00f742] [0m[91m+ GeometryTypes v0.8.4
+[0m[91m  [4c0ca9eb] + Gtk v1.1.9
+[0m[91m  [f67ccb44] [0m[91m+ HDF5 v0.15.7[0m[91m
+[0m[91m [0m[91m [d7fcca20] [0m[91m+ ImageContainers v0.1.1[0m[91m
+[0m[91m [0m[91m [82e4d734] [0m[91m+ ImageIO v0.5.9[0m[91m
+[0m[91m [0m[91m [6218d12a] [0m[91m+ ImageMagick v1.2.1[0m[91m
+[0m[91m  [4e3cecfd] [0m[91m+ ImageShow v0.3.1
+[0m[91m  [916415d5] [0m[91m+ Images v0.24.1
+[0m[91m  [682c06a0] [0m[91m+ JSON v0.21.2
+[0m[91m  [824d6782] [0m[91m+ JSServe v1.2.3
+[0m[91m  [97e4c2e4] [0m[91m+ JSXGraph v0.1.6
+[0m[91m  [b964fa9f] [0m[91m+ LaTeXStrings v1.2.1
+[0m[91m  [98b081ad] + Literate v2.9.4
+[0m[91m  [16fef848] [0m[91m+ LiveServer v0.7.0
+[0m[91m  [2bd173c7] + NodeJS v1.3.0
+[0m[91m  [47be7bcc] [0m[91m+ ORCA v0.5.0
+[0m[91m  [6fe1bfb0] [0m[91m+ OffsetArrays v1.10.7
+[0m[91m [0m[91m [5fb14364] + OhMyREPL v0.5.10
+[0m[91m  [8314cec4] [0m[91m+ PGFPlotsX v1.4.1
+[0m[91m  [58dd65bb] [0m[91m+ Plotly v0.4.1
+[0m[91m  [f0f68f2c] [0m[91m+ PlotlyJS v0.15.0
+[0m[91m  [91a5bcdd] [0m[91m+ Plots v1.23.2
+[0m[91m  [f517fe37] [0m[91m+ Polyester v0.5.4
+[0m[91m  [438e738f] [0m[91m+ PyCall v1.92.5
+[0m[91m [0m[91m [d330b81b] + PyPlot v2.10.0[0m[91m
+[0m[91m [0m[91m [6f49c342] + RCall v0.13.12
+[0m[91m [0m[91m [79b45036] + Remark v0.3.2
+[0m[91m [0m[91m [295af30f] + Revise v3.1.20
+[0m[91m [0m[91m [276daf66] + SpecialFunctions v1.8.1
+[0m[91m [0m[91m [860ef19b] + StableRNGs v1.0.0[0m[91m
+[0m[91m [0m[91m [90137ffa] + StaticArrays v1.2.13
+[0m[91m [0m[91m [24249f21] + SymPy v1.1.0[0m[91m
+[0m[91m [0m[91m [5e47fb64] + TestImages v1.6.2
+[0m[91m [0m[91m [b8865327] + UnicodePlots v2.4.6
+[0m[91m    Updating `/work/Manifest.toml`
+[0m[91m  [621f4979] + AbstractFFTs v1.0.1
+[0m[91m [0m[91m [1520ce14] + AbstractTrees v0.3.4
+[0m[91m [0m[91m [79e6a3ab] + Adapt v3.3.1
+[0m[91m [0m[91m [dce04be8] + ArgCheck v2.1.0
+[0m[91m [0m[91m [ec485272] + ArnoldiMethod v0.1.0
+[0m[91m [0m[91m [4fba245c] + ArrayInterface v3.1.36
+[0m[91m [0m[91m [4c555306] + ArrayLayouts v0.7.7
+[0m[91m [0m[91m [bf4720bc] + AssetRegistry v0.1.0
+[0m[91m [0m[91m [13072b0f] + AxisAlgorithms v1.0.1
+[0m[91m [0m[91m [39de3d68] + AxisArrays v0.4.4[0m[91m
+[0m[91m [0m[91m [aae01518] + BandedMatrices v0.16.11[0m[91m
+[0m[91m [0m[91m [6e4b80f9] + BenchmarkTools v1.2.0[0m[91m
+[0m[91m  [e2ed5e7c] + Bijections v0.1.3
+  [9e28174c] + BinDeps v1.0.2
+  [b99e7846] + BinaryProvider v0.5.10
+[0m[91m  [62783981] + BitTwiddlingConvenienceFunctions v0.1.1
+  [ad839575] + Blink v0.12.5
+[0m[91m  [a74b3585] + Blosc v0.7.1
+  [764a87c0] + BoundaryValueDiffEq v2.7.1
+[0m[91m  [fa961155] + CEnum v0.4.1
+  [2a0fbf3d] + CPUSummary v0.1.6
+[0m[91m  [00ebfdb7] + CSTParser v3.2.4
+  [159f3aea] + Cairo v1.0.5
+[0m[91m  [aafaddc9] + CatIndices v0.2.2
+[0m[91m [0m[91m [324d7699] + CategoricalArrays v0.10.1
+[0m[91m [0m[91m [d360d2e6] + ChainRulesCore v1.11.0
+[0m[91m [0m[91m [fb6a15b2] + CloseOpenIntervals v0.1.4
+[0m[91m [0m[91m [da1fd8a2] + CodeTracking v1.0.6
+[0m[91m  [944b1d66] + CodecZlib v0.7.0
+  [35d6a980] + ColorSchemes v3.15.0
+  [3da002f7] [0m[91m+ ColorTypes v0.10.12
+  [c3611d14] + ColorVectorSpace v0.8.7
+  [5ae59095] + Colors v0.12.8
+[0m[91m  [861a8166] + Combinatorics v1.0.2
+  [3709ef60] + CommonEq v0.2.0
+[0m[91m  [a80b9123] + CommonMark v0.8.3
+  [38540f10] + CommonSolve v0.2.0
+[0m[91m  [bbf7d656] [0m[91m+ CommonSubexpressions v0.3.0
+[0m[91m [0m[91m [34da2185] + Compat v3.39.0
+[0m[91m [0m[91m [b152e2b5] + CompositeTypes v0.1.2
+[0m[91m [0m[91m [ed09eef8] + ComputationalResources v0.3.2
+[0m[91m [0m[91m [8f4d0f93] + Conda v1.5.2
+  [187b0558] + ConstructionBase v1.3.0
+  [d38c429a] + Contour v0.5.7
+  [150eb455] + CoordinateTransformations v0.6.1
+[0m[91m  [a8cc5b0e] + Crayons v4.0.4
+  [dc8bdbbb] + CustomUnitRanges v1.0.2
+  [754358af] + DEDataArrays v0.2.0
+[0m[91m  [9a962f9c] + DataAPI v1.9.0
+  [a93c6f00] + DataFrames v1.2.2
+[0m[91m  [864edb3b] + DataStructures v0.18.10
+  [e2d170a0] + DataValueInterfaces v1.0.0
+[0m[91m  [3f0dd361] + DefaultApplication v1.0.0
+  [bcd4f6db] + DelayDiffEq v5.31.1
+  [2b5f629d] + DiffEqBase v6.75.0
+[0m[91m  [459566f4] + DiffEqCallbacks v2.17.0
+  [5a0ffddc] + DiffEqFinancial v2.4.0
+[0m[91m  [c894b116] + DiffEqJump v7.3.1
+  [77a26b50] + DiffEqNoiseProcess v5.9.0
+  [055956cb] + DiffEqPhysics v3.9.0
+[0m[91m  [163ba53b] + DiffResults v1.0.3
+  [b552c78f] + DiffRules v1.3.1
+[0m[91m  [0c46a032] + DifferentialEquations v6.19.0
+  [c619ae07] + DimensionalPlotRecipes v1.2.0
+  [b4f34e82] [0m[91m+ Distances v0.10.5
+[0m[91m  [31c24e10] + Distributions v0.25.23
+  [ffbed154] + DocStringExtensions v0.8.6
+  [e30172f5] + Documenter v0.25.2
+[0m[91m [0m[91m [997ab1e6] + DocumenterMarkdown v0.2.2
+[0m[91m [0m[91m [5b8099bc] + DomainSets v0.5.9
+[0m[91m  [7c1d4256] + DynamicPolynomials v0.3.21
+  [da5c29d0] + EllipsisNotation v1.1.0
+[0m[91m  [d4d017d3] + ExponentialUtilities v1.10.1
+  [e2ba6199] + ExprTools v0.1.6
+  [c87230d0] + FFMPEG v0.4.1
+[0m[91m  [4f61f5a4] + FFTViews v0.3.2
+  [7a1cc6ca] + FFTW v1.4.5
+[0m[91m  [7034ab61] + FastBroadcast v0.1.10
+  [9aa1b823] + FastClosures v0.3.2
+[0m[91m  [5789e2e9] + FileIO v1.11.1
+  [1a297f60] + FillArrays v0.12.7
+  [6a86dc24] + FiniteDiff v2.8.1
+[0m[91m  [53c48c17] + FixedPointNumbers v0.8.4
+[0m[91m  [59287772] [0m[91m+ Formatting v0.4.2
+[0m[91m  [f6369f11] + ForwardDiff v0.10.21
+[0m[91m  [713c75ef] [0m[91m+ Franklin v0.10.61
+[0m[91m  [3a985190] + FranklinTemplates v0.8.22
+  [069b7b12] + FunctionWrappers v1.1.2
+  [de31a74c] + FunctionalCollections v0.5.0
+[0m[91m  [28b8d3ca] [0m[91m+ GR v0.61.0
+[0m[91m  [5c1252a2] + GeometryBasics v0.4.1
+[0m[91m  [4d00f742] + GeometryTypes v0.8.4
+[0m[91m  [c27321d9] [0m[91m+ Glob v1.3.0
+[0m[91m  [a2bd30eb] + Graphics v1.1.1
+  [42e2da0e] + Grisu v1.0.2
+  [4c0ca9eb] + Gtk v1.1.9
+[0m[91m  [f67ccb44] + HDF5 v0.15.7
+[0m[91m  [cd3eb016] + HTTP v0.9.16
+[0m[91m  [9fb69e20] + Hiccup v0.2.2[0m[91m
+[0m[91m  [3e5b6fbb] + HostCPUFeatures v0.1.5
+  [0e44f5e4] + Hwloc v2.0.0
+  [47d2ed2b] + Hyperscript v0.0.4
+[0m[91m  [b5f81e59] + IOCapture v0.2.2
+  [bbac6d45] + IdentityRanges v0.3.1
+  [615f187c] + IfElse v0.1.1
+  [2803e5a7] + ImageAxes v0.6.9
+  [d7fcca20] + ImageContainers v0.1.1
+  [f332f351] + ImageContrastAdjustment v0.3.7
+[0m[91m  [a09fc81d] + ImageCore v0.8.22
+  [51556ac3] + ImageDistances v0.2.13
+[0m[91m  [6a3955dd] + ImageFiltering v0.6.21
+[0m[91m  [82e4d734] + ImageIO v0.5.9
+  [6218d12a] + ImageMagick v1.2.1
+  [bc367c6b] + ImageMetadata v0.9.5
+[0m[91m  [787d08f9] + ImageMorphology v0.2.11
+[0m[91m  [2996bd0c] [0m[91m+ ImageQualityIndexes v0.2.2
+[0m[91m  [4e3cecfd] + ImageShow v0.3.1
+  [02fcd773] + ImageTransformations v0.8.13
+[0m[91m  [916415d5] + Images v0.24.1
+[0m[91m  [9b13fd28] + IndirectArrays v0.5.1
+  [d25df0c9] + Inflate v0.1.2
+  [83e8ac13] + IniFile v0.5.0
+[0m[91m  [a98d9a8b] [0m[91m+ Interpolations v0.13.4
+[0m[91m  [8197267c] + IntervalSets v0.5.3
+  [3587e190] + InverseFunctions v0.1.1
+[0m[91m  [41ab1584] [0m[91m+ InvertedIndices v1.1.0
+[0m[91m [0m[91m [92d709cd] + IrrationalConstants v0.1.1[0m[91m
+[0m[91m [0m[91m [c8e1da08] + IterTools v1.3.0[0m[91m
+[0m[91m  [42fd0dbc] + IterativeSolvers v0.9.1
+[0m[91m  [82899510] + IteratorInterfaceExtensions v1.0.0
+[0m[91m  [1019f520] + JLFzf v0.1.4
+[0m[91m  [692b3bcd] + JLLWrappers v1.3.0
+[0m[91m  [97c1335a] + JSExpr v0.5.3
+[0m[91m  [682c06a0] [0m[91m+ JSON v0.21.2
+[0m[91m  [0f8b85d8] + JSON3 v1.9.2
+[0m[91m  [824d6782] + JSServe v1.2.3
+[0m[91m  [97e4c2e4] + JSXGraph v0.1.6
+[0m[91m  [98e50ef6] [0m[91m+ JuliaFormatter v0.18.1
+[0m[91m  [aa1ae85d] + JuliaInterpreter v0.8.21
+[0m[91m  [b964fa9f] + LaTeXStrings v1.2.1
+[0m[91m  [2ee39098] + LabelledArrays v1.6.5
+[0m[91m  [23fbe1c1] + Latexify v0.15.9[0m[91m
+[0m[91m  [10f19ff3] + LayoutPointers v0.1.4
+[0m[91m  [50d2b5c4] + Lazy v0.15.1
+[0m[91m  [093fc24a] [0m[91m+ LightGraphs v1.3.5
+[0m[91m  [d3d80556] + LineSearches v7.1.1
+[0m[91m  [98b081ad] + Literate v2.9.4
+[0m[91m  [16fef848] [0m[91m+ LiveServer v0.7.0
+[0m[91m  [2ab3a3ac] + LogExpFunctions v0.3.4
+[0m[91m  [bdcacae8] + LoopVectorization v0.12.90
+[0m[91m  [6f1432cf] + LoweredCodeUtils v2.1.2
+[0m[91m  [1914dd2f] + MacroTools v0.5.9
+[0m[91m  [d125e4d3] [0m[91m+ ManualMemory v0.1.6
+  [dbb5928d] + MappedArrays v0.4.1
+[0m[91m  [739be429] + MbedTLS v1.0.3
+[0m[91m  [442fdcdd] + Measures v0.3.1
+ [0m[91m [e1d29d7a] + Missings v1.0.2
+[0m[91m  [961ee093] + ModelingToolkit v6.7.1
+[0m[91m  [e94cdb99] + MosaicViews v0.3.3
+  [99f44e22] + MsgPack v1.1.0
+  [46d2c3a1] + MuladdMacro v0.2.2
+  [f9640e96] + MultiScaleArrays v1.8.1
+  [102ac46a] + MultivariatePolynomials v0.3.18
+  [ffc61752] + Mustache v1.0.10
+  [d8a4904e] + MutableArithmetics v0.2.22
+  [a975b10e] + Mux v0.7.6
+  [d41bc354] + NLSolversBase v7.8.1
+  [2774e3e8] + NLsolve v4.5.1
+  [77ba4419] + NaNMath v0.3.5
+[0m[91m  [f09324ee] + Netpbm v1.0.1
+[0m[91m  [2bd173c7] [0m[91m+ NodeJS v1.3.0
+[0m[91m  [8913a72c] + NonlinearSolve v0.3.11
+[0m[91m  [47be7bcc] + ORCA v0.5.0
+[0m[91m  [510215fc] + Observables v0.4.0
+[0m[91m  [6fe1bfb0] + OffsetArrays v1.10.7
+[0m[91m  [5fb14364] [0m[91m+ OhMyREPL v0.5.10
+[0m[91m  [52e1d378] + OpenEXR v0.3.2
+[0m[91m  [429524aa] + Optim v1.4.1
+[0m[91m  [bac558e1] + OrderedCollections v1.4.1
+[0m[91m  [1dea7af3] [0m[91m+ OrdinaryDiffEq v5.65.0
+[0m[91m  [90014a1f] + PDMats v0.11.1
+[0m[91m  [8314cec4] + PGFPlotsX v1.4.1
+[0m[91m  [f57f5aa1] + PNGFiles v0.3.11
+[0m[91m  [5432bcbf] + PaddedViews v0.5.10
+[0m[91m  [65888b18] + ParameterizedFunctions v5.12.1
+[0m[91m  [d96e819e] + Parameters v0.12.3
+[0m[91m  [69de0a69] + Parsers v2.1.1
+[0m[91m  [fa939f87] + Pidfile v1.2.0
+[0m[91m  [b98c9c47] + Pipe v1.3.0
+[0m[91m  [eebad327] [0m[91m+ PkgVersion v0.1.1
+[0m[91m  [ccf2f8ad] + PlotThemes v2.0.1
+[0m[91m  [995b91a9] + PlotUtils v1.0.15
+[0m[91m  [58dd65bb] + Plotly v0.4.1
+[0m[91m  [a03496cd] + PlotlyBase v0.4.3
+[0m[91m  [f0f68f2c] + PlotlyJS v0.15.0
+[0m[91m  [91a5bcdd] + Plots v1.23.2
+[0m[91m  [e409e4f3] + PoissonRandom v0.4.0
+[0m[91m  [f517fe37] + Polyester v0.5.4
+[0m[91m  [1d0040c9] + PolyesterWeave v0.1.2
+[0m[91m  [2dfb63ee] + PooledArrays v1.3.0
+[0m[91m  [85a6dd25] + PositiveFactorizations v0.2.4
+[0m[91m  [d236fae5] + PreallocationTools v0.1.1
+[0m[91m  [21216c6a] + Preferences v1.2.2
+[0m[91m  [08abe8d2] + PrettyTables v1.2.3
+[0m[91m  [92933f4c] + ProgressMeter v1.7.1
+[0m[91m  [438e738f] + PyCall v1.92.5
+[0m[91m  [d330b81b] + PyPlot v2.10.0
+[0m[91m  [1fd47b50] + QuadGK v2.4.2
+[0m[91m  [dca85d43] + QuartzImageIO v0.7.3
+[0m[91m  [6f49c342] + RCall v0.13.12
+[0m[91m  [74087812] + Random123 v1.4.2
+[0m[91m  [e6cf234a] + RandomNumbers v1.5.3
+[0m[91m  [b3c3ace0] + RangeArrays v0.3.2
+[0m[91m  [c84ed2f1] [0m[91m+ Ratios v0.4.2
+[0m[91m  [3cdcf5f2] + RecipesBase v1.1.2
+[0m[91m  [01d81517] + RecipesPipeline v0.4.1
+[0m[91m  [731186ca] [0m[91m+ RecursiveArrayTools v2.20.0
+[0m[91m  [f2c3362d] + RecursiveFactorization v0.2.4
+[0m[91m  [189a3867] + Reexport v1.2.2
+[0m[91m  [79b45036] + Remark v0.3.2
+[0m[91m  [ae029012] + Requires v1.1.3
+[0m[91m  [ae5879a3] + ResettableStacks v1.1.1
+[0m[91m  [295af30f] + Revise v3.1.20
+[0m[91m  [79098fc4] + Rmath v0.7.0
+[0m[91m  [6038ab10] + Rotations v1.0.3
+[0m[91m  [7e49a35a] [0m[91m+ RuntimeGeneratedFunctions v0.5.3
+[0m[91m  [3cdde19b] + SIMDDualNumbers v0.1.0
+[0m[91m  [94e857df] + SIMDTypes v0.1.0
+[0m[91m  [476501e8] + SLEEFPirates v0.6.28
+[0m[91m  [1bc83da4] + SafeTestsets v0.0.1
+[0m[91m  [0bca4576] + SciMLBase v1.19.2
+[0m[91m  [6c6a2e73] + Scratch v1.1.0
+[0m[91m  [efcf1570] + Setfield v0.8.0
+[0m[91m  [1277b4bf] + ShiftedArrays v1.0.0
+[0m[91m  [992d4aef] + Showoff v1.0.3
+[0m[91m  [699a6c99] + SimpleTraits v0.9.4
+[0m[91m  [a2af1166] + SortingAlgorithms v1.0.1
+[0m[91m  [47a9eef4] + SparseDiffTools v1.17.1
+[0m[91m  [276daf66] + SpecialFunctions v1.8.1
+[0m[91m  [860ef19b] + StableRNGs v1.0.0
+[0m[91m  [cae243ae] + StackViews v0.1.1
+[0m[91m  [aedffcd0] + Static v0.4.0
+[0m[91m  [90137ffa] [0m[91m+ StaticArrays v1.2.13
+[0m[91m  [82ae8749] + StatsAPI v1.0.0
+[0m[91m  [2913bbd2] + StatsBase v0.33.12
+[0m[91m  [4c63d2b9] + StatsFuns v0.9.12[0m[91m
+[0m[91m  [3eaba693] + StatsModels v0.6.28
+[0m[91m  [9672c7b4] + SteadyStateDiffEq v1.6.6
+[0m[91m  [789caeaf] + StochasticDiffEq v6.40.0
+[0m[91m  [7792a7ef] + StrideArraysCore v0.2.7
+[0m[91m  [88034a9c] + StringDistances v0.11.1
+[0m[91m  [09ab397b] [0m[91m+ StructArrays v0.6.3
+[0m[91m  [856f2bd8] + StructTypes v1.8.1[0m[91m
+[0m[91m  [c3572dad] + Sundials v4.6.0
+  [24249f21] + SymPy v1.1.0
+  [d1185830] + SymbolicUtils v0.17.0
+  [0c5d862f] + Symbolics v3.5.1
+  [3783bdb8] + TableTraits v1.0.1
+[0m[91m  [bd369af6] + Tables v1.6.0
+[0m[91m  [8ea1fca8] + TermInterface v0.1.8
+[0m[91m  [5e47fb64] [0m[91m+ TestImages v1.6.2
+ [0m[91m [8290d209] + ThreadingUtilities v0.4.6
+[0m[91m  [731e570b] + TiffImages v0.5.1
+[0m[91m  [06e1c1a7] + TiledIteration v0.3.1
+[0m[91m  [a759f4b9] [0m[91m+ TimerOutputs v0.5.13
+[0m[91m  [0796e94c] + Tokenize v0.5.21
+[0m[91m  [3bb67fe8] + TranscodingStreams v0.9.6
+[0m[91m  [a2a6695c] + TreeViews v0.3.0
+[0m[91m  [d5829a12] [0m[91m+ TriangularSolve v0.1.7
+[0m[91m  [30578b45] + URIParser v0.4.1
+[0m[91m  [5c2747f8] + URIs v1.3.0[0m[91m
+[0m[91m  [3a884ed6] + UnPack v1.0.2
+[0m[91m  [b8865327] + UnicodePlots v2.4.6[0m[91m
+[0m[91m  [1986cc42] + Unitful v1.9.1
+[0m[91m  [3d5dd08c] [0m[91m+ VectorizationBase v0.21.18
+[0m[91m  [81def892] + VersionParsing v1.2.1
+[0m[91m  [19fa3120] + VertexSafeGraphs v0.1.2
+  [0f1e0344] + WebIO v0.8.16
+[0m[91m  [104b5d7c] + WebSockets v1.5.9[0m[91m
+[0m[91m  [cc8bc4a8] + Widgets v0.6.4
+[0m[91m  [eead4739] + WidgetsBase v0.1.3
+[0m[91m  [1b915085] + WinReg v0.3.1
+[0m[91m  [efce3f68] + WoodburyMatrices v0.5.5[0m[91m
+[0m[91m  [700de1a5] + ZygoteRules v0.2.2
+[0m[91m  [7b86fcea] + ATK_jll v2.36.1+0
+[0m[91m  [0b7ba130] + Blosc_jll v1.21.0+0
+[0m[91m  [6e34b625] + Bzip2_jll v1.0.8+0
+[0m[91m  [83423d85] + Cairo_jll v1.16.1+0
+[0m[91m  [ee1fde0b] + Dbus_jll v1.12.16+3
+[0m[91m  [5ae413db] + EarCut_jll v2.2.3+0
+[0m[91m  [2e619515] + Expat_jll v2.2.10+0
+[0m[91m  [b22a6f82] + FFMPEG_jll v4.4.0+0
+[0m[91m  [f5851436] [0m[91m+ FFTW_jll v3.3.10+0
+[0m[91m  [a3f928ae] + Fontconfig_jll v2.13.93+0
+[0m[91m  [d7e528f0] + FreeType2_jll v2.10.4+0
+[0m[91m  [559328eb] + FriBidi_jll v1.0.10+0
+[0m[91m  [0656b61e] + GLFW_jll v3.3.5+1
+[0m[91m  [d2c73de3] + GR_jll v0.61.0+0
+[0m[91m  [77ec8976] + GTK3_jll v3.24.30+0
+[0m[91m  [78b55507] + Gettext_jll v0.21.0+0
+[0m[91m  [7746bdde] + Glib_jll v2.68.3+0
+[0m[91m  [3b182d85] + Graphite2_jll v1.3.14+0
+[0m[91m  [0234f1f7] + HDF5_jll v1.12.0+1
+[0m[91m  [2e76f6c2] + HarfBuzz_jll v2.8.1+0
+[0m[91m  [e33a78d0] + Hwloc_jll v2.5.0+0
+[0m[91m  [c73af94c] + ImageMagick_jll v6.9.12+0
+[0m[91m  [905a6f67] [0m[91m+ Imath_jll v3.1.2+0
+[0m[91m  [1d5cc7b8] [0m[91m+ IntelOpenMP_jll v2018.0.3+2
+[0m[91m  [aacddb02] [0m[91m+ JpegTurbo_jll v2.1.0+0
+[0m[91m  [c1c5ebd0] + LAME_jll v3.100.1+0
+[0m[91m  [dd4b983a] + LZO_jll v2.10.1+0
+[0m[91m  [42c93a91] + Libepoxy_jll v1.5.8+0
+[0m[91m  [e9f186c6] + Libffi_jll v3.2.2+0
+[0m[91m  [d4300ac3] + Libgcrypt_jll v1.8.7+0
+[0m[91m  [7e76a0d4] + Libglvnd_jll v1.3.0+3
+[0m[91m  [7add5ba3] + Libgpg_error_jll v1.42.0+0
+[0m[91m  [94ce4f54] + Libiconv_jll v1.16.1+1
+[0m[91m  [4b2f31a3] + Libmount_jll v2.35.0+0
+[0m[91m  [89763e89] [0m[91m+ Libtiff_jll v4.3.0+0
+[0m[91m  [38a345b3] + Libuuid_jll v2.36.0+0
+[0m[91m  [5ced341a] [0m[91m+ Lz4_jll v1.9.3+0
+[0m[91m  [856f044c] + MKL_jll v2021.1.1+2
+[0m[91m  [e7412a2a] + Ogg_jll v1.3.5+0
+[0m[91m  [18a262bb] + OpenEXR_jll v3.1.1+0
+[0m[91m  [458c3c95] + OpenSSL_jll v1.1.10+0
+[0m[91m  [efe28fd5] + OpenSpecFun_jll v0.5.5+0
+[0m[91m  [91d4177d] + Opus_jll v1.3.2+0
+[0m[91m  [2f80f16e] + PCRE_jll v8.44.0+0
+[0m[91m  [36c8627f] + Pango_jll v1.47.0+0
+[0m[91m  [30392449] + Pixman_jll v0.40.1+0
+  [ea2cea3b] + Qt5Base_jll v5.15.3+0
+  [f50d1b31] + Rmath_jll v0.3.0+0
+[0m[91m  [fb77eaff] + Sundials_jll v5.2.0+1
+[0m[91m  [a2964d1f] + Wayland_jll v1.19.0+0
+[0m[91m  [2381bf8a] + Wayland_protocols_jll v1.18.0+4
+[0m[91m  [02c8fc9c] + XML2_jll v2.9.12+0
+[0m[91m  [aed1982a] + XSLT_jll v1.1.34+0
+[0m[91m  [4f6342f7] + Xorg_libX11_jll v1.6.9+4
+[0m[91m  [0c0b7dd1] + Xorg_libXau_jll v1.0.9+4
+[0m[91m  [3c9796d7] + Xorg_libXcomposite_jll v0.4.5+4
+[0m[91m  [935fb764] + Xorg_libXcursor_jll v1.2.0+4
+[0m[91m  [0aeada51] + Xorg_libXdamage_jll v1.1.5+4
+[0m[91m  [a3789734] [0m[91m+ Xorg_libXdmcp_jll v1.1.3+4
+[0m[91m  [1082639a] [0m[91m+ Xorg_libXext_jll v1.3.4+4
+[0m[91m  [d091e8ba] [0m[91m+ Xorg_libXfixes_jll v5.0.3+4
+[0m[91m  [a51aa0fd] + Xorg_libXi_jll v1.7.10+4
+[0m[91m  [d1454406] + Xorg_libXinerama_jll v1.1.4+4
+[0m[91m  [ec84b674] + Xorg_libXrandr_jll v1.5.2+4
+[0m[91m  [ea2f1a96] + Xorg_libXrender_jll v0.9.10+4
+[0m[91m  [b6f176f1] + Xorg_libXtst_jll v1.2.3+4
+[0m[91m  [14d82f49] + Xorg_libpthread_stubs_jll v0.1.0+3
+[0m[91m  [c7cfdc94] + Xorg_libxcb_jll v1.13.0+3
+[0m[91m  [cc61e674] [0m[91m+ Xorg_libxkbfile_jll v1.1.0+4
+[0m[91m  [12413925] + Xorg_xcb_util_image_jll v0.4.0+1
+[0m[91m  [2def613f] + Xorg_xcb_util_jll v0.4.0+1
+[0m[91m  [975044d2] + Xorg_xcb_util_keysyms_jll v0.4.0+1
+[0m[91m  [0d47668e] + Xorg_xcb_util_renderutil_jll v0.3.9+1
+[0m[91m  [c22f9ab0] + Xorg_xcb_util_wm_jll v0.4.1+1
+[0m[91m  [35661453] + Xorg_xkbcomp_jll v1.4.2+4
+[0m[91m  [33bec58e] + Xorg_xkeyboard_config_jll v2.27.0+4
+[0m[91m  [c5fb5394] + Xorg_xtrans_jll v1.4.0+3
+[0m[91m  [3161d3a3] + Zstd_jll v1.5.0+0
+[0m[91m  [b437f822] [0m[91m+ adwaita_icon_theme_jll v3.33.92+5
+[0m[91m  [de012916] + at_spi2_atk_jll v2.34.1+4
+[0m[91m  [0fc3237b] + at_spi2_core_jll v2.34.0+4
+[0m[91m  [214eeab7] + fzf_jll v0.27.2+0
+[0m[91m  [da03df04] [0m[91m+ gdk_pixbuf_jll v2.42.6+0
+[0m[91m  [059c91fe] [0m[91m+ hicolor_icon_theme_jll v0.17.0+3
+[0m[91m  [bf975903] + iso_codes_jll v4.3.0+4
+[0m[91m  [0ac62f75] + libass_jll v0.15.1+0
+[0m[91m  [f638f0a6] + libfdk_aac_jll v2.0.2+0
+[0m[91m  [b53b4c65] + libpng_jll v1.6.38+0
+[0m[91m  [f27f6e37] + libvorbis_jll v1.3.7+0
+[0m[91m  [1270edf5] + x264_jll v2021.5.5+0
+[0m[91m  [dfaa095f] [0m[91m+ x265_jll v3.5.0+0
+[0m[91m  [d8fb68d0] + xkbcommon_jll v0.9.1+5
+[0m[91m  [0dad84c5] + ArgTools
+[0m[91m  [56f22d72] + Artifacts
+[0m[91m  [2a0f44e3] + Base64
+[0m[91m  [ade2ca70] + Dates
+[0m[91m  [8bb1440f] + DelimitedFiles
+[0m[91m  [8ba89e20] [0m[91m+ Distributed
+[0m[91m  [f43a241f] + Downloads
+[0m[91m  [7b1f6079] + FileWatching
+[0m[91m  [9fa8497b] + Future
+[0m[91m  [b77e0a4c] + InteractiveUtils
+[0m[91m  [4af54fe1] + LazyArtifacts
+  [b27032c2] + LibCURL
+  [76f85450] + LibGit2
+  [8f399da3] + Libdl
+  [37e2e46d] + LinearAlgebra
+  [56ddb016] + Logging
+  [d6f4376e] + Markdown
+[0m[91m  [a63ad114] + Mmap
+[0m[91m  [ca575930] + NetworkOptions
+[0m[91m  [44cfe95a] + Pkg
+[0m[91m  [de0858da] + Printf
+[0m[91m  [9abbd945] + Profile
+[0m[91m  [3fa0cd96] + REPL
+  [9a3f8284] + Random
+  [ea8e919c] + SHA
+[0m[91m  [9e88b42a] + Serialization
+[0m[91m  [1a1011a3] + SharedArrays
+[0m[91m  [6462fe0b] + Sockets
+  [2f01184e] + SparseArrays
+[0m[91m  [10745b16] + Statistics
+[0m[91m  [4607b0f0] [0m[91m+ SuiteSparse
+[0m[91m  [fa267f1f] + TOML
+[0m[91m  [a4e569a6] + Tar
+[0m[91m  [8dfed614] + Test
+[0m[91m [0m[91m [cf7118a7] + UUIDs
+ [0m[91m [4ec0a83e] + Unicode
+[0m[91m  [e66e0078] + CompilerSupportLibraries_jll
+[0m[91m  [deac9b47] [0m[91m+ LibCURL_jll
+ [0m[91m [29816b5a] + LibSSH2_jll
+  [c8ffd9c3] + MbedTLS_jll
+  [14a3606d] + MozillaCACerts_jll
+[0m[91m  [4536629a] + OpenBLAS_jll
+[0m[91m [0m[91m [05823500] + OpenLibm_jll
+[0m[91m  [bea87d4a] + SuiteSparse_jll
+[0m[91m  [83775a58] + Zlib_jll
+[0m[91m  [8e850ede] + nghttp2_jll
+[0m[91m  [3f19e933] + p7zip_jll
+[0m[91m    Building Remark ───→ `~/.julia/scratchspaces/44cfe95a-1eb2-52ea-b672-e2afdf69b78f/3f60840457bd774ff0273712b03129e27297bf9d/build.log`
+[0m[91m    Building HDF5 ─────→ `~/.julia/scratchspaces/44cfe95a-1eb2-52ea-b672-e2afdf69b78f/698c099c6613d7b7f151832868728f426abe698b/build.log`
+[0m[91m    Building WebIO ────→ `~/.julia/scratchspaces/44cfe95a-1eb2-52ea-b672-e2afdf69b78f/5fe32e4086d49f7ab9b087296742859f3ae6d62a/build.log`[0m[91m
+[0m[91m    Building Blink ────→ `~/.julia/scratchspaces/44cfe95a-1eb2-52ea-b672-e2afdf69b78f/08d0b679fd7caa49e2bca9214b131289e19808c0/build.log`
+[0m[91m    Building PlotlyJS ─→ `~/.julia/scratchspaces/44cfe95a-1eb2-52ea-b672-e2afdf69b78f/882ec81d5cf7d32168946397652ead9df99e0346/build.log`
+[0m[91m    Building Random123 → `~/.julia/scratchspaces/44cfe95a-1eb2-52ea-b672-e2afdf69b78f/0e8b146557ad1c6deb1367655e052276690e71a3/build.log`
+[0m[91mPrecompiling[0m[91m [0m[91mproject...[0m[91m
+[0m[91m[32m  ✓ [39m[90mConstructionBase[39m
+[0m[91m[32m  ✓ [39m[90mFunctionWrappers[39m
+[0m[91m[32m  ✓ [39m[90mFastClosures[39m
+[0m[91m[32m  ✓ [39m[90mCompositeTypes[39m
+[0m[91m[32m  ✓ [39m[90mUnPack[39m
+[0m[91m[32m  ✓ [39m[90mTermInterface[39m
+[0m[91m[32m  ✓ [39m[90mPidfile[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mFillArrays[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mFunctionalCollections[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mTokenize[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mTreeViews[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mManualMemory[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mMsgPack[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mPoissonRandom[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mTranscodingStreams[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mCustomUnitRanges[39m
+[0m[91m[32m  ✓ [39m[90mPositiveFactorizations[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mSafeTestsets[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mAbstractTrees[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mHyperscript[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mIfElse[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mMutableArithmetics[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mComputationalResources[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mPipe[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mBijections[39m
+[0m[91m[32m  ✓ [39m[90mStructTypes[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mWoodburyMatrices[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mLz4_jll[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mRandomNumbers[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mObservables[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mMuladdMacro[39m
+[0m[91m[32m  ✓ [39m[90mIndirectArrays[39m
+[0m[91m[32m  ✓ [39m[90mMacroTools[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mhicolor_icon_theme_jll[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mfzf_jll[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mHDF5_jll[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mSIMDTypes[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90miso_codes_jll[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mPDMats[39m[0m[91m
+[0m[91m[32m  ✓ [39mStableRNGs[0m[91m
+[0m[91m[32m  ✓ [39m[90mArgCheck[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mIntelOpenMP_jll[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mCombinatorics[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mRuntimeGeneratedFunctions[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mTimerOutputs[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mOpenBLAS_jll[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mRatios[39m
+[0m[91m[32m  ✓ [39m[90mArnoldiMethod[39m
+[0m[91m[32m  ✓ [39m[90mDimensionalPlotRecipes[39m
+[0m[91m[32m  ✓ [39m[90mIterativeSolvers[39m
+[0m[91m[32m  ✓ [39m[90mHwloc_jll[39m
+[0m[91m[32m  ✓ [39m[90mFFTW_jll[39m[0m[91m
+[0m[91m[32m  ✓ [39mBenchmarkTools[0m[91m
+[0m[91m[32m  ✓ [39m[90mPlotlyBase[39m
+[0m[91m[32m  ✓ [39m[90mDiffResults[39m
+[0m[91m[32m  ✓ [39m[90mCommonMark[39m
+[0m[91m[32m  ✓ [39m[90mResettableStacks[39m
+[0m[91m[32m  ✓ [39m[90mRotations[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mIdentityRanges[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mCoordinateTransformations[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mTiledIteration[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mDbus_jll[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mQuadGK[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mDiffRules[39m[0m[91m
+[0m[91m[32m  ✓ [39mUnicodePlots[0m[91m
+[0m[91m[32m  ✓ [39m[90mColorTypes[39m
+[0m[91m[32m  ✓ [39m[90mWebSockets[39m
+[0m[91m[32m  ✓ [39m[90mATK_jll[39m
+[0m[91m[32m  ✓ [39mRemark
+[0m[91m[32m  ✓ [39m[90mgdk_pixbuf_jll[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mXorg_libXcomposite_jll[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mGLFW_jll[39m
+[0m[91m[32m  ✓ [39m[90mXorg_libXdamage_jll[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mLibepoxy_jll[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mXorg_libXtst_jll[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mPango_jll[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mParameters[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mAssetRegistry[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mCSTParser[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mArrayLayouts[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mCodecZlib[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mThreadingUtilities[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mCatIndices[39m
+[0m[91m[32m  ✓ [39m[90mStatic[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mMultivariatePolynomials[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mJSON3[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mAxisAlgorithms[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mRandom123[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mWidgetsBase[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mBlosc_jll[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mCommonSubexpressions[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mZygoteRules[39m
+[0m[91m[32m  ✓ [39m[90mLazy[39m
+[0m[91m[32m  ✓ [39m[90mSimpleTraits[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mHiccup[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mLatexify[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mSetfield[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mUnitful[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90madwaita_icon_theme_jll[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mJLFzf[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mSuiteSparse_jll[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mMKL_jll[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mHwloc[39m[0m[91m
+[0m[91m[32m  ✓ [39mPyCall[0m[91m
+[0m[91m[32m  ✓ [39mDistributions[0m[91m
+[0m[91m[32m  ✓ [39mORCA[0m[91m
+[0m[91m[32m  ✓ [39m[90mColors[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mGR_jll[39m[0m[91m
+[0m[91m[32m  ✓ [39mGeometryTypes[0m[91m
+[0m[91m[32m  ✓ [39m[90mat_spi2_core_jll[39m
+[0m[91m[32m  ✓ [39mPGFPlotsX[0m[91m
+[0m[91m[32m  ✓ [39m[90mJuliaFormatter[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mBitTwiddlingConvenienceFunctions[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mArrayInterface[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mBandedMatrices[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mDynamicPolynomials[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mBlosc[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mInterpolations[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mForwardDiff[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mTiffImages[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mMux[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mLightGraphs[39m
+[0m[91m[32m  ✓ [39mOhMyREPL[0m[91m
+[0m[91m[32m  ✓ [39m[90mSundials_jll[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mCPUSummary[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mGraphics[39m[0m[91m
+[0m[91m[32m  ✓ [39mSymPy[0m[91m
+[0m[91m[32m  ✓ [39mPyPlot[0m[91m
+[0m[91m[32m  ✓ [39m[90mFFTW[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mOpenEXR[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mWidgets[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mColorVectorSpace[39m[0m[91m
+[0m[91m[32m  ✓ [39mJSServe[0m[91m
+[0m[91m[32m  ✓ [39mGR[0m[91m
+[0m[91m[32m  ✓ [39m[90mat_spi2_atk_jll[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mHostCPUFeatures[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mColorSchemes[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mEllipsisNotation[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mExponentialUtilities[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mCloseOpenIntervals[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mFiniteDiff[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mLabelledArrays[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mLayoutPointers[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mVertexSafeGraphs[39m[0m[91m
+[0m[91m[32m  ✓ [39mHDF5[0m[91m
+[0m[91m[32m  ✓ [39m[90mPolyesterWeave[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mRecursiveArrayTools[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mCairo[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mFFTViews[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mGTK3_jll[39m
+[0m[91m[32m  ✓ [39m[90mImageCore[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mWebIO[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mIntervalSets[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mPreallocationTools[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mNLSolversBase[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mStrideArraysCore[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mPlotUtils[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mSparseDiffTools[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mSciMLBase[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mSymbolicUtils[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mVectorizationBase[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mImageMorphology[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mQuartzImageIO[39m[0m[91m
+[0m[91m[32m  ✓ [39mGtk[0m[91m
+[0m[91m[32m  ✓ [39mImageShow
+[0m[91m[32m  ✓ [39mImageMagick[0m[91m
+[0m[91m[32m  ✓ [39m[90mNetpbm[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mPNGFiles[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mImageTransformations[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mAxisArrays[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mJSExpr[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mDomainSets[39m[0m[91m
+[0m[91m[32m  ✓ [39mPolyester[0m[91m
+[0m[91m[32m  ✓ [39m[90mLineSearches[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mRecipesPipeline[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mPlotThemes[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mDEDataArrays[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mSLEEFPirates[39m[0m[91m
+[0m[91m[32m  ✓ [39mImageContainers[0m[91m
+[0m[91m[32m  ✓ [39m[90mImageFiltering[39m[0m[91m
+[0m[91m[32m  ✓ [39mImageIO[0m[91m
+[0m[91m[32m  ✓ [39m[90mImageDistances[39m[0m[91m
+[0m[91m[32m  ✓ [39mTestImages[0m[91m
+[0m[91m[32m  ✓ [39m[90mImageAxes[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mImageContrastAdjustment[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mFastBroadcast[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mBlink[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mNLsolve[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mOptim[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mSIMDDualNumbers[39m
+[0m[91m[32m  ✓ [39m[90mImageQualityIndexes[39m
+[0m[91m[32m  ✓ [39m[90mImageMetadata[39m
+[0m[91m[32m  ✓ [39m[90mSymbolics[39m[0m[91m
+[0m[91m[32m  ✓ [39mJSXGraph[0m[91m
+[0m[91m[32m  ✓ [39mPlotlyJS[0m[91m
+[0m[91m[32m  ✓ [39mImages[0m[91m
+[0m[91m[32m  ✓ [39m[90mLoopVectorization[39m
+[0m[91m[32m  ✓ [39mPlotly
+[0m[91m[32m  ✓ [39mPlots[0m[91m
+[0m[91m[32m  ✓ [39m[90mTriangularSolve[39m
+[0m[91m[32m  ✓ [39m[90mRecursiveFactorization[39m
+[0m[91m[32m  ✓ [39m[90mNonlinearSolve[39m
+[0m[91m[32m  ✓ [39m[90mDiffEqBase[39m
+[0m[91m[32m  ✓ [39m[90mBoundaryValueDiffEq[39m
+[0m[91m[32m  ✓ [39m[90mDiffEqJump[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mSundials[39m
+[0m[91m[32m  ✓ [39m[90mDiffEqNoiseProcess[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mDiffEqFinancial[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mOrdinaryDiffEq[39m
+[0m[91m[32m  ✓ [39m[90mDelayDiffEq[39m
+[0m[91m[32m  ✓ [39m[90mDiffEqCallbacks[39m
+[0m[91m[32m  ✓ [39m[90mStochasticDiffEq[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mSteadyStateDiffEq[39m[0m[91m
+[0m[91m[32m  ✓ [39m[90mDiffEqPhysics[39m
+[0m[91m[32m  ✓ [39m[90mMultiScaleArrays[39m
+[0m[91m[32m  ✓ [39m[90mModelingToolkit[39m
+[0m[91m[32m  ✓ [39m[90mParameterizedFunctions[39m
+[0m[91m[32m  ✓ [39mDifferentialEquations
+[0m[91m[32m  ✓ [39mMyUtils
+[0m[91m  219 dependencies successfully precompiled in 648 seconds (165 already precompiled)
+[0mJulia Version 1.6.3
+Commit ae8452a9e0 (2021-09-23 17:34 UTC)
+Platform Info:
+  OS: Linux (x86_64-pc-linux-gnu)
+  CPU: Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz
+  WORD_SIZE: 64
+  LIBM: libopenlibm
+  LLVM: libLLVM-11.0.1 (ORCJIT, broadwell)
+Environment:
+  JULIA_GPG = 3673DF529D9049477F76B37566E3C7DC03D6E495
+  JULIA_PATH = /usr/local/julia
+  JULIA_PROJECT = /work
+  JULIA_NUM_THREADS = 8
+  JULIA_VERSION = 1.6.3
+Removing intermediate container c814960fb5c1
+ ---> db685f8d9057
+Step 18/19 : EXPOSE 8000
+ ---> Running in 9b2e2dde1ffa
+Removing intermediate container 9b2e2dde1ffa
+ ---> 2aefbcfcd32f
+Step 19/19 : CMD ["julia"]
+ ---> Running in af2258782010
+Removing intermediate container af2258782010
+ ---> 23bf7c06a280
+Successfully built 23bf7c06a280
+Successfully tagged my_awesome_image:latest

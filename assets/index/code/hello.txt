@@ -1,0 +1,7 @@
+\Cexec{how2embeddC}{
+#include <stdio.h>
+int main(){
+    printf("Hello Pikachu\n");
+    return 0;
+}
+}

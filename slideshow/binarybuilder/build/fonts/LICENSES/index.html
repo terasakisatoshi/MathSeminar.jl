@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  
+  
+
+  <link href="/MathSeminar.jl/css/franklin.css" rel="stylesheet">
+  <link href="/MathSeminar.jl/css/vela.css" rel="stylesheet">
+  <script src="/MathSeminar.jl/libs/vela/jquery.min.js"></script>
+  <link rel="stylesheet" href="/MathSeminar.jl/css/theorem.css">
+   <title>Lora</title>  
+  <!-- PLOTLY -->
+  
+
+  <title>Franklin Example | Vela</title>
+</head>
+<body>
+  <div class="main-nav" id="menu">
+    <div class="flex-container">
+      <span class="sidebar-brand">
+        <h3 style='font-size: 25px'>MathSeminar.jl</h3>
+      </span>
+    </div> <!-- class="flex-container" -->
+
+    <nav class="sidebar-nav">
+      <ul class="metismenu"  id="metismenu" >
+        <li><a href="/MathSeminar.jl/index.html">Home</a></li>
+        <li><a href="" class="has-arrow">Slide Show</a>
+          <ul>
+            <li><a href="/MathSeminar.jl/slideshow/remark/build/">Introduction to Remark.jl</a>
+            <li><a href="/MathSeminar.jl/slideshow/franklin/build">Introduction to Franklin.jl</a>
+            <li><a href="/MathSeminar.jl/slideshow/dash/build">Introduction to Dash.jl</a>
+            <li><a href="/MathSeminar.jl/slideshow/binarybuilder/build">Introduction to BinaryBuilder.jl</a>
+            <li><a href="/MathSeminar.jl/slideshow/myworkflow/build">Introduction to MyWorkflow.jl</a>
+          </ul>
+        </li>
+        <li><a href="" class="has-arrow">Programming</a>
+          <ul>
+            <li><a href="/MathSeminar.jl/programming/clang">C</a></li>
+            <li><a href="/MathSeminar.jl/programming/rust">Rust</a></li>
+            <li><a href="/MathSeminar.jl/programming/benchmark_part1"> Julia benchmark Part1 </a></li>
+            <li><a href="/MathSeminar.jl/programming/benchmark_part2"> Julia benchmark Part2 </a></li>
+            <li><a href="/MathSeminar.jl/programming/literatejl">Literate.jl</a></li>
+            <li><a href="/MathSeminar.jl/programming/sympy">SymPy.jl</a></li>
+            <li><a href="/MathSeminar.jl/programming/franklin">Franklin.jl</a></li>
+            <li><a href="/MathSeminar.jl/programming/weave">Weave.jl</a></li>
+            <li><a href="/MathSeminar.jl/programming/theoremcounter">Theorem Counter</a></li>
+            <li><a href="/MathSeminar.jl/programming/images">Images.jl</a></li>
+            <li><a href="/MathSeminar.jl/programming/rcall">RCall.jl</a></li>
+            <li><a href="/MathSeminar.jl/programming/asciinema">asciinema</a></li>
+          </ul>
+        </li>
+        <li><a href="" class="has-arrow">Gallery</a>
+          <ul>
+            <li><a href="/MathSeminar.jl/gallery/animation/">Plots.jl animation</a></li>
+            <li><a href="/MathSeminar.jl/gallery/curve/">Plots.jl curve</a></li>
+            <li><a href="/MathSeminar.jl/gallery/gr/">GR.jl</a></li>
+            <li><a href="/MathSeminar.jl/gallery/plotlyjs1/">PlotlyJS.jl Part1</a></li>
+            <li><a href="/MathSeminar.jl/gallery/plotlyjs2/">PlotlyJS.jl Part2</a></li>
+            <li><a href="/MathSeminar.jl/gallery/plotlyjs3/">PlotlyJS.jl Part3</a></li>
+            <li><a href="/MathSeminar.jl/gallery/jsxgraph_js/">JSXGraph (JS)</a></li>
+            <li><a href="/MathSeminar.jl/gallery/jsxgraph_jl/">JSXGraph (Julia)</a></li>
+            <li><a href="/MathSeminar.jl/gallery/wglmakie/">WGLMakie.jl</a></li>
+          </ul>
+        </li>
+        <li><a href="" class="has-arrow">Topics in Mathematics</a>
+          <ul>
+            <li><a href="/MathSeminar.jl/mathematics/linearalgebra/chapter0">Linear Algebra</a></li>
+            <li><a href="/MathSeminar.jl/mathematics/statistics/dice">Dice</a></li>
+            <li><a href="/MathSeminar.jl/mathematics/statistics/Chisq">Chisq Distributions</a></li>
+            <li><a href="/MathSeminar.jl/mathematics/statistics/Law_of_Large_Numbers">Law_of_Large_Numbers</a></li>
+            <li><a href="/MathSeminar.jl/mathematics/visualizations/triangular_function_addition_theorem">Triangular function addition theorem</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div> <!-- main nav menu -->
+
+  <main id="panel">
+    <div class="toggle-button hamburger hamburger--spin">
+      <div class="hamburger-box">
+        <div class="hamburger-inner"></div>
+      </div>
+    </div>
+    <h1 class="page title">Lora</h1>
+    <hr>
+
+
+<!-- Content appended here -->
+<div class="franklin-content"><h1 id="lora"><a href="#lora" class="header-anchor">Lora</a></h1>
+<h2 id="sil_open_font_license"><a href="#sil_open_font_license" class="header-anchor">SIL Open Font License</a></h2>
+<p>Copyright &#40;c&#41; 2011-2013, Cyreal &#40;www.cyreal.org a@cyreal.org&#41;, with Reserved Font Name ‘Lora’</p>
+<p>This Font Software is licensed under the SIL Open Font License, Version 1.1. This license is copied below, and is also available with a FAQ at: http://scripts.sil.org/OFL</p>
+<p><hr /> SIL OPEN FONT LICENSE Version 1.1 - 26 February 2007 –––––––––––––––––––––––––––––-</p>
+<h3 id="preamble"><a href="#preamble" class="header-anchor">PREAMBLE</a></h3>
+<p>The goals of the Open Font License &#40;OFL&#41; are to stimulate worldwide development of collaborative font projects, to support the font creation efforts of academic and linguistic communities, and to provide a free and open framework in which fonts may be shared and improved in partnership with others.</p>
+<p>The OFL allows the licensed fonts to be used, studied, modified and redistributed freely as long as they are not sold by themselves. The fonts, including any derivative works, can be bundled, embedded, redistributed and/or sold with any software provided that any reserved names are not used by derivative works. The fonts and derivatives, however, cannot be released under any other type of license. The requirement for fonts to remain under this license does not apply to any document created using the fonts or their derivatives.</p>
+<h3 id="definitions"><a href="#definitions" class="header-anchor">DEFINITIONS</a></h3>
+<p>“Font Software” refers to the set of files released by the Copyright Holder&#40;s&#41; under this license and clearly marked as such. This may include source files, build scripts and documentation.</p>
+<p>“Reserved Font Name” refers to any names specified as such after the copyright statement&#40;s&#41;.</p>
+<p>“Original Version” refers to the collection of Font Software components as distributed by the Copyright Holder&#40;s&#41;.</p>
+<p>“Modified Version” refers to any derivative made by adding to, deleting, or substituting—in part or in whole—any of the components of the Original Version, by changing formats or by porting the Font Software to a new environment.</p>
+<p>“Author” refers to any designer, engineer, programmer, technical writer or other person who contributed to the Font Software.</p>
+<h3 id="permission_conditions"><a href="#permission_conditions" class="header-anchor">PERMISSION &amp; CONDITIONS</a></h3>
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy of the Font Software, to use, study, copy, merge, embed, modify, redistribute, and sell modified and unmodified copies of the Font Software, subject to the following conditions:</p>
+<ol>
+<li><p>Neither the Font Software nor any of its individual components, in Original or Modified Versions, may be sold by itself.</p>
+</li>
+<li><p>Original or Modified Versions of the Font Software may be bundled, redistributed and/or sold with any software, provided that each copy contains the above copyright notice and this license. These can be included either as stand-alone text files, human-readable headers or in the appropriate machine-readable metadata fields within text or binary files as long as those fields can be easily viewed by the user.</p>
+</li>
+<li><p>No Modified Version of the Font Software may use the Reserved Font Name&#40;s&#41; unless explicit written permission is granted by the corresponding Copyright Holder. This restriction only applies to the primary font name as presented to the users.</p>
+</li>
+<li><p>The name&#40;s&#41; of the Copyright Holder&#40;s&#41; or the Author&#40;s&#41; of the Font Software shall not be used to promote, endorse or advertise any Modified Version, except to acknowledge the contribution&#40;s&#41; of the Copyright Holder&#40;s&#41; and the Author&#40;s&#41; or with their explicit written permission.</p>
+</li>
+<li><p>The Font Software, modified or unmodified, in part or in whole, must be distributed entirely under this license, and must not be distributed under any other license. The requirement for fonts to remain under this license does not apply to any document created using the Font Software.</p>
+</li>
+</ol>
+<h3 id="termination"><a href="#termination" class="header-anchor">TERMINATION</a></h3>
+<p>This license becomes null and void if any of the above conditions are not met.</p>
+<h3 id="disclaimer"><a href="#disclaimer" class="header-anchor">DISCLAIMER</a></h3>
+<p>THE FONT SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT OF COPYRIGHT, PATENT, TRADEMARK, OR OTHER RIGHT. IN NO EVENT SHALL THE COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, INCLUDING ANY GENERAL, SPECIAL, INDIRECT, INCIDENTAL, OR CONSEQUENTIAL DAMAGES, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF THE USE OR INABILITY TO USE THE FONT SOFTWARE OR FROM OTHER DEALINGS IN THE FONT SOFTWARE.</p>
+<h1 id="ubuntu_mono"><a href="#ubuntu_mono" class="header-anchor">Ubuntu Mono</a></h1>
+<h2 id="ubuntu_font_license_v100"><a href="#ubuntu_font_license_v100" class="header-anchor">Ubuntu Font License v1.00</a></h2>
+<p>This license can also be found at this permalink: https://www.fontsquirrel.com/license/ubuntu-mono</p>
+<p><hr /> Ubuntu Font License Version 1.0 –––––––––––––––––––––––––––––-</p>
+<h3 id="preamble__2"><a href="#preamble__2" class="header-anchor">PREAMBLE</a></h3>
+<p>This licence allows the licensed fonts to be used, studied, modified and redistributed freely. The fonts, including any derivative works, can be bundled, embedded, and redistributed provided the terms of this licence are met. The fonts and derivatives, however, cannot be released under any other licence. The requirement for fonts to remain under this licence does not require any document created using the fonts or their derivatives to be published under this licence, as long as the primary purpose of the document is not to be a vehicle for the distribution of the fonts.</p>
+<h3 id="definitions__2"><a href="#definitions__2" class="header-anchor">DEFINITIONS</a></h3>
+<p>“Font Software” refers to the set of files released by the Copyright Holder&#40;s&#41; under this licence and clearly marked as such. This may include source files, build scripts and documentation.</p>
+<p>“Original Version” refers to the collection of Font Software components as received under this licence.</p>
+<p>“Modified Version” refers to any derivative made by adding to, deleting, or substituting—in part or in whole—any of the components of the Original Version, by changing formats or by porting the Font Software to a new environment.</p>
+<p>“Copyright Holder&#40;s&#41;” refers to all individuals and companies who have a copyright ownership of the Font Software.</p>
+<p>“Substantially Changed” refers to Modified Versions which can be easily identified as dissimilar to the Font Software by users of the Font Software comparing the Original Version with the Modified Version.</p>
+<p>To “Propagate” a work means to do anything with it that, without permission, would make you directly or secondarily liable for infringement under applicable copyright law, except executing it on a computer or modifying a private copy. Propagation includes copying, distribution &#40;with or without modification and with or without charging a redistribution fee&#41;, making available to the public, and in some countries other activities as well.</p>
+<h3 id="permission_conditions__2"><a href="#permission_conditions__2" class="header-anchor">PERMISSION &amp; CONDITIONS</a></h3>
+<p>This licence does not grant any rights under trademark law and all such rights are reserved.</p>
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy of the Font Software, to propagate the Font Software, subject to the below conditions:</p>
+<ol>
+<li><p>Each copy of the Font Software must contain the above copyright</p>
+</li>
+</ol>
+<p>notice and this licence. These can be included either as stand-alone text files, human-readable headers or in the appropriate machine- readable metadata fields within text or binary files as long as those fields can be easily viewed by the user.</p>
+<ol start="2">
+<li><p>The font name complies with the following:</p>
+<ol>
+<li><p>The Original Version must retain its name, unmodified.</p>
+</li>
+<li><p>Modified Versions which are Substantially Changed must be renamed to avoid use of the name of the Original Version or similar names entirely.</p>
+</li>
+<li><p>Modified Versions which are not Substantially Changed must be renamed to both</p>
+<ol>
+<li><p>retain the name of the Original Version and</p>
+</li>
+<li><p>add additional naming elements to distinguish the Modified Version from the Original Version. The name of such Modified Versions must be the name of the Original Version, with “derivative X” where X represents the name of the new work, appended to that name.</p>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>The name&#40;s&#41; of the Copyright Holder&#40;s&#41; and any contributor to the</p>
+</li>
+</ol>
+<p>Font Software shall not be used to promote, endorse or advertise any Modified Version, except     1&#41; as required by this licence,     2&#41; to acknowledge the contribution&#40;s&#41; of the Copyright Holder&#40;s&#41; or &#40;iii&#41; with their explicit written permission.</p>
+<ol start="4">
+<li><p>The Font Software, modified or unmodified, in part or in whole, must</p>
+</li>
+</ol>
+<p>be distributed entirely under this licence, and must not be distributed under any other licence. The requirement for fonts to remain under this licence does not affect any document created using the Font Software, except any version of the Font Software extracted from a document created using the Font Software may only be distributed under this licence.</p>
+<h3 id="termination__2"><a href="#termination__2" class="header-anchor">TERMINATION</a></h3>
+<p>This licence becomes null and void if any of the above conditions are not met.</p>
+<h3 id="disclaimer__2"><a href="#disclaimer__2" class="header-anchor">DISCLAIMER</a></h3>
+<p>THE FONT SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT OF COPYRIGHT, PATENT, TRADEMARK, OR OTHER RIGHT. IN NO EVENT SHALL THE COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, INCLUDING ANY GENERAL, SPECIAL, INDIRECT, INCIDENTAL, OR CONSEQUENTIAL DAMAGES, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF THE USE OR INABILITY TO USE THE FONT SOFTWARE OR FROM OTHER DEALINGS IN THE FONT SOFTWARE.</p>
+<h1 id="yanone_kaffeesatz"><a href="#yanone_kaffeesatz" class="header-anchor">Yanone Kaffeesatz</a></h1>
+<h2 id="sil_open_font_license__2"><a href="#sil_open_font_license__2" class="header-anchor">SIL Open Font License</a></h2>
+<p>Copyright &#40;c&#41; 2004-2010, Jan Gerner &#40;post@yanone.de&#41;. Copyright &#40;c&#41; Huerta Tipografica &#40;info@huertatipografica.com.ar&#41;</p>
+<p>This Font Software is licensed under the SIL Open Font License, Version 1.1. This license is copied below, and is also available with a FAQ at: http://scripts.sil.org/OFL</p>
+<p><hr /> SIL OPEN FONT LICENSE Version 1.1 - 26 February 2007 –––––––––––––––––––––––––––––-</p>
+<h3 id="preamble__3"><a href="#preamble__3" class="header-anchor">PREAMBLE</a></h3>
+<p>The goals of the Open Font License &#40;OFL&#41; are to stimulate worldwide development of collaborative font projects, to support the font creation efforts of academic and linguistic communities, and to provide a free and open framework in which fonts may be shared and improved in partnership with others.</p>
+<p>The OFL allows the licensed fonts to be used, studied, modified and redistributed freely as long as they are not sold by themselves. The fonts, including any derivative works, can be bundled, embedded, redistributed and/or sold with any software provided that any reserved names are not used by derivative works. The fonts and derivatives, however, cannot be released under any other type of license. The requirement for fonts to remain under this license does not apply to any document created using the fonts or their derivatives.</p>
+<h3 id="definitions__3"><a href="#definitions__3" class="header-anchor">DEFINITIONS</a></h3>
+<p>“Font Software” refers to the set of files released by the Copyright Holder&#40;s&#41; under this license and clearly marked as such. This may include source files, build scripts and documentation.</p>
+<p>“Reserved Font Name” refers to any names specified as such after the copyright statement&#40;s&#41;.</p>
+<p>“Original Version” refers to the collection of Font Software components as distributed by the Copyright Holder&#40;s&#41;.</p>
+<p>“Modified Version” refers to any derivative made by adding to, deleting, or substituting—in part or in whole—any of the components of the Original Version, by changing formats or by porting the Font Software to a new environment.</p>
+<p>“Author” refers to any designer, engineer, programmer, technical writer or other person who contributed to the Font Software.</p>
+<h3 id="permission_conditions__3"><a href="#permission_conditions__3" class="header-anchor">PERMISSION &amp; CONDITIONS</a></h3>
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy of the Font Software, to use, study, copy, merge, embed, modify, redistribute, and sell modified and unmodified copies of the Font Software, subject to the following conditions:</p>
+<ol>
+<li><p>Neither the Font Software nor any of its individual components, in Original or Modified Versions, may be sold by itself.</p>
+</li>
+<li><p>Original or Modified Versions of the Font Software may be bundled, redistributed and/or sold with any software, provided that each copy contains the above copyright notice and this license. These can be included either as stand-alone text files, human-readable headers or in the appropriate machine-readable metadata fields within text or binary files as long as those fields can be easily viewed by the user.</p>
+</li>
+<li><p>No Modified Version of the Font Software may use the Reserved Font Name&#40;s&#41; unless explicit written permission is granted by the corresponding Copyright Holder. This restriction only applies to the primary font name as presented to the users.</p>
+</li>
+<li><p>The name&#40;s&#41; of the Copyright Holder&#40;s&#41; or the Author&#40;s&#41; of the Font Software shall not be used to promote, endorse or advertise any Modified Version, except to acknowledge the contribution&#40;s&#41; of the Copyright Holder&#40;s&#41; and the Author&#40;s&#41; or with their explicit written permission.</p>
+</li>
+<li><p>The Font Software, modified or unmodified, in part or in whole, must be distributed entirely under this license, and must not be distributed under any other license. The requirement for fonts to remain under this license does not apply to any document created using the Font Software.</p>
+</li>
+</ol>
+<h3 id="termination__3"><a href="#termination__3" class="header-anchor">TERMINATION</a></h3>
+<p>This license becomes null and void if any of the above conditions are not met.</p>
+<h3 id="disclaimer__3"><a href="#disclaimer__3" class="header-anchor">DISCLAIMER</a></h3>
+<p>THE FONT SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT OF COPYRIGHT, PATENT, TRADEMARK, OR OTHER RIGHT. IN NO EVENT SHALL THE COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, INCLUDING ANY GENERAL, SPECIAL, INDIRECT, INCIDENTAL, OR CONSEQUENTIAL DAMAGES, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF THE USE OR INABILITY TO USE THE FONT SOFTWARE OR FROM OTHER DEALINGS IN THE FONT SOFTWARE.</p>
+<div class="page-foot">
+  <div class="copyright">
+    &copy; SatoshiTerasaki. Last modified: 2021年10月29日 金曜日. Website built with 
+    <a href="http://github.com/terasakisatoshi/MathSeminar.jl">MathSeminar.jl</a>
+    <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
+  </div>
+</div>
+</div><!-- CONTENT ENDS HERE -->
+  </main> <!-- end of id=main -->
+  <script src="/MathSeminar.jl/libs/vela/metisMenu.min.js"></script>
+  <script src="/MathSeminar.jl/libs/vela/slideout.min.js"></script>
+  
+  
+</body>
+</html>

@@ -1,0 +1,3 @@
+ArgumentError: Package WGLMakie not found in current path:
+- Run `import Pkg; Pkg.add("WGLMakie")` to install the WGLMakie package.
+

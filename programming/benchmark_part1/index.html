@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="/MathSeminar.jl/libs/katex/katex.min.css">
+   
+   <link rel="stylesheet" href="/MathSeminar.jl/libs/highlight/github.min.css">
+   
+  
+
+  <link href="/MathSeminar.jl/css/franklin.css" rel="stylesheet">
+  <link href="/MathSeminar.jl/css/vela.css" rel="stylesheet">
+  <script src="/MathSeminar.jl/libs/vela/jquery.min.js"></script>
+  <link rel="stylesheet" href="/MathSeminar.jl/css/theorem.css">
+   <title>How fast is Julia language?</title>  
+  <!-- PLOTLY -->
+   <script src="/MathSeminar.jl/libs/plotly/plotly.min.js"></script> 
+
+  <title>Franklin Example | Vela</title>
+</head>
+<body>
+  <div class="main-nav" id="menu">
+    <div class="flex-container">
+      <span class="sidebar-brand">
+        <h3 style='font-size: 25px'>MathSeminar.jl</h3>
+      </span>
+    </div> <!-- class="flex-container" -->
+
+    <nav class="sidebar-nav">
+      <ul class="metismenu"  id="metismenu" >
+        <li><a href="/MathSeminar.jl/index.html">Home</a></li>
+        <li><a href="" class="has-arrow">Slide Show</a>
+          <ul>
+            <li><a href="/MathSeminar.jl/slideshow/remark/build/">Introduction to Remark.jl</a>
+            <li><a href="/MathSeminar.jl/slideshow/franklin/build">Introduction to Franklin.jl</a>
+            <li><a href="/MathSeminar.jl/slideshow/dash/build">Introduction to Dash.jl</a>
+            <li><a href="/MathSeminar.jl/slideshow/binarybuilder/build">Introduction to BinaryBuilder.jl</a>
+            <li><a href="/MathSeminar.jl/slideshow/myworkflow/build">Introduction to MyWorkflow.jl</a>
+          </ul>
+        </li>
+        <li><a href="" class="has-arrow">Programming</a>
+          <ul>
+            <li><a href="/MathSeminar.jl/programming/clang">C</a></li>
+            <li><a href="/MathSeminar.jl/programming/rust">Rust</a></li>
+            <li><a href="/MathSeminar.jl/programming/benchmark_part1"> Julia benchmark Part1 </a></li>
+            <li><a href="/MathSeminar.jl/programming/benchmark_part2"> Julia benchmark Part2 </a></li>
+            <li><a href="/MathSeminar.jl/programming/literatejl">Literate.jl</a></li>
+            <li><a href="/MathSeminar.jl/programming/sympy">SymPy.jl</a></li>
+            <li><a href="/MathSeminar.jl/programming/franklin">Franklin.jl</a></li>
+            <li><a href="/MathSeminar.jl/programming/weave">Weave.jl</a></li>
+            <li><a href="/MathSeminar.jl/programming/theoremcounter">Theorem Counter</a></li>
+            <li><a href="/MathSeminar.jl/programming/images">Images.jl</a></li>
+            <li><a href="/MathSeminar.jl/programming/rcall">RCall.jl</a></li>
+            <li><a href="/MathSeminar.jl/programming/asciinema">asciinema</a></li>
+          </ul>
+        </li>
+        <li><a href="" class="has-arrow">Gallery</a>
+          <ul>
+            <li><a href="/MathSeminar.jl/gallery/animation/">Plots.jl animation</a></li>
+            <li><a href="/MathSeminar.jl/gallery/curve/">Plots.jl curve</a></li>
+            <li><a href="/MathSeminar.jl/gallery/gr/">GR.jl</a></li>
+            <li><a href="/MathSeminar.jl/gallery/plotlyjs1/">PlotlyJS.jl Part1</a></li>
+            <li><a href="/MathSeminar.jl/gallery/plotlyjs2/">PlotlyJS.jl Part2</a></li>
+            <li><a href="/MathSeminar.jl/gallery/plotlyjs3/">PlotlyJS.jl Part3</a></li>
+            <li><a href="/MathSeminar.jl/gallery/jsxgraph_js/">JSXGraph (JS)</a></li>
+            <li><a href="/MathSeminar.jl/gallery/jsxgraph_jl/">JSXGraph (Julia)</a></li>
+            <li><a href="/MathSeminar.jl/gallery/wglmakie/">WGLMakie.jl</a></li>
+          </ul>
+        </li>
+        <li><a href="" class="has-arrow">Topics in Mathematics</a>
+          <ul>
+            <li><a href="/MathSeminar.jl/mathematics/linearalgebra/chapter0">Linear Algebra</a></li>
+            <li><a href="/MathSeminar.jl/mathematics/statistics/dice">Dice</a></li>
+            <li><a href="/MathSeminar.jl/mathematics/statistics/Chisq">Chisq Distributions</a></li>
+            <li><a href="/MathSeminar.jl/mathematics/statistics/Law_of_Large_Numbers">Law_of_Large_Numbers</a></li>
+            <li><a href="/MathSeminar.jl/mathematics/visualizations/triangular_function_addition_theorem">Triangular function addition theorem</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div> <!-- main nav menu -->
+
+  <main id="panel">
+    <div class="toggle-button hamburger hamburger--spin">
+      <div class="hamburger-box">
+        <div class="hamburger-inner"></div>
+      </div>
+    </div>
+    <h1 class="page title">How fast is Julia language?</h1>
+    <hr>
+
+
+<!-- Content appended here -->
+<div class="franklin-content"><h1 id="is_julia_fast"><a href="#is_julia_fast" class="header-anchor">Is Julia fast ?</a></h1></p>
+<p>      
+<ul>
+<li><p>Julia は LLVM による JIT コンパイルにより高速に動作し C 言語と同等のスピードを出すことができます。ここではベンチマークとしてマンデルブロ集合の生成する計算を例にJulia がどれくらいのパフォーマンスを出すのかを調べてみましょう。</p>
+</li>
+</ul>
+<h2 id="c_のコードを書く"><a href="#c_のコードを書く" class="header-anchor">C のコードを書く</a></h2></p>
+<p>    
+<ul>
+<li><p>C のコードを書いてみました.</p>
+</li>
+</ul>
+</p>
+<p><pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdint.h&gt;
+#include &lt;time.h&gt;
+
+uint8_t cnt&#40;double ReZ,double ImZ,double ReC,double ImC&#41;&#123;
+    uint8_t k&#61;0;
+    while&#40;k &lt; 255&#41;&#123;
+        double new_ReZ &#61; ReZ * ReZ - ImZ * ImZ &#43; ReC ;
+        double new_ImZ &#61; 2 * ReZ * ImZ &#43; ImC;
+        if &#40;new_ReZ * new_ReZ&#43;new_ImZ * new_ImZ&gt;4&#41;&#123;
+            return k;
+        &#125;
+        ReZ &#61; new_ReZ;
+        ImZ &#61; new_ImZ;
+        k&#43;&#61;1;
+    &#125;
+    return k;
+&#125;
+
+
+int main&#40;&#41;
+&#123;
+    clock_t start,end;
+    start &#61; clock&#40;&#41;;
+    int M &#61; 1250;
+    int N &#61; 1250;
+    uint8_t grid&#91;M&#93;&#91;N&#93;;
+    double init_Re &#61; 0.0;
+    double init_Im &#61; 0.0;
+    for &#40;int j &#61; 0; j &lt; M; j&#43;&#43;&#41;
+    &#123;
+        for &#40;int i &#61; 0; i &lt; N; i&#43;&#43;&#41;
+        &#123;
+            double ReC &#61; 4.0 / &#40;N - 1&#41; * i - 2.0;
+            double ImC &#61; 4.0 / &#40;M - 1&#41; * j - 2.0;
+            double ReZ &#61; init_Re;
+            double ImZ &#61; init_Im;
+            grid&#91;j&#93;&#91;i&#93; &#61; cnt&#40;ReZ,ImZ,ReC,ImC&#41;;
+        &#125;
+    &#125;
+    end &#61; clock&#40;&#41;;
+    double cpu_time_used &#61; &#40;&#40;double&#41; &#40;end - start&#41;&#41; / CLOCKS_PER_SEC;
+    printf&#40;&quot;Elapsed time &#37;f &#91;sec&#93;\n&quot;, cpu_time_used&#41;;
+    FILE *fp;
+    fp &#61; fopen&#40;&quot;/tmp/benchC.txt&quot;, &quot;w&quot;&#41;;
+    for &#40;int j &#61; 0; j &lt; M; j&#43;&#43;&#41;
+    &#123;
+        for &#40;int i &#61; 0; i &lt; N; i&#43;&#43;&#41;
+        &#123;
+            fprintf&#40;fp, &quot;&#37;d&quot;, grid&#91;j&#93;&#91;i&#93;&#41;;
+            if &#40;i &#33;&#61; N - 1&#41;
+            &#123;
+                fprintf&#40;fp, &quot;,&quot;&#41;;
+            &#125;
+            else
+            &#123;
+                fprintf&#40;fp, &quot;\n&quot;&#41;;
+            &#125;
+        &#125;
+    &#125;
+    fclose&#40;fp&#41;;
+    return 0;
+&#125;</code></pre></p>
+<p><pre><code class="plaintext code-output">Elapsed time 0.172461 [sec]
+</code></pre>
+<p>描画は下記のとおりです。</p>
+<pre><code class="language-julia">using DelimitedFiles
+using Plots
+gr&#40;&#41;
+img &#61; readdlm&#40;&quot;/tmp/benchC.txt&quot;,&#39;,&#39;,Int&#41;
+M,N &#61; img |&gt; size
+p&#61;heatmap&#40;1:N, 1:M, img, aspect_ratio&#61;1, size&#61;&#40;400,400&#41;&#41;</code></pre>
+<img src="/MathSeminar.jl/assets/programming/benchmark_part1/code/output/mandC.png" alt="">
+<h2 id="julia_のコード"><a href="#julia_のコード" class="header-anchor">Julia のコード</a></h2></p>
+<p>    
+<p>最後に Julia のコードを見ていきましょう</p>
+<pre><code class="language-julia">using DelimitedFiles
+
+function cnt&#40;ReZ, ImZ, ReC, ImC&#41;
+    k::UInt8 &#61; 0
+    while &#40;k &lt; 255&#41;
+        new_ReZ &#61; ReZ * ReZ - ImZ * ImZ &#43; ReC
+        new_ImZ &#61; 2 * ReZ * ImZ &#43; ImC
+        if new_ReZ * new_ReZ &#43; new_ImZ * new_ImZ &gt; 4.
+            return k
+        end
+        ReZ &#61; new_ReZ
+        ImZ &#61; new_ImZ
+        k &#43;&#61; 1
+    end
+    return k
+end
+
+function cnt&#40;z,c&#41;
+    k::UInt8 &#61; 0
+    while &#40;k &lt; 255&#41;
+        z &#61; z^2 &#43; c
+        if abs2&#40;z&#41;&gt;4.
+            return k
+        end
+        k &#43;&#61; 1
+    end
+    return k
+end
+
+function mand&#40;M::Int, N::Int&#41;
+    grid &#61; Array&#123;UInt8&#125;&#40;undef, M, N&#41;
+    init_Re &#61; 0.0
+    init_Im &#61; 0.0
+    for j &#61; 1:M
+        for i &#61; 1:N
+            ReC &#61; 4.0 / &#40;N - 1&#41; * &#40;i - 1&#41; - 2.0
+            ImC &#61; 4.0 / &#40;M - 1&#41; * &#40;j - 1&#41; - 2.0
+            ReZ &#61; init_Re
+            ImZ &#61; init_Im
+            grid&#91;j, i&#93; &#61; cnt&#40;ReZ, ImZ, ReC, ImC&#41;
+        end
+    end
+    return grid
+end
+
+function main&#40;&#41;
+    s &#61; time&#40;&#41;
+    M &#61; N &#61; 1250
+    grid &#61; mand&#40;M,N&#41;
+    t &#61; time&#40;&#41;
+    @show&#40;t - s&#41;
+    writedlm&#40;&quot;/tmp/benchJ.txt&quot;,grid,&quot;,&quot;&#41;
+end
+
+main&#40;&#41;
+
+using BenchmarkTools
+@btime mand&#40;1250, 1250&#41;;</code></pre>
+<pre><code class="plaintext code-output">t - s = 0.1894381046295166
+  173.465 ms (2 allocations: 1.49 MiB)
+</code></pre>
+<pre><code class="language-julia">Refpath&#61;&quot;/tmp/benchC.txt&quot;
+Tarpath&#61;&quot;/tmp/benchJ.txt&quot;
+run&#40;&#96;bash -c &quot;cmp --silent &#36;Refpath &#36;Tarpath || echo \&quot;files are different\&quot;&quot;&#96;&#41;
+
+using Plots
+gr&#40;&#41;
+using DelimitedFiles
+img &#61; readdlm&#40;Tarpath,&#39;,&#39;,Int&#41;
+M,N &#61; img |&gt; size
+p &#61; heatmap&#40;1:N,1:M,img,aspect_ratio&#61;1, size&#61;&#40;400, 400&#41;&#41;</code></pre>
+
+<img src="/MathSeminar.jl/assets/programming/benchmark_part1/code/output/mandJ.png" alt="">
+<div class="page-foot">
+  <div class="copyright">
+    &copy; SatoshiTerasaki. Last modified: 2021年10月29日 金曜日. Website built with 
+    <a href="http://github.com/terasakisatoshi/MathSeminar.jl">MathSeminar.jl</a>
+    <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
+  </div>
+</div>
+</div><!-- CONTENT ENDS HERE -->
+  </main> <!-- end of id=main -->
+  <script src="/MathSeminar.jl/libs/vela/metisMenu.min.js"></script>
+  <script src="/MathSeminar.jl/libs/vela/slideout.min.js"></script>
+  
+    <script src="/MathSeminar.jl/libs/katex/katex.min.js"></script>
+<script src="/MathSeminar.jl/libs/katex/auto-render.min.js"></script>
+<script>renderMathInElement(document.body)</script>
+
+  
+  
+    <script src="/MathSeminar.jl/libs/highlight/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();hljs.configure({tabReplace: '    '});</script>
+
+  
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+   <link rel="stylesheet" href="/MathSeminar.jl/libs/highlight/github.min.css">
+   
+  
+
+  <link href="/MathSeminar.jl/css/franklin.css" rel="stylesheet">
+  <link href="/MathSeminar.jl/css/vela.css" rel="stylesheet">
+  <script src="/MathSeminar.jl/libs/vela/jquery.min.js"></script>
+  <link rel="stylesheet" href="/MathSeminar.jl/css/theorem.css">
+   <title>Animation</title>  
+  <!-- PLOTLY -->
+  
+
+  <title>Franklin Example | Vela</title>
+</head>
+<body>
+  <div class="main-nav" id="menu">
+    <div class="flex-container">
+      <span class="sidebar-brand">
+        <h3 style='font-size: 25px'>MathSeminar.jl</h3>
+      </span>
+    </div> <!-- class="flex-container" -->
+
+    <nav class="sidebar-nav">
+      <ul class="metismenu"  id="metismenu" >
+        <li><a href="/MathSeminar.jl/index.html">Home</a></li>
+        <li><a href="" class="has-arrow">Slide Show</a>
+          <ul>
+            <li><a href="/MathSeminar.jl/slideshow/remark/build/">Introduction to Remark.jl</a>
+            <li><a href="/MathSeminar.jl/slideshow/franklin/build">Introduction to Franklin.jl</a>
+            <li><a href="/MathSeminar.jl/slideshow/dash/build">Introduction to Dash.jl</a>
+            <li><a href="/MathSeminar.jl/slideshow/binarybuilder/build">Introduction to BinaryBuilder.jl</a>
+            <li><a href="/MathSeminar.jl/slideshow/myworkflow/build">Introduction to MyWorkflow.jl</a>
+          </ul>
+        </li>
+        <li><a href="" class="has-arrow">Programming</a>
+          <ul>
+            <li><a href="/MathSeminar.jl/programming/clang">C</a></li>
+            <li><a href="/MathSeminar.jl/programming/rust">Rust</a></li>
+            <li><a href="/MathSeminar.jl/programming/benchmark_part1"> Julia benchmark Part1 </a></li>
+            <li><a href="/MathSeminar.jl/programming/benchmark_part2"> Julia benchmark Part2 </a></li>
+            <li><a href="/MathSeminar.jl/programming/literatejl">Literate.jl</a></li>
+            <li><a href="/MathSeminar.jl/programming/sympy">SymPy.jl</a></li>
+            <li><a href="/MathSeminar.jl/programming/franklin">Franklin.jl</a></li>
+            <li><a href="/MathSeminar.jl/programming/weave">Weave.jl</a></li>
+            <li><a href="/MathSeminar.jl/programming/theoremcounter">Theorem Counter</a></li>
+            <li><a href="/MathSeminar.jl/programming/images">Images.jl</a></li>
+            <li><a href="/MathSeminar.jl/programming/rcall">RCall.jl</a></li>
+            <li><a href="/MathSeminar.jl/programming/asciinema">asciinema</a></li>
+          </ul>
+        </li>
+        <li><a href="" class="has-arrow">Gallery</a>
+          <ul>
+            <li><a href="/MathSeminar.jl/gallery/animation/">Plots.jl animation</a></li>
+            <li><a href="/MathSeminar.jl/gallery/curve/">Plots.jl curve</a></li>
+            <li><a href="/MathSeminar.jl/gallery/gr/">GR.jl</a></li>
+            <li><a href="/MathSeminar.jl/gallery/plotlyjs1/">PlotlyJS.jl Part1</a></li>
+            <li><a href="/MathSeminar.jl/gallery/plotlyjs2/">PlotlyJS.jl Part2</a></li>
+            <li><a href="/MathSeminar.jl/gallery/plotlyjs3/">PlotlyJS.jl Part3</a></li>
+            <li><a href="/MathSeminar.jl/gallery/jsxgraph_js/">JSXGraph (JS)</a></li>
+            <li><a href="/MathSeminar.jl/gallery/jsxgraph_jl/">JSXGraph (Julia)</a></li>
+            <li><a href="/MathSeminar.jl/gallery/wglmakie/">WGLMakie.jl</a></li>
+          </ul>
+        </li>
+        <li><a href="" class="has-arrow">Topics in Mathematics</a>
+          <ul>
+            <li><a href="/MathSeminar.jl/mathematics/linearalgebra/chapter0">Linear Algebra</a></li>
+            <li><a href="/MathSeminar.jl/mathematics/statistics/dice">Dice</a></li>
+            <li><a href="/MathSeminar.jl/mathematics/statistics/Chisq">Chisq Distributions</a></li>
+            <li><a href="/MathSeminar.jl/mathematics/statistics/Law_of_Large_Numbers">Law_of_Large_Numbers</a></li>
+            <li><a href="/MathSeminar.jl/mathematics/visualizations/triangular_function_addition_theorem">Triangular function addition theorem</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div> <!-- main nav menu -->
+
+  <main id="panel">
+    <div class="toggle-button hamburger hamburger--spin">
+      <div class="hamburger-box">
+        <div class="hamburger-inner"></div>
+      </div>
+    </div>
+    <h1 class="page title">Animation</h1>
+    <hr>
+
+
+<!-- Content appended here -->
+<div class="franklin-content"><h1 id="animation"><a href="#animation" class="header-anchor">Animation</a></h1></p>
+<p>      
+<ul>
+<li><p>This example is taken from <a href="https://docs.juliaplots.org/latest/animations/">Plots.jl Animations</a></p>
+</li>
+</ul>
+<pre><code class="julia hljs"><span class="hljs-keyword">using</span> Plots
+
+<span class="hljs-meta">@userplot</span> CirclePlot
+<span class="hljs-meta">@recipe</span> <span class="hljs-keyword">function</span> f(cp::CirclePlot)
+    x, y, i = cp.args
+    n = length(x)
+    inds = circshift(<span class="hljs-number">1</span>:n, <span class="hljs-number">1</span> - i)
+    linewidth --&gt; range(<span class="hljs-number">0</span>, <span class="hljs-number">10</span>, length = n)
+    seriesalpha --&gt; range(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, length = n)
+    aspect_ratio --&gt; <span class="hljs-number">1</span>
+    label --&gt; <span class="hljs-literal">false</span>
+    x[inds], y[inds]
+<span class="hljs-keyword">end</span>
+
+n = <span class="hljs-number">400</span>
+t = range(<span class="hljs-number">0</span>, <span class="hljs-number">2</span><span class="hljs-literal">π</span>, length = n)
+x = <span class="hljs-number">16</span>sin.(t).^<span class="hljs-number">3</span>
+y = <span class="hljs-number">13</span>cos.(t) .- <span class="hljs-number">5</span>cos.(<span class="hljs-number">2</span>t) .- <span class="hljs-number">2</span>cos.(<span class="hljs-number">3</span>t) .- cos.(<span class="hljs-number">4</span>t)
+anim = <span class="hljs-meta">@animate</span> <span class="hljs-keyword">for</span> i ∈ <span class="hljs-number">1</span>:n
+    circleplot(x, y, i, line_z = <span class="hljs-number">1</span>:n, cbar = <span class="hljs-literal">false</span>, c = :reds, framestyle = :none)
+<span class="hljs-keyword">end</span> when i &gt; <span class="hljs-number">40</span> &amp;&amp; mod1(i, <span class="hljs-number">10</span>) == <span class="hljs-number">5</span></code></pre>
+<img src="/MathSeminar.jl/assets/gallery/animation/code/output/heart.gif" alt="">
+<ul>
+<li><p>This example is taken from <a href="http://docs.juliaplots.org/latest/#Intro-to-Plots-in-Julia">here</a></p>
+</li>
+</ul>
+<pre><code class="julia hljs"><span class="hljs-keyword">using</span> Plots
+<span class="hljs-comment"># define the Lorenz attractor</span>
+Base.<span class="hljs-meta">@kwdef</span> <span class="hljs-keyword">mutable struct</span> Lorenz
+    dt::<span class="hljs-built_in">Float64</span> = <span class="hljs-number">0.02</span>
+    σ::<span class="hljs-built_in">Float64</span> = <span class="hljs-number">10</span>
+    ρ::<span class="hljs-built_in">Float64</span> = <span class="hljs-number">28</span>
+    β::<span class="hljs-built_in">Float64</span> = <span class="hljs-number">8</span>/<span class="hljs-number">3</span>
+    x::<span class="hljs-built_in">Float64</span> = <span class="hljs-number">1</span>
+    y::<span class="hljs-built_in">Float64</span> = <span class="hljs-number">1</span>
+    z::<span class="hljs-built_in">Float64</span> = <span class="hljs-number">1</span>
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-keyword">function</span> step!(l::Lorenz)
+    dx = l.σ * (l.y - l.x);         l.x += l.dt * dx
+    dy = l.x * (l.ρ - l.z) - l.y;   l.y += l.dt * dy
+    dz = l.x * l.y - l.β * l.z;     l.z += l.dt * dz
+<span class="hljs-keyword">end</span>
+
+attractor = Lorenz()
+
+
+<span class="hljs-comment"># initialize a 3D plot with 1 empty series</span>
+plt = plot3d(
+    <span class="hljs-number">1</span>,
+    xlim = (-<span class="hljs-number">30</span>, <span class="hljs-number">30</span>),
+    ylim = (-<span class="hljs-number">30</span>, <span class="hljs-number">30</span>),
+    zlim = (<span class="hljs-number">0</span>, <span class="hljs-number">60</span>),
+    title = <span class="hljs-string">&quot;Lorenz Attractor&quot;</span>,
+    marker = <span class="hljs-number">2</span>,
+)
+
+<span class="hljs-comment"># build an animated gif by pushing new points to the plot, saving every 10th frame</span>
+anim = <span class="hljs-meta">@animate</span> <span class="hljs-keyword">for</span> i=<span class="hljs-number">1</span>:<span class="hljs-number">1500</span>
+    step!(attractor)
+    push!(plt, attractor.x, attractor.y, attractor.z)
+<span class="hljs-keyword">end</span> every <span class="hljs-number">10</span></code></pre>
+<img src="/MathSeminar.jl/assets/gallery/animation/code/output/lorenzplot.gif" alt="">
+<div class="page-foot">
+  <div class="copyright">
+    &copy; SatoshiTerasaki. Last modified: 2021年10月29日 金曜日. Website built with 
+    <a href="http://github.com/terasakisatoshi/MathSeminar.jl">MathSeminar.jl</a>
+    <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
+  </div>
+</div>
+</div><!-- CONTENT ENDS HERE -->
+  </main> <!-- end of id=main -->
+  <script src="/MathSeminar.jl/libs/vela/metisMenu.min.js"></script>
+  <script src="/MathSeminar.jl/libs/vela/slideout.min.js"></script>
+  
+  
+    
+
+
+  
+</body>
+</html>

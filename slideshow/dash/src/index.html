@@ -1,0 +1,712 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="/MathSeminar.jl/libs/katex/katex.min.css">
+   
+   <link rel="stylesheet" href="/MathSeminar.jl/libs/highlight/github.min.css">
+   
+  
+
+  <link href="/MathSeminar.jl/css/franklin.css" rel="stylesheet">
+  <link href="/MathSeminar.jl/css/vela.css" rel="stylesheet">
+  <script src="/MathSeminar.jl/libs/vela/jquery.min.js"></script>
+  <link rel="stylesheet" href="/MathSeminar.jl/css/theorem.css">
+   <title>Dash.jl で遊ぼう</title>  
+  <!-- PLOTLY -->
+  
+
+  <title>Franklin Example | Vela</title>
+</head>
+<body>
+  <div class="main-nav" id="menu">
+    <div class="flex-container">
+      <span class="sidebar-brand">
+        <h3 style='font-size: 25px'>MathSeminar.jl</h3>
+      </span>
+    </div> <!-- class="flex-container" -->
+
+    <nav class="sidebar-nav">
+      <ul class="metismenu"  id="metismenu" >
+        <li><a href="/MathSeminar.jl/index.html">Home</a></li>
+        <li><a href="" class="has-arrow">Slide Show</a>
+          <ul>
+            <li><a href="/MathSeminar.jl/slideshow/remark/build/">Introduction to Remark.jl</a>
+            <li><a href="/MathSeminar.jl/slideshow/franklin/build">Introduction to Franklin.jl</a>
+            <li><a href="/MathSeminar.jl/slideshow/dash/build">Introduction to Dash.jl</a>
+            <li><a href="/MathSeminar.jl/slideshow/binarybuilder/build">Introduction to BinaryBuilder.jl</a>
+            <li><a href="/MathSeminar.jl/slideshow/myworkflow/build">Introduction to MyWorkflow.jl</a>
+          </ul>
+        </li>
+        <li><a href="" class="has-arrow">Programming</a>
+          <ul>
+            <li><a href="/MathSeminar.jl/programming/clang">C</a></li>
+            <li><a href="/MathSeminar.jl/programming/rust">Rust</a></li>
+            <li><a href="/MathSeminar.jl/programming/benchmark_part1"> Julia benchmark Part1 </a></li>
+            <li><a href="/MathSeminar.jl/programming/benchmark_part2"> Julia benchmark Part2 </a></li>
+            <li><a href="/MathSeminar.jl/programming/literatejl">Literate.jl</a></li>
+            <li><a href="/MathSeminar.jl/programming/sympy">SymPy.jl</a></li>
+            <li><a href="/MathSeminar.jl/programming/franklin">Franklin.jl</a></li>
+            <li><a href="/MathSeminar.jl/programming/weave">Weave.jl</a></li>
+            <li><a href="/MathSeminar.jl/programming/theoremcounter">Theorem Counter</a></li>
+            <li><a href="/MathSeminar.jl/programming/images">Images.jl</a></li>
+            <li><a href="/MathSeminar.jl/programming/rcall">RCall.jl</a></li>
+            <li><a href="/MathSeminar.jl/programming/asciinema">asciinema</a></li>
+          </ul>
+        </li>
+        <li><a href="" class="has-arrow">Gallery</a>
+          <ul>
+            <li><a href="/MathSeminar.jl/gallery/animation/">Plots.jl animation</a></li>
+            <li><a href="/MathSeminar.jl/gallery/curve/">Plots.jl curve</a></li>
+            <li><a href="/MathSeminar.jl/gallery/gr/">GR.jl</a></li>
+            <li><a href="/MathSeminar.jl/gallery/plotlyjs1/">PlotlyJS.jl Part1</a></li>
+            <li><a href="/MathSeminar.jl/gallery/plotlyjs2/">PlotlyJS.jl Part2</a></li>
+            <li><a href="/MathSeminar.jl/gallery/plotlyjs3/">PlotlyJS.jl Part3</a></li>
+            <li><a href="/MathSeminar.jl/gallery/jsxgraph_js/">JSXGraph (JS)</a></li>
+            <li><a href="/MathSeminar.jl/gallery/jsxgraph_jl/">JSXGraph (Julia)</a></li>
+            <li><a href="/MathSeminar.jl/gallery/wglmakie/">WGLMakie.jl</a></li>
+          </ul>
+        </li>
+        <li><a href="" class="has-arrow">Topics in Mathematics</a>
+          <ul>
+            <li><a href="/MathSeminar.jl/mathematics/linearalgebra/chapter0">Linear Algebra</a></li>
+            <li><a href="/MathSeminar.jl/mathematics/statistics/dice">Dice</a></li>
+            <li><a href="/MathSeminar.jl/mathematics/statistics/Chisq">Chisq Distributions</a></li>
+            <li><a href="/MathSeminar.jl/mathematics/statistics/Law_of_Large_Numbers">Law_of_Large_Numbers</a></li>
+            <li><a href="/MathSeminar.jl/mathematics/visualizations/triangular_function_addition_theorem">Triangular function addition theorem</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div> <!-- main nav menu -->
+
+  <main id="panel">
+    <div class="toggle-button hamburger hamburger--spin">
+      <div class="hamburger-box">
+        <div class="hamburger-inner"></div>
+      </div>
+    </div>
+    <h1 class="page title">Dash.jl で遊ぼう</h1>
+    <hr>
+
+
+<!-- Content appended here -->
+<div class="franklin-content"><p>class: center, middle</p>
+<h1 id="dashjl_で遊ぼう"><a href="#dashjl_で遊ぼう" class="header-anchor">Dash.jl で遊ぼう</a></h1>
+<p>ごまふあざらし</p>
+<hr />
+<h1 id="dashjl_とは"><a href="#dashjl_とは" class="header-anchor">Dash.jl とは </a></h1>
+<ul>
+<li><p>Web アプリを構築する Python フレームワーク Dash の Julia 版</p>
+</li>
+<li><p>単純に Python の Dash を PyCall.jl で wrap したものではなく直接 Julia と JS が連携してる.</p>
+<ul>
+<li><p>JS はフロントエンドライブラリの React が裏で動いている.</p>
+</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h1 id="このスライドを読んでわかること"><a href="#このスライドを読んでわかること" class="header-anchor">このスライドを読んでわかること</a></h1>
+<ul>
+<li><p>関数 \(y=x^n\) の \(n\) を変化させたときの様子を描画する例を Julia で書ける.</p>
+</li>
+</ul>
+<p>&lt;div style&#61;&quot;text-align:center;&quot;&gt; &lt;img height&#61;350 src&#61;https://user-images.githubusercontent.com/16760547/89501959-2e33cb00-d7ff-11ea-85e0-17dff0fcaf3f.gif /&gt; &lt;/div&gt;</p>
+<hr />
+<h1 id="install"><a href="#install" class="header-anchor">Install</a></h1>
+<ul>
+<li><p>Dash.jl の README.md に従えば良い.</p>
+</li>
+<li><p>Python での dash<em>core</em>components などは対応するリポジトリの <code>jl</code> ブランチで管理されている</p>
+</li>
+</ul>
+<pre><code class="language-julia">julia&gt; using Pkg
+julia&gt; Pkg.add&#40;&#91;&quot;Dash&quot;, &quot;DashCoreComponents&quot;, &quot;DashHtmlComponents&quot;, &quot;DashTable&quot;&#93;&#41;</code></pre>
+<table><tr><th align="left">Julia</th><th align="left">Python</th></tr><tr><td align="left"><code>using Dash</code></td><td align="left"><code>import dash</code></td></tr><tr><td align="left"><code>using DashCoreComponents</code></td><td align="left"><code>import dash_core_components  as dcc</code></td></tr><tr><td align="left"><code>using DashHtmlComponents</code></td><td align="left"><code>import dash_html_components  as html</code></td></tr><tr><td align="left"><code>using DashTable</code></td><td align="left"><code>import dash_table</code></td></tr></table>
+<hr />
+<h1 id="usage"><a href="#usage" class="header-anchor">Usage</a></h1>
+<ul>
+<li><p><code>sample.jl</code> を作って <code>julia sample.jl</code> を実行すれば良い. <code>sample.jl</code> を適宜編集すると自動で反映される.</p>
+</li>
+</ul>
+<pre><code class="language-julia"># sample.jl: Dash.jl の README.md から引用
+using Dash
+using DashCoreComponents
+using DashHtmlComponents
+app &#61; dash&#40;external_stylesheets &#61; &#91;&quot;https://codepen.io/chriddyp/pen/bWLwgP.css&quot;&#93;&#41;
+app.layout &#61; html_div&#40;&#41; do
+    html_h1&#40;&quot;Hello Dash&quot;&#41;,
+    html_div&#40;&quot;Dash.jl: Julia interface for Dash&quot;&#41;,
+    dcc_graph&#40;
+        id &#61; &quot;example-graph&quot;,
+        figure &#61; &#40;
+            data &#61; &#91;
+                &#40;x &#61; &#91;1, 2, 3&#93;, y &#61; &#91;4, 1, 2&#93;, type &#61; &quot;bar&quot;, name &#61; &quot;SF&quot;&#41;,
+                &#40;x &#61; &#91;1, 2, 3&#93;, y &#61; &#91;2, 4, 5&#93;, type &#61; &quot;bar&quot;, name &#61; &quot;Montréal&quot;&#41;,
+            &#93;,
+            layout &#61; &#40;title &#61; &quot;Dash Data Visualization&quot;,&#41;,
+        &#41;,
+    &#41;
+end
+
+run_server&#40;app, &quot;127.0.0.1&quot;, 8050, debug &#61; true&#41; # localhost:8050 にアクセス</code></pre>
+<hr />
+<h1 id="result"><a href="#result" class="header-anchor">Result</a></h1>
+<p>&lt;div style&#61;&quot;text-align:center;&quot;&gt;     &lt;img height&#61;400 src&#61;https://user-images.githubusercontent.com/16760547/89650605-a97ba680-d8fd-11ea-8110-9751b9e179d4.png /&gt; &lt;/div&gt;</p>
+<ul>
+<li><p>See my gist <a href="https://gist.github.com/terasakisatoshi/b3113fbb290a00650d0e81a1f00c7fab">here</a></p>
+</li>
+</ul>
+<hr />
+<h1 id="appendix_python"><a href="#appendix_python" class="header-anchor">Appendix &#40;Python&#41;</a></h1>
+<pre><code class="language-python"># Reference: https://dash.plotly.com/dash-core-components/graph
+import dash
+import dash_core_components as dcc
+import dash_html_components as html
+
+app &#61; dash.Dash&#40;__name__, external_stylesheets&#61;&#91;&quot;https://codepen.io/chriddyp/pen/bWLwgP.css&quot;&#93;&#41;
+
+app.layout &#61; html.Div&#40;
+    children&#61;&#91;
+        html.H1&#40;children&#61;&quot;Hello Dash&quot;,&#41;,
+        html.Div&#40;children&#61;&quot;Dash: A web application framework for Python/R/Julia&quot;,&#41;,
+        dcc.Graph&#40;
+            id&#61;&quot;example-graph&quot;,
+            figure&#61;&#123;
+                &quot;data&quot;: &#91;
+                    &#123;&quot;x&quot;: &#91;1, 2, 3&#93;, &quot;y&quot;: &#91;4, 1, 2&#93;, &quot;type&quot;: &quot;bar&quot;, &quot;name&quot;: &quot;SF&quot;&#125;,
+                    &#123;&quot;x&quot;: &#91;1, 2, 3&#93;, &quot;y&quot;: &#91;2, 4, 5&#93;, &quot;type&quot;: &quot;bar&quot;, &quot;name&quot;: u&quot;Montréal&quot;&#125;,
+                &#93;,
+                &quot;layout&quot;: &#123;&quot;title&quot;: &quot;Dash Data Visualization&quot;&#125;,
+            &#125;,
+        &#41;,
+    &#93;,
+&#41;
+
+if __name__ &#61;&#61; &quot;__main__&quot;:
+    app.run_server&#40;debug&#61;True&#41;</code></pre>
+<hr />
+<h1 id="syntax_python_vs_julia"><a href="#syntax_python_vs_julia" class="header-anchor">Syntax &#40;Python vs. Julia&#41;</a></h1>
+<pre><code class="language-python"># Python
+import dash
+import dash_core_components as dcc
+import dash_html_components as html
+app &#61; dash.Dash&#40;__name__, external_stylesheets&#61;&#91;&quot;https://codepen.io/chriddyp/pen/bWLwgP.css&quot;&#93;&#41;
+app.layout &#61; html.Div&#40;
+    children&#61;&#91;
+        html.Xyz&#40;...&#41;,
+        html.Xyz&#40;...&#41;,
+        dcc.Xyz&#40;...&#41;,
+    &#93;,
+&#41;</code></pre>
+<p><code>do</code>-syntax を利用する. <code>Python</code>-&gt;<code>Julia</code> の翻訳は <code>html.Div</code> -&gt; <code>html_div</code> や <code>dcc.Graph</code> -&gt; <code>dcc_graph</code> のようにする.</p>
+<pre><code class="language-julia"># Julia
+using Dash
+using DashCoreComponents
+using DashHtmlComponents
+app &#61; dash&#40;external_stylesheets &#61; &#91;&quot;https://codepen.io/chriddyp/pen/bWLwgP.css&quot;&#93;&#41;
+app.layout &#61; html_div&#40;&#41; do
+    html_xyz&#40;...&#41;, # 各コンポーネントは
+    html_xyz&#40;...&#41;, # &#96;,&#96; で区切る
+    dcc_xyz&#40;...&#41; # 注意！！！最後は &#96;,&#96; を入れてはいけない. 
+end</code></pre>
+<hr />
+<h1 id="dcc_graphfigure"><a href="#dcc_graphfigure" class="header-anchor"><code>dcc_graph&#40;figure&#61;...&#41;</code></a></h1>
+<ul>
+<li><p><code>:data</code>, <code>:layout</code> をキーにもつ NamedTuple </p>
+</li>
+<li><p>PlotlyJS で作成したオブジェクト</p>
+</li>
+</ul>
+<pre><code class="language-julia">using PlotlyJS
+p &#61; plot&#40;&#91;1, 2, 3&#93;&#41;
+p |&gt; typeof |&gt; print # PlotlyJS.SyncPlot 
+# 注意&#33;&#33;&#33; この &#96;p&#96; を &#96;figure&#96; に渡さない
+dcc_graph&#40;figure&#61;p.plot&#41; # p.plot を渡す</code></pre>
+<ul>
+<li><p>Plots.jl で作成したオブジェクトを PlotlyJS に変換する API を利用する &#40;個人的におすすめ&#41;</p>
+</li>
+</ul>
+<pre><code class="language-julia">using Plots
+
+function powplot&#40;n&#41;
+    p &#61; plot&#40;x -&gt; x^n, label &#61; &quot;y&#61;x^&#36;n&quot;, xlims&#61;&#91;0,1&#93;&#41;
+    # NamedTuple を作る
+    return &#40;data &#61; Plots.plotly_series&#40;p&#41;, layout &#61; Plots.plotly_layout&#40;p&#41;&#41;
+end
+
+dcc_graph&#40;figure&#61;powplot&#40;3&#41;&#41;</code></pre>
+<hr />
+<h1 id="callback"><a href="#callback" class="header-anchor">callback&#33;</a></h1>
+<ul>
+<li><p>Python の <code>@app.callback</code> に対応.</p>
+</li>
+<li><p>関数 \(y=x^n\) をプロットする冒頭のデモのコードを例に &#40;<a href="https://github.com/plotly/Dash.jl/issues/50">Dash.jl/Contributed Examples #50</a>&#41;</p>
+</li>
+</ul>
+<pre><code class="language-julia">function powplot&#40;n&#41;
+    p &#61; plot&#40;x -&gt; x^n, label &#61; &quot;y&#61;x^&#36;n&quot;, xlims&#61;&#91;0,1&#93;&#41;
+    return &#40;data &#61; Plots.plotly_series&#40;p&#41;, layout &#61; Plots.plotly_layout&#40;p&#41;&#41;
+end
+app &#61; dash&#40;external_stylesheets &#61; &#91;&quot;https://codepen.io/chriddyp/pen/bWLwgP.css&quot;&#93;&#41;
+app.layout &#61; html_div&#40;style &#61; Dict&#40;:width &#61;&gt; &quot;50&#37;&quot;&#41;&#41; do
+    html_h1&#40;&quot;Hello Dash&quot;&#41;,
+    html_div&#40;&#41; do
+        html_div&#40;&quot;slider&quot;, style &#61; &#40;width &#61; &quot;10&#37;&quot;, display &#61; &quot;inline-block&quot;&#41;&#41;,
+        html_div&#40;dcc_slider&#40;
+            id &#61; &quot;slider&quot;,
+            min &#61; 0, max &#61; 9, marks &#61; Dict&#40;i &#61;&gt; &quot;&#36;i&quot; for i &#61; 0:9&#41;, value &#61; 1,
+        &#41;,style &#61; &#40;width &#61; &quot;70&#37;&quot;, display &#61; &quot;inline-block&quot;&#41;&#41;
+    end,
+    html_br&#40;&#41;,
+    dcc_graph&#40;id &#61; &quot;graph&quot;, figure &#61; powplot&#40;1&#41;&#41;
+end
+
+callback&#33;&#40;app, Output&#40;&quot;graph&quot;, &quot;figure&quot;&#41;, Input&#40;&quot;slider&quot;, &quot;value&quot;&#41;&#41; do value
+   powplot&#40;value&#41;
+end</code></pre>
+<hr />
+<h1 id="example_を作っていこう"><a href="#example_を作っていこう" class="header-anchor">Example を作っていこう</a></h1>
+<ul>
+<li><p>https://github.com/plotly/Dash.jl/issues/50 に Example を奉納する Issue を作った</p>
+</li>
+<li><p>Plots.jl を使って <code>&#40;data &#61; Plots.plotly_series&#40;p&#41;, layout &#61; Plots.plotly_layout&#40;p&#41;&#41;</code> のスタイルが入門しやすいと思う.</p>
+</li>
+<li><p>このスライドと下記の gist をさわれば入門の意味で完全に理解できる.</p>
+</li>
+</ul>
+<h2 id="gist"><a href="#gist" class="header-anchor">gist </a></h2>
+<ul>
+<li><p><a href="https://gist.github.com/terasakisatoshi/b3113fbb290a00650d0e81a1f00c7fab">Julia vs. Python</a></p>
+</li>
+<li><p><a href="https://gist.github.com/terasakisatoshi/8c47b12a6997a3e0f64613f4aa33d422">dcc_slider の例</a></p>
+</li>
+<li><p><a href="https://gist.github.com/terasakisatoshi/da31ab840ac8cc496b8af0ac157141b7">dcc_xxx の例</a></p>
+</li>
+<li><p><a href="https://gist.github.com/terasakisatoshi/257e48af35f629dc34ba896989ba658f">PlotlyJS.jl/Plots.jl の例</a></p>
+</li>
+</ul>
+<hr />
+<p>class: center, middle</p>
+<h1 id="おちまい"><a href="#おちまい" class="header-anchor">おちまい</a></h1>
+<p>ごまふあざらし</p>
+<hr />
+<p>class: center, middle</p>
+<h1 id="dashjl_のためのコンポーネントを作ろう"><a href="#dashjl_のためのコンポーネントを作ろう" class="header-anchor">Dash&#40;.jl&#41; のためのコンポーネントを作ろう.</a></h1>
+<p>ごまふあざらし</p>
+<hr />
+<h1 id="ここで述べること"><a href="#ここで述べること" class="header-anchor">ここで述べること</a></h1>
+<ul>
+<li><p>Dash.jl で使える UI を自作する方法</p>
+<ul>
+<li><p>実際には Julia に限らず Python, R でも適用できる．</p>
+</li>
+<li><p>Dash では UI をコンポーネント&#40;&#61;Component&#41; と呼んでいる</p>
+</li>
+<li><p><a href="https://github.com/plotly/dash-component-boilerplate">dash-component-boilerplate</a> を使う.</p>
+</li>
+</ul>
+</li>
+<li><p>対象:</p>
+<ul>
+<li><p>Dash が提供する既存のコンポーネントで満足できない人向け</p>
+</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h1 id="example"><a href="#example" class="header-anchor">Example</a></h1>
+<ul>
+<li><p>JSXGraph を表示する</p>
+</li>
+<li><p>他のコンポーネントと連携する</p>
+</li>
+</ul>
+<p>&lt;div class&#61;&quot;center&quot;&gt;     &lt;img width&#61;&quot;800&quot; alt&#61;&quot;Screen Shot 2021-05-12 at 17 51 30&quot; src&#61;&quot;https://user-images.githubusercontent.com/16760547/117947558-4535b980-b34b-11eb-84c9-aad97442cf4d.png&quot;&gt; &lt;/div&gt;</p>
+<hr />
+<h1 id="必要なソフトウェア"><a href="#必要なソフトウェア" class="header-anchor">必要なソフトウェア</a></h1>
+<ul>
+<li><p>Julia</p>
+<ul>
+<li><p>ですよね？</p>
+</li>
+</ul>
+</li>
+<li><p>Python </p>
+<ul>
+<li><p>ツールとして必要</p>
+</li>
+<li><p><code>cookiecutter</code>, <code>virtualenv</code></p>
+</li>
+</ul>
+</li>
+<li><p>NodeJS, npm</p>
+<ul>
+<li><p><a href="https://github.com/plotly/dash-component-boilerplate">dash-component-boilerplate</a> プロジェクトのビルドに使う</p>
+</li>
+<li><p>JavaScript を動作させるランタイム環境. ブラウザ以外の環境でも動かせるようになった.</p>
+</li>
+<li><p>コンポーネントの記述に React を使う</p>
+</li>
+<li><p>Python の文法を知っていれば雰囲気で押し進めることができる.</p>
+</li>
+<li><p>npm は JavaScript のパッケージマネージャ&#40;Python の pip みたいなもの&#41;</p>
+</li>
+<li><p>Python ユーザーは <a href="https://dash.plotly.com/react-for-python-developers">React for Python Developers: a primer</a> を見ると理解しやすい.</p>
+</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h1 id="install_nodejs_npm"><a href="#install_nodejs_npm" class="header-anchor">Install &#40;NodeJS, npm&#41;</a></h1>
+<ul>
+<li><p><code>npm</code> コマンドが使えれば良い. 導入はお好きなように</p>
+</li>
+<li><p>例えば <a href="https://github.com/anyenv/anyenv">anyenv</a> を経由して導入する方法がある. macOS ユーザーの場合は次のようにする:</p>
+</li>
+</ul>
+<pre><code class="language-console">&#37; brew install anyenv
+&#37; echo &#39;eval &quot;&#36;&#40;anyenv init -&#41;&quot;&#39; &gt;&gt; ~/.zshrc
+&#37; exec &#36;SHELL -l
+&#37; anyenv install nodenv # ここを pyenv にするとPython, renv にすると R が入る.
+&#37; exec &#36;SHELL -l
+&#37; nodenv install 14.4.0
+&#37; nodenv global 14.4.0
+&#37; node --version
+v14.4.0
+&#37; npm --version
+7.12.0</code></pre>
+<ul>
+<li><p>導入は <a href="https://oukayuka.booth.pm/">くるみ割り書房 ft. React</a> から引用</p>
+</li>
+<li><p>anyenv については <a href="https://qiita.com/rinpa/items/81766cd6a7b23dea9f3c">rinpa さんの Qiita 記事 <code>anyenv &#43; macOS環境構築</code></a> が詳しい.</p>
+</li>
+</ul>
+<hr />
+<p>class: center, middle</p>
+<h1 id="intro_to_nodejs_忙しい人向け"><a href="#intro_to_nodejs_忙しい人向け" class="header-anchor">Intro to NodeJS &#40;忙しい人向け&#41;</a></h1>
+<hr />
+<h1 id="intro_to_nodejs_console"><a href="#intro_to_nodejs_console" class="header-anchor">Intro to NodeJS &#40;Console&#41;</a></h1>
+<h2 id="repl"><a href="#repl" class="header-anchor">REPL</a></h2>
+<pre><code class="language-console">&#36; node
+&gt; &quot;Hello World&quot;
+&#39;Hello World&#39;</code></pre>
+<h2 id="execute_an_external_js_file"><a href="#execute_an_external_js_file" class="header-anchor">Execute an external JS file</a></h2>
+<pre><code class="language-console">&#36; echo &#39;console.log&#40;&quot;Hello World&quot;&#41;&#39; &gt; hello.js
+&#36; node hello.js
+Hello World</code></pre>
+<hr />
+<h1 id="intro_to_nodejs_syntax_part_1"><a href="#intro_to_nodejs_syntax_part_1" class="header-anchor">Intro to NodeJS &#40;Syntax Part 1&#41;</a></h1>
+<pre><code class="language-js">// 変数の宣言
+let x &#61; 1;
+let y &#61; 1;
+console.log&#40;x &#43; y&#41;; // 2
+x &#61; -1 // 再代入できる
+console.log&#40;x &#43; y&#41;; // 0
+let g &#61; &quot;goma&quot;; // string
+// const を用いて再代入できないようする
+const theorem &#61; &#96;&#36;&#123;g&#125; is cute&#96;; // template strings
+console.log&#40;theorem&#41; // goma is cute
+// データ構造
+const lang &#61; &#91;&quot;Julia&quot;, &quot;Python&quot;, &quot;R&quot;&#93;;
+console.log&#40;lang&#91;0&#93;&#41;; // &#39;Julia&#39;
+let myTechStack &#61; &#123;
+  deeplearning: &quot;PyTorch&quot;,
+  frontend: &quot;React&quot;,
+  web: &quot;Dash&quot;,
+  backend: &quot;Julia&quot;,
+&#125;
+console.log&#40;myTechStack.deeplearning&#41; // &#39;PyTorch&#39;
+console.log&#40;myTechStack&#91;&quot;web&quot;&#93;&#41; // &#39;Dash&#39;</code></pre>
+<hr />
+<h1 id="intro_to_nodejs_syntax_part_2"><a href="#intro_to_nodejs_syntax_part_2" class="header-anchor">Intro to NodeJS &#40;Syntax Part 2&#41;</a></h1>
+<pre><code class="language-js">// calcpi.js
+class PiSimulator &#123;
+    constructor&#40;N&#41; &#123;
+        this.N &#61; N;
+    &#125;
+
+    calcPi&#40;&#41; &#123;
+        let s &#61; 0;
+        for &#40;let i &#61; 0; i &lt; this.N; i&#43;&#43;&#41; &#123;
+            const x &#61; Math.random&#40;&#41;;
+            const y &#61; Math.random&#40;&#41;;
+            if &#40;x ** 2 &#43; y ** 2 &lt; 1&#41; &#123;
+                s &#43;&#61; 1;
+            &#125;
+        &#125;
+        const pi_approx &#61; 4 * s / this.N;
+        return pi_approx;
+    &#125;
+&#125;
+
+const N &#61; 10000000;
+const simulator &#61; new PiSimulator&#40;N&#41;;
+console.log&#40;simulator.calcPi&#40;&#41;&#41;; # だいたい円周率に近くなる</code></pre>
+<hr />
+<h1 id="intro_to_nodejs_appendix"><a href="#intro_to_nodejs_appendix" class="header-anchor">Intro to NodeJS &#40;Appendix&#41;</a></h1>
+<ul>
+<li><p>I want to run NodeJS on Jupyter Notebook to learn...</p>
+</li>
+</ul>
+<pre><code class="language-console">&#36; git clone https://github.com/terasakisatoshi/jsexample
+&#36; cd myjsexample
+&#36; docker-compose build
+&#36; docker-compose up lab
+jsexample | &#91;C 2021-05-12 11:09:58.249 ServerApp&#93;
+jsexample |
+jsexample |     To access the server, open this file in a browser:
+jsexample |         file:///root/.local/share/jupyter/runtime/jpserver-1-open.html
+jsexample |     Or copy and paste one of these URLs:
+jsexample |         http://8279f5e3fd2d:8888/lab?token&#61;xxxxxxx
+jsexample |         http://127.0.0.1:8888/lab?token&#61;xxxxxxx</code></pre>
+<hr />
+<p>class: center, middle</p>
+<h1 id="intro_to_react_忙しい人向け"><a href="#intro_to_react_忙しい人向け" class="header-anchor">Intro to React &#40;忙しい人向け&#41;</a></h1>
+<hr />
+<h1 id="what_is_react"><a href="#what_is_react" class="header-anchor">What is React ?</a></h1>
+<ul>
+<li><p>UI を記述するための JS ライブラリ.</p>
+</li>
+<li><p>Component という単位で UI を構築しそれらを組み合わせる.</p>
+<ul>
+<li><p>JSX &#40;JS, ECMAScript 2015 に対する拡張構文&#41;.</p>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-babel">class HelloMessage extends React.Component &#123;
+  render&#40;&#41; &#123;
+    return &#40;
+      &lt;div&gt; 
+        Hello &#123;this.props.name&#125; // name というプロパティの値を用いる
+      &lt;/div&gt;
+    &#41;;
+  &#125;
+&#125;
+
+ReactDOM.render&#40;
+  &lt;HelloMessage name&#61;&quot;Taylor&quot; /&gt;, // name はプロパティと呼ばれる.
+  document.getElementById&#40;&#39;hello-example&#39;&#41;
+&#41;;</code></pre>
+<hr />
+<h1 id="react"><a href="#react" class="header-anchor">React </a></h1>
+<p>https://reactjs.org/ トップページで</p>
+<hr />
+<h1 id="react_single_html"><a href="#react_single_html" class="header-anchor">React &#40;single HTML&#41;</a></h1>
+<ul>
+<li><p>HTML のコードを貼ると技術的な問題でスライドが崩れるので画像で ^^;</p>
+</li>
+<li><p>参考: https://www.taniarascia.com/getting-started-with-react/</p>
+</li>
+</ul>
+<p>&lt;div class&#61;&quot;center&quot;&gt;     &lt;img width&#61;&quot;700&quot; alt&#61;&quot;Screen Shot 2021-05-12 at 20 35 50&quot; src&#61;&quot;https://user-images.githubusercontent.com/16760547/117968965-c1d39280-b361-11eb-9876-2f2ebde70f65.png&quot;&gt; &lt;/div&gt;</p>
+<hr />
+<h1 id="react_via_create-react-app"><a href="#react_via_create-react-app" class="header-anchor">React via <code>create-react-app</code></a></h1>
+<ul>
+<li><p>雛形を作ってくれる.</p>
+</li>
+</ul>
+<pre><code class="language-console">&#36; npm install -g npx # npx がなければ実行 yarn を入れても良い
+&#36; npx create-react-app my-app
+&#36; cd my-app
+&#36; npm start</code></pre>
+<hr />
+<h1 id="dash_and_react"><a href="#dash_and_react" class="header-anchor">Dash and React</a></h1>
+<ul>
+<li><p>Dash は React で記述したコンポーネントをラップしている</p>
+<ul>
+<li><p>&#40;気合を入れたら&#41; React でできることは Dash でもできることになる</p>
+</li>
+</ul>
+</li>
+<li><p><a href="https://github.com/plotly/dash-core-components/tree/dev/src/components">コード</a> を見ると React を用いていることがわかる．</p>
+</li>
+</ul>
+<hr />
+<h1 id="create_your_custom_component"><a href="#create_your_custom_component" class="header-anchor">Create your Custom Component</a></h1>
+<ul>
+<li><p>我々は React と Dash の関係を理解したので作っていくことにします.</p>
+</li>
+</ul>
+<h3 id="題材_a_hrefhttpsjsxgraphuni-bayreuthdewpindexhtmljsxgraph"><a href="#題材_a_hrefhttpsjsxgraphuni-bayreuthdewpindexhtmljsxgraph" class="header-anchor">題材 &#40;<a href="https://jsxgraph.uni-bayreuth.de/wp/index.html">JSXGraph</a>&#41;</a></h3>
+<ul>
+<li><p>SXGraph is implemented in pure JavaScript, does not rely on any other library, and uses SVG, VML, or canvas. Special care has been taken to optimize the performance.</p>
+</li>
+</ul>
+<hr />
+<h1 id="getting_started_part_1"><a href="#getting_started_part_1" class="header-anchor">Getting Started &#40;Part 1&#41;</a></h1>
+<ul>
+<li><p>下記を実行&#40;ちょっと時間がかかる&#41;</p>
+</li>
+</ul>
+<pre><code class="language-console">&#36; pip install cookiecutter virtualenv
+&#36; cookiecutter https://github.com/plotly/dash-component-boilerplate.git
+project_name &#91;my dash component&#93;: my jsxgraph component
+project_shortname &#91;my_jsxgraph_component&#93;:
+component_name &#91;MyJsxgraphComponent&#93;:
+jl_prefix &#91;&#93;: dash
+r_prefix &#91;&#93;: dash
+author_name &#91;Enter your first and last name &#40;For package.json&#41;&#93;: &lt;各自の名前&gt;
+author_email &#91;Enter your email &#40;For package.json&#41;&#93;: &lt;各自のEmail&gt;
+github_org &#91;&#93;:
+description &#91;Project Description&#93;: goma
+Select license:
+1 - MIT License
+2 - BSD License
+3 - ISC License
+4 - Apache Software License 2.0
+5 - GNU General Public License v3
+6 - Not open source
+Choose from 1, 2, 3, 4, 5, 6 &#91;1&#93;: 1
+publish_on_npm &#91;True&#93;: True
+install_dependencies &#91;True&#93;: True</code></pre>
+<hr />
+<h1 id="getting_started_part_2"><a href="#getting_started_part_2" class="header-anchor">Getting Started &#40;Part 2&#41;</a></h1>
+<ul>
+<li><p>プロジェクトの雛形が出来上がる. 名前などは <code>package.json</code> を作るために用いる.</p>
+</li>
+<li><p><code>jl_prefix</code> をスキップすると何故かダメっぽい．．．ので何かつけておく</p>
+</li>
+</ul>
+<pre><code class="language-console">Executing: venv/bin/python -m dash.development.component_generator ./src/lib/components my_dash_component -p package-info.json --jl-prefix &#39;dash&#39; --r-prefix &#39;dash&#39;
+Generated MyDashComponent.py 
+Generated dashMyDashComponent.R
+Generated dash_mydashcomponent.jl
+Generated src/MyDashComponent.jl
+Generated Project.toml
+
+my_dash_component ready&#33;</code></pre>
+<hr />
+<h1 id="getting_started_part_3"><a href="#getting_started_part_3" class="header-anchor">Getting Started &#40;Part 3&#41;</a></h1>
+<pre><code class="language-console">&#36; cd my_dash_component # 雛形プロジェクトに移動
+&#36; . venv/bin/activate
+&#36; python usage.py
+Dash is running on http://127.0.0.1:8050/
+
+ * Serving Flask app &#39;usage&#39; &#40;lazy loading&#41;
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: on</code></pre>
+<h1 id="result__2"><a href="#result__2" class="header-anchor">Result</a></h1>
+<p>&lt;img width&#61;&quot;395&quot; alt&#61;&quot;Screen Shot 2021-05-12 at 21 53 08&quot; src&#61;&quot;https://user-images.githubusercontent.com/16760547/117978243-a326c900-b36c-11eb-9724-0f495bbe41a3.png&quot;&gt;</p>
+<hr />
+<h1 id="utilize_component_from_julia"><a href="#utilize_component_from_julia" class="header-anchor">Utilize component from Julia</a></h1>
+<pre><code class="language-console">&#36; julia --project&#61;@. -e &#39;using Pkg; Pkg.add&#40;&#91;&quot;Dash&quot;, &quot;DashCoreComponents&quot;, &quot;DashHtmlComponents&quot;&#93;&#41;&#39;
+&#36; cat app.jl # please create it by yourself
+using Dash, DashHtmlComponents, DashCoreComponents
+using MyDashComponent
+
+app &#61; dash&#40;external_stylesheets &#61; &#91;&quot;https://codepen.io/chriddyp/pen/bWLwgP.css&quot;&#93;&#41;
+
+app.layout &#61; html_div&#40;&#41; do
+        html_h1&#40;&quot;Hello Dash&quot;&#41;,
+        html_div&#40;&quot;Dash.jl: Julia interface for Dash&quot;&#41;,
+        dcc_input&#40;id &#61; &quot;input&quot;, value&#61;&quot;initial value&quot;, type &#61; &quot;text&quot;&#41;,
+        html_br&#40;&#41;,
+        dash_mydashcomponent&#40;id&#61;&quot;mycomponent&quot;, value&#61;&quot;これは価値です&#40;駄洒落&#41;&quot;&#41;,
+        html_div&#40;&quot;&quot;, id&#61;&quot;inner-div&quot;&#41;
+    end
+
+callback&#33;&#40;app, Output&#40;&quot;mycomponent&quot;, &quot;value&quot;&#41;, Input&#40;&quot;input&quot;, &quot;value&quot;&#41;&#41; do v
+    v
+end
+
+callback&#33;&#40;app, Output&#40;&quot;inner-div&quot;, &quot;children&quot;&#41;, Input&#40;&quot;mycomponent&quot;, &quot;value&quot;&#41;&#41; do input_value
+    input_value
+end
+
+run_server&#40;app, &quot;0.0.0.0&quot;, 8080, debug&#61;true&#41;
+&#36; julia --project&#61;@. app.jl</code></pre>
+<hr />
+<h1 id="result__3"><a href="#result__3" class="header-anchor">Result</a></h1>
+<p>&lt;img width&#61;&quot;363&quot; alt&#61;&quot;Screen Shot 2021-05-12 at 22 09 49&quot; src&#61;&quot;https://user-images.githubusercontent.com/16760547/117980367-dc603880-b36e-11eb-9f0d-28ab54eb6291.png&quot;&gt;</p>
+<hr />
+<h2 id="examplecomponent"><a href="#examplecomponent" class="header-anchor">ExampleComponent</a></h2>
+<ul>
+<li><p><code>src/lib/components/MyDashComponent.react.js</code> </p>
+</li>
+</ul>
+<pre><code class="language-babel">import React, &#123;Component&#125; from &#39;react&#39;;
+import PropTypes from &#39;prop-types&#39;;
+export default class MyDashComponent extends Component &#123;
+    render&#40;&#41; &#123;
+        const &#123;id, label, setProps, value&#125; &#61; this.props;
+        return &#40;
+            &lt;div id&#61;&#123;id&#125;&gt;
+                ExampleComponent: &#123;label&#125;&amp;nbsp;
+                &lt;input
+                    value&#61;&#123;value&#125;
+                    onChange&#61;&#123;
+                        e &#61;&gt; setProps&#40;&#123; value: e.target.value &#125;&#41;
+                    &#125;
+                /&gt;
+            &lt;/div&gt;
+        &#41;;
+    &#125;
+&#125;
+MyDashComponent.defaultProps &#61; &#123;&#125;;
+MyDashComponent.propTypes &#61; &#123;
+    id: PropTypes.string,
+    label: PropTypes.string.isRequired,
+    value: PropTypes.string,
+    setProps: PropTypes.func
+&#125;;</code></pre>
+<hr />
+<h1 id="workflow"><a href="#workflow" class="header-anchor">Workflow</a></h1>
+<ul>
+<li><p>色々いじって試してみよう. JS コードを編集したら下記を実行することをお忘れなく.</p>
+</li>
+</ul>
+<pre><code class="language-console">&#36; npm run build</code></pre>
+<ul>
+<li><p>jsxgraph ライブラリをインストールする</p>
+</li>
+</ul>
+<pre><code class="language-console">&#36; npm install jsxgraph</code></pre>
+<h2 id="callback_との連携"><a href="#callback_との連携" class="header-anchor">callback&#33; との連携</a></h2>
+<pre><code class="language-js">componentDidUpdate&#40;prevProps, prevState&#41; &#123; // Dash 側からの変更を検知
+    this.props.setProps&#40;// Dash 側で自動的に付与されるメソッド
+      &#123;value: this.props.example.toString&#40;&#41;&#125; // 更新を Dash 側に通知
+    &#41;
+&#125;</code></pre>
+<hr />
+<h1 id="a_hrefhttpsgithubcomterasakisatoshimy-jsxgraph-componentgitexample"><a href="#a_hrefhttpsgithubcomterasakisatoshimy-jsxgraph-componentgitexample" class="header-anchor"><a href="https://github.com/terasakisatoshi/my-jsxgraph-component.git">Example</a></a></h1>
+<pre><code class="language-console">&#36; git clone https://github.com/terasakisatoshi/my-jsxgraph-component.git
+&#36; cd my-jsxgraph-component
+&#36; npm install
+&#36; julia -e &#39;using Pkg; Pkg.add&#40;&#91;&quot;Dash&quot;, &quot;DashCoreComponents&quot;, &quot;DashHtmlComponents&quot;&#93;&#41;&#39;
+&#36; julia --project&#61;@. -e &#39;using Pkg; Pkg.instantiate&#40;&#41;&#39;
+&#36; julia --project&#61;@. app.jl</code></pre>
+<h2 id="result__4"><a href="#result__4" class="header-anchor">Result</a></h2>
+<p>&lt;div class&#61;&quot;center&quot;&gt;     &lt;img width&#61;&quot;400&quot; alt&#61;&quot;Screen Shot 2021-05-12 at 17 51 30&quot; src&#61;&quot;https://user-images.githubusercontent.com/16760547/117947558-4535b980-b34b-11eb-84c9-aad97442cf4d.png&quot;&gt; &lt;/div&gt;</p>
+<p><hr /> </p>
+<p>class: center, middle</p>
+<h1 id="おちまい__2"><a href="#おちまい__2" class="header-anchor">おちまい</a></h1>
+<div class="page-foot">
+  <div class="copyright">
+    &copy; SatoshiTerasaki. Last modified: 2021年10月29日 金曜日. Website built with 
+    <a href="http://github.com/terasakisatoshi/MathSeminar.jl">MathSeminar.jl</a>
+    <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
+  </div>
+</div>
+</div><!-- CONTENT ENDS HERE -->
+  </main> <!-- end of id=main -->
+  <script src="/MathSeminar.jl/libs/vela/metisMenu.min.js"></script>
+  <script src="/MathSeminar.jl/libs/vela/slideout.min.js"></script>
+  
+    <script src="/MathSeminar.jl/libs/katex/katex.min.js"></script>
+<script src="/MathSeminar.jl/libs/katex/auto-render.min.js"></script>
+<script>renderMathInElement(document.body)</script>
+
+  
+  
+    <script src="/MathSeminar.jl/libs/highlight/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();hljs.configure({tabReplace: '    '});</script>
+
+  
+</body>
+</html>

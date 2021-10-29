@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+   <link rel="stylesheet" href="/MathSeminar.jl/libs/highlight/github.min.css">
+   
+      
+<link rel="stylesheet" href="/MathSeminar.jl/libs/jsx/jsxgraph.css">
+<script src="/MathSeminar.jl/libs/jsx/jsxgraphcore.js"></script> 
+
+  <link href="/MathSeminar.jl/css/franklin.css" rel="stylesheet">
+  <link href="/MathSeminar.jl/css/vela.css" rel="stylesheet">
+  <script src="/MathSeminar.jl/libs/vela/jquery.min.js"></script>
+  <link rel="stylesheet" href="/MathSeminar.jl/css/theorem.css">
+   <title>JSXGraph.jl</title>  
+  <!-- PLOTLY -->
+  
+
+  <title>Franklin Example | Vela</title>
+</head>
+<body>
+  <div class="main-nav" id="menu">
+    <div class="flex-container">
+      <span class="sidebar-brand">
+        <h3 style='font-size: 25px'>MathSeminar.jl</h3>
+      </span>
+    </div> <!-- class="flex-container" -->
+
+    <nav class="sidebar-nav">
+      <ul class="metismenu"  id="metismenu" >
+        <li><a href="/MathSeminar.jl/index.html">Home</a></li>
+        <li><a href="" class="has-arrow">Slide Show</a>
+          <ul>
+            <li><a href="/MathSeminar.jl/slideshow/remark/build/">Introduction to Remark.jl</a>
+            <li><a href="/MathSeminar.jl/slideshow/franklin/build">Introduction to Franklin.jl</a>
+            <li><a href="/MathSeminar.jl/slideshow/dash/build">Introduction to Dash.jl</a>
+            <li><a href="/MathSeminar.jl/slideshow/binarybuilder/build">Introduction to BinaryBuilder.jl</a>
+            <li><a href="/MathSeminar.jl/slideshow/myworkflow/build">Introduction to MyWorkflow.jl</a>
+          </ul>
+        </li>
+        <li><a href="" class="has-arrow">Programming</a>
+          <ul>
+            <li><a href="/MathSeminar.jl/programming/clang">C</a></li>
+            <li><a href="/MathSeminar.jl/programming/rust">Rust</a></li>
+            <li><a href="/MathSeminar.jl/programming/benchmark_part1"> Julia benchmark Part1 </a></li>
+            <li><a href="/MathSeminar.jl/programming/benchmark_part2"> Julia benchmark Part2 </a></li>
+            <li><a href="/MathSeminar.jl/programming/literatejl">Literate.jl</a></li>
+            <li><a href="/MathSeminar.jl/programming/sympy">SymPy.jl</a></li>
+            <li><a href="/MathSeminar.jl/programming/franklin">Franklin.jl</a></li>
+            <li><a href="/MathSeminar.jl/programming/weave">Weave.jl</a></li>
+            <li><a href="/MathSeminar.jl/programming/theoremcounter">Theorem Counter</a></li>
+            <li><a href="/MathSeminar.jl/programming/images">Images.jl</a></li>
+            <li><a href="/MathSeminar.jl/programming/rcall">RCall.jl</a></li>
+            <li><a href="/MathSeminar.jl/programming/asciinema">asciinema</a></li>
+          </ul>
+        </li>
+        <li><a href="" class="has-arrow">Gallery</a>
+          <ul>
+            <li><a href="/MathSeminar.jl/gallery/animation/">Plots.jl animation</a></li>
+            <li><a href="/MathSeminar.jl/gallery/curve/">Plots.jl curve</a></li>
+            <li><a href="/MathSeminar.jl/gallery/gr/">GR.jl</a></li>
+            <li><a href="/MathSeminar.jl/gallery/plotlyjs1/">PlotlyJS.jl Part1</a></li>
+            <li><a href="/MathSeminar.jl/gallery/plotlyjs2/">PlotlyJS.jl Part2</a></li>
+            <li><a href="/MathSeminar.jl/gallery/plotlyjs3/">PlotlyJS.jl Part3</a></li>
+            <li><a href="/MathSeminar.jl/gallery/jsxgraph_js/">JSXGraph (JS)</a></li>
+            <li><a href="/MathSeminar.jl/gallery/jsxgraph_jl/">JSXGraph (Julia)</a></li>
+            <li><a href="/MathSeminar.jl/gallery/wglmakie/">WGLMakie.jl</a></li>
+          </ul>
+        </li>
+        <li><a href="" class="has-arrow">Topics in Mathematics</a>
+          <ul>
+            <li><a href="/MathSeminar.jl/mathematics/linearalgebra/chapter0">Linear Algebra</a></li>
+            <li><a href="/MathSeminar.jl/mathematics/statistics/dice">Dice</a></li>
+            <li><a href="/MathSeminar.jl/mathematics/statistics/Chisq">Chisq Distributions</a></li>
+            <li><a href="/MathSeminar.jl/mathematics/statistics/Law_of_Large_Numbers">Law_of_Large_Numbers</a></li>
+            <li><a href="/MathSeminar.jl/mathematics/visualizations/triangular_function_addition_theorem">Triangular function addition theorem</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div> <!-- main nav menu -->
+
+  <main id="panel">
+    <div class="toggle-button hamburger hamburger--spin">
+      <div class="hamburger-box">
+        <div class="hamburger-inner"></div>
+      </div>
+    </div>
+    <h1 class="page title">JSXGraph.jl</h1>
+    <hr>
+
+
+<!-- Content appended here -->
+<div class="franklin-content"><div class="franklin-toc"><ol><li><a href="#jsxgraphjl">JSXGraph.jl</a></li><li><a href="#install_package">Install Package</a></li><li><a href="#insert_secret_ingredient">Insert secret ingredient</a><ol><li><a href="#insert_jsxgraphpreamble">insert <code>JSXGraph.PREAMBLE</code></a></li><li><a href="#edit_layoutheadhtml">Edit <code>_layout/head.html</code></a></li><li><a href="#edit_configmd">Edit <code>config.md</code></a></li></ol></li><li><a href="#lets_get_started">Let&#39;s get started</a><ol><li><a href="#hello_world">Hello World</a></li></ol></li><li><a href="#gallery">Gallery</a><ol><li><a href="#lissajous_curve">Lissajous curve</a></li></ol></li></ol></div>
+
+<h1 id="jsxgraphjl"><a href="#jsxgraphjl" class="header-anchor">JSXGraph.jl</a></h1></p>
+<p>      
+<ul>
+<li><p>JSXGraph.jl aims to help generate JSXGraph code from Julia code that can then be plugged in a statically served website.</p>
+</li>
+<li><p>Checkout <a href="https://tlienart.github.io/JSXGraphWeb/">JSXGraph.jl&#39;s official documentation</a>. Of course this website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.</p>
+</li>
+</ul>
+<h1 id="install_package"><a href="#install_package" class="header-anchor">Install Package</a></h1></p>
+<p>      
+<ul>
+<li><p>Simply to run:</p>
+</li>
+</ul>
+<pre><code class="julia-repl hljs"><span class="hljs-meta">julia&gt;</span><span class="language-julia"> <span class="hljs-keyword">using</span> Pkg; Pkg.add(<span class="hljs-string">&quot;JSXGraph&quot;</span>)
+</span><span class="hljs-meta">julia&gt;</span><span class="language-julia"> <span class="hljs-keyword">using</span> JSXGraph</span></code></pre>
+<h1 id="insert_secret_ingredient"><a href="#insert_secret_ingredient" class="header-anchor">Insert secret ingredient</a></h1></p>
+<p>      
+<ul>
+<li><p>O.K. how do I embed the result of JSXGraph.jl ?</p>
+</li>
+<li><p>Like making delicious curry rice, we need several spices.</p>
+</li>
+</ul>
+<h2 id="insert_jsxgraphpreamble"><a href="#insert_jsxgraphpreamble" class="header-anchor">insert <code>JSXGraph.PREAMBLE</code></a></h2></p>
+<p>    
+<ul>
+<li><p>According to the <a href="https://github.com/tlienart/JSXGraphWeb/blob/master/index.md">index.md of https://github.com/tlienart/JSXGraphWeb</a>, we need inject raw HTML consisted of the output of <code>&lt;script&gt;&#36;&#40;JSXGraph.PREAMBLE&#41;&lt;/script&gt;</code>. Namely, insert the following code before writing your Julia code w.r.t JSXGraph.</p>
+</li>
+</ul>
+<pre><code class="markdown hljs"><span class="hljs-code">```julia:preamble
+# Insert secret ingredient. It is not a trade secret since Franklin is OSS.
+println(~~~&lt;script&gt;$(JSXGraph.PREAMBLE)&lt;/script&gt;~~~)
+```</span>
+\textoutput{preamble}</code></pre>
+
+<script>function val(x){return x.Value();};function valx(p){return p.X();};function valy(p){return p.Y();};function abs(x){return Math.abs(x);};function acos(x){return Math.acos(x);};function acosh(x){return Math.acosh(x);};function asin(x){return Math.asin(x);};function asinh(x){return Math.asinh(x);};function atan(x){return Math.atan(x);};function atanh(x){return Math.atanh(x);};function ceil(x){return Math.ceil(x);};function cos(x){return Math.cos(x);};function cosh(x){return Math.cosh(x);};function exp(x){return Math.exp(x);};function expm1(x){return Math.expm1(x);};function floor(x){return Math.floor(x);};function hypot(x){return Math.hypot(x);};function log(x){return Math.log(x);};function log1p(x){return Math.log1p(x);};function log10(x){return Math.log10(x);};function log2(x){return Math.log2(x);};function max(x){return Math.max(x);};function min(x){return Math.min(x);};function round(x){return Math.round(x);};function sign(x){return Math.sign(x);};function sin(x){return Math.sin(x);};function sinh(x){return Math.sinh(x);};function sqrt(x){return Math.sqrt(x);};function tan(x){return Math.tan(x);};function tanh(x){return Math.tanh(x);};function trunc(x){return Math.trunc(x);};function rand(){return Math.random();};const π=Math.PI;const ℯ=Math.E;const pi=Math.PI;</script>
+<h2 id="edit_layoutheadhtml"><a href="#edit_layoutheadhtml" class="header-anchor">Edit <code>_layout/head.html</code></a></h2></p>
+<p>    
+<ul>
+<li><p>Copy <code>jsx</code> directory from <a href="https://github.com/tlienart/JSXGraphWeb/tree/master/_libs/jsx"> https://github.com/tlienart/JSXGraphWeb/tree/master/_libs/jsx</a>. It contains <code>jsxgraph.css</code> and <code>jsxgraph.js</code></p>
+</li>
+<li><p>Create <code>head_jsx.html</code> under <code>_layout</code> directory, where <code>head_jsx.html</code> is same as</p>
+</li>
+</ul>
+<pre><code class="julia hljs">&lt;link rel=<span class="hljs-string">&quot;stylesheet&quot;</span> href=<span class="hljs-string">&quot;/libs/jsx/jsxgraph.css&quot;</span>&gt;
+&lt;script src=<span class="hljs-string">&quot;/libs/jsx/jsxgraphcore.js&quot;</span>&gt;&lt;/script&gt;</code></pre>
+<h2 id="edit_configmd"><a href="#edit_configmd" class="header-anchor">Edit <code>config.md</code></a></h2></p>
+<p>    
+<ul>
+<li><p>Create a variable <code>hasjsx</code> with default value <code>false</code>: in your <code>config.md</code> write</p>
+</li>
+</ul>
+<pre><code class="julia hljs"><span class="hljs-meta">@def</span> hasjsx = <span class="hljs-literal">false</span></code></pre>
+<ul>
+<li><p>This procedure is same as <a href="https://franklinjl.org/extras/plotly/#work_with_plotly">Working with Plotly</a>.</p>
+</li>
+<li><p>For more details, See <a href="https://github.com/tlienart/JSXGraphWeb/blob/master/config.md">config.md of JSXGraphWeb</a></p>
+</li>
+</ul>
+<h1 id="lets_get_started"><a href="#lets_get_started" class="header-anchor">Let&#39;s get started</a></h1></p>
+<p>      
+<h2 id="hello_world"><a href="#hello_world" class="header-anchor">Hello World</a></h2></p>
+<p>    
+<ul>
+<li><p>Everything happens on a Hello world example. Let&#39;s add an object on a board with <code>Hello World</code>.</p>
+</li>
+</ul>
+<pre><code class="markdown hljs"><span class="hljs-code">```julia
+b = board(&quot;brd&quot;, xlim=[-2,2], ylim=[-2,2])
+b ++ point(0, 0, name=&quot;Hello World&quot;)
+```</span></code></pre>
+<p>Is is enough ? Actually NO. We need insert another secret ingredient like:</p>
+<pre><code class="markdown hljs"><span class="hljs-code">```julia
+println(&quot;&quot;&quot;~~~$(JSXGraph.standalone(b, preamble=false))~~~&quot;&quot;&quot;)
+```</span></code></pre>
+<p>Therefore, Franklin users should write code like:</p>
+<pre><code class="markdown hljs"><span class="hljs-code">```julia
+b = board(&quot;brd&quot;, xlim=[-2,2], ylim=[-2,2])
+b ++ point(0, 0, name=&quot;hello&quot;)
+print(&quot;&quot;&quot;~~~$(JSXGraph.standalone(b, preamble=false))~~~&quot;&quot;&quot;) # hide
+```</span></code></pre>
+<p>This will give:</p>
+<pre><code class="julia hljs">b = board(<span class="hljs-string">&quot;brd&quot;</span>, xlim=[-<span class="hljs-number">2</span>,<span class="hljs-number">2</span>], ylim=[-<span class="hljs-number">2</span>,<span class="hljs-number">2</span>])
+b ++ point(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, name=<span class="hljs-string">&quot;hello&quot;</span>)</code></pre>
+<div id="brd" class="jxgbox" style="width:300px; height:300px;"></div>
+<script>(function(){var brd=JXG.JSXGraph.initBoard("brd",{"boundingbox":[-2,2,2,-2],"axis":false,"showcopyright":false,"shownavigation":false});var hello =brd.create('point', [0, 0], {"name":"hello"});})();</script>
+<p>Congratulations&#33;&#33;&#33;</p>
+<h1 id="gallery"><a href="#gallery" class="header-anchor">Gallery</a></h1></p>
+<p>      
+<h2 id="lissajous_curve"><a href="#lissajous_curve" class="header-anchor">Lissajous curve</a></h2></p>
+<p>    
+  </p>
+<p><div class="colorblock"><p><strong>Example</strong> 5.1.1  <br/> </p>
+<pre><code class="julia hljs">b = board(<span class="hljs-string">&quot;b3&quot;</span>, xlim=[-<span class="hljs-number">12</span>, <span class="hljs-number">12</span>], ylim=[-<span class="hljs-number">10</span>,<span class="hljs-number">10</span>])
+b ++ (
+    slider(<span class="hljs-string">&quot;a&quot;</span>, [[-<span class="hljs-number">11</span>,<span class="hljs-number">7</span>],[-<span class="hljs-number">5</span>,<span class="hljs-number">7</span>],[<span class="hljs-number">0</span>,<span class="hljs-number">3</span>,<span class="hljs-number">6</span>]], name=<span class="hljs-string">&quot;a&quot;</span>),
+    slider(<span class="hljs-string">&quot;b&quot;</span>, [[-<span class="hljs-number">11</span>,<span class="hljs-number">5</span>],[-<span class="hljs-number">5</span>,<span class="hljs-number">5</span>],[<span class="hljs-number">0</span>,<span class="hljs-number">2</span>,<span class="hljs-number">6</span>]], name=<span class="hljs-string">&quot;b&quot;</span>),
+    slider(<span class="hljs-string">&quot;A&quot;</span>, [[<span class="hljs-number">1</span>,<span class="hljs-number">7</span>],[<span class="hljs-number">7</span>,<span class="hljs-number">7</span>],[<span class="hljs-number">0</span>,<span class="hljs-number">3</span>,<span class="hljs-number">6</span>]], name=<span class="hljs-string">&quot;A&quot;</span>),
+    slider(<span class="hljs-string">&quot;B&quot;</span>, [[<span class="hljs-number">1</span>,<span class="hljs-number">5</span>],[<span class="hljs-number">7</span>,<span class="hljs-number">5</span>],[<span class="hljs-number">0</span>,<span class="hljs-number">3</span>,<span class="hljs-number">6</span>]], name=<span class="hljs-string">&quot;B&quot;</span>),
+    slider(<span class="hljs-string">&quot;delta&quot;</span>, [[<span class="hljs-number">2</span>,-<span class="hljs-number">7</span>],[<span class="hljs-number">6</span>,-<span class="hljs-number">7</span>],[<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-literal">π</span>]], name=<span class="hljs-string">&quot;&amp;delta;&quot;</span>)
+    )
+<span class="hljs-meta">@jsf</span> f1(t) = val(A)*sin(val(a)*t+val(delta))
+<span class="hljs-meta">@jsf</span> f2(t) = val(B)*sin(val(b)*t)
+b ++ plot(f1, f2, a=<span class="hljs-number">0</span>, b=<span class="hljs-number">2</span><span class="hljs-literal">π</span>,
+          strokecolor=<span class="hljs-string">&quot;#aa2233&quot;</span>, strokewidth=<span class="hljs-number">3</span>)</code></pre>
+<div id="b3" class="jxgbox" style="width:300px; height:300px;"></div>
+<script>(function(){var b3=JXG.JSXGraph.initBoard("b3",{"boundingbox":[-12,10,12,-10],"axis":false,"showcopyright":false,"shownavigation":false});var a=b3.create('slider', [[-11,7],[-5,7],[0,3,6]], {"name":"a"});var b=b3.create('slider', [[-11,5],[-5,5],[0,2,6]], {"name":"b"});var A=b3.create('slider', [[1,7],[7,7],[0,3,6]], {"name":"A"});var B=b3.create('slider', [[1,5],[7,5],[0,3,6]], {"name":"B"});var delta=b3.create('slider', [[2.0,-7.0],[6.0,-7.0],[0.0,0.0,3.141592653589793]], {"name":"&delta;"});function f1(t){return (val(A)*sin(((val(a)*t)+val(delta))))};function f2(t){return (val(B)*sin((val(b)*t)))};b3.create('curve', [function(t){return f1(t);}, function(t){return f2(t);}, 0, 6.283185307179586], {"strokecolor":"#aa2233","strokewidth":3});})();</script></div>
+<div class="page-foot">
+  <div class="copyright">
+    &copy; SatoshiTerasaki. Last modified: 2021年10月29日 金曜日. Website built with 
+    <a href="http://github.com/terasakisatoshi/MathSeminar.jl">MathSeminar.jl</a>
+    <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
+  </div>
+</div>
+</div><!-- CONTENT ENDS HERE -->
+  </main> <!-- end of id=main -->
+  <script src="/MathSeminar.jl/libs/vela/metisMenu.min.js"></script>
+  <script src="/MathSeminar.jl/libs/vela/slideout.min.js"></script>
+  
+  
+    
+
+
+  
+</body>
+</html>

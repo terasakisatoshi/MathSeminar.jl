@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="/MathSeminar.jl/libs/katex/katex.min.css">
+   
+   <link rel="stylesheet" href="/MathSeminar.jl/libs/highlight/github.min.css">
+   
+  
+
+  <link href="/MathSeminar.jl/css/franklin.css" rel="stylesheet">
+  <link href="/MathSeminar.jl/css/vela.css" rel="stylesheet">
+  <script src="/MathSeminar.jl/libs/vela/jquery.min.js"></script>
+  <link rel="stylesheet" href="/MathSeminar.jl/css/theorem.css">
+   <title>Welcome to MathSeminar.jl</title>  
+  <!-- PLOTLY -->
+  
+
+  <title>Franklin Example | Vela</title>
+</head>
+<body>
+  <div class="main-nav" id="menu">
+    <div class="flex-container">
+      <span class="sidebar-brand">
+        <h3 style='font-size: 25px'>MathSeminar.jl</h3>
+      </span>
+    </div> <!-- class="flex-container" -->
+
+    <nav class="sidebar-nav">
+      <ul class="metismenu"  id="metismenu" >
+        <li><a href="/MathSeminar.jl/index.html">Home</a></li>
+        <li><a href="" class="has-arrow">Slide Show</a>
+          <ul>
+            <li><a href="/MathSeminar.jl/slideshow/remark/build/">Introduction to Remark.jl</a>
+            <li><a href="/MathSeminar.jl/slideshow/franklin/build">Introduction to Franklin.jl</a>
+            <li><a href="/MathSeminar.jl/slideshow/dash/build">Introduction to Dash.jl</a>
+            <li><a href="/MathSeminar.jl/slideshow/binarybuilder/build">Introduction to BinaryBuilder.jl</a>
+            <li><a href="/MathSeminar.jl/slideshow/myworkflow/build">Introduction to MyWorkflow.jl</a>
+          </ul>
+        </li>
+        <li><a href="" class="has-arrow">Programming</a>
+          <ul>
+            <li><a href="/MathSeminar.jl/programming/clang">C</a></li>
+            <li><a href="/MathSeminar.jl/programming/rust">Rust</a></li>
+            <li><a href="/MathSeminar.jl/programming/benchmark_part1"> Julia benchmark Part1 </a></li>
+            <li><a href="/MathSeminar.jl/programming/benchmark_part2"> Julia benchmark Part2 </a></li>
+            <li><a href="/MathSeminar.jl/programming/literatejl">Literate.jl</a></li>
+            <li><a href="/MathSeminar.jl/programming/sympy">SymPy.jl</a></li>
+            <li><a href="/MathSeminar.jl/programming/franklin">Franklin.jl</a></li>
+            <li><a href="/MathSeminar.jl/programming/weave">Weave.jl</a></li>
+            <li><a href="/MathSeminar.jl/programming/theoremcounter">Theorem Counter</a></li>
+            <li><a href="/MathSeminar.jl/programming/images">Images.jl</a></li>
+            <li><a href="/MathSeminar.jl/programming/rcall">RCall.jl</a></li>
+            <li><a href="/MathSeminar.jl/programming/asciinema">asciinema</a></li>
+          </ul>
+        </li>
+        <li><a href="" class="has-arrow">Gallery</a>
+          <ul>
+            <li><a href="/MathSeminar.jl/gallery/animation/">Plots.jl animation</a></li>
+            <li><a href="/MathSeminar.jl/gallery/curve/">Plots.jl curve</a></li>
+            <li><a href="/MathSeminar.jl/gallery/gr/">GR.jl</a></li>
+            <li><a href="/MathSeminar.jl/gallery/plotlyjs1/">PlotlyJS.jl Part1</a></li>
+            <li><a href="/MathSeminar.jl/gallery/plotlyjs2/">PlotlyJS.jl Part2</a></li>
+            <li><a href="/MathSeminar.jl/gallery/plotlyjs3/">PlotlyJS.jl Part3</a></li>
+            <li><a href="/MathSeminar.jl/gallery/jsxgraph_js/">JSXGraph (JS)</a></li>
+            <li><a href="/MathSeminar.jl/gallery/jsxgraph_jl/">JSXGraph (Julia)</a></li>
+            <li><a href="/MathSeminar.jl/gallery/wglmakie/">WGLMakie.jl</a></li>
+          </ul>
+        </li>
+        <li><a href="" class="has-arrow">Topics in Mathematics</a>
+          <ul>
+            <li><a href="/MathSeminar.jl/mathematics/linearalgebra/chapter0">Linear Algebra</a></li>
+            <li><a href="/MathSeminar.jl/mathematics/statistics/dice">Dice</a></li>
+            <li><a href="/MathSeminar.jl/mathematics/statistics/Chisq">Chisq Distributions</a></li>
+            <li><a href="/MathSeminar.jl/mathematics/statistics/Law_of_Large_Numbers">Law_of_Large_Numbers</a></li>
+            <li><a href="/MathSeminar.jl/mathematics/visualizations/triangular_function_addition_theorem">Triangular function addition theorem</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div> <!-- main nav menu -->
+
+  <main id="panel">
+    <div class="toggle-button hamburger hamburger--spin">
+      <div class="hamburger-box">
+        <div class="hamburger-inner"></div>
+      </div>
+    </div>
+    <h1 class="page title">Welcome to MathSeminar.jl</h1>
+    <hr>
+
+
+<!-- Content appended here -->
+<div class="franklin-content"><p>Last Modified: 2021年10月29日 金曜日 <div class="franklin-toc"><ol><li><a href="#about_this_page">About this page</a><ol><li><a href="#before_reading">Before reading</a></li><li><a href="#check_julia_version">Check Julia version</a></li></ol></li><li><a href="#introduction_to_franklin">Introduction to Franklin</a></li><li><a href="#newcommand_によるタイピングの簡略化"><code>newcommand</code> によるタイピングの簡略化</a></li><li><a href="#グラフの描画">グラフの描画</a><ol><li><a href="#pyplot">PyPlot</a></li><li><a href="#plots_gr_backend">Plots &#40;GR Backend&#41;</a></li><li><a href="#plots_pyplot_backend">Plots &#40;PyPlot Backend&#41;</a></li></ol></li><li><a href="#python_のコードの実行結果の表示">Python のコードの実行結果の表示</a></li><li><a href="#c_のコードの実行結果を表示">C のコードの実行結果を表示</a></li><li><a href="#コードの挿入">コードの挿入</a></li></ol></div> </p>
+<p> <h1 id="about_this_page"><a href="#about_this_page" class="header-anchor">About this page</a></h1></p>
+<p>      </p>
+
+<details open>
+ <summary>日本語(Japanese) </summary>
+<ul>
+<li class="has-line-data" data-line-start="0" data-line-end="1">静的サイトジェネレータである <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a> をベースに構築された Web ページです. Web ページの生成に使われたコードは全て <a href="https://github.com/terasakisatoshi/MathSeminar.jl">MathSeminar.jl</a> にて管理さてれています．</li>
+</ul>
+</details>
+
+<details>
+ <summary>English(英語) </summary>
+
+<ul> <li class="has-line-data" data-line-start="0" data-line-end="1">This is my web page based on <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>. All codes used for creating this web site can be found at <a href="https://github.com/terasakisatoshi/MathSeminar.jl">https://github.com/terasakisatoshi/MathSeminar.jl</a></li> </ul>
+</details>
+
+<h2 id="before_reading"><a href="#before_reading" class="header-anchor">Before reading</a></h2></p>
+<p>    
+  </p>
+<p><div class="colorblock"><p><strong>Remark</strong> 1.1.1 &#40;推奨ブラウザについて&#41; <br/> </p>
+<ul>
+<li><p>Google Chrome からの閲覧を推奨します．&#40;It is recommended to view it from Google Chrome.&#41;</p>
+</li>
+<li><p>iPad などから Safari で閲覧する場合, 設定&#40;ホーム画面の歯車アイコン&#41; -&gt; Safari -&gt; デスクトップ用Webサイト まで進み「全てのWebサイト」を無効にします．&#40;When using Safari from an iPad or other device, go to Settings &#40;gear icon on the home screen&#41; -&gt; Safari -&gt; Desktop Web Sites and disable &quot;All Web Sites&quot;.&#41;</p>
+</li>
+</ul></div>
+<h2 id="check_julia_version"><a href="#check_julia_version" class="header-anchor">Check Julia version</a></h2></p>
+<p>    
+<pre><code class="language-julia">using InteractiveUtils
+versioninfo&#40;&#41;</code></pre>
+<pre><code class="plaintext code-output">Julia Version 1.6.3
+Commit ae8452a9e0 (2021-09-23 17:34 UTC)
+Platform Info:
+  OS: Linux (x86_64-pc-linux-gnu)
+  CPU: Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz
+  WORD_SIZE: 64
+  LIBM: libopenlibm
+  LLVM: libLLVM-11.0.1 (ORCJIT, broadwell)
+Environment:
+  JULIA_PATH = /usr/local/julia
+  JULIA_GPG = 3673DF529D9049477F76B37566E3C7DC03D6E495
+  JULIA_VERSION = 1.6.3
+  JULIA_NUM_THREADS = 8
+  JULIA_PROJECT = /work
+</code></pre>
+<h1 id="introduction_to_franklin"><a href="#introduction_to_franklin" class="header-anchor">Introduction to Franklin</a></h1></p>
+<p>      
+  </p>
+<p><div class="colorblock"><strong>Definition</strong> 2.0.1 &#40;Franklin.jl について&#41; <br/>  <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a> は Julia で記述された静的サイトの生成を行うパッケージである．コーディング，数学などの技術ブログの作成をサポートする． 公式ドキュメントは https://franklinjl.org/ を参照せよ. なお，公式ドキュメントも Franklin.jl で作成されており, https://github.com/tlienart/franklindocs にてソースが公開されている.</div>
+  </p>
+<p><div class="colorblock"><p><strong>Proposition</strong> 2.0.2 &#40;特徴&#41; <br/>  Franklin.jl では次の機能を持っている</p>
+<ul>
+<li><p>マークダウンで記述することができる.</p>
+</li>
+<li><p>数式のレンダリングは KaTeX を用いている. <code>&#36;</code> マークで挟むことで数式を表現できる.</p>
+</li>
+<li><p>記述した Julia のコードを記述し, 対応する出力を自動で表示することができる.</p>
+</li>
+<li><p>グラフ描画結果を表示することができ, 数学の概念を可視化することができる.</p>
+</li>
+<li><p>HTML, CSS, JavaScript の知識があれば，ページの表示を変更することができる．</p>
+</li>
+</ul></div>
+  </p>
+<p><div class="colorblock"><p><strong>Example</strong> 2.0.3 &#40;事後分布の定義&#41; <br/>  真の分布 \(q(x)\) に従う \(n\) 個の確率変数の組 \(X^n = (X_1,\dots,X_n)\), パラメータ \(w \in W \subset \mathbb R^d\) を持つ確率モデル \(p(x|w)\), パラメータの事前分布 \(\varphi(w)\) から定まる逆温度 \(\beta\) 付きの \(w\) の事後分布 \(p(w|X^n)\) を次で定義する:</p>
+\[
+p(w|X^n) = \frac{\displaystyle\prod_{i=1}^n p(X_i|w)^\beta \varphi(w)}{Z_n(\beta)}.
+\]
+<p>ここで \(Z_n(\beta)\) は \(p(w|X^n)\) の事後分布の正規化定数であり具体的には下記のように定義する:</p>
+\[
+Z_n(\beta) = \int_W \prod_{i=1}^n p(X_i|w)^\beta \varphi(w) dw .
+\]</div>
+  </p>
+<p><div class="colorblock"><strong>Lemma</strong> 2.0.4  <br/>  次のようにJuliaのコードを記述することができる:</div>
+<div class="proof"><p><br/> </p>
+<pre><code class="language-julia">x &#61; 3.141592
+y &#61; sin&#40;x&#41;
+@show y</code></pre>
+<p>このとき, <code>y</code> の値は評価され次の出力を得ることができる: <pre><code class="plaintext code-output">y = 6.535897930762419e-7
+</code></pre></p></div></p>
+<p><br/> 
+  </p>
+<p><div class="colorblock"><strong>Remark</strong> 2.0.5 &#40;通し番号について&#41; <br/>  通し番号は Franklin ではデフォルトでサポートしていない. CSS でカウンタを定義しておく必要がある．</div>
+<h1 id="newcommand_によるタイピングの簡略化"><a href="#newcommand_によるタイピングの簡略化" class="header-anchor"><code>newcommand</code> によるタイピングの簡略化</a></h1></p>
+<p>      
+<p><code>config.md</code> は文章を記述する上での設定を記述するために用いる. \(\LaTeX\) の <code>\newcommand</code> と同様に数式を記述するコマンドを簡略化できる.</p>
+  </p>
+<p><div class="colorblock"><p><strong>Example</strong> 3.0.1 &#40;\(\mathbb{R}\) の例&#41; <br/> <code>config.md</code> に次を追加しておく:</p>
+<pre><code class="language-julia">\newcommand&#123;\R&#125;&#123;\mathbb R&#125;</code></pre>
+<p>これで <code>\R</code> で \(\mathbb R\) を表記できる.</p></div>
+<h1 id="グラフの描画"><a href="#グラフの描画" class="header-anchor">グラフの描画</a></h1></p>
+<p>      
+<p><code>PyPlot</code>, <code>gr,pyplot,plotlyjs</code> をバックエンドとする <code>Plots.jl</code>, <code>PlotlyJS.jl</code> を用いた場合で確認している.</p>
+<h2 id="pyplot"><a href="#pyplot" class="header-anchor">PyPlot</a></h2>
+<pre><code class="language-julia">import PyPlot
+PyPlot.figure&#40;figsize&#61;&#40;8, 6&#41;&#41;
+x &#61; range&#40;-2, 2, length&#61;500&#41;
+for α in 1:5
+    PyPlot.plot&#40;x, sinc.&#40;α .* x&#41;&#41;
+end</code></pre>
+<img src="/MathSeminar.jl/assets/index/code/output/sinc.png" alt="">
+<h2 id="plots_gr_backend"><a href="#plots_gr_backend" class="header-anchor">Plots &#40;GR Backend&#41;</a></h2>
+<pre><code class="language-julia">using Plots
+gr&#40;&#41;
+using LaTeXStrings
+Plots.plot&#40;rand&#40;10&#41;, title&#61;L&quot;\alpha&quot;, xlabel&#61;L&quot;x&quot;, ylabel&#61;L&quot;y&quot;&#41;</code></pre>
+<img src="/MathSeminar.jl/assets/index/code/output/grplot.png" alt="">
+<h2 id="plots_pyplot_backend"><a href="#plots_pyplot_backend" class="header-anchor">Plots &#40;PyPlot Backend&#41;</a></h2>
+<pre><code class="language-julia">using Plots
+pyplot&#40;&#41;
+Plots.plot&#40;sin, title&#61;L&quot;y&#61;\sin x&quot;&#41;
+gr&#40;&#41;</code></pre>
+<img src="/MathSeminar.jl/assets/index/code/output/pyplotbkend.png" alt="">
+  </p>
+<p><div class="colorblock"><strong>Remark</strong> 4.0.1 &#40;Plotly/PlotlyJS について&#41; <br/> <code>Plotly</code>, または <code>PlotlyJS</code> による例はサイドメニューのページを参照</div>
+<h1 id="python_のコードの実行結果の表示"><a href="#python_のコードの実行結果の表示" class="header-anchor">Python のコードの実行結果の表示</a></h1></p>
+<p>      
+<p><code>config.md</code> のコマンドを定義しておく.</p>
+<pre><code class="language-plaintext">\newcommand&#123;\pycode&#125;&#91;2&#93;&#123;
+&#96;&#96;&#96;julia:&#33;#1
+#hideall
+using PyCall
+lines &#61; replace&#40;&quot;&quot;&quot;&#33;#2&quot;&quot;&quot;, r&quot;&#40;^|\n&#41;&#40;&#91;^\n&#93;&#43;&#41;\n?&#36;&quot; &#61;&gt; s&quot;\1res &#61; \2&quot;&#41;
+py&quot;&quot;&quot;
+&#36;&#36;lines
+&quot;&quot;&quot;
+println&#40;py&quot;res&quot;&#41;
+&#96;&#96;&#96;
+&#96;&#96;&#96;python
+#2
+&#96;&#96;&#96;
+\codeoutput&#123;&#33;#1&#125;
+&#125;</code></pre>
+<p>そして該当する Markdown ファイルに例えば下記のように <code>\pycode</code> コマンドと組み合わせたものを記述しておく.</p>
+  </p>
+<p><div class="colorblock"><strong>Proposition</strong> 5.0.1 &#40;ソースコードの表示&#41; <br/>  Pythonのコードの実行結果を貼り付けることができる.</div>
+<pre><code class="language-julia">\pycode&#123;py1&#125;&#123;
+import numpy as np
+np.random.seed&#40;2&#41;
+x &#61; np.random.randn&#40;5&#41;
+r &#61; np.linalg.norm&#40;x&#41; / len&#40;x&#41;
+np.round&#40;r, 2&#41;
+&#125;</code></pre>
+<p>と記述することで下記のようになる:</p>
+</p>
+<pre><code class="language-python">import numpy as np
+np.random.seed&#40;2&#41;
+x &#61; np.random.randn&#40;5&#41;
+r &#61; np.linalg.norm&#40;x&#41; / len&#40;x&#41;
+np.round&#40;r, 2&#41;</code></pre>
+<p><pre><code class="plaintext code-output">0.65
+</code></pre>
+<h1 id="c_のコードの実行結果を表示"><a href="#c_のコードの実行結果を表示" class="header-anchor">C のコードの実行結果を表示</a></h1></p>
+<p>      
+<p>  </p>
+<p><div class="colorblock"><strong>Proposition</strong> 6.0.1 &#40;ソースコードの表示&#41; <br/>  つぎのように C のコードを貼り付けることができる.</div> </p>
+<p><pre><code class="language-c">#include &lt;stdio.h&gt;
+int main&#40;&#41;&#123;
+    printf&#40;&quot;Hello Pika\n&quot;&#41;;
+    return 0;
+&#125;</code></pre></p>
+<p>まず, <code>config.md</code> に次を記述しておく:</p>
+<pre><code class="language-plaintext">&lt;&#33;-- display C code with syntax highlight--&gt;
+\newcommand&#123;\Ccode&#125;&#91;2&#93;&#123;
+&#96;&#96;&#96;julia:&#33;#1
+#hideall
+using Markdown
+
+mdC_code &#61; Markdown.htmlesc&#40;raw&quot;&quot;&quot;&#33;#2&quot;&quot;&quot;&#41;
+
+mdfile &#61; joinpath&#40;dirname&#40;@OUTPUT&#41;, &quot;&#33;#1.md&quot;&#41;
+open&#40;mdfile,&quot;w&quot;&#41; do f
+    print&#40;f, mdC_code&#41;
+end
+
+C_code&#61;raw&quot;&quot;&quot;
+&#33;#2
+&quot;&quot;&quot;
+
+exefile &#61; tempname&#40;&#41;
+
+#&#61;
+This trick is taken from
+
+https://discourse.julialang.org/t/how-to-make-a-c-function-compiled-by-myself-available-to-ccall/7972/26
+&#61;#
+
+open&#40;&#96;gcc -Wall -O2 -march&#61;native -xc -o &#36;exefile -&#96;, &quot;w&quot;&#41; do f
+    print&#40;f, C_code&#41;
+end
+
+run&#40;&#96;&#36;exefile&#96;&#41;
+&#96;&#96;&#96;
+
+\input&#123;c&#125;&#123;&#33;#1.md&#125;
+&#125;
+
+&lt;&#33;-- run C code and display code and its result --&gt;
+\newcommand&#123;\Cexec&#125;&#91;2&#93;&#123;
+\Ccode&#123;&#33;#1&#125;&#123;&#33;#2&#125;
+
+\codeoutput&#123;&#33;#1&#125;
+
+&#125;</code></pre>
+<p>そして次のようにタイプする</p>
+<pre><code class="language-plaintext">\Cexec&#123;how2embeddC&#125;&#123;
+#include &lt;stdio.h&gt;
+int main&#40;&#41;&#123;
+    printf&#40;&quot;Hello Pikachu\n&quot;&#41;;
+    return 0;
+&#125;
+&#125;
+</code></pre>
+<p>出力結果は次のようになる．コードはハイライトされ，対応する <code>main</code> 関数のコードの実行結果を出力する:</p>
+</p>
+<p><pre><code class="language-c">#include &lt;stdio.h&gt;
+int main&#40;&#41;&#123;
+    printf&#40;&quot;Hello World\n&quot;&#41;;
+    return 0;
+&#125;</code></pre></p>
+<p><pre><code class="plaintext code-output">Hello World
+</code></pre>
+  </p>
+<p><div class="colorblock"><strong>Remark</strong> 6.0.2 &#40;Cのコードのハイライト&#41; <br/>  <a href="https://highlightjs.org/download/">Getting hightlight.js</a>　から ハイライトしたい言語を選択した後 <code>highlight.pack.js</code> を <code>_lib/hightlight</code> にコピーする. もともと <code>_lib/highlight/highlight.pack.js</code> が配置されているが、Julia,Python,R、Markdownのみをハイライトするようになっている。</div>
+<h1 id="コードの挿入"><a href="#コードの挿入" class="header-anchor">コードの挿入</a></h1>
+<ul>
+<li><p>単にコードを載せたい場合は <code>\input&#123;filetype&#125;&#123;filename&#125;</code> とすれば良い. 例えば</p>
+</li>
+</ul>
+<pre><code class="language-plaintext">\input&#123;julia&#125;&#123;hello.jl&#125;</code></pre>
+<p>と記述しておく. 結果は次のようになる．</p>
+<pre><code class="language-julia">println&#40;&quot;Hello&quot;&#41;</code></pre>
+<p><code>hello.jl</code> の実態はソースコードの <code>_assets/index/code/hello.jl</code> に存在する.</p>
+<div class="page-foot">
+  <div class="copyright">
+    &copy; SatoshiTerasaki. Last modified: 2021年10月29日 金曜日. Website built with 
+    <a href="http://github.com/terasakisatoshi/MathSeminar.jl">MathSeminar.jl</a>
+    <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
+  </div>
+</div>
+</div><!-- CONTENT ENDS HERE -->
+  </main> <!-- end of id=main -->
+  <script src="/MathSeminar.jl/libs/vela/metisMenu.min.js"></script>
+  <script src="/MathSeminar.jl/libs/vela/slideout.min.js"></script>
+  
+    <script src="/MathSeminar.jl/libs/katex/katex.min.js"></script>
+<script src="/MathSeminar.jl/libs/katex/auto-render.min.js"></script>
+<script>renderMathInElement(document.body)</script>
+
+  
+  
+    <script src="/MathSeminar.jl/libs/highlight/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();hljs.configure({tabReplace: '    '});</script>
+
+  
+</body>
+</html>
