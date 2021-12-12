@@ -23,11 +23,11 @@ jobs:
       uses: actions/setup-python@v1
       with:
         python-version: '3.x'
-    - run: pip install numpy sympy==1.5.* matplotlib
+    - run: pip install numpy sympy matplotlib
     - name: Install Julia
       uses: julia-actions/setup-julia@v1
       with:
-        version: 1.4.1
+        version: 1.7.0
     - name: Cache __site
       uses: actions/cache@v2
       with:
