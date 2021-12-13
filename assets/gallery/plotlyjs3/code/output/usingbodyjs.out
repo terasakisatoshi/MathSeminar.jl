@@ -1,5 +1,4 @@
-~~~<div id="fdpixc" style="width:400px;height:300x"></div> <script>     var PLOT = document.getElementById('fdpixc');
-    Plotly.plot(PLOT, [
+~~~<div id="fdpzuf" style="width:400px;height:300x"></div> <script>     Plotly.newPlot('fdpzuf', [
     {
         "xaxis": "x",
         "colorbar": {
