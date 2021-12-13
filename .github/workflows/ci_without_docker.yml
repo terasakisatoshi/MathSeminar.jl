@@ -35,5 +35,6 @@ jobs:
         key: build-${{ hashFiles('**/Dockerfiles') }}
         restore-keys: |
           build-
+    - run: julia --project=@. -e 'using Pkg; Pkg.add("Weave")'
     - run: julia --project=@. -e 'using Pkg; Pkg.instantiate()'
     - run: julia --project=@. ./_mytools/deploy.jl
