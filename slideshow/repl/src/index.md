@@ -1,0 +1,132 @@
+class: center, middle
+
+# REPL で遊ぼう
+
+---
+
+# REPL で遊ぶとは？
+
+<img width=1000 src=https://user-images.githubusercontent.com/16760547/146361937-9c5f97a3-f316-406b-82fa-e3629bbf92f3.png>
+
+この画面でいろんなものを表示させること
+
+---
+
+# REPLでできると良いこと
+
+- Jupyter などWeb環境がなくても使える.
+- 単純にレトロな感じで面白い.
+- 思ったよりも面白い.
+
+
+---
+
+# バナーの表示
+
+```julia
+julia> Base.banner()
+               _
+   _       _ _(_)_     |  Documentation: https://docs.julialang.org
+  (_)     | (_) (_)    |
+   _ _   _| |_  __ _   |  Type "?" for help, "]?" for Pkg help.
+  | | | | | | |/ _` |  |
+  | | |_| | | | (_| |  |  Version 1.7.0 (2021-11-30)
+ _/ |\__'_|_|_|\__'_|  |  Official https://julialang.org/ release
+|__/                   |
+
+```
+
+---
+
+# [UnicodePlots.jl](https://github.com/JuliaPlots/UnicodePlots.jl)
+
+<img width=900 src=https://user-images.githubusercontent.com/16760547/146363503-c1db66bf-cfae-4333-9df3-dc524dc1f4c2.png>
+
+---
+
+# [UcicodeGraphics.jl](https://github.com/rafaqz/UnicodeGraphics.jl)
+
+<img width=400 src=https://user-images.githubusercontent.com/16760547/146365598-3e82b86b-8027-4768-9594-cb726e77aa1d.png>
+
+---
+
+# [UnicodeFun.jl](https://github.com/SimonDanisch/UnicodeFun.jl)
+
+
+- 　$\LaTeX$ フォーマットを Julia が対応するUnicodeへ変換する. (できないものもある)
+
+```julia
+julia> using UnicodeFun
+
+julia> raw"\zeta(s)" |> to_latex
+"ζ(s)"
+```
+
+---
+
+# [TerminalPager.jl](https://github.com/ronisbr/TerminalPager.jl)
+
+大きいテーブルをスクロールしながら見られる.
+
+<img width=500 src=https://aws1.discourse-cdn.com/business5/uploads/julialang/original/3X/7/8/78f40d91fbf87c5e9b5da46b1522bea357f1764e.gif>
+
+---
+
+# [TerminalClock.jl](https://github.com/AtelierArith/TerminalClock.jl)
+
+- 現在時刻を表示する. 自作パッケージ
+
+<img width=600 src=https://raw.githubusercontent.com/AtelierArith/TerminalClock.jl/main/readme_assets/stopwatch.gif>
+
+- ストップウォッチや，タイマー機能もある.
+- 文字盤はカスタムすることが可能.
+
+---
+
+# [Replay.jl](https://github.com/AtelierArith/Replay.jl)
+
+- 実行手順を再生してくれる. 自作パッケージ.
+
+<img width=750 src=https://user-images.githubusercontent.com/16760547/146371375-7032b3db-89f2-42f7-ab93-2d84273eb62b.gif>
+
+🎉
+
+---
+
+## ちなみに
+
+ロゴを[プルリク](https://github.com/AtelierArith/Replay.jl/pull/7)でいただくことができました. ありがとうございます！
+
+<img src=https://raw.githubusercontent.com/AtelierArith/Replay.jl/main/docs/src/assets/logo.svg>
+
+---
+
+# [Sixel.jl](https://github.com/johnnychen94/Sixel.jl) + [ImageInTerminal.jl](https://github.com/JuliaImages/ImageInTerminal.jl)
+
+- SixelGraphics 対応ターミナルでできる. 他の応用例は [Qiita](https://qiita.com/SatoshiTerasaki/items/3ea9750069e1d631aff7) に書いた.
+
+<img width=700 src=https://user-images.githubusercontent.com/16760547/146372066-6ec58233-38b0-4a7c-aa18-01712a6eea5b.png>
+
+---
+
+# [VideoInTerminal.jl](https://github.com/IanButterworth/VideoInTerminal.jl)
+
+まだ野良パッケージらしいが面白い. 矢印キーで画像を遷移できる.
+
+<img width=600 src="https://raw.githubusercontent.com/IanButterworth/VideoInTerminal.jl/main/mri_example.png">
+
+---
+
+# [Let it snow()](https://discourse.julialang.org/t/let-it-snow/72950)
+
+- ianshmean さんの Julia Discourse より
+  - [ソースは公開されている](https://discourse.julialang.org/t/let-it-snow/72950)
+
+<img width=500 src=https://aws1.discourse-cdn.com/business5/uploads/julialang/original/3X/a/0/a07fe4045ac536651537252f6c51b5b1e5a5236a.gif>
+
+---
+
+# まとめ
+
+- Julia の REPL は思ったよりもポテンシャルがある.
+- REPL 芸は結構ウケが良い.
