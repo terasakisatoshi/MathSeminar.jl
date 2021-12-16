@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="/MathSeminar.jl/libs/katex/katex.min.css">
+   
+   <link rel="stylesheet" href="/MathSeminar.jl/libs/highlight/github.min.css">
+   
+  
+
+  <link href="/MathSeminar.jl/css/franklin.css" rel="stylesheet">
+  <link href="/MathSeminar.jl/css/vela.css" rel="stylesheet">
+  <script src="/MathSeminar.jl/libs/vela/jquery.min.js"></script>
+  <link rel="stylesheet" href="/MathSeminar.jl/css/theorem.css">
+   <title>REPL で遊ぼう</title>  
+  <!-- PLOTLY -->
+  
+
+  <title>Franklin Example | Vela</title>
+</head>
+<body>
+  <div class="main-nav" id="menu">
+    <div class="flex-container">
+      <span class="sidebar-brand">
+        <h3 style='font-size: 25px'>MathSeminar.jl</h3>
+      </span>
+    </div> <!-- class="flex-container" -->
+
+    <nav class="sidebar-nav">
+      <ul class="metismenu"  id="metismenu" >
+        <li><a href="/MathSeminar.jl/index.html">Home</a></li>
+        <li><a href="" class="has-arrow">Slide Show</a>
+          <ul>
+            <li><a href="/MathSeminar.jl/slideshow/remark/build/">Introduction to Remark.jl</a>
+            <li><a href="/MathSeminar.jl/slideshow/franklin/build">Introduction to Franklin.jl</a>
+            <li><a href="/MathSeminar.jl/slideshow/dash/build">Introduction to Dash.jl</a>
+            <li><a href="/MathSeminar.jl/slideshow/binarybuilder/build">Introduction to BinaryBuilder.jl</a>
+            <li><a href="/MathSeminar.jl/slideshow/myworkflow/build">Introduction to MyWorkflow.jl</a>
+            <li><a href="/MathSeminar.jl/slideshow/repl/build">Do something great on your REPL</a>
+          </ul>
+        </li>
+        <li><a href="" class="has-arrow">Programming</a>
+          <ul>
+            <li><a href="/MathSeminar.jl/programming/clang">C</a></li>
+            <li><a href="/MathSeminar.jl/programming/rust">Rust</a></li>
+            <li><a href="/MathSeminar.jl/programming/benchmark_part1"> Julia benchmark Part1 </a></li>
+            <li><a href="/MathSeminar.jl/programming/benchmark_part2"> Julia benchmark Part2 </a></li>
+            <li><a href="/MathSeminar.jl/programming/literatejl">Literate.jl</a></li>
+            <li><a href="/MathSeminar.jl/programming/sympy">SymPy.jl</a></li>
+            <li><a href="/MathSeminar.jl/programming/franklin">Franklin.jl</a></li>
+            <li><a href="/MathSeminar.jl/programming/weave">Weave.jl</a></li>
+            <li><a href="/MathSeminar.jl/programming/theoremcounter">Theorem Counter</a></li>
+            <li><a href="/MathSeminar.jl/programming/images">Images.jl</a></li>
+            <li><a href="/MathSeminar.jl/programming/rcall">RCall.jl</a></li>
+            <li><a href="/MathSeminar.jl/programming/asciinema">asciinema</a></li>
+          </ul>
+        </li>
+        <li><a href="" class="has-arrow">Gallery</a>
+          <ul>
+            <li><a href="/MathSeminar.jl/gallery/animation/">Plots.jl animation</a></li>
+            <li><a href="/MathSeminar.jl/gallery/curve/">Plots.jl curve</a></li>
+            <li><a href="/MathSeminar.jl/gallery/gr/">GR.jl</a></li>
+            <li><a href="/MathSeminar.jl/gallery/plotlyjs1/">PlotlyJS.jl Part1</a></li>
+            <li><a href="/MathSeminar.jl/gallery/plotlyjs2/">PlotlyJS.jl Part2</a></li>
+            <li><a href="/MathSeminar.jl/gallery/plotlyjs3/">PlotlyJS.jl Part3</a></li>
+            <li><a href="/MathSeminar.jl/gallery/jsxgraph_js/">JSXGraph (JS)</a></li>
+            <li><a href="/MathSeminar.jl/gallery/jsxgraph_jl/">JSXGraph (Julia)</a></li>
+            <li><a href="/MathSeminar.jl/gallery/wglmakie/">WGLMakie.jl</a></li>
+          </ul>
+        </li>
+        <li><a href="" class="has-arrow">Topics in Mathematics</a>
+          <ul>
+            <li><a href="/MathSeminar.jl/mathematics/linearalgebra/chapter0">Linear Algebra</a></li>
+            <li><a href="/MathSeminar.jl/mathematics/statistics/dice">Dice</a></li>
+            <li><a href="/MathSeminar.jl/mathematics/statistics/Chisq">Chisq Distributions</a></li>
+            <li><a href="/MathSeminar.jl/mathematics/statistics/Law_of_Large_Numbers">Law_of_Large_Numbers</a></li>
+            <li><a href="/MathSeminar.jl/mathematics/visualizations/triangular_function_addition_theorem">Triangular function addition theorem</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div> <!-- main nav menu -->
+
+  <main id="panel">
+    <div class="toggle-button hamburger hamburger--spin">
+      <div class="hamburger-box">
+        <div class="hamburger-inner"></div>
+      </div>
+    </div>
+    <h1 class="page title">REPL で遊ぼう</h1>
+    <hr>
+
+
+<!-- Content appended here -->
+<div class="franklin-content"><p>class: center, middle</p>
+<h1 id="repl_で遊ぼう"><a href="#repl_で遊ぼう" class="header-anchor">REPL で遊ぼう</a></h1>
+<hr />
+<h1 id="repl_で遊ぶとは"><a href="#repl_で遊ぶとは" class="header-anchor">REPL で遊ぶとは？</a></h1>
+<p>&lt;img width&#61;1000 src&#61;https://user-images.githubusercontent.com/16760547/146361937-9c5f97a3-f316-406b-82fa-e3629bbf92f3.png&gt;</p>
+<p>この画面でいろんなものを表示させること</p>
+<hr />
+<h1 id="replでできると良いこと"><a href="#replでできると良いこと" class="header-anchor">REPLでできると良いこと</a></h1>
+<ul>
+<li><p>Jupyter などWeb環境がなくても使える.</p>
+</li>
+<li><p>単純にレトロな感じで面白い.</p>
+</li>
+<li><p>思ったよりも面白い.</p>
+</li>
+</ul>
+<hr />
+<h1 id="バナーの表示"><a href="#バナーの表示" class="header-anchor">バナーの表示</a></h1>
+<pre><code class="julia hljs">julia&gt; Base.banner()
+               _
+   _       _ _(_)_     |  Documentation: https://docs.julialang.org
+  (_)     | (_) (_)    |
+   _ _   _| |_  __ _   |  <span class="hljs-built_in">Type</span> <span class="hljs-string">&quot;?&quot;</span> <span class="hljs-keyword">for</span> help, <span class="hljs-string">&quot;]?&quot;</span> <span class="hljs-keyword">for</span> Pkg help.
+  | | | | | | |/ _<span class="hljs-string">` |  |
+  | | |_| | | | (_| |  |  Version 1.7.0 (2021-11-30)
+ _/ |\__&#x27;_|_|_|\__&#x27;_|  |  Official https://julialang.org/ release
+|__/                   |</span></code></pre>
+<hr />
+<h1 id="a_hrefhttpsgithubcomjuliaplotsunicodeplotsjlunicodeplotsjl"><a href="#a_hrefhttpsgithubcomjuliaplotsunicodeplotsjlunicodeplotsjl" class="header-anchor"><a href="https://github.com/JuliaPlots/UnicodePlots.jl">UnicodePlots.jl</a></a></h1>
+<p>&lt;img width&#61;900 src&#61;https://user-images.githubusercontent.com/16760547/146363503-c1db66bf-cfae-4333-9df3-dc524dc1f4c2.png&gt;</p>
+<hr />
+<h1 id="a_hrefhttpsgithubcomrafaqzunicodegraphicsjlucicodegraphicsjl"><a href="#a_hrefhttpsgithubcomrafaqzunicodegraphicsjlucicodegraphicsjl" class="header-anchor"><a href="https://github.com/rafaqz/UnicodeGraphics.jl">UcicodeGraphics.jl</a></a></h1>
+<p>&lt;img width&#61;400 src&#61;https://user-images.githubusercontent.com/16760547/146365598-3e82b86b-8027-4768-9594-cb726e77aa1d.png&gt;</p>
+<hr />
+<h1 id="a_hrefhttpsgithubcomsimondanischunicodefunjlunicodefunjl"><a href="#a_hrefhttpsgithubcomsimondanischunicodefunjlunicodefunjl" class="header-anchor"><a href="https://github.com/SimonDanisch/UnicodeFun.jl">UnicodeFun.jl</a></a></h1>
+<ul>
+<li><p> <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>LaTeX</mtext></mrow><annotation encoding="application/x-tex">\LaTeX</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.89883em;vertical-align:-0.2155em;"></span><span class="mord text"><span class="mord textrm">L</span><span class="mspace" style="margin-right:-0.36em;"></span><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.68333em;"><span style="top:-2.904999em;"><span class="pstrut" style="height:2.7em;"></span><span class="mord"><span class="mord textrm mtight sizing reset-size6 size3">A</span></span></span></span></span></span><span class="mspace" style="margin-right:-0.15em;"></span><span class="mord text"><span class="mord textrm">T</span><span class="mspace" style="margin-right:-0.1667em;"></span><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.46782999999999997em;"><span style="top:-2.7845em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord textrm">E</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2155em;"><span></span></span></span></span><span class="mspace" style="margin-right:-0.125em;"></span><span class="mord textrm">X</span></span></span></span></span></span> フォーマットを Julia が対応するUnicodeへ変換する. &#40;できないものもある&#41;</p>
+</li>
+</ul>
+<pre><code class="julia hljs">julia&gt; <span class="hljs-keyword">using</span> UnicodeFun
+
+julia&gt; <span class="hljs-string">raw&quot;\zeta(s)&quot;</span> |&gt; to_latex
+<span class="hljs-string">&quot;ζ(s)&quot;</span></code></pre>
+<hr />
+<h1 id="a_hrefhttpsgithubcomronisbrterminalpagerjlterminalpagerjl"><a href="#a_hrefhttpsgithubcomronisbrterminalpagerjlterminalpagerjl" class="header-anchor"><a href="https://github.com/ronisbr/TerminalPager.jl">TerminalPager.jl</a></a></h1>
+<p>大きいテーブルをスクロールしながら見られる.</p>
+<p>&lt;img width&#61;500 src&#61;https://aws1.discourse-cdn.com/business5/uploads/julialang/original/3X/7/8/78f40d91fbf87c5e9b5da46b1522bea357f1764e.gif&gt;</p>
+<hr />
+<h1 id="a_hrefhttpsgithubcomatelierarithterminalclockjlterminalclockjl"><a href="#a_hrefhttpsgithubcomatelierarithterminalclockjlterminalclockjl" class="header-anchor"><a href="https://github.com/AtelierArith/TerminalClock.jl">TerminalClock.jl</a></a></h1>
+<ul>
+<li><p>現在時刻を表示する. 自作パッケージ</p>
+</li>
+</ul>
+<p>&lt;img width&#61;600 src&#61;https://raw.githubusercontent.com/AtelierArith/TerminalClock.jl/main/readme_assets/stopwatch.gif&gt;</p>
+<ul>
+<li><p>ストップウォッチや，タイマー機能もある.</p>
+</li>
+<li><p>文字盤はカスタムすることが可能.</p>
+</li>
+</ul>
+<hr />
+<h1 id="a_hrefhttpsgithubcomatelierarithreplayjlreplayjl"><a href="#a_hrefhttpsgithubcomatelierarithreplayjlreplayjl" class="header-anchor"><a href="https://github.com/AtelierArith/Replay.jl">Replay.jl</a></a></h1>
+<ul>
+<li><p>実行手順を再生してくれる. 自作パッケージ.</p>
+</li>
+</ul>
+<p>&lt;img width&#61;750 src&#61;https://user-images.githubusercontent.com/16760547/146371375-7032b3db-89f2-42f7-ab93-2d84273eb62b.gif&gt;</p>
+<p>🎉</p>
+<hr />
+<h2 id="ちなみに"><a href="#ちなみに" class="header-anchor">ちなみに</a></h2>
+<p>ロゴを<a href="https://github.com/AtelierArith/Replay.jl/pull/7">プルリク</a>でいただくことができました. ありがとうございます！</p>
+<p>&lt;img src&#61;https://raw.githubusercontent.com/AtelierArith/Replay.jl/main/docs/src/assets/logo.svg&gt;</p>
+<hr />
+<h1 id="a_hrefhttpsgithubcomjohnnychen94sixeljlsixeljl_a_hrefhttpsgithubcomjuliaimagesimageinterminaljlimageinterminaljl"><a href="#a_hrefhttpsgithubcomjohnnychen94sixeljlsixeljl_a_hrefhttpsgithubcomjuliaimagesimageinterminaljlimageinterminaljl" class="header-anchor"><a href="https://github.com/johnnychen94/Sixel.jl">Sixel.jl</a> &#43; <a href="https://github.com/JuliaImages/ImageInTerminal.jl">ImageInTerminal.jl</a></a></h1>
+<ul>
+<li><p>SixelGraphics 対応ターミナルでできる. 他の応用例は <a href="https://qiita.com/SatoshiTerasaki/items/3ea9750069e1d631aff7">Qiita</a> に書いた.</p>
+</li>
+</ul>
+<p>&lt;img width&#61;700 src&#61;https://user-images.githubusercontent.com/16760547/146372066-6ec58233-38b0-4a7c-aa18-01712a6eea5b.png&gt;</p>
+<hr />
+<h1 id="a_hrefhttpsgithubcomianbutterworthvideointerminaljlvideointerminaljl"><a href="#a_hrefhttpsgithubcomianbutterworthvideointerminaljlvideointerminaljl" class="header-anchor"><a href="https://github.com/IanButterworth/VideoInTerminal.jl">VideoInTerminal.jl</a></a></h1>
+<p>まだ野良パッケージらしいが面白い. 矢印キーで画像を遷移できる.</p>
+<p>&lt;img width&#61;600 src&#61;&quot;https://raw.githubusercontent.com/IanButterworth/VideoInTerminal.jl/main/mri_example.png&quot;&gt;</p>
+<hr />
+<h1 id="a_hrefhttpsdiscoursejulialangorgtlet-it-snow72950let_it_snow"><a href="#a_hrefhttpsdiscoursejulialangorgtlet-it-snow72950let_it_snow" class="header-anchor"><a href="https://discourse.julialang.org/t/let-it-snow/72950">Let it snow&#40;&#41;</a></a></h1>
+<ul>
+<li><p>ianshmean さんの Julia Discourse より</p>
+<ul>
+<li><p><a href="https://discourse.julialang.org/t/let-it-snow/72950">ソースは公開されている</a></p>
+</li>
+</ul>
+</li>
+</ul>
+<p>&lt;img width&#61;500 src&#61;https://aws1.discourse-cdn.com/business5/uploads/julialang/original/3X/a/0/a07fe4045ac536651537252f6c51b5b1e5a5236a.gif&gt;</p>
+<hr />
+<h1 id="まとめ"><a href="#まとめ" class="header-anchor">まとめ</a></h1>
+<ul>
+<li><p>Julia の REPL は思ったよりもポテンシャルがある.</p>
+</li>
+<li><p>REPL 芸は結構ウケが良い.</p>
+</li>
+</ul>
+<div class="page-foot">
+  <div class="copyright">
+    &copy; SatoshiTerasaki. Last modified: 2021年12月16日 木曜日. Website built with 
+    <a href="http://github.com/terasakisatoshi/MathSeminar.jl">MathSeminar.jl</a>
+    <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
+  </div>
+</div>
+</div><!-- CONTENT ENDS HERE -->
+  </main> <!-- end of id=main -->
+  <script src="/MathSeminar.jl/libs/vela/metisMenu.min.js"></script>
+  <script src="/MathSeminar.jl/libs/vela/slideout.min.js"></script>
+  
+    
+
+
+
+  
+  
+    
+
+
+  
+</body>
+</html>

@@ -37,6 +37,7 @@
             <li><a href="/MathSeminar.jl/slideshow/dash/build">Introduction to Dash.jl</a>
             <li><a href="/MathSeminar.jl/slideshow/binarybuilder/build">Introduction to BinaryBuilder.jl</a>
             <li><a href="/MathSeminar.jl/slideshow/myworkflow/build">Introduction to MyWorkflow.jl</a>
+            <li><a href="/MathSeminar.jl/slideshow/repl/build">Do something great on your REPL</a>
           </ul>
         </li>
         <li><a href="" class="has-arrow">Programming</a>
@@ -168,7 +169,7 @@ int main&#40;&#41;
     fclose&#40;fp&#41;;
     return 0;
 &#125;</code></pre></p>
-<p><pre><code class="plaintext code-output">Elapsed time 0.191289 [sec]
+<p><pre><code class="plaintext code-output">Elapsed time 0.158502 [sec]
 </code></pre>
 <p>描画は下記のとおりです。</p>
 <pre><code class="language-julia">using DelimitedFiles
@@ -239,8 +240,8 @@ main&#40;&#41;
 
 using BenchmarkTools
 @btime mand&#40;1250, 1250&#41;;</code></pre>
-<pre><code class="plaintext code-output">t - s = 0.21024799346923828
-  185.426 ms (2 allocations: 1.49 MiB)
+<pre><code class="plaintext code-output">t - s = 0.14035987854003906
+  144.367 ms (2 allocations: 1.49 MiB)
 </code></pre>
 <pre><code class="language-julia">Refpath&#61;&quot;/tmp/benchC.txt&quot;
 Tarpath&#61;&quot;/tmp/benchJ.txt&quot;
@@ -256,7 +257,7 @@ p &#61; heatmap&#40;1:N,1:M,img,aspect_ratio&#61;1, size&#61;&#40;400, 400&#41;&
 <img src="/MathSeminar.jl/assets/programming/benchmark_part1/code/output/mandJ.png" alt="">
 <div class="page-foot">
   <div class="copyright">
-    &copy; SatoshiTerasaki. Last modified: 2021年12月13日 月曜日. Website built with 
+    &copy; SatoshiTerasaki. Last modified: 2021年12月16日 木曜日. Website built with 
     <a href="http://github.com/terasakisatoshi/MathSeminar.jl">MathSeminar.jl</a>
     <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
   </div>
