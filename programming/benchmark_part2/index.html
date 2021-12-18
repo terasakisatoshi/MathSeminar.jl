@@ -141,8 +141,8 @@ main&#40;&#41;
 
 using BenchmarkTools
 @btime mand&#40;5000, 5000&#41;;</code></pre>
-<pre><code class="plaintext code-output">t - s = 2.3902440071105957
-  2.314 s (2 allocations: 23.84 MiB)
+<pre><code class="plaintext code-output">t - s = 2.9281039237976074
+  2.917 s (2 allocations: 23.84 MiB)
 </code></pre>
   </p>
 <p><div class="colorblock"><strong>Remark</strong> 8.0.1 &#40;数値誤差について&#41; <br/>  点の位置をあらわす <code>&#40;4.0 / &#40;M - 1&#41; * &#40;j - 1&#41; - 2.0&#41;</code> は <code>range&#40;-2, 2, length&#40;N&#41;&#41;</code> と数学的に等価ですが，数値の誤差の関係で結果が若干異なることがあります．</div>
@@ -200,8 +200,8 @@ main&#40;&#41;
 
 using BenchmarkTools
 @btime mand&#40;5000, 5000&#41;;</code></pre>
-<pre><code class="plaintext code-output">t - s = 2.872220039367676
-  2.775 s (2 allocations: 23.84 MiB)
+<pre><code class="plaintext code-output">t - s = 3.30218505859375
+  3.280 s (2 allocations: 23.84 MiB)
 </code></pre>
 <pre><code class="language-julia">Refpath&#61;&quot;/tmp/resultJ.txt&quot;
 Tarpath&#61;&quot;/tmp/resultJ1.txt&quot;
@@ -252,8 +252,8 @@ main&#40;&#41;
 
 using BenchmarkTools
 @btime mand&#40;5000, 5000&#41;;</code></pre>
-<pre><code class="plaintext code-output">t - s = 2.556461811065674
-  2.542 s (4 allocations: 47.68 MiB)
+<pre><code class="plaintext code-output">t - s = 3.3167600631713867
+  3.281 s (4 allocations: 47.68 MiB)
 </code></pre>
 <pre><code class="language-julia">Refpath&#61;&quot;/tmp/resultJ1.txt&quot;
 Tarpath&#61;&quot;/tmp/resultJ2.txt&quot;
@@ -310,8 +310,8 @@ main&#40;&#41;
 
 using BenchmarkTools
 @btime mand&#40;5000, 5000&#41;;</code></pre>
-<pre><code class="plaintext code-output">t - s = 2.536513090133667
-  1.548 s (46 allocations: 23.85 MiB)
+<pre><code class="plaintext code-output">t - s = 2.913702964782715
+  1.871 s (46 allocations: 23.85 MiB)
 </code></pre>
 <pre><code class="language-julia">Refpath&#61;&quot;/tmp/resultJ1.txt&quot;
 Tarpath&#61;&quot;/tmp/resultJ3.txt&quot;
@@ -329,7 +329,7 @@ savefig&#40;p, joinpath&#40;@OUTPUT, &quot;mandJ3.png&quot;&#41;&#41;</code></pr
 <img src="/MathSeminar.jl/assets/programming/benchmark_part2/code/output/mandJ3.png" alt="">
 <div class="page-foot">
   <div class="copyright">
-    &copy; SatoshiTerasaki. Last modified: 2021年12月16日 木曜日. Website built with 
+    &copy; SatoshiTerasaki. Last modified: 2021年12月18日 土曜日. Website built with 
     <a href="http://github.com/terasakisatoshi/MathSeminar.jl">MathSeminar.jl</a>
     <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
   </div>
