@@ -169,7 +169,7 @@ int main&#40;&#41;
     fclose&#40;fp&#41;;
     return 0;
 &#125;</code></pre></p>
-<p><pre><code class="plaintext code-output">Elapsed time 0.195432 [sec]
+<p><pre><code class="plaintext code-output">Elapsed time 0.174135 [sec]
 </code></pre>
 <p>描画は下記のとおりです。</p>
 <pre><code class="language-julia">using DelimitedFiles
@@ -240,8 +240,8 @@ main&#40;&#41;
 
 using BenchmarkTools
 @btime mand&#40;1250, 1250&#41;;</code></pre>
-<pre><code class="plaintext code-output">t - s = 0.23588800430297852
-  235.776 ms (2 allocations: 1.49 MiB)
+<pre><code class="plaintext code-output">t - s = 0.18999505043029785
+  188.304 ms (2 allocations: 1.49 MiB)
 </code></pre>
 <pre><code class="language-julia">Refpath&#61;&quot;/tmp/benchC.txt&quot;
 Tarpath&#61;&quot;/tmp/benchJ.txt&quot;

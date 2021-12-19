@@ -141,8 +141,8 @@ main&#40;&#41;
 
 using BenchmarkTools
 @btime mand&#40;5000, 5000&#41;;</code></pre>
-<pre><code class="plaintext code-output">t - s = 3.779033899307251
-  3.766 s (2 allocations: 23.84 MiB)
+<pre><code class="plaintext code-output">t - s = 3.382974863052368
+  3.407 s (2 allocations: 23.84 MiB)
 </code></pre>
   </p>
 <p><div class="colorblock"><strong>Remark</strong> 8.0.1 &#40;数値誤差について&#41; <br/>  点の位置をあらわす <code>&#40;4.0 / &#40;M - 1&#41; * &#40;j - 1&#41; - 2.0&#41;</code> は <code>range&#40;-2, 2, length&#40;N&#41;&#41;</code> と数学的に等価ですが，数値の誤差の関係で結果が若干異なることがあります．</div>
@@ -200,8 +200,8 @@ main&#40;&#41;
 
 using BenchmarkTools
 @btime mand&#40;5000, 5000&#41;;</code></pre>
-<pre><code class="plaintext code-output">t - s = 3.9383299350738525
-  3.919 s (2 allocations: 23.84 MiB)
+<pre><code class="plaintext code-output">t - s = 3.4951419830322266
+  3.615 s (2 allocations: 23.84 MiB)
 </code></pre>
 <pre><code class="language-julia">Refpath&#61;&quot;/tmp/resultJ.txt&quot;
 Tarpath&#61;&quot;/tmp/resultJ1.txt&quot;
@@ -252,8 +252,8 @@ main&#40;&#41;
 
 using BenchmarkTools
 @btime mand&#40;5000, 5000&#41;;</code></pre>
-<pre><code class="plaintext code-output">t - s = 3.9259378910064697
-  3.912 s (4 allocations: 47.68 MiB)
+<pre><code class="plaintext code-output">t - s = 3.8497350215911865
+  3.492 s (4 allocations: 47.68 MiB)
 </code></pre>
 <pre><code class="language-julia">Refpath&#61;&quot;/tmp/resultJ1.txt&quot;
 Tarpath&#61;&quot;/tmp/resultJ2.txt&quot;
@@ -310,8 +310,8 @@ main&#40;&#41;
 
 using BenchmarkTools
 @btime mand&#40;5000, 5000&#41;;</code></pre>
-<pre><code class="plaintext code-output">t - s = 2.589651107788086
-  2.280 s (46 allocations: 23.85 MiB)
+<pre><code class="plaintext code-output">t - s = 2.424527883529663
+  2.067 s (46 allocations: 23.85 MiB)
 </code></pre>
 <pre><code class="language-julia">Refpath&#61;&quot;/tmp/resultJ1.txt&quot;
 Tarpath&#61;&quot;/tmp/resultJ3.txt&quot;
