@@ -148,6 +148,14 @@ julia> raw"\zeta(s)" |> to_latex
 
 ---
 
+# [OhMyREPL.jl](https://github.com/KristofferC/OhMyREPL.jl)
+
+- 関数のシンタックスハイライトしてくれる. 色づけは [Crayons.jl](https://github.com/KristofferC/Crayons.jl) でできる.
+
+<img width=600 src=https://user-images.githubusercontent.com/16760547/146663802-5b94589c-53a5-4621-9c20-b89cc9f6ddca.png>
+
+---
+
 # [TerminalClock.jl](https://github.com/AtelierArith/TerminalClock.jl)
 
 - 現在時刻を表示する. 自作パッケージ
