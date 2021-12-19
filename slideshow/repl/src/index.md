@@ -17,7 +17,7 @@ class: center, middle
 - Jupyter などWeb環境がなくても使える.
 - 単純にレトロな感じで面白い.
 - 思ったよりも面白い.
-- 今回は例をいっぱい用意した.
+- 今回は提供されているパッケージや小ネタをいっぱい用意した.
 
 ---
 
@@ -87,7 +87,7 @@ julia> parse_file("README.md")
   - [In-REPL pager for Markdown](https://discourse.julialang.org/t/in-repl-pager-for-markdown/51768)
 
 ```julia
-julia> using Markdown: parse_file
+julia> using Markdown
 
 julia> function InteractiveUtils.less(md::Markdown.MD)
            withenv("PAGER" => "less -R -f") do
@@ -98,7 +98,7 @@ julia> function InteractiveUtils.less(md::Markdown.MD)
            end
        end
 
-julia> parse_file("README.md") |> less
+julia> Markdown.parse_file("README.md") |> less
 ```
 
 - `less` を自前で一から実装したくない人は次のスライドへ ->
