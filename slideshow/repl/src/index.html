@@ -108,7 +108,7 @@
 </li>
 <li><p>思ったよりも面白い.</p>
 </li>
-<li><p>今回は例をいっぱい用意した.</p>
+<li><p>今回は提供されているパッケージや小ネタをいっぱい用意した.</p>
 </li>
 </ul>
 <hr />
@@ -171,7 +171,7 @@ julia&gt; parse_file(<span class="hljs-string">&quot;README.md&quot;</span>)</co
 </ul>
 </li>
 </ul>
-<pre><code class="julia hljs">julia&gt; <span class="hljs-keyword">using</span> Markdown: parse_file
+<pre><code class="julia hljs">julia&gt; <span class="hljs-keyword">using</span> Markdown
 
 julia&gt; <span class="hljs-keyword">function</span> InteractiveUtils.less(md::Markdown.MD)
            withenv(<span class="hljs-string">&quot;PAGER&quot;</span> =&gt; <span class="hljs-string">&quot;less -R -f&quot;</span>) <span class="hljs-keyword">do</span>
@@ -182,7 +182,7 @@ julia&gt; <span class="hljs-keyword">function</span> InteractiveUtils.less(md::M
            <span class="hljs-keyword">end</span>
        <span class="hljs-keyword">end</span>
 
-julia&gt; parse_file(<span class="hljs-string">&quot;README.md&quot;</span>) |&gt; less</code></pre>
+julia&gt; Markdown.parse_file(<span class="hljs-string">&quot;README.md&quot;</span>) |&gt; less</code></pre>
 <ul>
 <li><p><code>less</code> を自前で一から実装したくない人は次のスライドへ -&gt;</p>
 </li>
@@ -280,7 +280,7 @@ julia&gt; <span class="hljs-string">raw&quot;\zeta(s)&quot;</span> |&gt; to_late
 </ul>
 <div class="page-foot">
   <div class="copyright">
-    &copy; SatoshiTerasaki. Last modified: 2021年12月18日 土曜日. Website built with 
+    &copy; SatoshiTerasaki. Last modified: 2021年12月19日 日曜日. Website built with 
     <a href="http://github.com/terasakisatoshi/MathSeminar.jl">MathSeminar.jl</a>
     <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
   </div>

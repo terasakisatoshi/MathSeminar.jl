@@ -4,7 +4,7 @@ Step 1/19 : FROM julia:1.7.0
 e5ae68f74026: Already exists
 d55e18473ecc: Already exists
 b02b0ce0bae8: Already exists
-Digest: sha256:913ffce0ae2200550861a42f3b3d94e0e7e3a5b447298b1757da0394e6ab2cbf
+Digest: sha256:85b193db9b0bc976e64c7d274982a57e68160f75a9e05351eac5c4362be89ec8
 Status: Downloaded newer image for julia:1.7.0
  ---> 71e8ac9bcddb
 Step 2/19 : RUN apt-get update &&     apt-get install -y     build-essential     cmake     curl     ca-certificates     xvfb     dvipng     texlive-latex-recommended      zip     libxt6 libxrender1 libxext6 libgl1-mesa-glx libqt5widgets5 # GR &&     apt-get clean && rm -rf /var/lib/apt/lists/* # clean up
