@@ -21,6 +21,10 @@ Last Modified: {{ fd_mtime }}
 </details>
 ~~~
 
+~~~
+<iframe src="https://github.com/sponsors/terasakisatoshi/card" title="Sponsor terasakisatoshi" height="225" width="600" style="border: 0;"></iframe>
+~~~
+
 \section{Before reading}
 
 \remark{}{推奨ブラウザについて}{
