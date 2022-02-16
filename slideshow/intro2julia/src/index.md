@@ -95,12 +95,38 @@ MIT, Stanford, Berkeley, CMU をはじめとする 1500 の大学で Julia を�
   - 関数の引数に型アノテーションつければ高速になるはウソ(つけなくてもよい)
     - [Type annotation make JIT compile faster?](https://discourse.julialang.org/t/type-annotation-make-jit-compile-faster/31906)
 - プロジェクトのアクティベートで環境の分離
-- Julia だけ入れればライブラリの依存関係は観光構築は全て Julia 側でマネージしてくれる. 
+- Julia だけ入れればライブラリの依存関係は環境構築は全て Julia 側でマネージしてくれる. 
   - 追加で `apt-get ...` とか `brew ...` とかしなくても良いようになっている.
 - パッケージの開発が容易
   - [PkgTemplates.jl](https://github.com/invenia/PkgTemplates.jl) で実用的な雛形を作れる
 - リッチなパッケージマネージャがついている
 - テスト，ドキュメント生成などの現代的な実務開発にも耐えうる機能が使える
+
+---
+
+class: center, middle
+
+# Can we use Julia in production ?
+
+--
+
+Me "I believe we can !!!"
+
+--
+
+Other people "Really ???"
+
+--
+
+Me "I believe we can !!!"
+
+--
+
+Other people "Really ???"
+
+--
+
+Me "Come on !!! 😩 You're so mean"
 
 ---
 
@@ -142,7 +168,402 @@ MIT, Stanford, Berkeley, CMU をはじめとする 1500 の大学で Julia を�
   - GitHubで自分で例をいっぱい作れば良い
   - パッケージとして公開する方法は思ったよりも簡単
 - 日本語の文献が少ない
-  - この機会に英語を身につけましょう
+  - 英語を読めばいいじゃない(一方で，日本語の解説は増えてきている)
   - 日本語で会話したい時は Twitter/Slack/Discord/Connpass で勉強会や雑談会がある
   - 公式ドキュメントに基づいた解説があると喜ぶ人多そう
-  - 単に使ってみたで終わるものではなく, その記事を読みそこから得た知識あら応用できる余地を見出せると良い記事が書ける.
+  - 単に使ってみたで終わるものではなく, その記事を読みそこから得た知識から応用できる余地を見出せると良い記事が書ける.
+
+---
+
+# よく言われていること
+
+- 使える人が少ない
+  - そうかも
+- サクッとできる入門が欲しい?
+  - しょうがない作るか(´・ω・｀)
+  - イマココ
+
+---
+
+class: center, middle
+
+# 忙しい人のための Julia 入門（環境構築）
+
+---
+
+# 環境構築(その１)
+
+- 基本的には実行バイナリを落としてきてそこにパスを通せば良い.
+- [公式ページのダウンロードページ](https://julialang.org/downloads/)
+  - `Current stable release` のバージョンを選べば良い.
+  - [Platform Specific Instructions for Official Binaries](https://julialang.org/downloads/platform/) に従う.
+- [リリースアナウンス](https://discourse.julialang.org/c/announce/25) 
+が出たらマイナーバージョンをアップデートすれば良い.
+  - 1.8 が出たら 1.7 はメンテされないので捨てる.
+  - 1.9 が出たら 1.8 を捨てて 1.9 を使う
+  - 欠点: わざわざ差し替えるのがめんどい
+- いろんな方法を紹介してるので使いやすいものを選ぶこと
+
+---
+
+# 環境構築(その２)
+
+お手元に Python があれば `jill` インストーラを利用できる
+
+```console
+$ pip3 install jill
+$ jill install 1.7
+JILL - Julia Installer 4 Linux (MacOS, Windows and FreeBSD) -- Light
+
+jill will:
+  1) install Julia 1.7 for mac-x86_64 into /Applications
+  2) make symlinks in ~/.local/bin
+You may need to manually add /Users/terasaki/.local/bin to PATH
+Continue installation? [Y/n]
+```
+
+`Y` を押してインストールする. `~/.local/bin` に PATH が通っていれば Julia が使える
+
+```console
+$ julia --version
+julia version 1.7.2
+```
+
+---
+
+# 環境構築(その３)
+
+- 主にWindowsユーザー向け
+- Windows ユーザーであれば Microsoft Store から `julia` と検索して入手できる.
+  パスが通るところにインストールしてくれる. [juliaup](https://github.com/JuliaLang/juliaup) というコマンドもついてくる. このコマンドで適宜最新版を入手できるようになる.
+
+---
+
+# 環境構築(その４)
+
+- Docker公式イメージを使う
+
+```console
+$ docker run --rm -it julia:1.7.2
+               _
+   _       _ _(_)_     |  Documentation: https://docs.julialang.org
+  (_)     | (_) (_)    |
+   _ _   _| |_  __ _   |  Type "?" for help, "]?" for Pkg help.
+  | | | | | | |/ _` |  |
+  | | |_| | | | (_| |  |  Version 1.7.2 (2022-02-06)
+ _/ |\__'_|_|_|\__'_|  |  Official https://julialang.org/ release
+|__/                   |
+
+julia>
+```
+
+---
+
+# 環境構築(その５)
+
+クラウド環境でも試せる
+
+- [binder-examples/demo-julia](https://github.com/binder-examples/demo-julia)
+  - リンク先にある `launch binder` ボタンを押す
+- [Amazon SageMaker Studio Lab](https://studiolab.sagemaker.aws/)
+
+---
+
+class: center, middle
+
+# REPL で遊ぼう
+
+文法も添えて
+
+---
+
+`julia` というコマンドが使えるようになったはず. REPL が立ち上がる.
+
+```julia
+               _
+   _       _ _(_)_     |  Documentation: https://docs.julialang.org
+  (_)     | (_) (_)    |
+   _ _   _| |_  __ _   |  Type "?" for help, "]?" for Pkg help.
+  | | | | | | |/ _` |  |
+  | | |_| | | | (_| |  |  Version 1.7.2 (2022-02-06)
+ _/ |\__'_|_|_|\__'_|  |  Official https://julialang.org/ release
+|__/                   |
+
+julia> 1+1
+2
+
+julia> println("Hello")
+Hello
+
+julia> VERSION
+v"1.7.2"
+
+julia> versioninfo()
+Julia Version 1.7.2
+Commit bf53498635 (2022-02-06 15:21 UTC)
+Platform Info:
+  OS: Linux (x86_64-pc-linux-gnu)
+  CPU: Intel(R) Core(TM) i9-9900K CPU @ 3.60GHz
+  WORD_SIZE: 64
+  LIBM: libopenlibm
+  LLVM: libLLVM-12.0.1 (ORCJIT, skylake)
+Environment:
+  JULIA_PATH = /usr/local/julia
+  JULIA_GPG = 3673DF529D9049477F76B37566E3C7DC03D6E495
+  JULIA_VERSION = 1.7.2
+```
+
+---
+
+# Tips
+
+`julia>` の部分がプロンプトと呼ばれる. `julia>` の部分も含めてコピペしても REPL 側がいい感じに処理してくれる. 下記のブロックを丸ごとコピーしてみると適切な出力を出すはずだ.
+
+```julia
+julia> 1 == 2
+true # 実際は false なので実際に動かすと false になる
+
+julia> println("Hello")
+World # 実際は Hello が出るはず
+```
+
+Python と異なりインデントに関してセンシティブではないのでコードを適当にコピペして自由に実行させることができる.
+
+---
+
+# Unicode 文字列
+
+- Julia の良さは数学的な概念を表現しやすい
+  - Unicode 入力支援のおかげで論文や教科書に出てくる $\beta, \hat{y}, x_1, A^a, \pi, \otimes$ をそっくりそのままかける.
+  - `julia> β, ŷ, x₁, Aᵃ, π, ⊗`
+
+```julia
+julia> β # \beta + <tab>
+julia> ŷ # y\hat + <tab>
+julia> x₁ # x\_1 + <tab>
+julia> Aᵃ # A\^a + <tab>
+julia> π # \pi + <tab> これは円周率を表す. `pi` でも良い
+julia> ⊗ # \otimes + <tab>
+```
+
+---
+
+# Julia is fast(?)
+
+```julia
+julia> function mygcd(a, b)
+           while b != 0
+               tmp = b; b = a % b; a = tmp
+           end
+           return a
+       end
+mygcd (generic function with 1 method)
+
+julia> function calcπ(N)
+           cnt = 0
+           for a ∈ 1:N # ∈ は \in + <tab> `in` でも良い
+               for b in 1:N # in の代わりに `=` と書いても良い
+                   if mygcd(a, b) == 1
+                       cnt += 1
+                   end
+               end
+           end
+           prob = cnt / N / N
+           return √(6/prob) # √ は \sqrt + <tab>
+       end
+calcπ (generic function with 1 method)
+
+julia> @time calcπ(10^4)
+
+  4.980897 seconds
+3.141534239016629
+```
+
+---
+
+```c
+#include<stdio.h>
+#include<math.h>
+
+int mygcd(int a, int b){
+    int tmp;
+    while (b != 0) {
+        tmp = b; b = a % b; a = tmp;
+    }
+    return a;
+}
+
+double calcpi(int N){
+    int cnt = 0;
+    for (int a=1; a<=N; a++){
+        for(int b=1; b<=N; b++){
+            if (mygcd(a, b)==1){
+                cnt++;
+            }
+        }
+    }
+    double prob = (double)cnt / N / N;
+    return sqrt(6/prob);
+}
+
+int main(){
+    double approx = calcpi(10000);
+    printf("%.15f\n", approx);
+    return 0;
+}
+```
+
+```console
+$ gcc -O2 calcpi.c && time ./a.out
+3.141534239016629
+./a.out  4.60s user 0.01s system 95% cpu 4.839 total
+```
+---
+
+```python
+import math
+import time
+
+
+def mygcd(a, b):
+    while (b != 0):
+        tmp = b
+        b = a % b
+        a = tmp
+    return a
+
+
+def calcpi(N):
+    cnt = 0
+    for a in range(1, N + 1):
+        for b in range(1, N + 1):
+            if mygcd(a, b) == 1:
+                cnt += 1
+    prob = cnt / N / N
+    return math.sqrt(6 / prob)
+
+
+print(calcpi(10000))
+```
+
+```console
+$ time python calcpi.py
+3.141534239016629
+python calcpi.py  47.90s user 0.21s system 99% cpu 48.265 total
+```
+
+---
+
+# Julia is fast (?!)
+
+```julia
+julia> function calcπ(N)
+           cnt = 0
+           for a ∈ 1:N # ∈ は \in + <tab> `in` でも良い
+               for b in 1:N # in の代わりに `=` と書いても良い
+                   if gcd(a, b) == 1 # Julia 標準の gcd は実は速い
+                       cnt += 1
+                   end
+               end
+           end
+           prob = cnt / N / N
+           return √(6/prob) # √ は \sqrt + <tab>
+       end
+calcπ (generic function with 1 method)
+
+julia> @time calcπ(10^4)
+  2.277574 seconds
+3.141534239016629
+```
+
+Julia の gcd は [binary GCD (aka Stein's) algorithm](https://github.com/JuliaLang/julia/blob/bf534986350a991e4a1b29126de0342ffd76205e/base/intfuncs.jl#L50-L71) を採用している.
+
+[mygcd はここを参考にした](https://github.com/JuliaLang/julia/blob/bf534986350a991e4a1b29126de0342ffd76205e/base/intfuncs.jl#L41-L48)
+
+---
+
+# Julia はもう少しスマートにかける
+
+```julia
+julia> function calcπ(N)
+           cnt = 0
+           for a = 1:N, b = 1:N
+               cnt += ifelse(gcd(a, b) == 1, 1, 0)
+           end
+           prob = cnt / N / N
+           # 実は return は不要. 最後に評価した式の値を返す.
+           √(6 / prob) # √ は \sqrt + <tab>
+       end
+calcπ (generic function with 1 method)
+
+julia> @time calcπ(10^4)
+
+  2.338910 seconds
+3.141534239016629
+
+julia> @time calcπ(5*10^4)
+ 67.926152 seconds
+3.141560849524047
+```
+
+---
+
+# Multi-Threading
+
+```julia
+# calcpi_thread.jl
+using Base.Threads
+
+function calcπ(N)
+    cnt = Atomic{Int}(0)
+    Threads.@threads for a = 1:N
+        for b = 1:N
+            Threads.atomic_add!(cnt, ifelse(gcd(a, b) == 1, 1, 0))
+        end
+    end
+    prob = cnt.value / N / N
+    # 実は return は不要. 最後に評価した式の値を返す.
+    √(6 / prob) # √ は \sqrt + <tab>
+end
+
+@time @show calcπ(10^4)
+@time @show calcπ(5*10^4)
+```
+
+```console
+$ julia -t auto calcpi_thread.jl
+calcπ(10 ^ 4) = 3.141534239016629
+  1.453167 seconds (66.57 k allocations: 3.809 MiB, 2.61% compilation time)
+calcπ(5 * 10 ^ 4) = 3.141560849524047
+ 44.661406 seconds (101 allocations: 8.141 KiB)
+```
+
+---
+
+# Multi-Processing
+
+```julia
+# calcpi_distributed.jl
+using Distributed
+
+function calcπ(N)
+    cnt = @distributed (+) for a = 1:N
+        s = 0
+        for b = 1:N
+            s += ifelse(gcd(a, b) == 1, 1, 0)
+        end
+        s
+    end
+    prob = cnt / N / N
+    √(6 / prob)
+end
+
+@time calcπ(10^4)
+@time calcπ(5*10^4)
+```
+
+```console
+julia -p auto calcpi_distributed.jl
+  2.389998 seconds (1.17 M allocations: 63.687 MiB, 0.27% gc time, 20.13% compilation time)
+  6.294771 seconds (2.39 k allocations: 101.531 KiB)
+```
