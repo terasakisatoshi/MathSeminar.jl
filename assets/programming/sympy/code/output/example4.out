@@ -1,1 +1,2 @@
-$$\left[\begin{matrix}x & y\end{matrix}\right]$$
+LoadError: UndefVarError: @vars not defined
+in expression starting at none:1

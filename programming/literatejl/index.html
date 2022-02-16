@@ -95,16 +95,17 @@
 <!-- Content appended here -->
 <div class="franklin-content"><p>ここから</p>
 <h1 id="hello_from_examplejl"><a href="#hello_from_examplejl" class="header-anchor">Hello from example.jl</a></h1>
-<pre><code class="julia hljs"><span class="hljs-keyword">using</span> Plots
-Plots.plot(sin)
-x = -<span class="hljs-literal">π</span>:<span class="hljs-number">0.01</span>:<span class="hljs-literal">π</span>
-y = sin.(x)
-plot(x, y)</code></pre>
+<pre><code class="language-julia">using Plots
+Plots.plot&#40;sin&#41;
+x &#61; -π:0.01:π
+y &#61; sin.&#40;x&#41;
+plot&#40;x, y&#41;</code></pre><pre><code class="plaintext code-output">Failed to precompile Plots [91a5bcdd-55d7-5caf-9e0b-520d859cae80] to /root/.julia/compiled/v1.7/Plots/jl_L6pDKi.
+</code></pre>
 
 <p>ここまで</p>
 <div class="page-foot">
   <div class="copyright">
-    &copy; SatoshiTerasaki. Last modified: 2022年2月11日 金曜日. Website built with 
+    &copy; SatoshiTerasaki. Last modified: 2022年2月16日 水曜日. Website built with 
     <a href="http://github.com/terasakisatoshi/MathSeminar.jl">MathSeminar.jl</a>
     <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
   </div>
@@ -114,14 +115,14 @@ plot(x, y)</code></pre>
   <script src="/MathSeminar.jl/libs/vela/metisMenu.min.js"></script>
   <script src="/MathSeminar.jl/libs/vela/slideout.min.js"></script>
   
-    
-
-
+    <script src="/MathSeminar.jl/libs/katex/katex.min.js"></script>
+<script src="/MathSeminar.jl/libs/katex/auto-render.min.js"></script>
+<script>renderMathInElement(document.body)</script>
 
   
   
-    
-
+    <script src="/MathSeminar.jl/libs/highlight/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();hljs.configure({tabReplace: '    '});</script>
 
   
 </body>

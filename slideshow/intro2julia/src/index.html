@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
    <link rel="stylesheet" href="/MathSeminar.jl/libs/katex/katex.min.css">
    
-  
+   <link rel="stylesheet" href="/MathSeminar.jl/libs/highlight/github.min.css">
+   
   
 
   <link href="/MathSeminar.jl/css/franklin.css" rel="stylesheet">
@@ -239,7 +240,7 @@
 </li>
 <li><p>プロジェクトのアクティベートで環境の分離</p>
 </li>
-<li><p>Julia だけ入れればライブラリの依存関係は観光構築は全て Julia 側でマネージしてくれる. </p>
+<li><p>Julia だけ入れればライブラリの依存関係は環境構築は全て Julia 側でマネージしてくれる. </p>
 <ul>
 <li><p>追加で <code>apt-get ...</code> とか <code>brew ...</code> とかしなくても良いようになっている.</p>
 </li>
@@ -256,6 +257,19 @@
 <li><p>テスト，ドキュメント生成などの現代的な実務開発にも耐えうる機能が使える</p>
 </li>
 </ul>
+<hr />
+<p>class: center, middle</p>
+<h1 id="can_we_use_julia_in_production"><a href="#can_we_use_julia_in_production" class="header-anchor">Can we use Julia in production ?</a></h1>
+<p>–</p>
+<p>Me &quot;I believe we can &#33;&#33;&#33;&quot;</p>
+<p>–</p>
+<p>Other people &quot;Really ???&quot;</p>
+<p>–</p>
+<p>Me &quot;I believe we can &#33;&#33;&#33;&quot;</p>
+<p>–</p>
+<p>Other people &quot;Really ???&quot;</p>
+<p>–</p>
+<p>Me &quot;Come on &#33;&#33;&#33; 😩 You&#39;re so mean&quot;</p>
 <hr />
 <h1 id="よく言われること"><a href="#よく言われること" class="header-anchor">よく言われること</a></h1>
 <ul>
@@ -333,20 +347,361 @@
 </li>
 <li><p>日本語の文献が少ない</p>
 <ul>
-<li><p>この機会に英語を身につけましょう</p>
+<li><p>英語を読めばいいじゃない&#40;一方で，日本語の解説は増えてきている&#41;</p>
 </li>
 <li><p>日本語で会話したい時は Twitter/Slack/Discord/Connpass で勉強会や雑談会がある</p>
 </li>
 <li><p>公式ドキュメントに基づいた解説があると喜ぶ人多そう</p>
 </li>
-<li><p>単に使ってみたで終わるものではなく, その記事を読みそこから得た知識あら応用できる余地を見出せると良い記事が書ける.</p>
+<li><p>単に使ってみたで終わるものではなく, その記事を読みそこから得た知識から応用できる余地を見出せると良い記事が書ける.</p>
 </li>
 </ul>
 </li>
 </ul>
+<hr />
+<h1 id="よく言われていること"><a href="#よく言われていること" class="header-anchor">よく言われていること</a></h1>
+<ul>
+<li><p>使える人が少ない</p>
+<ul>
+<li><p>そうかも</p>
+</li>
+</ul>
+</li>
+<li><p>サクッとできる入門が欲しい?</p>
+<ul>
+<li><p>しょうがない作るか&#40;´・ω・｀&#41;</p>
+</li>
+<li><p>イマココ</p>
+</li>
+</ul>
+</li>
+</ul>
+<hr />
+<p>class: center, middle</p>
+<h1 id="忙しい人のための_julia_入門環境構築"><a href="#忙しい人のための_julia_入門環境構築" class="header-anchor">忙しい人のための Julia 入門（環境構築）</a></h1>
+<hr />
+<h1 id="環境構築その"><a href="#環境構築その" class="header-anchor">環境構築&#40;その１&#41;</a></h1>
+<ul>
+<li><p>基本的には実行バイナリを落としてきてそこにパスを通せば良い.</p>
+</li>
+<li><p><a href="https://julialang.org/downloads/">公式ページのダウンロードページ</a></p>
+<ul>
+<li><p><code>Current stable release</code> のバージョンを選べば良い.</p>
+</li>
+<li><p><a href="https://julialang.org/downloads/platform/">Platform Specific Instructions for Official Binaries</a> に従う.</p>
+</li>
+</ul>
+</li>
+<li><p><a href="https://discourse.julialang.org/c/announce/25">リリースアナウンス</a> </p>
+</li>
+</ul>
+<p>が出たらマイナーバージョンをアップデートすれば良い.</p>
+<ul>
+<li><p>1.8 が出たら 1.7 はメンテされないので捨てる.</p>
+</li>
+<li><p>1.9 が出たら 1.8 を捨てて 1.9 を使う</p>
+</li>
+<li><p>欠点: わざわざ差し替えるのがめんどい</p>
+</li>
+<li><p>いろんな方法を紹介してるので使いやすいものを選ぶこと</p>
+</li>
+</ul>
+<hr />
+<h1 id="環境構築その__2"><a href="#環境構築その__2" class="header-anchor">環境構築&#40;その１&#41;</a></h1>
+<p>お手元に Python があれば <code>jill</code> インストーラを利用できる</p>
+<pre><code class="console hljs"><span class="hljs-meta">$ </span><span class="language-bash">pip3 install jill</span>
+<span class="hljs-meta">$ </span><span class="language-bash">jill install 1.7</span>
+JILL - Julia Installer 4 Linux (MacOS, Windows and FreeBSD) -- Light
+
+jill will:
+  1) install Julia 1.7 for mac-x86_64 into /Applications
+  2) make symlinks in ~/.local/bin
+You may need to manually add /Users/terasaki/.local/bin to PATH
+Continue installation? [Y/n]</code></pre>
+<p><code>Y</code> を押してインストールする. <code>~/.local/bin</code> に PATH が通っていれば Julia が使える</p>
+<pre><code class="console hljs"><span class="hljs-meta">$ </span><span class="language-bash">julia --version</span>
+julia version 1.7.2</code></pre>
+<hr />
+<h1 id="環境構築その__3"><a href="#環境構築その__3" class="header-anchor">環境構築&#40;その１&#41;</a></h1>
+<ul>
+<li><p>主にWindowsユーザー向け</p>
+</li>
+<li><p>Windows ユーザーであれば Microsoft Store から <code>julia</code> と検索して入手できる. パスが通るところにインストールしてくれる. <a href="https://github.com/JuliaLang/juliaup">juliaup</a> というコマンドもついてくる. このコマンドで適宜最新版を入手できるようになる.</p>
+</li>
+</ul>
+<hr />
+<h1 id="環境構築その__4"><a href="#環境構築その__4" class="header-anchor">環境構築&#40;その１&#41;</a></h1>
+<ul>
+<li><p>Docker公式イメージを使う</p>
+</li>
+</ul>
+<pre><code class="console hljs"><span class="hljs-meta">$ </span><span class="language-bash">docker run --<span class="hljs-built_in">rm</span> -it julia:1.7.2</span>
+               _
+   _       _ _(_)_     |  Documentation: https://docs.julialang.org
+  (_)     | (_) (_)    |
+   _ _   _| |_  __ _   |  Type &quot;?&quot; for help, &quot;]?&quot; for Pkg help.
+  | | | | | | |/ _` |  |
+  | | |_| | | | (_| |  |  Version 1.7.2 (2022-02-06)
+ _/ |\__&#x27;_|_|_|\__&#x27;_|  |  Official https://julialang.org/ release
+|__/                   |
+<span class="hljs-meta">
+julia&gt;</span></code></pre>
+<hr />
+<h1 id="環境構築その__5"><a href="#環境構築その__5" class="header-anchor">環境構築&#40;その１&#41;</a></h1>
+<p>クラウド環境でも試せる</p>
+<ul>
+<li><p><a href="https://github.com/binder-examples/demo-julia">binder-examples/demo-julia</a></p>
+<ul>
+<li><p>リンク先にある <code>launch binder</code> ボタンを押す</p>
+</li>
+</ul>
+</li>
+<li><p><a href="https://studiolab.sagemaker.aws/">Amazon SageMaker Studio Lab</a></p>
+</li>
+</ul>
+<hr />
+<p>class: center, middle</p>
+<h1 id="repl_で遊ぼう"><a href="#repl_で遊ぼう" class="header-anchor">REPL で遊ぼう</a></h1>
+<p>文法も添えて</p>
+<hr />
+<p><code>julia</code> というコマンドが使えるようになったはず. REPL が立ち上がる.</p>
+<pre><code class="julia hljs">_
+   _       _ _(_)_     |  Documentation: https://docs.julialang.org
+  (_)     | (_) (_)    |
+   _ _   _| |_  __ _   |  <span class="hljs-built_in">Type</span> <span class="hljs-string">&quot;?&quot;</span> <span class="hljs-keyword">for</span> help, <span class="hljs-string">&quot;]?&quot;</span> <span class="hljs-keyword">for</span> Pkg help.
+  | | | | | | |/ _<span class="hljs-string">` |  |
+  | | |_| | | | (_| |  |  Version 1.7.2 (2022-02-06)
+ _/ |\__&#x27;_|_|_|\__&#x27;_|  |  Official https://julialang.org/ release
+|__/                   |
+
+julia&gt; 1+1
+2
+
+julia&gt; println(&quot;Hello&quot;)
+Hello
+
+julia&gt; VERSION
+v&quot;1.7.2&quot;
+
+julia&gt; versioninfo()
+Julia Version 1.7.2
+Commit bf53498635 (2022-02-06 15:21 UTC)
+Platform Info:
+  OS: Linux (x86_64-pc-linux-gnu)
+  CPU: Intel(R) Core(TM) i9-9900K CPU @ 3.60GHz
+  WORD_SIZE: 64
+  LIBM: libopenlibm
+  LLVM: libLLVM-12.0.1 (ORCJIT, skylake)
+Environment:
+  JULIA_PATH = /usr/local/julia
+  JULIA_GPG = 3673DF529D9049477F76B37566E3C7DC03D6E495
+  JULIA_VERSION = 1.7.2</span></code></pre>
+<hr />
+<h1 id="tips"><a href="#tips" class="header-anchor">Tips</a></h1>
+<p><code>julia&gt;</code> の部分がプロンプトと呼ばれる. <code>julia&gt;</code> の部分も含めてコピペしても REPL 側がいい感じに処理してくれる. 下記のブロックを丸ごとコピーしてみると適切な出力を出すはずだ.</p>
+<pre><code class="julia hljs">julia&gt; <span class="hljs-number">1</span> == <span class="hljs-number">2</span>
+<span class="hljs-literal">true</span> <span class="hljs-comment"># 実際は false なので実際に動かすと false になる</span>
+
+julia&gt; println(<span class="hljs-string">&quot;Hello&quot;</span>)
+World <span class="hljs-comment"># 実際は Hello が出るはず</span></code></pre>
+<p>Python と異なりインデントに関してセンシティブではないのでコードを適当にコピペして自由に実行させることができる.</p>
+<hr />
+<h1 id="unicode_文字列"><a href="#unicode_文字列" class="header-anchor">Unicode 文字列</a></h1>
+<ul>
+<li><p>Julia の良さは数学的な概念を表現しやすい</p>
+<ul>
+<li><p>Unicode 入力支援のおかげで論文や教科書に出てくる <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>β</mi><mo separator="true">,</mo><mover accent="true"><mi>y</mi><mo>^</mo></mover><mo separator="true">,</mo><msub><mi>x</mi><mn>1</mn></msub><mo separator="true">,</mo><msup><mi>A</mi><mi>a</mi></msup><mo separator="true">,</mo><mi>π</mi><mo separator="true">,</mo><mo>⊗</mo></mrow><annotation encoding="application/x-tex">\beta, \hat{y}, x_1, A^a, \pi, \otimes</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.05278em;">β</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord accent"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.69444em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">y</span></span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.19444em;"><span class="mord">^</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.19444em;"><span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">A</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">a</span></span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">π</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">⊗</span></span></span></span> をそっくりそのままかける.</p>
+</li>
+<li><p><code>julia&gt; β, ŷ, x₁, Aᵃ, π, ⊗</code></p>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code class="julia hljs">julia&gt; β <span class="hljs-comment"># \beta + &lt;tab&gt;</span>
+julia&gt; ŷ <span class="hljs-comment"># y\hat + &lt;tab&gt;</span>
+julia&gt; x₁ <span class="hljs-comment"># x\_1 + &lt;tab&gt;</span>
+julia&gt; Aᵃ <span class="hljs-comment"># A\^a + &lt;tab&gt;</span>
+julia&gt; <span class="hljs-literal">π</span> <span class="hljs-comment"># \pi + &lt;tab&gt; これは円周率を表す. `pi` でも良い</span>
+julia&gt; ⊗ <span class="hljs-comment"># \otimes + &lt;tab&gt;</span></code></pre>
+<hr />
+<h1 id="julia_is_fast"><a href="#julia_is_fast" class="header-anchor">Julia is fast&#40;?&#41;</a></h1>
+<pre><code class="julia hljs">julia&gt; <span class="hljs-keyword">function</span> mygcd(a, b)
+           <span class="hljs-keyword">while</span> b != <span class="hljs-number">0</span>
+               tmp = b; b = a % b; a = tmp
+           <span class="hljs-keyword">end</span>
+           <span class="hljs-keyword">return</span> a
+       <span class="hljs-keyword">end</span>
+mygcd (generic <span class="hljs-keyword">function</span> with <span class="hljs-number">1</span> method)
+
+julia&gt; <span class="hljs-keyword">function</span> calcπ(N)
+           cnt = <span class="hljs-number">0</span>
+           <span class="hljs-keyword">for</span> a ∈ <span class="hljs-number">1</span>:N <span class="hljs-comment"># ∈ は \in + &lt;tab&gt; `in` でも良い</span>
+               <span class="hljs-keyword">for</span> b <span class="hljs-keyword">in</span> <span class="hljs-number">1</span>:N <span class="hljs-comment"># in の代わりに `=` と書いても良い</span>
+                   <span class="hljs-keyword">if</span> mygcd(a, b) == <span class="hljs-number">1</span>
+                       cnt += <span class="hljs-number">1</span>
+                   <span class="hljs-keyword">end</span>
+               <span class="hljs-keyword">end</span>
+           <span class="hljs-keyword">end</span>
+           prob = cnt / N / N
+           <span class="hljs-keyword">return</span> √(<span class="hljs-number">6</span>/prob) <span class="hljs-comment"># √ は \sqrt + &lt;tab&gt;</span>
+       <span class="hljs-keyword">end</span>
+calcπ (generic <span class="hljs-keyword">function</span> with <span class="hljs-number">1</span> method)
+
+julia&gt; <span class="hljs-meta">@time</span> calcπ(<span class="hljs-number">10</span>^<span class="hljs-number">4</span>)
+
+  <span class="hljs-number">4.980897</span> seconds
+<span class="hljs-number">3.141534239016629</span></code></pre>
+<hr />
+<pre><code class="c hljs"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;stdio.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;math.h&gt;</span></span>
+
+<span class="hljs-type">int</span> <span class="hljs-title function_">mygcd</span><span class="hljs-params">(<span class="hljs-type">int</span> a, <span class="hljs-type">int</span> b)</span>{
+    <span class="hljs-type">int</span> tmp;
+    <span class="hljs-keyword">while</span> (b != <span class="hljs-number">0</span>) {
+        tmp = b; b = a % b; a = tmp;
+    }
+    <span class="hljs-keyword">return</span> a;
+}
+
+<span class="hljs-type">double</span> <span class="hljs-title function_">calcpi</span><span class="hljs-params">(<span class="hljs-type">int</span> N)</span>{
+    <span class="hljs-type">int</span> cnt = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> a=<span class="hljs-number">1</span>; a&lt;=N; a++){
+        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> b=<span class="hljs-number">1</span>; b&lt;=N; b++){
+            <span class="hljs-keyword">if</span> (mygcd(a, b)==<span class="hljs-number">1</span>){
+                cnt++;
+            }
+        }
+    }
+    <span class="hljs-type">double</span> prob = (<span class="hljs-type">double</span>)cnt / N / N;
+    <span class="hljs-keyword">return</span> <span class="hljs-built_in">sqrt</span>(<span class="hljs-number">6</span>/prob);
+}
+
+<span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span>{
+    <span class="hljs-type">double</span> approx = calcpi(<span class="hljs-number">10000</span>);
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%.15f\n&quot;</span>, approx);
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}</code></pre>
+<pre><code class="console hljs"><span class="hljs-meta">$ </span><span class="language-bash">gcc -O2 calcpi.c &amp;&amp; time ./a.out</span>
+3.141534239016629
+./a.out  4.60s user 0.01s system 95% cpu 4.839 total</code></pre>
+<hr />
+<pre><code class="python hljs"><span class="hljs-keyword">import</span> math
+<span class="hljs-keyword">import</span> time
+
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">mygcd</span>(<span class="hljs-params">a, b</span>):
+    <span class="hljs-keyword">while</span> (b != <span class="hljs-number">0</span>):
+        tmp = b
+        b = a % b
+        a = tmp
+    <span class="hljs-keyword">return</span> a
+
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">calcpi</span>(<span class="hljs-params">N</span>):
+    cnt = <span class="hljs-number">0</span>
+    <span class="hljs-keyword">for</span> a <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>, N + <span class="hljs-number">1</span>):
+        <span class="hljs-keyword">for</span> b <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>, N + <span class="hljs-number">1</span>):
+            <span class="hljs-keyword">if</span> mygcd(a, b) == <span class="hljs-number">1</span>:
+                cnt += <span class="hljs-number">1</span>
+    prob = cnt / N / N
+    <span class="hljs-keyword">return</span> math.sqrt(<span class="hljs-number">6</span> / prob)
+
+
+<span class="hljs-built_in">print</span>(calcpi(<span class="hljs-number">10000</span>))</code></pre>
+<pre><code class="console hljs"><span class="hljs-meta">$ </span><span class="language-bash">time python calcpi.py</span>
+3.141534239016629
+python calcpi.py  47.90s user 0.21s system 99% cpu 48.265 total</code></pre>
+<hr />
+<h1 id="julia_is_fast__2"><a href="#julia_is_fast__2" class="header-anchor">Julia is fast&#40;?&#41;</a></h1>
+<pre><code class="julia hljs">julia&gt; <span class="hljs-keyword">function</span> calcπ(N)
+           cnt = <span class="hljs-number">0</span>
+           <span class="hljs-keyword">for</span> a ∈ <span class="hljs-number">1</span>:N <span class="hljs-comment"># ∈ は \in + &lt;tab&gt; `in` でも良い</span>
+               <span class="hljs-keyword">for</span> b <span class="hljs-keyword">in</span> <span class="hljs-number">1</span>:N <span class="hljs-comment"># in の代わりに `=` と書いても良い</span>
+                   <span class="hljs-keyword">if</span> gcd(a, b) == <span class="hljs-number">1</span> <span class="hljs-comment"># Julia 標準の gcd は実は速い</span>
+                       cnt += <span class="hljs-number">1</span>
+                   <span class="hljs-keyword">end</span>
+               <span class="hljs-keyword">end</span>
+           <span class="hljs-keyword">end</span>
+           prob = cnt / N / N
+           <span class="hljs-keyword">return</span> √(<span class="hljs-number">6</span>/prob) <span class="hljs-comment"># √ は \sqrt + &lt;tab&gt;</span>
+       <span class="hljs-keyword">end</span>
+calcπ (generic <span class="hljs-keyword">function</span> with <span class="hljs-number">1</span> method)
+
+julia&gt; <span class="hljs-meta">@time</span> calcπ(<span class="hljs-number">10</span>^<span class="hljs-number">4</span>)
+  <span class="hljs-number">2.277574</span> seconds
+<span class="hljs-number">3.141534239016629</span></code></pre>
+<p>Julia の gcd は <a href="https://github.com/JuliaLang/julia/blob/bf534986350a991e4a1b29126de0342ffd76205e/base/intfuncs.jl#L50-L71">binary GCD &#40;aka Stein&#39;s&#41; algorithm</a> を採用している.</p>
+<p><a href="https://github.com/JuliaLang/julia/blob/bf534986350a991e4a1b29126de0342ffd76205e/base/intfuncs.jl#L41-L48">mygcd はここを参考にした</a></p>
+<hr />
+<h1 id="julia_はもう少しスマートにかける"><a href="#julia_はもう少しスマートにかける" class="header-anchor">Julia はもう少しスマートにかける</a></h1>
+<pre><code class="julia hljs">julia&gt; <span class="hljs-keyword">function</span> calcπ(N)
+           cnt = <span class="hljs-number">0</span>
+           <span class="hljs-keyword">for</span> a = <span class="hljs-number">1</span>:N, b = <span class="hljs-number">1</span>:N
+               cnt += ifelse(gcd(a, b) == <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>)
+           <span class="hljs-keyword">end</span>
+           prob = cnt / N / N
+           <span class="hljs-comment"># 実は return は不要. 最後に評価した式の値を返す.</span>
+           √(<span class="hljs-number">6</span> / prob) <span class="hljs-comment"># √ は \sqrt + &lt;tab&gt;</span>
+       <span class="hljs-keyword">end</span>
+calcπ (generic <span class="hljs-keyword">function</span> with <span class="hljs-number">1</span> method)
+
+julia&gt; <span class="hljs-meta">@time</span> calcπ(<span class="hljs-number">10</span>^<span class="hljs-number">4</span>)
+
+  <span class="hljs-number">2.338910</span> seconds
+<span class="hljs-number">3.141534239016629</span>
+
+julia&gt; <span class="hljs-meta">@time</span> calcπ(<span class="hljs-number">5</span>*<span class="hljs-number">10</span>^<span class="hljs-number">4</span>)
+ <span class="hljs-number">67.926152</span> seconds
+<span class="hljs-number">3.141560849524047</span></code></pre>
+<hr />
+<h1 id="multi-threading"><a href="#multi-threading" class="header-anchor">Multi-Threading</a></h1>
+<pre><code class="julia hljs"><span class="hljs-comment"># calcpi_thread.jl</span>
+<span class="hljs-keyword">using</span> Base.Threads
+
+<span class="hljs-keyword">function</span> calcπ(N)
+    cnt = Atomic{<span class="hljs-built_in">Int</span>}(<span class="hljs-number">0</span>)
+    Threads.<span class="hljs-meta">@threads</span> <span class="hljs-keyword">for</span> a = <span class="hljs-number">1</span>:N
+        <span class="hljs-keyword">for</span> b = <span class="hljs-number">1</span>:N
+            Threads.atomic_add!(cnt, ifelse(gcd(a, b) == <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>))
+        <span class="hljs-keyword">end</span>
+    <span class="hljs-keyword">end</span>
+    prob = cnt.value / N / N
+    <span class="hljs-comment"># 実は return は不要. 最後に評価した式の値を返す.</span>
+    √(<span class="hljs-number">6</span> / prob) <span class="hljs-comment"># √ は \sqrt + &lt;tab&gt;</span>
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-meta">@time</span> <span class="hljs-meta">@show</span> calcπ(<span class="hljs-number">10</span>^<span class="hljs-number">4</span>)
+<span class="hljs-meta">@time</span> <span class="hljs-meta">@show</span> calcπ(<span class="hljs-number">5</span>*<span class="hljs-number">10</span>^<span class="hljs-number">4</span>)</code></pre>
+<pre><code class="console hljs"><span class="hljs-meta">$ </span><span class="language-bash">julia -t auto calcpi_thread.jl</span>
+calcπ(10 ^ 4) = 3.141534239016629
+  1.453167 seconds (66.57 k allocations: 3.809 MiB, 2.61% compilation time)
+calcπ(5 * 10 ^ 4) = 3.141560849524047
+ 44.661406 seconds (101 allocations: 8.141 KiB)</code></pre>
+<hr />
+<h1 id="multi-processing"><a href="#multi-processing" class="header-anchor">Multi-Processing</a></h1>
+<pre><code class="julia hljs"><span class="hljs-comment"># calcpi_distributed.jl</span>
+<span class="hljs-keyword">using</span> Distributed
+
+<span class="hljs-keyword">function</span> calcπ(N)
+    cnt = <span class="hljs-meta">@distributed</span> (+) <span class="hljs-keyword">for</span> a = <span class="hljs-number">1</span>:N
+        s = <span class="hljs-number">0</span>
+        <span class="hljs-keyword">for</span> b = <span class="hljs-number">1</span>:N
+            s += ifelse(gcd(a, b) == <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>)
+        <span class="hljs-keyword">end</span>
+        s
+    <span class="hljs-keyword">end</span>
+    prob = cnt / N / N
+    √(<span class="hljs-number">6</span> / prob)
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-meta">@time</span> calcπ(<span class="hljs-number">10</span>^<span class="hljs-number">4</span>)
+<span class="hljs-meta">@time</span> calcπ(<span class="hljs-number">5</span>*<span class="hljs-number">10</span>^<span class="hljs-number">4</span>)</code></pre>
+<pre><code class="console hljs">julia -p auto calcpi_distributed.jl
+  2.389998 seconds (1.17 M allocations: 63.687 MiB, 0.27% gc time, 20.13% compilation time)
+  6.294771 seconds (2.39 k allocations: 101.531 KiB)</code></pre>
 <div class="page-foot">
   <div class="copyright">
-    &copy; SatoshiTerasaki. Last modified: 2022年2月11日 金曜日. Website built with 
+    &copy; SatoshiTerasaki. Last modified: 2022年2月16日 水曜日. Website built with 
     <a href="http://github.com/terasakisatoshi/MathSeminar.jl">MathSeminar.jl</a>
     <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
   </div>
@@ -361,6 +716,10 @@
 
 
   
+  
+    
+
+
   
 </body>
 </html>

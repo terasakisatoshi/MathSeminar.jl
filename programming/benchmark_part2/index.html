@@ -141,8 +141,8 @@ main&#40;&#41;
 
 using BenchmarkTools
 @btime mand&#40;5000, 5000&#41;;</code></pre>
-<pre><code class="plaintext code-output">t - s = 2.258017063140869
-  2.228 s (2 allocations: 23.84 MiB)
+<pre><code class="plaintext code-output">t - s = 3.018303155899048
+  3.012 s (2 allocations: 23.84 MiB)
 </code></pre>
   </p>
 <p><div class="colorblock"><strong>Remark</strong> 8.0.1 &#40;数値誤差について&#41; <br/>  点の位置をあらわす <code>&#40;4.0 / &#40;M - 1&#41; * &#40;j - 1&#41; - 2.0&#41;</code> は <code>range&#40;-2, 2, length&#40;N&#41;&#41;</code> と数学的に等価ですが，数値の誤差の関係で結果が若干異なることがあります．</div>
@@ -159,7 +159,7 @@ using DelimitedFiles
 img &#61; readdlm&#40;Tarpath,&#39;,&#39;,Int&#41;
 M,N &#61; img |&gt; size
 p &#61; heatmap&#40;1:N,1:M,img,aspect_ratio&#61;1, size&#61;&#40;400, 400&#41;&#41;</code></pre>
-<img src="/MathSeminar.jl/assets/programming/benchmark_part2/code/output/mandJ.png" alt="">
+<p><span style="color:red;">// Image matching '/assets/programming/benchmark_part2/code/mandJ' not found. //</span></p>
 <pre><code class="language-julia">using DelimitedFiles
 
 function cnt&#40;z,c&#41;
@@ -200,8 +200,8 @@ main&#40;&#41;
 
 using BenchmarkTools
 @btime mand&#40;5000, 5000&#41;;</code></pre>
-<pre><code class="plaintext code-output">t - s = 2.4794230461120605
-  2.501 s (2 allocations: 23.84 MiB)
+<pre><code class="plaintext code-output">t - s = 3.150301933288574
+  3.151 s (2 allocations: 23.84 MiB)
 </code></pre>
 <pre><code class="language-julia">Refpath&#61;&quot;/tmp/resultJ.txt&quot;
 Tarpath&#61;&quot;/tmp/resultJ1.txt&quot;
@@ -214,8 +214,9 @@ img &#61; readdlm&#40;Tarpath,&#39;,&#39;,Int&#41;
 M,N &#61; img |&gt; size
 p &#61; heatmap&#40;1:N,1:M,img,aspect_ratio&#61;1, size&#61;&#40;400, 400&#41;&#41;</code></pre>
 <pre><code class="plaintext code-output">files are different
+Failed to precompile Plots [91a5bcdd-55d7-5caf-9e0b-520d859cae80] to /root/.julia/compiled/v1.7/Plots/jl_LBe71h.
 </code></pre>
-<img src="/MathSeminar.jl/assets/programming/benchmark_part2/code/output/mandJ1.png" alt="">
+<p><span style="color:red;">// Image matching '/assets/programming/benchmark_part2/code/mandJ1' not found. //</span></p>
 <pre><code class="language-julia">using DelimitedFiles
 
 function cnt&#40;z,c&#41;
@@ -252,8 +253,8 @@ main&#40;&#41;
 
 using BenchmarkTools
 @btime mand&#40;5000, 5000&#41;;</code></pre>
-<pre><code class="plaintext code-output">t - s = 2.526650905609131
-  2.428 s (4 allocations: 47.68 MiB)
+<pre><code class="plaintext code-output">t - s = 3.1045589447021484
+  3.134 s (4 allocations: 47.68 MiB)
 </code></pre>
 <pre><code class="language-julia">Refpath&#61;&quot;/tmp/resultJ1.txt&quot;
 Tarpath&#61;&quot;/tmp/resultJ2.txt&quot;
@@ -265,8 +266,9 @@ using DelimitedFiles
 img &#61; readdlm&#40;Tarpath,&#39;,&#39;,Int&#41;
 M,N &#61; img |&gt; size
 p &#61; heatmap&#40;1:N,1:M,img,aspect_ratio&#61;1, size&#61;&#40;400, 400&#41;&#41;</code></pre>
-
-<img src="/MathSeminar.jl/assets/programming/benchmark_part2/code/output/mandJ2.png" alt="">
+<pre><code class="plaintext code-output">Failed to precompile Plots [91a5bcdd-55d7-5caf-9e0b-520d859cae80] to /root/.julia/compiled/v1.7/Plots/jl_6jUT9h.
+</code></pre>
+<p><span style="color:red;">// Image matching '/assets/programming/benchmark_part2/code/mandJ2' not found. //</span></p>
 <pre><code class="language-julia">#&#61;
 set environment variable &#96;JULIA_NUM_THREADS&#61;8&#96; before julia begins
 &#61;#
@@ -310,8 +312,8 @@ main&#40;&#41;
 
 using BenchmarkTools
 @btime mand&#40;5000, 5000&#41;;</code></pre>
-<pre><code class="plaintext code-output">t - s = 1.8663561344146729
-  1.434 s (46 allocations: 23.85 MiB)
+<pre><code class="plaintext code-output">t - s = 1.850611925125122
+  1.661 s (46 allocations: 23.85 MiB)
 </code></pre>
 <pre><code class="language-julia">Refpath&#61;&quot;/tmp/resultJ1.txt&quot;
 Tarpath&#61;&quot;/tmp/resultJ3.txt&quot;
@@ -325,11 +327,12 @@ img &#61; readdlm&#40;Tarpath, &#39;,&#39;, Int&#41;
 M,N &#61; img |&gt; size
 p &#61; heatmap&#40;1:N, 1:M, img,aspect_ratio&#61;1, size&#61;&#40;400, 400&#41;&#41;
 savefig&#40;p, joinpath&#40;@OUTPUT, &quot;mandJ3.png&quot;&#41;&#41;</code></pre>
-
-<img src="/MathSeminar.jl/assets/programming/benchmark_part2/code/output/mandJ3.png" alt="">
+<pre><code class="plaintext code-output">Failed to precompile Plots [91a5bcdd-55d7-5caf-9e0b-520d859cae80] to /root/.julia/compiled/v1.7/Plots/jl_fGdi8e.
+</code></pre>
+<p><span style="color:red;">// Image matching '/assets/programming/benchmark_part2/code/mandJ3' not found. //</span></p>
 <div class="page-foot">
   <div class="copyright">
-    &copy; SatoshiTerasaki. Last modified: 2022年2月11日 金曜日. Website built with 
+    &copy; SatoshiTerasaki. Last modified: 2022年2月16日 水曜日. Website built with 
     <a href="http://github.com/terasakisatoshi/MathSeminar.jl">MathSeminar.jl</a>
     <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
   </div>

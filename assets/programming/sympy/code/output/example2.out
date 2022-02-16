@@ -1,1 +1,2 @@
-$$x$$$$y$$
+LoadError: UndefVarError: @vars not defined
+in expression starting at none:1

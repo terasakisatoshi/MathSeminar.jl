@@ -93,7 +93,7 @@
 
 
 <!-- Content appended here -->
-<div class="franklin-content"><p>Last Modified: 2022年2月11日 金曜日 <div class="franklin-toc"><ol><li><a href="#about_this_page">About this page</a><ol><li><a href="#before_reading">Before reading</a></li><li><a href="#check_julia_version">Check Julia version</a></li></ol></li><li><a href="#introduction_to_franklin">Introduction to Franklin</a></li><li><a href="#newcommand_によるタイピングの簡略化"><code>newcommand</code> によるタイピングの簡略化</a></li><li><a href="#グラフの描画">グラフの描画</a><ol><li><a href="#pyplot">PyPlot</a></li><li><a href="#plots_gr_backend">Plots &#40;GR Backend&#41;</a></li><li><a href="#plots_pyplot_backend">Plots &#40;PyPlot Backend&#41;</a></li></ol></li><li><a href="#python_のコードの実行結果の表示">Python のコードの実行結果の表示</a></li><li><a href="#c_のコードの実行結果を表示">C のコードの実行結果を表示</a></li><li><a href="#コードの挿入">コードの挿入</a></li></ol></div> </p>
+<div class="franklin-content"><p>Last Modified: 2022年2月16日 水曜日 <div class="franklin-toc"><ol><li><a href="#about_this_page">About this page</a><ol><li><a href="#before_reading">Before reading</a></li><li><a href="#check_julia_version">Check Julia version</a></li></ol></li><li><a href="#introduction_to_franklin">Introduction to Franklin</a></li><li><a href="#newcommand_によるタイピングの簡略化"><code>newcommand</code> によるタイピングの簡略化</a></li><li><a href="#グラフの描画">グラフの描画</a><ol><li><a href="#pyplot">PyPlot</a></li><li><a href="#plots_gr_backend">Plots &#40;GR Backend&#41;</a></li><li><a href="#plots_pyplot_backend">Plots &#40;PyPlot Backend&#41;</a></li></ol></li><li><a href="#python_のコードの実行結果の表示">Python のコードの実行結果の表示</a></li><li><a href="#c_のコードの実行結果を表示">C のコードの実行結果を表示</a></li><li><a href="#コードの挿入">コードの挿入</a></li></ol></div> </p>
 <p> <h1 id="about_this_page"><a href="#about_this_page" class="header-anchor">About this page</a></h1></p>
 <p>      </p>
 
@@ -131,10 +131,10 @@ versioninfo&#40;&#41;</code></pre>
 Commit ac5cc99908 (2021-12-22 19:35 UTC)
 Platform Info:
   OS: Linux (x86_64-pc-linux-gnu)
-  CPU: Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz
+  CPU: Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz
   WORD_SIZE: 64
   LIBM: libopenlibm
-  LLVM: libLLVM-12.0.1 (ORCJIT, broadwell)
+  LLVM: libLLVM-12.0.1 (ORCJIT, skylake-avx512)
 Environment:
   JULIA_PATH = /usr/local/julia
   JULIA_GPG = 3673DF529D9049477F76B37566E3C7DC03D6E495
@@ -197,19 +197,19 @@ x &#61; range&#40;-2, 2, length&#61;500&#41;
 for α in 1:5
     PyPlot.plot&#40;x, sinc.&#40;α .* x&#41;&#41;
 end</code></pre>
-<img src="/MathSeminar.jl/assets/index/code/output/sinc.png" alt="">
+<p><span style="color:red;">// Image matching '/assets/index/code/sinc' not found. //</span></p>
 <h2 id="plots_gr_backend"><a href="#plots_gr_backend" class="header-anchor">Plots &#40;GR Backend&#41;</a></h2>
 <pre><code class="language-julia">using Plots
 gr&#40;&#41;
 using LaTeXStrings
 Plots.plot&#40;rand&#40;10&#41;, title&#61;L&quot;\alpha&quot;, xlabel&#61;L&quot;x&quot;, ylabel&#61;L&quot;y&quot;&#41;</code></pre>
-<img src="/MathSeminar.jl/assets/index/code/output/grplot.png" alt="">
+<p><span style="color:red;">// Image matching '/assets/index/code/grplot' not found. //</span></p>
 <h2 id="plots_pyplot_backend"><a href="#plots_pyplot_backend" class="header-anchor">Plots &#40;PyPlot Backend&#41;</a></h2>
 <pre><code class="language-julia">using Plots
 pyplot&#40;&#41;
 Plots.plot&#40;sin, title&#61;L&quot;y&#61;\sin x&quot;&#41;
 gr&#40;&#41;</code></pre>
-<img src="/MathSeminar.jl/assets/index/code/output/pyplotbkend.png" alt="">
+<p><span style="color:red;">// Image matching '/assets/index/code/pyplotbkend' not found. //</span></p>
   </p>
 <p><div class="colorblock"><strong>Remark</strong> 4.0.1 &#40;Plotly/PlotlyJS について&#41; <br/> <code>Plotly</code>, または <code>PlotlyJS</code> による例はサイドメニューのページを参照</div>
 <h1 id="python_のコードの実行結果の表示"><a href="#python_のコードの実行結果の表示" class="header-anchor">Python のコードの実行結果の表示</a></h1></p>
@@ -247,7 +247,7 @@ np.random.seed&#40;2&#41;
 x &#61; np.random.randn&#40;5&#41;
 r &#61; np.linalg.norm&#40;x&#41; / len&#40;x&#41;
 np.round&#40;r, 2&#41;</code></pre>
-<p><pre><code class="plaintext code-output">0.65
+<p><pre><code class="plaintext code-output">Failed to precompile PyCall [438e738f-606a-5dbb-bf0a-cddfbfd45ab0] to /root/.julia/compiled/v1.7/PyCall/jl_DKriPf.
 </code></pre>
 <h1 id="c_のコードの実行結果を表示"><a href="#c_のコードの実行結果を表示" class="header-anchor">C のコードの実行結果を表示</a></h1></p>
 <p>      
@@ -332,7 +332,7 @@ int main&#40;&#41;&#123;
 <p><code>hello.jl</code> の実態はソースコードの <code>_assets/index/code/hello.jl</code> に存在する.</p>
 <div class="page-foot">
   <div class="copyright">
-    &copy; SatoshiTerasaki. Last modified: 2022年2月11日 金曜日. Website built with 
+    &copy; SatoshiTerasaki. Last modified: 2022年2月16日 水曜日. Website built with 
     <a href="http://github.com/terasakisatoshi/MathSeminar.jl">MathSeminar.jl</a>
     <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
   </div>
