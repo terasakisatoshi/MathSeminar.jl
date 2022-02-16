@@ -23,7 +23,8 @@ Remark.slideshow("./slideshow/franklin", options = Dict("ratio" => "16:9"), titl
 Remark.slideshow("./slideshow/dash", options = Dict("ratio" => "16:9"), title = "Dash.jl")
 Remark.slideshow("./slideshow/binarybuilder", options = Dict("ratio" => "16:9"), title = "BinaryBuilder.jl")
 Remark.slideshow("./slideshow/myworkflow", options = Dict("ratio" => "16:9"), title = "MyWorkflow.jl")
-Remark.slideshow("./slideshow/repl", options = Dict("ratio" => "16:9"), title = "Do something great on your REPL")
+Remark.slideshow("./slideshow/repl", options = Dict("ratio" => "16:9"), title = "Do something great in your REPL")
+Remark.slideshow("./slideshow/intro2julia", options = Dict("ratio" => "16:9"), title = "Intro2Julia")
 
 weave(joinpath("./programming", "weave.jmd"), out_path="./programming", doctype="github")
 optimize(minify=false, prepath="MathSeminar.jl", clear=true)

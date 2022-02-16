@@ -2,49 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
-    <loc>https://terasakisatoshi.github.io/MathWebiner.jl/slideshow/binarybuilder/build/fonts/LICENSES/index.html</loc>
-    <lastmod>2022-02-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-</url>
-<url>
     <loc>https://terasakisatoshi.github.io/MathWebiner.jl/gallery/plotlyjs1/index.html</loc>
-    <lastmod>2022-02-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-</url>
-<url>
-    <loc>https://terasakisatoshi.github.io/MathWebiner.jl/programming/rcall/index.html</loc>
-    <lastmod>2022-02-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-</url>
-<url>
-    <loc>https://terasakisatoshi.github.io/MathWebiner.jl/programming/theoremcounter/index.html</loc>
-    <lastmod>2022-02-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-</url>
-<url>
-    <loc>https://terasakisatoshi.github.io/MathWebiner.jl/programming/benchmark_part1/index.html</loc>
-    <lastmod>2022-02-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-</url>
-<url>
-    <loc>https://terasakisatoshi.github.io/MathWebiner.jl/mathematics/linearalgebra/chapter0/index.html</loc>
-    <lastmod>2022-02-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-</url>
-<url>
-    <loc>https://terasakisatoshi.github.io/MathWebiner.jl/programming/rust/index.html</loc>
-    <lastmod>2022-02-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-</url>
-<url>
-    <loc>https://terasakisatoshi.github.io/MathWebiner.jl/slideshow/franklin/build/fonts/LICENSES/index.html</loc>
     <lastmod>2022-02-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -56,49 +14,7 @@
     <priority>0.5</priority>
 </url>
 <url>
-    <loc>https://terasakisatoshi.github.io/MathWebiner.jl/programming/sympy/index.html</loc>
-    <lastmod>2022-02-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-</url>
-<url>
-    <loc>https://terasakisatoshi.github.io/MathWebiner.jl/index.html</loc>
-    <lastmod>2022-02-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-</url>
-<url>
-    <loc>https://terasakisatoshi.github.io/MathWebiner.jl/programming/benchmark_part2/index.html</loc>
-    <lastmod>2022-02-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-</url>
-<url>
-    <loc>https://terasakisatoshi.github.io/MathWebiner.jl/gallery/plotlyjs2/index.html</loc>
-    <lastmod>2022-02-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-</url>
-<url>
-    <loc>https://terasakisatoshi.github.io/MathWebiner.jl/programming/images/index.html</loc>
-    <lastmod>2022-02-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-</url>
-<url>
     <loc>https://terasakisatoshi.github.io/MathWebiner.jl/slideshow/binarybuilder/build/index.html</loc>
-    <lastmod>2022-02-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-</url>
-<url>
-    <loc>https://terasakisatoshi.github.io/MathWebiner.jl/gallery/jsxgraph_js/index.html</loc>
-    <lastmod>2022-02-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-</url>
-<url>
-    <loc>https://terasakisatoshi.github.io/MathWebiner.jl/slideshow/binarybuilder/src/index.html</loc>
     <lastmod>2022-02-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -110,7 +26,49 @@
     <priority>0.5</priority>
 </url>
 <url>
-    <loc>https://terasakisatoshi.github.io/MathWebiner.jl/gallery/wglmakie/index.html</loc>
+    <loc>https://terasakisatoshi.github.io/MathWebiner.jl/gallery/gr/index.html</loc>
+    <lastmod>2022-02-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://terasakisatoshi.github.io/MathWebiner.jl/slideshow/remark/build/fonts/LICENSES/index.html</loc>
+    <lastmod>2022-02-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://terasakisatoshi.github.io/MathWebiner.jl/programming/weave/index.html</loc>
+    <lastmod>2022-02-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://terasakisatoshi.github.io/MathWebiner.jl/slideshow/intro2julia/src/index.html</loc>
+    <lastmod>2022-02-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://terasakisatoshi.github.io/MathWebiner.jl/programming/benchmark_part1/index.html</loc>
+    <lastmod>2022-02-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://terasakisatoshi.github.io/MathWebiner.jl/slideshow/franklin/build/fonts/LICENSES/index.html</loc>
+    <lastmod>2022-02-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://terasakisatoshi.github.io/MathWebiner.jl/programming/benchmark_part2/index.html</loc>
+    <lastmod>2022-02-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://terasakisatoshi.github.io/MathWebiner.jl/programming/images/index.html</loc>
     <lastmod>2022-02-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -122,49 +80,7 @@
     <priority>0.5</priority>
 </url>
 <url>
-    <loc>https://terasakisatoshi.github.io/MathWebiner.jl/slideshow/repl/build/fonts/LICENSES/index.html</loc>
-    <lastmod>2022-02-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-</url>
-<url>
-    <loc>https://terasakisatoshi.github.io/MathWebiner.jl/gallery/gr/index.html</loc>
-    <lastmod>2022-02-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-</url>
-<url>
-    <loc>https://terasakisatoshi.github.io/MathWebiner.jl/slideshow/dash/src/index.html</loc>
-    <lastmod>2022-02-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-</url>
-<url>
     <loc>https://terasakisatoshi.github.io/MathWebiner.jl/programming/franklin/index.html</loc>
-    <lastmod>2022-02-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-</url>
-<url>
-    <loc>https://terasakisatoshi.github.io/MathWebiner.jl/slideshow/myworkflow/build/index.html</loc>
-    <lastmod>2022-02-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-</url>
-<url>
-    <loc>https://terasakisatoshi.github.io/MathWebiner.jl/mathematics/statistics/Chisq/index.html</loc>
-    <lastmod>2022-02-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-</url>
-<url>
-    <loc>https://terasakisatoshi.github.io/MathWebiner.jl/slideshow/repl/build/index.html</loc>
-    <lastmod>2022-02-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-</url>
-<url>
-    <loc>https://terasakisatoshi.github.io/MathWebiner.jl/slideshow/remark/build/fonts/LICENSES/index.html</loc>
     <lastmod>2022-02-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -182,37 +98,7 @@
     <priority>0.5</priority>
 </url>
 <url>
-    <loc>https://terasakisatoshi.github.io/MathWebiner.jl/programming/weave/index.html</loc>
-    <lastmod>2022-02-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-</url>
-<url>
-    <loc>https://terasakisatoshi.github.io/MathWebiner.jl/gallery/curve/index.html</loc>
-    <lastmod>2022-02-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-</url>
-<url>
     <loc>https://terasakisatoshi.github.io/MathWebiner.jl/slideshow/repl/src/index.html</loc>
-    <lastmod>2022-02-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-</url>
-<url>
-    <loc>https://terasakisatoshi.github.io/MathWebiner.jl/slideshow/intro2julia/src/index.html</loc>
-    <lastmod>2022-02-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-</url>
-<url>
-    <loc>https://terasakisatoshi.github.io/MathWebiner.jl/programming/clang/index.html</loc>
-    <lastmod>2022-02-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-</url>
-<url>
-    <loc>https://terasakisatoshi.github.io/MathWebiner.jl/slideshow/dash/build/index.html</loc>
     <lastmod>2022-02-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -230,13 +116,139 @@
     <priority>0.5</priority>
 </url>
 <url>
-    <loc>https://terasakisatoshi.github.io/MathWebiner.jl/programming/literatejl/index.html</loc>
+    <loc>https://terasakisatoshi.github.io/MathWebiner.jl/slideshow/binarybuilder/build/fonts/LICENSES/index.html</loc>
+    <lastmod>2022-02-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://terasakisatoshi.github.io/MathWebiner.jl/programming/rcall/index.html</loc>
+    <lastmod>2022-02-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://terasakisatoshi.github.io/MathWebiner.jl/mathematics/linearalgebra/chapter0/index.html</loc>
+    <lastmod>2022-02-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://terasakisatoshi.github.io/MathWebiner.jl/programming/rust/index.html</loc>
+    <lastmod>2022-02-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://terasakisatoshi.github.io/MathWebiner.jl/gallery/plotlyjs2/index.html</loc>
+    <lastmod>2022-02-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://terasakisatoshi.github.io/MathWebiner.jl/slideshow/binarybuilder/src/index.html</loc>
+    <lastmod>2022-02-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://terasakisatoshi.github.io/MathWebiner.jl/slideshow/repl/build/fonts/LICENSES/index.html</loc>
+    <lastmod>2022-02-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://terasakisatoshi.github.io/MathWebiner.jl/slideshow/dash/src/index.html</loc>
+    <lastmod>2022-02-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://terasakisatoshi.github.io/MathWebiner.jl/slideshow/repl/build/index.html</loc>
+    <lastmod>2022-02-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://terasakisatoshi.github.io/MathWebiner.jl/slideshow/myworkflow/build/index.html</loc>
+    <lastmod>2022-02-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://terasakisatoshi.github.io/MathWebiner.jl/mathematics/statistics/Chisq/index.html</loc>
+    <lastmod>2022-02-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://terasakisatoshi.github.io/MathWebiner.jl/programming/clang/index.html</loc>
     <lastmod>2022-02-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
 </url>
 <url>
     <loc>https://terasakisatoshi.github.io/MathWebiner.jl/slideshow/myworkflow/build/fonts/LICENSES/index.html</loc>
+    <lastmod>2022-02-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://terasakisatoshi.github.io/MathWebiner.jl/programming/literatejl/index.html</loc>
+    <lastmod>2022-02-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://terasakisatoshi.github.io/MathWebiner.jl/programming/theoremcounter/index.html</loc>
+    <lastmod>2022-02-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://terasakisatoshi.github.io/MathWebiner.jl/programming/sympy/index.html</loc>
+    <lastmod>2022-02-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://terasakisatoshi.github.io/MathWebiner.jl/index.html</loc>
+    <lastmod>2022-02-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://terasakisatoshi.github.io/MathWebiner.jl/slideshow/intro2julia/build/fonts/LICENSES/index.html</loc>
+    <lastmod>2022-02-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://terasakisatoshi.github.io/MathWebiner.jl/gallery/jsxgraph_js/index.html</loc>
+    <lastmod>2022-02-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://terasakisatoshi.github.io/MathWebiner.jl/gallery/wglmakie/index.html</loc>
+    <lastmod>2022-02-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://terasakisatoshi.github.io/MathWebiner.jl/slideshow/intro2julia/build/index.html</loc>
+    <lastmod>2022-02-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://terasakisatoshi.github.io/MathWebiner.jl/gallery/curve/index.html</loc>
+    <lastmod>2022-02-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://terasakisatoshi.github.io/MathWebiner.jl/slideshow/dash/build/index.html</loc>
     <lastmod>2022-02-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -255,6 +267,12 @@
 </url>
 <url>
     <loc>https://terasakisatoshi.github.io/MathWebiner.jl/mathematics/visualizations/triangular_function_addition_theorem/</loc>
+    <lastmod>2022-02-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://terasakisatoshi.github.io/MathWebiner.jl/slideshow/intro2julia/build/index/</loc>
     <lastmod>2022-02-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
