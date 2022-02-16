@@ -567,3 +567,343 @@ julia -p auto calcpi_distributed.jl
   2.389998 seconds (1.17 M allocations: 63.687 MiB, 0.27% gc time, 20.13% compilation time)
   6.294771 seconds (2.39 k allocations: 101.531 KiB)
 ```
+
+---
+
+# 補足
+
+```julia
+julia> print("Hello")
+Hello
+julia> print("Hello"); print("World")
+HelloWorld
+julia> println("Hello"); println("World")
+Hello
+World
+
+julia> msg = "HelloWorld"
+"HelloWorld"
+
+julia> @show msg # マクロ. Python の `print(f"{msg=}")` 相当
+msg = "HelloWorld"
+"HelloWorld"
+
+julia> @macroexpand @show msg # コード生成している様子がわかる.
+quote
+    Base.println("msg = ", Base.repr(begin
+                #= show.jl:1047 =#
+                local var"#2#value" = msg
+            end))
+    var"#2#value"
+end
+
+```
+
+---
+
+# Install Julia Package
+
+```julia
+julia> using Pkg; Pkg.add("Example") # セミコロンで複数の命令を連続して実行できる.
+
+    Updating registry at `~/.julia/registries/General.toml`
+   Resolving package versions...
+    Updating `~/.julia/environments/v1.7/Project.toml`
+  [7876af07] + Example v0.5.3
+    Updating `~/.julia/environments/v1.7/Manifest.toml`
+  [7876af07] + Example v0.5.3
+Precompiling project...
+  1 dependency successfully precompiled in 2 seconds (482 already precompiled, 2 skipped during auto due to previous errors)
+
+julia> using Example # `hello` という関数を export する
+
+julia> hello("world")
+"Hello, world"
+```
+
+```julia
+julia> # press ] Pkg REPL で導入しても良い
+
+(@v1.7) pkg> add Example
+   Resolving package versions...
+    Updating `~/.julia/environments/v1.7/Project.toml`
+  [7876af07] + Example v0.5.3
+    Updating `~/.julia/environments/v1.7/Manifest.toml`
+  [7876af07] + Example v0.5.3
+```
+
+---
+
+# Remove Package
+
+```julia
+(@v1.7) pkg> rm Example
+    Updating `~/.julia/environments/v1.7/Project.toml`
+  [7876af07] - Example v0.5.3
+    Updating `~/.julia/environments/v1.7/Manifest.toml`
+  [7876af07] - Example v0.5.3
+```
+
+1.7 から明示的に `Pkg.add` しなくても `using Example` を実行した際にいい感じに聞いてくれるようになった.
+
+```julia
+julia> using Example
+ │ Package Example not found, but a package named Example is available from a registry.
+ │ Install package?
+ │   (@v1.7) pkg> add Example
+ └ (y/n) [y]: y
+    Updating registry at `~/.julia/registries/General.toml`
+   Resolving package versions...
+    Updating `~/.julia/environments/v1.7/Project.toml`
+  [7876af07] + Example v0.5.3
+    Updating `~/.julia/environments/v1.7/Manifest.toml`
+  [7876af07] + Example v0.5.3
+
+julia> hello("world")
+"Hello, world"
+```
+
+---
+
+# REPL で色々(help mode)
+
+```julia
+julia> # press ?
+help?>
+search:  ] [ = $ ; ( @ { " ) ? . } ⊽ ⊼ ⊻ ⊋ ⊊ ⊉ ⊈ ⊇ ⊆ ≥ ≤ ≢ ≡ ≠ ≉ ≈ ∪ ∩ ∛ √ ∘ ∌ ∋ ∉ ∈ ℯ π ÷
+
+  Welcome to Julia 1.7.2. The full manual is available at
+
+  https://docs.julialang.org
+
+  as well as many great tutorials and learning resources:
+
+  https://julialang.org/learning/
+
+  For help on a specific function or macro, type ? followed by its name, e.g. ?cos, or
+  ?@time, and press enter. Type ; to enter shell mode, ] to enter package mode.
+```
+
+---
+
+# REPL で色々(shell mode)
+
+Julia のREPLを終了しなくてもちょろっとしたことをシェルでしたい場合に便利
+
+```julia
+julia> # press ;
+shell> ls
+build           calcpi.py       make.jl
+calcpi.c        calcpi_distributed.jl   src
+calcpi.jl       calcpi_thread.jl
+```
+
+---
+
+# REPL で遊ぶ
+
+```julia
+julia> using TerminalClock
+
+julia> clock()
++-------+ +-------+           +-------+ +-------+                   + +-------+
+        |         |                   | |       |                   |         |
+        |         |     ⊗             | |       |     ⊗             |         |
+        |         |                   | |       |                   |         |
++-------+ +-------+           +-------+ +-------+                   + +-------+
+|                 |           |                 |                   | |
+|                 |     ⊗     |                 |     ⊗             | |
+|                 |           |                 |                   | |
++-------+ +-------+           +-------+ +-------+                   + +-------+
+
+```
+
+補足
+
+```julia
+(@v1.7) pkg> st TerminalClock
+      Status `~/.julia/environments/v1.7/Project.toml`
+  [65687e93] TerminalClock v0.4.0
+```
+---
+
+# REPL で遊ぶ
+
+あらかじめ仕込んだスクリプトを自動実行してくれる.
+
+- みんな大好き Iris データセットを PCA によって次元削減した結果を描画する
+
+```julia
+julia> using Replay
+julia> include(joinpath(pkgdir(Replay), "examples", "iris", "app.jl"))
+```
+
+- REPL の上で画像表示
+
+```julia
+julia> using Replay
+julia> include(joinpath(pkgdir(Replay), "examples", "imageinterminal", "app.jl"))
+```
+
+- 端末が Sixel Graphics 対応ならこっちが綺麗
+
+```julia
+julia> using Replay
+julia> include(joinpath(pkgdir(Replay), "examples", "sixel", "app.jl"))
+```
+
+---
+
+class: center, middle
+
+# リッチな環境を使いたい
+
+---
+
+# もうちょっとリッチな環境を使いたい
+
+- 真っ黒な画面で触るのは飽きた. 可視化したい. (´・ω・｀)
+- そっかー(´・ω・｀)
+
+## IJulia.jl
+
+- Jupyter Notebook の Julia カーネルを利用できる.
+
+```julia
+julia> using IJulia; notebook()
+```
+
+`localhost:8888` に行くと Pythonista にとって馴染みのある画面が見える.
+
+[Demo](https://gist.github.com/terasakisatoshi/d8743200909d600f8a6a8053b798839e)
+
+---
+
+# Pluto.jl
+
+Julia のための Reactive Notebook.
+
+```julia
+julia> using Pluto; Pluto.run()
+```
+
+`localhost:1234` に行く.
+
+1つのセルを更新すると依存関係を解析し他のセルで定義した変数の値も更新する.
+
+---
+
+class: center, middle
+
+# Python vs Julia
+
+--
+
+不毛な論争
+
+--
+
+仲良くしよう
+
+---
+
+# Python は Julia のライブラリ
+
+```julia
+julia> using PyCall
+julia> plt = pyimport_conda("matplotlib.pyplot", "matplotlib")
+julia> x = -pi:0.01:pi
+julia> y = sin.(x)
+julia> plt.plot(x, y)
+julia> plt.show()
+```
+
+↑ のようにする必要はなく PyPlot.jl を使えば良い
+
+```julia
+julia> using PyPlot
+julia> x = -pi:0.01:pi
+julia> y = sin.(x)
+julia> plt.plot(x, y)
+julia> plt.show()
+```
+
+PyPlot.jl SciPy.jl SymPy.jl Seaborn.jl Pandas.jl ScikitLearn.jl Kyulacs.jl PyPlotly.jl etc...
+
+---
+
+# Julia は Python のライブラリ
+
+あらかじめ Julia と PyCall.jl をインストールしておく必要がある
+
+```console
+$ pip3 install julia
+```
+
+```python
+>>> from julia import Main; Main.eval("using TerminalClock; clock()")
++-------+ +-------+                   + +-------+           +-------+ +       +
+|       | |       |                   |         |           |       | |       |
+|       | |       |     ⊗             |         |     ⊗     |       | |       |
+|       | |       |                   |         |           |       | |       |
++       + +       +                   + +-------+           +       + +-------+
+|       | |       |                   | |                   |       |         |
+|       | |       |     ⊗             | |             ⊗     |       |         |
+|       | |       |                   | |                   |       |         |
++-------+ +-------+                   + +-------+           +-------+         +
+```
+
+---
+
+class: center, middle
+
+# Web Application
+
+---
+
+# Web Application
+
+- [Dash.jl](https://github.com/plotly/Dash.jl)
+  - Plotly などを使える
+  - [Examples](https://github.com/plotly/Dash.jl/issues/50)
+
+- [Genie.jl](https://github.com/GenieFramework/Genie.jl)
+  - Ruby on Rails や Django などと同様に MVC like なWeb フレームワーク
+  - Example [ElasticCollision.jl](https://github.com/AtelierArith/ElasticCollision.jl)
+
+---
+
+class: center, middle
+
+# お前も Julia をやらないか (画像略)
+
+---
+
+# MyTemplate.jl
+
+PkgTemplates.jl を拡張した便利パッケージ雛形を作れる.
+
+```console
+$ git clone https://github.com/terasakisatoshi/MyTemplate.jl.git
+$ cd MyTemplate.jl
+$ julia --project=@. generate.jl YourPkg --with-jupyter
+$ cd YourPkg.jl
+$ make # Docker イメージのビルド
+$ make test # パッケージのテストを走らせる
+$ docker-compose up lab # Jupyter Lab 環境を立ち上げられる
+$ make clean # お掃除
+```
+
+---
+
+# sysimage_creator
+
+Julia は JIT コンパイルのコストが重めなのでよく使う関数のコンパイル済みの結果を sysimage に追加しておく.
+
+```console
+$ git clone https://github.com/terasakisatoshi/sysimage_creator.git
+$ pip install jupyter jupytext nbconvert ipykernel
+$ cd sysimage_creator && make && jupyter notebook
+$ make test でどれだけ速くなるかを確認できる
+```
+
