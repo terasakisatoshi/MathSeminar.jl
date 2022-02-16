@@ -1,4 +1,4 @@
-Sending build context to Docker daemon  6.942MB
+Sending build context to Docker daemon   6.95MB
 Step 1/19 : FROM julia:1.7.1
 1.7.1: Pulling from library/julia
 5eb5b503b376: Already exists

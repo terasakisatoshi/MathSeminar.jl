@@ -699,6 +699,246 @@ calcπ(5 * 10 ^ 4) = 3.141560849524047
 <pre><code class="console hljs">julia -p auto calcpi_distributed.jl
   2.389998 seconds (1.17 M allocations: 63.687 MiB, 0.27% gc time, 20.13% compilation time)
   6.294771 seconds (2.39 k allocations: 101.531 KiB)</code></pre>
+<hr />
+<h1 id="補足"><a href="#補足" class="header-anchor">補足</a></h1>
+<pre><code class="julia hljs">julia&gt; print(<span class="hljs-string">&quot;Hello&quot;</span>)
+Hello
+julia&gt; print(<span class="hljs-string">&quot;Hello&quot;</span>); print(<span class="hljs-string">&quot;World&quot;</span>)
+HelloWorld
+julia&gt; println(<span class="hljs-string">&quot;Hello&quot;</span>); println(<span class="hljs-string">&quot;World&quot;</span>)
+Hello
+World
+
+julia&gt; msg = <span class="hljs-string">&quot;HelloWorld&quot;</span>
+<span class="hljs-string">&quot;HelloWorld&quot;</span>
+
+julia&gt; <span class="hljs-meta">@show</span> msg <span class="hljs-comment"># マクロ. Python の `print(f&quot;{msg=}&quot;)` 相当</span>
+msg = <span class="hljs-string">&quot;HelloWorld&quot;</span>
+<span class="hljs-string">&quot;HelloWorld&quot;</span>
+
+julia&gt; <span class="hljs-meta">@macroexpand</span> <span class="hljs-meta">@show</span> msg <span class="hljs-comment"># コード生成している様子がわかる.</span>
+<span class="hljs-keyword">quote</span>
+    Base.println(<span class="hljs-string">&quot;msg = &quot;</span>, Base.repr(<span class="hljs-keyword">begin</span>
+                <span class="hljs-comment">#= show.jl:1047 =#</span>
+                <span class="hljs-keyword">local</span> <span class="hljs-string">var&quot;#2#value&quot;</span> = msg
+            <span class="hljs-keyword">end</span>))
+    <span class="hljs-string">var&quot;#2#value&quot;</span>
+<span class="hljs-keyword">end</span></code></pre>
+<hr />
+<h1 id="install_julia_package"><a href="#install_julia_package" class="header-anchor">Install Julia Package</a></h1>
+<pre><code class="julia hljs">julia&gt; <span class="hljs-keyword">using</span> Pkg; Pkg.add(<span class="hljs-string">&quot;Example&quot;</span>) <span class="hljs-comment"># セミコロンで複数の命令を連続して実行できる.</span>
+
+    Updating registry at <span class="hljs-string">`~/.julia/registries/General.toml`</span>
+   Resolving package versions...
+    Updating <span class="hljs-string">`~/.julia/environments/v1.7/Project.toml`</span>
+  [<span class="hljs-number">7876</span>af07] + Example v0<span class="hljs-number">.5</span><span class="hljs-number">.3</span>
+    Updating <span class="hljs-string">`~/.julia/environments/v1.7/Manifest.toml`</span>
+  [<span class="hljs-number">7876</span>af07] + Example v0<span class="hljs-number">.5</span><span class="hljs-number">.3</span>
+Precompiling project...
+  <span class="hljs-number">1</span> dependency successfully precompiled <span class="hljs-keyword">in</span> <span class="hljs-number">2</span> seconds (<span class="hljs-number">482</span> already precompiled, <span class="hljs-number">2</span> skipped during auto due to previous errors)
+
+julia&gt; <span class="hljs-keyword">using</span> Example <span class="hljs-comment"># `hello` という関数を export する</span>
+
+julia&gt; hello(<span class="hljs-string">&quot;world&quot;</span>)
+<span class="hljs-string">&quot;Hello, world&quot;</span></code></pre>
+<pre><code class="julia hljs">julia&gt; <span class="hljs-comment"># press ] Pkg REPL で導入しても良い</span>
+
+(<span class="hljs-meta">@v1</span><span class="hljs-number">.7</span>) pkg&gt; add Example
+   Resolving package versions...
+    Updating <span class="hljs-string">`~/.julia/environments/v1.7/Project.toml`</span>
+  [<span class="hljs-number">7876</span>af07] + Example v0<span class="hljs-number">.5</span><span class="hljs-number">.3</span>
+    Updating <span class="hljs-string">`~/.julia/environments/v1.7/Manifest.toml`</span>
+  [<span class="hljs-number">7876</span>af07] + Example v0<span class="hljs-number">.5</span><span class="hljs-number">.3</span></code></pre>
+<hr />
+<h1 id="remove_package"><a href="#remove_package" class="header-anchor">Remove Package</a></h1>
+<pre><code class="julia hljs">(<span class="hljs-meta">@v1</span><span class="hljs-number">.7</span>) pkg&gt; rm Example
+    Updating <span class="hljs-string">`~/.julia/environments/v1.7/Project.toml`</span>
+  [<span class="hljs-number">7876</span>af07] - Example v0<span class="hljs-number">.5</span><span class="hljs-number">.3</span>
+    Updating <span class="hljs-string">`~/.julia/environments/v1.7/Manifest.toml`</span>
+  [<span class="hljs-number">7876</span>af07] - Example v0<span class="hljs-number">.5</span><span class="hljs-number">.3</span></code></pre>
+<p>1.7 から明示的に <code>Pkg.add</code> しなくても <code>using Example</code> を実行した際にいい感じに聞いてくれるようになった.</p>
+<pre><code class="julia hljs">julia&gt; <span class="hljs-keyword">using</span> Example
+ │ Package Example not found, but a package named Example is available from a registry.
+ │ Install package?
+ │   (<span class="hljs-meta">@v1</span><span class="hljs-number">.7</span>) pkg&gt; add Example
+ └ (y/n) [y]: y
+    Updating registry at <span class="hljs-string">`~/.julia/registries/General.toml`</span>
+   Resolving package versions...
+    Updating <span class="hljs-string">`~/.julia/environments/v1.7/Project.toml`</span>
+  [<span class="hljs-number">7876</span>af07] + Example v0<span class="hljs-number">.5</span><span class="hljs-number">.3</span>
+    Updating <span class="hljs-string">`~/.julia/environments/v1.7/Manifest.toml`</span>
+  [<span class="hljs-number">7876</span>af07] + Example v0<span class="hljs-number">.5</span><span class="hljs-number">.3</span>
+
+julia&gt; hello(<span class="hljs-string">&quot;world&quot;</span>)
+<span class="hljs-string">&quot;Hello, world&quot;</span></code></pre>
+<hr />
+<h1 id="repl_で色々help_mode"><a href="#repl_で色々help_mode" class="header-anchor">REPL で色々&#40;help mode&#41;</a></h1>
+<pre><code class="julia hljs">julia&gt; <span class="hljs-comment"># press ?</span>
+help?&gt;
+search:  ] [ = $ ; ( @ { <span class="hljs-string">&quot; ) ? . } ⊽ ⊼ ⊻ ⊋ ⊊ ⊉ ⊈ ⊇ ⊆ ≥ ≤ ≢ ≡ ≠ ≉ ≈ ∪ ∩ ∛ √ ∘ ∌ ∋ ∉ ∈ ℯ π ÷
+
+  Welcome to Julia 1.7.2. The full manual is available at
+
+  https://docs.julialang.org
+
+  as well as many great tutorials and learning resources:
+
+  https://julialang.org/learning/
+
+  For help on a specific function or macro, type ? followed by its name, e.g. ?cos, or
+  ?@time, and press enter. Type ; to enter shell mode, ] to enter package mode.</span></code></pre>
+<hr />
+<h1 id="repl_で色々shell_mode"><a href="#repl_で色々shell_mode" class="header-anchor">REPL で色々&#40;shell mode&#41;</a></h1>
+<p>Julia のREPLを終了しなくてもちょろっとしたことをシェルでしたい場合に便利</p>
+<pre><code class="julia hljs">julia&gt; <span class="hljs-comment"># press ;</span>
+shell&gt; ls
+build           calcpi.py       make.jl
+calcpi.c        calcpi_distributed.jl   src
+calcpi.jl       calcpi_thread.jl</code></pre>
+<hr />
+<h1 id="repl_で遊ぶ"><a href="#repl_で遊ぶ" class="header-anchor">REPL で遊ぶ</a></h1>
+<pre><code class="julia hljs">julia&gt; <span class="hljs-keyword">using</span> TerminalClock
+
+julia&gt; clock()
++-------+ +-------+           +-------+ +-------+                   + +-------+
+        |         |                   | |       |                   |         |
+        |         |     ⊗             | |       |     ⊗             |         |
+        |         |                   | |       |                   |         |
++-------+ +-------+           +-------+ +-------+                   + +-------+
+|                 |           |                 |                   | |
+|                 |     ⊗     |                 |     ⊗             | |
+|                 |           |                 |                   | |
++-------+ +-------+           +-------+ +-------+                   + +-------+</code></pre>
+<p>補足</p>
+<pre><code class="julia hljs">(<span class="hljs-meta">@v1</span><span class="hljs-number">.7</span>) pkg&gt; st TerminalClock
+      Status <span class="hljs-string">`~/.julia/environments/v1.7/Project.toml`</span>
+  [<span class="hljs-number">65687e93</span>] TerminalClock v0<span class="hljs-number">.4</span><span class="hljs-number">.0</span></code></pre>
+<hr />
+<h1 id="repl_で遊ぶ__2"><a href="#repl_で遊ぶ__2" class="header-anchor">REPL で遊ぶ</a></h1>
+<p>あらかじめ仕込んだスクリプトを自動実行してくれる.</p>
+<ul>
+<li><p>みんな大好き Iris データセットを PCA によって次元削減した結果を描画する</p>
+</li>
+</ul>
+<pre><code class="julia hljs">julia&gt; <span class="hljs-keyword">using</span> Replay
+julia&gt; include(joinpath(pkgdir(Replay), <span class="hljs-string">&quot;examples&quot;</span>, <span class="hljs-string">&quot;iris&quot;</span>, <span class="hljs-string">&quot;app.jl&quot;</span>))</code></pre>
+<ul>
+<li><p>REPL の上で画像表示</p>
+</li>
+</ul>
+<pre><code class="julia hljs">julia&gt; <span class="hljs-keyword">using</span> Replay
+julia&gt; include(joinpath(pkgdir(Replay), <span class="hljs-string">&quot;examples&quot;</span>, <span class="hljs-string">&quot;imageinterminal&quot;</span>, <span class="hljs-string">&quot;app.jl&quot;</span>))</code></pre>
+<ul>
+<li><p>端末が Sixel Graphics 対応ならこっちが綺麗</p>
+</li>
+</ul>
+<pre><code class="julia hljs">julia&gt; <span class="hljs-keyword">using</span> Replay
+julia&gt; include(joinpath(pkgdir(Replay), <span class="hljs-string">&quot;examples&quot;</span>, <span class="hljs-string">&quot;sixel&quot;</span>, <span class="hljs-string">&quot;app.jl&quot;</span>))</code></pre>
+<hr />
+<p>class: center, middle</p>
+<h1 id="リッチな環境を使いたい"><a href="#リッチな環境を使いたい" class="header-anchor">リッチな環境を使いたい</a></h1>
+<hr />
+<h1 id="もうちょっとリッチな環境を使いたい"><a href="#もうちょっとリッチな環境を使いたい" class="header-anchor">もうちょっとリッチな環境を使いたい</a></h1>
+<ul>
+<li><p>真っ黒な画面で触るのは飽きた. 可視化したい. &#40;´・ω・｀&#41;</p>
+</li>
+<li><p>そっかー&#40;´・ω・｀&#41;</p>
+</li>
+</ul>
+<h2 id="ijuliajl"><a href="#ijuliajl" class="header-anchor">IJulia.jl</a></h2>
+<ul>
+<li><p>Jupyter Notebook の Julia カーネルを利用できる.</p>
+</li>
+</ul>
+<pre><code class="julia hljs">julia&gt; <span class="hljs-keyword">using</span> IJulia; notebook()</code></pre>
+<p><code>localhost:8888</code> に行くと Pythonista にとって馴染みのある画面が見える.</p>
+<p><a href="https://gist.github.com/terasakisatoshi/d8743200909d600f8a6a8053b798839e">Demo</a></p>
+<hr />
+<h1 id="plutojl"><a href="#plutojl" class="header-anchor">Pluto.jl</a></h1>
+<p>Julia のための Reactive Notebook.</p>
+<pre><code class="julia hljs">julia&gt; <span class="hljs-keyword">using</span> Pluto; Pluto.run()</code></pre>
+<p><code>localhost:1234</code> に行く.</p>
+<p>1つのセルを更新すると依存関係を解析し他のセルで定義した変数の値も更新する.</p>
+<hr />
+<p>class: center, middle</p>
+<h1 id="python_vs_julia"><a href="#python_vs_julia" class="header-anchor">Python vs Julia</a></h1>
+<p>–</p>
+<p>不毛な論争</p>
+<p>–</p>
+<p>仲良くしよう</p>
+<hr />
+<h1 id="python_は_julia_のライブラリ"><a href="#python_は_julia_のライブラリ" class="header-anchor">Python は Julia のライブラリ</a></h1>
+<pre><code class="julia hljs">julia&gt; <span class="hljs-keyword">using</span> PyCall
+julia&gt; plt = pyimport_conda(<span class="hljs-string">&quot;matplotlib.pyplot&quot;</span>, <span class="hljs-string">&quot;matplotlib&quot;</span>)
+julia&gt; x = -<span class="hljs-literal">pi</span>:<span class="hljs-number">0.01</span>:<span class="hljs-literal">pi</span>
+julia&gt; y = sin.(x)
+julia&gt; plt.plot(x, y)
+julia&gt; plt.show()</code></pre>
+<p>↑ のようにする必要はなく PyPlot.jl を使えば良い</p>
+<pre><code class="julia hljs">julia&gt; <span class="hljs-keyword">using</span> PyPlot
+julia&gt; x = -<span class="hljs-literal">pi</span>:<span class="hljs-number">0.01</span>:<span class="hljs-literal">pi</span>
+julia&gt; y = sin.(x)
+julia&gt; plt.plot(x, y)
+julia&gt; plt.show()</code></pre>
+<p>PyPlot.jl SciPy.jl SymPy.jl Seaborn.jl Pandas.jl ScikitLearn.jl Kyulacs.jl PyPlotly.jl etc...</p>
+<hr />
+<h1 id="julia_は_python_のライブラリ"><a href="#julia_は_python_のライブラリ" class="header-anchor">Julia は Python のライブラリ</a></h1>
+<p>あらかじめ Julia と PyCall.jl をインストールしておく必要がある</p>
+<pre><code class="console hljs"><span class="hljs-meta">$ </span><span class="language-bash">pip3 install julia</span></code></pre>
+<pre><code class="python hljs"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> julia <span class="hljs-keyword">import</span> Main; Main.<span class="hljs-built_in">eval</span>(<span class="hljs-string">&quot;using TerminalClock; clock()&quot;</span>)
++-------+ +-------+                   + +-------+           +-------+ +       +
+|       | |       |                   |         |           |       | |       |
+|       | |       |     ⊗             |         |     ⊗     |       | |       |
+|       | |       |                   |         |           |       | |       |
++       + +       +                   + +-------+           +       + +-------+
+|       | |       |                   | |                   |       |         |
+|       | |       |     ⊗             | |             ⊗     |       |         |
+|       | |       |                   | |                   |       |         |
++-------+ +-------+                   + +-------+           +-------+         +</code></pre>
+<hr />
+<p>class: center, middle</p>
+<h1 id="web_application"><a href="#web_application" class="header-anchor">Web Application</a></h1>
+<hr />
+<h1 id="web_application__2"><a href="#web_application__2" class="header-anchor">Web Application</a></h1>
+<ul>
+<li><p><a href="https://github.com/plotly/Dash.jl">Dash.jl</a></p>
+<ul>
+<li><p>Plotly などを使える</p>
+</li>
+<li><p><a href="https://github.com/plotly/Dash.jl/issues/50">Examples</a></p>
+</li>
+</ul>
+</li>
+<li><p><a href="https://github.com/GenieFramework/Genie.jl">Genie.jl</a></p>
+<ul>
+<li><p>Ruby on Rails や Django などと同様に MVC like なWeb フレームワーク</p>
+</li>
+<li><p>Example <a href="https://github.com/AtelierArith/ElasticCollision.jl">ElasticCollision.jl</a></p>
+</li>
+</ul>
+</li>
+</ul>
+<hr />
+<p>class: center, middle</p>
+<h1 id="お前も_julia_をやらないか_画像略"><a href="#お前も_julia_をやらないか_画像略" class="header-anchor">お前も Julia をやらないか &#40;画像略&#41;</a></h1>
+<hr />
+<h1 id="mytemplatejl"><a href="#mytemplatejl" class="header-anchor">MyTemplate.jl</a></h1>
+<p>PkgTemplates.jl を拡張した便利パッケージ雛形を作れる.</p>
+<pre><code class="console hljs"><span class="hljs-meta">$ </span><span class="language-bash">git <span class="hljs-built_in">clone</span> https://github.com/terasakisatoshi/MyTemplate.jl.git</span>
+<span class="hljs-meta">$ </span><span class="language-bash"><span class="hljs-built_in">cd</span> MyTemplate.jl</span>
+<span class="hljs-meta">$ </span><span class="language-bash">julia --project=@. generate.jl YourPkg --with-jupyter</span>
+<span class="hljs-meta">$ </span><span class="language-bash"><span class="hljs-built_in">cd</span> YourPkg.jl</span>
+<span class="hljs-meta">$ </span><span class="language-bash">make <span class="hljs-comment"># Docker イメージのビルド</span></span>
+<span class="hljs-meta">$ </span><span class="language-bash">make <span class="hljs-built_in">test</span> <span class="hljs-comment"># パッケージのテストを走らせる</span></span>
+<span class="hljs-meta">$ </span><span class="language-bash">docker-compose up lab <span class="hljs-comment"># Jupyter Lab 環境を立ち上げられる</span></span>
+<span class="hljs-meta">$ </span><span class="language-bash">make clean <span class="hljs-comment"># お掃除</span></span></code></pre>
+<hr />
+<h1 id="sysimage_creator"><a href="#sysimage_creator" class="header-anchor">sysimage_creator</a></h1>
+<p>Julia は JIT コンパイルのコストが重めなのでよく使う関数のコンパイル済みの結果を sysimage に追加しておく.</p>
+<pre><code class="console hljs"><span class="hljs-meta">$ </span><span class="language-bash">git <span class="hljs-built_in">clone</span> https://github.com/terasakisatoshi/sysimage_creator.git</span>
+<span class="hljs-meta">$ </span><span class="language-bash">pip install jupyter jupytext nbconvert ipykernel</span>
+<span class="hljs-meta">$ </span><span class="language-bash"><span class="hljs-built_in">cd</span> sysimage_creator &amp;&amp; make &amp;&amp; jupyter notebook</span>
+<span class="hljs-meta">$ </span><span class="language-bash">make <span class="hljs-built_in">test</span> でどれだけ速くなるかを確認できる</span></code></pre>
 <div class="page-foot">
   <div class="copyright">
     &copy; SatoshiTerasaki. Last modified: 2022年2月16日 水曜日. Website built with 
