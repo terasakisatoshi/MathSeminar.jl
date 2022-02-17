@@ -104,8 +104,6 @@ MIT, Stanford, Berkeley, CMU をはじめとする 1500 の大学で Julia を�
 
 ---
 
-class: center, middle
-
 # Can we use Julia in production ?
 
 --
@@ -128,54 +126,10 @@ Other people "Really ???"
 
 Me "Come on !!! 😩 You're so mean"
 
----
-
-# よく言われること
-
-- なぜか周りで使っている人が少ない（なぜ？）
-  - 乱立しているパッケージマネージャー，フォーマッタ，ライブラリのデプロイ，型アノテーションに苦しみながら Python を使っている人を見ると気の毒に思えて仕方がない.
-- 破壊的な変更やエラーがめっちゃ出る (既に過去の話)
-  - v0.6 の時代は確かにそうだった. ライブラリのインストールやサンプルコードすらままならない時はあった.
-  - 単に入門するのであれば LTS の v1.6 を使えば特に困らない. v1.x から言語仕様が固まったのでライブラリを作る側が頑張って安定させている.
-  - ソースコードは公開されているので直してプルリクエストを送れば良い. 実現すればあなたはその分野でヒーローになれる.
-- プレコンパイル/JITコンパイル のオーバヘッドが重い(改良の余地はある)
-  - 1.6 までのアップデートでだいぶマシになった.
-  - カスタム sysimage を作る
-  - この機会に良いマシンを買うと経済を回すことができる.
 
 ---
 
-# よく言われること
-
-- クラスがない・オプジェクト指向で書きたい
-  - (多重継承)継承を駆使できるほど人類は賢くない.
-  - 大抵の場合は構造体と multiple dispatch の仕組みを組み合わせることで実現ができる.
-    - 一回気持ちをリセットして[この解説](https://gist.github.com/terasakisatoshi/4a7d5339c6a3ca015a82fa03f390afb3) を5回読んでから批判し直すと良い.
-
-- 名前空間の問題
-  - `using XXX` によっていろんな識別子がロードされてしまう
-    - `using XXX: a, b, c` のように書けば `a`, `b`, `c` だけを `XXX` からロードすることができる. Python での `from XXX import a, b, c` 相当.
-    - 特定の識別子がどのパッケージから来たかは `@which` マクロで大まかに判断ができる.
-  - module を使って名前空間を管理できるし 1 module 1 リポジトリぐらいの小規模で管理した方が気楽かもしれない.
-
----
-
-# よく言われること
-
-- 使っている仕事が見つからない
-  - 既にあるソフトウェアを書き直すのは大変なので
-  - 新規開発案件にアンテナを伸ばしてチャンスを伺う
-  - GitHubで自分で例をいっぱい作れば良い
-  - パッケージとして公開する方法は思ったよりも簡単
-- 日本語の文献が少ない
-  - 英語を読めばいいじゃない(一方で，日本語の解説は増えてきている)
-  - 日本語で会話したい時は Twitter/Slack/Discord/Connpass で勉強会や雑談会がある
-  - 公式ドキュメントに基づいた解説があると喜ぶ人多そう
-  - 単に使ってみたで終わるものではなく, その記事を読みそこから得た知識から応用できる余地を見出せると良い記事が書ける.
-
----
-
-# よく言われていること
+# 巷でよく言われていること
 
 - 使える人が少ない
   - そうかも
@@ -269,6 +223,16 @@ julia>
 
 ---
 
+# アンインストール
+
+- `jill` で入れた場合は `${HOME}/.local/bin` の `julia` がついているものを全部消す
+- Mac だと `/Applications` 以下にある Julia を消す
+- Windows ユーザーならば「プログラムのアンインストール」から消す.
+- `${HOME}/.julia` を消す.
+  - これを消すと Julia を初回インストールした状態に戻すことができる. 何か挙動がおかしい時は一旦消してやり直すというてもありかもしれない.
+
+---
+
 class: center, middle
 
 # REPL で遊ぼう
@@ -358,7 +322,6 @@ julia> function mygcd(a, b)
            return a
        end
 mygcd (generic function with 1 method)
-
 julia> function calcπ(N)
            cnt = 0
            for a ∈ 1:N # ∈ は \in + <tab> `in` でも良い
@@ -372,9 +335,7 @@ julia> function calcπ(N)
            return √(6/prob) # √ は \sqrt + <tab>
        end
 calcπ (generic function with 1 method)
-
 julia> @time calcπ(10^4)
-
   4.980897 seconds
 3.141534239016629
 ```
@@ -397,9 +358,7 @@ double calcpi(int N){
     int cnt = 0;
     for (int a=1; a<=N; a++){
         for(int b=1; b<=N; b++){
-            if (mygcd(a, b)==1){
-                cnt++;
-            }
+            if (mygcd(a, b)==1){cnt++;}
         }
     }
     double prob = (double)cnt / N / N;
@@ -621,6 +580,59 @@ julia> hello("world")
 "Hello, world"
 ```
 
+---
+
+# Install Julia Package (Project版)
+
+(お仕事などの) プロジェクト毎で使用するパッケージのバージョンが異なる場合は作業場所でアクティベートをする.
+
+例:
+
+`~/tmp/proj1` がプロジェクト１の作業場所とする. ここでは `v0.4` を使いたい
+
+```julia
+julia> using Pkg; Pkg.activate("."); Pkg.add(PackageSpec(name="Example", version=v"0.4"))
+  Activating new project at `~/tmp/proj1`
+    Updating registry at `~/.julia/registries/General.toml`
+   Resolving package versions...
+   Installed Example ─ v0.4.0
+    Updating `~/tmp/proj1/Project.toml`
+  [7876af07] + Example v0.4.0
+    Updating `~/tmp/proj1/Manifest.toml`
+  [7876af07] + Example v0.4.0
+Precompiling project...
+  1 dependency successfully precompiled in 1 seconds
+```
+
+
+続く
+
+---
+
+# Install Julia Package (Project版, 続き)
+
+例:
+
+`~/tmp/proj2` がプロジェクト2の作業場所とする. ここでは `v0.5.3` を使いたい
+
+```julia
+julia> using Pkg; Pkg.activate("."); Pkg.add(PackageSpec(name="Example", version=v"0.5.3"))
+  Activating new project at `~/tmp/proj2`
+    Updating registry at `~/.julia/registries/General.toml`
+   Resolving package versions...
+    Updating `~/tmp/proj2/Project.toml`
+  [7876af07] + Example v0.5.3
+    Updating `~/tmp/proj2/Manifest.toml`
+  [7876af07] + Example v0.5.3
+```
+
+プロジェクト毎に使いパッケージの管理をすることができる. 記録は `Project.toml` とさらに詳細な情報も含めた `Manifest.toml` にて行われる. 後者はパッケージのインストールなどの操作によって自動生成・変更される. 他の言語の `lock` ファイルのようなものだと思えば良い. `Manifest.toml` を共有することで依存関係を再現できる（はず).
+
+---
+
+
+# Install Julia Package (Pkg REPL による方法)
+
 ```julia
 julia> # press ] Pkg REPL で導入しても良い
 
@@ -631,6 +643,8 @@ julia> # press ] Pkg REPL で導入しても良い
     Updating `~/.julia/environments/v1.7/Manifest.toml`
   [7876af07] + Example v0.5.3
 ```
+
+`~/.julia` 以下にソースや依存関係が落ちてくる. この場所は Julia からだと `Base.DEPOT_PATH[1]` という式で参照できる.
 
 ---
 
@@ -879,9 +893,53 @@ class: center, middle
 
 ---
 
+# 自作パッケージを作る
+
+```julia
+julia> using Pkg
+
+julia> Pkg.generate("MyPkg")
+  Generating  project MyPkg:
+    MyPkg/Project.toml
+    MyPkg/src/MyPkg.jl
+Dict{String, Base.UUID} with 1 entry:
+  "MyPkg" => UUID("xxxxxxxxxxxxx") # <--- 適当な UUID が振られる.
+julia> exit() # 一旦終了
+```
+
+---
+
+# 自作パッケージを作る
+
+雛形が作られる
+
+```console
+$ cat MyPkg/src/MyPkg.jl
+module MyPkg
+
+greet() = print("Hello World!")
+
+end # module
+```
+
+```julia
+$ cd MyPkg
+$ julia --project=@. # これで Pkg.activate(".") の呪文を省略できる
+
+julia> using MyPkg
+julia> MyPkg.greet()
+Hello World! # できた
+```
+
+あとはいっぱい書いていけば良い.
+
+---
+
 # MyTemplate.jl
 
-PkgTemplates.jl を拡張した便利パッケージ雛形を作れる.
+このスライドの作成者が管理しているオレオレ雛形生成器
+
+[PkgTemplates.jl](https://github.com/invenia/PkgTemplates.jl) をさらに拡張した便利機能満載
 
 ```console
 $ git clone https://github.com/terasakisatoshi/MyTemplate.jl.git
@@ -907,3 +965,60 @@ $ cd sysimage_creator && make && jupyter notebook
 $ make test でどれだけ速くなるかを確認できる
 ```
 
+---
+
+class: center, middle
+
+# お前も Julia をやらないか（画像略）
+
+
+---
+
+# よく言われること
+
+- なぜか周りで使っている人が少ない（なぜ？）
+  - 乱立しているパッケージマネージャー，フォーマッタ，ライブラリのデプロイ，型アノテーションに苦しみながら Python を使っている人を見ると気の毒に思えて仕方がない.
+- 破壊的な変更やエラーがめっちゃ出る (既に過去の話)
+  - v0.6 の時代は確かにそうだった. ライブラリのインストールやサンプルコードすらままならない時はあった.
+  - 単に入門するのであれば LTS の v1.6 を使えば特に困らない. v1.x から言語仕様が固まったのでライブラリを作る側が頑張って安定させている.
+  - ソースコードは公開されているので直してプルリクエストを送れば良い. 実現すればあなたはその分野でヒーローになれる.
+- プレコンパイル/JITコンパイル のオーバヘッドが重い(改良の余地はある)
+  - 1.6 までのアップデートでだいぶマシになった.
+  - カスタム sysimage を作る
+  - この機会に良いマシンを買うと経済を回すことができる.
+
+---
+
+# よく言われること
+
+- クラスがない・オプジェクト指向で書きたい
+  - (多重継承)継承を駆使できるほど人類は賢くない.
+  - 大抵の場合は構造体と multiple dispatch の仕組みを組み合わせることで実現ができる.
+    - 一回気持ちをリセットして[この解説](https://gist.github.com/terasakisatoshi/4a7d5339c6a3ca015a82fa03f390afb3) を5回読んでから批判し直すと良い.
+
+- 名前空間の問題
+  - `using XXX` によっていろんな識別子がロードされてしまう
+    - `using XXX: a, b, c` のように書けば `a`, `b`, `c` だけを `XXX` からロードすることができる. Python での `from XXX import a, b, c` 相当.
+    - 特定の識別子がどのパッケージから来たかは `@which` マクロで大まかに判断ができる.
+  - module を使って名前空間を管理できるし 1 module 1 リポジトリぐらいの小規模で管理した方が気楽かもしれない.
+
+---
+
+# よく言われること
+
+- 使っている仕事が見つからない
+  - 既にあるソフトウェアを書き直すのは大変なので
+  - 新規開発案件にアンテナを伸ばしてチャンスを伺う
+  - GitHubで自分で例をいっぱい作れば良い
+  - パッケージとして公開する方法は思ったよりも簡単
+- 日本語の文献が少ない
+  - 英語を読めばいいじゃない(一方で，日本語の解説は増えてきている)
+  - 日本語で会話したい時は Twitter/Slack/Discord/Connpass で勉強会や雑談会がある
+  - 公式ドキュメントに基づいた解説があると喜ぶ人多そう
+  - 単に使ってみたで終わるものではなく, その記事を読みそこから得た知識から応用できる余地を見出せると良い記事が書ける.
+
+---
+
+# 結論
+
+みんなで使えば怖くない
