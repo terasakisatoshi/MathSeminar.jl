@@ -259,7 +259,6 @@
 </li>
 </ul>
 <hr />
-<p>class: center, middle</p>
 <h1 id="can_we_use_julia_in_production"><a href="#can_we_use_julia_in_production" class="header-anchor">Can we use Julia in production ?</a></h1>
 <p>–</p>
 <p>Me &quot;I believe we can &#33;&#33;&#33;&quot;</p>
@@ -272,95 +271,7 @@
 <p>–</p>
 <p>Me &quot;Come on &#33;&#33;&#33; 😩 You&#39;re so mean&quot;</p>
 <hr />
-<h1 id="よく言われること"><a href="#よく言われること" class="header-anchor">よく言われること</a></h1>
-<ul>
-<li><p>なぜか周りで使っている人が少ない（なぜ？）</p>
-<ul>
-<li><p>乱立しているパッケージマネージャー，フォーマッタ，ライブラリのデプロイ，型アノテーションに苦しみながら Python を使っている人を見ると気の毒に思えて仕方がない.</p>
-</li>
-</ul>
-</li>
-<li><p>破壊的な変更やエラーがめっちゃ出る &#40;既に過去の話&#41;</p>
-<ul>
-<li><p>v0.6 の時代は確かにそうだった. ライブラリのインストールやサンプルコードすらままならない時はあった.</p>
-</li>
-<li><p>単に入門するのであれば LTS の v1.6 を使えば特に困らない. v1.x から言語仕様が固まったのでライブラリを作る側が頑張って安定させている.</p>
-</li>
-<li><p>ソースコードは公開されているので直してプルリクエストを送れば良い. 実現すればあなたはその分野でヒーローになれる.</p>
-</li>
-</ul>
-</li>
-<li><p>プレコンパイル/JITコンパイル のオーバヘッドが重い&#40;改良の余地はある&#41;</p>
-<ul>
-<li><p>1.6 までのアップデートでだいぶマシになった.</p>
-</li>
-<li><p>カスタム sysimage を作る</p>
-</li>
-<li><p>この機会に良いマシンを買うと経済を回すことができる.</p>
-</li>
-</ul>
-</li>
-</ul>
-<hr />
-<h1 id="よく言われること__2"><a href="#よく言われること__2" class="header-anchor">よく言われること</a></h1>
-<ul>
-<li><p>クラスがない・オプジェクト指向で書きたい</p>
-<ul>
-<li><p>&#40;多重継承&#41;継承を駆使できるほど人類は賢くない.</p>
-</li>
-<li><p>大抵の場合は構造体と multiple dispatch の仕組みを組み合わせることで実現ができる.</p>
-<ul>
-<li><p>一回気持ちをリセットして<a href="https://gist.github.com/terasakisatoshi/4a7d5339c6a3ca015a82fa03f390afb3">この解説</a> を5回読んでから批判し直すと良い.</p>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>名前空間の問題</p>
-<ul>
-<li><p><code>using XXX</code> によっていろんな識別子がロードされてしまう</p>
-<ul>
-<li><p><code>using XXX: a, b, c</code> のように書けば <code>a</code>, <code>b</code>, <code>c</code> だけを <code>XXX</code> からロードすることができる. Python での <code>from XXX import a, b, c</code> 相当.</p>
-</li>
-<li><p>特定の識別子がどのパッケージから来たかは <code>@which</code> マクロで大まかに判断ができる.</p>
-</li>
-</ul>
-</li>
-<li><p>module を使って名前空間を管理できるし 1 module 1 リポジトリぐらいの小規模で管理した方が気楽かもしれない.</p>
-</li>
-</ul>
-</li>
-</ul>
-<hr />
-<h1 id="よく言われること__3"><a href="#よく言われること__3" class="header-anchor">よく言われること</a></h1>
-<ul>
-<li><p>使っている仕事が見つからない</p>
-<ul>
-<li><p>既にあるソフトウェアを書き直すのは大変なので</p>
-</li>
-<li><p>新規開発案件にアンテナを伸ばしてチャンスを伺う</p>
-</li>
-<li><p>GitHubで自分で例をいっぱい作れば良い</p>
-</li>
-<li><p>パッケージとして公開する方法は思ったよりも簡単</p>
-</li>
-</ul>
-</li>
-<li><p>日本語の文献が少ない</p>
-<ul>
-<li><p>英語を読めばいいじゃない&#40;一方で，日本語の解説は増えてきている&#41;</p>
-</li>
-<li><p>日本語で会話したい時は Twitter/Slack/Discord/Connpass で勉強会や雑談会がある</p>
-</li>
-<li><p>公式ドキュメントに基づいた解説があると喜ぶ人多そう</p>
-</li>
-<li><p>単に使ってみたで終わるものではなく, その記事を読みそこから得た知識から応用できる余地を見出せると良い記事が書ける.</p>
-</li>
-</ul>
-</li>
-</ul>
-<hr />
-<h1 id="よく言われていること"><a href="#よく言われていること" class="header-anchor">よく言われていること</a></h1>
+<h1 id="巷でよく言われていること"><a href="#巷でよく言われていること" class="header-anchor">巷でよく言われていること</a></h1>
 <ul>
 <li><p>使える人が少ない</p>
 <ul>
@@ -461,6 +372,22 @@ julia&gt;</span></code></pre>
 </li>
 </ul>
 <hr />
+<h1 id="アンインストール"><a href="#アンインストール" class="header-anchor">アンインストール</a></h1>
+<ul>
+<li><p><code>jill</code> で入れた場合は <code>&#36;&#123;HOME&#125;/.local/bin</code> の <code>julia</code> がついているものを全部消す</p>
+</li>
+<li><p>Mac だと <code>/Applications</code> 以下にある Julia を消す</p>
+</li>
+<li><p>Windows ユーザーならば「プログラムのアンインストール」から消す.</p>
+</li>
+<li><p><code>&#36;&#123;HOME&#125;/.julia</code> を消す.</p>
+<ul>
+<li><p>これを消すと Julia を初回インストールした状態に戻すことができる. 何か挙動がおかしい時は一旦消してやり直すというてもありかもしれない.</p>
+</li>
+</ul>
+</li>
+</ul>
+<hr />
 <p>class: center, middle</p>
 <h1 id="repl_で遊ぼう"><a href="#repl_で遊ぼう" class="header-anchor">REPL で遊ぼう</a></h1>
 <p>文法も添えて</p>
@@ -533,7 +460,6 @@ julia&gt; ⊗ <span class="hljs-comment"># \otimes + &lt;tab&gt;</span></code></
            <span class="hljs-keyword">return</span> a
        <span class="hljs-keyword">end</span>
 mygcd (generic <span class="hljs-keyword">function</span> with <span class="hljs-number">1</span> method)
-
 julia&gt; <span class="hljs-keyword">function</span> calcπ(N)
            cnt = <span class="hljs-number">0</span>
            <span class="hljs-keyword">for</span> a ∈ <span class="hljs-number">1</span>:N <span class="hljs-comment"># ∈ は \in + &lt;tab&gt; `in` でも良い</span>
@@ -547,9 +473,7 @@ julia&gt; <span class="hljs-keyword">function</span> calcπ(N)
            <span class="hljs-keyword">return</span> √(<span class="hljs-number">6</span>/prob) <span class="hljs-comment"># √ は \sqrt + &lt;tab&gt;</span>
        <span class="hljs-keyword">end</span>
 calcπ (generic <span class="hljs-keyword">function</span> with <span class="hljs-number">1</span> method)
-
 julia&gt; <span class="hljs-meta">@time</span> calcπ(<span class="hljs-number">10</span>^<span class="hljs-number">4</span>)
-
   <span class="hljs-number">4.980897</span> seconds
 <span class="hljs-number">3.141534239016629</span></code></pre>
 <hr />
@@ -568,9 +492,7 @@ julia&gt; <span class="hljs-meta">@time</span> calcπ(<span class="hljs-number">
     <span class="hljs-type">int</span> cnt = <span class="hljs-number">0</span>;
     <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> a=<span class="hljs-number">1</span>; a&lt;=N; a++){
         <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> b=<span class="hljs-number">1</span>; b&lt;=N; b++){
-            <span class="hljs-keyword">if</span> (mygcd(a, b)==<span class="hljs-number">1</span>){
-                cnt++;
-            }
+            <span class="hljs-keyword">if</span> (mygcd(a, b)==<span class="hljs-number">1</span>){cnt++;}
         }
     }
     <span class="hljs-type">double</span> prob = (<span class="hljs-type">double</span>)cnt / N / N;
@@ -742,6 +664,38 @@ julia&gt; <span class="hljs-keyword">using</span> Example <span class="hljs-comm
 
 julia&gt; hello(<span class="hljs-string">&quot;world&quot;</span>)
 <span class="hljs-string">&quot;Hello, world&quot;</span></code></pre>
+<hr />
+<h1 id="install_julia_package_project版"><a href="#install_julia_package_project版" class="header-anchor">Install Julia Package &#40;Project版&#41;</a></h1>
+<p>&#40;お仕事などの&#41; プロジェクト毎で使用するパッケージのバージョンが異なる場合は作業場所でアクティベートをする.</p>
+<p>例:</p>
+<p><code>~/tmp/proj1</code> がプロジェクト１の作業場所とする. ここでは <code>v0.4</code> を使いたい</p>
+<pre><code class="julia hljs">julia&gt; <span class="hljs-keyword">using</span> Pkg; Pkg.activate(<span class="hljs-string">&quot;.&quot;</span>); Pkg.add(PackageSpec(name=<span class="hljs-string">&quot;Example&quot;</span>, version=<span class="hljs-string">v&quot;0.4&quot;</span>))
+  Activating new project at <span class="hljs-string">`~/tmp/proj1`</span>
+    Updating registry at <span class="hljs-string">`~/.julia/registries/General.toml`</span>
+   Resolving package versions...
+   Installed Example ─ v0<span class="hljs-number">.4</span><span class="hljs-number">.0</span>
+    Updating <span class="hljs-string">`~/tmp/proj1/Project.toml`</span>
+  [<span class="hljs-number">7876</span>af07] + Example v0<span class="hljs-number">.4</span><span class="hljs-number">.0</span>
+    Updating <span class="hljs-string">`~/tmp/proj1/Manifest.toml`</span>
+  [<span class="hljs-number">7876</span>af07] + Example v0<span class="hljs-number">.4</span><span class="hljs-number">.0</span>
+Precompiling project...
+  <span class="hljs-number">1</span> dependency successfully precompiled <span class="hljs-keyword">in</span> <span class="hljs-number">1</span> seconds</code></pre>
+<p>続く</p>
+<hr />
+<h1 id="install_julia_package_project版_続き"><a href="#install_julia_package_project版_続き" class="header-anchor">Install Julia Package &#40;Project版, 続き&#41;</a></h1>
+<p>例:</p>
+<p><code>~/tmp/proj2</code> がプロジェクト2の作業場所とする. ここでは <code>v0.5.3</code> を使いたい</p>
+<pre><code class="julia hljs">julia&gt; <span class="hljs-keyword">using</span> Pkg; Pkg.activate(<span class="hljs-string">&quot;.&quot;</span>); Pkg.add(PackageSpec(name=<span class="hljs-string">&quot;Example&quot;</span>, version=<span class="hljs-string">v&quot;0.5.3&quot;</span>))
+  Activating new project at <span class="hljs-string">`~/tmp/proj2`</span>
+    Updating registry at <span class="hljs-string">`~/.julia/registries/General.toml`</span>
+   Resolving package versions...
+    Updating <span class="hljs-string">`~/tmp/proj2/Project.toml`</span>
+  [<span class="hljs-number">7876</span>af07] + Example v0<span class="hljs-number">.5</span><span class="hljs-number">.3</span>
+    Updating <span class="hljs-string">`~/tmp/proj2/Manifest.toml`</span>
+  [<span class="hljs-number">7876</span>af07] + Example v0<span class="hljs-number">.5</span><span class="hljs-number">.3</span></code></pre>
+<p>プロジェクト毎に使いパッケージの管理をすることができる. 記録は <code>Project.toml</code> とさらに詳細な情報も含めた <code>Manifest.toml</code> にて行われる. 後者はパッケージのインストールなどの操作によって自動生成・変更される. 他の言語の <code>lock</code> ファイルのようなものだと思えば良い. <code>Manifest.toml</code> を共有することで依存関係を再現できる（はず&#41;.</p>
+<hr />
+<h1 id="install_julia_package_pkg_repl_による方法"><a href="#install_julia_package_pkg_repl_による方法" class="header-anchor">Install Julia Package &#40;Pkg REPL による方法&#41;</a></h1>
 <pre><code class="julia hljs">julia&gt; <span class="hljs-comment"># press ] Pkg REPL で導入しても良い</span>
 
 (<span class="hljs-meta">@v1</span><span class="hljs-number">.7</span>) pkg&gt; add Example
@@ -750,6 +704,7 @@ julia&gt; hello(<span class="hljs-string">&quot;world&quot;</span>)
   [<span class="hljs-number">7876</span>af07] + Example v0<span class="hljs-number">.5</span><span class="hljs-number">.3</span>
     Updating <span class="hljs-string">`~/.julia/environments/v1.7/Manifest.toml`</span>
   [<span class="hljs-number">7876</span>af07] + Example v0<span class="hljs-number">.5</span><span class="hljs-number">.3</span></code></pre>
+<p><code>~/.julia</code> 以下にソースや依存関係が落ちてくる. この場所は Julia からだと <code>Base.DEPOT_PATH&#91;1&#93;</code> という式で参照できる.</p>
 <hr />
 <h1 id="remove_package"><a href="#remove_package" class="header-anchor">Remove Package</a></h1>
 <pre><code class="julia hljs">(<span class="hljs-meta">@v1</span><span class="hljs-number">.7</span>) pkg&gt; rm Example
@@ -923,8 +878,36 @@ julia&gt; plt.show()</code></pre>
 <p>class: center, middle</p>
 <h1 id="お前も_julia_をやらないか_画像略"><a href="#お前も_julia_をやらないか_画像略" class="header-anchor">お前も Julia をやらないか &#40;画像略&#41;</a></h1>
 <hr />
+<h1 id="自作パッケージを作る"><a href="#自作パッケージを作る" class="header-anchor">自作パッケージを作る</a></h1>
+<pre><code class="julia hljs">julia&gt; <span class="hljs-keyword">using</span> Pkg
+
+julia&gt; Pkg.generate(<span class="hljs-string">&quot;MyPkg&quot;</span>)
+  Generating  project MyPkg:
+    MyPkg/Project.toml
+    MyPkg/src/MyPkg.jl
+<span class="hljs-built_in">Dict</span>{<span class="hljs-built_in">String</span>, Base.UUID} with <span class="hljs-number">1</span> entry:
+  <span class="hljs-string">&quot;MyPkg&quot;</span> =&gt; UUID(<span class="hljs-string">&quot;xxxxxxxxxxxxx&quot;</span>) <span class="hljs-comment"># &lt;--- 適当な UUID が振られる.</span>
+julia&gt; exit() <span class="hljs-comment"># 一旦終了</span></code></pre>
+<hr />
+<h1 id="自作パッケージを作る__2"><a href="#自作パッケージを作る__2" class="header-anchor">自作パッケージを作る</a></h1>
+<p>雛形が作られる</p>
+<pre><code class="console hljs"><span class="hljs-meta">$ </span><span class="language-bash"><span class="hljs-built_in">cat</span> MyPkg/src/MyPkg.jl</span>
+module MyPkg
+
+greet() = print(&quot;Hello World!&quot;)
+
+end # module</code></pre>
+<pre><code class="julia hljs">$ cd MyPkg
+$ julia --project=@. <span class="hljs-comment"># これで Pkg.activate(&quot;.&quot;) の呪文を省略できる</span>
+
+julia&gt; <span class="hljs-keyword">using</span> MyPkg
+julia&gt; MyPkg.greet()
+Hello World! <span class="hljs-comment"># できた</span></code></pre>
+<p>あとはいっぱい書いていけば良い.</p>
+<hr />
 <h1 id="mytemplatejl"><a href="#mytemplatejl" class="header-anchor">MyTemplate.jl</a></h1>
-<p>PkgTemplates.jl を拡張した便利パッケージ雛形を作れる.</p>
+<p>このスライドの作成者が管理しているオレオレ雛形生成器</p>
+<p><a href="https://github.com/invenia/PkgTemplates.jl">PkgTemplates.jl</a> をさらに拡張した便利機能満載</p>
 <pre><code class="console hljs"><span class="hljs-meta">$ </span><span class="language-bash">git <span class="hljs-built_in">clone</span> https://github.com/terasakisatoshi/MyTemplate.jl.git</span>
 <span class="hljs-meta">$ </span><span class="language-bash"><span class="hljs-built_in">cd</span> MyTemplate.jl</span>
 <span class="hljs-meta">$ </span><span class="language-bash">julia --project=@. generate.jl YourPkg --with-jupyter</span>
@@ -940,9 +923,103 @@ julia&gt; plt.show()</code></pre>
 <span class="hljs-meta">$ </span><span class="language-bash">pip install jupyter jupytext nbconvert ipykernel</span>
 <span class="hljs-meta">$ </span><span class="language-bash"><span class="hljs-built_in">cd</span> sysimage_creator &amp;&amp; make &amp;&amp; jupyter notebook</span>
 <span class="hljs-meta">$ </span><span class="language-bash">make <span class="hljs-built_in">test</span> でどれだけ速くなるかを確認できる</span></code></pre>
+<hr />
+<p>class: center, middle</p>
+<h1 id="お前も_julia_をやらないか画像略"><a href="#お前も_julia_をやらないか画像略" class="header-anchor">お前も Julia をやらないか（画像略）</a></h1>
+<hr />
+<h1 id="よく言われること"><a href="#よく言われること" class="header-anchor">よく言われること</a></h1>
+<ul>
+<li><p>なぜか周りで使っている人が少ない（なぜ？）</p>
+<ul>
+<li><p>乱立しているパッケージマネージャー，フォーマッタ，ライブラリのデプロイ，型アノテーションに苦しみながら Python を使っている人を見ると気の毒に思えて仕方がない.</p>
+</li>
+</ul>
+</li>
+<li><p>破壊的な変更やエラーがめっちゃ出る &#40;既に過去の話&#41;</p>
+<ul>
+<li><p>v0.6 の時代は確かにそうだった. ライブラリのインストールやサンプルコードすらままならない時はあった.</p>
+</li>
+<li><p>単に入門するのであれば LTS の v1.6 を使えば特に困らない. v1.x から言語仕様が固まったのでライブラリを作る側が頑張って安定させている.</p>
+</li>
+<li><p>ソースコードは公開されているので直してプルリクエストを送れば良い. 実現すればあなたはその分野でヒーローになれる.</p>
+</li>
+</ul>
+</li>
+<li><p>プレコンパイル/JITコンパイル のオーバヘッドが重い&#40;改良の余地はある&#41;</p>
+<ul>
+<li><p>1.6 までのアップデートでだいぶマシになった.</p>
+</li>
+<li><p>カスタム sysimage を作る</p>
+</li>
+<li><p>この機会に良いマシンを買うと経済を回すことができる.</p>
+</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h1 id="よく言われること__2"><a href="#よく言われること__2" class="header-anchor">よく言われること</a></h1>
+<ul>
+<li><p>クラスがない・オプジェクト指向で書きたい</p>
+<ul>
+<li><p>&#40;多重継承&#41;継承を駆使できるほど人類は賢くない.</p>
+</li>
+<li><p>大抵の場合は構造体と multiple dispatch の仕組みを組み合わせることで実現ができる.</p>
+<ul>
+<li><p>一回気持ちをリセットして<a href="https://gist.github.com/terasakisatoshi/4a7d5339c6a3ca015a82fa03f390afb3">この解説</a> を5回読んでから批判し直すと良い.</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>名前空間の問題</p>
+<ul>
+<li><p><code>using XXX</code> によっていろんな識別子がロードされてしまう</p>
+<ul>
+<li><p><code>using XXX: a, b, c</code> のように書けば <code>a</code>, <code>b</code>, <code>c</code> だけを <code>XXX</code> からロードすることができる. Python での <code>from XXX import a, b, c</code> 相当.</p>
+</li>
+<li><p>特定の識別子がどのパッケージから来たかは <code>@which</code> マクロで大まかに判断ができる.</p>
+</li>
+</ul>
+</li>
+<li><p>module を使って名前空間を管理できるし 1 module 1 リポジトリぐらいの小規模で管理した方が気楽かもしれない.</p>
+</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h1 id="よく言われること__3"><a href="#よく言われること__3" class="header-anchor">よく言われること</a></h1>
+<ul>
+<li><p>使っている仕事が見つからない</p>
+<ul>
+<li><p>既にあるソフトウェアを書き直すのは大変なので</p>
+</li>
+<li><p>新規開発案件にアンテナを伸ばしてチャンスを伺う</p>
+</li>
+<li><p>GitHubで自分で例をいっぱい作れば良い</p>
+</li>
+<li><p>パッケージとして公開する方法は思ったよりも簡単</p>
+</li>
+</ul>
+</li>
+<li><p>日本語の文献が少ない</p>
+<ul>
+<li><p>英語を読めばいいじゃない&#40;一方で，日本語の解説は増えてきている&#41;</p>
+</li>
+<li><p>日本語で会話したい時は Twitter/Slack/Discord/Connpass で勉強会や雑談会がある</p>
+</li>
+<li><p>公式ドキュメントに基づいた解説があると喜ぶ人多そう</p>
+</li>
+<li><p>単に使ってみたで終わるものではなく, その記事を読みそこから得た知識から応用できる余地を見出せると良い記事が書ける.</p>
+</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h1 id="結論"><a href="#結論" class="header-anchor">結論</a></h1>
+<p>みんなで使えば怖くない</p>
 <div class="page-foot">
   <div class="copyright">
-    &copy; SatoshiTerasaki. Last modified: 2022年2月16日 水曜日. Website built with 
+    &copy; SatoshiTerasaki. Last modified: 2022年2月17日 木曜日. Website built with 
     <a href="http://github.com/terasakisatoshi/MathSeminar.jl">MathSeminar.jl</a>
     <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
   </div>
