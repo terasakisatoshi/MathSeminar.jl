@@ -12,6 +12,15 @@ class: center, middle
 
 ---
 
+# Remark (2022 年3月追記)
+
+このスライドは 2020 年に作成されました．今日では既に過去遺物になり Dash.jl 側の仕様で一部のコードが動かないです. （泣）
+例えば Plots.jl を経由して得られた描画オブジェクトを利用するハックは JSON.jl と JSON3.jl などの兼ね合いでランタイムエラーが発生します．
+
+`DashCoreComponents`, `DashHtmlComponents` などと書かれている部分は今日では不要になりました. (Python API 側も同様です.)
+
+---
+
 # このスライドを読んでわかること
 
 - 関数 $y=x^n$ の $n$ を変化させたときの様子を描画する例を Julia で書ける.
@@ -28,17 +37,8 @@ class: center, middle
 
 ```julia
 julia> using Pkg
-julia> Pkg.add(["Dash", "DashCoreComponents", "DashHtmlComponents", "DashTable"])
+julia> Pkg.add(["Dash"]) # 昔は DashCoreComponents があったけれど今はいらなくなった
 ```
-
-
-|  Julia       |  Python  |
-| :---         | :---     |
-|  `using Dash`  |  `import dash`  |
-|  `using DashCoreComponents` | `import dash_core_components  as dcc`  |
-|  `using DashHtmlComponents` | `import dash_html_components  as html` |
-|  `using DashTable`          | `import dash_table` |
-
 ---
 
 # Usage
@@ -46,8 +46,6 @@ julia> Pkg.add(["Dash", "DashCoreComponents", "DashHtmlComponents", "DashTable"]
 ```julia
 # sample.jl: Dash.jl の README.md から引用
 using Dash
-using DashCoreComponents
-using DashHtmlComponents
 app = dash(external_stylesheets = ["https://codepen.io/chriddyp/pen/bWLwgP.css"])
 app.layout = html_div() do
     html_h1("Hello Dash"),
