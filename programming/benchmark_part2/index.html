@@ -142,8 +142,8 @@ main&#40;&#41;
 
 using BenchmarkTools
 @btime mand&#40;5000, 5000&#41;;</code></pre>
-<pre><code class="plaintext code-output">t - s = 2.7026188373565674
-  2.697 s (2 allocations: 23.84 MiB)
+<pre><code class="plaintext code-output">t - s = 3.7865869998931885
+  3.756 s (2 allocations: 23.84 MiB)
 </code></pre>
   </p>
 <p><div class="colorblock"><strong>Remark</strong> 5.0.1 &#40;数値誤差について&#41; <br/>  点の位置をあらわす <code>&#40;4.0 / &#40;M - 1&#41; * &#40;j - 1&#41; - 2.0&#41;</code> は <code>range&#40;-2, 2, length&#40;N&#41;&#41;</code> と数学的に等価ですが，数値の誤差の関係で結果が若干異なることがあります．</div>
@@ -201,8 +201,8 @@ main&#40;&#41;
 
 using BenchmarkTools
 @btime mand&#40;5000, 5000&#41;;</code></pre>
-<pre><code class="plaintext code-output">t - s = 2.9863359928131104
-  3.042 s (2 allocations: 23.84 MiB)
+<pre><code class="plaintext code-output">t - s = 3.9465229511260986
+  3.939 s (2 allocations: 23.84 MiB)
 </code></pre>
 <pre><code class="language-julia">Refpath&#61;&quot;/tmp/resultJ.txt&quot;
 Tarpath&#61;&quot;/tmp/resultJ1.txt&quot;
@@ -215,7 +215,7 @@ img &#61; readdlm&#40;Tarpath,&#39;,&#39;,Int&#41;
 M,N &#61; img |&gt; size
 p &#61; heatmap&#40;1:N,1:M,img,aspect_ratio&#61;1, size&#61;&#40;400, 400&#41;&#41;</code></pre>
 <pre><code class="plaintext code-output">files are different
-Failed to precompile Plots [91a5bcdd-55d7-5caf-9e0b-520d859cae80] to /root/.julia/compiled/v1.7/Plots/jl_8124Qg.
+Failed to precompile Plots [91a5bcdd-55d7-5caf-9e0b-520d859cae80] to /root/.julia/compiled/v1.7/Plots/jl_UnHYLh.
 </code></pre>
 <p><span style="color:red;">// Image matching '/assets/programming/benchmark_part2/code/mandJ1' not found. //</span></p>
 <pre><code class="language-julia">using DelimitedFiles
@@ -254,8 +254,8 @@ main&#40;&#41;
 
 using BenchmarkTools
 @btime mand&#40;5000, 5000&#41;;</code></pre>
-<pre><code class="plaintext code-output">t - s = 2.880444049835205
-  2.979 s (4 allocations: 47.68 MiB)
+<pre><code class="plaintext code-output">t - s = 3.9543540477752686
+  3.888 s (4 allocations: 47.68 MiB)
 </code></pre>
 <pre><code class="language-julia">Refpath&#61;&quot;/tmp/resultJ1.txt&quot;
 Tarpath&#61;&quot;/tmp/resultJ2.txt&quot;
@@ -267,7 +267,7 @@ using DelimitedFiles
 img &#61; readdlm&#40;Tarpath,&#39;,&#39;,Int&#41;
 M,N &#61; img |&gt; size
 p &#61; heatmap&#40;1:N,1:M,img,aspect_ratio&#61;1, size&#61;&#40;400, 400&#41;&#41;</code></pre>
-<pre><code class="plaintext code-output">Failed to precompile Plots [91a5bcdd-55d7-5caf-9e0b-520d859cae80] to /root/.julia/compiled/v1.7/Plots/jl_NVTtki.
+<pre><code class="plaintext code-output">Failed to precompile Plots [91a5bcdd-55d7-5caf-9e0b-520d859cae80] to /root/.julia/compiled/v1.7/Plots/jl_m45TUe.
 </code></pre>
 <p><span style="color:red;">// Image matching '/assets/programming/benchmark_part2/code/mandJ2' not found. //</span></p>
 <pre><code class="language-julia">#&#61;
@@ -313,8 +313,8 @@ main&#40;&#41;
 
 using BenchmarkTools
 @btime mand&#40;5000, 5000&#41;;</code></pre>
-<pre><code class="plaintext code-output">t - s = 2.1420412063598633
-  1.768 s (46 allocations: 23.85 MiB)
+<pre><code class="plaintext code-output">t - s = 2.504626989364624
+  2.304 s (46 allocations: 23.85 MiB)
 </code></pre>
 <pre><code class="language-julia">Refpath&#61;&quot;/tmp/resultJ1.txt&quot;
 Tarpath&#61;&quot;/tmp/resultJ3.txt&quot;
@@ -328,12 +328,12 @@ img &#61; readdlm&#40;Tarpath, &#39;,&#39;, Int&#41;
 M,N &#61; img |&gt; size
 p &#61; heatmap&#40;1:N, 1:M, img,aspect_ratio&#61;1, size&#61;&#40;400, 400&#41;&#41;
 savefig&#40;p, joinpath&#40;@OUTPUT, &quot;mandJ3.png&quot;&#41;&#41;</code></pre>
-<pre><code class="plaintext code-output">Failed to precompile Plots [91a5bcdd-55d7-5caf-9e0b-520d859cae80] to /root/.julia/compiled/v1.7/Plots/jl_aVEEPi.
+<pre><code class="plaintext code-output">Failed to precompile Plots [91a5bcdd-55d7-5caf-9e0b-520d859cae80] to /root/.julia/compiled/v1.7/Plots/jl_x8nFpj.
 </code></pre>
 <p><span style="color:red;">// Image matching '/assets/programming/benchmark_part2/code/mandJ3' not found. //</span></p>
 <div class="page-foot">
   <div class="copyright">
-    &copy; SatoshiTerasaki. Last modified: 2022年2月17日 木曜日. Website built with 
+    &copy; SatoshiTerasaki. Last modified: 2022年3月5日 土曜日. Website built with 
     <a href="http://github.com/terasakisatoshi/MathSeminar.jl">MathSeminar.jl</a>
     <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
   </div>

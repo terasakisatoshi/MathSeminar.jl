@@ -1,6 +1,9 @@
+authors = ["Satoshi Terasaki <terasakisatoshi.math@gmail.com>"]
 name = "MyUtils"
 uuid = "ac29e060-ae72-491d-b555-b71211d47abb"
-authors = ["Satoshi Terasaki <terasakisatoshi.math@gmail.com>"]
+
+[compat]
+Remark = "0.3.2"
 
 [deps]
 BenchmarkTools = "6e4b80f9-dd63-53aa-95a3-0cdb28fa8baf"
@@ -46,5 +49,5 @@ SymPy = "24249f21-da20-56a4-8eb1-6a02cf4ae2e6"
 TestImages = "5e47fb64-e119-507b-a336-dd2b206d9990"
 UnicodePlots = "b8865327-cd53-5732-bb35-84acbb429228"
 
-[compat]
-Remark = "0.3.2"
+[extras]
+CPUSummary = "2a0fbf3d-bb9c-48f3-b0a9-814d99fd7ab9"

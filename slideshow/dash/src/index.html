@@ -110,6 +110,10 @@
 </li>
 </ul>
 <hr />
+<h1 id="remark_2022_年3月追記"><a href="#remark_2022_年3月追記" class="header-anchor">Remark &#40;2022 年3月追記&#41;</a></h1>
+<p>このスライドは 2020 年に作成されました．今日では既に過去遺物になり Dash.jl 側の仕様で一部のコードが動かないです. （泣） 例えば Plots.jl を経由して得られた描画オブジェクトを利用するハックは JSON.jl と JSON3.jl などの兼ね合いでランタイムエラーが発生します．</p>
+<p><code>DashCoreComponents</code>, <code>DashHtmlComponents</code> などと書かれている部分は今日では不要になりました. &#40;Python API 側も同様です.&#41;</p>
+<hr />
 <h1 id="このスライドを読んでわかること"><a href="#このスライドを読んでわかること" class="header-anchor">このスライドを読んでわかること</a></h1>
 <ul>
 <li><p>関数 \(y=x^n\) の \(n\) を変化させたときの様子を描画する例を Julia で書ける.</p>
@@ -125,8 +129,7 @@
 </li>
 </ul>
 <pre><code class="language-julia">julia&gt; using Pkg
-julia&gt; Pkg.add&#40;&#91;&quot;Dash&quot;, &quot;DashCoreComponents&quot;, &quot;DashHtmlComponents&quot;, &quot;DashTable&quot;&#93;&#41;</code></pre>
-<table><tr><th align="left">Julia</th><th align="left">Python</th></tr><tr><td align="left"><code>using Dash</code></td><td align="left"><code>import dash</code></td></tr><tr><td align="left"><code>using DashCoreComponents</code></td><td align="left"><code>import dash_core_components  as dcc</code></td></tr><tr><td align="left"><code>using DashHtmlComponents</code></td><td align="left"><code>import dash_html_components  as html</code></td></tr><tr><td align="left"><code>using DashTable</code></td><td align="left"><code>import dash_table</code></td></tr></table>
+julia&gt; Pkg.add&#40;&#91;&quot;Dash&quot;&#93;&#41; # 昔は DashCoreComponents があったけれど今はいらなくなった</code></pre>
 <hr />
 <h1 id="usage"><a href="#usage" class="header-anchor">Usage</a></h1>
 <ul>
@@ -135,8 +138,6 @@ julia&gt; Pkg.add&#40;&#91;&quot;Dash&quot;, &quot;DashCoreComponents&quot;, &qu
 </ul>
 <pre><code class="language-julia"># sample.jl: Dash.jl の README.md から引用
 using Dash
-using DashCoreComponents
-using DashHtmlComponents
 app &#61; dash&#40;external_stylesheets &#61; &#91;&quot;https://codepen.io/chriddyp/pen/bWLwgP.css&quot;&#93;&#41;
 app.layout &#61; html_div&#40;&#41; do
     html_h1&#40;&quot;Hello Dash&quot;&#41;,
@@ -690,7 +691,7 @@ MyDashComponent.propTypes &#61; &#123;
 <h1 id="おちまい__2"><a href="#おちまい__2" class="header-anchor">おちまい</a></h1>
 <div class="page-foot">
   <div class="copyright">
-    &copy; SatoshiTerasaki. Last modified: 2022年2月17日 木曜日. Website built with 
+    &copy; SatoshiTerasaki. Last modified: 2022年3月5日 土曜日. Website built with 
     <a href="http://github.com/terasakisatoshi/MathSeminar.jl">MathSeminar.jl</a>
     <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
   </div>
