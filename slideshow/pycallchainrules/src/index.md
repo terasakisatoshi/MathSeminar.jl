@@ -201,7 +201,7 @@ for e in 1:args.epochs
                 isnothing(lay) && continue
                 for Δ in lay.params
                     #@show Δ
-                    ps[cnt] .-= Flux.Optimise.apply!(opt, ps, Δ)
+                    ps[cnt] .-= Flux.Optimise.apply!(opt, ps[cnt], Δ)
                     cnt += 1
                 end
             end
