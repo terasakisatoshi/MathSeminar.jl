@@ -410,10 +410,10 @@ Hello, World!</code></pre>
 <li><p><a href="https://github.com/JuliaInterop/CxxWrap.jl">CxxWrap.jl</a> が依存する JLL パッケージ</p>
 </li>
 </ul>
-<pre><code class="console hljs"><span class="hljs-meta"># </span><span class="language-bash">open your terminal</span>
-<span class="hljs-meta">$ </span><span class="language-bash">git <span class="hljs-built_in">clone</span> https://github.com/JuliaInterop/CxxWrap.jl.git</span>
-<span class="hljs-meta">$ </span><span class="language-bash"><span class="hljs-built_in">cd</span> CxxWrap.jl</span>
-<span class="hljs-meta">$ </span><span class="language-bash"><span class="hljs-built_in">cat</span> Project.toml</span>
+<pre><code class="console hljs"><span class="hljs-meta prompt_"># </span><span class="language-bash">open your terminal</span>
+<span class="hljs-meta prompt_">$ </span><span class="language-bash">git <span class="hljs-built_in">clone</span> https://github.com/JuliaInterop/CxxWrap.jl.git</span>
+<span class="hljs-meta prompt_">$ </span><span class="language-bash"><span class="hljs-built_in">cd</span> CxxWrap.jl</span>
+<span class="hljs-meta prompt_">$ </span><span class="language-bash"><span class="hljs-built_in">cat</span> Project.toml</span>
 name = &quot;CxxWrap&quot;
 uuid = &quot;1f15a43c-97ca-5a2a-ae31-89f07a497df4&quot;
 authors = [&quot;Bart Janssens &lt;bart@bartjanssens.org&gt;&quot;]
@@ -423,7 +423,7 @@ version = &quot;0.11.0&quot;
 Libdl = &quot;8f399da3-3557-5675-b5ff-fb832c97cbdb&quot;
 MacroTools = &quot;1914dd2f-81c6-5fcd-8719-6d5c9610ff09&quot;
 libcxxwrap_julia_jll = &quot;3eaa8342-bff7-56a5-9981-c04077f7cee7&quot;</code></pre>
-<pre><code class="console hljs"><span class="hljs-meta">$ </span><span class="language-bash"><span class="hljs-built_in">head</span> -n 15 src/CxxWrap.jl</span>
+<pre><code class="console hljs"><span class="hljs-meta prompt_">$ </span><span class="language-bash"><span class="hljs-built_in">head</span> -n 15 src/CxxWrap.jl</span>
 module CxxWrap
 (中略: omitted)
 using libcxxwrap_julia_jll # for libcxxwrap_julia and libcxxwrap_julia_stl</code></pre>
@@ -507,7 +507,7 @@ julia&gt; BinaryBuilder.run_wizard()</code></pre>
 <li><p>慣習として <code>build_tarball.jl</code> というファイル名で作る.</p>
 </li>
 </ul>
-<pre><code class="console hljs"><span class="hljs-meta">$ </span><span class="language-bash">julia build_tarball.jl --verbose --debug --deploy=<span class="hljs-built_in">local</span></span></code></pre>
+<pre><code class="console hljs"><span class="hljs-meta prompt_">$ </span><span class="language-bash">julia build_tarball.jl --verbose --debug --deploy=<span class="hljs-built_in">local</span></span></code></pre>
 <ul>
 <li><p>このスライドではこちらのケースを扱う.</p>
 </li>
@@ -584,9 +584,9 @@ build_tarballs(<span class="hljs-literal">ARGS</span>, name, version, sources, s
 <li><p>ビルドする対象をコンテナに導入する.</p>
 </li>
 </ul>
-<pre><code class="console hljs"><span class="hljs-meta">$ </span><span class="language-bash">git <span class="hljs-built_in">clone</span> https://github.com/terasakisatoshi/LibHelloBuilder.jl</span>
-<span class="hljs-meta">$ </span><span class="language-bash"><span class="hljs-built_in">cd</span> LibHelloBuilder.jl</span>
-<span class="hljs-meta">$ </span><span class="language-bash">tree helloworld</span>
+<pre><code class="console hljs"><span class="hljs-meta prompt_">$ </span><span class="language-bash">git <span class="hljs-built_in">clone</span> https://github.com/terasakisatoshi/LibHelloBuilder.jl</span>
+<span class="hljs-meta prompt_">$ </span><span class="language-bash"><span class="hljs-built_in">cd</span> LibHelloBuilder.jl</span>
+<span class="hljs-meta prompt_">$ </span><span class="language-bash">tree helloworld</span>
 helloworld
 ├── CMakeLists.txt
 └── hello.cpp</code></pre>
@@ -776,7 +776,7 @@ dependencies = [
 </ul>
 <p><hr /> </p>
 <h1 id="tips__2"><a href="#tips__2" class="header-anchor">Tips</a></h1>
-<pre><code class="console hljs"><span class="hljs-meta">$ </span><span class="language-bash">julia build_tarball.jl --verbose --debug --deploy=<span class="hljs-built_in">local</span></span></code></pre>
+<pre><code class="console hljs"><span class="hljs-meta prompt_">$ </span><span class="language-bash">julia build_tarball.jl --verbose --debug --deploy=<span class="hljs-built_in">local</span></span></code></pre>
 <ul>
 <li><p>BinaryBuilder.jl を初めて利用する時にプラット毎のコンパイラーがダウンロードされる.</p>
 <ul>
@@ -801,7 +801,7 @@ dependencies = [
 </ul>
 <hr />
 <h1 id="tips_--deply_option"><a href="#tips_--deply_option" class="header-anchor">Tips &#40;<code>--deply</code> option&#41;</a></h1>
-<pre><code class="console hljs"><span class="hljs-meta">$ </span><span class="language-bash">julia build_tarball.jl --verbose --debug --deploy=&lt;yourgithubaccountname&gt;/&lt;name&gt;_jll.jl</span></code></pre>
+<pre><code class="console hljs"><span class="hljs-meta prompt_">$ </span><span class="language-bash">julia build_tarball.jl --verbose --debug --deploy=&lt;yourgithubaccountname&gt;/&lt;name&gt;_jll.jl</span></code></pre>
 <ul>
 <li><p>GitHub のリモートリポジトリとして <code>&lt;name&gt;_jll.jl &#40;e.g. libhello_jll.jl&#41;</code> が自動的に作られる.</p>
 <ul>
@@ -903,7 +903,7 @@ dependencies = [
 <h1 id="おちまい"><a href="#おちまい" class="header-anchor">おちまい</a></h1>
 <div class="page-foot">
   <div class="copyright">
-    &copy; SatoshiTerasaki. Last modified: 2022年3月10日 木曜日. Website built with 
+    &copy; SatoshiTerasaki. Last modified: 2022年3月13日 日曜日. Website built with 
     <a href="http://github.com/terasakisatoshi/MathSeminar.jl">MathSeminar.jl</a>
     <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
   </div>
