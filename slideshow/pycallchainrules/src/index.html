@@ -285,7 +285,7 @@ loss(ŷ, y) = Flux.Losses.logitcrossentropy(ŷ, y)
                 isnothing(lay) &amp;&amp; <span class="hljs-keyword">continue</span>
                 <span class="hljs-keyword">for</span> Δ <span class="hljs-keyword">in</span> lay.params
                     <span class="hljs-comment">#@show Δ</span>
-                    ps[cnt] .-= Flux.Optimise.apply!(opt, ps, Δ)
+                    ps[cnt] .-= Flux.Optimise.apply!(opt, ps[cnt], Δ)
                     cnt += <span class="hljs-number">1</span>
                 <span class="hljs-keyword">end</span>
             <span class="hljs-keyword">end</span>

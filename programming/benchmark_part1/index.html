@@ -171,7 +171,7 @@ int main&#40;&#41;
     fclose&#40;fp&#41;;
     return 0;
 &#125;</code></pre></p>
-<p><pre><code class="plaintext code-output">Elapsed time 0.184985 [sec]
+<p><pre><code class="plaintext code-output">Elapsed time 0.156511 [sec]
 </code></pre>
 <p>描画は下記のとおりです。</p>
 <pre><code class="language-julia">using DelimitedFiles
@@ -242,8 +242,8 @@ main&#40;&#41;
 
 using BenchmarkTools
 @btime mand&#40;1250, 1250&#41;;</code></pre>
-<pre><code class="plaintext code-output">t - s = 0.19796204566955566
-  186.750 ms (2 allocations: 1.49 MiB)
+<pre><code class="plaintext code-output">t - s = 0.18886804580688477
+  188.831 ms (2 allocations: 1.49 MiB)
 </code></pre>
 <pre><code class="language-julia">Refpath&#61;&quot;/tmp/benchC.txt&quot;
 Tarpath&#61;&quot;/tmp/benchJ.txt&quot;
@@ -255,7 +255,7 @@ using DelimitedFiles
 img &#61; readdlm&#40;Tarpath,&#39;,&#39;,Int&#41;
 M,N &#61; img |&gt; size
 p &#61; heatmap&#40;1:N,1:M,img,aspect_ratio&#61;1, size&#61;&#40;400, 400&#41;&#41;</code></pre>
-<pre><code class="plaintext code-output">Failed to precompile Plots [91a5bcdd-55d7-5caf-9e0b-520d859cae80] to /root/.julia/compiled/v1.7/Plots/jl_lSmWjf.
+<pre><code class="plaintext code-output">Failed to precompile Plots [91a5bcdd-55d7-5caf-9e0b-520d859cae80] to /root/.julia/compiled/v1.7/Plots/jl_YcXQ0h.
 </code></pre>
 <p><span style="color:red;">// Image matching '/assets/programming/benchmark_part1/code/mandJ.png' not found. //</span></p>
 <div class="page-foot">
