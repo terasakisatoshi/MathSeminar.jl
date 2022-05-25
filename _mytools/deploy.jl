@@ -25,7 +25,8 @@ Remark.slideshow("./slideshow/binarybuilder", options = Dict("ratio" => "16:9"),
 Remark.slideshow("./slideshow/myworkflow", options = Dict("ratio" => "16:9"), title = "MyWorkflow.jl")
 Remark.slideshow("./slideshow/repl", options = Dict("ratio" => "16:9"), title = "Do something great in your REPL")
 Remark.slideshow("./slideshow/intro2julia", options = Dict("ratio" => "16:9"), title = "Intro2Julia")
-Remark.slideshow("./slideshow/pycallchainrules", options = Dict("ratio" => "16:9"), title = "PyCallChainRules")
+Remark.slideshow("./slideshow/pycallchainrules", options = Dict("ratio" => "16:9"), title = "PyCallChainRules.jl")
+Remark.slideshow("./slideshow/replay", options = Dict("ratio" => "16:9"), title = "Replay.jl")
 
 weave(joinpath("./programming", "weave.jmd"), out_path="./programming", doctype="github")
 optimize(minify=false, prepath="MathSeminar.jl", clear=true)
