@@ -111,45 +111,45 @@
 </ul>
 <h3 id="example_1"><a href="#example_1" class="header-anchor">Example 1</a></h3>
 
-<pre><code class="language-julia">using Plots
-using JSON
-plotlyjs&#40;&#41;
+<pre><code class="julia hljs"><span class="hljs-keyword">using</span> Plots
+<span class="hljs-keyword">using</span> JSON
+plotlyjs()
 
-p&#61;plot&#40;rand&#40;15&#41;&#41;
+p=plot(rand(<span class="hljs-number">15</span>))
 
-fdplotly&#40;
-    JSON.json&#40;&#40;
-        layout &#61; Plots.plotly_layout&#40;p&#41;,
-        data &#61; Plots.plotly_series&#40;p&#41;,
-    &#41;&#41;; style &#61; &quot;width:300px;height:200x&quot;,
-&#41;</code></pre>
-Failed to precompile Plots &#91;91a5bcdd-55d7-5caf-9e0b-520d859cae80&#93; to /root/.julia/compiled/v1.7/Plots/jl_iOSjXi.
+fdplotly(
+    JSON.json((
+        layout = Plots.plotly_layout(p),
+        data = Plots.plotly_series(p),
+    )); style = <span class="hljs-string">&quot;width:300px;height:200x&quot;</span>,
+)</code></pre>
+Failed to precompile Plots &#91;91a5bcdd-55d7-5caf-9e0b-520d859cae80&#93; to /root/.julia/compiled/v1.7/Plots/jl_dOixdi.
 <h3 id="example_2"><a href="#example_2" class="header-anchor">Example 2</a></h3>
 <ul>
 <li><p>More complicated example can be executed via the following script:</p>
 </li>
 </ul>
-<pre><code class="language-julia">using Plots
-plotlyjs&#40;&#41;
+<pre><code class="julia hljs"><span class="hljs-keyword">using</span> Plots
+plotlyjs()
 
-r &#61; 2.0
-N &#61; 20
+r = <span class="hljs-number">2.0</span>
+N = <span class="hljs-number">20</span>
 
-φ &#61; range&#40;0.0, 2π, length &#61; N&#41;
-p &#61; plot&#40;&#41;
-for θ in range&#40;0, 2π, length &#61; N&#41;
-    x &#61; @. r * sin&#40;θ&#41; * cos&#40;φ&#41;
-    y &#61; @. r * sin&#40;θ&#41; * sin&#40;φ&#41;
-    z &#61; repeat&#40;&#91;r * cos&#40;θ&#41;&#93;, N&#41;
-    scatter&#33;&#40;p, x, y, z, label &#61; false, color &#61; :blue&#41;
-end
+φ = range(<span class="hljs-number">0.0</span>, <span class="hljs-number">2</span><span class="hljs-literal">π</span>, length = N)
+p = plot()
+<span class="hljs-keyword">for</span> θ <span class="hljs-keyword">in</span> range(<span class="hljs-number">0</span>, <span class="hljs-number">2</span><span class="hljs-literal">π</span>, length = N)
+    x = @. r * sin(θ) * cos(φ)
+    y = @. r * sin(θ) * sin(φ)
+    z = repeat([r * cos(θ)], N)
+    scatter!(p, x, y, z, label = <span class="hljs-literal">false</span>, color = :blue)
+<span class="hljs-keyword">end</span>
 
-fdplotly&#40;JSON.json&#40;&#40;
-    layout &#61; Plots.plotly_layout&#40;p&#41;,
-    data &#61; Plots.plotly_series&#40;p&#41;,
-&#41;&#41;; style &#61; &quot;width:400px;height:300x&quot;,
-&#41;</code></pre>
-Failed to precompile Plots &#91;91a5bcdd-55d7-5caf-9e0b-520d859cae80&#93; to /root/.julia/compiled/v1.7/Plots/jl_283t8h.
+fdplotly(JSON.json((
+    layout = Plots.plotly_layout(p),
+    data = Plots.plotly_series(p),
+)); style = <span class="hljs-string">&quot;width:400px;height:300x&quot;</span>,
+)</code></pre>
+Failed to precompile Plots &#91;91a5bcdd-55d7-5caf-9e0b-520d859cae80&#93; to /root/.julia/compiled/v1.7/Plots/jl_IEdvHf.
 <h2 id="using_custom_function"><a href="#using_custom_function" class="header-anchor">Using custom function</a></h2></p>
 <p>    
 <ul>
@@ -157,66 +157,66 @@ Failed to precompile Plots &#91;91a5bcdd-55d7-5caf-9e0b-520d859cae80&#93; to /ro
 </li>
 </ul>
 <p>By using <code>Plots.js_body</code> function, we can mimic what <code>Franklin.fdplotly</code> does:</p>
-<pre><code class="language-julia">using Random
-function fdplotly&#40;p::Plots.Plot;
-    id&#61;&quot;fdp&quot; * Random.randstring&#40;&#39;a&#39;:&#39;z&#39;, 3&#41;,
-    style &#61; &quot;width:600px;height:350px&quot;&#41;::Nothing
-    b &#61; Plots.js_body&#40;p, id&#41;
-    return nothing
-end</code></pre>
-<pre><code class="plaintext code-output">UndefVarError: Plots not defined
+<pre><code class="julia hljs"><span class="hljs-keyword">using</span> Random
+<span class="hljs-keyword">function</span> fdplotly(p::Plots.Plot;
+    id=<span class="hljs-string">&quot;fdp&quot;</span> * Random.randstring(<span class="hljs-string">&#x27;a&#x27;</span>:<span class="hljs-string">&#x27;z&#x27;</span>, <span class="hljs-number">3</span>),
+    style = <span class="hljs-string">&quot;width:600px;height:350px&quot;</span>)::<span class="hljs-built_in">Nothing</span>
+    b = Plots.js_body(p, id)
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">nothing</span>
+<span class="hljs-keyword">end</span></code></pre>
+<pre><code class="plaintext hljs">UndefVarError: Plots not defined
 </code></pre>
-<pre><code class="language-julia">using Plots
-plotlyjs&#40;&#41;
-p &#61; plot&#40;rand&#40;10&#41;&#41;
-fdplotly&#40;p; style &#61; &quot;width:400px;height:300x&quot;&#41;</code></pre>
-Failed to precompile Plots &#91;91a5bcdd-55d7-5caf-9e0b-520d859cae80&#93; to /root/.julia/compiled/v1.7/Plots/jl_PDofvj.
-<pre><code class="language-julia">using Plots
-plotlyjs&#40;&#41;
+<pre><code class="julia hljs"><span class="hljs-keyword">using</span> Plots
+plotlyjs()
+p = plot(rand(<span class="hljs-number">10</span>))
+fdplotly(p; style = <span class="hljs-string">&quot;width:400px;height:300x&quot;</span>)</code></pre>
+Failed to precompile Plots &#91;91a5bcdd-55d7-5caf-9e0b-520d859cae80&#93; to /root/.julia/compiled/v1.7/Plots/jl_oAqYog.
+<pre><code class="julia hljs"><span class="hljs-keyword">using</span> Plots
+plotlyjs()
 
-r &#61; 3.0
-N &#61; 20
+r = <span class="hljs-number">3.0</span>
+N = <span class="hljs-number">20</span>
 
-φ &#61; range&#40;0.0, 2π, length &#61; N&#41;
-p &#61; plot&#40;&#41;
-for θ in range&#40;0, 2π, length &#61; N&#41;
-    x &#61; @. r * sin&#40;θ&#41; * cos&#40;φ&#41;
-    y &#61; @. r * sin&#40;θ&#41; * sin&#40;φ&#41;
-    z &#61; repeat&#40;&#91;r * cos&#40;θ&#41;&#93;, N&#41;
-    scatter&#33;&#40;p, x, y, z, label &#61; false, color &#61; :green&#41;
-end
+φ = range(<span class="hljs-number">0.0</span>, <span class="hljs-number">2</span><span class="hljs-literal">π</span>, length = N)
+p = plot()
+<span class="hljs-keyword">for</span> θ <span class="hljs-keyword">in</span> range(<span class="hljs-number">0</span>, <span class="hljs-number">2</span><span class="hljs-literal">π</span>, length = N)
+    x = @. r * sin(θ) * cos(φ)
+    y = @. r * sin(θ) * sin(φ)
+    z = repeat([r * cos(θ)], N)
+    scatter!(p, x, y, z, label = <span class="hljs-literal">false</span>, color = :green)
+<span class="hljs-keyword">end</span>
 
-fdplotly&#40;p; style &#61; &quot;width:400px;height:300x&quot;&#41;</code></pre>
-Failed to precompile Plots &#91;91a5bcdd-55d7-5caf-9e0b-520d859cae80&#93; to /root/.julia/compiled/v1.7/Plots/jl_jiUesg.
+fdplotly(p; style = <span class="hljs-string">&quot;width:400px;height:300x&quot;</span>)</code></pre>
+Failed to precompile Plots &#91;91a5bcdd-55d7-5caf-9e0b-520d859cae80&#93; to /root/.julia/compiled/v1.7/Plots/jl_lQwd1e.
 <h3 id="example_torus"><a href="#example_torus" class="header-anchor">Example: Torus</a></h3>
-<pre><code class="language-julia">using Plots
-plotlyjs&#40;&#41;
+<pre><code class="julia hljs"><span class="hljs-keyword">using</span> Plots
+plotlyjs()
 
-a&#61;3.
+a=<span class="hljs-number">3.</span>
 
-p &#61; plot3d&#40;&#41;
-N &#61; 45
-u &#61; range&#40;0,2π,length&#61;N&#41;
-for t in range&#40;0,2π,length&#61;N&#41;
-    x &#61; @. cos&#40;t&#41; * &#40;a &#43; cos&#40;u&#41;&#41;
-    y &#61; @. sin&#40;t&#41; * &#40;a &#43; cos&#40;u&#41;&#41;
-    z &#61; @. sin&#40;u&#41;
-    plot3d&#33;&#40;p, x, y, z, color&#61;:blue, legend&#61;false&#41;
-end
+p = plot3d()
+N = <span class="hljs-number">45</span>
+u = range(<span class="hljs-number">0</span>,<span class="hljs-number">2</span><span class="hljs-literal">π</span>,length=N)
+<span class="hljs-keyword">for</span> t <span class="hljs-keyword">in</span> range(<span class="hljs-number">0</span>,<span class="hljs-number">2</span><span class="hljs-literal">π</span>,length=N)
+    x = @. cos(t) * (a + cos(u))
+    y = @. sin(t) * (a + cos(u))
+    z = @. sin(u)
+    plot3d!(p, x, y, z, color=:blue, legend=<span class="hljs-literal">false</span>)
+<span class="hljs-keyword">end</span>
 
-t&#61;range&#40;0,2π,length&#61;N&#41;
-for u in range&#40;0,2π,length&#61;N&#41;
-    x &#61; @. cos&#40;t&#41; * &#40;a &#43; cos&#40;u&#41;&#41;
-    y &#61; @. sin&#40;t&#41; * &#40;a &#43; cos&#40;u&#41;&#41;
-    z &#61; sin&#40;u&#41; * ones&#40;length&#40;x&#41;&#41;
-    plot3d&#33;&#40;p, x, y, z, color&#61;:blue, legend&#61;false&#41;
-end
+t=range(<span class="hljs-number">0</span>,<span class="hljs-number">2</span><span class="hljs-literal">π</span>,length=N)
+<span class="hljs-keyword">for</span> u <span class="hljs-keyword">in</span> range(<span class="hljs-number">0</span>,<span class="hljs-number">2</span><span class="hljs-literal">π</span>,length=N)
+    x = @. cos(t) * (a + cos(u))
+    y = @. sin(t) * (a + cos(u))
+    z = sin(u) * ones(length(x))
+    plot3d!(p, x, y, z, color=:blue, legend=<span class="hljs-literal">false</span>)
+<span class="hljs-keyword">end</span>
 
-fdplotly&#40;p&#41;</code></pre>
-Failed to precompile Plots &#91;91a5bcdd-55d7-5caf-9e0b-520d859cae80&#93; to /root/.julia/compiled/v1.7/Plots/jl_b7Yscj.
+fdplotly(p)</code></pre>
+Failed to precompile Plots &#91;91a5bcdd-55d7-5caf-9e0b-520d859cae80&#93; to /root/.julia/compiled/v1.7/Plots/jl_1lL3Fg.
 <div class="page-foot">
   <div class="copyright">
-    &copy; SatoshiTerasaki. Last modified: 2022年3月13日 日曜日. Website built with 
+    &copy; SatoshiTerasaki. Last modified: 2022年5月25日 水曜日. Website built with 
     <a href="http://github.com/terasakisatoshi/MathSeminar.jl">MathSeminar.jl</a>
     <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
   </div>
@@ -226,14 +226,14 @@ Failed to precompile Plots &#91;91a5bcdd-55d7-5caf-9e0b-520d859cae80&#93; to /ro
   <script src="/MathSeminar.jl/libs/vela/metisMenu.min.js"></script>
   <script src="/MathSeminar.jl/libs/vela/slideout.min.js"></script>
   
-    <script src="/MathSeminar.jl/libs/katex/katex.min.js"></script>
-<script src="/MathSeminar.jl/libs/katex/auto-render.min.js"></script>
-<script>renderMathInElement(document.body)</script>
+    
+
+
 
   
   
-    <script src="/MathSeminar.jl/libs/highlight/highlight.pack.js"></script>
-<script>hljs.initHighlightingOnLoad();hljs.configure({tabReplace: '    '});</script>
+    
+
 
   
 </body>

@@ -9,55 +9,55 @@ Status: Downloaded newer image for julia:1.7.1
  ---> b52af45de9c2
 Step 2/19 : RUN apt-get update &&     apt-get install -y     build-essential     cmake     curl     ca-certificates     xvfb     dvipng     texlive-latex-recommended      zip     libxt6 libxrender1 libxext6 libgl1-mesa-glx libqt5widgets5 # GR &&     apt-get clean && rm -rf /var/lib/apt/lists/* # clean up
  ---> Using cache
- ---> 188c0347e3f8
+ ---> da82ce123802
 Step 3/19 : RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
  ---> Using cache
- ---> d049174d204f
+ ---> 0b3e369c36f3
 Step 4/19 : ENV PATH /root/.cargo/bin:$PATH
  ---> Using cache
- ---> d9f07494d841
+ ---> a66d551bc46b
 Step 5/19 : ENV GKSwstype=100
  ---> Using cache
- ---> 07195e4b108a
+ ---> 7a914e4d4d7e
 Step 6/19 : ENV JULIA_NUM_THREADS=8
  ---> Using cache
- ---> 21ee9bc56dee
+ ---> 9235d0c67fc9
 Step 7/19 : RUN mkdir -p ${HOME}/.julia/config &&     echo 'ENV["R_HOME"]="*" \nENV["PYTHON"]="" \n' >> ${HOME}/.julia/config/startup.jl && cat ${HOME}/.julia/config/startup.jl
  ---> Using cache
- ---> 9101ebe497f7
+ ---> 13b328d7044c
 Step 8/19 : RUN julia -e 'using Pkg; Pkg.add(["PyCall", "Conda"]); using PyCall, Conda;using Conda; Conda.add(["matplotlib", "sympy", "numpy", "numba" ]); Pkg.add(["Documenter", "Literate", "Weave", "Franklin", "NodeJS", "Remark"]); '
  ---> Using cache
- ---> a748d3a8bc0f
+ ---> 32729e93aaf8
 Step 9/19 : RUN julia -e "using NodeJS; run(\`\$(npm_cmd()) install highlight.js\`); using Franklin"
  ---> Using cache
- ---> 4b8cee911d6f
+ ---> 152fb4f9b213
 Step 10/19 : ENV PATH /root/.julia/conda/3/bin:$PATH
  ---> Using cache
- ---> c1b785e626e1
+ ---> b591c5c974eb
 Step 11/19 : RUN	conda install r-base &&     julia -e 'using Pkg; pkg"add RCall"; Pkg.build("RCall"); using RCall'
  ---> Using cache
- ---> 473eb3962f1b
+ ---> 17f6fa6738e7
 Step 12/19 : WORKDIR /work
  ---> Using cache
- ---> a4b3547a7bdc
+ ---> a71d5ae81840
 Step 13/19 : ENV JULIA_PROJECT=/work
  ---> Using cache
- ---> e74e6f8f4ca9
+ ---> 5d90a8d0fe18
 Step 14/19 : RUN julia -e 'using Pkg; Pkg.add([    PackageSpec(name="Franklin"),     PackageSpec(name="Revise"),     PackageSpec(name="Plots"),     PackageSpec(name="GR"),     PackageSpec(name="SymPy"),     PackageSpec(name="PyPlot"),     PackageSpec(name="ImageIO"),     PackageSpec(name="TestImages"),     PackageSpec(name="ImageMagick"), ]); Pkg.pin(["Franklin", "Revise", "Plots", "GR", "SymPy", "PyPlot", "ImageIO", "TestImages"]); using PyPlot, SymPy, TestImages ; testimage("c"); testimage("m"); '
  ---> Using cache
- ---> cf74677c657a
+ ---> 7223de55c610
 Step 15/19 : COPY Project.toml /work
  ---> Using cache
- ---> 54c303fb2903
+ ---> e36ff4a33467
 Step 16/19 : COPY ./src/MyUtils.jl /work/src/MyUtils.jl
  ---> Using cache
- ---> 82aa7d731b8b
+ ---> 194c4ad2587f
 Step 17/19 : RUN rm -f /work/Manifest.toml && julia --project=/work -e 'using Pkg; Pkg.instantiate(); Pkg.precompile()' && julia -e 'using InteractiveUtils; versioninfo()'
  ---> Using cache
- ---> 8b5e31b61cd4
+ ---> 13a92e640ad3
 Step 18/19 : EXPOSE 8000
  ---> Using cache
- ---> 17b9344d768c
+ ---> 63fcde4500d7
 Step 19/19 : CMD ["julia"]
  ---> Using cache
  ---> 1f94f933eca6

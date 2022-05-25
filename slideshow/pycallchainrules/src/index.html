@@ -333,19 +333,26 @@ cnt = <span class="hljs-number">1</span>
 <ul>
 <li><p>割り切って Torch だけで書くというのはアリ？</p>
 </li>
-<li><p>forward 計算はできるけれど Flux.gradient のインターフェースの統一が不十分.</p>
+<li><p>~~forward 計算はできるけれど Flux.gradient のインターフェースの統一が不十分.~~</p>
+<ul>
+<li><p>こちらの<a href="https://github.com/rejuvyesh/PyCallChainRules.jl/blob/main/examples/simpleflux/train_ml_mix_explicit.jl">問題は解決されました</a>．</p>
 </li>
-<li><p>ゆーて PyCallChainRules は v0.3.0 なので今後に期待.</p>
+</ul>
+</li>
+<li><p>ゆーて PyCallChainRules は v0.3.x なので今後に期待.</p>
+</li>
+<li><p>実用に向けてIssueで議論が行われている．</p>
 </li>
 </ul>
 </li>
 </ul>
+<hr />
 <h1 id="appendix"><a href="#appendix" class="header-anchor">Appendix</a></h1>
 <p>コードはここに置いておきます.</p>
 <p>https://github.com/terasakisatoshi/PCRP.jl</p>
 <div class="page-foot">
   <div class="copyright">
-    &copy; SatoshiTerasaki. Last modified: 2022年3月13日 日曜日. Website built with 
+    &copy; SatoshiTerasaki. Last modified: 2022年5月25日 水曜日. Website built with 
     <a href="http://github.com/terasakisatoshi/MathSeminar.jl">MathSeminar.jl</a>
     <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
   </div>

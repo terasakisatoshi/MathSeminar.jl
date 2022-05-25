@@ -97,32 +97,32 @@
 <div class="franklin-content"><h1 id="c_のコードの実行結果を表示"><a href="#c_のコードの実行結果を表示" class="header-anchor">C のコードの実行結果を表示</a></h1></p>
 <p>      
   </p>
-<p><div class="colorblock"><strong>Proposition</strong> 7.0.1 &#40;ソースコードの表示&#41; <br/>  つぎのように C のコードを貼り付けることができる.</div>
+<p><div class="colorblock"><strong>Proposition</strong> 6.0.1 &#40;ソースコードの表示&#41; <br/>  つぎのように C のコードを貼り付けることができる.</div>
 </p>
-<p><pre><code class="language-c">#include &lt;stdio.h&gt;
-int main&#40;&#41;&#123;
-    printf&#40;&quot;Hello Goma\n&quot;&#41;;
-    return 0;
-&#125;</code></pre>
+<p><pre><code class="c hljs"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span>
+<span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span>{
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Hello Goma\n&quot;</span>);
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}</code></pre>
 <ul>
 <li><p>ただし，環境によっては <code>include</code> の周りの <code>&lt;</code> と <code>&gt;</code> が表示されないことがある．これは <code>&lt;</code> をマークダウンにおけるコメントと解釈してしまうためである．</p>
 </li>
 </ul>
-<pre><code class="language-julia">using Markdown
-Markdown.htmlesc&#40;raw&quot;&quot;&quot;youccode&quot;&quot;&quot;&#41;</code></pre>
+<pre><code class="julia hljs"><span class="hljs-keyword">using</span> Markdown
+Markdown.htmlesc(<span class="hljs-string">raw&quot;&quot;&quot;youccode&quot;&quot;&quot;</span>)</code></pre>
 <p>をしておくと回避できる場合がある. ただし，この場合だと GitHub Actions でページをビルドした場合, コードがめちゃくちゃに表示されることがわかっている．折半案は <code>&quot;stdio.h&quot;</code> のように二重引用符で表現することである.</p>
 </p>
-<p><pre><code class="language-c">#include &quot;stdio.h&quot;
-int main&#40;&#41;&#123;
-    printf&#40;&quot;Hello World\n&quot;&#41;;
-    return 0;
-&#125;</code></pre></p>
-<p><pre><code class="plaintext code-output">Hello World
+<p><pre><code class="c hljs"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;stdio.h&quot;</span></span>
+<span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span>{
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Hello World\n&quot;</span>);
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}</code></pre></p>
+<p><pre><code class="plaintext hljs">Hello World
 </code></pre>
 <div class="remark">&#40;Cのコードのハイライト&#41;     <a href="https://highlightjs.org/download/">Getting hightlight.js</a>　から ハイライトしたい言語を選択した後 <code>highlight.pack.js</code> を <code>_lib/hightlight</code> にコピーする. もともと <code>_lib/highlight/highlight.pack.js</code> が配置されているが、Julia,Python,R、Markdownのみをハイライトするようになっている。</div>
 <div class="page-foot">
   <div class="copyright">
-    &copy; SatoshiTerasaki. Last modified: 2022年3月13日 日曜日. Website built with 
+    &copy; SatoshiTerasaki. Last modified: 2022年5月25日 水曜日. Website built with 
     <a href="http://github.com/terasakisatoshi/MathSeminar.jl">MathSeminar.jl</a>
     <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
   </div>
@@ -133,8 +133,8 @@ int main&#40;&#41;&#123;
   <script src="/MathSeminar.jl/libs/vela/slideout.min.js"></script>
   
   
-    <script src="/MathSeminar.jl/libs/highlight/highlight.pack.js"></script>
-<script>hljs.initHighlightingOnLoad();hljs.configure({tabReplace: '    '});</script>
+    
+
 
   
 </body>

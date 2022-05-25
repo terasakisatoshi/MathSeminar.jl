@@ -95,7 +95,7 @@
 
 
 <!-- Content appended here -->
-<div class="franklin-content"><p>Last Modified: 2022年3月13日 日曜日 <div class="franklin-toc"><ol><li><a href="#about_this_page">About this page</a><ol><li><a href="#before_reading">Before reading</a></li><li><a href="#check_julia_version">Check Julia version</a></li></ol></li><li><a href="#introduction_to_franklin">Introduction to Franklin</a></li><li><a href="#newcommand_によるタイピングの簡略化"><code>newcommand</code> によるタイピングの簡略化</a></li><li><a href="#グラフの描画">グラフの描画</a><ol><li><a href="#pyplot">PyPlot</a></li><li><a href="#plots_gr_backend">Plots &#40;GR Backend&#41;</a></li><li><a href="#plots_pyplot_backend">Plots &#40;PyPlot Backend&#41;</a></li></ol></li><li><a href="#python_のコードの実行結果の表示">Python のコードの実行結果の表示</a></li><li><a href="#c_のコードの実行結果を表示">C のコードの実行結果を表示</a></li><li><a href="#コードの挿入">コードの挿入</a></li></ol></div> </p>
+<div class="franklin-content"><p>Last Modified: 2022年5月25日 水曜日 <div class="franklin-toc"><ol><li><a href="#about_this_page">About this page</a><ol><li><a href="#before_reading">Before reading</a></li><li><a href="#check_julia_version">Check Julia version</a></li></ol></li><li><a href="#introduction_to_franklin">Introduction to Franklin</a></li><li><a href="#newcommand_によるタイピングの簡略化"><code>newcommand</code> によるタイピングの簡略化</a></li><li><a href="#グラフの描画">グラフの描画</a><ol><li><a href="#pyplot">PyPlot</a></li><li><a href="#plots_gr_backend">Plots &#40;GR Backend&#41;</a></li><li><a href="#plots_pyplot_backend">Plots &#40;PyPlot Backend&#41;</a></li></ol></li><li><a href="#python_のコードの実行結果の表示">Python のコードの実行結果の表示</a></li><li><a href="#c_のコードの実行結果を表示">C のコードの実行結果を表示</a></li><li><a href="#コードの挿入">コードの挿入</a></li></ol></div> </p>
 <p> <h1 id="about_this_page"><a href="#about_this_page" class="header-anchor">About this page</a></h1></p>
 <p>      </p>
 
@@ -124,16 +124,16 @@
 </ul></div>
 <h2 id="check_julia_version"><a href="#check_julia_version" class="header-anchor">Check Julia version</a></h2></p>
 <p>    
-<pre><code class="language-julia">using InteractiveUtils
-versioninfo&#40;&#41;</code></pre>
-<pre><code class="plaintext code-output">Julia Version 1.7.1
+<pre><code class="julia hljs"><span class="hljs-keyword">using</span> InteractiveUtils
+versioninfo()</code></pre>
+<pre><code class="plaintext hljs">Julia Version 1.7.1
 Commit ac5cc99908 (2021-12-22 19:35 UTC)
 Platform Info:
   OS: Linux (x86_64-pc-linux-gnu)
-  CPU: Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz
+  CPU: Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz
   WORD_SIZE: 64
   LIBM: libopenlibm
-  LLVM: libLLVM-12.0.1 (ORCJIT, skylake-avx512)
+  LLVM: libLLVM-12.0.1 (ORCJIT, haswell)
 Environment:
   JULIA_PATH = /usr/local/julia
   JULIA_GPG = 3673DF529D9049477F76B37566E3C7DC03D6E495
@@ -160,163 +160,163 @@ Environment:
 </li>
 </ul></div>
   </p>
-<p><div class="colorblock"><p><strong>Example</strong> 2.0.3 &#40;事後分布の定義&#41; <br/>  真の分布 \(q(x)\) に従う \(n\) 個の確率変数の組 \(X^n = (X_1,\dots,X_n)\), パラメータ \(w \in W \subset \mathbb R^d\) を持つ確率モデル \(p(x|w)\), パラメータの事前分布 \(\varphi(w)\) から定まる逆温度 \(\beta\) 付きの \(w\) の事後分布 \(p(w|X^n)\) を次で定義する:</p>
-\[
+<p><div class="colorblock"><p><strong>Example</strong> 2.0.3 &#40;事後分布の定義&#41; <br/>  真の分布 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">q(x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">q</span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mclose">)</span></span></span></span> に従う <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span> 個の確率変数の組 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>X</mi><mi>n</mi></msup><mo>=</mo><mo stretchy="false">(</mo><msub><mi>X</mi><mn>1</mn></msub><mo separator="true">,</mo><mo>…</mo><mo separator="true">,</mo><msub><mi>X</mi><mi>n</mi></msub><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">X^n = (X_1,\dots,X_n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07847em;">X</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07847em;">X</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.07847em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="minner">…</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07847em;">X</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.07847em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span>, パラメータ <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>w</mi><mo>∈</mo><mi>W</mi><mo>⊂</mo><msup><mi mathvariant="double-struck">R</mi><mi>d</mi></msup></mrow><annotation encoding="application/x-tex">w \in W \subset \mathbb R^d</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mord mathdefault" style="margin-right:0.02691em;">w</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.72243em;vertical-align:-0.0391em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">W</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">⊂</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.849108em;vertical-align:0em;"></span><span class="mord"><span class="mord mathbb">R</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.849108em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">d</span></span></span></span></span></span></span></span></span></span></span> を持つ確率モデル <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo stretchy="false">(</mo><mi>x</mi><mi mathvariant="normal">∣</mi><mi>w</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">p(x|w)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">p</span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mord">∣</span><span class="mord mathdefault" style="margin-right:0.02691em;">w</span><span class="mclose">)</span></span></span></span>, パラメータの事前分布 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>φ</mi><mo stretchy="false">(</mo><mi>w</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\varphi(w)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">φ</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.02691em;">w</span><span class="mclose">)</span></span></span></span> から定まる逆温度 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>β</mi></mrow><annotation encoding="application/x-tex">\beta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.05278em;">β</span></span></span></span> 付きの <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>w</mi></mrow><annotation encoding="application/x-tex">w</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02691em;">w</span></span></span></span> の事後分布 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo stretchy="false">(</mo><mi>w</mi><mi mathvariant="normal">∣</mi><msup><mi>X</mi><mi>n</mi></msup><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">p(w|X^n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">p</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.02691em;">w</span><span class="mord">∣</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07847em;">X</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span> を次で定義する:</p>
+<span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo stretchy="false">(</mo><mi>w</mi><mi mathvariant="normal">∣</mi><msup><mi>X</mi><mi>n</mi></msup><mo stretchy="false">)</mo><mo>=</mo><mfrac><mstyle scriptlevel="0" displaystyle="true"><munderover><mo>∏</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><mi>p</mi><mo stretchy="false">(</mo><msub><mi>X</mi><mi>i</mi></msub><mi mathvariant="normal">∣</mi><mi>w</mi><msup><mo stretchy="false">)</mo><mi>β</mi></msup><mi>φ</mi><mo stretchy="false">(</mo><mi>w</mi><mo stretchy="false">)</mo></mstyle><mrow><msub><mi>Z</mi><mi>n</mi></msub><mo stretchy="false">(</mo><mi>β</mi><mo stretchy="false">)</mo></mrow></mfrac><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">
 p(w|X^n) = \frac{\displaystyle\prod_{i=1}^n p(X_i|w)^\beta \varphi(w)}{Z_n(\beta)}.
-\]
-<p>ここで \(Z_n(\beta)\) は \(p(w|X^n)\) の事後分布の正規化定数であり具体的には下記のように定義する:</p>
-\[
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">p</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.02691em;">w</span><span class="mord">∣</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07847em;">X</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7143919999999999em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:4.255066em;vertical-align:-0.936em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:3.3190660000000003em;"><span style="top:-2.9653970000000003em;"><span class="pstrut" style="height:3.6513970000000002em;"></span><span class="mord"><span class="mord"><span class="mord mathdefault" style="margin-right:0.07153em;">Z</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.05278em;">β</span><span class="mclose">)</span></span></span><span style="top:-3.881397em;"><span class="pstrut" style="height:3.6513970000000002em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-5.319066000000001em;"><span class="pstrut" style="height:3.6513970000000002em;"></span><span class="mord"><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.6513970000000002em;"><span style="top:-1.872331em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.050005em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∏</span></span></span><span style="top:-4.3000050000000005em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.277669em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">p</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07847em;">X</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.07847em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord">∣</span><span class="mord mathdefault" style="margin-right:0.02691em;">w</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8991079999999999em;"><span style="top:-3.1130000000000004em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.05278em;">β</span></span></span></span></span></span></span></span><span class="mord mathdefault">φ</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.02691em;">w</span><span class="mclose">)</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.936em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mord">.</span></span></span></span></span>
+<p>ここで <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Z</mi><mi>n</mi></msub><mo stretchy="false">(</mo><mi>β</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">Z_n(\beta)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07153em;">Z</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.05278em;">β</span><span class="mclose">)</span></span></span></span> は <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo stretchy="false">(</mo><mi>w</mi><mi mathvariant="normal">∣</mi><msup><mi>X</mi><mi>n</mi></msup><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">p(w|X^n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">p</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.02691em;">w</span><span class="mord">∣</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07847em;">X</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span> の事後分布の正規化定数であり具体的には下記のように定義する:</p>
+<span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Z</mi><mi>n</mi></msub><mo stretchy="false">(</mo><mi>β</mi><mo stretchy="false">)</mo><mo>=</mo><msub><mo>∫</mo><mi>W</mi></msub><munderover><mo>∏</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><mi>p</mi><mo stretchy="false">(</mo><msub><mi>X</mi><mi>i</mi></msub><mi mathvariant="normal">∣</mi><mi>w</mi><msup><mo stretchy="false">)</mo><mi>β</mi></msup><mi>φ</mi><mo stretchy="false">(</mo><mi>w</mi><mo stretchy="false">)</mo><mi>d</mi><mi>w</mi><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">
 Z_n(\beta) = \int_W \prod_{i=1}^n p(X_i|w)^\beta \varphi(w) dw .
-\]</div>
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07153em;">Z</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.05278em;">β</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.929066em;vertical-align:-1.277669em;"></span><span class="mop"><span class="mop op-symbol large-op" style="margin-right:0.44445em;position:relative;top:-0.0011249999999999316em;">∫</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:-0.433619em;"><span style="top:-1.7880500000000001em;margin-left:-0.44445em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.13889em;">W</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.9119499999999999em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.6513970000000002em;"><span style="top:-1.872331em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.050005em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∏</span></span></span><span style="top:-4.3000050000000005em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.277669em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">p</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07847em;">X</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.07847em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord">∣</span><span class="mord mathdefault" style="margin-right:0.02691em;">w</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8991079999999999em;"><span style="top:-3.1130000000000004em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.05278em;">β</span></span></span></span></span></span></span></span><span class="mord mathdefault">φ</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.02691em;">w</span><span class="mclose">)</span><span class="mord mathdefault">d</span><span class="mord mathdefault" style="margin-right:0.02691em;">w</span><span class="mord">.</span></span></span></span></span></div>
   </p>
 <p><div class="colorblock"><strong>Lemma</strong> 2.0.4  <br/>  次のようにJuliaのコードを記述することができる:</div>
 <div class="proof"><p><br/> </p>
-<pre><code class="language-julia">x &#61; 3.141592
-y &#61; sin&#40;x&#41;
-@show y</code></pre>
-<p>このとき, <code>y</code> の値は評価され次の出力を得ることができる: <pre><code class="plaintext code-output">y = 6.535897930762419e-7
+<pre><code class="julia hljs">x = <span class="hljs-number">3.141592</span>
+y = sin(x)
+<span class="hljs-meta">@show</span> y</code></pre>
+<p>このとき, <code>y</code> の値は評価され次の出力を得ることができる: <pre><code class="plaintext hljs">y = 6.535897930762419e-7
 </code></pre></p></div></p>
 <p><br/> 
   </p>
 <p><div class="colorblock"><strong>Remark</strong> 2.0.5 &#40;通し番号について&#41; <br/>  通し番号は Franklin ではデフォルトでサポートしていない. CSS でカウンタを定義しておく必要がある．</div>
 <h1 id="newcommand_によるタイピングの簡略化"><a href="#newcommand_によるタイピングの簡略化" class="header-anchor"><code>newcommand</code> によるタイピングの簡略化</a></h1></p>
 <p>      
-<p><code>config.md</code> は文章を記述する上での設定を記述するために用いる. \(\LaTeX\) の <code>\newcommand</code> と同様に数式を記述するコマンドを簡略化できる.</p>
+<p><code>config.md</code> は文章を記述する上での設定を記述するために用いる. <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>LaTeX</mtext></mrow><annotation encoding="application/x-tex">\LaTeX</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.89883em;vertical-align:-0.2155em;"></span><span class="mord text"><span class="mord textrm">L</span><span class="mspace" style="margin-right:-0.36em;"></span><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.68333em;"><span style="top:-2.904999em;"><span class="pstrut" style="height:2.7em;"></span><span class="mord"><span class="mord textrm mtight sizing reset-size6 size3">A</span></span></span></span></span></span><span class="mspace" style="margin-right:-0.15em;"></span><span class="mord text"><span class="mord textrm">T</span><span class="mspace" style="margin-right:-0.1667em;"></span><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.46782999999999997em;"><span style="top:-2.7845em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord textrm">E</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2155em;"><span></span></span></span></span><span class="mspace" style="margin-right:-0.125em;"></span><span class="mord textrm">X</span></span></span></span></span></span> の <code>\newcommand</code> と同様に数式を記述するコマンドを簡略化できる.</p>
   </p>
-<p><div class="colorblock"><p><strong>Example</strong> 3.0.1 &#40;\(\mathbb{R}\) の例&#41; <br/> <code>config.md</code> に次を追加しておく:</p>
-<pre><code class="language-julia">\newcommand&#123;\R&#125;&#123;\mathbb R&#125;</code></pre>
-<p>これで <code>\R</code> で \(\mathbb R\) を表記できる.</p></div>
+<p><div class="colorblock"><p><strong>Example</strong> 3.0.1 &#40;<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="double-struck">R</mi></mrow><annotation encoding="application/x-tex">\mathbb{R}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68889em;vertical-align:0em;"></span><span class="mord"><span class="mord mathbb">R</span></span></span></span></span> の例&#41; <br/> <code>config.md</code> に次を追加しておく:</p>
+<pre><code class="julia hljs">\newcommand{\R}{\mathbb R}</code></pre>
+<p>これで <code>\R</code> で <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="double-struck">R</mi></mrow><annotation encoding="application/x-tex">\mathbb R</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68889em;vertical-align:0em;"></span><span class="mord mathbb">R</span></span></span></span> を表記できる.</p></div>
 <h1 id="グラフの描画"><a href="#グラフの描画" class="header-anchor">グラフの描画</a></h1></p>
 <p>      
 <p><code>PyPlot</code>, <code>gr,pyplot,plotlyjs</code> をバックエンドとする <code>Plots.jl</code>, <code>PlotlyJS.jl</code> を用いた場合で確認している.</p>
 <h2 id="pyplot"><a href="#pyplot" class="header-anchor">PyPlot</a></h2>
-<pre><code class="language-julia">import PyPlot
-PyPlot.figure&#40;figsize&#61;&#40;8, 6&#41;&#41;
-x &#61; range&#40;-2, 2, length&#61;500&#41;
-for α in 1:5
-    PyPlot.plot&#40;x, sinc.&#40;α .* x&#41;&#41;
-end</code></pre>
+<pre><code class="julia hljs"><span class="hljs-keyword">import</span> PyPlot
+PyPlot.figure(figsize=(<span class="hljs-number">8</span>, <span class="hljs-number">6</span>))
+x = range(-<span class="hljs-number">2</span>, <span class="hljs-number">2</span>, length=<span class="hljs-number">500</span>)
+<span class="hljs-keyword">for</span> α <span class="hljs-keyword">in</span> <span class="hljs-number">1</span>:<span class="hljs-number">5</span>
+    PyPlot.plot(x, sinc.(α .* x))
+<span class="hljs-keyword">end</span></code></pre>
 <p><span style="color:red;">// Image matching '/assets/index/code/sinc' not found. //</span></p>
 <h2 id="plots_gr_backend"><a href="#plots_gr_backend" class="header-anchor">Plots &#40;GR Backend&#41;</a></h2>
-<pre><code class="language-julia">using Plots
-gr&#40;&#41;
-using LaTeXStrings
-Plots.plot&#40;rand&#40;10&#41;, title&#61;L&quot;\alpha&quot;, xlabel&#61;L&quot;x&quot;, ylabel&#61;L&quot;y&quot;&#41;</code></pre>
+<pre><code class="julia hljs"><span class="hljs-keyword">using</span> Plots
+gr()
+<span class="hljs-keyword">using</span> LaTeXStrings
+Plots.plot(rand(<span class="hljs-number">10</span>), title=<span class="hljs-string">L&quot;\alpha&quot;</span>, xlabel=<span class="hljs-string">L&quot;x&quot;</span>, ylabel=<span class="hljs-string">L&quot;y&quot;</span>)</code></pre>
 <p><span style="color:red;">// Image matching '/assets/index/code/grplot' not found. //</span></p>
 <h2 id="plots_pyplot_backend"><a href="#plots_pyplot_backend" class="header-anchor">Plots &#40;PyPlot Backend&#41;</a></h2>
-<pre><code class="language-julia">using Plots
-pyplot&#40;&#41;
-Plots.plot&#40;sin, title&#61;L&quot;y&#61;\sin x&quot;&#41;
-gr&#40;&#41;</code></pre>
+<pre><code class="julia hljs"><span class="hljs-keyword">using</span> Plots
+pyplot()
+Plots.plot(sin, title=<span class="hljs-string">L&quot;y=\sin x&quot;</span>)
+gr()</code></pre>
 <p><span style="color:red;">// Image matching '/assets/index/code/pyplotbkend' not found. //</span></p>
   </p>
 <p><div class="colorblock"><strong>Remark</strong> 4.0.1 &#40;Plotly/PlotlyJS について&#41; <br/> <code>Plotly</code>, または <code>PlotlyJS</code> による例はサイドメニューのページを参照</div>
 <h1 id="python_のコードの実行結果の表示"><a href="#python_のコードの実行結果の表示" class="header-anchor">Python のコードの実行結果の表示</a></h1></p>
 <p>      
 <p><code>config.md</code> のコマンドを定義しておく.</p>
-<pre><code class="language-plaintext">\newcommand&#123;\pycode&#125;&#91;2&#93;&#123;
-&#96;&#96;&#96;julia:&#33;#1
+<pre><code class="plaintext hljs">\newcommand{\pycode}[2]{
+```julia:!#1
 #hideall
 using PyCall
-lines &#61; replace&#40;&quot;&quot;&quot;&#33;#2&quot;&quot;&quot;, r&quot;&#40;^|\n&#41;&#40;&#91;^\n&#93;&#43;&#41;\n?&#36;&quot; &#61;&gt; s&quot;\1res &#61; \2&quot;&#41;
+lines = replace(&quot;&quot;&quot;!#2&quot;&quot;&quot;, r&quot;(^|\n)([^\n]+)\n?$&quot; =&gt; s&quot;\1res = \2&quot;)
 py&quot;&quot;&quot;
-&#36;&#36;lines
+$$lines
 &quot;&quot;&quot;
-println&#40;py&quot;res&quot;&#41;
-&#96;&#96;&#96;
-&#96;&#96;&#96;python
+println(py&quot;res&quot;)
+```
+```python
 #2
-&#96;&#96;&#96;
-\codeoutput&#123;&#33;#1&#125;
-&#125;</code></pre>
+```
+\codeoutput{!#1}
+}</code></pre>
 <p>そして該当する Markdown ファイルに例えば下記のように <code>\pycode</code> コマンドと組み合わせたものを記述しておく.</p>
   </p>
 <p><div class="colorblock"><strong>Proposition</strong> 5.0.1 &#40;ソースコードの表示&#41; <br/>  Pythonのコードの実行結果を貼り付けることができる.</div>
-<pre><code class="language-julia">\pycode&#123;py1&#125;&#123;
-import numpy as np
-np.random.seed&#40;2&#41;
-x &#61; np.random.randn&#40;5&#41;
-r &#61; np.linalg.norm&#40;x&#41; / len&#40;x&#41;
-np.round&#40;r, 2&#41;
-&#125;</code></pre>
+<pre><code class="julia hljs">\pycode{py1}{
+<span class="hljs-keyword">import</span> numpy as np
+np.random.seed(<span class="hljs-number">2</span>)
+x = np.random.randn(<span class="hljs-number">5</span>)
+r = np.linalg.norm(x) / len(x)
+np.round(r, <span class="hljs-number">2</span>)
+}</code></pre>
 <p>と記述することで下記のようになる:</p>
 </p>
-<pre><code class="language-python">import numpy as np
-np.random.seed&#40;2&#41;
-x &#61; np.random.randn&#40;5&#41;
-r &#61; np.linalg.norm&#40;x&#41; / len&#40;x&#41;
-np.round&#40;r, 2&#41;</code></pre>
-<p><pre><code class="plaintext code-output">Failed to precompile PyCall [438e738f-606a-5dbb-bf0a-cddfbfd45ab0] to /root/.julia/compiled/v1.7/PyCall/jl_I06F6g.
+<pre><code class="python hljs"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+np.random.seed(<span class="hljs-number">2</span>)
+x = np.random.randn(<span class="hljs-number">5</span>)
+r = np.linalg.norm(x) / <span class="hljs-built_in">len</span>(x)
+np.<span class="hljs-built_in">round</span>(r, <span class="hljs-number">2</span>)</code></pre>
+<p><pre><code class="plaintext hljs">Failed to precompile PyCall [438e738f-606a-5dbb-bf0a-cddfbfd45ab0] to /root/.julia/compiled/v1.7/PyCall/jl_nuFmTg.
 </code></pre>
 <h1 id="c_のコードの実行結果を表示"><a href="#c_のコードの実行結果を表示" class="header-anchor">C のコードの実行結果を表示</a></h1></p>
 <p>      
 <p>  </p>
 <p><div class="colorblock"><strong>Proposition</strong> 6.0.1 &#40;ソースコードの表示&#41; <br/>  つぎのように C のコードを貼り付けることができる.</div> </p>
-<p><pre><code class="language-c">#include &lt;stdio.h&gt;
-int main&#40;&#41;&#123;
-    printf&#40;&quot;Hello Pika\n&quot;&#41;;
-    return 0;
-&#125;</code></pre></p>
+<p><pre><code class="c hljs"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span>
+<span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span>{
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Hello Pika\n&quot;</span>);
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}</code></pre></p>
 <p>まず, <code>config.md</code> に次を記述しておく:</p>
-<pre><code class="language-plaintext">&lt;&#33;-- display C code with syntax highlight--&gt;
-\newcommand&#123;\Ccode&#125;&#91;2&#93;&#123;
-&#96;&#96;&#96;julia:&#33;#1
+<pre><code class="plaintext hljs">&lt;!-- display C code with syntax highlight--&gt;
+\newcommand{\Ccode}[2]{
+```julia:!#1
 #hideall
 using Markdown
 
-mdC_code &#61; Markdown.htmlesc&#40;raw&quot;&quot;&quot;&#33;#2&quot;&quot;&quot;&#41;
+mdC_code = Markdown.htmlesc(raw&quot;&quot;&quot;!#2&quot;&quot;&quot;)
 
-mdfile &#61; joinpath&#40;dirname&#40;@OUTPUT&#41;, &quot;&#33;#1.md&quot;&#41;
-open&#40;mdfile,&quot;w&quot;&#41; do f
-    print&#40;f, mdC_code&#41;
+mdfile = joinpath(dirname(@OUTPUT), &quot;!#1.md&quot;)
+open(mdfile,&quot;w&quot;) do f
+    print(f, mdC_code)
 end
 
-C_code&#61;raw&quot;&quot;&quot;
-&#33;#2
+C_code=raw&quot;&quot;&quot;
+!#2
 &quot;&quot;&quot;
 
-exefile &#61; tempname&#40;&#41;
+exefile = tempname()
 
-#&#61;
+#=
 This trick is taken from
 
 https://discourse.julialang.org/t/how-to-make-a-c-function-compiled-by-myself-available-to-ccall/7972/26
-&#61;#
+=#
 
-open&#40;&#96;gcc -Wall -O2 -march&#61;native -xc -o &#36;exefile -&#96;, &quot;w&quot;&#41; do f
-    print&#40;f, C_code&#41;
+open(`gcc -Wall -O2 -march=native -xc -o $exefile -`, &quot;w&quot;) do f
+    print(f, C_code)
 end
 
-run&#40;&#96;&#36;exefile&#96;&#41;
-&#96;&#96;&#96;
+run(`$exefile`)
+```
 
-\input&#123;c&#125;&#123;&#33;#1.md&#125;
-&#125;
+\input{c}{!#1.md}
+}
 
-&lt;&#33;-- run C code and display code and its result --&gt;
-\newcommand&#123;\Cexec&#125;&#91;2&#93;&#123;
-\Ccode&#123;&#33;#1&#125;&#123;&#33;#2&#125;
+&lt;!-- run C code and display code and its result --&gt;
+\newcommand{\Cexec}[2]{
+\Ccode{!#1}{!#2}
 
-\codeoutput&#123;&#33;#1&#125;
+\codeoutput{!#1}
 
-&#125;</code></pre>
+}</code></pre>
 <p>そして次のようにタイプする</p>
-<pre><code class="language-plaintext">\Cexec&#123;how2embeddC&#125;&#123;
+<pre><code class="plaintext hljs">\Cexec{how2embeddC}{
 #include &lt;stdio.h&gt;
-int main&#40;&#41;&#123;
-    printf&#40;&quot;Hello Pikachu\n&quot;&#41;;
+int main(){
+    printf(&quot;Hello Pikachu\n&quot;);
     return 0;
-&#125;
-&#125;
+}
+}
 </code></pre>
 <p>出力結果は次のようになる．コードはハイライトされ，対応する <code>main</code> 関数のコードの実行結果を出力する:</p>
 </p>
-<p><pre><code class="language-c">#include &lt;stdio.h&gt;
-int main&#40;&#41;&#123;
-    printf&#40;&quot;Hello World\n&quot;&#41;;
-    return 0;
-&#125;</code></pre></p>
-<p><pre><code class="plaintext code-output">Hello World
+<p><pre><code class="c hljs"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span>
+<span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span>{
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Hello World\n&quot;</span>);
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}</code></pre></p>
+<p><pre><code class="plaintext hljs">Hello World
 </code></pre>
   </p>
 <p><div class="colorblock"><strong>Remark</strong> 6.0.2 &#40;Cのコードのハイライト&#41; <br/>  <a href="https://highlightjs.org/download/">Getting hightlight.js</a>　から ハイライトしたい言語を選択した後 <code>highlight.pack.js</code> を <code>_lib/hightlight</code> にコピーする. もともと <code>_lib/highlight/highlight.pack.js</code> が配置されているが、Julia,Python,R、Markdownのみをハイライトするようになっている。</div>
@@ -325,13 +325,13 @@ int main&#40;&#41;&#123;
 <li><p>単にコードを載せたい場合は <code>\input&#123;filetype&#125;&#123;filename&#125;</code> とすれば良い. 例えば</p>
 </li>
 </ul>
-<pre><code class="language-plaintext">\input&#123;julia&#125;&#123;hello.jl&#125;</code></pre>
+<pre><code class="plaintext hljs">\input{julia}{hello.jl}</code></pre>
 <p>と記述しておく. 結果は次のようになる．</p>
-<pre><code class="language-julia">println&#40;&quot;Hello&quot;&#41;</code></pre>
+<pre><code class="julia hljs">println(<span class="hljs-string">&quot;Hello&quot;</span>)</code></pre>
 <p><code>hello.jl</code> の実態はソースコードの <code>_assets/index/code/hello.jl</code> に存在する.</p>
 <div class="page-foot">
   <div class="copyright">
-    &copy; SatoshiTerasaki. Last modified: 2022年3月13日 日曜日. Website built with 
+    &copy; SatoshiTerasaki. Last modified: 2022年5月25日 水曜日. Website built with 
     <a href="http://github.com/terasakisatoshi/MathSeminar.jl">MathSeminar.jl</a>
     <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
   </div>
@@ -341,14 +341,14 @@ int main&#40;&#41;&#123;
   <script src="/MathSeminar.jl/libs/vela/metisMenu.min.js"></script>
   <script src="/MathSeminar.jl/libs/vela/slideout.min.js"></script>
   
-    <script src="/MathSeminar.jl/libs/katex/katex.min.js"></script>
-<script src="/MathSeminar.jl/libs/katex/auto-render.min.js"></script>
-<script>renderMathInElement(document.body)</script>
+    
+
+
 
   
   
-    <script src="/MathSeminar.jl/libs/highlight/highlight.pack.js"></script>
-<script>hljs.initHighlightingOnLoad();hljs.configure({tabReplace: '    '});</script>
+    
+
 
   
 </body>
