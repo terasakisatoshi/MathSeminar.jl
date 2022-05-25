@@ -256,8 +256,12 @@ end
   - 安定化は今後期待される
 - `Chain(Flux 畳み込み, Torch の畳み込み)` はできる？
   - 割り切って Torch だけで書くというのはアリ？
-  - forward 計算はできるけれど Flux.gradient のインターフェースの統一が不十分.
-  - ゆーて PyCallChainRules は v0.3.0 なので今後に期待.
+  - ~~forward 計算はできるけれど Flux.gradient のインターフェースの統一が不十分.~~
+    - こちらの[問題は解決されました](https://github.com/rejuvyesh/PyCallChainRules.jl/blob/main/examples/simpleflux/train_ml_mix_explicit.jl)．
+  - ゆーて PyCallChainRules は v0.3.x なので今後に期待.
+  - 実用に向けてIssueで議論が行われている．
+
+---
 
 # Appendix
 
