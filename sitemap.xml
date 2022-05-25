@@ -86,6 +86,12 @@
     <priority>0.5</priority>
 </url>
 <url>
+    <loc>https://terasakisatoshi.github.io/MathWebiner.jl/slideshow/replay/build/fonts/LICENSES/index.html</loc>
+    <lastmod>2022-05-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
     <loc>https://terasakisatoshi.github.io/MathWebiner.jl/slideshow/myworkflow/src/index.html</loc>
     <lastmod>2022-05-25</lastmod>
     <changefreq>monthly</changefreq>
@@ -123,6 +129,12 @@
 </url>
 <url>
     <loc>https://terasakisatoshi.github.io/MathWebiner.jl/gallery/plotlyjs3/index.html</loc>
+    <lastmod>2022-05-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://terasakisatoshi.github.io/MathWebiner.jl/slideshow/replay/build/index.html</loc>
     <lastmod>2022-05-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -200,6 +212,12 @@
     <priority>0.5</priority>
 </url>
 <url>
+    <loc>https://terasakisatoshi.github.io/MathWebiner.jl/slideshow/replay/src/index.html</loc>
+    <lastmod>2022-05-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
     <loc>https://terasakisatoshi.github.io/MathWebiner.jl/slideshow/myworkflow/build/fonts/LICENSES/index.html</loc>
     <lastmod>2022-05-25</lastmod>
     <changefreq>monthly</changefreq>
@@ -272,13 +290,19 @@
     <priority>0.5</priority>
 </url>
 <url>
-    <loc>https://terasakisatoshi.github.io/MathWebiner.jl/slideshow/myworkflow/build/index/</loc>
+    <loc>https://terasakisatoshi.github.io/MathWebiner.jl/slideshow/pycallchainrules/build/index/</loc>
     <lastmod>2022-05-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
 </url>
 <url>
-    <loc>https://terasakisatoshi.github.io/MathWebiner.jl/slideshow/pycallchainrules/build/index/</loc>
+    <loc>https://terasakisatoshi.github.io/MathWebiner.jl/slideshow/franklin/build/index/</loc>
+    <lastmod>2022-05-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://terasakisatoshi.github.io/MathWebiner.jl/mathematics/statistics/Law_of_Large_Numbers/</loc>
     <lastmod>2022-05-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -296,7 +320,7 @@
     <priority>0.5</priority>
 </url>
 <url>
-    <loc>https://terasakisatoshi.github.io/MathWebiner.jl/slideshow/intro2julia/build/index/</loc>
+    <loc>https://terasakisatoshi.github.io/MathWebiner.jl/slideshow/replay/build/index/</loc>
     <lastmod>2022-05-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -308,25 +332,25 @@
     <priority>0.5</priority>
 </url>
 <url>
-    <loc>https://terasakisatoshi.github.io/MathWebiner.jl/slideshow/franklin/build/index/</loc>
+    <loc>https://terasakisatoshi.github.io/MathWebiner.jl/slideshow/dash/build/index/</loc>
+    <lastmod>2022-05-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://terasakisatoshi.github.io/MathWebiner.jl/slideshow/myworkflow/build/index/</loc>
+    <lastmod>2022-05-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://terasakisatoshi.github.io/MathWebiner.jl/slideshow/intro2julia/build/index/</loc>
     <lastmod>2022-05-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
 </url>
 <url>
     <loc>https://terasakisatoshi.github.io/MathWebiner.jl/slideshow/repl/build/index/</loc>
-    <lastmod>2022-05-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-</url>
-<url>
-    <loc>https://terasakisatoshi.github.io/MathWebiner.jl/mathematics/statistics/Law_of_Large_Numbers/</loc>
-    <lastmod>2022-05-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-</url>
-<url>
-    <loc>https://terasakisatoshi.github.io/MathWebiner.jl/slideshow/dash/build/index/</loc>
     <lastmod>2022-05-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>

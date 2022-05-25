@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+   <link rel="stylesheet" href="/MathSeminar.jl/libs/highlight/github.min.css">
+   
+  
+
+  <link href="/MathSeminar.jl/css/franklin.css" rel="stylesheet">
+  <link href="/MathSeminar.jl/css/vela.css" rel="stylesheet">
+  <script src="/MathSeminar.jl/libs/vela/jquery.min.js"></script>
+  <link rel="stylesheet" href="/MathSeminar.jl/css/theorem.css">
+   <title><a href="https://github.com/AtelierArith/Replay.jl">Replay.jl</a> 入門</title>  
+  <!-- PLOTLY -->
+  
+
+  <title>Franklin Example | Vela</title>
+</head>
+<body>
+  <div class="main-nav" id="menu">
+    <div class="flex-container">
+      <span class="sidebar-brand">
+        <h3 style='font-size: 25px'>MathSeminar.jl</h3>
+      </span>
+    </div> <!-- class="flex-container" -->
+
+    <nav class="sidebar-nav">
+      <ul class="metismenu"  id="metismenu" >
+        <li><a href="/MathSeminar.jl/index.html">Home</a></li>
+        <li><a href="" class="has-arrow">Slide Show</a>
+          <ul>
+            <li><a href="/MathSeminar.jl/slideshow/remark/build/">Introduction to Remark.jl</a>
+            <li><a href="/MathSeminar.jl/slideshow/franklin/build">Introduction to Franklin.jl</a>
+            <li><a href="/MathSeminar.jl/slideshow/dash/build">Introduction to Dash.jl</a>
+            <li><a href="/MathSeminar.jl/slideshow/binarybuilder/build">Introduction to BinaryBuilder.jl</a>
+            <li><a href="/MathSeminar.jl/slideshow/myworkflow/build">Introduction to MyWorkflow.jl</a>
+            <li><a href="/MathSeminar.jl/slideshow/repl/build">Do something great in your REPL</a>
+            <li><a href="/MathSeminar.jl/slideshow/intro2julia/build">Into2Julia</a>
+            <li><a href="/MathSeminar.jl/slideshow/pycallchainrules/build">PyCallChainRules.jl</a>
+            <li><a href="/MathSeminar.jl/slideshow/replay/build">Replay.jl</a>
+          </ul>
+        </li>
+        <li><a href="" class="has-arrow">Programming</a>
+          <ul>
+            <li><a href="/MathSeminar.jl/programming/clang">C</a></li>
+            <li><a href="/MathSeminar.jl/programming/rust">Rust</a></li>
+            <li><a href="/MathSeminar.jl/programming/benchmark_part1"> Julia benchmark Part1 </a></li>
+            <li><a href="/MathSeminar.jl/programming/benchmark_part2"> Julia benchmark Part2 </a></li>
+            <li><a href="/MathSeminar.jl/programming/literatejl">Literate.jl</a></li>
+            <li><a href="/MathSeminar.jl/programming/sympy">SymPy.jl</a></li>
+            <li><a href="/MathSeminar.jl/programming/franklin">Franklin.jl</a></li>
+            <li><a href="/MathSeminar.jl/programming/weave">Weave.jl</a></li>
+            <li><a href="/MathSeminar.jl/programming/theoremcounter">Theorem Counter</a></li>
+            <li><a href="/MathSeminar.jl/programming/images">Images.jl</a></li>
+            <li><a href="/MathSeminar.jl/programming/rcall">RCall.jl</a></li>
+            <li><a href="/MathSeminar.jl/programming/asciinema">asciinema</a></li>
+          </ul>
+        </li>
+        <li><a href="" class="has-arrow">Gallery</a>
+          <ul>
+            <li><a href="/MathSeminar.jl/gallery/animation/">Plots.jl animation</a></li>
+            <li><a href="/MathSeminar.jl/gallery/curve/">Plots.jl curve</a></li>
+            <li><a href="/MathSeminar.jl/gallery/gr/">GR.jl</a></li>
+            <li><a href="/MathSeminar.jl/gallery/plotlyjs1/">PlotlyJS.jl Part1</a></li>
+            <li><a href="/MathSeminar.jl/gallery/plotlyjs2/">PlotlyJS.jl Part2</a></li>
+            <li><a href="/MathSeminar.jl/gallery/plotlyjs3/">PlotlyJS.jl Part3</a></li>
+            <li><a href="/MathSeminar.jl/gallery/jsxgraph_js/">JSXGraph (JS)</a></li>
+            <li><a href="/MathSeminar.jl/gallery/jsxgraph_jl/">JSXGraph (Julia)</a></li>
+            <li><a href="/MathSeminar.jl/gallery/wglmakie/">WGLMakie.jl</a></li>
+          </ul>
+        </li>
+        <li><a href="" class="has-arrow">Topics in Mathematics</a>
+          <ul>
+            <li><a href="/MathSeminar.jl/mathematics/linearalgebra/chapter0">Linear Algebra</a></li>
+            <li><a href="/MathSeminar.jl/mathematics/statistics/dice">Dice</a></li>
+            <li><a href="/MathSeminar.jl/mathematics/statistics/Chisq">Chisq Distributions</a></li>
+            <li><a href="/MathSeminar.jl/mathematics/statistics/Law_of_Large_Numbers">Law_of_Large_Numbers</a></li>
+            <li><a href="/MathSeminar.jl/mathematics/visualizations/triangular_function_addition_theorem">Triangular function addition theorem</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div> <!-- main nav menu -->
+
+  <main id="panel">
+    <div class="toggle-button hamburger hamburger--spin">
+      <div class="hamburger-box">
+        <div class="hamburger-inner"></div>
+      </div>
+    </div>
+    <h1 class="page title"><a href="https://github.com/AtelierArith/Replay.jl">Replay.jl</a> 入門</h1>
+    <hr>
+
+
+<!-- Content appended here -->
+<div class="franklin-content"><p>class: center, middle</p>
+<h1 id="a_hrefhttpsgithubcomatelierarithreplayjlreplayjl_入門"><a href="#a_hrefhttpsgithubcomatelierarithreplayjlreplayjl_入門" class="header-anchor"><a href="https://github.com/AtelierArith/Replay.jl">Replay.jl</a> 入門</a></h1>
+<p>ごまふあざらし</p>
+<hr />
+<h1 id="a_hrefhttpsgithubcomatelierarithreplayjlreplayjl_でなにができるの"><a href="#a_hrefhttpsgithubcomatelierarithreplayjlreplayjl_でなにができるの" class="header-anchor"><a href="https://github.com/AtelierArith/Replay.jl">Replay.jl</a> でなにができるの？</a></h1>
+<ul>
+<li><p>Julia の REPL での操作を再現する機能を提供</p>
+</li>
+<li><p>文法の説明だったり, REPL でのデモを行うときに便利</p>
+</li>
+</ul>
+<h2 id="example"><a href="#example" class="header-anchor">Example</a></h2>
+<pre><code class="julia hljs">$ julia
+               _
+   _       _ _(_)_     |  Documentation: https://docs.julialang.org
+  (_)     | (_) (_)    |
+   _ _   _| |_  __ _   |  <span class="hljs-built_in">Type</span> <span class="hljs-string">&quot;?&quot;</span> <span class="hljs-keyword">for</span> help, <span class="hljs-string">&quot;]?&quot;</span> <span class="hljs-keyword">for</span> Pkg help.
+  | | | | | | |/ _<span class="hljs-string">` |  |
+  | | |_| | | | (_| |  |  Version 1.7.2 (2022-02-06)
+ _/ |\__&#x27;_|_|_|\__&#x27;_|  |  Official https://julialang.org/ release
+|__/                   |
+
+julia&gt; println(&quot;Why We Created Julia&quot;)
+julia&gt; println(&quot;In short, because we are greedy.&quot;)</span></code></pre>
+<ul>
+<li><p>See <a href="https://julialang.org/blog/2012/02/why-we-created-julia/">Why We Created Julia</a></p>
+</li>
+</ul>
+<hr />
+<h1 id="実演"><a href="#実演" class="header-anchor">実演</a></h1>
+<p>&lt;div style&#61;&quot;text-align:center;&quot;&gt;   &lt;video width&#61;&quot;750&quot; controls autoplay&gt;     &lt;source src&#61;&quot;https://user-images.githubusercontent.com/16760547/170237445-321fffb2-eb58-4842-84d4-8679d640f8dd.mov&quot;&gt;   &lt;/video&gt; &lt;/div&gt;</p>
+<hr />
+<h1 id="なにが起きた"><a href="#なにが起きた" class="header-anchor">なにが起きた？</a></h1>
+<ul>
+<li><p>下記のコードをファイルに書いて実行するだけ</p>
+</li>
+</ul>
+<pre><code class="julia hljs"><span class="hljs-keyword">using</span> Replay
+instructions = [
+    <span class="hljs-string">&quot;println(\&quot;Why We Created Julia\&quot;)&quot;</span>,
+    <span class="hljs-string">&quot;println(\&quot;In short, because we are greedy.\&quot;)&quot;</span>,
+]
+replay(instructions, use_ghostwriter=<span class="hljs-literal">true</span>)</code></pre>
+<ul>
+<li><p><code>use_ghostwriter</code> はカタカタとタイピングを実行するように演出するオプション</p>
+</li>
+</ul>
+<hr />
+<h1 id="複数行からなる命令"><a href="#複数行からなる命令" class="header-anchor">複数行からなる命令</a></h1>
+<ul>
+<li><p>円周率を計算する例</p>
+</li>
+</ul>
+<p>&lt;div style&#61;&quot;text-align:center;&quot;&gt;   &lt;video width&#61;&quot;750&quot; controls autoplay&gt;     &lt;source src&#61;&quot;https://user-images.githubusercontent.com/16760547/170244402-cb681989-4b77-4adb-b6d3-2f3719a03a10.mov&quot;&gt;   &lt;/video&gt; &lt;/div&gt;</p>
+<hr />
+<h1 id="複数行からなる命令種明かし"><a href="#複数行からなる命令種明かし" class="header-anchor">複数行からなる命令（種明かし）</a></h1>
+<pre><code class="julia hljs"><span class="hljs-keyword">using</span> Replay
+
+instructions = [
+<span class="hljs-string">&quot;&quot;&quot;
+function calcπ(N)
+  cnt = 0
+  for a = 1:N, b = 1:N
+      cnt += ifelse(gcd(a, b) == 1, 1, 0)
+  end
+  prob = cnt / N / N
+  √(6 / prob)
+end
+&quot;&quot;&quot;</span>
+,
+<span class="hljs-string">&quot;@time calcπ(10^4)&quot;</span>,
+]
+replay(instructions, use_ghostwriter=<span class="hljs-literal">true</span>)</code></pre>
+<hr />
+<h1 id="動作原理"><a href="#動作原理" class="header-anchor">動作原理</a></h1>
+<ul>
+<li><p>メインの&#40;Juliaの&#41;プロセス: カタカタと入力する描画を担当</p>
+</li>
+<li><p>裏で動くもう一人の Julia:</p>
+<ul>
+<li><p>メインのプロセスから入力を受け取る</p>
+</li>
+<li><p>評価</p>
+</li>
+<li><p>出力をメインに返す</p>
+</li>
+</ul>
+</li>
+<li><p>メインプロセス側で結果を表示</p>
+</li>
+</ul>
+<p>詳しくは</p>
+<p>https://github.com/AtelierArith/Replay.jl</p>
+<p>を見てください.</p>
+<hr />
+<p>class: center, middle</p>
+<h1 id="再生ができるなら録画もしたいじゃない"><a href="#再生ができるなら録画もしたいじゃない" class="header-anchor">再生ができるなら録画もしたいじゃない！</a></h1>
+<p>できるよ！</p>
+<hr />
+<h1 id="asciinema"><a href="#asciinema" class="header-anchor">Asciinema</a></h1>
+<pre><code class="console hljs"><span class="hljs-meta prompt_">$ </span><span class="language-bash">git <span class="hljs-built_in">clone</span> https://github.com/AtelierArith/Replay.jl.git</span>
+<span class="hljs-meta prompt_">$ </span><span class="language-bash"><span class="hljs-built_in">cd</span> Replay.jl</span>
+<span class="hljs-meta prompt_">$ </span><span class="language-bash">julia --project=@. -e <span class="hljs-string">&#x27;using Pkg; Pkg.instantiate()&#x27;</span></span>
+<span class="hljs-meta prompt_">$ </span><span class="language-bash">asciinema rec result.cast --<span class="hljs-built_in">command</span> <span class="hljs-string">&quot;julia --project=@. ./examples/readme/app.jl&quot;</span></span>
+<span class="hljs-meta prompt_">$ </span><span class="language-bash">asciinema play output.cast</span></code></pre>
+<p>&lt;a href&#61;&quot;https://asciinema.org/a/WeyJwfjliWRSzliWMnbBQNtJP&quot; target&#61;&quot;_blank&quot;&gt;&lt;img width&#61;&quot;1000&quot; src&#61;&quot;https://asciinema.org/a/WeyJwfjliWRSzliWMnbBQNtJP.svg&quot; /&gt;&lt;/a&gt;</p>
+<p><a href="https://zenn.dev/terasakisatoshi/articles/c87263695fac4f">解説はこちら</a></p>
+<hr />
+<h1 id="screencapture_macos_限定で"><a href="#screencapture_macos_限定で" class="header-anchor">screencapture &#40;macOS 限定で&#41;</a></h1>
+<p>今までのデモ動画は実はこのパッケージで作成してました．</p>
+<pre><code class="console hljs"><span class="hljs-meta prompt_">$ </span><span class="language-bash">git <span class="hljs-built_in">clone</span> https://github.com/terasakisatoshi/QuartzGetWindow.jl.git</span>
+<span class="hljs-meta prompt_">$ </span><span class="language-bash">julia --project=@. -e <span class="hljs-string">&#x27;using Pkg; Pkg.instantiate()&#x27;</span></span>
+<span class="hljs-meta prompt_">$ </span><span class="language-bash">julia --project=@. src/demo.jl</span></code></pre>
+<p>&lt;div style&#61;&quot;text-align:center;&quot;&gt;   &lt;video width&#61;&quot;550&quot; controls autoplay&gt;     &lt;source src&#61;&quot;https://user-images.githubusercontent.com/16760547/164014359-257d6c48-a952-4a9a-8568-6b16d6bfe0ab.mov&quot;&gt;   &lt;/video&gt; &lt;/div&gt;</p>
+<div class="page-foot">
+  <div class="copyright">
+    &copy; SatoshiTerasaki. Last modified: 2022年5月25日 水曜日. Website built with 
+    <a href="http://github.com/terasakisatoshi/MathSeminar.jl">MathSeminar.jl</a>
+    <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
+  </div>
+</div>
+</div><!-- CONTENT ENDS HERE -->
+  </main> <!-- end of id=main -->
+  <script src="/MathSeminar.jl/libs/vela/metisMenu.min.js"></script>
+  <script src="/MathSeminar.jl/libs/vela/slideout.min.js"></script>
+  
+  
+    
+
+
+  
+</body>
+</html>
