@@ -4,6 +4,10 @@ class: center, middle
 
 ごまふあざらし
 
+今日の資料はこちらら↓↓↓
+
+<img width=300 src="https://user-images.githubusercontent.com/16760547/170804129-fa7549ab-ae0e-462d-acf7-0dbb7d06429f.png">
+
 ---
 
 # [Replay.jl](https://github.com/AtelierArith/Replay.jl) でなにができるの？
