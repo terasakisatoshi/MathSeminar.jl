@@ -1,1 +1,1 @@
-nothing
+"png"

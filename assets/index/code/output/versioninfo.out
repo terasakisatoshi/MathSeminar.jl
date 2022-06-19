@@ -1,14 +1,14 @@
-Julia Version 1.7.1
-Commit ac5cc99908 (2021-12-22 19:35 UTC)
+Julia Version 1.7.3
+Commit 742b9abb4d (2022-05-06 12:58 UTC)
 Platform Info:
   OS: Linux (x86_64-pc-linux-gnu)
-  CPU: Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz
+  CPU: Intel(R) Xeon(R) Platinum 8171M CPU @ 2.60GHz
   WORD_SIZE: 64
   LIBM: libopenlibm
   LLVM: libLLVM-12.0.1 (ORCJIT, skylake-avx512)
 Environment:
   JULIA_PATH = /usr/local/julia
   JULIA_GPG = 3673DF529D9049477F76B37566E3C7DC03D6E495
-  JULIA_VERSION = 1.7.1
+  JULIA_VERSION = 1.7.3
   JULIA_NUM_THREADS = 8
   JULIA_PROJECT = /work

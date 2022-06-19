@@ -485,13 +485,12 @@ Live Evaluation
 will give:
 
 
-```@example index
+```julia
 using Plots
 using Distributions
 d = Normal(0, 1)
 p = histogram(rand(d, 5000), normalize=:pdf)
 p = plot!(p, x->pdf(d, x))
-savefig(p, "hist.png") # hide
 ```
 
 

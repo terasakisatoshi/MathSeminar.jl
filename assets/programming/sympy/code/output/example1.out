@@ -1,2 +1,1 @@
-LoadError: UndefVarError: @vars not defined
-in expression starting at none:1
+$$x^{2} + 2 x y + 2 x z + y^{2} + 2 y z + z^{2}$$$$y$$

@@ -144,8 +144,8 @@ main()
 
 <span class="hljs-keyword">using</span> BenchmarkTools
 <span class="hljs-meta">@btime</span> mand(<span class="hljs-number">5000</span>, <span class="hljs-number">5000</span>);</code></pre>
-<pre><code class="plaintext hljs">t - s = 3.0314929485321045
-  3.010 s (2 allocations: 23.84 MiB)
+<pre><code class="plaintext hljs">t - s = 3.6186859607696533
+  3.605 s (2 allocations: 23.84 MiB)
 </code></pre>
   </p>
 <p><div class="colorblock"><strong>Remark</strong> 3.0.1 &#40;数値誤差について&#41; <br/>  点の位置をあらわす <code>&#40;4.0 / &#40;M - 1&#41; * &#40;j - 1&#41; - 2.0&#41;</code> は <code>range&#40;-2, 2, length&#40;N&#41;&#41;</code> と数学的に等価ですが，数値の誤差の関係で結果が若干異なることがあります．</div>
@@ -162,7 +162,7 @@ gr()
 img = readdlm(Tarpath,<span class="hljs-string">&#x27;,&#x27;</span>,<span class="hljs-built_in">Int</span>)
 M,N = img |&gt; size
 p = heatmap(<span class="hljs-number">1</span>:N,<span class="hljs-number">1</span>:M,img,aspect_ratio=<span class="hljs-number">1</span>, size=(<span class="hljs-number">400</span>, <span class="hljs-number">400</span>))</code></pre>
-<p><span style="color:red;">// Image matching '/assets/programming/benchmark_part2/code/mandJ' not found. //</span></p>
+<img src="/MathSeminar.jl/assets/programming/benchmark_part2/code/output/mandJ.png" alt="">
 <pre><code class="julia hljs"><span class="hljs-keyword">using</span> DelimitedFiles
 
 <span class="hljs-keyword">function</span> cnt(z,c)
@@ -203,8 +203,8 @@ main()
 
 <span class="hljs-keyword">using</span> BenchmarkTools
 <span class="hljs-meta">@btime</span> mand(<span class="hljs-number">5000</span>, <span class="hljs-number">5000</span>);</code></pre>
-<pre><code class="plaintext hljs">t - s = 3.1716878414154053
-  3.150 s (2 allocations: 23.84 MiB)
+<pre><code class="plaintext hljs">t - s = 3.796420097351074
+  3.780 s (2 allocations: 23.84 MiB)
 </code></pre>
 <pre><code class="julia hljs">Refpath=<span class="hljs-string">&quot;/tmp/resultJ.txt&quot;</span>
 Tarpath=<span class="hljs-string">&quot;/tmp/resultJ1.txt&quot;</span>
@@ -217,9 +217,8 @@ img = readdlm(Tarpath,<span class="hljs-string">&#x27;,&#x27;</span>,<span class
 M,N = img |&gt; size
 p = heatmap(<span class="hljs-number">1</span>:N,<span class="hljs-number">1</span>:M,img,aspect_ratio=<span class="hljs-number">1</span>, size=(<span class="hljs-number">400</span>, <span class="hljs-number">400</span>))</code></pre>
 <pre><code class="plaintext hljs">files are different
-Failed to precompile Plots [91a5bcdd-55d7-5caf-9e0b-520d859cae80] to /root/.julia/compiled/v1.7/Plots/jl_8obXJf.
 </code></pre>
-<p><span style="color:red;">// Image matching '/assets/programming/benchmark_part2/code/mandJ1' not found. //</span></p>
+<img src="/MathSeminar.jl/assets/programming/benchmark_part2/code/output/mandJ1.png" alt="">
 <pre><code class="julia hljs"><span class="hljs-keyword">using</span> DelimitedFiles
 
 <span class="hljs-keyword">function</span> cnt(z,c)
@@ -256,8 +255,8 @@ main()
 
 <span class="hljs-keyword">using</span> BenchmarkTools
 <span class="hljs-meta">@btime</span> mand(<span class="hljs-number">5000</span>, <span class="hljs-number">5000</span>);</code></pre>
-<pre><code class="plaintext hljs">t - s = 3.1572458744049072
-  3.134 s (4 allocations: 47.68 MiB)
+<pre><code class="plaintext hljs">t - s = 3.730833053588867
+  3.709 s (4 allocations: 47.68 MiB)
 </code></pre>
 <pre><code class="julia hljs">Refpath=<span class="hljs-string">&quot;/tmp/resultJ1.txt&quot;</span>
 Tarpath=<span class="hljs-string">&quot;/tmp/resultJ2.txt&quot;</span>
@@ -269,9 +268,8 @@ gr()
 img = readdlm(Tarpath,<span class="hljs-string">&#x27;,&#x27;</span>,<span class="hljs-built_in">Int</span>)
 M,N = img |&gt; size
 p = heatmap(<span class="hljs-number">1</span>:N,<span class="hljs-number">1</span>:M,img,aspect_ratio=<span class="hljs-number">1</span>, size=(<span class="hljs-number">400</span>, <span class="hljs-number">400</span>))</code></pre>
-<pre><code class="plaintext hljs">Failed to precompile Plots [91a5bcdd-55d7-5caf-9e0b-520d859cae80] to /root/.julia/compiled/v1.7/Plots/jl_xNfrIh.
-</code></pre>
-<p><span style="color:red;">// Image matching '/assets/programming/benchmark_part2/code/mandJ2' not found. //</span></p>
+
+<img src="/MathSeminar.jl/assets/programming/benchmark_part2/code/output/mandJ2.png" alt="">
 <pre><code class="julia hljs"><span class="hljs-comment">#=
 set environment variable `JULIA_NUM_THREADS=8` before julia begins
 =#</span>
@@ -315,8 +313,8 @@ main()
 
 <span class="hljs-keyword">using</span> BenchmarkTools
 <span class="hljs-meta">@btime</span> mand(<span class="hljs-number">5000</span>, <span class="hljs-number">5000</span>);</code></pre>
-<pre><code class="plaintext hljs">t - s = 2.001599073410034
-  1.806 s (46 allocations: 23.85 MiB)
+<pre><code class="plaintext hljs">t - s = 2.414793014526367
+  2.195 s (46 allocations: 23.85 MiB)
 </code></pre>
 <pre><code class="julia hljs">Refpath=<span class="hljs-string">&quot;/tmp/resultJ1.txt&quot;</span>
 Tarpath=<span class="hljs-string">&quot;/tmp/resultJ3.txt&quot;</span>
@@ -330,12 +328,11 @@ img = readdlm(Tarpath, <span class="hljs-string">&#x27;,&#x27;</span>, <span cla
 M,N = img |&gt; size
 p = heatmap(<span class="hljs-number">1</span>:N, <span class="hljs-number">1</span>:M, img,aspect_ratio=<span class="hljs-number">1</span>, size=(<span class="hljs-number">400</span>, <span class="hljs-number">400</span>))
 savefig(p, joinpath(<span class="hljs-meta">@OUTPUT</span>, <span class="hljs-string">&quot;mandJ3.png&quot;</span>))</code></pre>
-<pre><code class="plaintext hljs">Failed to precompile Plots [91a5bcdd-55d7-5caf-9e0b-520d859cae80] to /root/.julia/compiled/v1.7/Plots/jl_EQJSCi.
-</code></pre>
-<p><span style="color:red;">// Image matching '/assets/programming/benchmark_part2/code/mandJ3' not found. //</span></p>
+
+<img src="/MathSeminar.jl/assets/programming/benchmark_part2/code/output/mandJ3.png" alt="">
 <div class="page-foot">
   <div class="copyright">
-    &copy; SatoshiTerasaki. Last modified: 2022年5月28日 土曜日. Website built with 
+    &copy; SatoshiTerasaki. Last modified: 2022年6月19日 日曜日. Website built with 
     <a href="http://github.com/terasakisatoshi/MathSeminar.jl">MathSeminar.jl</a>
     <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
   </div>

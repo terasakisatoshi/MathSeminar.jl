@@ -246,13 +246,11 @@ Z = (X̄ .- μ_dice) ./ (σ_dice / √(n_sample))
 p = histogram(Z, normalize = :pdf, label=<span class="hljs-string">&quot;sample mean&quot;</span>)
 d = Normal(<span class="hljs-number">0.</span>, <span class="hljs-number">1.</span>)
 plot!(p, x -&gt; pdf(d, x), label=<span class="hljs-string">L&quot;\mathcal{N}(μ,σ^2)&quot;</span>)
-p = plot!(p, xlim = [-<span class="hljs-number">3</span>, <span class="hljs-number">3</span>])</code></pre>
-<pre><code class="plaintext hljs">Failed to precompile Plots [91a5bcdd-55d7-5caf-9e0b-520d859cae80] to /root/.julia/compiled/v1.7/Plots/jl_ZqahXe.
-</code></pre></div>
-<p><span style="color:red;">// Image matching '/assets/mathematics/statistics/dice/code/dice' not found. //</span></p>
+p = plot!(p, xlim = [-<span class="hljs-number">3</span>, <span class="hljs-number">3</span>])</code></pre></div>
+<img src="/MathSeminar.jl/assets/mathematics/statistics/dice/code/output/dice.svg" alt="">
 <div class="page-foot">
   <div class="copyright">
-    &copy; SatoshiTerasaki. Last modified: 2022年5月28日 土曜日. Website built with 
+    &copy; SatoshiTerasaki. Last modified: 2022年6月19日 日曜日. Website built with 
     <a href="http://github.com/terasakisatoshi/MathSeminar.jl">MathSeminar.jl</a>
     <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
   </div>
