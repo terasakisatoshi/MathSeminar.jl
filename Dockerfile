@@ -1,4 +1,4 @@
-FROM julia:1.7.1
+FROM julia:1.7.3
 
 RUN apt-get update && \
     apt-get install -y \
@@ -20,13 +20,8 @@ ENV PATH /root/.cargo/bin:$PATH
 
 ENV GKSwstype=100
 ENV JULIA_NUM_THREADS=8
-
-RUN mkdir -p ${HOME}/.julia/config && \
-    echo '\
-# Install Python and R via Conda \n\
-ENV["R_HOME"]="*" \n\
-ENV["PYTHON"]="" \n\
-' >> ${HOME}/.julia/config/startup.jl && cat ${HOME}/.julia/config/startup.jl
+ENV R_HOME="*"
+ENV PYTHON=""
 
 RUN julia -e 'using Pkg; \
 Pkg.add(["PyCall", "Conda"]); using PyCall, Conda;\
@@ -47,24 +42,9 @@ WORKDIR /work
 ENV JULIA_PROJECT=/work
 
 # Install Julia Package
-RUN julia -e 'using Pkg; \
-Pkg.add([\
-    PackageSpec(name="Franklin"), \
-    PackageSpec(name="Revise"), \
-    PackageSpec(name="Plots"), \
-    PackageSpec(name="GR"), \
-    PackageSpec(name="SymPy"), \
-    PackageSpec(name="PyPlot"), \
-    PackageSpec(name="ImageIO"), \
-    PackageSpec(name="TestImages"), \
-    PackageSpec(name="ImageMagick"), \
-]); \
-Pkg.pin(["Franklin", "Revise", "Plots", "GR", "SymPy", "PyPlot", "ImageIO", "TestImages"]); \
-using PyPlot, SymPy, TestImages ; testimage("c"); testimage("m"); \
-'
-
 COPY Project.toml /work
 COPY ./src/MyUtils.jl /work/src/MyUtils.jl
+
 # Initialize Julia package using /work/Project.toml
 RUN rm -f /work/Manifest.toml && julia --project=/work -e 'using Pkg; \
 Pkg.instantiate(); \

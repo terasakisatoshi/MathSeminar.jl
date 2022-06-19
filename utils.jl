@@ -4,7 +4,7 @@ mutable struct Theorem
     chapter::Int
     section::Int
     subsection::Int
-    Theorem()=new(0,0,0)
+    Theorem() = new(0, 0, 0)
 end
 
 mutable struct State
@@ -15,6 +15,10 @@ end
 
 # global state
 state = State(:chapter, Theorem(), Dict())
+
+function get_current_state()
+    state
+end
 
 function lx_initcounter(com, _)
     global state
@@ -89,7 +93,7 @@ function lx_resetcount(com, _)
 end
 
 
-get_theorem_number(t::Theorem)="$(t.chapter).$(t.section).$(t.subsection)"
+get_theorem_number(t::Theorem) = "$(t.chapter).$(t.section).$(t.subsection)"
 
 function get_theorem_number()
     global state
