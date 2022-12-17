@@ -32,6 +32,7 @@
         <li><a href="/MathSeminar.jl/index.html">Home</a></li>
         <li><a href="" class="has-arrow">Slide Show</a>
           <ul>
+            <li><a href="/MathSeminar.jl/slideshow/">All Talks</a>
             <li><a href="/MathSeminar.jl/slideshow/remark/build/">Introduction to Remark.jl</a>
             <li><a href="/MathSeminar.jl/slideshow/franklin/build">Introduction to Franklin.jl</a>
             <li><a href="/MathSeminar.jl/slideshow/dash/build">Introduction to Dash.jl</a>
@@ -145,8 +146,8 @@ main()
 
 <span class="hljs-keyword">using</span> BenchmarkTools
 <span class="hljs-meta">@btime</span> mand(<span class="hljs-number">5000</span>, <span class="hljs-number">5000</span>);</code></pre>
-<pre><code class="plaintext hljs">t - s = 3.5921261310577393
-  3.585 s (2 allocations: 23.84 MiB)
+<pre><code class="plaintext hljs">t - s = 3.06119704246521
+  3.004 s (2 allocations: 23.84 MiB)
 </code></pre>
   </p>
 <p><div class="colorblock"><strong>Remark</strong> 3.0.1 &#40;数値誤差について&#41; <br/>  点の位置をあらわす <code>&#40;4.0 / &#40;M - 1&#41; * &#40;j - 1&#41; - 2.0&#41;</code> は <code>range&#40;-2, 2, length&#40;N&#41;&#41;</code> と数学的に等価ですが，数値の誤差の関係で結果が若干異なることがあります．</div>
@@ -204,8 +205,8 @@ main()
 
 <span class="hljs-keyword">using</span> BenchmarkTools
 <span class="hljs-meta">@btime</span> mand(<span class="hljs-number">5000</span>, <span class="hljs-number">5000</span>);</code></pre>
-<pre><code class="plaintext hljs">t - s = 3.755023956298828
-  3.740 s (2 allocations: 23.84 MiB)
+<pre><code class="plaintext hljs">t - s = 3.1543240547180176
+  3.137 s (2 allocations: 23.84 MiB)
 </code></pre>
 <pre><code class="julia hljs">Refpath=<span class="hljs-string">&quot;/tmp/resultJ.txt&quot;</span>
 Tarpath=<span class="hljs-string">&quot;/tmp/resultJ1.txt&quot;</span>
@@ -256,8 +257,8 @@ main()
 
 <span class="hljs-keyword">using</span> BenchmarkTools
 <span class="hljs-meta">@btime</span> mand(<span class="hljs-number">5000</span>, <span class="hljs-number">5000</span>);</code></pre>
-<pre><code class="plaintext hljs">t - s = 3.7149429321289062
-  3.713 s (4 allocations: 47.68 MiB)
+<pre><code class="plaintext hljs">t - s = 3.1057848930358887
+  3.104 s (4 allocations: 47.68 MiB)
 </code></pre>
 <pre><code class="julia hljs">Refpath=<span class="hljs-string">&quot;/tmp/resultJ1.txt&quot;</span>
 Tarpath=<span class="hljs-string">&quot;/tmp/resultJ2.txt&quot;</span>
@@ -314,8 +315,8 @@ main()
 
 <span class="hljs-keyword">using</span> BenchmarkTools
 <span class="hljs-meta">@btime</span> mand(<span class="hljs-number">5000</span>, <span class="hljs-number">5000</span>);</code></pre>
-<pre><code class="plaintext hljs">t - s = 2.4548778533935547
-  2.205 s (51 allocations: 23.85 MiB)
+<pre><code class="plaintext hljs">t - s = 1.9935731887817383
+  1.816 s (53 allocations: 23.85 MiB)
 </code></pre>
 <pre><code class="julia hljs">Refpath=<span class="hljs-string">&quot;/tmp/resultJ1.txt&quot;</span>
 Tarpath=<span class="hljs-string">&quot;/tmp/resultJ3.txt&quot;</span>
@@ -349,7 +350,7 @@ savefig(p, joinpath(<span class="hljs-meta">@OUTPUT</span>, <span class="hljs-st
 
   
   
-    
+    <script src="/MathSeminar.jl/libs/highlight/highlight.js"></script>
 
 
   

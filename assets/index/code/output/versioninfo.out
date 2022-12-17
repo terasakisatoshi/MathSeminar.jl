@@ -2,10 +2,10 @@ Julia Version 1.8.3
 Commit 0434deb161e (2022-11-14 20:14 UTC)
 Platform Info:
   OS: Linux (x86_64-linux-gnu)
-  CPU: 2 × Intel(R) Xeon(R) Platinum 8370C CPU @ 2.80GHz
+  CPU: 2 × Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz
   WORD_SIZE: 64
   LIBM: libopenlibm
-  LLVM: libLLVM-13.0.1 (ORCJIT, icelake-server)
+  LLVM: libLLVM-13.0.1 (ORCJIT, skylake-avx512)
   Threads: 8 on 2 virtual cores
 Environment:
   JULIA_GPG = 3673DF529D9049477F76B37566E3C7DC03D6E495

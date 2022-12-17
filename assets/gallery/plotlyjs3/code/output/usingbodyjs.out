@@ -1,4 +1,4 @@
-~~~<div id="fdpacs" style="width:400px;height:300x"></div> <script> Plotly.newPlot('fdpacs', [
+~~~<div id="fdpgty" style="width:400px;height:300x"></div> <script> Plotly.newPlot('fdpgty', [
     {
         "xaxis": "x",
         "colorbar": {

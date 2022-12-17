@@ -12,7 +12,7 @@
   <link href="/MathSeminar.jl/css/vela.css" rel="stylesheet">
   <script src="/MathSeminar.jl/libs/vela/jquery.min.js"></script>
   <link rel="stylesheet" href="/MathSeminar.jl/css/theorem.css">
-   <title>Rust</title>  
+   <title>WGLMakie.jl</title>  
   <!-- PLOTLY -->
   
 
@@ -92,36 +92,46 @@
         <div class="hamburger-inner"></div>
       </div>
     </div>
-    <h1 class="page title">Rust</h1>
+    <h1 class="page title">WGLMakie.jl</h1>
     <hr>
 
 
 <!-- Content appended here -->
-<div class="franklin-content"><h1 id="hello_rust"><a href="#hello_rust" class="header-anchor">Hello Rust</a></h1>
+<div class="franklin-content"><h1 id="wglmakiejl"><a href="#wglmakiejl" class="header-anchor">WGLMakie.jl</a></h1>
 <ul>
-<li><p>You can compile <a href="https://www.rust-lang.org/">Rust</a> code and run executable file from Julia with the following code:</p>
+<li><p>it&#39;s now basically possible to export standalone javascript from a Makie plot.</p>
+<ul>
+<li><p>See <a href="https://github.com/tlienart/Franklin.jl/issues/471">Franklin.jl&#39;s Issue 471</a></p>
 </li>
 </ul>
-<pre><code class="julia hljs">run(<span class="hljs-string">`rustc --version`</span>)</code></pre>
-<pre><code class="plaintext hljs">rustc 1.66.0 (69f9c33d7 2022-12-12)
-</code></pre>
-<pre><code class="julia hljs">rscode = <span class="hljs-string">raw&quot;&quot;&quot;
-fn main(){
-	println!(&quot;Hello Rust from Julia runtime&quot;);
-}
-&quot;&quot;&quot;</span>
+</li>
+<li><p>Here is my example that export JS from Makie plot:</p>
+</li>
+</ul>
+<pre><code class="julia hljs"><span class="hljs-keyword">using</span> JSServe, WGLMakie
+<span class="hljs-keyword">using</span> WGLMakie: meshscatter!, wireframe!
 
-open(<span class="hljs-string">`rustc -o sample -`</span>, <span class="hljs-string">&quot;w&quot;</span>) <span class="hljs-keyword">do</span> f
-    print(f, rscode)
+<span class="hljs-string">&quot;&quot;&quot;
+Write handler by yourself.
+The Syntax is as same as one uses for Makie.jl plot
+&quot;&quot;&quot;</span>
+app = App() <span class="hljs-keyword">do</span> session::Session
+    x = [<span class="hljs-number">2</span> .* (i/<span class="hljs-number">3</span>) .* cos(i) <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">0</span>, stop = <span class="hljs-number">4</span><span class="hljs-literal">π</span>, length = <span class="hljs-number">30</span>)]
+    y = [<span class="hljs-number">2</span> .* (i/<span class="hljs-number">3</span>) .* sin(i) <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">0</span>, stop = <span class="hljs-number">4</span><span class="hljs-literal">π</span>, length = <span class="hljs-number">30</span>)]
+    z = range(<span class="hljs-number">0</span>, stop = <span class="hljs-number">5</span>, length = <span class="hljs-number">30</span>)
+
+    fig = Figure(resolution=(<span class="hljs-number">1800</span>, <span class="hljs-number">500</span>))
+    ax1 = Axis3(fig[<span class="hljs-number">1</span>,<span class="hljs-number">1</span>])
+    ax2 = Axis3(fig[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>])
+    p1 = meshscatter!(ax1, x, y, z, markersize = <span class="hljs-number">0.5</span>)
+    p2 = wireframe!(ax2, Sphere(Point3f(<span class="hljs-number">0</span>), <span class="hljs-number">1f0</span>))
+    <span class="hljs-keyword">return</span> session
 <span class="hljs-keyword">end</span>
 
-run(<span class="hljs-string">`./sample`</span>)</code></pre>
-</p>
-<p><pre><code class="rust hljs"><span class="hljs-keyword">fn</span> <span class="hljs-title function_">main</span>(){
-    <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;Hello Rust from Julia runtime&quot;</span>);
-}</code></pre></p>
-<p><pre><code class="plaintext hljs">Hello Rust from Julia runtime
-</code></pre>
+<span class="hljs-comment">#dir = joinpath(@__DIR__, &quot;__site/gallery/wglmakie/wglmakie&quot;)</span>
+<span class="hljs-comment">#!isdir(dir) &amp;&amp; mkpath(dir)</span>
+<span class="hljs-comment">#JSServe.export_standalone(app, joinpath(@OUTPUT, dir))</span></code></pre>
+<p>You can see the reuslt from <a href="/MathSeminar.jl/gallery/wglmakie/wglmakie/index.html">here</a>.</p>
 <div class="page-foot">
   <div class="copyright">
     &copy; SatoshiTerasaki. Last modified: 2022年12月17日 土曜日. Website built with 
