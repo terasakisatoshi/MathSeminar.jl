@@ -1,2 +1,0 @@
-ArgumentError: Package RCall not found in current path.
-- Run `import Pkg; Pkg.add("RCall")` to install the RCall package.

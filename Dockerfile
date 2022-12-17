@@ -8,10 +8,11 @@ RUN apt-get update && \
     ca-certificates \
     xvfb \
     dvipng \
-    texlive-latex-recommended  \
+    texlive-latex-recommended \
+    r-base \
     zip \
-    libxt6 libxrender1 libxext6 libgl1-mesa-glx libqt5widgets5 # GR && \
-    apt-get clean && rm -rf /var/lib/apt/lists/* # clean up
+    libxt6 libxrender1 libxext6 libgl1-mesa-glx libqt5widgets5 && \
+    apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Setup Rust
 # Reference: https://github.com/rust-lang/rustup/issues/297
@@ -20,7 +21,6 @@ ENV PATH /root/.cargo/bin:$PATH
 
 ENV GKSwstype=100
 ENV JULIA_NUM_THREADS=8
-ENV R_HOME="*"
 ENV PYTHON=""
 
 RUN julia -e 'using Pkg; \
@@ -34,8 +34,7 @@ RUN julia -e "using NodeJS; run(\`\$(npm_cmd()) install highlight.js\`); using F
 # Add conda's path
 ENV PATH /root/.julia/conda/3/bin:$PATH
 
-#RUN	conda install r-base && \
-#    julia -e 'using Pkg; pkg"add RCall"; Pkg.build("RCall"); using RCall'
+RUN julia -e 'using Pkg; pkg"add RCall"; Pkg.build("RCall"); using RCall'
 
 # set "/work" as default project directory
 WORKDIR /work
