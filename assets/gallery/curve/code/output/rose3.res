@@ -1,1 +1,1 @@
-nothing
+"/work/__site/assets/gallery/curve/code/output/rose3.png"

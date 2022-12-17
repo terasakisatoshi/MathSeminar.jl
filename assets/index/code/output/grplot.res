@@ -1,1 +1,1 @@
-nothing
+"/work/__site/assets/index/code/output/grplot.png"

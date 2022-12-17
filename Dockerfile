@@ -1,4 +1,4 @@
-FROM julia:1.7.3
+FROM julia:1.8.3
 
 RUN apt-get update && \
     apt-get install -y \
@@ -34,8 +34,8 @@ RUN julia -e "using NodeJS; run(\`\$(npm_cmd()) install highlight.js\`); using F
 # Add conda's path
 ENV PATH /root/.julia/conda/3/bin:$PATH
 
-RUN	conda install r-base && \
-    julia -e 'using Pkg; pkg"add RCall"; Pkg.build("RCall"); using RCall'
+#RUN	conda install r-base && \
+#    julia -e 'using Pkg; pkg"add RCall"; Pkg.build("RCall"); using RCall'
 
 # set "/work" as default project directory 
 WORKDIR /work

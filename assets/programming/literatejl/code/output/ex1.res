@@ -1,1 +1,1 @@
-nothing
+"/work/__site/assets/programming/literatejl/code/output/plot.png"

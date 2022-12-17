@@ -1,8 +1,11 @@
-~~~<div id="fdpmjr" style="width:600px;height:350px"></div> <script>     Plotly.newPlot('fdpmjr', [
+~~~<div id="fdpekl" style="width:600px;height:350px"></div> <script> Plotly.newPlot('fdpekl', [
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -165,7 +168,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -328,7 +334,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -491,7 +500,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -654,7 +666,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -817,7 +832,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -980,7 +998,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -1143,7 +1164,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -1306,7 +1330,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -1469,7 +1496,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -1632,7 +1662,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -1795,7 +1828,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -1958,7 +1994,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -2121,7 +2160,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -2284,7 +2326,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -2447,7 +2492,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -2610,7 +2658,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -2773,7 +2824,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -2936,7 +2990,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -3099,7 +3156,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -3262,7 +3322,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -3425,7 +3488,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -3588,7 +3654,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -3751,7 +3820,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -3914,7 +3986,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -4077,7 +4152,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -4240,7 +4318,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -4403,7 +4484,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -4566,7 +4650,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -4729,7 +4816,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -4892,7 +4982,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -5055,7 +5148,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -5218,7 +5314,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -5381,7 +5480,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -5544,7 +5646,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -5707,7 +5812,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -5870,7 +5978,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -6033,7 +6144,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -6196,7 +6310,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -6359,7 +6476,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -6522,7 +6642,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -6685,7 +6808,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -6848,7 +6974,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -7011,7 +7140,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -7174,7 +7306,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -7337,7 +7472,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -7500,7 +7638,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -7663,7 +7804,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -7826,7 +7970,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -7989,7 +8136,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -8152,7 +8302,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -8315,7 +8468,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -8478,7 +8634,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -8641,7 +8800,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -8804,7 +8966,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -8967,7 +9132,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -9130,7 +9298,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -9293,7 +9464,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -9456,7 +9630,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -9619,7 +9796,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -9782,7 +9962,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -9945,7 +10128,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -10108,7 +10294,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -10271,7 +10460,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -10434,7 +10626,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -10597,7 +10792,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -10760,7 +10958,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -10923,7 +11124,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -11086,7 +11290,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -11249,7 +11456,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -11412,7 +11622,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -11575,7 +11788,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -11738,7 +11954,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -11901,7 +12120,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -12064,7 +12286,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -12227,7 +12452,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -12390,7 +12618,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -12553,7 +12784,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -12716,7 +12950,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -12879,7 +13116,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -13042,7 +13282,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -13205,7 +13448,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -13368,7 +13614,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -13531,7 +13780,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -13694,7 +13946,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -13857,7 +14112,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -14020,7 +14278,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -14183,7 +14444,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -14346,7 +14610,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -14509,7 +14776,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -14688,7 +14958,8 @@
                 "y": -1.9499999999999997,
                 "z": 1.3,
                 "x": 1.12583302491977
-            }
+            },
+            "projection": "orthographic"
         },
         "xaxis": {
             "tickangle": 0,
@@ -14841,5 +15112,4 @@
     },
     "width": 600
 }
-);
- </script>~~~
+); </script>~~~

@@ -1,8 +1,11 @@
-~~~<div id="fdpkqa" style="width:400px;height:300x"></div> <script>     Plotly.newPlot('fdpkqa', [
+~~~<div id="fdpacs" style="width:400px;height:300x"></div> <script> Plotly.newPlot('fdpacs', [
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -93,7 +96,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -184,7 +190,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -275,7 +284,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -366,7 +378,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -457,7 +472,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -548,7 +566,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -639,7 +660,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -730,7 +754,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -821,7 +848,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -912,7 +942,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -1003,7 +1036,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -1094,7 +1130,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -1185,7 +1224,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -1276,7 +1318,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -1367,7 +1412,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -1458,7 +1506,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -1549,7 +1600,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -1640,7 +1694,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -1731,7 +1788,10 @@
     {
         "xaxis": "x",
         "colorbar": {
-            "title": ""
+            "y": 1.0,
+            "title": "",
+            "len": 0.0,
+            "x": 0.0
         },
         "yaxis": "y",
         "zaxis": "z",
@@ -1838,7 +1898,8 @@
                 "y": -1.9499999999999997,
                 "z": 1.3,
                 "x": 1.12583302491977
-            }
+            },
+            "projection": "orthographic"
         },
         "xaxis": {
             "tickangle": 0,
@@ -1914,8 +1975,8 @@
             "visible": true,
             "ticks": "inside",
             "range": [
-                -3.1583144724103285,
-                3.1583144724103285
+                -3.158314472410329,
+                3.158314472410329
             ],
             "tickmode": "array",
             "tickvals": [
@@ -1964,8 +2025,8 @@
             "visible": true,
             "ticks": "inside",
             "range": [
-                -3.137856427514412,
-                3.178772517306245
+                -3.1378564275144125,
+                3.1787725173062453
             ],
             "tickmode": "array",
             "tickvals": [
@@ -2001,7 +2062,7 @@
             "mirror": false
         }
     },
-    "legend_position": {
+    "legend": {
         "yanchor": "auto",
         "xanchor": "auto",
         "bordercolor": "rgba(0, 0, 0, 1.000)",
@@ -2027,5 +2088,4 @@
     },
     "width": 600
 }
-);
- </script>~~~
+); </script>~~~

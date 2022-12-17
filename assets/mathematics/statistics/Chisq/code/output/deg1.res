@@ -1,1 +1,1 @@
-nothing
+"/work/__site/assets/mathematics/statistics/Chisq/code/output/deg1.png"

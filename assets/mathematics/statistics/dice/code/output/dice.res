@@ -1,1 +1,1 @@
-nothing
+"/work/__site/assets/mathematics/statistics/dice/code/output/dice.svg"

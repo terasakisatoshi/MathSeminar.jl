@@ -1,1 +1,1 @@
-nothing
+"/work/__site/assets/programming/benchmark_part2/code/output/mandJ2.png"
