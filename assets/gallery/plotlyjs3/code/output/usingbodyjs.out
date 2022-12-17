@@ -1,4 +1,4 @@
-~~~<div id="fdpulm" style="width:400px;height:300x"></div> <script> Plotly.newPlot('fdpulm', [
+~~~<div id="fdpgrf" style="width:400px;height:300x"></div> <script> Plotly.newPlot('fdpgrf', [
     {
         "xaxis": "x",
         "colorbar": {
