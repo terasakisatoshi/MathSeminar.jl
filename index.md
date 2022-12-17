@@ -228,7 +228,7 @@ int main(){
 }
 
 \remark{}{Cのコードのハイライト}{
-	[Getting hightlight.js](https://highlightjs.org/download/)　から ハイライトしたい言語を選択した後 `highlight.pack.js` を `_lib/hightlight` にコピーする. もともと `_lib/highlight/highlight.pack.js` が配置されているが、Julia,Python,R、Markdownのみをハイライトするようになっている。
+	[Getting hightlight.js](https://highlightjs.org/download/)　から ハイライトしたい言語を選択した後 `highlight.js` を `_lib/hightlight` にコピーする. もともと `_lib/highlight/highlight.js` が配置されているが、Julia,Python,R、Markdownのみをハイライトするようになっている。
 }
 
 # コードの挿入

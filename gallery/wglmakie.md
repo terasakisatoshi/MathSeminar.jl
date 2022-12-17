@@ -25,14 +25,12 @@ app = App() do session::Session
     ax2 = Axis3(fig[1,2])
     p1 = meshscatter!(ax1, x, y, z, markersize = 0.5)
     p2 = wireframe!(ax2, Sphere(Point3f(0), 1f0))
-    return p1
+    return session
 end
 
-dir = joinpath(@__DIR__, "__site/gallery/wglmakie/wglmakie")
-!isdir(dir) && mkpath(dir)
-JSServe.export_standalone(app, joinpath(@OUTPUT, dir))
+#dir = joinpath(@__DIR__, "__site/gallery/wglmakie/wglmakie")
+#!isdir(dir) && mkpath(dir)
+#JSServe.export_standalone(app, joinpath(@OUTPUT, dir))
 ```
-
-\output{wglmakie}
 
 You can see the reuslt from [here](/gallery/wglmakie/wglmakie/index.html).
