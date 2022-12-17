@@ -184,7 +184,7 @@ let
 end
 ```
 
-- Julia + Web 開発 できるリソースがそもそも足りてなさそう.
+- Julia + Web 開発できるリソースがそもそも足りてなさそう.
 
 ---
 class: center, middle

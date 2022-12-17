@@ -27,6 +27,7 @@ Remark.slideshow("./slideshow/repl", options = Dict("ratio" => "16:9"), title = 
 Remark.slideshow("./slideshow/intro2julia", options = Dict("ratio" => "16:9"), title = "Intro2Julia")
 Remark.slideshow("./slideshow/pycallchainrules", options = Dict("ratio" => "16:9"), title = "PyCallChainRules.jl")
 Remark.slideshow("./slideshow/replay", options = Dict("ratio" => "16:9"), title = "Replay.jl")
+Remark.slideshow("./slideshow/pluto", options = Dict("ratio" => "16:9"), title = "Intro to Pluto.jl")
 
 weave(joinpath("./programming", "weave.jmd"), out_path="./programming", doctype="github")
 optimize(minify=false, prepath="MathSeminar.jl", clear=true)
