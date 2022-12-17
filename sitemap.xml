@@ -104,12 +104,6 @@
     <priority>0.5</priority>
 </url>
 <url>
-    <loc>https://terasakisatoshi.github.io/MathWebiner.jl/slideshow/index.html</loc>
-    <lastmod>2022-12-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-</url>
-<url>
     <loc>https://terasakisatoshi.github.io/MathWebiner.jl/programming/franklin/index.html</loc>
     <lastmod>2022-12-17</lastmod>
     <changefreq>monthly</changefreq>
@@ -291,12 +285,6 @@
 </url>
 <url>
     <loc>https://terasakisatoshi.github.io/MathWebiner.jl/gallery/jsxgraph_js/index.html</loc>
-    <lastmod>2022-12-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-</url>
-<url>
-    <loc>https://terasakisatoshi.github.io/MathWebiner.jl/gallery/wglmakie/index.html</loc>
     <lastmod>2022-12-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>

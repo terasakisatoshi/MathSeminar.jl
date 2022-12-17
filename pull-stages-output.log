@@ -1,61 +1,61 @@
 1: Pulling from terasakisatoshi/mathseminarjl-stages
-025c56f98b67: Pulling fs layer
-531e0415ed96: Pulling fs layer
-437e275ba150: Pulling fs layer
-f471a54197ca: Pulling fs layer
-f26987c5ecb3: Pulling fs layer
-0362b3d9669d: Pulling fs layer
-2901836dd3a4: Pulling fs layer
-a775ad840499: Pulling fs layer
-34207cd73ebc: Pulling fs layer
-24101bec2e73: Pulling fs layer
-8dcc4e4b7ab4: Pulling fs layer
-365fe63229e5: Pulling fs layer
-f471a54197ca: Waiting
-f26987c5ecb3: Waiting
-0362b3d9669d: Waiting
-2901836dd3a4: Waiting
-a775ad840499: Waiting
-34207cd73ebc: Waiting
-24101bec2e73: Waiting
-8dcc4e4b7ab4: Waiting
-365fe63229e5: Waiting
-531e0415ed96: Verifying Checksum
-531e0415ed96: Download complete
-f471a54197ca: Verifying Checksum
-f471a54197ca: Download complete
-025c56f98b67: Verifying Checksum
-025c56f98b67: Download complete
-437e275ba150: Verifying Checksum
-437e275ba150: Download complete
-f26987c5ecb3: Verifying Checksum
-f26987c5ecb3: Download complete
-a775ad840499: Verifying Checksum
-a775ad840499: Download complete
-34207cd73ebc: Verifying Checksum
-34207cd73ebc: Download complete
-025c56f98b67: Pull complete
-24101bec2e73: Verifying Checksum
-24101bec2e73: Download complete
-8dcc4e4b7ab4: Verifying Checksum
-8dcc4e4b7ab4: Download complete
-0362b3d9669d: Verifying Checksum
-0362b3d9669d: Download complete
-365fe63229e5: Verifying Checksum
-365fe63229e5: Download complete
-531e0415ed96: Pull complete
-2901836dd3a4: Verifying Checksum
-2901836dd3a4: Download complete
-437e275ba150: Pull complete
-f471a54197ca: Pull complete
-f26987c5ecb3: Pull complete
-0362b3d9669d: Pull complete
-2901836dd3a4: Pull complete
-a775ad840499: Pull complete
-34207cd73ebc: Pull complete
-24101bec2e73: Pull complete
-8dcc4e4b7ab4: Pull complete
-365fe63229e5: Pull complete
-Digest: sha256:43c5e7280d99925948db7ab0cdfc40eac800b6f5233b920c5fe8a4fe4d8f0a6d
+42c077c10790: Pulling fs layer
+3eda415c0e29: Pulling fs layer
+3a91396886e5: Pulling fs layer
+76a770ee6964: Pulling fs layer
+f2680c09b1de: Pulling fs layer
+636030ba0087: Pulling fs layer
+1f207bef3c0b: Pulling fs layer
+17f78300e1b4: Pulling fs layer
+68798e01e2b0: Pulling fs layer
+0a0025eb09a2: Pulling fs layer
+c3bba0a251c8: Pulling fs layer
+ef7f4ddc37ab: Pulling fs layer
+76a770ee6964: Waiting
+f2680c09b1de: Waiting
+636030ba0087: Waiting
+1f207bef3c0b: Waiting
+17f78300e1b4: Waiting
+0a0025eb09a2: Waiting
+c3bba0a251c8: Waiting
+ef7f4ddc37ab: Waiting
+68798e01e2b0: Waiting
+3eda415c0e29: Verifying Checksum
+3eda415c0e29: Download complete
+42c077c10790: Verifying Checksum
+42c077c10790: Download complete
+3a91396886e5: Verifying Checksum
+3a91396886e5: Download complete
+f2680c09b1de: Verifying Checksum
+f2680c09b1de: Download complete
+1f207bef3c0b: Verifying Checksum
+1f207bef3c0b: Download complete
+76a770ee6964: Verifying Checksum
+76a770ee6964: Download complete
+68798e01e2b0: Verifying Checksum
+68798e01e2b0: Download complete
+0a0025eb09a2: Verifying Checksum
+0a0025eb09a2: Download complete
+c3bba0a251c8: Verifying Checksum
+c3bba0a251c8: Download complete
+42c077c10790: Pull complete
+636030ba0087: Verifying Checksum
+636030ba0087: Download complete
+17f78300e1b4: Verifying Checksum
+17f78300e1b4: Download complete
+3eda415c0e29: Pull complete
+ef7f4ddc37ab: Verifying Checksum
+ef7f4ddc37ab: Download complete
+3a91396886e5: Pull complete
+76a770ee6964: Pull complete
+f2680c09b1de: Pull complete
+636030ba0087: Pull complete
+1f207bef3c0b: Pull complete
+17f78300e1b4: Pull complete
+68798e01e2b0: Pull complete
+0a0025eb09a2: Pull complete
+c3bba0a251c8: Pull complete
+ef7f4ddc37ab: Pull complete
+Digest: sha256:8a511d889632a3fa1d86535fa7ecec93eee57a6a00506bfedd314eceba5ec1c9
 Status: Downloaded newer image for terasakisatoshi/mathseminarjl-stages
 docker.io/terasakisatoshi/mathseminarjl-stages

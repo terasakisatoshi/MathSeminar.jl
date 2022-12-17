@@ -32,7 +32,6 @@
         <li><a href="/MathSeminar.jl/index.html">Home</a></li>
         <li><a href="" class="has-arrow">Slide Show</a>
           <ul>
-            <li><a href="/MathSeminar.jl/slideshow/">All Talks</a>
             <li><a href="/MathSeminar.jl/slideshow/remark/build/">Introduction to Remark.jl</a>
             <li><a href="/MathSeminar.jl/slideshow/franklin/build">Introduction to Franklin.jl</a>
             <li><a href="/MathSeminar.jl/slideshow/dash/build">Introduction to Dash.jl</a>
@@ -174,7 +173,7 @@
     fclose(fp);
     <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
 }</code></pre></p>
-<p><pre><code class="plaintext hljs">Elapsed time 0.156448 [sec]
+<p><pre><code class="plaintext hljs">Elapsed time 0.200637 [sec]
 </code></pre>
 <p>描画は下記のとおりです。</p>
 <pre><code class="julia hljs"><span class="hljs-keyword">using</span> DelimitedFiles
@@ -245,8 +244,8 @@ main()
 
 <span class="hljs-keyword">using</span> BenchmarkTools
 <span class="hljs-meta">@btime</span> mand(<span class="hljs-number">1250</span>, <span class="hljs-number">1250</span>);</code></pre>
-<pre><code class="plaintext hljs">t - s = 0.1895749568939209
-  188.739 ms (2 allocations: 1.49 MiB)
+<pre><code class="plaintext hljs">t - s = 0.22675609588623047
+  221.243 ms (2 allocations: 1.49 MiB)
 </code></pre>
 <pre><code class="julia hljs">Refpath=<span class="hljs-string">&quot;/tmp/benchC.txt&quot;</span>
 Tarpath=<span class="hljs-string">&quot;/tmp/benchJ.txt&quot;</span>
@@ -278,7 +277,7 @@ p = heatmap(<span class="hljs-number">1</span>:N,<span class="hljs-number">1</sp
 
   
   
-    <script src="/MathSeminar.jl/libs/highlight/highlight.js"></script>
+    
 
 
   
