@@ -29,7 +29,7 @@ RUN julia -e 'using Pkg; \
     Pkg.add(["Documenter", "Literate", "Weave", "Franklin", "NodeJS", "Remark"]); \
     '
 
-RUN julia -e "using NodeJS; run(\`\$(npm_cmd()) install highlight.pack.js\`); using Franklin"
+RUN julia -e "using NodeJS; run(\`\$(npm_cmd()) install highlight.js\`); using Franklin"
 
 # Add conda's path
 ENV PATH /root/.julia/conda/3/bin:$PATH

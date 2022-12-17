@@ -8,7 +8,7 @@
 using Pkg
 using NodeJS
 
-run(`$(npm_cmd()) install highlight.pack.js`)
+run(`$(npm_cmd()) install highlight.js`)
 
 Pkg.build("Franklin")
 
